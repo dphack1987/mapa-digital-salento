@@ -253,6 +253,7 @@ function App() {
             <div className="trust-line"><span className="avatars"><b>J</b><b>M</b><b>A</b></span><span><strong>+1.200 viajeros</strong> ya exploraron Salento</span></div>
           </div>
           <div className="hero-art" aria-label="Ilustración del paisaje de Salento">
+            <img className="hero-photo" src="/salento/653410779.webp" alt="Palmas de cera en el Valle de Cocora" />
             <div className="sun" />
             <div className="mountain mountain-back" />
             <div className="mountain mountain-front" />
