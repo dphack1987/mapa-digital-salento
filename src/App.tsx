@@ -33,6 +33,15 @@ type Category = 'Todo' | 'Alojamientos' | 'Restaurantes' | 'Cafés' | 'Artesaní
 type Language = 'es' | 'en'
 type Currency = 'COP' | 'USD' | 'EUR'
 
+type PlaceDetailInfo = {
+  categoryLabel: string
+  services: string[]
+  roomFeatures: string[]
+  nearby: string[]
+  policies: string[]
+  description: string
+}
+
 type Place = {
   id: number
   name: string
@@ -48,6 +57,7 @@ type Place = {
   whatsapp?: string
   email?: string
   photos?: string[]
+  detailInfo?: PlaceDetailInfo
 }
 
 const places: Place[] = [
@@ -133,6 +143,14 @@ const places: Place[] = [
       '/pautas/hotel_camino_nacional/imagenes/1672597077.webp',
       '/pautas/hotel_camino_nacional/imagenes/631033284.webp',
     ],
+    detailInfo: {
+      categoryLabel: 'Hotel 2 estrellas · ideal para familias y viajeros',
+      description: 'Ubicación central con fácil acceso a la Calle Real, seguridad 24 horas, cambio de divisas y mostrador de información turística. La mayoría de las habitaciones ofrece balcón, canales por cable, ventanas insonorizadas y vistas a la calle.',
+      services: ['Wi-Fi', 'Aparcamiento', 'Desayuno en la habitación', 'Menús de dietas especiales', 'Conserjería', 'Guarda equipajes', 'Cambio de divisas', 'Seguridad 24 horas', 'Sala de TV', 'Lavandería', 'Asistencia en excursiones', 'Servicio de entradas', 'Traslado al aeropuerto de pago', 'Fax y fotocopias', 'No se admiten mascotas', 'Agradable para niños'],
+      roomFeatures: ['Habitaciones insonorizadas', 'Balcón en la mayoría de habitaciones', 'Vistas a la calle', 'Canales por cable', 'Televisor LCD', 'Baño privado', 'Ducha e inodoro separado', 'Artículos de baño gratis', 'Mesa de comedor', 'Servicio de plancha', 'Parques'],
+      nearby: ['Plaza de Bolívar · 150 m', 'Calle Real · 300 m', 'Cascada Santa Rita · 5 min a pie', 'Reserva Natural Kasaguadua · 2 km', 'Finca de Don Elías · 10 min en carro', 'Terminal de buses · alrededores inmediatos', 'Aeropuerto de Armenia · 39 km', 'Restaurante El Rincón de Lucy · comida sudamericana'],
+      policies: ['Entrada: 14:00 a 23:00', 'Salida: 07:00 a 11:00', 'Menores de 18 años con progenitor o tutor legal', 'Informar con antelación la hora de llegada', 'Puede haber ruido en temporada alta', 'Licencia de alojamiento: 18061'],
+    },
   },
   {
     id: 6,
@@ -420,14 +438,14 @@ function PlaceDetail({ place, currency, onBack }: { place: Place; currency: Curr
         <span>{place.type}</span>
       </div>
       <div className="detail-heading">
-        <div><p className="eyebrow"><span /> Ficha del pautante</p><h1>{place.name}</h1><p>{place.description}</p></div>
+        <div><p className="eyebrow"><span /> Ficha del pautante</p><h1>{place.name}</h1><p>{place.detailInfo?.categoryLabel ?? place.type}</p></div>
         <span className="detail-rating"><Star size={15} fill="currentColor" /> {place.rating}</span>
       </div>
       {photos.length > 0 && <div className="detail-gallery">{photos.map((photo, index) => <img key={photo} src={photo} alt={`${place.name}, foto ${index + 1}`} />)}</div>}
       <div className="detail-content">
         <div>
           <p className="eyebrow">Información</p><h2>Conoce este lugar</h2>
-          <p className="detail-description">{place.description} Encuentra atención local, detalles del servicio y opciones para planear tu visita directamente con el negocio.</p>
+          <p className="detail-description">{place.detailInfo?.description ?? place.description}</p>
           <div className="detail-meta"><span><Clock3 size={16} /> {place.time}</span><span><MapPin size={16} /> Salento, Quindío</span></div>
         </div>
         <aside className="price-panel">
@@ -442,12 +460,18 @@ function PlaceDetail({ place, currency, onBack }: { place: Place; currency: Curr
           </div>
         </aside>
       </div>
-      {place.name === 'Hotel Camino Nacional' && <div className="hotel-facts">
-        <div><p className="eyebrow">Servicios incluidos</p><h2>Todo lo esencial para tu estadía.</h2><div className="fact-tags"><span>Wi-Fi</span><span>Desayuno</span><span>Seguridad 24 horas</span><span>Cambio de divisas</span><span>Guarda equipajes</span><span>No se admiten mascotas</span></div></div>
-        <div className="facts-list"><div><strong>150 m</strong><span>Plaza de Bolívar</span></div><div><strong>300 m</strong><span>Calle Real</span></div><div><strong>5 min</strong><span>Cascada Santa Rita a pie</span></div><div><strong>14:00</strong><span>Hora de entrada</span></div><div><strong>11:00</strong><span>Hora de salida</span></div><div><strong>18061</strong><span>Licencia registrada</span></div></div>
+      {place.detailInfo && <div className="detail-sections">
+        <InfoList title="Servicios y comodidades" items={place.detailInfo.services} />
+        <InfoList title="En la habitación" items={place.detailInfo.roomFeatures} />
+        <InfoList title="Lugares cercanos" items={place.detailInfo.nearby} />
+        <InfoList title="Horarios y políticas" items={place.detailInfo.policies} />
       </div>}
     </section>
   )
+}
+
+function InfoList({ title, items }: { title: string; items: string[] }) {
+  return <section className="info-list"><p className="eyebrow">Información detallada</p><h2>{title}</h2><div className="info-list-items">{items.map((item) => <span key={item}>{item}</span>)}</div></section>
 }
 
 function MapControls() {
