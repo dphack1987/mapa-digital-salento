@@ -16,6 +16,27 @@ El producto replica la arquitectura probada del mapa interactivo de Armenia y la
 
 ## Arquitectura de producto
 
+## Principios de referencia
+
+### De las OTAs y apps de delivery
+
+- Pedidos rápidos, catálogos claros y entrega directa al hospedaje.
+- Pasarela comercial adaptada al tamaño y operación real de Salento.
+
+### De los mapas interactivos
+
+- Leaflet ligero, geolocalización y filtros por intención de viaje.
+- Presentación visual para descubrir lugares rápidamente.
+
+### Diferencial local
+
+- Interfaz bilingüe contextual y conversión COP, USD y EUR.
+- Información local disponible sin conexión en el Valle de Cocora.
+- Pedidos pendientes para sincronizar al recuperar señal.
+- Economía local con relación directa entre turista y negocio.
+
+La regla de producto es tomar la comodidad de una plataforma grande, mantener la ligereza de un mapa web y proteger la relación económica y cultural de los negocios locales.
+
 ### Explora Salento
 
 - Mapa interactivo centrado en el casco urbano.
