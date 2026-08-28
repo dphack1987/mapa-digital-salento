@@ -282,6 +282,17 @@ function App() {
 
         <section className="principles-strip"><div><MapPin size={20} /><strong>Mapa ligero</strong><span>Encuentra sin perderte</span></div><div><Bike size={20} /><strong>Entrega local</strong><span>Directo a tu hospedaje</span></div><div><MessageCircle size={20} /><strong>Sin barreras</strong><span>Idioma y moneda a tu medida</span></div><div><Sparkles size={20} /><strong>Economía local</strong><span>Compra directo en Salento</span></div></section>
 
+        <section className="salento-photo-strip" aria-label="Paisajes de Salento">
+          <div className="photo-strip-intro"><p className="eyebrow">Postales del territorio</p><h2>Salento se<br /><i>camina despacio.</i></h2></div>
+          <div className="salento-photo-grid">
+            <img src="/salento/1326163558.webp" alt="Tejados tradicionales de Salento" />
+            <img src="/salento/1326163759.webp" alt="Monumento entre palmas en Salento" />
+            <img src="/salento/631026720.webp" alt="Calle colorida de Salento" />
+            <img src="/salento/631032744.webp" alt="Iglesia y plaza de Salento" />
+            <img src="/salento/653410779.webp" alt="Palmas de cera en el Valle de Cocora" />
+          </div>
+        </section>
+
         <section className="map-section" id="mapa">
           <div className="map-copy"><p className="eyebrow">Orienta tu paseo</p><h2>{text.map}</h2><p>Descubre rutas a pie, lugares favoritos y recomendaciones de quienes hacen de Salento su casa.</p><button className="dark-button">Abrir mapa completo <ArrowRight size={17} /></button><div className="map-legend"><span><i className="legend-dot coral" />Favoritos locales</span><span><i className="legend-dot green" />Para descubrir</span></div></div>
           <div className="map-visual" aria-label="Mapa interactivo de Salento con lugares destacados"><MapContainer center={[4.6371, -75.5706]} zoom={16} scrollWheelZoom={false} className="leaflet-map"><TileLayer attribution="&copy; OpenStreetMap" url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />{visibleMarkers.map((marker) => <CircleMarker key={marker.label} center={[marker.lat, marker.lng]} radius={10} pathOptions={{ color: marker.tone === 'green' ? '#56755b' : marker.tone === 'yellow' ? '#ba8a25' : '#e76c52', fillColor: marker.tone === 'green' ? '#56755b' : marker.tone === 'yellow' ? '#e8bb58' : '#e76c52', fillOpacity: 0.9 }}><Popup><strong>{marker.label}</strong><br /><span>{marker.type} · Salento</span><br /><button className="popup-action">Ver ficha <ArrowRight size={13} /></button></Popup></CircleMarker>)}<MapControls /></MapContainer></div>
