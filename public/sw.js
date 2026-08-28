@@ -1,5 +1,15 @@
-const CACHE_NAME = 'salento-a-la-mano-v1'
-const APP_SHELL = ['/', '/index.html', '/manifest.webmanifest', '/logo_salento2026.png']
+const CACHE_NAME = 'salento-a-la-mano-v2'
+const APP_SHELL = [
+  '/',
+  '/index.html',
+  '/manifest.webmanifest',
+  '/logo_salento2026.png',
+  '/salento/653410779.webp',
+  '/salento/631032744.webp',
+  '/salento/631026720.webp',
+  '/salento/1326163558.webp',
+  '/salento/1326163759.webp',
+]
 
 self.addEventListener('install', (event) => {
   event.waitUntil(caches.open(CACHE_NAME).then((cache) => cache.addAll(APP_SHELL)))

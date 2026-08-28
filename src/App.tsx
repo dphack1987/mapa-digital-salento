@@ -283,6 +283,11 @@ function App() {
 
         <section className="principles-strip"><div><MapPin size={20} /><strong>Mapa ligero</strong><span>Encuentra sin perderte</span></div><div><Bike size={20} /><strong>Entrega local</strong><span>Directo a tu hospedaje</span></div><div><MessageCircle size={20} /><strong>Sin barreras</strong><span>Idioma y moneda a tu medida</span></div><div><Sparkles size={20} /><strong>Economía local</strong><span>Compra directo en Salento</span></div></section>
 
+        <section className="offline-guide" id="guia-offline">
+          <div className="offline-guide-intro"><p className="eyebrow">Cuando baja la señal</p><h2>Salento también<br /><i>se lleva guardado.</i></h2><p>Consulta estas recomendaciones aunque estés camino al valle y la conexión sea intermitente.</p></div>
+          <div className="offline-guide-grid"><article><span className="offline-number">01</span><strong>Valle de Cocora</strong><p>Sal temprano, lleva agua y confirma el transporte antes de salir.</p></article><article><span className="offline-number">02</span><strong>Cascada Santa Rita</strong><p>Está a unos minutos a pie desde el pueblo. Usa calzado cómodo.</p></article><article><span className="offline-number">03</span><strong>Ayuda local</strong><p><a href="tel:123">Emergencias 123</a><br /><a href="tel:132">Cruz Roja 132</a></p></article></div>
+        </section>
+
         <section className="salento-photo-strip" aria-label="Paisajes de Salento">
           <div className="photo-strip-intro"><p className="eyebrow">Postales del territorio</p><h2>Salento se<br /><i>camina despacio.</i></h2></div>
           <div className="salento-photo-grid">
