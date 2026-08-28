@@ -1,0 +1,370 @@
+{
+  "places": [
+    {
+      "id": 1,
+      "name": "Brunch de la Plaza",
+      "type": "Restaurantes",
+      "description": "Café de origen, arepas y desayunos con vista al parque.",
+      "priceRange": "$$",
+      "rating": "4.9",
+      "timeInfo": "20–30 min",
+      "badge": "Muy pedido",
+      "color": "terracotta",
+      "icon": "Coffee",
+      "contact": {
+        "phone": "+57 316 4567890",
+        "whatsapp": "573164567890"
+      },
+      "location": {
+        "lat": 4.6375,
+        "lng": -75.5710,
+        "address": "Cerca de la Plaza Principal",
+        "landmark": "Plaza de Bolívar"
+      },
+      "operatingHours": {
+        "monday": "7:00 - 14:00",
+        "tuesday": "7:00 - 14:00",
+        "wednesday": "7:00 - 14:00",
+        "thursday": "7:00 - 14:00",
+        "friday": "7:00 - 14:00",
+        "saturday": "8:00 - 15:00",
+        "sunday": "8:00 - 15:00"
+      },
+      "tags": ["desayuno", "café", "arepas", "vista al parque"],
+      "verified": false,
+      "active": true,
+      "foodServiceDetails": {
+        "cuisineType": ["Colombiana", "Cafetería"],
+        "specialties": ["Arepa de chocolo", "Café de origen", "Desayunos tradicionales"],
+        "menuHighlights": ["Arepa de chocolo con café", "Desayuno salentino", "Juan Valerio"],
+        "averagePrice": "$$",
+        "reservationRequired": false,
+        "deliveryInfo": {
+          "available": true,
+          "areas": ["Centro", "Hoteles aliados"],
+          "minimumOrder": "$15.000",
+          "deliveryTime": "20-30 min",
+          "deliveryFee": "$3.000"
+        }
+      }
+    },
+    {
+      "id": 2,
+      "name": "Canasto Quindiano",
+      "type": "Artesanías",
+      "description": "Artesanías, café y detalles hechos por manos locales.",
+      "priceRange": "$$",
+      "rating": "4.8",
+      "timeInfo": "Entrega hoy",
+      "badge": "Local",
+      "color": "sage",
+      "icon": "ShoppingBasket",
+      "contact": {
+        "phone": "+57 318 5678901",
+        "whatsapp": "573185678901",
+        "email": "info@canastoquindiano.co"
+      },
+      "location": {
+        "lat": 4.6380,
+        "lng": -75.5700,
+        "address": "Calle Real",
+        "landmark": "Calle Real"
+      },
+      "operatingHours": {
+        "monday": "9:00 - 19:00",
+        "tuesday": "9:00 - 19:00",
+        "wednesday": "9:00 - 19:00",
+        "thursday": "9:00 - 19:00",
+        "friday": "9:00 - 20:00",
+        "saturday": "9:00 - 20:00",
+        "sunday": "10:00 - 18:00"
+      },
+      "tags": ["artesanías", "café", "detalles locales", "regalos"],
+      "verified": false,
+      "active": true,
+      "commerceDetails": {
+        "productTypes": ["Artesanías", "Café", "Souvenirs", "Ropa tradicional"],
+        "mainProducts": ["Bolsos tejidos", "Cerámica", "Café de origen", "Sombrero vueltiao"],
+        "paymentMethods": ["Efectivo", "Nequi", "DaviPlata", "Tarjeta"],
+        "deliveryInfo": {
+          "available": true,
+          "areas": ["Centro", "Hoteles"],
+          "minimumOrder": "$20.000",
+          "deliveryTime": "Mismo día"
+        }
+      }
+    },
+    {
+      "id": 3,
+      "name": "Valle en Bicicleta",
+      "type": "Experiencias",
+      "description": "Recorre el paisaje cultural cafetero con guías de Salento.",
+      "priceRange": "$$$",
+      "rating": "5.0",
+      "timeInfo": "Desde 8:00 am",
+      "badge": "Imperdible",
+      "color": "yellow",
+      "icon": "Bike",
+      "contact": {
+        "phone": "+57 300 1234567",
+        "whatsapp": "573001234567"
+      },
+      "location": {
+        "lat": 4.6370,
+        "lng": -75.5690,
+        "address": "Oficina principal",
+        "landmark": "Calle Real"
+      },
+      "operatingHours": {
+        "notes": "Reserva previa requerida. Salidas: 8:00 am y 2:00 pm"
+      },
+      "tags": ["bicicleta", "valle del cocora", "tour", "guía local"],
+      "verified": false,
+      "active": true,
+      "experienceDetails": {
+        "duration": "3-4 horas",
+        "difficulty": "Moderada",
+        "groupSize": "2-8 personas",
+        "included": ["Bicicleta", "Guía local", "Seguro", "Agua", "Refrigerio"],
+        "notIncluded": ["Entrada al valle", "Propinas", "Comida"],
+        "requirements": ["Condición física moderada", "Ropa cómoda", "Protector solar"],
+        "languages": ["Español", "Inglés básico"],
+        "meetingPoint": "Oficina en Calle Real",
+        "cancellationPolicy": "Cancelación gratuita hasta 24h antes"
+      }
+    },
+    {
+      "id": 4,
+      "name": "La Fogata Salentina",
+      "type": "Restaurantes",
+      "description": "Trucha, patacón y sabores de montaña para compartir.",
+      "priceRange": "$$$",
+      "rating": "4.7",
+      "timeInfo": "35–45 min",
+      "badge": "Domicilio",
+      "color": "mustard",
+      "icon": "Utensils",
+      "contact": {
+        "phone": "+57 317 8901234",
+        "whatsapp": "573178901234"
+      },
+      "location": {
+        "lat": 4.6365,
+        "lng": -75.5715,
+        "address": "Cerca de la plaza",
+        "landmark": "Plaza Principal"
+      },
+      "operatingHours": {
+        "monday": "12:00 - 21:00",
+        "tuesday": "12:00 - 21:00",
+        "wednesday": "12:00 - 21:00",
+        "thursday": "12:00 - 21:00",
+        "friday": "12:00 - 22:00",
+        "saturday": "11:00 - 22:00",
+        "sunday": "11:00 - 21:00"
+      },
+      "tags": ["trucha", "patacón", "comida tradicional", "carnes"],
+      "verified": false,
+      "active": true,
+      "foodServiceDetails": {
+        "cuisineType": ["Colombiana", "Parrilla"],
+        "specialties": ["Trucha arcoíris", "Patacón con todo", "Carne asada"],
+        "menuHighlights": ["Trucha con patacón", "Bandeja paisa mini", "Carne a la brasa"],
+        "averagePrice": "$$$",
+        "reservationRequired": false,
+        "deliveryInfo": {
+          "available": true,
+          "areas": ["Centro", "Hoteles aliados"],
+          "minimumOrder": "$25.000",
+          "deliveryTime": "35-45 min",
+          "deliveryFee": "$4.000"
+        }
+      }
+    },
+    {
+      "id": 5,
+      "name": "Hotel Camino Nacional Salento",
+      "type": "Alojamientos",
+      "description": "Ubicación central con fácil acceso a la Calle Real y a los principales puntos de interés del municipio. Cuenta con seguridad 24 horas, cambio de divisas y mostrador de información turística. La mayoría de las habitaciones dispone de balcón, canales por cable, ventanas insonorizadas y vistas a la calle.",
+      "priceRange": "$$$",
+      "rating": "4.8",
+      "timeInfo": "Reservas directas",
+      "badge": "Pautante Verificado",
+      "color": "sage",
+      "icon": "Hotel",
+      "contact": {
+        "phone": "+57 311 3903550",
+        "whatsapp": "573113903550",
+        "email": "caminonacionalhotel@gmail.com"
+      },
+      "location": {
+        "lat": 4.6372,
+        "lng": -75.5708,
+        "address": "Por confirmar",
+        "landmark": "Plaza de Bolívar · 150 m, Calle Real · 300 m"
+      },
+      "photos": [
+        "/pautas/hotel_camino_nacional/imagenes/1326164875.webp",
+        "/pautas/hotel_camino_nacional/imagenes/1669032660.webp",
+        "/pautas/hotel_camino_nacional/imagenes/1669032671.webp",
+        "/pautas/hotel_camino_nacional/imagenes/1669032675.webp",
+        "/pautas/hotel_camino_nacional/imagenes/1669032677.webp",
+        "/pautas/hotel_camino_nacional/imagenes/1669032704.webp",
+        "/pautas/hotel_camino_nacional/imagenes/1669032914.webp",
+        "/pautas/hotel_camino_nacional/imagenes/1672597073.webp",
+        "/pautas/hotel_camino_nacional/imagenes/1672597074.webp",
+        "/pautas/hotel_camino_nacional/imagenes/1672597077.webp",
+        "/pautas/hotel_camino_nacional/imagenes/631033284.webp"
+      ],
+      "operatingHours": {
+        "notes": "Recepción 24 horas. Check-in: 14:00-23:00, Check-out: 07:00-11:00"
+      },
+      "tags": ["hotel", "centro", "familiar", "seguridad", "2 estrellas", "licencia 18061"],
+      "verified": true,
+      "active": true,
+      "accommodationDetails": {
+        "categoryLabel": "Hotel 2 estrellas · ideal para familias y viajeros",
+        "stars": 2,
+        "license": "18061",
+        "roomTypes": ["Individual", "Doble", "Triple", "Cuádruple"],
+        "services": ["Wi-Fi", "Aparcamiento", "Prohibido fumar en el territorio", "Registro de entrada y salida privado", "Mostrador de conserjería", "Seguridad 24 horas", "Guarda equipajes", "Cambio de divisas", "Detectores de humo", "Extintores", "Acceso con llaves", "No se admiten animales", "Agradable para niños", "Desayuno", "Desayuno en la habitación", "Menús para dietas especiales", "Sala de ocio y televisión", "Mostrador de información turística", "Asistencia en excursiones", "Servicio de entradas", "Traslado al aeropuerto (con costo adicional)", "Lavandería", "Servicio de mantenimiento", "Fax y fotocopias"],
+        "roomFeatures": ["Habitaciones insonorizadas", "Balcón en la mayoría de habitaciones", "Vistas a la calle en la mayoría de habitaciones", "Canales por cable", "Televisor LCD", "Baño privado", "Inodoro separado", "Ducha", "Artículos de baño gratuitos", "Mesa de comedor", "Servicio de plancha", "Parques"],
+        "nearby": ["Plaza de Bolívar · 150 m", "Calle Real · 300 m", "Cascada Santa Rita · 5 min a pie", "Reserva Natural Kasaguadua · 2 km", "Finca de Don Elías · 10 min en automóvil", "Terminal de autobuses · alrededores inmediatos", "Aeropuerto de Armenia · 39 km", "Restaurante El Rincón de Lucy · comida sudamericana"],
+        "policies": ["Entrada: 14:00 a 23:00", "Salida: 07:00 a 11:00", "Mascotas: no se admiten", "Menores de 18 años: solo con progenitor o tutor legal", "Informar con antelación la hora de llegada", "Ruido: temporada alta puede haber ruido en hotel y calles circundantes", "Licencia de alojamiento: 18061"],
+        "checkIn": "14:00 - 23:00",
+        "checkOut": "07:00 - 11:00",
+        "amenities": ["Desayuno incluido", "Wi-Fi gratis", "Parking", "Seguridad 24 horas", "Cambio de divisas"],
+        "capacity": "Por confirmar",
+        "bookingNotes": "Las tarifas no fueron incluidas en la información recibida. Deben confirmarse directamente con el hotel según fecha, número de huéspedes, tipo de habitación y temporada."
+      }
+    },
+    {
+      "id": 6,
+      "name": "Café de Altura",
+      "type": "Cafés",
+      "description": "Café de origen, métodos filtrados y una pausa con paisaje.",
+      "priceRange": "$$",
+      "rating": "4.9",
+      "timeInfo": "Abierto hoy",
+      "badge": "Origen local",
+      "color": "terracotta",
+      "icon": "Coffee",
+      "contact": {
+        "phone": "+57 320 9876543",
+        "whatsapp": "573209876543"
+      },
+      "location": {
+        "lat": 4.6368,
+        "lng": -75.5712,
+        "address": "Calle Real",
+        "landmark": "Mirador Alto de la Cruz"
+      },
+      "operatingHours": {
+        "monday": "7:00 - 18:00",
+        "tuesday": "7:00 - 18:00",
+        "wednesday": "7:00 - 18:00",
+        "thursday": "7:00 - 18:00",
+        "friday": "7:00 - 19:00",
+        "saturday": "8:00 - 19:00",
+        "sunday": "8:00 - 18:00"
+      },
+      "tags": ["café especialidad", "métodos filtrados", "vista", "origen"],
+      "verified": false,
+      "active": true,
+      "foodServiceDetails": {
+        "cuisineType": ["Cafetería de especialidad"],
+        "specialties": ["V60", "Chemex", "Aeropress", "Cold Brew"],
+        "menuHighlights": ["Cappuccino", "Latte arte", "Pour over", "Cold brew"],
+        "dietaryOptions": ["Leche vegetal", "Sin azúcar", "Sin gluten"],
+        "averagePrice": "$$",
+        "reservationRequired": false
+      }
+    },
+    {
+      "id": 7,
+      "name": "Tienda La Montaña",
+      "type": "Tiendas",
+      "description": "Snacks, bebidas, mercado básico y entregas al hotel.",
+      "priceRange": "$",
+      "rating": "4.6",
+      "timeInfo": "Entrega hoy",
+      "badge": "Domicilio",
+      "color": "mustard",
+      "icon": "Store",
+      "contact": {
+        "phone": "+57 315 5555555",
+        "whatsapp": "573155555555"
+      },
+      "location": {
+        "lat": 4.6378,
+        "lng": -75.5702,
+        "address": "Calle Principal",
+        "landmark": "Plaza Principal"
+      },
+      "operatingHours": {
+        "monday": "6:00 - 21:00",
+        "tuesday": "6:00 - 21:00",
+        "wednesday": "6:00 - 21:00",
+        "thursday": "6:00 - 21:00",
+        "friday": "6:00 - 22:00",
+        "saturday": "7:00 - 22:00",
+        "sunday": "7:00 - 20:00"
+      },
+      "tags": ["supermercado", "snacks", "bebidas", "domicilio"],
+      "verified": false,
+      "active": true,
+      "commerceDetails": {
+        "productTypes": ["Alimentos", "Bebidas", "Aseo", "Snacks"],
+        "mainProducts": ["Agua", "Gaseosas", "Snacks", "Pan", "Leche"],
+        "paymentMethods": ["Efectivo", "Nequi", "DaviPlata"],
+        "deliveryInfo": {
+          "available": true,
+          "areas": ["Centro", "Hoteles"],
+          "minimumOrder": "$10.000",
+          "deliveryTime": "30-45 min"
+        }
+      }
+    },
+    {
+      "id": 8,
+      "name": "Guías del Cocora",
+      "type": "Servicios",
+      "description": "Guías locales, transporte y planes seguros para el valle.",
+      "priceRange": "$$",
+      "rating": "5.0",
+      "timeInfo": "Reserva previa",
+      "badge": "Aliado local",
+      "color": "yellow",
+      "icon": "Compass",
+      "contact": {
+        "phone": "+57 300 8888888",
+        "whatsapp": "573008888888"
+      },
+      "location": {
+        "lat": 4.6360,
+        "lng": -75.5695,
+        "address": "Oficina principal",
+        "landmark": "Terminal de transporte"
+      },
+      "operatingHours": {
+        "notes": "Atención 7:00 am - 7:00 pm para reservas"
+      },
+      "tags": ["guías", "valle del cocora", "transporte", "seguridad"],
+      "verified": false,
+      "active": true,
+      "experienceDetails": {
+        "duration": "Variable según plan",
+        "difficulty": "Variable",
+        "groupSize": "1-15 personas",
+        "included": ["Guía certificado", "Transporte si aplica", "Seguro", "Información local"],
+        "notIncluded": ["Entradas", "Comida", "Propinas"],
+        "requirements": ["Ropa adecuada", "Calzado cómodo", "Protector solar"],
+        "languages": ["Español", "Inglés"],
+        "meetingPoint": "Variable según plan",
+        "cancellationPolicy": "24 horas antes para reembolso completo"
+      }
+    }
+  ],
+  "lastUpdated": "2026-08-28T11:25:00.000Z",
+  "version": "1.0.0"
+}

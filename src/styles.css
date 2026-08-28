@@ -25,6 +25,10 @@
 .order-success > p:not(.eyebrow) { color: #70796e; font-size: 13px; line-height: 1.55; }
 .order-code { display: block; margin: 24px 0 30px; color: var(--coral); font: 11px 'DM Mono'; }
 :root { font-family: 'DM Sans', sans-serif; color: #27362b; background: #f5f1e8; font-synthesis: none; --ink: #27362b; --paper: #f5f1e8; --coral: #e76c52; --green: #56755b; --yellow: #e8bb58; --line: #d9d6c9; }
+.loading-container { display: flex; justify-content: center; align-items: center; min-height: 50vh; padding: 40px 20px; }
+.loading-spinner { font: 14px 'DM Mono'; color: var(--ink); text-align: center; }
+.loading-spinner::before { content: ''; display: block; width: 40px; height: 40px; margin: 0 auto 20px; border: 3px solid var(--line); border-top-color: var(--coral); border-radius: 50%; animation: spin 1s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body { margin: 0; min-width: 320px; background: var(--paper); overflow-x: hidden; }
