@@ -107,7 +107,7 @@ const places: Place[] = [
   },
   {
     id: 5,
-    name: 'Hotel Salento Real',
+    name: 'Hotel Camino Nacional',
     type: 'Alojamientos',
     description: 'Habitaciones tranquilas, ubicación central y atención local.',
     price: '$$$',
@@ -116,9 +116,9 @@ const places: Place[] = [
     badge: 'Hospedaje',
     color: 'sage',
     icon: Hotel,
-    phone: '+57 320 1234567',
-    whatsapp: '573201234567',
-    email: 'reservas@hotelsalento.co',
+    phone: '+57 311 3903550',
+    whatsapp: '573113903550',
+    email: 'caminonacionalhotel@gmail.com',
   },
   {
     id: 6,
