@@ -30,6 +30,13 @@ import {
 } from 'lucide-react'
 import { Category, Language, Currency, Place, MapMarker, Hotel as HotelType } from './types'
 import dataService from './services/dataService'
+import translationService from './services/translationService'
+import orderSyncService from './services/orderSyncService'
+import donChuchoKnowledge from './services/donChuchoKnowledge'
+import currencyService from './services/currencyService'
+import weatherService from './services/weatherService'
+import eventsService from './services/eventsService'
+import hotelQRService from './services/qrHotelService'
 
 // Mapeo de iconos para compatibilidad con estructura JSON
 const iconMap: Record<string, any> = {
@@ -68,17 +75,19 @@ function adaptPlaceForCompatibility(place: Place): any {
   }
 }
 
-const copy = {
-  es: { explore: 'Mapa digital', order: 'Pide local', experiences: 'Planes', guide: 'Mapa digital, pedidos y planes', title: 'Salento, a tu ritmo.', description: 'Encuentra lugares, pide a tu hospedaje y descubre Salento desde un mapa digital pensado para viajeros.', search: '¿Qué buscas en Salento?', nearby: 'Lugares y servicios cercanos', today: 'Descubre Salento', map: 'Mapa digital de Salento', orderTitle: 'Mi pedido' },
-  en: { explore: 'Digital map', order: 'Order local', experiences: 'Things to do', guide: 'Digital map, orders and plans', title: 'Salento, your way.', description: 'Find local places, order to your hotel and discover Salento through a digital map made for travelers.', search: 'What are you looking for in Salento?', nearby: 'Nearby places and services', today: 'Discover Salento', map: 'Salento digital map', orderTitle: 'My order' },
-} as const
+// Inicializar servicios
+currencyService.initialize()
+weatherService.initialize()
+eventsService.initialize()
 
-const currencyRates: Record<Currency, number> = { COP: 1, USD: 0.00025, EUR: 0.00021 }
-const currencySymbols: Record<Currency, string> = { COP: '$', USD: '$', EUR: '€' }
+// Inicializar sistema QR con hoteles existentes
+hotelQRService.initializeWithHotels([
+  { id: '5', name: 'Hotel Camino Nacional' },
+  { id: '9', name: 'Finca Hotel El Ocaso' }
+])
 
 function formatPrice(cop: number, currency: Currency) {
-  const converted = Math.round(cop * currencyRates[currency])
-  return `${currencySymbols[currency]}${converted.toLocaleString(currency === 'COP' ? 'es-CO' : 'en-US')}`
+  return currencyService.formatAmount(currencyService.convertFromCOP(cop, currency), currency)
 }
 
 function App() {
@@ -87,28 +96,40 @@ function App() {
   const [showCart, setShowCart] = useState(false)
   const [search, setSearch] = useState('')
   const [mobileNav, setMobileNav] = useState(false)
-  const [language, setLanguage] = useState<Language>(() => navigator.language.toLowerCase().startsWith('en') ? 'en' : 'es')
+  const [language, setLanguage] = useState<Language>(() => translationService.initialize() as Language)
   const [currency, setCurrency] = useState<Currency>('COP')
   const [selectedPlace, setSelectedPlace] = useState<Place | null>(null)
   const [places, setPlaces] = useState<Place[]>([])
   const [mapMarkers, setMapMarkers] = useState<MapMarker[]>([])
   const [hotels, setHotels] = useState<HotelType[]>([])
   const [loading, setLoading] = useState(true)
-  const text = copy[language]
+  const [weather, setWeather] = useState<any>(null)
+  const [todayEvents, setTodayEvents] = useState<any[]>([])
+  const [showWeatherBanner, setShowWeatherBanner] = useState(true)
+  
+  // Función helper para obtener traducciones
+  const t = (key: string, fallback?: string) => translationService.translate(key, fallback)
 
   // Cargar datos al montar el componente
   useEffect(() => {
     async function loadData() {
       try {
         setLoading(true)
-        const [loadedPlaces, loadedMarkers, loadedHotels] = await Promise.all([
+        const [loadedPlaces, loadedMarkers, loadedHotels, weatherData, eventsData] = await Promise.all([
           dataService.getPlaces(),
           dataService.getMapMarkers(),
-          dataService.getHotels()
+          dataService.getHotels(),
+          weatherService.getWeatherComparison(),
+          Promise.resolve(eventsService.getTodayEvents())
         ])
         setPlaces(loadedPlaces)
         setMapMarkers(loadedMarkers)
         setHotels(loadedHotels)
+        setWeather(weatherData)
+        setTodayEvents(eventsData)
+        
+        // Iniciar servicio de sincronización de pedidos
+        orderSyncService.start()
       } catch (error) {
         console.error('Error loading data:', error)
         // Fallback a datos vacíos si falla la carga
@@ -120,6 +141,11 @@ function App() {
       }
     }
     loadData()
+
+    // Cleanup al desmontar
+    return () => {
+      orderSyncService.stop()
+    }
   }, [])
 
   const filteredPlaces = useMemo(() => {
@@ -133,6 +159,12 @@ function App() {
 
   const visibleMarkers = useMemo(() => mapMarkers.filter((marker) => activeCategory === 'Todo' || marker.type === categoryToMapType(activeCategory)), [activeCategory, mapMarkers])
 
+  // Manejar cambio de idioma
+  function handleLanguageChange(newLanguage: Language) {
+    setLanguage(newLanguage)
+    translationService.setLanguage(newLanguage as any)
+  }
+
   function addToCart() {
     setCartCount((count) => count + 1)
   }
@@ -145,32 +177,50 @@ function App() {
           <span>Salento <em>a la mano</em></span>
         </a>
           <nav className={mobileNav ? 'main-nav open' : 'main-nav'}>
-          <a className="active" href="#explora" onClick={() => setMobileNav(false)}>{text.explore}</a>
-          <a href="#pedidos" onClick={() => setMobileNav(false)}>{text.order}</a>
-          <a href="#experiencias" onClick={() => setMobileNav(false)}>{text.experiences}</a>
+          <a className="active" href="#explora" onClick={() => setMobileNav(false)}>{t('explore')}</a>
+          <a href="#pedidos" onClick={() => setMobileNav(false)}>{t('order')}</a>
+          <a href="#experiencias" onClick={() => setMobileNav(false)}>{t('experiences')}</a>
           <a href="#pautas" onClick={() => setMobileNav(false)}>Pautas locales</a>
         </nav>
         <div className="header-actions">
           <button className="icon-button mobile-menu" aria-label="Abrir menú" onClick={() => setMobileNav(!mobileNav)}><Menu size={20} /></button>
-          <div className="locale-tools"><button className="locale-button" onClick={() => setLanguage(language === 'es' ? 'en' : 'es')}>{language.toUpperCase()}</button><select aria-label="Cambiar moneda" value={currency} onChange={(event) => setCurrency(event.target.value as Currency)}><option value="COP">COP</option><option value="USD">USD</option><option value="EUR">EUR</option></select></div><button className="cart-button" onClick={() => setShowCart(true)}><ShoppingBag size={18} /><span>{text.orderTitle}</span><b>{cartCount}</b></button>
+          <div className="locale-tools"><button className="locale-button" onClick={() => handleLanguageChange(language === 'es' ? 'en' : 'es')}>{language.toUpperCase()}</button><select aria-label="Cambiar moneda" value={currency} onChange={(event) => setCurrency(event.target.value as Currency)}><option value="COP">COP</option><option value="USD">USD</option><option value="EUR">EUR</option></select></div><button className="cart-button" onClick={() => setShowCart(true)}><ShoppingBag size={18} /><span>{t('orderTitle')}</span><b>{cartCount}</b></button>
         </div>
       </header>
+
+      {showWeatherBanner && weather && (
+        <div className={`weather-events-banner ${weather.color}`}>
+          <div className="weather-info">
+            <span className="weather-icon">{weather.valleCocora.icon}</span>
+            <div className="weather-details">
+              <span className="weather-temp">Salento: {weatherService.formatTemperature(weather.salento.temperature)} | Valle: {weatherService.formatTemperature(weather.valleCocora.temperature)}</span>
+              <span className="weather-recommendation">{weather.recommendation}</span>
+            </div>
+          </div>
+          <div className="events-info">
+            {todayEvents.length > 0 && (
+              <span className="events-count">🎭 {todayEvents.length} eventos hoy</span>
+            )}
+            <button className="close-banner" onClick={() => setShowWeatherBanner(false)}><X size={16} /></button>
+          </div>
+        </div>
+      )}
 
       <main id="inicio">
         {loading ? (
           <div className="loading-container">
-            <div className="loading-spinner">Cargando información de Salento...</div>
+            <div className="loading-spinner">{t('loading')}</div>
           </div>
-        ) : selectedPlace ? <PlaceDetail place={selectedPlace} currency={currency} onBack={() => setSelectedPlace(null)} /> : <>
+        ) : selectedPlace ? <PlaceDetail place={selectedPlace} currency={currency} onBack={() => setSelectedPlace(null)} language={language} t={t} /> : <>
         <section className="hero" id="explora">
           <div className="hero-copy">
             <img className="hero-logo" src="/logo_salento2026.png" alt="Mapa turístico, comercial y gastronómico de Salento" />
-            <p className="eyebrow"><span /> {text.guide}</p>
-            <h1>{text.title}</h1>
-            <p className="hero-description">{text.description}</p>
+            <p className="eyebrow"><span /> {t('guide')}</p>
+            <h1>{t('title')}</h1>
+            <p className="hero-description">{t('description')}</p>
             <div className="search-box">
               <Search size={19} />
-              <input aria-label="Buscar en Salento" placeholder={text.search} value={search} onChange={(event) => setSearch(event.target.value)} />
+              <input aria-label="Buscar en Salento" placeholder={t('search')} value={search} onChange={(event) => setSearch(event.target.value)} />
               <button aria-label="Buscar"><ArrowRight size={18} /></button>
             </div>
             <div className="trust-line"><span className="avatars"><b>J</b><b>M</b><b>A</b></span><span><strong>+1.200 viajeros</strong> ya exploraron Salento</span></div>
@@ -188,12 +238,12 @@ function App() {
         </section>
 
         <section className="quick-section" id="pedidos">
-          <div className="section-heading"><div><p className="eyebrow">{text.nearby}</p><h2>{text.today}</h2></div><button className="text-button">Ver todo <ArrowRight size={16} /></button></div>
+          <div className="section-heading"><div><p className="eyebrow">{t('nearby')}</p><h2>{t('today')}</h2></div><button className="text-button">Ver todo <ArrowRight size={16} /></button></div>
           <div className="category-row">
             {(['Todo', 'Alojamientos', 'Restaurantes', 'Cafés', 'Artesanías', 'Tiendas', 'Experiencias', 'Servicios'] as Category[]).map((category) => (
               <button key={category} className={activeCategory === category ? 'category active' : 'category'} onClick={() => setActiveCategory(category)}>
                 {category === 'Todo' && <Sparkles size={17} />}{category === 'Alojamientos' && <Hotel size={17} />}{category === 'Restaurantes' && <Utensils size={17} />}{category === 'Cafés' && <Coffee size={17} />}{category === 'Artesanías' && <ShoppingBasket size={17} />}{category === 'Tiendas' && <Store size={17} />}{category === 'Experiencias' && <Compass size={17} />}{category === 'Servicios' && <Bike size={17} />}
-                {category}
+                {t(`categories.${category}`)}
               </button>
             ))}
           </div>
@@ -223,7 +273,7 @@ function App() {
         </section>
 
         <section className="map-section" id="mapa">
-          <div className="map-copy"><p className="eyebrow">Orienta tu paseo</p><h2>{text.map}</h2><p>Descubre rutas a pie, lugares favoritos y recomendaciones de quienes hacen de Salento su casa.</p><button className="dark-button">Abrir mapa completo <ArrowRight size={17} /></button><div className="map-legend"><span><i className="legend-dot coral" />Favoritos locales</span><span><i className="legend-dot green" />Para descubrir</span></div></div>
+          <div className="map-copy"><p className="eyebrow">Orienta tu paseo</p><h2>{t('map')}</h2><p>Descubre rutas a pie, lugares favoritos y recomendaciones de quienes hacen de Salento su casa.</p><button className="dark-button">Abrir mapa completo <ArrowRight size={17} /></button><div className="map-legend"><span><i className="legend-dot coral" />Favoritos locales</span><span><i className="legend-dot green" />Para descubrir</span></div></div>
           <div className="map-visual" aria-label="Mapa interactivo de Salento con lugares destacados"><MapContainer center={[4.6371, -75.5706]} zoom={16} scrollWheelZoom={false} className="leaflet-map"><TileLayer attribution="&copy; OpenStreetMap" url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />{visibleMarkers.map((marker) => <CircleMarker key={marker.label} center={[marker.lat, marker.lng]} radius={10} pathOptions={{ color: marker.tone === 'green' ? '#56755b' : marker.tone === 'yellow' ? '#ba8a25' : '#e76c52', fillColor: marker.tone === 'green' ? '#56755b' : marker.tone === 'yellow' ? '#e8bb58' : '#e76c52', fillOpacity: 0.9 }}><Popup><strong>{marker.label}</strong><br /><span>{marker.type} · Salento</span><br /><button className="popup-action">Ver ficha <ArrowRight size={13} /></button></Popup></CircleMarker>)}<MapControls /></MapContainer></div>
         </section>
 
@@ -235,27 +285,43 @@ function App() {
 
       <footer><span>Salento a la mano · Guía comercial y gastronómica</span><span>Hecho con cariño en el Quindío</span></footer>
       {showCart && <Cart count={cartCount} currency={currency} onClose={() => setShowCart(false)} onAdd={addToCart} hotels={hotels} />}
-      <DonChucho language={language} />
-      <div className="offline-status"><span /> Información local disponible</div>
+      <DonChucho language={language} t={t} places={places} />
+      <div className="offline-status"><span /> {t('offline')}</div>
     </div>
   )
 }
 
-function DonChucho({ language }: { language: Language }) {
+function DonChucho({ language, t, places }: { language: Language; t: (key: string, fallback?: string) => string; places: Place[] }) {
   const [open, setOpen] = useState(false)
   const [question, setQuestion] = useState('')
-  const [answer, setAnswer] = useState(language === 'en' ? 'Hi! I can help you find coffee, food, local shops or plans in Salento.' : '¡Hola! Te ayudo a encontrar café, comida, tiendas locales o planes en Salento.')
+  const [answer, setAnswer] = useState(t('donChucho.welcome', '¡Hola! Te ayudo a encontrar café, comida, tiendas locales o planes en Salento.'))
+  const [suggestions, setSuggestions] = useState<string[]>([])
   const isEnglish = language === 'en'
 
   function ask(text: string) {
     setQuestion(text)
-    const normalized = text.toLowerCase()
-    if (normalized.includes('cafe') || normalized.includes('coffee')) setAnswer(isEnglish ? 'Try Café Quindío near the main square, or choose Comer to see delivery options.' : 'Prueba Café Quindío cerca de la plaza, o elige Comer para ver opciones con domicilio.')
-    else if (normalized.includes('cocora') || normalized.includes('horse') || normalized.includes('caballo')) setAnswer(isEnglish ? 'For Cocora, book a local guide and confirm transport before leaving town.' : 'Para Cocora, reserva un guía local y confirma el transporte antes de salir del pueblo.')
-    else setAnswer(isEnglish ? 'I can guide you to local food, crafts, coffee, viewpoints and hotel delivery.' : 'Puedo guiarte hacia comida local, artesanías, café, miradores y domicilios al hotel.')
+    
+    // Usar base de conocimiento local mejorada
+    const knowledgeAnswer = donChuchoKnowledge.getAnswer(text, isEnglish ? 'en' : 'es')
+    setAnswer(knowledgeAnswer)
+    
+    // Obtener sugerencias de seguimiento
+    const followUpSuggestions = donChuchoKnowledge.getFollowUpSuggestions(text, isEnglish ? 'en' : 'es')
+    setSuggestions(followUpSuggestions.length > 0 ? followUpSuggestions : [])
+    
+    // Obtener lugares relacionados
+    const relatedPlaceIds = donChuchoKnowledge.getRelatedPlaces(text)
+    if (relatedPlaceIds.length > 0) {
+      const relatedPlaces = places.filter(p => relatedPlaceIds.includes(p.id))
+      if (relatedPlaces.length > 0) {
+        const placeNames = relatedPlaces.map(p => p.name).join(', ')
+        const enhancedAnswer = knowledgeAnswer + (isEnglish ? ` Related places: ${placeNames}` : ` Lugares relacionados: ${placeNames}`)
+        setAnswer(enhancedAnswer)
+      }
+    }
   }
 
-  return <div className={open ? 'chucho-widget open' : 'chucho-widget'}>{open && <div className="chucho-panel"><div className="chucho-head"><div><strong>Don Chucho</strong><span>{isEnglish ? 'Your local guide' : 'Tu guía local'}</span></div><button className="icon-button" onClick={() => setOpen(false)} aria-label="Cerrar asistente"><X size={16} /></button></div><div className="chucho-answer"><MessageCircle size={16} />{answer}</div><div className="chucho-suggestions"><button onClick={() => ask(isEnglish ? 'Where is the best coffee?' : '¿Dónde hay buen café?')}>{isEnglish ? 'Best coffee' : 'Buen café'}</button><button onClick={() => ask(isEnglish ? 'How do I get to Cocora?' : '¿Cómo voy a Cocora?')}>{isEnglish ? 'Cocora' : 'Valle de Cocora'}</button></div><form onSubmit={(event) => { event.preventDefault(); if (question.trim()) ask(question) }}><input value={question} onChange={(event) => setQuestion(event.target.value)} placeholder={isEnglish ? 'Ask Don Chucho...' : 'Pregúntale a Don Chucho...'} /><button aria-label="Enviar pregunta"><Send size={15} /></button></form></div>}<button className="chucho-trigger" onClick={() => setOpen(!open)} aria-label="Abrir asistente Don Chucho"><span className="chucho-face">☕</span><span>{isEnglish ? 'Ask Don Chucho' : 'Pregúntale a Don Chucho'}</span><MessageCircle size={17} /></button></div>
+  return <div className={open ? 'chucho-widget open' : 'chucho-widget'}>{open && <div className="chucho-panel"><div className="chucho-head"><div><strong>{t('donChucho.title')}</strong><span>{t('donChucho.subtitle')}</span></div><button className="icon-button" onClick={() => setOpen(false)} aria-label="Cerrar asistente"><X size={16} /></button></div><div className="chucho-answer"><MessageCircle size={16} />{answer}</div>{suggestions.length > 0 && <div className="chucho-suggestions">{suggestions.map((suggestion, index) => <button key={index} onClick={() => ask(suggestion)}>{suggestion}</button>)}</div>}<form onSubmit={(event) => { event.preventDefault(); if (question.trim()) ask(question) }}><input value={question} onChange={(event) => setQuestion(event.target.value)} placeholder={t('donChucho.placeholder')} /><button aria-label="Enviar pregunta"><Send size={15} /></button></form></div>}<button className="chucho-trigger" onClick={() => setOpen(!open)} aria-label="Abrir asistente Don Chucho"><span className="chucho-face">☕</span><span>{t('donChucho.title')}</span><MessageCircle size={17} /></button></div>
 }
 
 function categoryToMapType(category: Category) {
@@ -334,7 +400,7 @@ function PlaceCard({ place, currency, onAdd, onOpen }: { place: Place; currency:
   )
 }
 
-function PlaceDetail({ place, currency, onBack }: { place: Place; currency: Currency; onBack: () => void }) {
+function PlaceDetail({ place, currency, onBack, language, t }: { place: Place; currency: Currency; onBack: () => void; language: Language; t: (key: string, fallback?: string) => string }) {
   const adaptedPlace = adaptPlaceForCompatibility(place)
   const photos = place.photos ?? []
   return (
@@ -393,27 +459,70 @@ function MapControls() {
 function Cart({ count, currency, onClose, onAdd, hotels }: { count: number; currency: Currency; onClose: () => void; onAdd: () => void; hotels: HotelType[] }) {
   const [checkout, setCheckout] = useState(false)
   const [submitted, setSubmitted] = useState(false)
+  const [isOffline, setIsOffline] = useState(!navigator.onLine)
+  const [syncStatus, setSyncStatus] = useState<{ pending: number }>({ pending: 0 })
 
-  function submitOrder(event: React.FormEvent<HTMLFormElement>) {
+  // Escuchar cambios de conexión
+  useEffect(() => {
+    const handleOnline = () => setIsOffline(false)
+    const handleOffline = () => setIsOffline(true)
+
+    window.addEventListener('online', handleOnline)
+    window.addEventListener('offline', handleOffline)
+
+    // Verificar estado inicial de sincronización
+    orderSyncService.getSyncStatus().then(setSyncStatus)
+
+    return () => {
+      window.removeEventListener('online', handleOnline)
+      window.removeEventListener('offline', handleOffline)
+    }
+  }, [])
+
+  async function submitOrder(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault()
     const data = new FormData(event.currentTarget)
     const hotel = String(data.get('hotel') ?? '')
     const room = String(data.get('room') ?? '')
     const phone = String(data.get('phone') ?? '')
     const directions = String(data.get('directions') ?? '')
-    const message = [
-      'Hola, quiero hacer este pedido:',
-      '2 productos: 1x Arepa de chocolo con café filtrado y 1x Selección de café local',
-      `Entrega: ${hotel} - Habitación ${room}`,
-      `Celular: ${phone}`,
-      directions ? `Indicaciones: ${directions}` : '',
-      `Total estimado: ${formatPrice(48000, currency)}`,
-    ].filter(Boolean).join('\n')
-    window.open(`https://wa.me/573164567890?text=${encodeURIComponent(message)}`, '_blank', 'noopener,noreferrer')
-    setSubmitted(true)
+
+    const orderData = {
+      hotel,
+      room,
+      phone,
+      directions,
+      items: [
+        { name: 'Arepa de chocolo con café filtrado', quantity: 1 },
+        { name: 'Selección de café local', quantity: 1 }
+      ],
+      total: formatPrice(48000, currency),
+      currency,
+      timestamp: new Date().toISOString()
+    }
+
+    if (isOffline) {
+      // Modo offline: guardar en cola y enviar por WhatsApp como fallback
+      await orderSyncService.queueOrder(orderData)
+      await orderSyncService.sendOrderViaWhatsApp(orderData)
+      
+      setSubmitted(true)
+    } else {
+      // Modo online: enviar por WhatsApp directamente
+      const message = [
+        'Hola, quiero hacer este pedido:',
+        '2 productos: 1x Arepa de chocolo con café filtrado y 1x Selección de café local',
+        `Entrega: ${hotel} - Habitación ${room}`,
+        `Celular: ${phone}`,
+        directions ? `Indicaciones: ${directions}` : '',
+        `Total estimado: ${formatPrice(48000, currency)}`,
+      ].filter(Boolean).join('\n')
+      window.open(`https://wa.me/573164567890?text=${encodeURIComponent(message)}`, '_blank', 'noopener,noreferrer')
+      setSubmitted(true)
+    }
   }
 
-  return <div className="cart-overlay" onClick={onClose}><aside className="cart-drawer" onClick={(event) => event.stopPropagation()}>{submitted ? <div className="order-success"><div className="success-mark"><Bike size={28} /></div><p className="eyebrow">Pedido recibido</p><h2>Ya vamos en camino.</h2><p>Se abrió WhatsApp con el pedido listo para enviar al comercio.</p><strong className="order-code">PEDIDO #SAL-024</strong><button className="checkout-button" onClick={onClose}>Volver a explorar <ArrowRight size={18} /></button></div> : <><div className="drawer-head"><div><p className="eyebrow">Tu selección</p><h2>{checkout ? '¿Dónde te lo llevamos?' : 'Mi pedido'}</h2></div><button className="icon-button" onClick={onClose} aria-label="Cerrar pedido"><X size={20} /></button></div>{checkout ? <form className="checkout-form" onSubmit={submitOrder}><label>Hotel aliado<select name="hotel" required defaultValue=""><option value="" disabled>Selecciona tu hospedaje</option><option>Hotel Camino Nacional</option><option>Hotel Kawa Mountain Retreat</option><option>Villas del Cocora</option><option>Otro hospedaje</option></select></label><label>Habitación<input name="room" required placeholder="Ej. 204" /></label><label>Celular de contacto<input name="phone" required type="tel" placeholder="300 000 0000" /></label><label>Indicaciones para llegar<textarea name="directions" placeholder="Recepción, cabaña o punto de encuentro" rows={3} /></label><div className="delivery-note"><Bike size={19} /><span><strong>Pago al recibir</strong><br />El domicilio se confirma contigo antes de salir.</span></div><button className="checkout-button" type="submit">Enviar pedido por WhatsApp <MessageSquare size={18} /></button><button className="back-button" type="button" onClick={() => setCheckout(false)}>Volver al resumen</button></form> : <><div className="cart-place"><div className="mini-thumb terracotta"><Coffee size={24} /></div><div><strong>Brunch de la Plaza</strong><span>Arepa de chocolo · Café filtrado</span></div><div className="quantity"><button aria-label="Restar"><Minus size={13} /></button><span>1</span><button onClick={onAdd} aria-label="Sumar"><Plus size={13} /></button></div></div><div className="cart-place"><div className="mini-thumb sage"><ShoppingBasket size={24} /></div><div><strong>Canasto Quindiano</strong><span>Selección de café local</span></div><div className="quantity"><button aria-label="Restar"><Minus size={13} /></button><span>1</span><button onClick={onAdd} aria-label="Sumar"><Plus size={13} /></button></div></div><div className="delivery-note"><Bike size={19} /><span><strong>Entrega en tu hospedaje</strong><br />Calcularemos la tarifa al confirmar tu dirección.</span></div><div className="cart-total"><span>Total estimado</span><strong>{formatPrice(48000, currency)}</strong></div><button className="checkout-button" onClick={() => setCheckout(true)}>Continuar con el pedido <ArrowRight size={18} /></button><p className="cart-footnote">{count} productos seleccionados · Pago al recibir</p></>}</>}</aside></div>
+  return <div className="cart-overlay" onClick={onClose}><aside className="cart-drawer" onClick={(event) => event.stopPropagation()}>{submitted ? <div className="order-success"><div className="success-mark"><Bike size={28} /></div><p className="eyebrow">Pedido recibido</p><h2>Ya vamos en camino.</h2><p>{isOffline ? 'Pedido guardado en modo offline. Se sincronizará cuando haya conexión.' : 'Se abrió WhatsApp con el pedido listo para enviar al comercio.'}</p>{isOffline && syncStatus.pending > 0 && <p className="cart-footnote">{syncStatus.pending} pedidos pendientes de sincronización</p>}<strong className="order-code">PEDIDO #SAL-024</strong><button className="checkout-button" onClick={onClose}>Volver a explorar <ArrowRight size={18} /></button></div> : <><div className="drawer-head"><div><p className="eyebrow">Tu selección</p><h2>{checkout ? '¿Dónde te lo llevamos?' : 'Mi pedido'}</h2></div><button className="icon-button" onClick={onClose} aria-label="Cerrar pedido"><X size={20} /></button></div>{isOffline && <div className="offline-warning"><span>⚠️</span>Modo offline activo. El pedido se guardará y sincronizará cuando haya conexión.</div>}{checkout ? <form className="checkout-form" onSubmit={submitOrder}><label>Hotel aliado<select name="hotel" required defaultValue=""><option value="" disabled>Selecciona tu hospedaje</option>{hotels.map(hotel => <option key={hotel.id} value={hotel.name}>{hotel.name}</option>)}</select></label><label>Habitación<input name="room" required placeholder="Ej. 204" /></label><label>Celular de contacto<input name="phone" required type="tel" placeholder="300 000 0000" /></label><label>Indicaciones para llegar<textarea name="directions" placeholder="Recepción, cabaña o punto de encuentro" rows={3} /></label><div className="delivery-note"><Bike size={19} /><span><strong>Pago al recibir</strong><br />El domicilio se confirma contigo antes de salir.</span></div><button className="checkout-button" type="submit">{isOffline ? 'Guardar pedido (offline)' : 'Enviar pedido por WhatsApp'} <MessageSquare size={18} /></button><button className="back-button" type="button" onClick={() => setCheckout(false)}>Volver al resumen</button></form> : <><div className="cart-place"><div className="mini-thumb terracotta"><Coffee size={24} /></div><div><strong>Brunch de la Plaza</strong><span>Arepa de chocolo · Café filtrado</span></div><div className="quantity"><button aria-label="Restar"><Minus size={13} /></button><span>1</span><button onClick={onAdd} aria-label="Sumar"><Plus size={13} /></button></div></div><div className="cart-place"><div className="mini-thumb sage"><ShoppingBasket size={24} /></div><div><strong>Canasto Quindiano</strong><span>Selección de café local</span></div><div className="quantity"><button aria-label="Restar"><Minus size={13} /></button><span>1</span><button onClick={onAdd} aria-label="Sumar"><Plus size={13} /></button></div></div><div className="delivery-note"><Bike size={19} /><span><strong>Entrega en tu hospedaje</strong><br />Calcularemos la tarifa al confirmar tu dirección.</span></div><div className="cart-total"><span>Total estimado</span><strong>{formatPrice(48000, currency)}</strong></div><button className="checkout-button" onClick={() => setCheckout(true)}>Continuar con el pedido <ArrowRight size={18} /></button><p className="cart-footnote">{count} productos seleccionados · Pago al recibir</p></>}</>}</aside></div>
 }
 
 export default App

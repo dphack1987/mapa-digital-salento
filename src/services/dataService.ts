@@ -1,8 +1,10 @@
 import { Place, MapMarker, Hotel, ProductCatalog, SystemData } from '../types'
+import offlineStorage from './offlineStorage'
 
 // Configuración del servicio de datos
 const DATA_CONFIG = {
   useLocalStorage: true, // Cachear datos en localStorage
+  useIndexedDB: true, // Usar IndexedDB para datos offline
   apiEndpoint: null, // Futuro: URL del backend
   defaultDataSources: {
     places: '/data/places.json',
@@ -98,6 +100,35 @@ class DataService {
     }
 
     try {
+      // Inicializar IndexedDB si está habilitado
+      if (DATA_CONFIG.useIndexedDB) {
+        await offlineStorage.initialize()
+      }
+
+      // Intentar cargar desde IndexedDB primero (modo offline优先)
+      if (DATA_CONFIG.useIndexedDB && !navigator.onLine) {
+        try {
+          const offlinePlaces = await offlineStorage.getPlaces()
+          const offlineHotels = await offlineStorage.getHotels()
+          
+          if (offlinePlaces.length > 0 && offlineHotels.length > 0) {
+            console.log('Loading data from IndexedDB (offline mode)')
+            this.dataCache = {
+              places: offlinePlaces,
+              mapMarkers: [], // Los marcadores se cargarían de otra fuente
+              hotels: offlineHotels,
+              productCatalogs: [],
+              lastUpdated: new Date().toISOString(),
+              version: '1.0.0'
+            }
+            this.cacheTimestamp = Date.now()
+            return this.dataCache
+          }
+        } catch (error) {
+          console.error('Error loading from IndexedDB, falling back to network:', error)
+        }
+      }
+
       // Intentar cargar desde caché local
       const cachedPlaces = this.loadFromCache<{ places: Place[] }>(CACHE_KEYS.PLACES)
       const cachedHotels = this.loadFromCache<{ hotels: Hotel[] }>(CACHE_KEYS.HOTELS)
@@ -135,11 +166,22 @@ class DataService {
       }
       this.cacheTimestamp = Date.now()
 
-      // Guardar en caché
+      // Guardar en caché localStorage
       this.saveToCache(CACHE_KEYS.PLACES, placesData)
       this.saveToCache(CACHE_KEYS.HOTELS, hotelsData)
       this.saveToCache(CACHE_KEYS.MAP_MARKERS, markersData)
       this.saveToCache(CACHE_KEYS.PRODUCTS, productsData)
+
+      // Guardar en IndexedDB para offline
+      if (DATA_CONFIG.useIndexedDB) {
+        try {
+          await offlineStorage.savePlaces(placesData.places)
+          await offlineStorage.saveHotels(hotelsData.hotels)
+          console.log('Data saved to IndexedDB for offline use')
+        } catch (error) {
+          console.error('Error saving to IndexedDB:', error)
+        }
+      }
 
       return this.dataCache
 
