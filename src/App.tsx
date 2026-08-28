@@ -10,18 +10,21 @@ import {
   Compass,
   Heart,
   Hotel,
+  Mail,
   MapPin,
   Menu,
+  MessageCircle,
+  MessageSquare,
   Minus,
+  Phone,
   Plus,
   Search,
+  Send,
   ShoppingBag,
   ShoppingBasket,
-  Store,
   Sparkles,
   Star,
-  Send,
-  MessageCircle,
+  Store,
   Utensils,
   X,
 } from 'lucide-react'
@@ -41,6 +44,9 @@ type Place = {
   badge: string
   color: string
   icon: typeof Utensils
+  phone?: string
+  whatsapp?: string
+  email?: string
 }
 
 const places: Place[] = [
@@ -55,6 +61,8 @@ const places: Place[] = [
     badge: 'Muy pedido',
     color: 'terracotta',
     icon: Coffee,
+    phone: '+57 316 4567890',
+    whatsapp: '573164567890',
   },
   {
     id: 2,
@@ -67,6 +75,9 @@ const places: Place[] = [
     badge: 'Local',
     color: 'sage',
     icon: ShoppingBasket,
+    phone: '+57 318 5678901',
+    whatsapp: '573185678901',
+    email: 'info@canastoquindiano.co',
   },
   {
     id: 3,
@@ -91,6 +102,8 @@ const places: Place[] = [
     badge: 'Domicilio',
     color: 'mustard',
     icon: Utensils,
+    phone: '+57 317 8901234',
+    whatsapp: '573178901234',
   },
   {
     id: 5,
@@ -103,6 +116,9 @@ const places: Place[] = [
     badge: 'Hospedaje',
     color: 'sage',
     icon: Hotel,
+    phone: '+57 320 1234567',
+    whatsapp: '573201234567',
+    email: 'reservas@hotelsalento.co',
   },
   {
     id: 6,
@@ -293,7 +309,70 @@ function categoryToMapType(category: Category) {
 
 function PlaceCard({ place, currency, onAdd }: { place: Place; currency: Currency; onAdd: () => void }) {
   const Icon = place.icon
-  return <article className="place-card"><div className={`place-image ${place.color}`}><div className="image-pattern" /><span className="place-badge">{place.badge}</span><button className="heart-button" aria-label={`Guardar ${place.name}`}><Heart size={17} /></button><Icon className="place-icon" size={45} strokeWidth={1.2} /></div><div className="place-info"><div className="place-topline"><span>{place.type}</span><span className="rating"><Star size={13} fill="currentColor" /> {place.rating}</span></div><h3>{place.name}</h3><p>{place.description}</p><div className="place-bottom"><span><strong>{place.price}</strong> · <Clock3 size={13} /> {place.time}</span><button className="add-button" onClick={onAdd} aria-label={`Añadir ${place.name}`}><Plus size={18} /></button></div><small className="currency-hint">Desde {formatPrice(35000, currency)} · tasa de referencia</small></div></article>
+  return (
+    <article className="place-card">
+      <div className={`place-image ${place.color}`}>
+        <div className="image-pattern" />
+        <span className="place-badge">{place.badge}</span>
+        <button className="heart-button" aria-label={`Guardar ${place.name}`}>
+          <Heart size={17} />
+        </button>
+        <Icon className="place-icon" size={45} strokeWidth={1.2} />
+      </div>
+      <div className="place-info">
+        <div className="place-topline">
+          <span>{place.type}</span>
+          <span className="rating">
+            <Star size={13} fill="currentColor" /> {place.rating}
+          </span>
+        </div>
+        <h3>{place.name}</h3>
+        <p>{place.description}</p>
+        <div className="place-bottom">
+          <span>
+            <strong>{place.price}</strong> · <Clock3 size={13} /> {place.time}
+          </span>
+          <button className="add-button" onClick={onAdd} aria-label={`Añadir ${place.name}`}>
+            <Plus size={18} />
+          </button>
+        </div>
+        <small className="currency-hint">
+          Desde {formatPrice(35000, currency)} · tasa de referencia
+        </small>
+        <div className="contact-actions">
+          {place.whatsapp && (
+            <a
+              href={`https://wa.me/${place.whatsapp}?text=Hola%20${encodeURIComponent(place.name)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="contact-btn whatsapp"
+              aria-label={`Contactar ${place.name} por WhatsApp`}
+            >
+              <MessageSquare size={15} />
+            </a>
+          )}
+          {place.phone && (
+            <a
+              href={`tel:${place.phone}`}
+              className="contact-btn phone"
+              aria-label={`Llamar a ${place.name}`}
+            >
+              <Phone size={15} />
+            </a>
+          )}
+          {place.email && (
+            <a
+              href={`mailto:${place.email}`}
+              className="contact-btn email"
+              aria-label={`Enviar correo a ${place.name}`}
+            >
+              <Mail size={15} />
+            </a>
+          )}
+        </div>
+      </div>
+    </article>
+  )
 }
 
 function MapControls() {
