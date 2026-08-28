@@ -9,6 +9,7 @@ import {
   Coffee,
   Compass,
   Heart,
+  Hotel,
   MapPin,
   Menu,
   Minus,
@@ -16,6 +17,7 @@ import {
   Search,
   ShoppingBag,
   ShoppingBasket,
+  Store,
   Sparkles,
   Star,
   Send,
@@ -24,7 +26,7 @@ import {
   X,
 } from 'lucide-react'
 
-type Category = 'Todo' | 'Comer' | 'Comprar' | 'Experiencias'
+type Category = 'Todo' | 'Alojamientos' | 'Restaurantes' | 'Cafés' | 'Artesanías' | 'Tiendas' | 'Experiencias' | 'Servicios'
 type Language = 'es' | 'en'
 type Currency = 'COP' | 'USD' | 'EUR'
 
@@ -45,7 +47,7 @@ const places: Place[] = [
   {
     id: 1,
     name: 'Brunch de la Plaza',
-    type: 'Comer',
+    type: 'Restaurantes',
     description: 'Café de origen, arepas y desayunos con vista al parque.',
     price: '$$',
     rating: '4.9',
@@ -57,7 +59,7 @@ const places: Place[] = [
   {
     id: 2,
     name: 'Canasto Quindiano',
-    type: 'Comprar',
+    type: 'Artesanías',
     description: 'Artesanías, café y detalles hechos por manos locales.',
     price: '$$',
     rating: '4.8',
@@ -81,7 +83,7 @@ const places: Place[] = [
   {
     id: 4,
     name: 'La Fogata Salentina',
-    type: 'Comer',
+    type: 'Restaurantes',
     description: 'Trucha, patacón y sabores de montaña para compartir.',
     price: '$$$',
     rating: '4.7',
@@ -89,6 +91,54 @@ const places: Place[] = [
     badge: 'Domicilio',
     color: 'mustard',
     icon: Utensils,
+  },
+  {
+    id: 5,
+    name: 'Hotel Salento Real',
+    type: 'Alojamientos',
+    description: 'Habitaciones tranquilas, ubicación central y atención local.',
+    price: '$$$',
+    rating: '4.8',
+    time: 'Reservas directas',
+    badge: 'Hospedaje',
+    color: 'sage',
+    icon: Hotel,
+  },
+  {
+    id: 6,
+    name: 'Café de Altura',
+    type: 'Cafés',
+    description: 'Café de origen, métodos filtrados y una pausa con paisaje.',
+    price: '$$',
+    rating: '4.9',
+    time: 'Abierto hoy',
+    badge: 'Origen local',
+    color: 'terracotta',
+    icon: Coffee,
+  },
+  {
+    id: 7,
+    name: 'Tienda La Montaña',
+    type: 'Tiendas',
+    description: 'Snacks, bebidas, mercado básico y entregas al hotel.',
+    price: '$',
+    rating: '4.6',
+    time: 'Entrega hoy',
+    badge: 'Domicilio',
+    color: 'mustard',
+    icon: Store,
+  },
+  {
+    id: 8,
+    name: 'Guías del Cocora',
+    type: 'Servicios',
+    description: 'Guías locales, transporte y planes seguros para el valle.',
+    price: '$$',
+    rating: '5.0',
+    time: 'Reserva previa',
+    badge: 'Aliado local',
+    color: 'yellow',
+    icon: Compass,
   },
 ]
 
@@ -184,9 +234,9 @@ function App() {
         <section className="quick-section" id="pedidos">
           <div className="section-heading"><div><p className="eyebrow">{text.nearby}</p><h2>{text.today}</h2></div><button className="text-button">Ver todo <ArrowRight size={16} /></button></div>
           <div className="category-row">
-            {(['Todo', 'Comer', 'Comprar', 'Experiencias'] as Category[]).map((category) => (
+            {(['Todo', 'Alojamientos', 'Restaurantes', 'Cafés', 'Artesanías', 'Tiendas', 'Experiencias', 'Servicios'] as Category[]).map((category) => (
               <button key={category} className={activeCategory === category ? 'category active' : 'category'} onClick={() => setActiveCategory(category)}>
-                {category === 'Todo' && <Sparkles size={17} />}{category === 'Comer' && <Utensils size={17} />}{category === 'Comprar' && <ShoppingBasket size={17} />}{category === 'Experiencias' && <Compass size={17} />}
+                {category === 'Todo' && <Sparkles size={17} />}{category === 'Alojamientos' && <Hotel size={17} />}{category === 'Restaurantes' && <Utensils size={17} />}{category === 'Cafés' && <Coffee size={17} />}{category === 'Artesanías' && <ShoppingBasket size={17} />}{category === 'Tiendas' && <Store size={17} />}{category === 'Experiencias' && <Compass size={17} />}{category === 'Servicios' && <Bike size={17} />}
                 {category}
               </button>
             ))}
@@ -235,8 +285,8 @@ function DonChucho({ language }: { language: Language }) {
 }
 
 function categoryToMapType(category: Category) {
-  if (category === 'Comer') return 'Gastronómico'
-  if (category === 'Comprar') return 'Comercial'
+  if (category === 'Restaurantes' || category === 'Cafés') return 'Gastronómico'
+  if (category === 'Artesanías' || category === 'Tiendas' || category === 'Alojamientos') return 'Comercial'
   return 'Turístico'
 }
 
