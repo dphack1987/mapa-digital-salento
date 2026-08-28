@@ -276,7 +276,7 @@ function App() {
           </div>
           <div className="directory-intro"><span><MapPin size={16} /> Directorio local</span><small>{filteredPlaces.length} lugares para descubrir</small></div>
           <div className="place-grid">
-            {filteredPlaces.map((place) => <PlaceCard key={place.id} place={place} currency={currency} onAdd={addToCart} onOpen={() => setSelectedPlace(place)} />)}
+            {filteredPlaces.map((place) => <PlaceCard key={place.id} place={place} currency={currency} onAdd={addToCart} onOpen={() => { window.history.pushState({}, '', `#pautante-${place.id}`); setSelectedPlace(place) }} />)}
             {filteredPlaces.length === 0 && <div className="empty-state">No encontramos ese plan todavía. Prueba con “café”, “artesanía” o “trucha”.</div>}
           </div>
         </section>
@@ -373,7 +373,7 @@ function PlaceCard({ place, currency, onAdd, onOpen }: { place: Place; currency:
         <small className="currency-hint">
           Desde {formatPrice(35000, currency)} · tasa de referencia
         </small>
-        <button className="detail-button" onClick={onOpen}>Ver ficha <ArrowRight size={14} /></button>
+        <button className="detail-button" onClick={onOpen}>Ampliar información <ArrowRight size={14} /></button>
         <div className="contact-actions">
           {place.whatsapp && (
             <a
@@ -413,9 +413,9 @@ function PlaceCard({ place, currency, onAdd, onOpen }: { place: Place; currency:
 function PlaceDetail({ place, currency, onBack }: { place: Place; currency: Currency; onBack: () => void }) {
   const photos = place.photos ?? []
   return (
-    <section className="place-detail">
+    <section className="place-detail" id={`pautante-${place.id}`}>
       <div className="detail-topbar">
-        <button className="back-button detail-back" onClick={onBack}><ArrowRight size={16} /> Volver al directorio</button>
+        <button className="back-button detail-back" onClick={() => { window.history.pushState({}, '', '#pedidos'); onBack() }}><ArrowRight size={16} /> Volver al directorio</button>
         <span>{place.type}</span>
       </div>
       <div className="detail-heading">
@@ -441,6 +441,10 @@ function PlaceDetail({ place, currency, onBack }: { place: Place; currency: Curr
           </div>
         </aside>
       </div>
+      {place.name === 'Hotel Camino Nacional' && <div className="hotel-facts">
+        <div><p className="eyebrow">Servicios incluidos</p><h2>Todo lo esencial para tu estadía.</h2><div className="fact-tags"><span>Wi-Fi</span><span>Desayuno</span><span>Seguridad 24 horas</span><span>Cambio de divisas</span><span>Guarda equipajes</span><span>No se admiten mascotas</span></div></div>
+        <div className="facts-list"><div><strong>150 m</strong><span>Plaza de Bolívar</span></div><div><strong>300 m</strong><span>Calle Real</span></div><div><strong>5 min</strong><span>Cascada Santa Rita a pie</span></div><div><strong>14:00</strong><span>Hora de entrada</span></div><div><strong>11:00</strong><span>Hora de salida</span></div><div><strong>18061</strong><span>Licencia registrada</span></div></div>
+      </div>}
     </section>
   )
 }
