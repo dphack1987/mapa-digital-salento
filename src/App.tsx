@@ -241,6 +241,7 @@ function App() {
               </button>
             ))}
           </div>
+          <div className="directory-intro"><span><MapPin size={16} /> Directorio local</span><small>{filteredPlaces.length} lugares para descubrir</small></div>
           <div className="place-grid">
             {filteredPlaces.map((place) => <PlaceCard key={place.id} place={place} currency={currency} onAdd={addToCart} />)}
             {filteredPlaces.length === 0 && <div className="empty-state">No encontramos ese plan todavía. Prueba con “café”, “artesanía” o “trucha”.</div>}
