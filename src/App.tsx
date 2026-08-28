@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react'
+import { useMemo, useState, useEffect } from 'react'
 import { CircleMarker, MapContainer, Popup, TileLayer, useMap } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css'
 import {
@@ -28,174 +28,45 @@ import {
   Utensils,
   X,
 } from 'lucide-react'
+import { Category, Language, Currency, Place, MapMarker, Hotel as HotelType } from './types'
+import dataService from './services/dataService'
 
-type Category = 'Todo' | 'Alojamientos' | 'Restaurantes' | 'Cafés' | 'Artesanías' | 'Tiendas' | 'Experiencias' | 'Servicios'
-type Language = 'es' | 'en'
-type Currency = 'COP' | 'USD' | 'EUR'
-
-type PlaceDetailInfo = {
-  categoryLabel: string
-  services: string[]
-  roomFeatures: string[]
-  nearby: string[]
-  policies: string[]
-  description: string
+// Mapeo de iconos para compatibilidad con estructura JSON
+const iconMap: Record<string, any> = {
+  Coffee,
+  Utensils,
+  Hotel,
+  ShoppingBasket,
+  Bike,
+  Store,
+  Compass,
 }
 
-type Place = {
-  id: number
-  name: string
-  type: Exclude<Category, 'Todo'>
-  description: string
-  price: string
-  rating: string
-  time: string
-  badge: string
-  color: string
-  icon: typeof Utensils
-  phone?: string
-  whatsapp?: string
-  email?: string
-  photos?: string[]
-  detailInfo?: PlaceDetailInfo
+// Función para convertir iconos de string a componentes Lucide
+function getIconComponent(iconName: string): any {
+  return iconMap[iconName] || Coffee // Fallback a Coffee
 }
 
-const places: Place[] = [
-  {
-    id: 1,
-    name: 'Brunch de la Plaza',
-    type: 'Restaurantes',
-    description: 'Café de origen, arepas y desayunos con vista al parque.',
-    price: '$$',
-    rating: '4.9',
-    time: '20–30 min',
-    badge: 'Muy pedido',
-    color: 'terracotta',
-    icon: Coffee,
-    phone: '+57 316 4567890',
-    whatsapp: '573164567890',
-  },
-  {
-    id: 2,
-    name: 'Canasto Quindiano',
-    type: 'Artesanías',
-    description: 'Artesanías, café y detalles hechos por manos locales.',
-    price: '$$',
-    rating: '4.8',
-    time: 'Entrega hoy',
-    badge: 'Local',
-    color: 'sage',
-    icon: ShoppingBasket,
-    phone: '+57 318 5678901',
-    whatsapp: '573185678901',
-    email: 'info@canastoquindiano.co',
-  },
-  {
-    id: 3,
-    name: 'Valle en Bicicleta',
-    type: 'Experiencias',
-    description: 'Recorre el paisaje cultural cafetero con guías de Salento.',
-    price: '$$$',
-    rating: '5.0',
-    time: 'Desde 8:00 am',
-    badge: 'Imperdible',
-    color: 'yellow',
-    icon: Bike,
-  },
-  {
-    id: 4,
-    name: 'La Fogata Salentina',
-    type: 'Restaurantes',
-    description: 'Trucha, patacón y sabores de montaña para compartir.',
-    price: '$$$',
-    rating: '4.7',
-    time: '35–45 min',
-    badge: 'Domicilio',
-    color: 'mustard',
-    icon: Utensils,
-    phone: '+57 317 8901234',
-    whatsapp: '573178901234',
-  },
-  {
-    id: 5,
-    name: 'Hotel Camino Nacional',
-    type: 'Alojamientos',
-    description: 'Habitaciones tranquilas, ubicación central y atención local.',
-    price: '$$$',
-    rating: '4.8',
-    time: 'Reservas directas',
-    badge: 'Hospedaje',
-    color: 'sage',
-    icon: Hotel,
-    phone: '+57 311 3903550',
-    whatsapp: '573113903550',
-    email: 'caminonacionalhotel@gmail.com',
-    photos: [
-      '/pautas/hotel_camino_nacional/imagenes/1326164875.webp',
-      '/pautas/hotel_camino_nacional/imagenes/1669032660.webp',
-      '/pautas/hotel_camino_nacional/imagenes/1669032671.webp',
-      '/pautas/hotel_camino_nacional/imagenes/1669032675.webp',
-      '/pautas/hotel_camino_nacional/imagenes/1669032677.webp',
-      '/pautas/hotel_camino_nacional/imagenes/1669032704.webp',
-      '/pautas/hotel_camino_nacional/imagenes/1669032914.webp',
-      '/pautas/hotel_camino_nacional/imagenes/1672597073.webp',
-      '/pautas/hotel_camino_nacional/imagenes/1672597074.webp',
-      '/pautas/hotel_camino_nacional/imagenes/1672597077.webp',
-      '/pautas/hotel_camino_nacional/imagenes/631033284.webp',
-    ],
-    detailInfo: {
-      categoryLabel: 'Hotel 2 estrellas · ideal para familias y viajeros',
-      description: 'Ubicación central con fácil acceso a la Calle Real, seguridad 24 horas, cambio de divisas y mostrador de información turística. La mayoría de las habitaciones ofrece balcón, canales por cable, ventanas insonorizadas y vistas a la calle.',
-      services: ['Wi-Fi', 'Aparcamiento', 'Desayuno en la habitación', 'Menús de dietas especiales', 'Conserjería', 'Guarda equipajes', 'Cambio de divisas', 'Seguridad 24 horas', 'Sala de TV', 'Lavandería', 'Asistencia en excursiones', 'Servicio de entradas', 'Traslado al aeropuerto de pago', 'Fax y fotocopias', 'No se admiten mascotas', 'Agradable para niños'],
-      roomFeatures: ['Habitaciones insonorizadas', 'Balcón en la mayoría de habitaciones', 'Vistas a la calle', 'Canales por cable', 'Televisor LCD', 'Baño privado', 'Ducha e inodoro separado', 'Artículos de baño gratis', 'Mesa de comedor', 'Servicio de plancha', 'Parques'],
-      nearby: ['Plaza de Bolívar · 150 m', 'Calle Real · 300 m', 'Cascada Santa Rita · 5 min a pie', 'Reserva Natural Kasaguadua · 2 km', 'Finca de Don Elías · 10 min en carro', 'Terminal de buses · alrededores inmediatos', 'Aeropuerto de Armenia · 39 km', 'Restaurante El Rincón de Lucy · comida sudamericana'],
-      policies: ['Entrada: 14:00 a 23:00', 'Salida: 07:00 a 11:00', 'Menores de 18 años con progenitor o tutor legal', 'Informar con antelación la hora de llegada', 'Puede haber ruido en temporada alta', 'Licencia de alojamiento: 18061'],
-    },
-  },
-  {
-    id: 6,
-    name: 'Café de Altura',
-    type: 'Cafés',
-    description: 'Café de origen, métodos filtrados y una pausa con paisaje.',
-    price: '$$',
-    rating: '4.9',
-    time: 'Abierto hoy',
-    badge: 'Origen local',
-    color: 'terracotta',
-    icon: Coffee,
-  },
-  {
-    id: 7,
-    name: 'Tienda La Montaña',
-    type: 'Tiendas',
-    description: 'Snacks, bebidas, mercado básico y entregas al hotel.',
-    price: '$',
-    rating: '4.6',
-    time: 'Entrega hoy',
-    badge: 'Domicilio',
-    color: 'mustard',
-    icon: Store,
-  },
-  {
-    id: 8,
-    name: 'Guías del Cocora',
-    type: 'Servicios',
-    description: 'Guías locales, transporte y planes seguros para el valle.',
-    price: '$$',
-    rating: '5.0',
-    time: 'Reserva previa',
-    badge: 'Aliado local',
-    color: 'yellow',
-    icon: Compass,
-  },
-]
-
-const mapMarkers = [
-  { label: 'Plaza Principal', type: 'Turístico', lat: 4.6371, lng: -75.5706, tone: 'coral' },
-  { label: 'Café Quindío', type: 'Gastronómico', lat: 4.6364, lng: -75.5718, tone: 'green' },
-  { label: 'Artesanías del Camino', type: 'Comercial', lat: 4.6381, lng: -75.5695, tone: 'yellow' },
-  { label: 'Mirador Alto de la Cruz', type: 'Turístico', lat: 4.6393, lng: -75.5725, tone: 'coral' },
-]
+// Función de adaptación para compatibilidad con componente existente
+function adaptPlaceForCompatibility(place: Place): any {
+  return {
+    ...place,
+    price: place.priceRange,
+    time: place.timeInfo,
+    icon: getIconComponent(place.icon),
+    phone: place.contact.phone,
+    whatsapp: place.contact.whatsapp,
+    email: place.contact.email,
+    detailInfo: place.accommodationDetails ? {
+      categoryLabel: place.accommodationDetails.categoryLabel,
+      description: place.description,
+      services: place.accommodationDetails.services,
+      roomFeatures: place.accommodationDetails.roomFeatures,
+      nearby: place.accommodationDetails.nearby,
+      policies: place.accommodationDetails.policies
+    } : undefined
+  }
+}
 
 const copy = {
   es: { explore: 'Mapa digital', order: 'Pide local', experiences: 'Planes', guide: 'Mapa digital, pedidos y planes', title: 'Salento, a tu ritmo.', description: 'Encuentra lugares, pide a tu hospedaje y descubre Salento desde un mapa digital pensado para viajeros.', search: '¿Qué buscas en Salento?', nearby: 'Lugares y servicios cercanos', today: 'Descubre Salento', map: 'Mapa digital de Salento', orderTitle: 'Mi pedido' },
@@ -219,18 +90,48 @@ function App() {
   const [language, setLanguage] = useState<Language>(() => navigator.language.toLowerCase().startsWith('en') ? 'en' : 'es')
   const [currency, setCurrency] = useState<Currency>('COP')
   const [selectedPlace, setSelectedPlace] = useState<Place | null>(null)
+  const [places, setPlaces] = useState<Place[]>([])
+  const [mapMarkers, setMapMarkers] = useState<MapMarker[]>([])
+  const [hotels, setHotels] = useState<HotelType[]>([])
+  const [loading, setLoading] = useState(true)
   const text = copy[language]
+
+  // Cargar datos al montar el componente
+  useEffect(() => {
+    async function loadData() {
+      try {
+        setLoading(true)
+        const [loadedPlaces, loadedMarkers, loadedHotels] = await Promise.all([
+          dataService.getPlaces(),
+          dataService.getMapMarkers(),
+          dataService.getHotels()
+        ])
+        setPlaces(loadedPlaces)
+        setMapMarkers(loadedMarkers)
+        setHotels(loadedHotels)
+      } catch (error) {
+        console.error('Error loading data:', error)
+        // Fallback a datos vacíos si falla la carga
+        setPlaces([])
+        setMapMarkers([])
+        setHotels([])
+      } finally {
+        setLoading(false)
+      }
+    }
+    loadData()
+  }, [])
 
   const filteredPlaces = useMemo(() => {
     const normalizedSearch = search.toLowerCase().trim()
     return places.filter((place) => {
       const matchesCategory = activeCategory === 'Todo' || place.type === activeCategory
-      const matchesSearch = !normalizedSearch || `${place.name} ${place.description}`.toLowerCase().includes(normalizedSearch)
+      const matchesSearch = !normalizedSearch || `${place.name} ${place.description} ${place.tags?.join(' ') || ''}`.toLowerCase().includes(normalizedSearch)
       return matchesCategory && matchesSearch
     })
-  }, [activeCategory, search])
+  }, [activeCategory, search, places])
 
-  const visibleMarkers = useMemo(() => mapMarkers.filter((marker) => activeCategory === 'Todo' || marker.type === categoryToMapType(activeCategory)), [activeCategory])
+  const visibleMarkers = useMemo(() => mapMarkers.filter((marker) => activeCategory === 'Todo' || marker.type === categoryToMapType(activeCategory)), [activeCategory, mapMarkers])
 
   function addToCart() {
     setCartCount((count) => count + 1)
@@ -256,7 +157,11 @@ function App() {
       </header>
 
       <main id="inicio">
-        {selectedPlace ? <PlaceDetail place={selectedPlace} currency={currency} onBack={() => setSelectedPlace(null)} /> : <>
+        {loading ? (
+          <div className="loading-container">
+            <div className="loading-spinner">Cargando información de Salento...</div>
+          </div>
+        ) : selectedPlace ? <PlaceDetail place={selectedPlace} currency={currency} onBack={() => setSelectedPlace(null)} /> : <>
         <section className="hero" id="explora">
           <div className="hero-copy">
             <img className="hero-logo" src="/logo_salento2026.png" alt="Mapa turístico, comercial y gastronómico de Salento" />
@@ -294,7 +199,7 @@ function App() {
           </div>
           <div className="directory-intro"><span><MapPin size={16} /> Directorio local</span><small>{filteredPlaces.length} lugares para descubrir</small></div>
           <div className="place-grid">
-            {filteredPlaces.map((place) => <PlaceCard key={place.id} place={place} currency={currency} onAdd={addToCart} onOpen={() => { window.history.pushState({}, '', `#pautante-${place.id}`); setSelectedPlace(place) }} />)}
+            {filteredPlaces.map((place) => <PlaceCard key={place.id} place={adaptPlaceForCompatibility(place)} currency={currency} onAdd={addToCart} onOpen={() => { window.history.pushState({}, '', `#pautante-${place.id}`); setSelectedPlace(place) }} />)}
             {filteredPlaces.length === 0 && <div className="empty-state">No encontramos ese plan todavía. Prueba con “café”, “artesanía” o “trucha”.</div>}
           </div>
         </section>
@@ -329,7 +234,7 @@ function App() {
       </main>
 
       <footer><span>Salento a la mano · Guía comercial y gastronómica</span><span>Hecho con cariño en el Quindío</span></footer>
-      {showCart && <Cart count={cartCount} currency={currency} onClose={() => setShowCart(false)} onAdd={addToCart} />}
+      {showCart && <Cart count={cartCount} currency={currency} onClose={() => setShowCart(false)} onAdd={addToCart} hotels={hotels} />}
       <DonChucho language={language} />
       <div className="offline-status"><span /> Información local disponible</div>
     </div>
@@ -430,6 +335,7 @@ function PlaceCard({ place, currency, onAdd, onOpen }: { place: Place; currency:
 }
 
 function PlaceDetail({ place, currency, onBack }: { place: Place; currency: Currency; onBack: () => void }) {
+  const adaptedPlace = adaptPlaceForCompatibility(place)
   const photos = place.photos ?? []
   return (
     <section className="place-detail" id={`pautante-${place.id}`}>
@@ -438,15 +344,15 @@ function PlaceDetail({ place, currency, onBack }: { place: Place; currency: Curr
         <span>{place.type}</span>
       </div>
       <div className="detail-heading">
-        <div><p className="eyebrow"><span /> Ficha del pautante</p><h1>{place.name}</h1><p>{place.detailInfo?.categoryLabel ?? place.type}</p></div>
+        <div><p className="eyebrow"><span /> {place.verified ? 'Ficha del pautante verificado' : 'Ficha del lugar'}</p><h1>{place.name}</h1><p>{place.accommodationDetails?.categoryLabel ?? place.foodServiceDetails?.cuisineType?.join(', ') ?? place.type}</p></div>
         <span className="detail-rating"><Star size={15} fill="currentColor" /> {place.rating}</span>
       </div>
       {photos.length > 0 && <div className="detail-gallery">{photos.map((photo, index) => <img key={photo} src={photo} alt={`${place.name}, foto ${index + 1}`} />)}</div>}
       <div className="detail-content">
         <div>
           <p className="eyebrow">Información</p><h2>Conoce este lugar</h2>
-          <p className="detail-description">{place.detailInfo?.description ?? place.description}</p>
-          <div className="detail-meta"><span><Clock3 size={16} /> {place.time}</span><span><MapPin size={16} /> Salento, Quindío</span></div>
+          <p className="detail-description">{place.accommodationDetails?.description ?? place.description}</p>
+          <div className="detail-meta"><span><Clock3 size={16} /> {place.timeInfo}</span><span><MapPin size={16} /> Salento, Quindío</span></div>
         </div>
         <aside className="price-panel">
           <p className="eyebrow">Precios y servicios</p><h2>Opciones disponibles</h2>
@@ -454,17 +360,17 @@ function PlaceDetail({ place, currency, onBack }: { place: Place; currency: Curr
           <div className="price-line"><span>Moneda seleccionada</span><strong>{currency}</strong></div>
           <small>El pautante confirma disponibilidad y precio final directamente contigo.</small>
           <div className="detail-actions">
-            {place.whatsapp && <a className="dark-button" href={`https://wa.me/${place.whatsapp}?text=Hola%20${encodeURIComponent(place.name)}`} target="_blank" rel="noopener noreferrer"><MessageSquare size={16} /> Consultar por WhatsApp</a>}
-            {place.phone && <a className="outline-button" href={`tel:${place.phone}`}><Phone size={16} /> Llamar</a>}
-            {place.email && <a className="outline-button" href={`mailto:${place.email}`}><Mail size={16} /> Enviar correo</a>}
+            {place.contact.whatsapp && <a className="dark-button" href={`https://wa.me/${place.contact.whatsapp}?text=Hola%20${encodeURIComponent(place.name)}`} target="_blank" rel="noopener noreferrer"><MessageSquare size={16} /> Consultar por WhatsApp</a>}
+            {place.contact.phone && <a className="outline-button" href={`tel:${place.contact.phone}`}><Phone size={16} /> Llamar</a>}
+            {place.contact.email && <a className="outline-button" href={`mailto:${place.contact.email}`}><Mail size={16} /> Enviar correo</a>}
           </div>
         </aside>
       </div>
-      {place.detailInfo && <div className="detail-sections">
-        <InfoList title="Servicios y comodidades" items={place.detailInfo.services} />
-        <InfoList title="En la habitación" items={place.detailInfo.roomFeatures} />
-        <InfoList title="Lugares cercanos" items={place.detailInfo.nearby} />
-        <InfoList title="Horarios y políticas" items={place.detailInfo.policies} />
+      {place.accommodationDetails && <div className="detail-sections">
+        <InfoList title="Servicios y comodidades" items={place.accommodationDetails.services} />
+        <InfoList title="En la habitación" items={place.accommodationDetails.roomFeatures} />
+        <InfoList title="Lugares cercanos" items={place.accommodationDetails.nearby} />
+        <InfoList title="Horarios y políticas" items={place.accommodationDetails.policies} />
       </div>}
     </section>
   )
@@ -484,7 +390,7 @@ function MapControls() {
   return <div className="map-controls"><button onClick={() => map.zoomIn()} aria-label="Acercar mapa"><Plus size={17} /></button><button onClick={() => map.zoomOut()} aria-label="Alejar mapa"><Minus size={17} /></button><button onClick={locateUser} aria-label="Usar mi ubicación"><MapPin size={17} /></button></div>
 }
 
-function Cart({ count, currency, onClose, onAdd }: { count: number; currency: Currency; onClose: () => void; onAdd: () => void }) {
+function Cart({ count, currency, onClose, onAdd, hotels }: { count: number; currency: Currency; onClose: () => void; onAdd: () => void; hotels: HotelType[] }) {
   const [checkout, setCheckout] = useState(false)
   const [submitted, setSubmitted] = useState(false)
 
