@@ -29,6 +29,61 @@
 .loading-spinner { font: 14px 'DM Mono'; color: var(--ink); text-align: center; }
 .loading-spinner::before { content: ''; display: block; width: 40px; height: 40px; margin: 0 auto 20px; border: 3px solid var(--line); border-top-color: var(--coral); border-radius: 50%; animation: spin 1s linear infinite; }
 @keyframes spin { to { transform: rotate(360deg); } }
+.offline-warning { display: flex; align-items: center; gap: 8px; padding: 10px 12px; background: #fff3cd; border: 1px solid #ffc107; border-radius: 4px; color: #856404; font-size: 11px; margin-bottom: 16px; }
+.offline-warning span { font-size: 14px; }
+.weather-events-banner { display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; background: var(--paper); border-bottom: 1px solid var(--line); gap: 16px; }
+.weather-events-banner.green { border-left: 4px solid var(--green); }
+.weather-events-banner.yellow { border-left: 4px solid var(--yellow); }
+.weather-events-banner.red { border-left: 4px solid var(--coral); }
+.weather-info { display: flex; align-items: center; gap: 12px; flex: 1; }
+.weather-icon { font-size: 24px; }
+.weather-details { display: flex; flex-direction: column; gap: 4px; }
+.weather-temp { font: 12px 'DM Mono'; color: var(--ink); font-weight: 600; }
+.weather-recommendation { font-size: 11px; color: #70796e; }
+.events-info { display: flex; align-items: center; gap: 12px; }
+.events-count { font-size: 11px; color: var(--ink); font-weight: 600; background: #f0f0f0; padding: 4px 8px; border-radius: 12px; }
+.close-banner { background: none; border: none; cursor: pointer; color: #70796e; padding: 4px; }
+.close-banner:hover { color: var(--ink); }
+.qr-scanner-container { max-width: 600px; margin: 40px auto; padding: 24px; background: white; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+.qr-header { margin-bottom: 24px; }
+.qr-header h3 { margin: 0 0 8px 0; color: var(--ink); }
+.qr-description { margin: 0; color: #70796e; font-size: 14px; }
+.qr-controls { display: flex; gap: 12px; margin-bottom: 24px; }
+.qr-button { flex: 1; padding: 12px 16px; background: var(--coral); color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: 600; }
+.qr-button.secondary { background: var(--green); }
+.qr-button:hover { opacity: 0.9; }
+.qr-display { background: #f9f9f9; padding: 20px; border-radius: 6px; margin-bottom: 24px; }
+.qr-code-visual { display: flex; flex-direction: column; align-items: center; margin-bottom: 20px; }
+.qr-placeholder { width: 200px; height: 200px; background: white; border: 2px solid var(--line); border-radius: 8px; display: flex; align-items: center; justify-content: center; }
+.qr-pattern { width: 160px; height: 160px; position: relative; }
+.qr-corner { position: absolute; width: 40px; height: 40px; border: 4px solid var(--ink); }
+.qr-corner.top-left { top: 0; left: 0; border-right: none; border-bottom: none; }
+.qr-corner.top-right { top: 0; right: 0; border-left: none; border-bottom: none; }
+.qr-corner.bottom-left { bottom: 0; left: 0; border-right: none; border-top: none; }
+.qr-center { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 30px; height: 30px; background: var(--coral); border-radius: 4px; }
+.qr-id { margin-top: 12px; font: 11px 'DM Mono'; color: #70796e; }
+.qr-info { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 20px; }
+.qr-info-item { display: flex; flex-direction: column; }
+.qr-label { font-size: 11px; color: #70796e; margin-bottom: 4px; }
+.qr-value { font-size: 13px; color: var(--ink); font-weight: 600; }
+.qr-value.active { color: var(--green); }
+.qr-value.inactive { color: var(--coral); }
+.qr-stats { background: white; padding: 16px; border-radius: 4px; margin-bottom: 20px; }
+.qr-stats h4 { margin: 0 0 12px 0; color: var(--ink); }
+.stat-item { display: flex; justify-content: space-between; margin-bottom: 8px; }
+.stat-label { font-size: 12px; color: #70796e; }
+.stat-value { font-size: 12px; color: var(--ink); font-weight: 600; }
+.qr-session-demo { background: white; padding: 16px; border-radius: 4px; margin-bottom: 20px; }
+.qr-session-demo h4 { margin: 0 0 12px 0; color: var(--ink); }
+.session-form { display: flex; gap: 8px; margin-bottom: 12px; }
+.session-input { flex: 1; padding: 8px 12px; border: 1px solid var(--line); border-radius: 4px; }
+.session-button { padding: 8px 16px; background: var(--green); color: white; border: none; border-radius: 4px; cursor: pointer; }
+.session-button:disabled { opacity: 0.5; cursor: not-allowed; }
+.session-success { color: var(--green); font-size: 12px; margin-top: 8px; }
+.qr-instructions { background: #f0f0f0; padding: 16px; border-radius: 4px; }
+.qr-instructions h4 { margin: 0 0 12px 0; color: var(--ink); }
+.qr-instructions ol { margin: 0; padding-left: 20px; }
+.qr-instructions li { margin-bottom: 8px; font-size: 13px; color: #70796e; }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body { margin: 0; min-width: 320px; background: var(--paper); overflow-x: hidden; }

@@ -363,8 +363,58 @@
         "meetingPoint": "Variable según plan",
         "cancellationPolicy": "24 horas antes para reembolso completo"
       }
+    },
+    {
+      "id": 9,
+      "name": "Finca Hotel El Ocaso",
+      "type": "Alojamientos",
+      "description": "Experiencia auténtica de la cultura cafetera con habitaciones confortables rodeadas de naturaleza. Ubicada en entorno tranquilo cerca de Salento, combina la hospitalidad tradicional con comodidades modernas.",
+      "priceRange": "$$$",
+      "rating": "4.7",
+      "timeInfo": "Reservas directas",
+      "badge": "Experiencia rural",
+      "color": "sage",
+      "icon": "Hotel",
+      "contact": {
+        "phone": "+57 300 0000000",
+        "whatsapp": "573000000000",
+        "email": "info@fincahotelocaso.com"
+      },
+      "location": {
+        "lat": 4.6350,
+        "lng": -75.5680,
+        "address": "Vía rural, Salento",
+        "landmark": "10-15 min del centro de Salento"
+      },
+      "photos": [
+        "/pautas/finca_hotel_el_ocaso/imagenes/fachada.webp",
+        "/pautas/finca_hotel_el_ocaso/imagenes/habitacion.webp",
+        "/pautas/finca_hotel_el_ocaso/imagenes/jardines.webp",
+        "/pautas/finca_hotel_el_ocaso/imagenes/desayuno.webp",
+        "/pautas/finca_hotel_el_ocaso/imagenes/vistas.webp"
+      ],
+      "operatingHours": {
+        "notes": "Check-in: 14:00-20:00, Check-out: 08:00-12:00, Desayuno: 7:00-10:00"
+      },
+      "tags": ["finca hotel", "rural", "naturaleza", "café", "parejas", "familias"],
+      "verified": true,
+      "active": true,
+      "accommodationDetails": {
+        "categoryLabel": "Finca Hotel · experiencia rural auténtica en el Eje Cafetero",
+        "stars": 3,
+        "roomTypes": ["Doble", "Triple", "Cuádruple", "Suite familiar"],
+        "services": ["Desayuno incluido", "Wi-Fi áreas comunes", "Parqueadero gratuito", "Jardines y zonas verdes", "Chimenea", "Terraza con vistas", "Área de descanso", "Información turística", "Zona de BBQ", "Tour de café disponible"],
+        "roomFeatures": ["Habitaciones con vistas panorámicas", "Baños privados", "Agua caliente", "Ropa de cama calidad", "Ventilación natural", "Calefacción zonas comunes"],
+        "nearby": ["Salento centro · 10-15 min en carro", "Valle de Cocora · 20 min en carro", "Cascada Santa Rita · 15 min en carro", "Miradores cercanos", "Fincas cafeteras rodeando", "Senderos locales"],
+        "policies": ["Check-in: 14:00-20:00", "Check-out: 08:00-12:00", "Desayuno: 7:00-10:00", "Política de mascotas: Consultar", "Niños: Bienvenidos", "Fumar: Solo áreas designadas"],
+        "checkIn": "14:00 - 20:00",
+        "checkOut": "08:00 - 12:00",
+        "amenities": ["Desayuno tradicional", "Café de la finca", "Vistas panorámicas", "Entorno natural", "Chimenea"],
+        "capacity": "Máximo 20 huéspedes",
+        "bookingNotes": "Las tarifas varían según temporada y tipo de habitación. Confirmar directamente para disponibilidad y precios exactos."
+      }
     }
   ],
-  "lastUpdated": "2026-08-28T11:25:00.000Z",
-  "version": "1.0.0"
+  "lastUpdated": "2026-08-28T11:41:00.000Z",
+  "version": "1.1.0"
 }
