@@ -1,0 +1,11 @@
+{
+  "name": "Salento a la mano",
+  "short_name": "Salento",
+  "description": "Mapa digital, pedidos locales y planes para descubrir Salento.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f5f1e8",
+  "theme_color": "#27362b",
+  "lang": "es-CO",
+  "icons": [{ "src": "/logo_salento2026.png", "sizes": "192x192", "type": "image/png" }]
+}
