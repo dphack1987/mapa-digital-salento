@@ -346,6 +346,7 @@ function PlaceCard({ place, currency, onAdd, onOpen }: { place: Place; currency:
   return (
     <article className="place-card">
       <div className={`place-image ${place.color}`}>
+        {place.photos?.[0] && <img className="place-photo" src={place.photos[0]} alt={`Hotel ${place.name}`} />}
         <div className="image-pattern" />
         <span className="place-badge">{place.badge}</span>
         <button className="heart-button" aria-label={`Guardar ${place.name}`}>
