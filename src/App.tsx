@@ -47,6 +47,7 @@ type Place = {
   phone?: string
   whatsapp?: string
   email?: string
+  photos?: string[]
 }
 
 const places: Place[] = [
@@ -119,6 +120,19 @@ const places: Place[] = [
     phone: '+57 311 3903550',
     whatsapp: '573113903550',
     email: 'caminonacionalhotel@gmail.com',
+    photos: [
+      '/pautas/hotel_camino_nacional/imagenes/1326164875.webp',
+      '/pautas/hotel_camino_nacional/imagenes/1669032660.webp',
+      '/pautas/hotel_camino_nacional/imagenes/1669032671.webp',
+      '/pautas/hotel_camino_nacional/imagenes/1669032675.webp',
+      '/pautas/hotel_camino_nacional/imagenes/1669032677.webp',
+      '/pautas/hotel_camino_nacional/imagenes/1669032704.webp',
+      '/pautas/hotel_camino_nacional/imagenes/1669032914.webp',
+      '/pautas/hotel_camino_nacional/imagenes/1672597073.webp',
+      '/pautas/hotel_camino_nacional/imagenes/1672597074.webp',
+      '/pautas/hotel_camino_nacional/imagenes/1672597077.webp',
+      '/pautas/hotel_camino_nacional/imagenes/631033284.webp',
+    ],
   },
   {
     id: 6,
@@ -186,6 +200,7 @@ function App() {
   const [mobileNav, setMobileNav] = useState(false)
   const [language, setLanguage] = useState<Language>(() => navigator.language.toLowerCase().startsWith('en') ? 'en' : 'es')
   const [currency, setCurrency] = useState<Currency>('COP')
+  const [selectedPlace, setSelectedPlace] = useState<Place | null>(null)
   const text = copy[language]
 
   const filteredPlaces = useMemo(() => {
@@ -223,6 +238,7 @@ function App() {
       </header>
 
       <main id="inicio">
+        {selectedPlace ? <PlaceDetail place={selectedPlace} currency={currency} onBack={() => setSelectedPlace(null)} /> : <>
         <section className="hero" id="explora">
           <div className="hero-copy">
             <img className="hero-logo" src="/logo_salento2026.png" alt="Mapa turístico, comercial y gastronómico de Salento" />
@@ -259,7 +275,7 @@ function App() {
           </div>
           <div className="directory-intro"><span><MapPin size={16} /> Directorio local</span><small>{filteredPlaces.length} lugares para descubrir</small></div>
           <div className="place-grid">
-            {filteredPlaces.map((place) => <PlaceCard key={place.id} place={place} currency={currency} onAdd={addToCart} />)}
+            {filteredPlaces.map((place) => <PlaceCard key={place.id} place={place} currency={currency} onAdd={addToCart} onOpen={() => setSelectedPlace(place)} />)}
             {filteredPlaces.length === 0 && <div className="empty-state">No encontramos ese plan todavía. Prueba con “café”, “artesanía” o “trucha”.</div>}
           </div>
         </section>
@@ -274,6 +290,7 @@ function App() {
             <section className="advertising-section" id="pautas"><div><p className="eyebrow">Hazte visible en Salento</p><h2>Pautas que llegan<br /><i>al lugar correcto.</i></h2><p>Tu negocio aparece en el mapa digital, en las búsquedas y frente a turistas listos para comprar o reservar.</p></div><div className="advertising-cards"><article><span className="ad-tag">Gastronomía</span><strong>Tu sabor, en el mapa.</strong><small>Ficha + ubicación + pedidos</small></article><article><span className="ad-tag green-tag">Comercio local</span><strong>Lo local se encuentra.</strong><small>Ficha + ubicación + contacto</small></article><article><span className="ad-tag yellow-tag">Experiencias</span><strong>El plan empieza aquí.</strong><small>Ficha + reservas + rutas</small></article></div><button className="dark-button ad-button">Conoce las pautas <ArrowRight size={17} /></button></section>
 
         <section className="stay-banner" id="experiencias"><div><p className="eyebrow">Para tu estadía</p><h2>Que no te cuenten<br /><i>el plan completo.</i></h2></div><div className="stay-actions"><p>Recibe recomendaciones según tu hospedaje, tus gustos y el tiempo que tienes.</p><button className="outline-button">Personalizar mi visita <ArrowRight size={16} /></button></div></section>
+        </>}
       </main>
 
       <footer><span>Salento a la mano · Guía comercial y gastronómica</span><span>Hecho con cariño en el Quindío</span></footer>
@@ -307,7 +324,7 @@ function categoryToMapType(category: Category) {
   return 'Turístico'
 }
 
-function PlaceCard({ place, currency, onAdd }: { place: Place; currency: Currency; onAdd: () => void }) {
+function PlaceCard({ place, currency, onAdd, onOpen }: { place: Place; currency: Currency; onAdd: () => void; onOpen: () => void }) {
   const Icon = place.icon
   return (
     <article className="place-card">
@@ -339,6 +356,7 @@ function PlaceCard({ place, currency, onAdd }: { place: Place; currency: Currenc
         <small className="currency-hint">
           Desde {formatPrice(35000, currency)} · tasa de referencia
         </small>
+        <button className="detail-button" onClick={onOpen}>Ver ficha <ArrowRight size={14} /></button>
         <div className="contact-actions">
           {place.whatsapp && (
             <a
@@ -372,6 +390,41 @@ function PlaceCard({ place, currency, onAdd }: { place: Place; currency: Currenc
         </div>
       </div>
     </article>
+  )
+}
+
+function PlaceDetail({ place, currency, onBack }: { place: Place; currency: Currency; onBack: () => void }) {
+  const photos = place.photos ?? []
+  return (
+    <section className="place-detail">
+      <div className="detail-topbar">
+        <button className="back-button detail-back" onClick={onBack}><ArrowRight size={16} /> Volver al directorio</button>
+        <span>{place.type}</span>
+      </div>
+      <div className="detail-heading">
+        <div><p className="eyebrow"><span /> Ficha del pautante</p><h1>{place.name}</h1><p>{place.description}</p></div>
+        <span className="detail-rating"><Star size={15} fill="currentColor" /> {place.rating}</span>
+      </div>
+      {photos.length > 0 && <div className="detail-gallery">{photos.map((photo, index) => <img key={photo} src={photo} alt={`${place.name}, foto ${index + 1}`} />)}</div>}
+      <div className="detail-content">
+        <div>
+          <p className="eyebrow">Información</p><h2>Conoce este lugar</h2>
+          <p className="detail-description">{place.description} Encuentra atención local, detalles del servicio y opciones para planear tu visita directamente con el negocio.</p>
+          <div className="detail-meta"><span><Clock3 size={16} /> {place.time}</span><span><MapPin size={16} /> Salento, Quindío</span></div>
+        </div>
+        <aside className="price-panel">
+          <p className="eyebrow">Precios y servicios</p><h2>Opciones disponibles</h2>
+          <div className="price-line"><span>Servicio principal</span><strong>Consultar tarifa</strong></div>
+          <div className="price-line"><span>Moneda seleccionada</span><strong>{currency}</strong></div>
+          <small>El pautante confirma disponibilidad y precio final directamente contigo.</small>
+          <div className="detail-actions">
+            {place.whatsapp && <a className="dark-button" href={`https://wa.me/${place.whatsapp}?text=Hola%20${encodeURIComponent(place.name)}`} target="_blank" rel="noopener noreferrer"><MessageSquare size={16} /> Consultar por WhatsApp</a>}
+            {place.phone && <a className="outline-button" href={`tel:${place.phone}`}><Phone size={16} /> Llamar</a>}
+            {place.email && <a className="outline-button" href={`mailto:${place.email}`}><Mail size={16} /> Enviar correo</a>}
+          </div>
+        </aside>
+      </div>
+    </section>
   )
 }
 
