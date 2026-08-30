@@ -4,15 +4,18 @@ import 'leaflet/dist/leaflet.css'
 import {
   ArrowRight,
   Bike,
+  Bell,
   ChevronDown,
   Clock3,
   Coffee,
   Compass,
   Heart,
+  LifeBuoy,
   Hotel,
   Mail,
   MapPin,
   Menu,
+  ShoppingBag,
   MessageCircle,
   MessageSquare,
   Minus,
@@ -37,6 +40,17 @@ import currencyService from './services/currencyService'
 import weatherService from './services/weatherService'
 import eventsService from './services/eventsService'
 import hotelQRService from './services/qrHotelService'
+import donationService from './services/donationService'
+import gamificationService from './services/gamificationService'
+import notificationService from './services/notificationService'
+import NotificationsPanel from './components/NotificationsPanel'
+import horsebackRidingService from './services/horsebackRidingService'
+import HorsebackRiding from './components/HorsebackRiding'
+import reviewsService from './services/reviewsService'
+import Reviews from './components/Reviews'
+import analyticsService from './services/analyticsService'
+import supportService from './services/supportService'
+import SupportCenter from './components/SupportCenter'
 
 // Mapeo de iconos para compatibilidad con estructura JSON
 const iconMap: Record<string, any> = {
@@ -79,6 +93,12 @@ function adaptPlaceForCompatibility(place: Place): any {
 currencyService.initialize()
 weatherService.initialize()
 eventsService.initialize()
+donationService.initialize()
+gamificationService.initialize()
+horsebackRidingService.initialize()
+reviewsService.generateSampleReviews()
+analyticsService.initialize()
+supportService.initialize()
 
 // Inicializar sistema QR con hoteles existentes
 hotelQRService.initializeWithHotels([
@@ -106,6 +126,11 @@ function App() {
   const [weather, setWeather] = useState<any>(null)
   const [todayEvents, setTodayEvents] = useState<any[]>([])
   const [showWeatherBanner, setShowWeatherBanner] = useState(true)
+  const [showNotifications, setShowNotifications] = useState(false)
+  const [showHorsebackRiding, setShowHorsebackRiding] = useState(false)
+  const [showReviews, setShowReviews] = useState<string | null>(null)
+  const [selectedPlaceForReviews, setSelectedPlaceForReviews] = useState<{ id: string; name: string; type: string } | null>(null)
+  const [showSupport, setShowSupport] = useState(false)
   
   // Función helper para obtener traducciones
   const t = (key: string, fallback?: string) => translationService.translate(key, fallback)
@@ -127,6 +152,15 @@ function App() {
         setHotels(loadedHotels)
         setWeather(weatherData)
         setTodayEvents(eventsData)
+        
+        // Generar alertas inteligentes
+        if (weatherData) {
+          notificationService.generateWeatherAlert(weatherData)
+        }
+        
+        eventsData.forEach((event: any) => {
+          notificationService.generateEventAlert(event)
+        })
         
         // Iniciar servicio de sincronización de pedidos
         orderSyncService.start()
@@ -171,20 +205,42 @@ function App() {
 
   return (
     <div className="app-shell">
-      <header className="topbar">
-        <a className="brand" href="#inicio" aria-label="Salento a la mano">
-          <img src="/logo_salento2026.png" alt="" />
-          <span>Salento <em>a la mano</em></span>
-        </a>
-          <nav className={mobileNav ? 'main-nav open' : 'main-nav'}>
-          <a className="active" href="#explora" onClick={() => setMobileNav(false)}>{t('explore')}</a>
-          <a href="#pedidos" onClick={() => setMobileNav(false)}>{t('order')}</a>
-          <a href="#experiencias" onClick={() => setMobileNav(false)}>{t('experiences')}</a>
-          <a href="#pautas" onClick={() => setMobileNav(false)}>Pautas locales</a>
-        </nav>
-        <div className="header-actions">
+      <header className="mobile-header">
+        <div className="identity-header">
+          <div className="brand-mobile">
+            <img src="/logo_salento2026.png" alt="Salento a la Mano" className="mobile-logo" />
+            <div className="brand-text">
+              <h1>Salento a la Mano 🇨🇴</h1>
+              <p className="subtitle">Tu red de servicios directos en el corazón del Quindío</p>
+              <p className="no-intermediaries">Sin intermediarios, trato directo con locales</p>
+            </div>
+          </div>
+          <div className="location-indicator">
+            <MapPin size={16} />
+            <span>📍 Estás en Salento</span>
+            <span className="connection-status">Conexión activa con aliados oficiales</span>
+          </div>
+        </div>
+        <div className="header-actions-mobile">
+          <button className="icon-button notification-trigger" aria-label="Notificaciones" onClick={() => setShowNotifications(!showNotifications)}>
+            <Bell size={18} />
+            {notificationService.getUnreadNotifications().length > 0 && (
+              <span className="notification-dot" />
+            )}
+          </button>
+          <button className="icon-button support-trigger" aria-label="Soporte" onClick={() => setShowSupport(true)}>
+            <LifeBuoy size={18} />
+          </button>
+          <button className="cart-button" onClick={() => setShowCart(true)} aria-label="Carrito">
+            <ShoppingBag size={16} />
+            <b>{cartCount}</b>
+            <span>Carrito</span>
+          </button>
           <button className="icon-button mobile-menu" aria-label="Abrir menú" onClick={() => setMobileNav(!mobileNav)}><Menu size={20} /></button>
-          <div className="locale-tools"><button className="locale-button" onClick={() => handleLanguageChange(language === 'es' ? 'en' : 'es')}>{language.toUpperCase()}</button><select aria-label="Cambiar moneda" value={currency} onChange={(event) => setCurrency(event.target.value as Currency)}><option value="COP">COP</option><option value="USD">USD</option><option value="EUR">EUR</option></select></div><button className="cart-button" onClick={() => setShowCart(true)}><ShoppingBag size={18} /><span>{t('orderTitle')}</span><b>{cartCount}</b></button>
+          <div className="locale-tools-mobile">
+            <button className="locale-button" onClick={() => handleLanguageChange(language === 'es' ? 'en' : 'es')}>{language.toUpperCase()}</button>
+            <select aria-label="Cambiar moneda" value={currency} onChange={(event) => setCurrency(event.target.value as Currency)}><option value="COP">COP</option><option value="USD">USD</option><option value="EUR">EUR</option></select>
+          </div>
         </div>
       </header>
 
@@ -212,28 +268,76 @@ function App() {
             <div className="loading-spinner">{t('loading')}</div>
           </div>
         ) : selectedPlace ? <PlaceDetail place={selectedPlace} currency={currency} onBack={() => setSelectedPlace(null)} language={language} t={t} /> : <>
-        <section className="hero" id="explora">
-          <div className="hero-copy">
-            <img className="hero-logo" src="/logo_salento2026.png" alt="Mapa turístico, comercial y gastronómico de Salento" />
-            <p className="eyebrow"><span /> {t('guide')}</p>
-            <h1>{t('title')}</h1>
-            <p className="hero-description">{t('description')}</p>
-            <div className="search-box">
-              <Search size={19} />
-              <input aria-label="Buscar en Salento" placeholder={t('search')} value={search} onChange={(event) => setSearch(event.target.value)} />
-              <button aria-label="Buscar"><ArrowRight size={18} /></button>
-            </div>
-            <div className="trust-line"><span className="avatars"><b>J</b><b>M</b><b>A</b></span><span><strong>+1.200 viajeros</strong> ya exploraron Salento</span></div>
-          </div>
-          <div className="hero-art" aria-label="Ilustración del paisaje de Salento">
-            <img className="hero-photo" src="/salento/653410779.webp?v=2" alt="Palmas de cera en el Valle de Cocora" />
-            <div className="sun" />
-            <div className="mountain mountain-back" />
-            <div className="mountain mountain-front" />
-            <div className="cable cable-one" /><div className="cable cable-two" />
-            <div className="house house-one"><span /></div><div className="house house-two"><span /></div>
-            <div className="hero-note"><Compass size={17} /><span><strong>Estás aquí</strong><br />Salento, Quindío</span></div>
-            <div className="stamp">Pueblo<br /><strong>bonito</strong></div>
+        <section className="mobile-dashboard" id="servicios">
+          <div className="services-grid">
+            <button className="service-card gastronomy" onClick={() => setActiveCategory('Restaurantes')}>
+              <div className="service-icon">🍽️</div>
+              <div className="service-content">
+                <h3>Gastronomía y Supermercados</h3>
+                <p>Restaurantes típicos, cafés de origen, tiendas de abastos</p>
+                <div className="service-subcategories">
+                  <span>🐟 Trucha</span>
+                  <span>☕ Café</span>
+                  <span>🛒 Abastos</span>
+                </div>
+              </div>
+              <div className="service-action">
+                <span>Ver opciones</span>
+                <ArrowRight size={16} />
+              </div>
+            </button>
+
+            <button className="service-card transport" onClick={() => setActiveCategory('Servicios')}>
+              <div className="service-icon">🚖</div>
+              <div className="service-content">
+                <h3>Transporte Oficial</h3>
+                <p>Jeeps Willys, transporte veredal, rutas a Armenia</p>
+                <div className="service-subcategories">
+                  <span>🚙 Willys</span>
+                  <span>🏔️ Valle</span>
+                  <span>✈️ Aeropuerto</span>
+                </div>
+              </div>
+              <div className="service-action">
+                <span>Solicitar</span>
+                <ArrowRight size={16} />
+              </div>
+            </button>
+
+            <button className="service-card horseback-riding featured" onClick={() => setShowHorsebackRiding(true)}>
+              <div className="service-badge">⭐ ESPECIAL</div>
+              <div className="service-icon">🐎</div>
+              <div className="service-content">
+                <h3>Cabalgatas Tradicionales</h3>
+                <p>El sello insignia de Salento con operadores certificados</p>
+                <div className="service-subcategories">
+                  <span>🏔️ Miradores</span>
+                  <span>🌿 Valle</span>
+                  <span>🏅 Certificados</span>
+                </div>
+              </div>
+              <div className="service-action featured-action">
+                <span>Reservar ahora</span>
+                <ArrowRight size={16} />
+              </div>
+            </button>
+
+            <button className="service-card guides" onClick={() => setActiveCategory('Experiencias')}>
+              <div className="service-icon">🧭</div>
+              <div className="service-content">
+                <h3>Guías y Operadores Turísticos</h3>
+                <p>Caminatas ecológicas, aviturismo, aventura local</p>
+                <div className="service-subcategories">
+                  <span>🥾 Caminatas</span>
+                  <span>🦅 Aves</span>
+                  <span>🎯 Aventura</span>
+                </div>
+              </div>
+              <div className="service-action">
+                <span>Contactar guía</span>
+                <ArrowRight size={16} />
+              </div>
+            </button>
           </div>
         </section>
 
@@ -249,7 +353,7 @@ function App() {
           </div>
           <div className="directory-intro"><span><MapPin size={16} /> Directorio local</span><small>{filteredPlaces.length} lugares para descubrir</small></div>
           <div className="place-grid">
-            {filteredPlaces.map((place) => <PlaceCard key={place.id} place={adaptPlaceForCompatibility(place)} currency={currency} onAdd={addToCart} onOpen={() => { window.history.pushState({}, '', `#pautante-${place.id}`); setSelectedPlace(place) }} />)}
+            {filteredPlaces.map((place) => <PlaceCard key={place.id} place={adaptPlaceForCompatibility(place)} currency={currency} onAdd={addToCart} onOpen={() => { window.history.pushState({}, '', `#pautante-${place.id}`); setSelectedPlace(place) }} onReviews={() => { setShowReviews(place.id); setSelectedPlaceForReviews({ id: place.id, name: place.name, type: place.type }) }} />)}
             {filteredPlaces.length === 0 && <div className="empty-state">No encontramos ese plan todavía. Prueba con “café”, “artesanía” o “trucha”.</div>}
           </div>
         </section>
@@ -283,23 +387,77 @@ function App() {
         </>}
       </main>
 
-      <footer><span>Salento a la mano · Guía comercial y gastronómica</span><span>Hecho con cariño en el Quindío</span></footer>
+      <footer className="trust-footer">
+        <div className="footer-message">
+          <p className="footer-title">Apoyamos la economía circular de Salento</p>
+          <p className="footer-subtitle">Precios justos, trato directo y sin comisiones abusivas</p>
+        </div>
+        <div className="footer-brand">
+          <span>Salento a la mano · Guía comercial y gastronómica</span>
+          <span>Hecho con cariño en el Quindío</span>
+        </div>
+      </footer>
       {showCart && <Cart count={cartCount} currency={currency} onClose={() => setShowCart(false)} onAdd={addToCart} hotels={hotels} />}
-      <DonChucho language={language} t={t} places={places} />
+      {showNotifications && <NotificationsPanel onClose={() => setShowNotifications(false)} />}
+      {showHorsebackRiding && <HorsebackRiding onClose={() => setShowHorsebackRiding(false)} language={language as 'es' | 'en'} />}
+      {showReviews && selectedPlaceForReviews && <Reviews placeId={showReviews} placeName={selectedPlaceForReviews.name} placeType={selectedPlaceForReviews.type} onClose={() => setShowReviews(null)} language={language as 'es' | 'en'} />}
+      {showSupport && <SupportCenter onClose={() => setShowSupport(false)} language={language as 'es' | 'en'} />}
+      <DonChucho language={language} t={t} places={places} weather={weather} todayEvents={todayEvents} />
       <div className="offline-status"><span /> {t('offline')}</div>
     </div>
   )
 }
 
-function DonChucho({ language, t, places }: { language: Language; t: (key: string, fallback?: string) => string; places: Place[] }) {
+function DonChucho({ language, t, places, weather, todayEvents }: { language: Language; t: (key: string, fallback?: string) => string; places: Place[]; weather: any; todayEvents: any[] }) {
   const [open, setOpen] = useState(false)
   const [question, setQuestion] = useState('')
-  const [answer, setAnswer] = useState(t('donChucho.welcome', '¡Hola! Te ayudo a encontrar café, comida, tiendas locales o planes en Salento.'))
+  const [answer, setAnswer] = useState(t('donChucho.welcome', '¡Hola, pues! ¿Buscando dónde comer una buena trucha o un transporte para el Cocora? Pregúnteme lo que quiera.'))
   const [suggestions, setSuggestions] = useState<string[]>([])
+  const [showGreeting, setShowGreeting] = useState(true)
+  const [relatedPlace, setRelatedPlace] = useState<Place | null>(null)
   const isEnglish = language === 'en'
+
+  // Agregar alerta contextual en el mensaje de bienvenida
+  useEffect(() => {
+    if (weather && todayEvents.length > 0) {
+      const contextualGreeting = isEnglish
+        ? `Hello there! Looking for a good trout meal or transport to Cocora? Ask me anything you want. 🌡️ Today: ${weatherService.formatTemperature(weather.salento.temperature)} | 🎭 ${todayEvents.length} events today`
+        : `¡Hola, pues! ¿Buscando dónde comer una buena trucha o un transporte para el Cocora? Pregúnteme lo que quiera. 🌡️ Hoy: ${weatherService.formatTemperature(weather.salento.temperature)} | 🎭 ${todayEvents.length} eventos hoy`
+      setAnswer(contextualGreeting)
+    }
+  }, [weather, todayEvents, isEnglish])
 
   function ask(text: string) {
     setQuestion(text)
+    setShowGreeting(false)
+    setRelatedPlace(null)
+    
+    // Verificar si pregunta sobre clima
+    const weatherKeywords = ['clima', 'tiempo', 'lluvia', 'frío', 'calor', 'weather', 'rain', 'cold', 'hot']
+    const isWeatherQuestion = weatherKeywords.some(keyword => text.toLowerCase().includes(keyword))
+    
+    if (isWeatherQuestion && weather) {
+      const weatherAnswer = isEnglish 
+        ? `Currently in Salento: ${weatherService.formatTemperature(weather.salento.temperature)}. In Cocora Valley: ${weatherService.formatTemperature(weather.valleCocora.temperature)}. ${weather.recommendation}`
+        : `Actualmente en Salento: ${weatherService.formatTemperature(weather.salento.temperature)}. En el Valle de Cocora: ${weatherService.formatTemperature(weather.valleCocora.temperature)}. ${weather.recommendation}`
+      setAnswer(weatherAnswer)
+      setSuggestions(['¿Para el valle?', '¿Qué ropa llevar?', '¿Mejor hora para salir?'])
+      return
+    }
+    
+    // Verificar si pregunta sobre eventos
+    const eventKeywords = ['evento', 'festival', 'actividad', 'qué hacer', 'plan', 'event', 'festival', 'activity', 'what to do', 'plan']
+    const isEventQuestion = eventKeywords.some(keyword => text.toLowerCase().includes(keyword))
+    
+    if (isEventQuestion && todayEvents.length > 0) {
+      const eventsList = todayEvents.map(event => event.name).join(', ')
+      const eventAnswer = isEnglish
+        ? `Today there are ${todayEvents.length} events: ${eventsList}. I recommend checking them out!`
+        : `Hoy hay ${todayEvents.length} eventos: ${eventsList}. ¡Te recomiendo revisarlos!`
+      setAnswer(eventAnswer)
+      setSuggestions(['¿Más detalles?', '¿Dónde son?', '¿Horarios?'])
+      return
+    }
     
     // Usar base de conocimiento local mejorada
     const knowledgeAnswer = donChuchoKnowledge.getAnswer(text, isEnglish ? 'en' : 'es')
@@ -317,11 +475,20 @@ function DonChucho({ language, t, places }: { language: Language; t: (key: strin
         const placeNames = relatedPlaces.map(p => p.name).join(', ')
         const enhancedAnswer = knowledgeAnswer + (isEnglish ? ` Related places: ${placeNames}` : ` Lugares relacionados: ${placeNames}`)
         setAnswer(enhancedAnswer)
+        setRelatedPlace(relatedPlaces[0]) // Tomar el primer lugar relacionado
       }
     }
   }
 
-  return <div className={open ? 'chucho-widget open' : 'chucho-widget'}>{open && <div className="chucho-panel"><div className="chucho-head"><div><strong>{t('donChucho.title')}</strong><span>{t('donChucho.subtitle')}</span></div><button className="icon-button" onClick={() => setOpen(false)} aria-label="Cerrar asistente"><X size={16} /></button></div><div className="chucho-answer"><MessageCircle size={16} />{answer}</div>{suggestions.length > 0 && <div className="chucho-suggestions">{suggestions.map((suggestion, index) => <button key={index} onClick={() => ask(suggestion)}>{suggestion}</button>)}</div>}<form onSubmit={(event) => { event.preventDefault(); if (question.trim()) ask(question) }}><input value={question} onChange={(event) => setQuestion(event.target.value)} placeholder={t('donChucho.placeholder')} /><button aria-label="Enviar pregunta"><Send size={15} /></button></form></div>}<button className="chucho-trigger" onClick={() => setOpen(!open)} aria-label="Abrir asistente Don Chucho"><span className="chucho-face">☕</span><span>{t('donChucho.title')}</span><MessageCircle size={17} /></button></div>
+  function handleWhatsAppClick(place: Place) {
+    const message = isEnglish 
+      ? `Hello! I'm interested in ${place.name}. Can you help me?`
+      : `¡Hola! Estoy interesado en ${place.name}. ¿Me pueden ayudar?`
+    const whatsappUrl = `https://wa.me/${place.contact.whatsapp}?text=${encodeURIComponent(message)}`
+    window.open(whatsappUrl, '_blank')
+  }
+
+  return <div className={open ? 'chucho-widget open' : 'chucho-widget'}>{open && <div className="chucho-panel"><div className="chucho-head"><div className="chucho-avatar"><div className="chucho-hat">🎩</div><div className="chucho-face">😊</div></div><div><strong>{t('donChucho.title')}</strong><span>{t('donChucho.subtitle')}</span></div><button className="icon-button" onClick={() => setOpen(false)} aria-label="Cerrar asistente"><X size={16} /></button></div><div className="chucho-answer"><MessageCircle size={16} />{answer}</div>{relatedPlace && relatedPlace.contact.whatsapp && <div className="chucho-whatsapp"><button className="whatsapp-button" onClick={() => handleWhatsAppClick(relatedPlace)}><Phone size={16} />{isEnglish ? `Contact ${relatedPlace.name}` : `Contactar a ${relatedPlace.name}`}</button></div>}{suggestions.length > 0 && <div className="chucho-suggestions">{suggestions.map((suggestion, index) => <button key={index} onClick={() => ask(suggestion)}>{suggestion}</button>)}</div>}<form onSubmit={(event) => { event.preventDefault(); if (question.trim()) ask(question) }}><input value={question} onChange={(event) => setQuestion(event.target.value)} placeholder={t('donChucho.placeholder')} /><button aria-label="Enviar pregunta"><Send size={15} /></button></form></div>}<button className="chucho-trigger" onClick={() => setOpen(!open)} aria-label="Abrir asistente Don Chucho"><div className="chucho-avatar-mini"><div className="chucho-hat-mini">🎩</div><div className="chucho-face-mini">😊</div></div>{showGreeting && <span className="chucho-greeting">¡Hola, pues!</span>}<MessageCircle size={17} /></button></div>
 }
 
 function categoryToMapType(category: Category) {
@@ -330,8 +497,10 @@ function categoryToMapType(category: Category) {
   return 'Turístico'
 }
 
-function PlaceCard({ place, currency, onAdd, onOpen }: { place: Place; currency: Currency; onAdd: () => void; onOpen: () => void }) {
+function PlaceCard({ place, currency, onAdd, onOpen, onReviews }: { place: Place; currency: Currency; onAdd: () => void; onOpen: () => void; onReviews?: () => void }) {
   const Icon = place.icon
+  const stats = reviewsService.getPlaceStats(place.id)
+  
   return (
     <article className="place-card">
       <div className={`place-image ${place.color}`}>
@@ -347,7 +516,8 @@ function PlaceCard({ place, currency, onAdd, onOpen }: { place: Place; currency:
         <div className="place-topline">
           <span>{place.type}</span>
           <span className="rating">
-            <Star size={13} fill="currentColor" /> {place.rating}
+            <Star size={13} fill="currentColor" /> {stats.averageRating || place.rating}
+            {stats.totalReviews > 0 && <span className="review-count">({stats.totalReviews})</span>}
           </span>
         </div>
         <h3>{place.name}</h3>
@@ -364,6 +534,12 @@ function PlaceCard({ place, currency, onAdd, onOpen }: { place: Place; currency:
           Desde {formatPrice(35000, currency)} · tasa de referencia
         </small>
         <button className="detail-button" onClick={onOpen}>Ampliar información <ArrowRight size={14} /></button>
+        {onReviews && (
+          <button className="reviews-button" onClick={onReviews} aria-label={`Ver reseñas de ${place.name}`}>
+            <Star size={14} />
+            {stats.totalReviews} {stats.totalReviews === 1 ? 'reseña' : 'reseñas'}
+          </button>
+        )}
         <div className="contact-actions">
           {place.whatsapp && (
             <a
@@ -372,6 +548,7 @@ function PlaceCard({ place, currency, onAdd, onOpen }: { place: Place; currency:
               rel="noopener noreferrer"
               className="contact-btn whatsapp"
               aria-label={`Contactar ${place.name} por WhatsApp`}
+              onClick={() => analyticsService.trackClick(place.id, 'whatsapp')}
             >
               <MessageSquare size={15} />
             </a>
@@ -381,6 +558,7 @@ function PlaceCard({ place, currency, onAdd, onOpen }: { place: Place; currency:
               href={`tel:${place.phone}`}
               className="contact-btn phone"
               aria-label={`Llamar a ${place.name}`}
+              onClick={() => analyticsService.trackClick(place.id, 'phone')}
             >
               <Phone size={15} />
             </a>
@@ -390,6 +568,7 @@ function PlaceCard({ place, currency, onAdd, onOpen }: { place: Place; currency:
               href={`mailto:${place.email}`}
               className="contact-btn email"
               aria-label={`Enviar correo a ${place.name}`}
+              onClick={() => analyticsService.trackClick(place.id, 'email')}
             >
               <Mail size={15} />
             </a>
@@ -461,6 +640,9 @@ function Cart({ count, currency, onClose, onAdd, hotels }: { count: number; curr
   const [submitted, setSubmitted] = useState(false)
   const [isOffline, setIsOffline] = useState(!navigator.onLine)
   const [syncStatus, setSyncStatus] = useState<{ pending: number }>({ pending: 0 })
+  const [showDonation, setShowDonation] = useState(false)
+  const [selectedDonation, setSelectedDonation] = useState<number | null>(null)
+  const [donationCause, setDonationCause] = useState<string | null>(null)
 
   // Escuchar cambios de conexión
   useEffect(() => {
