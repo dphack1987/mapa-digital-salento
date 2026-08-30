@@ -23,7 +23,6 @@ import {
   Plus,
   Search,
   Send,
-  ShoppingBag,
   ShoppingBasket,
   Sparkles,
   Star,

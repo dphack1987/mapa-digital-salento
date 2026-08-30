@@ -1,5 +1,5 @@
 // Servicio de traducción simplificado para compatibilidad TypeScript
-import { Language } from '../types'
+import type { Language } from '../types'
 
 interface TranslationDict {
   [key: string]: string

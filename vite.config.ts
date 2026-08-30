@@ -8,9 +8,16 @@ export default defineConfig({
     sourcemap: true,
     rollupOptions: {
       output: {
-        manualChunks: {
-          vendor: ['react', 'react-dom'],
-          leaflet: ['leaflet', 'react-leaflet']
+        manualChunks: (id) => {
+          if (id.includes('node_modules')) {
+            if (id.includes('react') || id.includes('react-dom')) {
+              return 'vendor';
+            }
+            if (id.includes('leaflet')) {
+              return 'leaflet';
+            }
+            return 'vendor';
+          }
         }
       }
     }
