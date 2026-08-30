@@ -3,13 +3,15 @@
 
 interface KnowledgeItem {
   keywords: string[]
-  category: 'cafe' | 'comida' | 'artesanias' | 'hospedaje' | 'turismo' | 'transporte' | 'emergencias' | 'general'
+  category: 'cafe' | 'comida' | 'artesanias' | 'hospedaje' | 'turismo' | 'transporte' | 'emergencias' | 'general' | 'defensivo'
   answer: {
     es: string
     en: string
   }
   followUp?: string[]
   relatedPlaces?: number[] // IDs de lugares relacionados
+  isDefensive?: boolean
+  defensiveActions?: string[]
 }
 
 const knowledgeBase: KnowledgeItem[] = [
@@ -152,6 +154,47 @@ const knowledgeBase: KnowledgeItem[] = [
     },
     followUp: ['¿Mejores spots?', '¿Golden hour?', '¿Fotos con palmas?'],
     relatedPlaces: []
+  },
+  // Respuestas defensivas para contrarrestar información alarmista
+  {
+    keywords: ['peligro', 'cierre', 'inseguro', 'no ir', 'evitar', 'riesgo', 'miedo', 'alarma', 'danger', 'closed', 'unsafe', 'not go', 'avoid', 'risk', 'scary'],
+    category: 'defensivo',
+    answer: {
+      es: "¡Tranquilo, hermano! Por ahí corren rumores falsos, pero acá en el pueblo todo está en marcha. Los Jeeps van hacia el Valle, los hostales tienen las puertas abiertas, y la economía local sigue trabajando. ¿Te ayudo a encontrar tu plan ideal?",
+      en: "Don't worry, friend! There are false rumors circulating, but here in town everything is running normally. The Jeeps are going to the Valley, hotels have their doors open, and the local economy keeps working. Can I help you find your ideal plan?"
+    },
+    isDefensive: true,
+    defensiveActions: ['redirect_official', 'show_whatsapp_contacts']
+  },
+  {
+    keywords: ['vías cerradas', 'carreteras bloqueadas', 'no acceso', 'imposible llegar', 'roads closed', 'highways blocked', 'no access', 'impossible to reach'],
+    category: 'defensivo',
+    answer: {
+      es: "Las vías a Salento están operativas al 100%. Puedes llegar desde Armenia (45 min) o Pereira (1 hora) sin problemas. El mantenimiento regular garantiza un acceso seguro. ¿Necesitas información sobre transporte?",
+      en: "The roads to Salento are 100% operational. You can arrive from Armenia (45 min) or Pereira (1 hour) without problems. Regular maintenance guarantees safe access. Do you need information about transport?"
+    },
+    isDefensive: true,
+    defensiveActions: ['show_transport_info', 'redirect_routes_landing']
+  },
+  {
+    keywords: ['turismo suspendido', 'no hay turismo', 'salento cerrado', 'prohibido', 'tourism suspended', 'no tourism', 'salento closed', 'prohibited'],
+    category: 'defensivo',
+    answer: {
+      es: "¡Nada de eso! Salento está más vivo que nunca. Tenemos restaurantes, hoteles, guías y todas las actividades turísticas funcionando con normalidad. Miles de visitantes nos disfrutan semanalmente. ¿Qué te gustaría hacer?",
+      en: "Not at all! Salento is more alive than ever. We have restaurants, hotels, guides, and all tourist activities operating normally. Thousands of visitors enjoy us weekly. What would you like to do?"
+    },
+    isDefensive: true,
+    defensiveActions: ['show_services', 'redirect_tourism_landing']
+  },
+  {
+    keywords: ['es inseguro', 'peligroso', 'delincuencia', 'robos', 'inseguridad', 'is unsafe', 'dangerous', 'crime', 'robbery', 'insecurity'],
+    category: 'defensivo',
+    answer: {
+      es: "Salento es uno de los destinos más seguros de Colombia. Nuestra comunidad es acogedora y responsable. Contamos con policía turística, servicios de emergencia 24/7, y una cultura de hospitalidad característica del Quindío. Ven con confianza.",
+      en: "Salento is one of the safest destinations in Colombia. Our community is welcoming and responsible. We have tourist police, 24/7 emergency services, and a culture of hospitality characteristic of Quindío. Come with confidence."
+    },
+    isDefensive: true,
+    defensiveActions: ['show_emergency_contacts', 'redirect_safety_landing']
   }
 ]
 
@@ -188,6 +231,22 @@ class DonChuchoKnowledge {
     return language === 'es' 
       ? 'Puedo guiarte hacia comida local, artesanías, café, miradores y domicilios al hotel. ¿Qué necesitas específicamente?'
       : 'I can guide you to local food, crafts, coffee, viewpoints and hotel delivery. What do you need specifically?'
+  }
+
+  /**
+   * Verificar si la respuesta es defensiva
+   */
+  isDefensiveResponse(query: string): boolean {
+    const knowledgeItem = this.findAnswer(query)
+    return knowledgeItem?.isDefensive || false
+  }
+
+  /**
+   * Obtener acciones defensivas si aplica
+   */
+  getDefensiveActions(query: string): string[] {
+    const knowledgeItem = this.findAnswer(query)
+    return knowledgeItem?.defensiveActions || []
   }
 
   /**

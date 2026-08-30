@@ -50,6 +50,8 @@ import Reviews from './components/Reviews'
 import analyticsService from './services/analyticsService'
 import supportService from './services/supportService'
 import SupportCenter from './components/SupportCenter'
+import seoLandingService from './services/seoLandingService'
+import DynamicLandingPage from './components/DynamicLandingPage'
 
 // Mapeo de iconos para compatibilidad con estructura JSON
 const iconMap: Record<string, any> = {
@@ -98,6 +100,7 @@ horsebackRidingService.initialize()
 reviewsService.generateSampleReviews()
 analyticsService.initialize()
 supportService.initialize()
+seoLandingService.initialize()
 
 // Inicializar sistema QR con hoteles existentes
 hotelQRService.initializeWithHotels([
@@ -130,6 +133,7 @@ function App() {
   const [showReviews, setShowReviews] = useState<string | null>(null)
   const [selectedPlaceForReviews, setSelectedPlaceForReviews] = useState<{ id: string; name: string; type: string } | null>(null)
   const [showSupport, setShowSupport] = useState(false)
+  const [showLandingPage, setShowLandingPage] = useState<string | null>(null)
   
   // Función helper para obtener traducciones
   const t = (key: string, fallback?: string) => translationService.translate(key, fallback)
@@ -174,6 +178,12 @@ function App() {
       }
     }
     loadData()
+
+    // Check for landing page in URL
+    const hash = window.location.hash.replace('#', '')
+    if (hash && (hash.startsWith('estado-') || hash.startsWith('hoteles-') || hash.startsWith('valle-') || hash.startsWith('turismo-') || hash.startsWith('transporte-'))) {
+      setShowLandingPage(hash)
+    }
 
     // Cleanup al desmontar
     return () => {
@@ -338,6 +348,41 @@ function App() {
               </div>
             </button>
           </div>
+
+          <div className="official-info-section">
+            <h3>🛡️ Información Oficial</h3>
+            <p>Reportes actualizados del estado de Salento</p>
+            <div className="official-links">
+              <button 
+                className="official-link" 
+                onClick={() => setShowLandingPage('estado-vias-salento-hoy')}
+              >
+                <MapPin size={16} />
+                Estado de Vías
+              </button>
+              <button 
+                className="official-link" 
+                onClick={() => setShowLandingPage('hoteles-hostales-abiertos-salento')}
+              >
+                <Hotel size={16} />
+                Alojamientos
+              </button>
+              <button 
+                className="official-link" 
+                onClick={() => setShowLandingPage('valle-cocora-operativo-seguro')}
+              >
+                <Mountain size={16} />
+                Valle de Cocora
+              </button>
+              <button 
+                className="official-link" 
+                onClick={() => setShowLandingPage('turismo-salento-seguro-hoy')}
+              >
+                <Shield size={16} />
+                Seguridad
+              </button>
+            </div>
+          </div>
         </section>
 
         <section className="quick-section" id="pedidos">
@@ -401,6 +446,7 @@ function App() {
       {showHorsebackRiding && <HorsebackRiding onClose={() => setShowHorsebackRiding(false)} language={language as 'es' | 'en'} />}
       {showReviews && selectedPlaceForReviews && <Reviews placeId={showReviews} placeName={selectedPlaceForReviews.name} placeType={selectedPlaceForReviews.type} onClose={() => setShowReviews(null)} language={language as 'es' | 'en'} />}
       {showSupport && <SupportCenter onClose={() => setShowSupport(false)} language={language as 'es' | 'en'} />}
+      {showLandingPage && <DynamicLandingPage slug={showLandingPage} onClose={() => setShowLandingPage(null)} />}
       <DonChucho language={language} t={t} places={places} weather={weather} todayEvents={todayEvents} />
       <div className="offline-status"><span /> {t('offline')}</div>
     </div>
@@ -460,11 +506,27 @@ function DonChucho({ language, t, places, weather, todayEvents }: { language: La
     
     // Usar base de conocimiento local mejorada
     const knowledgeAnswer = donChuchoKnowledge.getAnswer(text, isEnglish ? 'en' : 'es')
+    
+    // Verificar si es una respuesta defensiva
+    const isDefensive = donChuchoKnowledge.isDefensiveResponse(text)
+    const defensiveActions = donChuchoKnowledge.getDefensiveActions(text)
+    
     setAnswer(knowledgeAnswer)
     
-    // Obtener sugerencias de seguimiento
-    const followUpSuggestions = donChuchoKnowledge.getFollowUpSuggestions(text, isEnglish ? 'en' : 'es')
-    setSuggestions(followUpSuggestions.length > 0 ? followUpSuggestions : [])
+    // Si es defensiva, mostrar acciones específicas
+    if (isDefensive) {
+      const actionSuggestions = defensiveActions.includes('redirect_routes_landing') 
+        ? ['Estado de vías', 'Hoteles disponibles', 'Valle de Cocora']
+        : defensiveActions.includes('redirect_safety_landing')
+        ? ['Información seguridad', 'Contactos emergencia', 'Turismo activo']
+        : ['Ver servicios', 'Contactar comercios', 'Planear visita']
+      
+      setSuggestions(isEnglish ? ['Official info', 'Available services', 'Plan visit'] : actionSuggestions)
+    } else {
+      // Obtener sugerencias de seguimiento normales
+      const followUpSuggestions = donChuchoKnowledge.getFollowUpSuggestions(text, isEnglish ? 'en' : 'es')
+      setSuggestions(followUpSuggestions.length > 0 ? followUpSuggestions : [])
+    }
     
     // Obtener lugares relacionados
     const relatedPlaceIds = donChuchoKnowledge.getRelatedPlaces(text)

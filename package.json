@@ -16,6 +16,7 @@
     "qrcode": "^1.5.4",
     "react": "latest",
     "react-dom": "latest",
+    "react-helmet-async": "^3.0.0",
     "react-leaflet": "latest",
     "vite": "latest"
   },
