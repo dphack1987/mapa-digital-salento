@@ -1,4 +1,4 @@
-const CACHE_NAME = 'salento-a-la-mano-v3'
+const CACHE_NAME = 'salento-a-la-mano-v4'
 const APP_SHELL = [
   '/',
   '/index.html',
@@ -12,7 +12,16 @@ const APP_SHELL = [
   '/data/places.json',
   '/data/hotels.json',
   '/data/mapMarkers.json',
-  '/data/products.json'
+  '/data/products.json',
+  '/assets/index-5InSCFHU.css',
+  '/assets/index-BG1eGXde.js'
+]
+
+// Datos específicos para Valle de Cocora (prioridad alta para offline)
+const VALLE_COCORA_DATA = [
+  '/data/places.json',
+  '/data/hotels.json',
+  '/data/mapMarkers.json'
 ]
 
 // Estrategia de caché: Network First para API, Cache First para assets
@@ -26,13 +35,18 @@ const CACHE_STRATEGIES = {
 }
 
 self.addEventListener('install', (event) => {
-  console.log('[SW] Installing service worker')
+  console.log('[SW] Installing service worker for Valle de Cocora offline support')
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
-      console.log('[SW] Caching app shell')
-      return cache.addAll(APP_SHELL)
+      console.log('[SW] Caching app shell and Valle de Cocora data')
+      // Priorizar datos críticos para turistas en Valle de Cocora
+      return cache.addAll(APP_SHELL).then(() => {
+        return cache.addAll(VALLE_COCORA_DATA)
+      })
     })
   )
+  // Activar inmediatamente para asegurar funcionalidad offline
+  self.skipWaiting()
 })
 
 self.addEventListener('activate', (event) => {

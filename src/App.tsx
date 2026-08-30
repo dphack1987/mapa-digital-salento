@@ -42,6 +42,7 @@ import hotelQRService from './services/qrHotelService'
 import donationService from './services/donationService'
 import gamificationService from './services/gamificationService'
 import notificationService from './services/notificationService'
+import offlineStorage from './services/offlineStorage'
 import NotificationsPanel from './components/NotificationsPanel'
 import horsebackRidingService from './services/horsebackRidingService'
 import HorsebackRiding from './components/HorsebackRiding'
@@ -139,6 +140,7 @@ function App() {
   const [showDirectOrder, setShowDirectOrder] = useState<string | null>(null) // Para pedidos directos
   const [showHotelModal, setShowHotelModal] = useState(false)
   const [pendingOrderCategory, setPendingOrderCategory] = useState<string | null>(null)
+  const [isOffline, setIsOffline] = useState(!navigator.onLine)
   
   // Función helper para obtener traducciones
   const t = (key: string, fallback?: string) => translationService.translate(key, fallback)
@@ -148,6 +150,21 @@ function App() {
     async function loadData() {
       try {
         setLoading(true)
+        
+        // Inicializar sistema offline primero
+        await offlineStorage.initialize()
+        
+        // Intentar cargar datos desde offline primero
+        const offlinePlaces = await offlineStorage.getPlaces()
+        const offlineHotels = await offlineStorage.getHotels()
+        
+        if (offlinePlaces.length > 0 && offlineHotels.length > 0) {
+          console.log('Loading data from offline storage')
+          setPlaces(offlinePlaces)
+          setHotels(offlineHotels)
+        }
+        
+        // Cargar datos frescos si hay conexión
         const [loadedPlaces, loadedMarkers, loadedHotels, weatherData, eventsData] = await Promise.all([
           dataService.getPlaces(),
           dataService.getMapMarkers(),
@@ -155,11 +172,16 @@ function App() {
           weatherService.getWeatherComparison(),
           Promise.resolve(eventsService.getTodayEvents())
         ])
+        
         setPlaces(loadedPlaces)
         setMapMarkers(loadedMarkers)
         setHotels(loadedHotels)
         setWeather(weatherData)
         setTodayEvents(eventsData)
+        
+        // Guardar datos en caché offline
+        await offlineStorage.savePlaces(loadedPlaces)
+        await offlineStorage.saveHotels(loadedHotels)
         
         // Generar alertas inteligentes
         if (weatherData) {
@@ -190,9 +212,20 @@ function App() {
       setShowLandingPage(hash)
     }
 
+    // Monitorear estado de conexión
+    const cleanupConnectionListener = offlineStorage.onConnectionChange((online) => {
+      setIsOffline(!online)
+      if (online) {
+        console.log('Connection restored, syncing data...')
+        // Volver a cargar datos cuando se recupere la conexión
+        loadData()
+      }
+    })
+
     // Cleanup al desmontar
     return () => {
       orderSyncService.stop()
+      cleanupConnectionListener()
     }
   }, [])
 
@@ -466,7 +499,10 @@ function App() {
         />
       )}
       <DonChucho language={language} t={t} places={places} weather={weather} todayEvents={todayEvents} />
-      <div className="offline-status"><span /> {t('offline')}</div>
+      <div className="offline-status">
+        <span className={isOffline ? 'offline-indicator' : 'online-indicator'} />
+        {isOffline ? t('offline', 'Modo Offline - Valle de Cocora') : t('online', 'Conectado')}
+      </div>
     </div>
   )
 }
