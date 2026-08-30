@@ -1,4 +1,4 @@
-const CACHE_NAME = 'salento-a-la-mano-v5'
+const CACHE_NAME = 'salento-a-la-mano-v6'
 const APP_SHELL = [
   '/',
   '/index.html',
@@ -28,7 +28,7 @@ const CACHE_STRATEGIES = {
 }
 
 self.addEventListener('install', (event) => {
-  console.log('[SW] Installing service worker for Valle de Cocora offline support')
+  console.log('[SW] Installing service worker for Valle de Cocora offline support v6')
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
       console.log('[SW] Caching app shell and Valle de Cocora data')
@@ -43,7 +43,7 @@ self.addEventListener('install', (event) => {
 })
 
 self.addEventListener('activate', (event) => {
-  console.log('[SW] Activating service worker')
+  console.log('[SW] Activating service worker v6')
   event.waitUntil(
     caches.keys().then((keys) => {
       return Promise.all(
