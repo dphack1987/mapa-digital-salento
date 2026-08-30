@@ -52,6 +52,8 @@ import supportService from './services/supportService'
 import SupportCenter from './components/SupportCenter'
 import seoLandingService from './services/seoLandingService'
 import DynamicLandingPage from './components/DynamicLandingPage'
+import SEODashboard from './components/SEODashboard'
+import HotelInfoModal from './components/HotelInfoModal'
 
 // Mapeo de iconos para compatibilidad con estructura JSON
 const iconMap: Record<string, any> = {
@@ -134,6 +136,9 @@ function App() {
   const [selectedPlaceForReviews, setSelectedPlaceForReviews] = useState<{ id: string; name: string; type: string } | null>(null)
   const [showSupport, setShowSupport] = useState(false)
   const [showLandingPage, setShowLandingPage] = useState<string | null>(null)
+  const [showDirectOrder, setShowDirectOrder] = useState<string | null>(null) // Para pedidos directos
+  const [showHotelModal, setShowHotelModal] = useState(false)
+  const [pendingOrderCategory, setPendingOrderCategory] = useState<string | null>(null)
   
   // Función helper para obtener traducciones
   const t = (key: string, fallback?: string) => translationService.translate(key, fallback)
@@ -279,72 +284,76 @@ function App() {
         ) : selectedPlace ? <PlaceDetail place={selectedPlace} currency={currency} onBack={() => setSelectedPlace(null)} language={language} t={t} /> : <>
         <section className="mobile-dashboard" id="servicios">
           <div className="services-grid">
-            <button className="service-card gastronomy" onClick={() => setActiveCategory('Restaurantes')}>
+            <button className="service-card gastronomy" onClick={() => handleDirectOrder('restaurantes')}>
               <div className="service-icon">🍽️</div>
               <div className="service-content">
-                <h3>Gastronomía y Supermercados</h3>
-                <p>Restaurantes típicos, cafés de origen, tiendas de abastos</p>
-                <div className="service-subcategories">
-                  <span>🐟 Trucha</span>
-                  <span>☕ Café</span>
-                  <span>🛒 Abastos</span>
-                </div>
+                <h3>Gastronomía</h3>
+                <p>Restaurantes y cafés</p>
               </div>
-              <div className="service-action">
-                <span>Ver opciones</span>
-                <ArrowRight size={16} />
+              <div className="service-whatsapp">
+                <MessageSquare size={16} />
+                <span>Pedir por WhatsApp</span>
               </div>
             </button>
 
-            <button className="service-card transport" onClick={() => setActiveCategory('Servicios')}>
+            <button className="service-card transport" onClick={() => handleDirectOrder('transporte')}>
               <div className="service-icon">🚖</div>
               <div className="service-content">
-                <h3>Transporte Oficial</h3>
-                <p>Jeeps Willys, transporte veredal, rutas a Armenia</p>
-                <div className="service-subcategories">
-                  <span>🚙 Willys</span>
-                  <span>🏔️ Valle</span>
-                  <span>✈️ Aeropuerto</span>
-                </div>
+                <h3>Transporte</h3>
+                <p>Jeeps y movilidad</p>
               </div>
-              <div className="service-action">
-                <span>Solicitar</span>
-                <ArrowRight size={16} />
+              <div className="service-whatsapp">
+                <MessageSquare size={16} />
+                <span>Contactar por WhatsApp</span>
               </div>
             </button>
 
-            <button className="service-card horseback-riding featured" onClick={() => setShowHorsebackRiding(true)}>
+            <button className="service-card horseback-riding featured" onClick={() => handleDirectOrder('caballos')}>
               <div className="service-badge">⭐ ESPECIAL</div>
               <div className="service-icon">🐎</div>
               <div className="service-content">
-                <h3>Cabalgatas Tradicionales</h3>
-                <p>El sello insignia de Salento con operadores certificados</p>
-                <div className="service-subcategories">
-                  <span>🏔️ Miradores</span>
-                  <span>🌿 Valle</span>
-                  <span>🏅 Certificados</span>
-                </div>
+                <h3>Cabalgatas</h3>
+                <p>Valle de Cocora</p>
               </div>
-              <div className="service-action featured-action">
-                <span>Reservar ahora</span>
-                <ArrowRight size={16} />
+              <div className="service-whatsapp">
+                <MessageSquare size={16} />
+                <span>Reservar por WhatsApp</span>
               </div>
             </button>
 
-            <button className="service-card guides" onClick={() => setActiveCategory('Experiencias')}>
+            <button className="service-card guides" onClick={() => handleDirectOrder('guias')}>
               <div className="service-icon">🧭</div>
               <div className="service-content">
-                <h3>Guías y Operadores Turísticos</h3>
-                <p>Caminatas ecológicas, aviturismo, aventura local</p>
-                <div className="service-subcategories">
-                  <span>🥾 Caminatas</span>
-                  <span>🦅 Aves</span>
-                  <span>🎯 Aventura</span>
-                </div>
+                <h3>Guías</h3>
+                <p>Tours locales</p>
               </div>
-              <div className="service-action">
-                <span>Contactar guía</span>
-                <ArrowRight size={16} />
+              <div className="service-whatsapp">
+                <MessageSquare size={16} />
+                <span>Contactar por WhatsApp</span>
+              </div>
+            </button>
+            
+            <button className="service-card supermarkets" onClick={() => handleDirectOrder('supermercados')}>
+              <div className="service-icon">🛒</div>
+              <div className="service-content">
+                <h3>Supermercados</h3>
+                <p>Tiendas y abastos</p>
+              </div>
+              <div className="service-whatsapp">
+                <MessageSquare size={16} />
+                <span>Pedir domicilio</span>
+              </div>
+            </button>
+            
+            <button className="service-card operators" onClick={() => handleDirectOrder('operadoras')}>
+              <div className="service-icon">🎯</div>
+              <div className="service-content">
+                <h3>Operadoras</h3>
+                <p>Turismo local</p>
+              </div>
+              <div className="service-whatsapp">
+                <MessageSquare size={16} />
+                <span>Consultar paquetes</span>
               </div>
             </button>
           </div>
@@ -447,6 +456,15 @@ function App() {
       {showReviews && selectedPlaceForReviews && <Reviews placeId={showReviews} placeName={selectedPlaceForReviews.name} placeType={selectedPlaceForReviews.type} onClose={() => setShowReviews(null)} language={language as 'es' | 'en'} />}
       {showSupport && <SupportCenter onClose={() => setShowSupport(false)} language={language as 'es' | 'en'} />}
       {showLandingPage && <DynamicLandingPage slug={showLandingPage} onClose={() => setShowLandingPage(null)} />}
+      {showHotelModal && (
+        <HotelInfoModal 
+          isOpen={showHotelModal}
+          onClose={() => setShowHotelModal(false)}
+          onSubmit={handleHotelInfoSubmit}
+          hotels={hotels}
+          language={language as 'es' | 'en'}
+        />
+      )}
       <DonChucho language={language} t={t} places={places} weather={weather} todayEvents={todayEvents} />
       <div className="offline-status"><span /> {t('offline')}</div>
     </div>
@@ -547,6 +565,63 @@ function DonChucho({ language, t, places, weather, todayEvents }: { language: La
       : `¡Hola! Estoy interesado en ${place.name}. ¿Me pueden ayudar?`
     const whatsappUrl = `https://wa.me/${place.contact.whatsapp}?text=${encodeURIComponent(message)}`
     window.open(whatsappUrl, '_blank')
+  }
+
+  // Función mejorada para pedidos directos por WhatsApp
+  function handleDirectOrder(category: string, hotelInfo?: { name: string; room: string }) {
+    const deliveryCategories = ['restaurantes', 'supermercados']
+    
+    // Si es una categoría que requiere entrega a hotel y no hay info de hotel, mostrar modal
+    if (deliveryCategories.includes(category) && !hotelInfo) {
+      setPendingOrderCategory(category)
+      setShowHotelModal(true)
+      return
+    }
+
+    const categoryMessages = {
+      'restaurantes': isEnglish 
+        ? `Hello! I want to order food delivery to my hotel. Hotel: ${hotelInfo?.name || 'Not specified'}, Room: ${hotelInfo?.room || 'Not specified'}. What's available?`
+        : `¡Hola! Quiero hacer un pedido de comida a mi hotel. Hotel: ${hotelInfo?.name || 'No especificado'}, Habitación: ${hotelInfo?.room || 'No especificada'}. ¿Qué tienen disponible?`,
+      'supermercados': isEnglish
+        ? `Hello! I need groceries/supplies delivered to my hotel. Hotel: ${hotelInfo?.name || 'Not specified'}, Room: ${hotelInfo?.room || 'Not specified'}. What can you deliver?`
+        : `¡Hola! Necesito que me lleven víveres/tiendas a mi hotel. Hotel: ${hotelInfo?.name || 'No especificado'}, Habitación: ${hotelInfo?.room || 'No especificada'}. ¿Qué pueden llevarme?`,
+      'transporte': isEnglish
+        ? `Hello! I need transportation. Where are you located and what are your rates?`
+        : `¡Hola! Necesito transporte. ¿Dónde están ubicados y cuáles son sus tarifas?`,
+      'caballos': isEnglish
+        ? `Hello! I'm interested in horseback riding tours in Cocora Valley. What are your options and prices?`
+        : `¡Hola! Me interesa hacer cabalgatas en el Valle de Cocora. ¿Qué opciones tienen y cuáles son los precios?`,
+      'guias': isEnglish
+        ? `Hello! I need a tour guide for Salento. What tours do you offer?`
+        : `¡Hola! Necesito un guía turístico para Salento. ¿Qué tours ofrecen?`,
+      'operadoras': isEnglish
+        ? `Hello! I'm interested in tourism activities in Salento. What packages do you have?`
+        : `¡Hola! Me interesa hacer actividades turísticas en Salento. ¿Qué paquetes tienen?`
+    }
+
+    const message = categoryMessages[category as keyof typeof categoryMessages] || categoryMessages['restaurantes']
+    
+    // Buscar el primer contacto disponible de esa categoría
+    const categoryPlaces = places.filter(p => p.type.toLowerCase().includes(category.toLowerCase()))
+    const contactPlace = categoryPlaces[0]
+    
+    if (contactPlace?.contact.whatsapp) {
+      const whatsappUrl = `https://wa.me/${contactPlace.contact.whatsapp}?text=${encodeURIComponent(message)}`
+      window.open(whatsappUrl, '_blank')
+    } else {
+      // Fallback a número genérico si no hay contacto específico
+      const whatsappUrl = `https://wa.me/573000000000?text=${encodeURIComponent(message)}`
+      window.open(whatsappUrl, '_blank')
+    }
+  }
+
+  // Manejar el envío del modal de hotel
+  const handleHotelInfoSubmit = (hotelInfo: { name: string; room: string; phone?: string }) => {
+    if (pendingOrderCategory) {
+      handleDirectOrder(pendingOrderCategory, hotelInfo)
+      setPendingOrderCategory(null)
+    }
+    setShowHotelModal(false)
   }
 
   return <div className={open ? 'chucho-widget open' : 'chucho-widget'}>{open && <div className="chucho-panel"><div className="chucho-head"><div className="chucho-avatar"><div className="chucho-hat">🎩</div><div className="chucho-face">😊</div></div><div><strong>{t('donChucho.title')}</strong><span>{t('donChucho.subtitle')}</span></div><button className="icon-button" onClick={() => setOpen(false)} aria-label="Cerrar asistente"><X size={16} /></button></div><div className="chucho-answer"><MessageCircle size={16} />{answer}</div>{relatedPlace && relatedPlace.contact.whatsapp && <div className="chucho-whatsapp"><button className="whatsapp-button" onClick={() => handleWhatsAppClick(relatedPlace)}><Phone size={16} />{isEnglish ? `Contact ${relatedPlace.name}` : `Contactar a ${relatedPlace.name}`}</button></div>}{suggestions.length > 0 && <div className="chucho-suggestions">{suggestions.map((suggestion, index) => <button key={index} onClick={() => ask(suggestion)}>{suggestion}</button>)}</div>}<form onSubmit={(event) => { event.preventDefault(); if (question.trim()) ask(question) }}><input value={question} onChange={(event) => setQuestion(event.target.value)} placeholder={t('donChucho.placeholder')} /><button aria-label="Enviar pregunta"><Send size={15} /></button></form></div>}<button className="chucho-trigger" onClick={() => setOpen(!open)} aria-label="Abrir asistente Don Chucho"><div className="chucho-avatar-mini"><div className="chucho-hat-mini">🎩</div><div className="chucho-face-mini">😊</div></div>{showGreeting && <span className="chucho-greeting">¡Hola, pues!</span>}<MessageCircle size={17} /></button></div>
