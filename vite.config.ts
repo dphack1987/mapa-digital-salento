@@ -3,8 +3,10 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  base: './', // Rutas relativas para abrir archivo directamente
+  base: '/', // Rutas absolutas para Vercel
   build: {
-    outDir: 'dist'
-  }
+    outDir: 'dist',
+    copyPublicDir: true // Asegurar que public se copie
+  },
+  publicDir: 'public'
 })
