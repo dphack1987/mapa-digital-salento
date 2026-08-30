@@ -15,13 +15,15 @@ import {
   XCircle,
   Download,
   Bell,
-  LogOut
+  LogOut,
+  Share2
 } from 'lucide-react'
 import orderService from '../services/orderService'
 import qrTrackingService from '../services/qrTrackingService'
 import whatsappTemplateService from '../services/whatsappTemplateService'
 import analyticsService from '../services/analyticsService'
 import AnalyticsDashboard from './AnalyticsDashboard'
+import BacklinkManager from './BacklinkManager'
 
 interface BusinessAdminProps {
   businessId: string
@@ -29,7 +31,7 @@ interface BusinessAdminProps {
   onLogout: () => void
 }
 
-type AdminTab = 'dashboard' | 'orders' | 'qr' | 'whatsapp' | 'settings'
+type AdminTab = 'dashboard' | 'orders' | 'qr' | 'whatsapp' | 'settings' | 'backlinks'
 
 export default function BusinessAdmin({ businessId, businessName, onLogout }: BusinessAdminProps) {
   const [activeTab, setActiveTab] = useState<AdminTab>('dashboard')
@@ -37,6 +39,7 @@ export default function BusinessAdmin({ businessId, businessName, onLogout }: Bu
   const [qrStats, setQrStats] = useState(qrTrackingService.getBusinessStatistics(businessId))
   const [orderStats, setOrderStats] = useState(orderService.getOrderStatistics(businessId))
   const [showAnalytics, setShowAnalytics] = useState(false)
+  const [showBacklinks, setShowBacklinks] = useState(false)
 
   useEffect(() => {
     // Actualizar datos periódicamente
@@ -112,6 +115,13 @@ export default function BusinessAdmin({ businessId, businessName, onLogout }: Bu
           <Settings size={18} />
           Configuración
         </button>
+        <button 
+          className={activeTab === 'backlinks' ? 'active' : ''} 
+          onClick={() => setActiveTab('backlinks')}
+        >
+          <Share2 size={18} />
+          Backlinks
+        </button>
       </nav>
 
       <main className="admin-content">
@@ -147,6 +157,16 @@ export default function BusinessAdmin({ businessId, businessName, onLogout }: Bu
         
         {activeTab === 'settings' && (
           <SettingsTab businessId={businessId} businessName={businessName} />
+        )}
+
+        {activeTab === 'backlinks' && (
+          <BacklinkManager 
+            businessId={businessId}
+            businessName={businessName}
+            businessType="restaurant"
+            onClose={() => setShowBacklinks(false)}
+            language="es"
+          />
         )}
       </main>
       
