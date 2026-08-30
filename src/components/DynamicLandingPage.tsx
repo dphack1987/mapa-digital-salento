@@ -147,7 +147,10 @@ const DynamicLandingPage: React.FC<DynamicLandingPageProps> = ({ slug, onClose }
             <div className="contact-info">
               <h4>¿Necesitas más información?</h4>
               <p>Contacta directamente con nuestros aliados locales:</p>
-              <button className="contact-button">
+              <button 
+                className="contact-button"
+                onClick={() => window.open('https://wa.me/573001234567?text=Hola%20Salento%20a%20la%20Mano%20-%20Información%20Oficial', '_blank')}
+              >
                 WhatsApp de Asistencia
               </button>
             </div>

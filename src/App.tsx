@@ -560,11 +560,14 @@ function DonChucho({ language, t, places, weather, todayEvents }: { language: La
   }
 
   function handleWhatsAppClick(place: Place) {
-    const message = isEnglish 
+    const message = isEnglish
       ? `Hello! I'm interested in ${place.name}. Can you help me?`
       : `¡Hola! Estoy interesado en ${place.name}. ¿Me pueden ayudar?`
-    const whatsappUrl = `https://wa.me/${place.contact.whatsapp}?text=${encodeURIComponent(message)}`
-    window.open(whatsappUrl, '_blank')
+    const whatsappNumber = place.whatsapp || place.contact?.whatsapp
+    if (whatsappNumber) {
+      const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`
+      window.open(whatsappUrl, '_blank')
+    }
   }
 
   // Función mejorada para pedidos directos por WhatsApp
