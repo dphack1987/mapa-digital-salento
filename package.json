@@ -9,11 +9,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@types/qrcode": "^1.5.6",
     "@vitejs/plugin-react": "latest",
+    "leaflet": "latest",
     "lucide-react": "latest",
+    "qrcode": "^1.5.4",
     "react": "latest",
     "react-dom": "latest",
-    "leaflet": "latest",
     "react-leaflet": "latest",
     "vite": "latest"
   },

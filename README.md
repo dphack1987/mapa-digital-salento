@@ -2,9 +2,22 @@
 
 Ecosistema turístico, comercial y gastronómico de Salento, Quindío. El proyecto conecta un mapa impreso de bolsillo con un gemelo digital para explorar el pueblo, descubrir negocios locales y realizar pedidos desde el hospedaje.
 
+## 🌟 Fase 2 Completada - Experiencia Usuario Mejorada
+
+**Estado actual:** Versión 1.1.0 con funcionalidades avanzadas de multi-idioma, offline y sincronización inteligente.
+
 ## Resumen ejecutivo
 
-El producto replica la arquitectura probada del mapa interactivo de Armenia y la amplía con un módulo de domicilios y pedidos directos para turistas hospedados en hoteles. La experiencia debe funcionar sin descargas pesadas y servir tanto al visitante que planea su recorrido como al turista que ya está en Salento.
+El producto replica la arquitectura probada del mapa interactivo de Armenia y la amplía con un módulo de domicilios y pedidos directos para turistas hospedados en hoteles. La experiencia funciona sin descargas pesadas y sirve tanto al visitante que planea su recorrido como al turista que ya está en Salento.
+
+### Novedades Fase 2:
+- ✅ **Traducción dinámica en 6 idiomas** con detección automática
+- ✅ **Sistema offline robusto** con IndexedDB para datos persistentes
+- ✅ **Cola de pedidos offline** con sincronización automática
+- ✅ **Don Chucho mejorado** con base de conocimiento local
+- ✅ **Conversor de moneda en tiempo real** (COP/USD/EUR)
+- ✅ **Service Worker optimizado** con estrategias de caché inteligentes
+- ✅ **Segundo pautante:** Finca Hotel El Ocaso integrado
 
 ## Objetivos
 
@@ -14,99 +27,40 @@ El producto replica la arquitectura probada del mapa interactivo de Armenia y la
 - Ofrecer asistencia para orientarse, descubrir rutas y elegir actividades.
 - Crear un canal digital medible para los comercios aliados.
 
-## Arquitectura de producto
-
-## Principios de referencia
-
-### De las OTAs y apps de delivery
-
-- Pedidos rápidos, catálogos claros y entrega directa al hospedaje.
-- Pasarela comercial adaptada al tamaño y operación real de Salento.
-
-### De los mapas interactivos
-
-- Leaflet ligero, geolocalización y filtros por intención de viaje.
-- Presentación visual para descubrir lugares rápidamente.
-
-### Diferencial local
-
-- Interfaz bilingüe contextual y conversión COP, USD y EUR.
-- Información local disponible sin conexión en el Valle de Cocora.
-- Pedidos pendientes para sincronizar al recuperar señal.
-- Economía local con relación directa entre turista y negocio.
-
-La regla de producto es tomar la comodidad de una plataforma grande, mantener la ligereza de un mapa web y proteger la relación económica y cultural de los negocios locales.
-
-### Explora Salento
-
-- Mapa interactivo centrado en el casco urbano.
-- Calle Real, Plaza Principal, miradores y accesos al Valle de Cocora.
-- Categorías turístico, comercial y gastronómico.
-- Buscador en tiempo real.
-- Fichas de lugares y pautas publicitarias.
-- Ubicación del visitante.
-- Rutas a pie y recomendaciones según el tiempo disponible.
-- Enlace para compartir y QR hacia el mapa digital.
-
-### Pasa-Pedidos Hotelero
-
-- Selección rápida del hotel aliado y número de habitación.
-- Catálogo digital por comercio.
-- Productos con precio, descripción y disponibilidad.
-- Carrito de compra y cálculo de domicilio.
-- Entrega en recepción, habitación o punto acordado.
-- Confirmación del pedido y seguimiento de estado.
-- Pago al recibir en la primera etapa.
-
-#### Envío híbrido
-
-1. **Opción directa:** generar un pedido formateado y enviarlo por WhatsApp Business al comercio aliado.
-2. **Opción backend:** registrar el pedido en Supabase o Firebase para que el comercio lo consulte desde un panel de control.
-
 ## Arquitectura técnica
 
 - **Frontend:** React + TypeScript + Vite.
 - **Mapa:** Leaflet y OpenStreetMap, con posibilidad de incorporar capas vectoriales personalizadas.
-- **Experiencia:** responsive, mobile-first y preparada para convertirse en PWA.
-- **Datos iniciales:** catálogo local tipado en el frontend para prototipado.
-- **Backend siguiente:** Supabase o Firebase para comercios, productos, hoteles, pedidos y estados.
+- **Experiencia:** responsive, mobile-first y PWA completa.
+- **Datos:** JSON estructurados + IndexedDB para offline + caché inteligente.
+- **Servicios:** 6 servicios modulares para datos, traducción, offline, pedidos, conocimiento local y moneda.
 - **Integración comercial:** WhatsApp Business como canal de validación inicial.
 
-## Estado actual del MVP
+## Pautantes Integrados
 
-- Interfaz visual de Salento con logo local.
-- Búsqueda y filtros de lugares.
-- Tarjetas de comercios y experiencias.
-- Mapa Leaflet con ubicaciones de demostración y popups.
-- Controles de zoom y solicitud de ubicación del navegador.
-- Carrito de pedido.
-- Formulario de hospedaje, habitación, celular e indicaciones.
-- Confirmación visual del pedido.
+### 1. Hotel Camino Nacional ✅ Verificado
+- Hotel 2 estrellas en el centro de Salento
+- Datos completos con 11 fotos y servicios detallados
+- Contacto: WhatsApp, teléfono, email confirmados
 
-Los datos actuales son demostrativos. Antes de publicar se deben validar nombres, coordenadas, horarios, menús, precios, teléfonos, disponibilidad y condiciones de domicilio de cada aliado.
+### 2. Finca Hotel El Ocaso 🆕 Nuevo
+- Finca hotel rural con experiencia cafetera
+- Estructura completa creada, pendiente validación comercial
+- Ubicación rural con vistas panorámicas
 
-## Fases siguientes
+## Estado actual del Proyecto
 
-### Fase 1: validación comercial
-
-- Registrar hoteles aliados y comercios participantes.
-- Levantar fichas, menús, precios, fotografías y coordenadas.
-- Definir tarifa, cobertura y horarios de domicilio.
-- Probar pedidos directos con WhatsApp Business.
-
-### Fase 2: operación digital
-
-- Crear base de datos de comercios, productos, hoteles y pedidos.
-- Construir panel para actualizar catálogo y cambiar estados.
-- Implementar selección de hotel y habitación.
-- Añadir notificaciones y trazabilidad del pedido.
-
-### Fase 3: gemelo digital y PWA
-
-- Generar QR dinámicos para el mapa impreso y las pautas publicitarias.
-- Instalar la aplicación como PWA.
-- Añadir funcionamiento parcial sin conexión.
-- Incorporar analítica de visitas, clics, rutas y pedidos.
+- ✅ Interfaz visual de Salento con logo local
+- ✅ Búsqueda y filtros de lugares
+- ✅ Tarjetas de comercios y experiencias
+- ✅ Mapa Leaflet con ubicaciones y popups
+- ✅ Controles de zoom y geolocalización
+- ✅ Carrito de pedido con modo offline
+- ✅ Formulario de hospedaje con sincronización
+- ✅ Traducción automática en 6 idiomas
+- ✅ Don Chucho con base de conocimiento local
+- ✅ Conversor de moneda en tiempo real
+- ✅ Sistema offline completo con IndexedDB
 
 ## Desarrollo local
 
@@ -115,10 +69,16 @@ npm install
 npm run dev
 ```
 
-La aplicación se ejecuta normalmente en `http://localhost:5173/`.
+La aplicación se ejecuta en `http://localhost:5173/`.
 
-Para validar producción:
+Para producción:
 
 ```bash
 npm run build
 ```
+
+## Documentación
+
+- **Informe completo:** Ver `INFORME_PROYECTO_SALENTO.md` para análisis detallado
+- **Arquitectura:** Estructura modular en `src/services/`
+- **Pautantes:** Documentación en `pautas/`

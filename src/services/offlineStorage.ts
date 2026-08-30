@@ -443,7 +443,8 @@ class OfflineStorageService {
       const transaction = this.db!.transaction([CONFIG.stores.orders], 'readwrite')
       const store = transaction.objectStore(CONFIG.stores.orders)
       const index = store.index('timestamp')
-      const request = index.openCursor(IDBKeyRange.upperBound(sevenDaysAgo))
+      const range = IDBKeyRange.upperBound(sevenDaysAgo)
+      const request = index.openCursor(range)
 
       request.onsuccess = (event) => {
         const cursor = (event.target as IDBRequest).result
