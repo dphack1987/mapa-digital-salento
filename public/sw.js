@@ -3,7 +3,7 @@ const APP_SHELL = [
   '/',
   '/index.html',
   '/manifest.webmanifest',
-  '/logo_salento2026.png',
+  '/sw.js',
   '/data/places.json',
   '/data/hotels.json',
   '/data/mapMarkers.json',
