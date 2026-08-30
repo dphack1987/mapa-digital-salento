@@ -1,84 +1,79 @@
-# Mapa Digital Salento
+# Salento a la Mano - Mapa Digital Turístico
 
-Ecosistema turístico, comercial y gastronómico de Salento, Quindío. El proyecto conecta un mapa impreso de bolsillo con un gemelo digital para explorar el pueblo, descubrir negocios locales y realizar pedidos desde el hospedaje.
+Aplicación móvil-first para turismo y comercio local en Salento, Quindío.
 
-## 🌟 Fase 2 Completada - Experiencia Usuario Mejorada
+## 🚀 Despliegue en Vercel
 
-**Estado actual:** Versión 1.1.0 con funcionalidades avanzadas de multi-idioma, offline y sincronización inteligente.
+Este proyecto se despliega automáticamente desde GitHub a Vercel.
 
-## Resumen ejecutivo
+### Configuración de Vercel
 
-El producto replica la arquitectura probada del mapa interactivo de Armenia y la amplía con un módulo de domicilios y pedidos directos para turistas hospedados en hoteles. La experiencia funciona sin descargas pesadas y sirve tanto al visitante que planea su recorrido como al turista que ya está en Salento.
+- **Build Command**: `npm run build`
+- **Output Directory**: `dist`
+- **Framework**: Vite
+- **Install Command**: `npm install`
 
-### Novedades Fase 2:
-- ✅ **Traducción dinámica en 6 idiomas** con detección automática
-- ✅ **Sistema offline robusto** con IndexedDB para datos persistentes
-- ✅ **Cola de pedidos offline** con sincronización automática
-- ✅ **Don Chucho mejorado** con base de conocimiento local
-- ✅ **Conversor de moneda en tiempo real** (COP/USD/EUR)
-- ✅ **Service Worker optimizado** con estrategias de caché inteligentes
-- ✅ **Segundo pautante:** Finca Hotel El Ocaso integrado
+### Estructura del Proyecto
 
-## Objetivos
+- `src/` - Código fuente React
+- `public/` - Archivos estáticos y service worker
+- `dist/` - Directorio de build (generado por Vite)
+- `data/` - Datos JSON de lugares y servicios
 
-- Fusionar el mapa impreso y el mapa digital mediante códigos QR dinámicos.
-- Promover restaurantes, cafés, tiendas de artesanías, hoteles y operadores turísticos locales.
-- Permitir pedidos de comida, café, souvenirs y servicios directamente desde el hospedaje.
-- Ofrecer asistencia para orientarse, descubrir rutas y elegir actividades.
-- Crear un canal digital medible para los comercios aliados.
+### Dependencias Principales
 
-## Arquitectura técnica
+- React 18.3.1
+- Vite 5.4.0
+- React Leaflet 4.2.1
+- Lucide React 0.344.0
 
-- **Frontend:** React + TypeScript + Vite.
-- **Mapa:** Leaflet y OpenStreetMap, con posibilidad de incorporar capas vectoriales personalizadas.
-- **Experiencia:** responsive, mobile-first y PWA completa.
-- **Datos:** JSON estructurados + IndexedDB para offline + caché inteligente.
-- **Servicios:** 6 servicios modulares para datos, traducción, offline, pedidos, conocimiento local y moneda.
-- **Integración comercial:** WhatsApp Business como canal de validación inicial.
+## 🌐 Funcionalidades
 
-## Pautantes Integrados
+- Mapa interactivo con Leaflet
+- Directorio de servicios locales
+- Pedidos directos por WhatsApp
+- Sistema de reseñas
+- Modo offline para Valle de Cocora
+- Multi-idioma (ES, EN, FR, DE, PT, IT)
+- Multi-moneda (COP, USD, EUR)
 
-### 1. Hotel Camino Nacional ✅ Verificado
-- Hotel 2 estrellas en el centro de Salento
-- Datos completos con 11 fotos y servicios detallados
-- Contacto: WhatsApp, teléfono, email confirmados
+## 📱 Modo Offline
 
-### 2. Finca Hotel El Ocaso 🆕 Nuevo
-- Finca hotel rural con experiencia cafetera
-- Estructura completa creada, pendiente validación comercial
-- Ubicación rural con vistas panorámicas
+El sistema está optimizado para turistas que caminan al Valle de Cocora:
 
-## Estado actual del Proyecto
+- Service Worker con caché de datos críticos
+- IndexedDB para almacenamiento local
+- Sincronización automática de pedidos
+- Indicador de estado de conexión
 
-- ✅ Interfaz visual de Salento con logo local
-- ✅ Búsqueda y filtros de lugares
-- ✅ Tarjetas de comercios y experiencias
-- ✅ Mapa Leaflet con ubicaciones y popups
-- ✅ Controles de zoom y geolocalización
-- ✅ Carrito de pedido con modo offline
-- ✅ Formulario de hospedaje con sincronización
-- ✅ Traducción automática en 6 idiomas
-- ✅ Don Chucho con base de conocimiento local
-- ✅ Conversor de moneda en tiempo real
-- ✅ Sistema offline completo con IndexedDB
-
-## Desarrollo local
+## 🔧 Desarrollo
 
 ```bash
+# Instalar dependencias
 npm install
+
+# Desarrollo local
 npm run dev
-```
 
-La aplicación se ejecuta en `http://localhost:5173/`.
-
-Para producción:
-
-```bash
+# Build de producción
 npm run build
+
+# Preview del build
+npm run preview
 ```
 
-## Documentación
+## 📊 SEO Defensivo
 
-- **Informe completo:** Ver `INFORME_PROYECTO_SALENTO.md` para análisis detallado
-- **Arquitectura:** Estructura modular en `src/services/`
-- **Pautantes:** Documentación en `pautas/`
+Sistema de SEO defensivo para contrarrestar información alarmista:
+
+- Landing pages dinámicas para búsquedas turísticas
+- Schema.org JSON-LD para datos estructurados
+- Don Chucho con respuestas defensivas
+- Información oficial actualizada
+
+## 🛡️ Seguridad
+
+- Headers de seguridad configurados
+- Service Worker solo en HTTPS
+- Validación de inputs
+- Sin exposición de datos sensibles
