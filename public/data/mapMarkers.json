@@ -49,8 +49,18 @@
       "tone": "green",
       "placeId": 5,
       "description": "Hotel 2 estrellas con ubicación central"
+    },
+    {
+      "id": 6,
+      "label": "Finca Hotel El Ocaso",
+      "type": "Comercial",
+      "lat": 4.6350,
+      "lng": -75.5680,
+      "tone": "yellow",
+      "placeId": 9,
+      "description": "Finca hotel rural con experiencia cafetera"
     }
   ],
-  "lastUpdated": "2026-08-28T11:25:00.000Z",
-  "version": "1.0.0"
+  "lastUpdated": "2026-08-28T11:41:00.000Z",
+  "version": "1.1.0"
 }

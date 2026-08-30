@@ -413,8 +413,133 @@
         "capacity": "Máximo 20 huéspedes",
         "bookingNotes": "Las tarifas varían según temporada y tipo de habitación. Confirmar directamente para disponibilidad y precios exactos."
       }
+    },
+    {
+      "id": 10,
+      "name": "Jeeps Willys Salento",
+      "type": "Servicios",
+      "description": "Transporte oficial a Valle de Cocora y alrededores. Jeeps tradicionales con operadores certificados.",
+      "priceRange": "$",
+      "rating": "4.9",
+      "timeInfo": "Salidas cada 30 min",
+      "badge": "Oficial",
+      "color": "green",
+      "icon": "Bike",
+      "contact": {
+        "phone": "+57 310 1234567",
+        "whatsapp": "573101234567"
+      },
+      "location": {
+        "lat": 4.6370,
+        "lng": -75.5700,
+        "address": "Plaza Principal",
+        "landmark": "Plaza de Bolívar"
+      },
+      "operatingHours": {
+        "monday": "6:00 - 18:00",
+        "tuesday": "6:00 - 18:00",
+        "wednesday": "6:00 - 18:00",
+        "thursday": "6:00 - 18:00",
+        "friday": "6:00 - 18:00",
+        "saturday": "6:00 - 18:00",
+        "sunday": "6:00 - 18:00"
+      },
+      "tags": ["transporte", "jeeps", "valle cocora", "willys"],
+      "verified": true,
+      "active": true,
+      "transportDetails": {
+        "serviceType": "Transporte turístico",
+        "vehicles": ["Jeep Willys", "Mototaxis"],
+        "routes": ["Salento - Valle de Cocora", "Salento - Filandia", "Salento - Boquía"],
+        "capacity": "4-6 pasajeros por vehículo",
+        "tariff": "$3.000 COP por persona Valle de Cocora",
+        "reservationRequired": false
+      }
+    },
+    {
+      "id": 11,
+      "name": "Cabalgatas Valle de Cocora",
+      "type": "Experiencias",
+      "description": "Cabalgatas tradicionales por el Valle de Cocora con operadores certificados y guías locales.",
+      "priceRange": "$$",
+      "rating": "5.0",
+      "timeInfo": "Reserva previa",
+      "badge": "⭐ ESPECIAL",
+      "color": "coral",
+      "icon": "Zap",
+      "contact": {
+        "phone": "+57 320 9876543",
+        "whatsapp": "573209876543"
+      },
+      "location": {
+        "lat": 4.6360,
+        "lng": -75.5750,
+        "address": "Entrada Valle de Cocora",
+        "landmark": "Valle de Cocora"
+      },
+      "operatingHours": {
+        "monday": "8:00 - 17:00",
+        "tuesday": "8:00 - 17:00",
+        "wednesday": "8:00 - 17:00",
+        "thursday": "8:00 - 17:00",
+        "friday": "8:00 - 17:00",
+        "saturday": "8:00 - 17:00",
+        "sunday": "8:00 - 16:00"
+      },
+      "tags": ["cabalgatas", "valle cocora", "caballos", "experiencia"],
+      "verified": true,
+      "active": true,
+      "horsebackRidingDetails": {
+        "duration": "3-4 horas",
+        "difficulty": "Moderado",
+        "requirements": ["Botas cerradas", "Ropa cómoda", "Protector solar"],
+        "routes": ["Miradores", "Valle completo", "Cascada Santa Rita"],
+        "tariff": "$80.000 - $120.000 COP",
+        "groupSize": "Máximo 6 personas por grupo"
+      }
+    },
+    {
+      "id": 12,
+      "name": "Salento Tour Operadora",
+      "type": "Experiencias",
+      "description": "Operadora turística completa con paquetes de experiences, alojamiento y transporte.",
+      "priceRange": "$$$",
+      "rating": "4.8",
+      "timeInfo": "Reserva previa",
+      "badge": "Completo",
+      "color": "purple",
+      "icon": "Compass",
+      "contact": {
+        "phone": "+57 300 7654321",
+        "whatsapp": "573007654321",
+        "email": "info@salentotour.com"
+      },
+      "location": {
+        "lat": 4.6375,
+        "lng": -75.5710,
+        "address": "Calle Real",
+        "landmark": "Centro"
+      },
+      "operatingHours": {
+        "monday": "8:00 - 20:00",
+        "tuesday": "8:00 - 20:00",
+        "wednesday": "8:00 - 20:00",
+        "thursday": "8:00 - 20:00",
+        "friday": "8:00 - 20:00",
+        "saturday": "8:00 - 21:00",
+        "sunday": "8:00 - 21:00"
+      },
+      "tags": ["operadora", "paquetes", "turismo", "experiencias"],
+      "verified": true,
+      "active": true,
+      "tourismDetails": {
+        "packages": ["Valle de Cocora + Alojamiento", "Tour Cafetero Completo", "Experiencias Aventura", "Tour Cultural"],
+        "customTours": true,
+        "multilingualGuides": true,
+        "transportationIncluded": true
+      }
     }
   ],
-  "lastUpdated": "2026-08-28T11:41:00.000Z",
-  "version": "1.1.0"
+  "lastUpdated": "2026-08-30T10:45:00.000Z",
+  "version": "1.2.0"
 }
