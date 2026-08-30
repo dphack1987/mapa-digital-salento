@@ -19,15 +19,15 @@ root.render(
   </StrictMode>
 )
 
-// Service Worker registration - deshabilitado temporalmente para diagnóstico
-// if ('serviceWorker' in navigator && window.location.protocol === 'https:') {
-//   window.addEventListener('load', () => {
-//     navigator.serviceWorker.register('/sw.js')
-//       .then((registration) => {
-//         console.log('SW registered: ', registration)
-//       })
-//       .catch((registrationError) => {
-//         console.log('SW registration failed: ', registrationError)
-//       })
-//   })
-// }
+// Service Worker registration
+if ('serviceWorker' in navigator && window.location.protocol === 'https:') {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/mapa-digital-salento/sw.js')
+      .then((registration) => {
+        console.log('SW registered: ', registration)
+      })
+      .catch((registrationError) => {
+        console.log('SW registration failed: ', registrationError)
+      })
+  })
+}
