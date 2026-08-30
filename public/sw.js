@@ -1,8 +1,9 @@
-const CACHE_NAME = 'salento-a-la-mano-v6'
+const CACHE_NAME = 'salento-a-la-mano-v7'
 const APP_SHELL = [
   '/',
   '/index.html',
   '/manifest.webmanifest',
+  '/logo_salento2026.png',
   '/sw.js',
   '/data/places.json',
   '/data/hotels.json',
@@ -14,7 +15,12 @@ const APP_SHELL = [
 const VALLE_COCORA_DATA = [
   '/data/places.json',
   '/data/hotels.json',
-  '/data/mapMarkers.json'
+  '/data/mapMarkers.json',
+  '/salento/1326163558.webp',
+  '/salento/1326163759.webp',
+  '/salento/631026720.webp',
+  '/salento/631032744.webp',
+  '/salento/653410779.webp'
 ]
 
 // Estrategia de caché: Network First para API, Cache First para assets
