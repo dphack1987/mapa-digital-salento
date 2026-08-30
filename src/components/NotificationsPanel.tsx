@@ -6,7 +6,7 @@ import {
   Check, 
   Trash2, 
   Settings, 
-  Weather, 
+  Cloud, 
   Calendar, 
   Package, 
   Gift, 
@@ -37,7 +37,7 @@ export default function NotificationsPanel({ onClose }: NotificationsPanelProps)
     if (icon) return icon
 
     switch (type) {
-      case 'weather': return <Weather size={18} />
+      case 'weather': return <Cloud size={18} />
       case 'event': return <Calendar size={18} />
       case 'order': return <Package size={18} />
       case 'promotion': return <Gift size={18} />

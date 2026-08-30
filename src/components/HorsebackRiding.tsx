@@ -1,7 +1,7 @@
 // Componente de reservas de cabalgatas tradicionales
 import { useState } from 'react'
 import { 
-  Horse, 
+  Zap, 
   MapPin, 
   Clock, 
   Users, 
@@ -147,7 +147,7 @@ export default function HorsebackRiding({ onClose, language }: HorsebackRidingPr
           <>
             <div className="horseback-header">
               <div className="horseback-icon">
-                <Horse size={32} />
+                <Zap size={32} />
               </div>
               <div>
                 <h2>{isSpanish ? 'Cabalgatas Tradicionales' : 'Traditional Horseback Riding'}</h2>
