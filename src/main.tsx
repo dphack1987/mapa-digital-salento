@@ -5,7 +5,11 @@ import './styles.css'
 
 const rootElement = document.getElementById('root')
 if (!rootElement) {
-  throw new Error('Root element not found')
+  console.error('Root element not found')
+  // Crear elemento root si no existe
+  const rootDiv = document.createElement('div')
+  rootDiv.id = 'root'
+  document.body.appendChild(rootDiv)
 }
 
 const root = createRoot(rootElement)
