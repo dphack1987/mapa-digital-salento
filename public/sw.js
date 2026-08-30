@@ -1,20 +1,13 @@
-const CACHE_NAME = 'salento-a-la-mano-v4'
+const CACHE_NAME = 'salento-a-la-mano-v5'
 const APP_SHELL = [
   '/',
   '/index.html',
   '/manifest.webmanifest',
   '/logo_salento2026.png',
-  '/salento/653410779.webp',
-  '/salento/631032744.webp',
-  '/salento/631026720.webp',
-  '/salento/1326163558.webp',
-  '/salento/1326163759.webp',
   '/data/places.json',
   '/data/hotels.json',
   '/data/mapMarkers.json',
-  '/data/products.json',
-  '/assets/index-5InSCFHU.css',
-  '/assets/index-BG1eGXde.js'
+  '/data/products.json'
 ]
 
 // Datos específicos para Valle de Cocora (prioridad alta para offline)
@@ -63,6 +56,7 @@ self.addEventListener('activate', (event) => {
       )
     })
   )
+  self.clients.claim()
 })
 
 self.addEventListener('fetch', (event) => {
@@ -71,6 +65,11 @@ self.addEventListener('fetch', (event) => {
 
   // Solo procesar requests del mismo origen
   if (url.origin !== location.origin) {
+    return
+  }
+
+  // Ignorar solicitudes de extensión chrome para evitar errores
+  if (url.protocol === 'chrome-extension:') {
     return
   }
 
