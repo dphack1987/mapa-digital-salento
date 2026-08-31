@@ -34,6 +34,7 @@ import {
   Zap,
   Share2,
   Link,
+  Building2,
 } from 'lucide-react'
 import { Category, Language, Currency, Place, MapMarker, Hotel as HotelType } from './types'
 import dataService from './services/dataService'
@@ -67,6 +68,11 @@ import DefensiveSEODashboard from './components/DefensiveSEODashboard'
 import urgencySchemaService from './services/urgencySchema.service'
 import localBacklinksService from './services/localBacklinks.service'
 import AllyBacklinksDashboard from './components/AllyBacklinksDashboard'
+import allyRegistrationService from './services/allyRegistration.service'
+import AllyRegistrationForm from './components/AllyRegistrationForm'
+import AllyVerification from './components/AllyVerification'
+import notificationsService from './services/notifications.service'
+import NotificationsPanel from './components/NotificationsPanel'
 
 // Mapeo de iconos para compatibilidad con estructura JSON
 const iconMap: Record<string, any> = {
@@ -123,6 +129,8 @@ defensiveSEOGService.initialize()
 urgencySchemaService.initialize()
 urgencySchemaService.injectSchemasIntoDOM()
 localBacklinksService.initialize()
+allyRegistrationService.initialize()
+notificationsService.initialize()
 
 // Inicializar sistema QR con hoteles existentes
 hotelQRService.initializeWithHotels([
@@ -163,6 +171,9 @@ function App() {
   const [showQRShare, setShowQRShare] = useState(false)
   const [showDefensiveSEODashboard, setShowDefensiveSEODashboard] = useState(false)
   const [showAllyBacklinksDashboard, setShowAllyBacklinksDashboard] = useState(false)
+  const [showAllyRegistrationForm, setShowAllyRegistrationForm] = useState(false)
+  const [showAllyVerification, setShowAllyVerification] = useState(false)
+  const [selectedAllyForVerification, setSelectedAllyForVerification] = useState<string | null>(null)
   
   // Función helper para obtener traducciones
   const t = (key: string, fallback?: string) => translationService.translate(key, fallback)
@@ -305,6 +316,15 @@ function App() {
           </button>
           <button className="icon-button ally-backlinks-trigger" aria-label="Backlinks Aliados" onClick={() => setShowAllyBacklinksDashboard(true)}>
             <Link size={18} />
+          </button>
+          <button className="icon-button ally-registration-trigger" aria-label="Registrar Aliado" onClick={() => setShowAllyRegistrationForm(true)}>
+            <Building2 size={18} />
+          </button>
+          <button className="icon-button notifications-trigger" aria-label="Notificaciones" onClick={() => setShowNotifications(!showNotifications)}>
+            <Bell size={18} />
+            {notificationsService.getUnreadCount() > 0 && (
+              <span className="notification-badge">{notificationsService.getUnreadCount()}</span>
+            )}
           </button>
           <button className="icon-button qr-share-trigger" aria-label="Compartir QR" onClick={() => setShowQRShare(true)}>
             <Share2 size={18} />
@@ -539,6 +559,23 @@ function App() {
       {showQRShare && <QRShare onClose={() => setShowQRShare(false)} />}
       {showDefensiveSEODashboard && <DefensiveSEODashboard onClose={() => setShowDefensiveSEODashboard(false)} />}
       {showAllyBacklinksDashboard && <AllyBacklinksDashboard onClose={() => setShowAllyBacklinksDashboard(false)} />}
+      {showAllyRegistrationForm && <AllyRegistrationForm onClose={() => setShowAllyRegistrationForm(false)} />}
+      {showAllyVerification && selectedAllyForVerification && (
+        <AllyVerification 
+          allyId={selectedAllyForVerification} 
+          onClose={() => {
+            setShowAllyVerification(false)
+            setSelectedAllyForVerification(null)
+          }}
+          onVerified={(allyId) => {
+            // Actualizar el dashboard de backlinks después de verificación
+            console.log('Aliado verificado:', allyId)
+          }}
+        />
+      )}
+      {showNotifications && (
+        <NotificationsPanel onClose={() => setShowNotifications(false)} />
+      )}
       <DonChucho language={language} t={t} places={places} weather={weather} todayEvents={todayEvents} />
       <div className="offline-status">
         <span className={isOffline ? 'offline-indicator' : 'online-indicator'} />
