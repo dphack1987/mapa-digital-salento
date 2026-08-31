@@ -1,6 +1,17 @@
 // Tipos base del sistema
 export type Category = 'Todo' | 'Alojamientos' | 'Restaurantes' | 'Cafés' | 'Artesanías' | 'Tiendas' | 'Experiencias' | 'Servicios'
-export type Language = 'es' | 'en'
+
+// Objeto de idioma que EXISTE EN RUNTIME (evita ReferenceError: Language is not defined)
+export const Language = {
+  ES: 'es',
+  EN: 'en',
+  FR: 'fr',
+  DE: 'de',
+  PT: 'pt',
+  IT: 'it'
+} as const;
+export type Language = (typeof Language)[keyof typeof Language];
+
 export type Currency = 'COP' | 'USD' | 'EUR'
 export type PriceRange = '$' | '$$' | '$$$' | '$$$$'
 export type DeliveryAvailability = 'Disponible' | 'Solo_pickup' | 'No_disponible' | 'Consultar'

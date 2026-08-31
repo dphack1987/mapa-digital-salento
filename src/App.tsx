@@ -289,7 +289,14 @@ function App() {
           </button>
           <button className="icon-button mobile-menu" aria-label="Abrir menú" onClick={() => setMobileNav(!mobileNav)}><Menu size={20} /></button>
           <div className="locale-tools-mobile">
-            <button className="locale-button" onClick={() => handleLanguageChange(language === 'es' ? 'en' : 'es')}>{language.toUpperCase()}</button>
+            <select aria-label="Cambiar idioma" value={language} onChange={(event) => handleLanguageChange(event.target.value as Language)}>
+              <option value={Language.ES}>ES</option>
+              <option value={Language.EN}>EN</option>
+              <option value={Language.FR}>FR</option>
+              <option value={Language.DE}>DE</option>
+              <option value={Language.PT}>PT</option>
+              <option value={Language.IT}>IT</option>
+            </select>
             <select aria-label="Cambiar moneda" value={currency} onChange={(event) => setCurrency(event.target.value as Currency)}><option value="COP">COP</option><option value="USD">USD</option><option value="EUR">EUR</option></select>
           </div>
         </div>
