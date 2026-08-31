@@ -1,9 +1,11 @@
-const CACHE_NAME = 'salento-a-la-mano-v8'
+const CACHE_NAME = 'salento-a-la-mano-v9'
 const APP_SHELL = [
   '/',
   '/index.html',
   '/manifest.webmanifest',
   '/logo_salento2026.png',
+  '/avatar-don-chucho.png',
+  '/don-chucho-boton.png',
   '/sw.js',
   '/data/places.json',
   '/data/hotels.json',
@@ -34,7 +36,7 @@ const CACHE_STRATEGIES = {
 }
 
 self.addEventListener('install', (event) => {
-  console.log('[SW] Installing service worker for Valle de Cocora offline support v8')
+  console.log('[SW] Installing service worker for Valle de Cocora offline support v9')
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
       console.log('[SW] Caching app shell and Valle de Cocora data')
@@ -49,7 +51,7 @@ self.addEventListener('install', (event) => {
 })
 
 self.addEventListener('activate', (event) => {
-  console.log('[SW] Activating service worker v8')
+  console.log('[SW] Activating service worker v9')
   event.waitUntil(
     caches.keys().then((keys) => {
       return Promise.all(

@@ -1,6 +1,140 @@
 {
   "places": [
     {
+      "id": 13,
+      "name": "Boki Mall - Hotel El Mirador de Boquía",
+      "type": "Alojamientos",
+      "description": "Mall de experiencias en Boquía con hotel, restaurante, café bar y zona de eventos. Ganadores del Premio al mejor hotel rural de Salento 2024. Ubicación estratégica a 5 min de Salento.",
+      "priceRange": "$$$",
+      "rating": "4.9",
+      "timeInfo": "Reservas directas",
+      "badge": "Premio 2024",
+      "color": "sage",
+      "icon": "Hotel",
+      "contact": {
+        "phone": "+57 311 222 5312",
+        "whatsapp": "573112225312",
+        "email": "reservas@bokimall.com"
+      },
+      "location": {
+        "lat": 4.6420,
+        "lng": -75.5650,
+        "address": "Km 5 Vía principal a Salento, Vereda Boquía",
+        "landmark": "400 metros después del puente de Boquía"
+      },
+      "operatingHours": {
+        "notes": "Hotel 24 horas. Restaurante Terra: 7:00am - 9:00pm. Barcinales Café: horario variable."
+      },
+      "tags": ["hotel", "restaurante", "café", "eventos", "boquía", "premio mejor hotel"],
+      "verified": true,
+      "active": true,
+      "accommodationDetails": {
+        "categoryLabel": "Hotel rural premium · Mall de experiencias en Boquía",
+        "stars": 4,
+        "roomTypes": ["Suite", "Doble", "Familiar"],
+        "services": ["Hotel El Mirador de Boquía", "Restaurante Terra", "Barcinales Café - Bar", "Zona de eventos", "Boki Travel operador logístico", "Paquetes turísticos", "Wi-Fi", "Parqueadero"],
+        "roomFeatures": ["Vistas panorámicas", "Lujo tradicional", "Balcones", "Baños privados", "Calefacción", "Aire acondicionado"],
+        "nearby": ["Salento centro · 5 min en carro", "Valle de Cocora · 15 min en carro", "Río Quindío · cercano", "Fincas cafeteras", "Miradores"],
+        "policies": ["Check-in: 14:00", "Check-out: 12:00", "Reservas requeridas", "Eventos con reserva previa"],
+        "checkIn": "14:00",
+        "checkOut": "12:00",
+        "amenities": ["Desayuno incluido", "Restaurante en sitio", "Café bar", "Eventos", "Paquetes turísticos"],
+        "capacity": "Por confirmar",
+        "bookingNotes": "Premio al mejor hotel rural de Salento 2024. Operador logístico Boki Travel para experiencias turísticas."
+      }
+    },
+    {
+      "id": 14,
+      "name": "Mirador Las Manos de Dios",
+      "type": "Experiencias",
+      "description": "Nuevo parque de fotos y mirador de Salento con vista privilegiada de la cordillera. Atracciones fotográficas: Manos de Dios, Cóndor de los Andes, Poporo, Jeep cafetero, Torre y estación de café. Operado por Cocoratours.",
+      "priceRange": "$",
+      "rating": "4.8",
+      "timeInfo": "8:00 am - 6:00 pm",
+      "badge": "Nuevo Atractivo",
+      "color": "yellow",
+      "icon": "Compass",
+      "contact": {
+        "phone": "+57 320 9876543",
+        "whatsapp": "573209876543"
+      },
+      "location": {
+        "lat": 4.6340,
+        "lng": -75.5720,
+        "address": "Ecoparque Tu Pais",
+        "landmark": "300 metros del cementerio u 800 metros de Bomberos"
+      },
+      "operatingHours": {
+        "monday": "8:00 - 18:00",
+        "tuesday": "8:00 - 18:00",
+        "wednesday": "8:00 - 18:00",
+        "thursday": "8:00 - 18:00",
+        "friday": "8:00 - 18:00",
+        "saturday": "8:00 - 18:00",
+        "sunday": "8:00 - 18:00"
+      },
+      "tags": ["mirador", "fotos", "manos de dios", "cóndor", "parque", "instagrameable", "cocoratours"],
+      "verified": true,
+      "active": true,
+      "experienceDetails": {
+        "duration": "1-2 horas",
+        "difficulty": "Fácil",
+        "groupSize": "Sin límite",
+        "included": ["Entrada al parque", "Acceso a todas las atracciones fotográficas", "Estación de café"],
+        "notIncluded": ["Transporte", "Comida", "Bebidas adicionales"],
+        "requirements": ["Cámara", "Ropa cómoda", "Calzado para caminar"],
+        "languages": ["Español"],
+        "meetingPoint": "Ecoparque Tu Pais",
+        "cancellationPolicy": "No aplica (entrada al parque)",
+        "tariff": "$12.000 COP por persona",
+        "attractions": ["Manos de Dios", "Cóndor de los Andes", "Poporo", "Jeep cafetero", "Torre", "Estación de café"],
+        "views": ["Armenia", "Circasia", "Filandia", "Río Quindío", "Cordillera"]
+      }
+    },
+    {
+      "id": 15,
+      "name": "Reserva Natural Cascadas de Santa Rita",
+      "type": "Experiencias",
+      "description": "Hermosa quebrada con caída de 20 metros a piscina natural en Boquía. Sendero de 4.8 km con bosque, montes, valle, antigua vía de tren, túnel y puente colgante. Incluye segunda cascada por cavernas y zonas de camping.",
+      "priceRange": "$",
+      "rating": "4.7",
+      "timeInfo": "3-4 horas caminata",
+      "badge": "Naturaleza",
+      "color": "green",
+      "icon": "Mountain",
+      "contact": {
+        "phone": "+57 300 1234567",
+        "whatsapp": "573001234567"
+      },
+      "location": {
+        "lat": 4.6400,
+        "lng": -75.5600,
+        "address": "Vereda Boquía",
+        "landmark": "1 km de la entrada de Boquía, Hacienda Santa Rita"
+      },
+      "operatingHours": {
+        "notes": "Acceso durante el día. Se recomienda iniciar temprano (8am)"
+      },
+      "tags": ["cascada", "senderismo", "naturaleza", "baño", "camping", "boquía", "cavernas"],
+      "verified": true,
+      "active": true,
+      "experienceDetails": {
+        "duration": "3-4 horas",
+        "difficulty": "Moderada a difícil",
+        "groupSize": "Variable",
+        "included": ["Acceso a senderos", "Cascada principal", "Piscina natural", "Segunda cascada", "Áreas de camping"],
+        "notIncluded": ["Transporte a Boquía", "Comida", "Bebidas", "Guía (opcional)"],
+        "requirements": ["Ropa cómoda", "Calzado de trekking", "Agua suficiente", "Protector solar", "Ropa de baño"],
+        "languages": ["Español"],
+        "meetingPoint": "Hacienda Santa Rita, 1 km de entrada Boquía",
+        "cancellationPolicy": "No aplica (propiedad privada)",
+        "tariff": "$5.000 COP por persona",
+        "attractions": ["Cascada principal 20m", "Piscina natural", "Segunda cascada", "Cavernas", "Antigua vía de tren", "Túnel", "Puente colgante"],
+        "highlights": ["Sendero selvático", "Aves endémicas", "Flora local", "Baños refrescantes", "Zonas de camping"],
+        "route": "Boquía → Hacienda Santa Rita → Sendero bosque → Vía tren → Túnel → Puente colgante → Cascada"
+      }
+    },
+    {
       "id": 1,
       "name": "Brunch de la Plaza",
       "type": "Restaurantes",
