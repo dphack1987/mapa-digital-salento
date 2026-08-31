@@ -68,6 +68,7 @@ import DefensiveSEODashboard from './components/DefensiveSEODashboard'
 import urgencySchemaService from './services/urgencySchema.service'
 import localBacklinksService from './services/localBacklinks.service'
 import AllyBacklinksDashboard from './components/AllyBacklinksDashboard'
+import internationalSEOService from './services/internationalSEO.service'
 import allyRegistrationService from './services/allyRegistration.service'
 import AllyRegistrationForm from './components/AllyRegistrationForm'
 import AllyVerification from './components/AllyVerification'
@@ -129,6 +130,7 @@ defensiveSEOGService.initialize()
 urgencySchemaService.initialize()
 urgencySchemaService.injectSchemasIntoDOM()
 localBacklinksService.initialize()
+internationalSEOService.initialize()
 allyRegistrationService.initialize()
 notificationsService.initialize()
 
