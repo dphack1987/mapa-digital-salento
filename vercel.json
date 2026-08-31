@@ -3,10 +3,38 @@
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "cleanUrls": true,
-  "rewrites": [
+  "routes": [
     {
-      "source": "/((?!assets/|data/|salento/|sw\\.js|manifest\\.webmanifest|logo_salento2026\\.png|favicon).*)",
-      "destination": "/index.html"
+      "src": "/assets/(.*)",
+      "dest": "/assets/$1"
+    },
+    {
+      "src": "/data/(.*)",
+      "dest": "/data/$1"
+    },
+    {
+      "src": "/salento/(.*)",
+      "dest": "/salento/$1"
+    },
+    {
+      "src": "/pautas/(.*)",
+      "dest": "/pautas/$1"
+    },
+    {
+      "src": "/sw.js",
+      "dest": "/sw.js"
+    },
+    {
+      "src": "/manifest.webmanifest",
+      "dest": "/manifest.webmanifest"
+    },
+    {
+      "src": "/logo_salento2026.png",
+      "dest": "/logo_salento2026.png"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
     }
   ]
 }
