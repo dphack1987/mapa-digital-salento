@@ -32,6 +32,8 @@ import {
   Utensils,
   X,
   Zap,
+  Share2,
+  Link,
 } from 'lucide-react'
 import { Category, Language, Currency, Place, MapMarker, Hotel as HotelType } from './types'
 import dataService from './services/dataService'
@@ -58,6 +60,13 @@ import seoLandingService from './services/seoLandingService'
 import DynamicLandingPage from './components/DynamicLandingPage'
 import SEODashboard from './components/SEODashboard'
 import HotelInfoModal from './components/HotelInfoModal'
+import QRShare from './components/QRShare'
+import performanceOptimizer from './services/performanceOptimizer'
+import defensiveSEOGService from './services/defensiveSEOG.service'
+import DefensiveSEODashboard from './components/DefensiveSEODashboard'
+import urgencySchemaService from './services/urgencySchema.service'
+import localBacklinksService from './services/localBacklinks.service'
+import AllyBacklinksDashboard from './components/AllyBacklinksDashboard'
 
 // Mapeo de iconos para compatibilidad con estructura JSON
 const iconMap: Record<string, any> = {
@@ -108,6 +117,12 @@ reviewsService.generateSampleReviews()
 analyticsService.initialize()
 supportService.initialize()
 seoLandingService.initialize()
+performanceOptimizer.initialize()
+performanceOptimizer.runAutoOptimizations()
+defensiveSEOGService.initialize()
+urgencySchemaService.initialize()
+urgencySchemaService.injectSchemasIntoDOM()
+localBacklinksService.initialize()
 
 // Inicializar sistema QR con hoteles existentes
 hotelQRService.initializeWithHotels([
@@ -145,6 +160,9 @@ function App() {
   const [showHotelModal, setShowHotelModal] = useState(false)
   const [pendingOrderCategory, setPendingOrderCategory] = useState<string | null>(null)
   const [isOffline, setIsOffline] = useState(!navigator.onLine)
+  const [showQRShare, setShowQRShare] = useState(false)
+  const [showDefensiveSEODashboard, setShowDefensiveSEODashboard] = useState(false)
+  const [showAllyBacklinksDashboard, setShowAllyBacklinksDashboard] = useState(false)
   
   // Función helper para obtener traducciones
   const t = (key: string, fallback?: string) => translationService.translate(key, fallback)
@@ -281,6 +299,15 @@ function App() {
           </button>
           <button className="icon-button support-trigger" aria-label="Soporte" onClick={() => setShowSupport(true)}>
             <LifeBuoy size={18} />
+          </button>
+          <button className="icon-button defensive-seo-trigger" aria-label="SEO Defensivo" onClick={() => setShowDefensiveSEODashboard(true)}>
+            <Shield size={18} />
+          </button>
+          <button className="icon-button ally-backlinks-trigger" aria-label="Backlinks Aliados" onClick={() => setShowAllyBacklinksDashboard(true)}>
+            <Link size={18} />
+          </button>
+          <button className="icon-button qr-share-trigger" aria-label="Compartir QR" onClick={() => setShowQRShare(true)}>
+            <Share2 size={18} />
           </button>
           <button className="cart-button" onClick={() => setShowCart(true)} aria-label="Carrito">
             <ShoppingBag size={16} />
@@ -509,6 +536,9 @@ function App() {
           language={language as 'es' | 'en'}
         />
       )}
+      {showQRShare && <QRShare onClose={() => setShowQRShare(false)} />}
+      {showDefensiveSEODashboard && <DefensiveSEODashboard onClose={() => setShowDefensiveSEODashboard(false)} />}
+      {showAllyBacklinksDashboard && <AllyBacklinksDashboard onClose={() => setShowAllyBacklinksDashboard(false)} />}
       <DonChucho language={language} t={t} places={places} weather={weather} todayEvents={todayEvents} />
       <div className="offline-status">
         <span className={isOffline ? 'offline-indicator' : 'online-indicator'} />

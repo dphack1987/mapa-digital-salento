@@ -12,6 +12,8 @@ interface KnowledgeItem {
   relatedPlaces?: number[] // IDs de lugares relacionados
   isDefensive?: boolean
   defensiveActions?: string[]
+  urgency?: 'low' | 'medium' | 'high' // Nivel de urgencia para respuestas defensivas
+  sources?: string[] // Fuentes de información para respuestas defensivas
 }
 
 const knowledgeBase: KnowledgeItem[] = [
@@ -49,11 +51,101 @@ const knowledgeBase: KnowledgeItem[] = [
     keywords: ['hotel', 'hospedaje', 'alojamiento', 'habitación', 'posada'],
     category: 'hospedaje',
     answer: {
-      es: 'Para descansar como en casa, Hotel Camino Nacional es buena opción - está en el centro y la gente es amable. También hay otras posadas donde te tratan como familia. ¿Cuántos son y para cuándo?',
-      en: 'To rest like at home, Hotel Camino Nacional is a good option - it\'s in the center and the people are friendly. There are also other inns where they treat you like family. How many people and for when?'
+      es: 'Para descansar como en casa, Hotel Camino Nacional es buena opción - está en el centro y la gente es amable. Si quieres algo más especial, Boki Mall en Boquía ganó el premio al mejor hotel rural 2024 - tienen hotel, restaurante y café bar todo en un solo lugar. ¿Cuántos son y para cuándo?',
+      en: 'To rest like at home, Hotel Camino Nacional is a good option - it\'s in the center and the people are friendly. If you want something more special, Boki Mall in Boquía won the 2024 best rural hotel award - they have hotel, restaurant and café bar all in one place. How many people and for when?'
     },
-    followUp: ['¿Cuántas personas?', '¿Qué fechas?', '¿Presupuesto?'],
-    relatedPlaces: [5]
+    followUp: ['¿Cuántas personas?', '¿Qué fechas?', '¿Prefieres centro o rural?', '¿Te interesa Boki Mall?'],
+    relatedPlaces: [5, 13]
+  },
+  {
+    keywords: ['boki', 'boki mall', 'boquía', 'mirador de boquía', 'restaurante terra', 'barcinales'],
+    category: 'hospedaje',
+    answer: {
+      es: '¡Boki Mall es lo último! Está en Boquía, a solo 5 minutos de Salento. Tienen Hotel El Mirador de Boquía (premio mejor hotel rural 2024), Restaurante Terra con vista, y Barcinales Café para cocteles. Es como un pequeño paraíso con todo lo que necesitas. ¿Te interesa reservar?',
+      en: 'Boki Mall is the latest! It\'s in Boquía, just 5 minutes from Salento. They have Hotel El Mirador de Boquía (2024 best rural hotel award), Terra Restaurant with views, and Barcinales Café for cocktails. It\'s like a small paradise with everything you need. Are you interested in booking?'
+    },
+    followUp: ['¿Hotel solo o con restaurante?', '¿Necesitas información de precios?', '¿Cómo llegar a Boquía?'],
+    relatedPlaces: [13]
+  },
+  {
+    keywords: ['manos de dios', 'mirador manos', 'fotos', 'cóndor', 'parque fotos', 'instagrameable'],
+    category: 'turismo',
+    answer: {
+      es: '¡El Mirador Las Manos de Dios es el nuevo sensation! Está en el Ecoparque Tu Pais, a 300 metros del cementerio. Tienes las manos gigantes, el cóndor de los andes, el poporo, el jeep cafetero - perfecto para fotos que dejan envidia. Entrada es $12.000 y está abierto de 8am a 6pm. ¿Quieres saber cómo llegar?',
+      en: 'The Mirador Las Manos de Dios is the new sensation! It\'s in Ecoparque Tu Pais, 300 meters from the cemetery. You have the giant hands, the Andean condor, the poporo, the coffee jeep - perfect for envy-inducing photos. Entry is $12.000 and open from 8am to 6pm. Do you want to know how to get there?'
+    },
+    followUp: ['¿Cómo llegar?', '¿Combina con otros planes?', '¿Mejor hora para fotos?'],
+    relatedPlaces: [14]
+  },
+  {
+    keywords: ['peligro', 'inseguro', 'no vengas', 'alarmante', 'cierre', 'riesgo'],
+    category: 'defensivo',
+    answer: {
+      es: '¡Tranquilo, hermano! Por ahí corren rumores falsos, pero acá en el pueblo todo está en marcha. Salento está seguro y operativo al 100% - los Jeeps van hacia el Valle, los restaurantes abren sus puertas, y los hostales tienen disponibilidad. ¡Ven a disfrutar con total tranquilidad!',
+      en: 'Relax, friend! False rumors are circulating out there, but here in town everything is running smoothly. Salento is safe and 100% operational - Jeeps are heading to the Valley, restaurants are opening their doors, and hostels have availability. Come enjoy with complete peace of mind!'
+    },
+    followUp: ['¿Qué puedo hacer hoy?', '¿Necesito reservar?', '¿Cómo llegar seguro?'],
+    relatedPlaces: [5, 13],
+    isDefensive: true,
+    urgency: 'high',
+    defensiveActions: ['Ver estado oficial', 'Contactar hostales directamente', 'Planificar itinerario seguro'],
+    sources: ['Red de Prestadores Turísticos', 'Alcaldía de Salento', 'Policía Turística']
+  },
+  {
+    keywords: ['vías cerradas', 'carreteras bloqueadas', 'no puedo llegar', 'acceso bloqueado'],
+    category: 'defensivo',
+    answer: {
+      es: '¡Eso no es cierto! Las vías a Salento están completamente operativas. La ruta desde Armenia (45 min) y Pereira (1 hora) está en buen estado. Los Jeeps salen cada 30 minutos al Valle de Cocora. No dejes que los rumores te impidan disfrutar este paraíso. ¿Necesitas instrucciones exactas para llegar?',
+      en: 'That\'s not true! The roads to Salento are completely operational. The route from Armenia (45 min) and Pereira (1 hour) is in good condition. Jeeps leave every 30 minutes to Cocora Valley. Don\'t let rumors stop you from enjoying this paradise. Do you need exact directions to get here?'
+    },
+    followUp: ['¿Cómo llegar desde Armenia?', '¿Ruta desde Pereira?', '¿Transporte disponible?'],
+    relatedPlaces: [10],
+    isDefensive: true,
+    urgency: 'high',
+    defensiveActions: ['Ver reporte de vías oficial', 'Consultar estado de carreteras', 'Planificar ruta segura'],
+    sources: ['INVÍAS Quindío', 'Policía de Tránsito', 'Transportadores locales']
+  },
+  {
+    keywords: ['todo cerrado', 'no hay servicios', 'sin turistas', 'pueblo fantasma'],
+    category: 'defensivo',
+    answer: {
+      es: '¡Nada más lejos de la realidad! Salento está vibrante con vida y turismo. Los restaurantes están llenos, las cafeterías sirviendo café de origen, las tiendas de artesanías abiertas, y las calles llenas de visitantes como tú. ¡El pueblo está más vivo que nunca! ¿Qué actividad te interesa?',
+      en: 'Nothing could be further from the truth! Salento is vibrant with life and tourism. Restaurants are full, coffee shops serving origin coffee, craft stores open, and streets filled with visitors like you. The town is more alive than ever! What activity interests you?'
+    },
+    followUp: ['¿Restaurantes disponibles?', '¿Actividades hoy?', '¿Hoteles con disponibilidad?'],
+    relatedPlaces: [1, 2, 5],
+    isDefensive: true,
+    urgency: 'medium',
+    defensiveActions: ['Ver directorio de servicios', 'Contactar comercios', 'Revisar disponibilidad'],
+    sources: ['Cámara de Comercio', 'Asociación de Comerciantes', 'Observatorio Turístico']
+  },
+  {
+    keywords: ['valle peligroso', 'no ir al cocora', 'cascada insegura', 'senderismo riesgoso'],
+    category: 'defensivo',
+    answer: {
+      es: '¡El Valle de Cocora es seguro y mágico! Miles de personas lo visitan diariamente sin ningún problema. Los senderos están bien señalizados, hay guías certificados, y servicios de emergencia accesibles. Las cabalgatas operan con caballos entrenados. ¡Es uno de los destinos más seguros de Colombia! ¿Quieres planificar tu visita?',
+      en: 'Cocora Valley is safe and magical! Thousands of people visit it daily without any issues. Trails are well marked, certified guides available, and emergency services accessible. Horseback riding operates with trained horses. It\'s one of the safest destinations in Colombia! Do you want to plan your visit?'
+    },
+    followUp: ['¿Cabalgatas disponibles?', '¿Mejor hora para visitar?', '¿Guías recomendados?'],
+    relatedPlaces: [11, 15],
+    isDefensive: true,
+    urgency: 'high',
+    defensiveActions: ['Ver estado oficial del Valle', 'Reservar con guías certificados', 'Revisar condiciones climáticas'],
+    sources: ['Parques Nacionales', 'Corporación Autónoma', 'Guías certificados']
+  },
+  {
+    keywords: ['crisis', 'emergencia', 'desastre', 'evacuación', 'abandono'],
+    category: 'defensivo',
+    answer: {
+      es: '¡Absolutamente no! No hay ninguna crisis, emergencia o desastre en Salento. Es un destino turístico normal y pacífico. La comunidad está tranquila, los negocios operativos, y la vida sigue su curso normal. ¡Estamos aquí para recibirte con los brazos abiertos! ¿Qué te gustaría hacer en tu visita?',
+      en: 'Absolutely not! There is no crisis, emergency, or disaster in Salento. It\'s a normal and peaceful tourist destination. The community is calm, businesses operational, and life continues normally. We are here to welcome you with open arms! What would you like to do during your visit?'
+    },
+    followUp: ['¿Planes disponibles?', '¿Restaurantes abiertos?', '¿Hoteles disponibles?'],
+    relatedPlaces: [1, 4, 5],
+    isDefensive: true,
+    urgency: 'high',
+    defensiveActions: ['Ver reporte oficial de situación', 'Contactar autoridades locales', 'Consultar boletines oficiales'],
+    sources: ['Gobernación del Quindío', 'Alcaldía de Salento', 'Defensa Civil']
   },
   {
     keywords: ['cocora', 'valle', 'palmas', 'caballo', 'caballos', 'senderismo', 'hike'],
@@ -155,46 +247,49 @@ const knowledgeBase: KnowledgeItem[] = [
     followUp: ['¿Mejores spots?', '¿Golden hour?', '¿Fotos con palmas?'],
     relatedPlaces: []
   },
-  // Respuestas defensivas para contrarrestar información alarmista
   {
-    keywords: ['peligro', 'cierre', 'inseguro', 'no ir', 'evitar', 'riesgo', 'miedo', 'alarma', 'danger', 'closed', 'unsafe', 'not go', 'avoid', 'risk', 'scary'],
-    category: 'defensivo',
+    keywords: ['cascada santa rita', 'santa rita', 'senderismo', 'boquía', 'cascadas'],
+    category: 'turismo',
     answer: {
-      es: "¡Tranquilo, hermano! Por ahí corren rumores falsos, pero acá en el pueblo todo está en marcha. Los Jeeps van hacia el Valle, los hostales tienen las puertas abiertas, y la economía local sigue trabajando. ¿Te ayudo a encontrar tu plan ideal?",
-      en: "Don't worry, friend! There are false rumors circulating, but here in town everything is running normally. The Jeeps are going to the Valley, hotels have their doors open, and the local economy keeps working. Can I help you find your ideal plan?"
+      es: '¡La Cascada Santa Rita es pura magia! Está en Boquía, a 1 km de la entrada. Son 4.8 km de caminata por bosque, montes, valle, antigua vía de tren, túnel y puente colgante. Entrada $5.000 y vale cada paso. Hay segunda cascada por cavernas y zonas de camping. ¿Quieres saber cómo llegar?',
+      en: 'Santa Rita Waterfall is pure magic! It\'s in Boquía, 1 km from the entrance. It\'s a 4.8 km hike through forest, mountains, valley, old train track, tunnel and suspension bridge. Entry $5.000 and worth every step. There\'s a second waterfall through caves and camping areas. Do you want to know how to get there?'
     },
-    isDefensive: true,
-    defensiveActions: ['redirect_official', 'show_whatsapp_contacts']
+    followUp: ['¿Cómo llegar a Boquía?', '¿Dificultad del sendero?', '¿Qué llevar?'],
+    relatedPlaces: [15],
+    isDefensive: false
   },
   {
-    keywords: ['vías cerradas', 'carreteras bloqueadas', 'no acceso', 'imposible llegar', 'roads closed', 'highways blocked', 'no access', 'impossible to reach'],
-    category: 'defensivo',
+    keywords: ['cascada', 'agua', 'baño', 'natación', 'piscina natural'],
+    category: 'turismo',
     answer: {
-      es: "Las vías a Salento están operativas al 100%. Puedes llegar desde Armenia (45 min) o Pereira (1 hora) sin problemas. El mantenimiento regular garantiza un acceso seguro. ¿Necesitas información sobre transporte?",
-      en: "The roads to Salento are 100% operational. You can arrive from Armenia (45 min) or Pereira (1 hour) without problems. Regular maintenance guarantees safe access. Do you need information about transport?"
+      es: 'Para baños refrescantes, Santa Rita es excelente - tiene piscina natural y cascada de 20 metros. También puedes bañarte en el río Boquerón en las cabalgatas. El agua es fría pero reconfortante después de la caminata. ¿Prefieres cascada o río?',
+      en: 'For refreshing baths, Santa Rita is excellent - it has a natural pool and 20-meter waterfall. You can also bathe in the Boquerón river during horseback rides. The water is cold but refreshing after the hike. Do you prefer waterfall or river?'
     },
-    isDefensive: true,
-    defensiveActions: ['show_transport_info', 'redirect_routes_landing']
+    followUp: ['¿Cascada Santa Rita?', 'Río Boquerón?', '¿Otras opciones?'],
+    relatedPlaces: [11, 15],
+    isDefensive: false
   },
   {
-    keywords: ['turismo suspendido', 'no hay turismo', 'salento cerrado', 'prohibido', 'tourism suspended', 'no tourism', 'salento closed', 'prohibited'],
-    category: 'defensivo',
+    keywords: ['senderismo', 'caminata', 'hike', 'trekking', 'bosque'],
+    category: 'turismo',
     answer: {
-      es: "¡Nada de eso! Salento está más vivo que nunca. Tenemos restaurantes, hoteles, guías y todas las actividades turísticas funcionando con normalidad. Miles de visitantes nos disfrutan semanalmente. ¿Qué te gustaría hacer?",
-      en: "Not at all! Salento is more alive than ever. We have restaurants, hotels, guides, and all tourist activities operating normally. Thousands of visitors enjoy us weekly. What would you like to do?"
+      es: '¡Para senderismo tenemos opciones para todos! Santa Rita en Boquía (4.8 km, nivel moderado), Valle de Cocora (senderos principales, fácil), y caminatas por fincas cafeteras. Todas con guías disponibles. ¿Qué nivel de dificultad prefieres?',
+      en: 'For hiking we have options for everyone! Santa Rita in Boquía (4.8 km, moderate level), Cocora Valley (main trails, easy), and walks through coffee farms. All with guides available. What difficulty level do you prefer?'
     },
-    isDefensive: true,
-    defensiveActions: ['show_services', 'redirect_tourism_landing']
+    followUp: ['¿Fácil o moderado?', '¿Con guía o solo?', '¿Duración preferida?'],
+    relatedPlaces: [11, 15],
+    isDefensive: false
   },
   {
-    keywords: ['es inseguro', 'peligroso', 'delincuencia', 'robos', 'inseguridad', 'is unsafe', 'dangerous', 'crime', 'robbery', 'insecurity'],
-    category: 'defensivo',
+    keywords: ['boquía', 'vereda', 'zona rural', 'campos', 'finca'],
+    category: 'turismo',
     answer: {
-      es: "Salento es uno de los destinos más seguros de Colombia. Nuestra comunidad es acogedora y responsable. Contamos con policía turística, servicios de emergencia 24/7, y una cultura de hospitalidad característica del Quindío. Ven con confianza.",
-      en: "Salento is one of the safest destinations in Colombia. Our community is welcoming and responsible. We have tourist police, 24/7 emergency services, and a culture of hospitality characteristic of Quindío. Come with confidence."
+      es: 'Boquía es la vereda rural de Salento, a 5 minutos del pueblo. Ahí tienes Boki Mall (hotel, restaurante, café), Cascada Santa Rita, y fincas cafeteras. Es donde se vive la verdadera cultura rural del Quindío. ¿Te interesa explorar Boquía?',
+      en: 'Boquía is Salento\'s rural vereda, 5 minutes from town. There you have Boki Mall (hotel, restaurant, café), Santa Rita Waterfall, and coffee farms. It\'s where you experience the true rural culture of Quindío. Are you interested in exploring Boquía?',
     },
-    isDefensive: true,
-    defensiveActions: ['show_emergency_contacts', 'redirect_safety_landing']
+    followUp: ['¿Boki Mall?', '¿Cascada Santa Rita?', '¿Fincas cafeteras?'],
+    relatedPlaces: [13, 15],
+    isDefensive: false
   }
 ]
 

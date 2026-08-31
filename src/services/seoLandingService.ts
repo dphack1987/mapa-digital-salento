@@ -527,17 +527,163 @@ class SEOLandingService {
         "@type": "Rating",
         "ratingValue": reviewResult === "TRUE" ? "1" : "0",
         "bestRating": "1",
-        "worstRating": "0"
+        "worstRating": "0",
+        "ratingExplanation": reviewResult === "TRUE" ? "Información verificada como falsa por fuentes oficiales" : "Información verificada como verdadera"
       },
       "author": {
         "@type": "Organization",
-        "name": this.config.organizationName
+        "name": this.config.organizationName,
+        "url": this.config.siteUrl
+      },
+      "reviewDate": new Date().toISOString(),
+      "publisher": {
+        "@type": "Organization",
+        "name": "Salento a la Mano",
+        "logo": {
+          "@type": "ImageObject",
+          "url": `${this.config.siteUrl}/logo_salento2026.png`
+        }
       }
     }
   }
 
+  generateAdvancedClaimReviewSchema(disinformationClaims: any[]): object {
+    return {
+      "@context": "https://schema.org",
+      "@type": "ClaimReview",
+      "claimReviewed": disinformationClaims[0].claim,
+      "itemReviewed": {
+        "@type": "Place",
+        "name": "Salento, Quindío",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Salento",
+          "addressRegion": "Quindío",
+          "addressCountry": "CO"
+        }
+      },
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "1",
+        "bestRating": "5",
+        "worstRating": "1",
+        "ratingExplanation": "Información falsa desmentida por fuentes oficiales locales"
+      },
+      "author": {
+        "@type": "Organization",
+        "name": this.config.organizationName,
+        "url": this.config.siteUrl
+      },
+      "reviewDate": new Date().toISOString(),
+      "appearance": disinformationClaims[0].appearance,
+      "publisher": {
+        "@type": "Organization",
+        "name": "Salento a la Mano",
+        "logo": {
+          "@type": "ImageObject",
+          "url": `${this.config.siteUrl}/logo_salento2026.png`
+        }
+      }
+    }
+  }
+
+  generateMultiLayerSchema(page: DynamicLandingPage): object {
+    const baseSchema = page.schema
+    const disinformationClaims = this.getDisinformationClaims(page.slug)
+    
+    return {
+      "@context": "https://schema.org",
+      "@graph": [
+        baseSchema,
+        ...(disinformationClaims.length > 0 ? [this.generateAdvancedClaimReviewSchema(disinformationClaims)] : []),
+        this.generateOrganizationSchema(),
+        this.generateLocalBusinessSchema()
+      ]
+    }
+  }
+
+  generateLocalBusinessSchema(): object {
+    return {
+      "@context": "https://schema.org",
+      "@type": "TourismOrganization",
+      "name": "Red de Prestadores Turísticos de Salento",
+      "description": "Red oficial de turismo de Salento, Quindío. Información veraz y actualizada sobre destinos, alojamientos y servicios turísticos.",
+      "url": this.config.siteUrl,
+      "telephone": "+57 300 1234567",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Salento",
+        "addressRegion": "Quindío",
+        "addressCountry": "CO"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 4.6371,
+        "longitude": -75.5706
+      },
+      "areaServed": {
+        "@type": "GeoCircle",
+        "geoMidpoint": {
+          "@type": "GeoCoordinates",
+          "latitude": 4.6371,
+          "longitude": -75.5706
+        },
+        "geoRadius": "50000"
+      },
+      "sameAs": [
+        "https://www.facebook.com/salentoalamano",
+        "https://www.instagram.com/salentoalamano"
+      ],
+      "priceRange": "$$"
+    }
+  }
+
+  getDisinformationClaims(slug: string): any[] {
+    const claimsMap: Record<string, any[]> = {
+      'estado-vias-salento-hoy': [
+        {
+          claim: 'Las vías a Salento están cerradas por inseguridad',
+          appearance: [
+            { "@type": "CreativeWork", "name": "Video viral en redes sociales", "author": "Cuenta no verificada" }
+          ]
+        }
+      ],
+      'hoteles-hostales-abiertos-salento': [
+        {
+          claim: 'Todos los hoteles en Salento están cerrados',
+          appearance: [
+            { "@type": "CreativeWork", "name": "Mensaje de WhatsApp reenviado", "author": "Desconocido" }
+          ]
+        }
+      ],
+      'valle-cocora-operativo-seguro': [
+        {
+          claim: 'El Valle de Cocora está cerrado por peligro',
+          appearance: [
+            { "@type": "CreativeWork", "name": "Video de TikTok", "author": "Usuario no verificado" }
+          ]
+        }
+      ],
+      'turismo-salento-seguro-hoy': [
+        {
+          claim: 'Salento es un destino peligroso para turistas',
+          appearance: [
+            { "@type": "CreativeWork", "name": "Publicación en redes", "author": "Cuenta de noticias no verificada" }
+          ]
+        }
+      ]
+    }
+    
+    return claimsMap[slug] || []
+  }
+
   getPage(slug: string): DynamicLandingPage | undefined {
-    return this.pages.get(slug)
+    const page = this.pages.get(slug)
+    if (page) {
+      // Usar schema multicapa avanzado
+      page.schema = this.generateMultiLayerSchema(page)
+    }
+    return page
   }
 
   getAllPages(): DynamicLandingPage[] {
