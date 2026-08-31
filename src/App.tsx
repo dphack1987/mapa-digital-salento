@@ -15,6 +15,7 @@ import {
   Mail,
   MapPin,
   Menu,
+  Mountain,
   ShoppingBag,
   MessageCircle,
   MessageSquare,
@@ -23,12 +24,14 @@ import {
   Plus,
   Search,
   Send,
+  Shield,
   ShoppingBasket,
   Sparkles,
   Star,
   Store,
   Utensils,
   X,
+  Zap,
 } from 'lucide-react'
 import { Category, Language, Currency, Place, MapMarker, Hotel as HotelType } from './types'
 import dataService from './services/dataService'
@@ -65,6 +68,7 @@ const iconMap: Record<string, any> = {
   Bike,
   Store,
   Compass,
+  Zap,
 }
 
 // Función para convertir iconos de string a componentes Lucide
