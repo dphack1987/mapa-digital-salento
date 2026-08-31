@@ -1,4 +1,6 @@
 # Archivos y directorios a ignorar en Vercel
+# IMPORTANTE: NO incluir 'dist' aquí - Vercel lo necesita para el deploy
+# vercel.json configura outputDirectory: "dist"
 node_modules
 .DS_Store
 .git
@@ -14,4 +16,3 @@ yarn-error.log*
 .vscode
 .idea
 *.log
-dist

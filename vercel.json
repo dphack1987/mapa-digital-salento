@@ -2,10 +2,11 @@
   "version": 2,
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
-  "routes": [
+  "cleanUrls": true,
+  "rewrites": [
     {
-      "src": "/(.*)",
-      "dest": "/index.html"
+      "source": "/((?!assets/|data/|salento/|sw\\.js|manifest\\.webmanifest|logo_salento2026\\.png|favicon).*)",
+      "destination": "/index.html"
     }
   ]
 }
