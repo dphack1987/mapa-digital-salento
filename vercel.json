@@ -3,6 +3,8 @@
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "cleanUrls": true,
+  "framework": "vite",
+  "installCommand": "npm install",
   "routes": [
     {
       "src": "/assets/(.*)",
