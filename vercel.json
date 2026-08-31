@@ -5,38 +5,10 @@
   "cleanUrls": true,
   "framework": "vite",
   "installCommand": "npm install",
-  "routes": [
+  "rewrites": [
     {
-      "src": "/assets/(.*)",
-      "dest": "/assets/$1"
-    },
-    {
-      "src": "/data/(.*)",
-      "dest": "/data/$1"
-    },
-    {
-      "src": "/salento/(.*)",
-      "dest": "/salento/$1"
-    },
-    {
-      "src": "/pautas/(.*)",
-      "dest": "/pautas/$1"
-    },
-    {
-      "src": "/sw.js",
-      "dest": "/sw.js"
-    },
-    {
-      "src": "/manifest.webmanifest",
-      "dest": "/manifest.webmanifest"
-    },
-    {
-      "src": "/logo_salento2026.png",
-      "dest": "/logo_salento2026.png"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/index.html"
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
   ]
 }

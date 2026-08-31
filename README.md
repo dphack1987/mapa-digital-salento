@@ -17,8 +17,8 @@ Este proyecto se despliega automáticamente desde GitHub a Vercel.
 
 - `src/` - Código fuente React
 - `public/` - Archivos estáticos y service worker
-- `dist/` - Directorio de build (generado por Vite)
-- `data/` - Datos JSON de lugares y servicios
+- `public/data/` - **Fuente única de verdad** — archivos JSON de lugares, hoteles, marcadores y productos
+- `dist/` - Directorio de build (generado por Vite, no commitear)
 
 ### Dependencias Principales
 
