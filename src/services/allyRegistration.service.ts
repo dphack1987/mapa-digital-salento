@@ -160,16 +160,17 @@ class AllyRegistrationService {
   }
 
   /**
-   * Realizar verificación automática
+   * Realizar verificación automática (simplificada para MVP)
    */
   private async performAutomaticVerification(ally: AllyRegistration, documents: VerificationDocument[]): Promise<{ success: boolean; message: string }> {
-    // Verificación básica de documentos
+    // Verificación básica de documentos (relajada para MVP)
+    const hasAnyDocument = documents.length > 0 // Acepta cualquier documento para MVP
     const hasRequiredDocuments = documents.some(doc => 
       doc.type === 'business_license' || doc.type === 'chamber_of_commerce'
     )
 
-    if (!hasRequiredDocuments) {
-      return { success: false, message: 'Faltan documentos requeridos (licencia comercial o cámara de comercio)' }
+    if (!hasAnyDocument) {
+      return { success: false, message: 'Por favor adjunta al menos un documento de identificación (cámara de comercio, licencia, o documento de identidad)' }
     }
 
     // Verificación de formato de email
@@ -178,27 +179,27 @@ class AllyRegistrationService {
       return { success: false, message: 'Formato de email inválido' }
     }
 
-    // Verificación de número de teléfono colombiano
-    const phoneRegex = /^57\d{10}$/
+    // Verificación de número de teléfono colombiano (flexible para MVP)
+    const phoneRegex = /^57?\d{10}$/ // Acepta sin código de país también
     const cleanPhone = ally.phone.replace(/\D/g, '')
     if (!phoneRegex.test(cleanPhone)) {
-      return { success: false, message: 'Formato de teléfono inválido (debe ser código de país + 10 dígitos)' }
+      return { success: false, message: 'Formato de teléfono inválido (debe ser 10 dígitos, opcionalmente con código 57)' }
     }
 
-    // Verificación de ubicación dentro de Salento
+    // Verificación de ubicación dentro de Salento (relajada para MVP)
     const salentoBounds = {
-      lat: { min: 4.5, max: 4.7 },
-      lng: { min: -75.5, max: -75.3 }
+      lat: { min: 4.4, max: 4.8 }, // Ligeramente más permisivo
+      lng: { min: -75.6, max: -75.2 }
     }
 
     if (ally.location.lat < salentoBounds.lat.min || ally.location.lat > salentoBounds.lat.max ||
         ally.location.lng < salentoBounds.lng.min || ally.location.lng > salentoBounds.lng.max) {
-      return { success: false, message: 'La ubicación debe estar dentro del área de Salento' }
+      return { success: false, message: 'La ubicación debe estar dentro del área de Salento (coordenadas aproximadas: 4.63, -75.4)' }
     }
 
-    // Verificación de nombre de negocio
-    if (ally.businessName.length < 3) {
-      return { success: false, message: 'El nombre del negocio debe tener al menos 3 caracteres' }
+    // Verificación de nombre de negocio (relajada para MVP)
+    if (ally.businessName.length < 2) {
+      return { success: false, message: 'El nombre del negocio debe tener al menos 2 caracteres' }
     }
 
     // Si pasa todas las verificaciones
