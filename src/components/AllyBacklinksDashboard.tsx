@@ -2,8 +2,10 @@
 // Permite a los negocios locales generar e implementar backlinks hacia la plataforma oficial
 
 import { useState, useEffect } from 'react'
-import { Link, Copy, Download, Share2, Users, TrendingUp, Shield, Code, CheckCircle, AlertCircle } from 'lucide-react'
+import { Link, Copy, Download, Share2, Users, TrendingUp, Shield, Code, CheckCircle, AlertCircle, Plus, BarChart3 } from 'lucide-react'
 import localBacklinksService from '../services/localBacklinks.service'
+import AllyRegistrationForm from './AllyRegistrationForm'
+import AllyPersonalDashboard from './AllyPersonalDashboard'
 
 interface AllyBacklinksDashboardProps {
   onClose?: () => void
@@ -11,6 +13,8 @@ interface AllyBacklinksDashboardProps {
 }
 
 const AllyBacklinksDashboard: React.FC<AllyBacklinksDashboardProps> = ({ onClose, allyId = 'hotel-1' }) => {
+  const [showRegistrationForm, setShowRegistrationForm] = useState(false)
+  const [showPersonalDashboard, setShowPersonalDashboard] = useState(false)
   const [backlinkOptions, setBacklinkOptions] = useState<any[]>([])
   const [allyDashboard, setAllyDashboard] = useState<any>(null)
   const [selectedOption, setSelectedOption] = useState<any>(null)
@@ -139,6 +143,13 @@ const AllyBacklinksDashboard: React.FC<AllyBacklinksDashboardProps> = ({ onClose
               </div>
             </div>
           </div>
+          <button 
+            className="view-dashboard-button"
+            onClick={() => setShowPersonalDashboard(true)}
+          >
+            <BarChart3 size={16} />
+            Ver Dashboard Personal
+          </button>
         </div>
       </div>
 
@@ -394,11 +405,39 @@ const AllyBacklinksDashboard: React.FC<AllyBacklinksDashboardProps> = ({ onClose
       </div>
 
       <div className="ally-backlinks-footer">
+        <div className="footer-actions">
+          <button 
+            className="new-ally-button"
+            onClick={() => setShowRegistrationForm(true)}
+          >
+            <Plus size={16} />
+            Registrar Nuevo Aliado
+          </button>
+        </div>
         <p>
           <Shield size={14} className="text-green-600" />
           Los backlinks oficiales ayudan a combatir la desinformación y fortalecen la autoridad de la red de turismo de Salento.
         </p>
       </div>
+
+      {showRegistrationForm && (
+        <AllyRegistrationForm 
+          onClose={() => setShowRegistrationForm(false)}
+          onSuccess={(allyId) => {
+            console.log('Nuevo aliado registrado:', allyId)
+            setShowRegistrationForm(false)
+            // Recargar datos del dashboard
+            loadData()
+          }}
+        />
+      )}
+
+      {showPersonalDashboard && (
+        <AllyPersonalDashboard 
+          allyId={allyId}
+          onClose={() => setShowPersonalDashboard(false)}
+        />
+      )}
     </div>
   )
 }
