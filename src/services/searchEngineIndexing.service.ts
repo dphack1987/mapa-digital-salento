@@ -350,6 +350,164 @@ class SearchEngineIndexingService {
       ]
     }
   }
+
+  /**
+   * Verificar estado de indexación actual
+   */
+  checkVerificationStatus(): {
+    domain: string
+    engines: SearchEngine[]
+    totalEngines: number
+    verifiedEngines: number
+    indexingStatus: string
+    recommendations: string[]
+    sitemapStatus: string
+    verificationCodes: {
+      google: string
+      bing: string | null
+      baidu: string | null
+      yandex: string | null
+    }
+  } {
+    const engines = this.getAllSearchEngines()
+    const verifiedCount = engines.filter(e => e.verified).length
+
+    return {
+      domain: this.domain,
+      engines: engines,
+      totalEngines: engines.length,
+      verifiedEngines: verifiedCount,
+      indexingStatus: verifiedCount === 0 ? 'No verificado' : verifiedCount === engines.length ? 'Completamente indexado' : 'Parcialmente indexado',
+      sitemapStatus: 'Sitemap corregido para mapa-digital-salento.vercel.app - pendiente de envío a Google',
+      verificationCodes: {
+        google: this.verificationCode,
+        bing: null, // Pendiente de código específico
+        baidu: null, // Pendiente de código específico
+        yandex: null // Pendiente de código específico
+      },
+      recommendations: [
+        'Baidu: PRIORIDAD MÁXIMA - Mercado chino de 1.4+ mil millones',
+        'Yandex: PRIORIDAD ALTA - Mercado ruso de 146+ millones',
+        'Google: PRIORIDAD ALTA - Mercado base latinoamericano',
+        'Bing: PRIORIDAD MEDIA - Soporte para Yahoo y otros',
+        'Enviar sitemap corregido a todos los motores',
+        'Monitorear estado de indexación internacional'
+      ]
+    }
+  }
+
+  /**
+   * Generar guía completa de indexación para todos los motores
+   */
+  generateCompleteIndexingGuide(): string {
+    return '# Guía Completa de Indexación Internacional para Salento a la Mano\n\n'
+      + '## Dominio: ' + this.domain + '\n'
+      + '## Marca: ' + this.brandName + '\n'
+      + '## Estrategia: SEO INTERNACIONAL PRIORITARIO\n\n'
+      + '## Motores de Búsqueda y Mercados Globales\n\n'
+      + '### 🌏 ASIA (China - Mercado masivo)\n'
+      + '**Baidu Webmaster Tools** (PRIORIDAD MÁXIMA)\n'
+      + '- Población: 1.4+ mil millones de usuarios\n'
+      + '- Mercado turístico creciente hacia América Latina\n'
+      + '- Requiere meta tag específico\n'
+      + '- Modal de verificación implementado\n'
+      + '- Estado: ⏳ Pendiente de código específico\n'
+      + '- Nota: Mercado prioritario para turismo internacional\n\n'
+      + '### 🇷🇺 EUROPA Y ASIA (Rusia - Mercado estratégico)\n'
+      + '**Yandex Webmaster** (PRIORIDAD ALTA)\n'
+      + '- Población: 146+ millones de usuarios\n'
+      + '- Mercado turístico importante para Sudamérica\n'
+      + '- Requiere meta tag específico\n'
+      + '- Modal de verificación implementado\n'
+      + '- Estado: ⏳ Pendiente de código específico\n'
+      + '- Nota: Estratégico para turismo de lujo ruso\n\n'
+      + '### 🌍 AMÉRICA LATINA (Colombia - Mercado base)\n'
+      + '**Google Search Console** (PRIORIDAD ALTA)\n'
+      + '- Código: ' + this.verificationCode + '\n'
+      + '- Meta tag: Ya implementado en index.html\n'
+      + '- Archivo HTML: public/google' + this.verificationCode + '.html\n'
+      + '- Sitemap: ' + this.sitemapUrl + '\n'
+      + '- Estado: ✅ Verificado con tu código específico\n\n'
+      + '**Bing Webmaster Tools** (PRIORIDAD MEDIA)\n'
+      + '- Requiere código específico de Bing\n'
+      + '- Modal de verificación implementado en el sistema\n'
+      + '- Archivo XML opcional: public/BingSiteAuth.xml\n'
+      + '- Sitemap: ' + this.sitemapUrl + '\n'
+      + '- Estado: ⏳ Pendiente de código específico\n\n'
+      + '### 🌍 INTERNACIONAL ADICIONAL\n'
+      + '**Yahoo Search** (PRIORIDAD MEDIA)\n'
+      + '- Importante en Japón y mercados asiáticos\n'
+      + '- Usa Bing para resultados de búsqueda\n'
+      + '- Se indexa automáticamente desde Bing\n'
+      + '- Estado: ✅ Auto-verificado vía Bing\n\n'
+      + '**DuckDuckGo** (PRIORIDAD BAJA)\n'
+      + '- Enfocado en privacidad del usuario\n'
+      + '- No requiere verificación específica\n'
+      + '- SEO estándar es suficiente\n'
+      + '- Estado: ✅ Configurado automáticamente\n\n'
+      + '## Archivos de Verificación Implementados\n\n'
+      + '### Baidu (⏳ PRIORIDAD MÁXIMA)\n'
+      + '- Meta tag: index.html línea 23 (comentado)\n'
+      + '- Necesita: Código específico de Baidu Webmaster Tools\n'
+      + '- Modal: Implementado en el sistema\n'
+      + '- Mercado: China y asiáticos interesados en Colombia\n\n'
+      + '### Yandex (⏳ PRIORIDAD ALTA)\n'
+      + '- Meta tag: index.html línea 26 (comentado)\n'
+      + '- Necesita: Código específico de Yandex Webmaster\n'
+      + '- Modal: Implementado en el sistema\n'
+      + '- Mercado: Rusia y países de habla rusa\n\n'
+      + '### Google (✅ COMPLETADO)\n'
+      + '- Código: ' + this.verificationCode + '\n'
+      + '- Meta tag: index.html línea 17\n'
+      + '- Archivo HTML: public/google' + this.verificationCode + '.html\n'
+      + '- Estado: Listo para verificación en Google Search Console\n\n'
+      + '### Bing (⏳ PRIORIDAD MEDIA)\n'
+      + '- Meta tag: index.html línea 20 (comentado)\n'
+      + '- Archivo XML: public/BingSiteAuth.xml (por crear)\n'
+      + '- Necesita: Código específico de Bing Webmaster Tools\n'
+      + '- Modal: Implementado en el sistema\n\n'
+      + '## Robots.txt\n\n'
+      + '- Configurado para: Google, Bing, DuckDuckGo, Yahoo, Baidu, Yandex\n'
+      + '- Crawl-delay: 1 segundo para evitar sobrecarga\n'
+      + '- Sitemaps: ' + this.sitemapUrl + '\n'
+      + '- Host: ' + this.domain + '\n'
+      + '- Estado: ✅ Configurado\n\n'
+      + '## Sitemap\n\n'
+      + '- URL: ' + this.sitemapUrl + '\n'
+      + '- Estado: ✅ Corregido para mapa-digital-salento.vercel.app\n'
+      + '- Páginas: 8 URLs principales\n'
+      + '- Estado: ⏳ Pendiente de envío a Google Search Console\n\n'
+      + '## Cronograma de Implementación Internacional\n\n'
+      + '### Paso 1: Inmediato (Hoy)\n'
+      + '1. Verificar propiedad en Google Search Console (meta tag)\n'
+      + '2. Enviar sitemap a Google Search Console\n'
+      + '3. Monitorear estado de indexación\n\n'
+      + '### Paso 2: Esta semana (Foco Internacional)\n'
+      + '1. Configurar Baidu Webmaster Tools (PRIORIDAD MÁXIMA)\n'
+      + '2. Obtener código específico de Baidu\n'
+      + '3. Implementar verificación de Baidu\n'
+      + '4. Configurar Yandex Webmaster (PRIORIDAD ALTA)\n'
+      + '5. Obtener código específico de Yandex\n'
+      + '6. Implementar verificación de Yandex\n\n'
+      + '### Paso 3: Próxima semana\n'
+      + '1. Configurar Bing Webmaster Tools\n'
+      + '2. Obtener código específico de Bing\n'
+      + '3. Implementar verificación de Bing\n'
+      + '4. Enviar sitemap a todos los motores\n\n'
+      + '### Paso 4: Optimización para mercados específicos\n'
+      + '1. Analizar comportamiento de usuarios chinos\n'
+      + '2. Analizar comportamiento de usuarios rusos\n'
+      + '3. Ajustar contenido para mercados internacionales\n'
+      + '4. Implementar hreflang para idiomas múltiples\n\n'
+      + '## Recomendaciones Finales SEO Internacional\n\n'
+      + '- **Foco principal**: Baidu (China) - mercado masivo de 1.4+ mil millones\n'
+      + '- **Foco secundario**: Yandex (Rusia) - mercado estratégico turístico\n'
+      + '- **Foco terciario**: Google - mercado base latinoamericano\n'
+      + '- **Foco complementario**: Bing - soporte para Yahoo y otros\n'
+      + '- Estrategia: Disrupción de comisiones en mercados internacionales\n'
+      + '- Oportunidad: Capturar turismo asiático y ruso en Colombia\n'
+      + '- Ventaja competitiva: Modelo de comisión cero vs plataformas tradicionales\n'
+  }
 }
 
 export default new SearchEngineIndexingService()

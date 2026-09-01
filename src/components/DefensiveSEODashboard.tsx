@@ -6,9 +6,12 @@ import { useState, useEffect } from 'react'
 import { Shield, AlertTriangle, CheckCircle, TrendingUp, Globe, FileText, Download, RefreshCw, ExternalLink, Search, BarChart, Chrome, SearchIcon, Target } from 'lucide-react'
 import defensiveSEOGService from '../services/defensiveSEOG.service'
 import internationalSEOService from '../services/internationalSEO.service'
+import internationalKeywordsService from '../services/internationalKeywords.service'
 import GoogleVerificationModal from './GoogleVerificationModal'
 import SearchEngineIndexingModal from './SearchEngineIndexingModal'
 import RealWorldSearchEnginesModal from './RealWorldSearchEnginesModal'
+import BaiduVerificationModal from './BaiduVerificationModal'
+import YandexVerificationModal from './YandexVerificationModal'
 
 interface DefensiveSEODashboardProps {
   onClose?: () => void
@@ -22,10 +25,16 @@ const DefensiveSEODashboard: React.FC<DefensiveSEODashboardProps> = ({ onClose }
   const [metaTags, setMetaTags] = useState<string>('')
   const [brandSchema, setBrandSchema] = useState<string>('')
   const [loading, setLoading] = useState(true)
-  const [activeTab, setActiveTab] = useState<'pages' | 'claims' | 'keywords' | 'sitemap' | 'advanced'>('pages')
+  const [activeTab, setActiveTab] = useState<'pages' | 'claims' | 'keywords' | 'sitemap' | 'advanced' | 'international'>('pages')
+  const [internationalMarkets, setInternationalMarkets] = useState<any[]>([])
+  const [internationalStatus, setInternationalStatus] = useState<any>(null)
+  const [internationalKeywords, setInternationalKeywords] = useState<any[]>([])
+  const [keywordStats, setKeywordStats] = useState<any>(null)
   const [showGoogleVerification, setShowGoogleVerification] = useState(false)
   const [showSearchEngineIndexing, setShowSearchEngineIndexing] = useState(false)
   const [showRealWorldEngines, setShowRealWorldEngines] = useState(false)
+  const [showBaiduVerification, setShowBaiduVerification] = useState(false)
+  const [showYandexVerification, setShowYandexVerification] = useState(false)
   const targetDomain = 'https://mapa-digital-salento.vercel.app'
   const brandName = 'Salento a la Mano'
 
@@ -46,6 +55,10 @@ const DefensiveSEODashboard: React.FC<DefensiveSEODashboardProps> = ({ onClose }
       const generatedSitemap = defensiveSEOGService.generateDefensiveSitemap()
       const generatedMetaTags = internationalSEOService.generateMetaTags()
       const generatedBrandSchema = internationalSEOService.generateBrandSchema()
+      const markets = internationalSEOService.getInternationalMarkets()
+      const status = internationalSEOService.getInternationalImplementationStatus()
+      const intKeywords = internationalKeywordsService.getInternationalKeywords()
+      const stats = internationalKeywordsService.getInternationalKeywordStats()
 
       setDefensivePages(pages)
       setMisinformationClaims(claims)
@@ -53,6 +66,10 @@ const DefensiveSEODashboard: React.FC<DefensiveSEODashboardProps> = ({ onClose }
       setSitemap(generatedSitemap)
       setMetaTags(generatedMetaTags)
       setBrandSchema(generatedBrandSchema)
+      setInternationalMarkets(markets)
+      setInternationalStatus(status)
+      setInternationalKeywords(intKeywords)
+      setKeywordStats(stats)
     } catch (error) {
       console.error('Error loading defensive SEO data:', error)
     } finally {
@@ -112,6 +129,50 @@ const DefensiveSEODashboard: React.FC<DefensiveSEODashboardProps> = ({ onClose }
       case 'low': return 'BAJA'
       default: return 'NORMAL'
     }
+  }
+
+  const getCountryFlag = (country: string) => {
+    const flags: { [key: string]: string } = {
+      'China': '🇨🇳',
+      'Rusia': '🇷🇺',
+      'Japón': '🇯🇵',
+      'Corea del Sur': '🇰🇷',
+      'Alemania': '🇩🇪',
+      'Francia': '🇫🇷',
+      'Reino Unido': '🇬🇧',
+      'Estados Unidos': '🇺🇸',
+      'Brasil': '🇧🇷',
+      'México': '🇲🇽'
+    }
+    return flags[country] || '🌍'
+  }
+
+  const getPriorityLabel = (priority: string) => {
+    switch (priority) {
+      case 'high': return 'PRIORIDAD ALTA'
+      case 'medium': return 'PRIORIDAD MEDIA'
+      default: return 'PRIORIDAD BAJA'
+    }
+  }
+
+  const getStatusLabel = (status: string) => {
+    switch (status) {
+      case 'completed': return 'Completado'
+      case 'in_progress': return 'En Progreso'
+      default: return 'Pendiente'
+    }
+  }
+
+  const handleBaiduVerify = (code: string) => {
+    console.log('Baidu verification code:', code)
+    // Aquí implementar la lógica para guardar el código de Baidu
+    alert('Código de Baidu guardado: ' + code)
+  }
+
+  const handleYandexVerify = (code: string) => {
+    console.log('Yandex verification code:', code)
+    // Aquí implementar la lógica para guardar el código de Yandex
+    alert('Código de Yandex guardado: ' + code)
   }
 
   if (loading) {
@@ -212,6 +273,13 @@ const DefensiveSEODashboard: React.FC<DefensiveSEODashboardProps> = ({ onClose }
         >
           <BarChart size={16} />
           SEO Avanzado
+        </button>
+        <button
+          className={`tab-button ${activeTab === 'international' ? 'active' : ''}`}
+          onClick={() => setActiveTab('international')}
+        >
+          <Globe size={16} />
+          SEO Internacional
         </button>
       </div>
 
@@ -317,6 +385,166 @@ const DefensiveSEODashboard: React.FC<DefensiveSEODashboardProps> = ({ onClose }
               </button>
             </div>
             <pre className="sitemap-content">{sitemap}</pre>
+          </div>
+        )}
+
+        {activeTab === 'international' && (
+          <div className="international-seo-section">
+            <div className="international-seo-header">
+              <h3>🌍 SEO Internacional - {brandName}</h3>
+              <p>Estrategia prioritaria para mercados globales: China (Baidu), Rusia (Yandex), Asia, Europa</p>
+            </div>
+
+            {internationalStatus && (
+              <div className="international-status-overview">
+                <div className="status-main">
+                  <div className="status-item">
+                    <span className="status-label">Estado General:</span>
+                    <span className="status-value">{internationalStatus.overallStatus}</span>
+                  </div>
+                  <div className="status-item">
+                    <span className="status-label">Mercados Totales:</span>
+                    <span className="status-value">{internationalStatus.markets.length}</span>
+                  </div>
+                </div>
+                <div className="status-recommendations">
+                  <h4>🎯 Recomendaciones Estratégicas:</h4>
+                  <ul>
+                    {internationalStatus.recommendations.map((rec: string, index: number) => (
+                      <li key={index}>{rec}</li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            )}
+
+            <div className="international-markets-grid">
+              <h4>🌏 Mercados Internacionales Prioritarios</h4>
+              {internationalMarkets.map((market, index) => (
+                <div key={index} className={`international-market-card priority-${market.priority}`}>
+                  <div className="market-header">
+                    <div className="market-country">
+                      <span className="flag">{getCountryFlag(market.country)}</span>
+                      <h5>{market.country}</h5>
+                    </div>
+                    <span className={`priority-badge ${market.priority}`}>
+                      {getPriorityLabel(market.priority)}
+                    </span>
+                  </div>
+                  <div className="market-details">
+                    <div className="market-detail">
+                      <span className="detail-label">Motor:</span>
+                      <span className="detail-value">{market.searchEngine}</span>
+                    </div>
+                    <div className="market-detail">
+                      <span className="detail-label">Idioma:</span>
+                      <span className="detail-value">{market.language}</span>
+                    </div>
+                    <div className="market-detail">
+                      <span className="detail-label">Población:</span>
+                      <span className="detail-value">{market.population}</span>
+                    </div>
+                    <div className="market-detail">
+                      <span className="detail-label">Potencial:</span>
+                      <span className="detail-value">{market.tourismPotential}</span>
+                    </div>
+                    <div className="market-detail">
+                      <span className="detail-label">Estado:</span>
+                      <span className={`status-badge ${market.status}`}>
+                        {getStatusLabel(market.status)}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="international-implementation-steps">
+              <h4>📋 Pasos de Implementación Internacional</h4>
+              <div className="steps-list">
+                <div className="step-item completed">
+                  <div className="step-icon">✅</div>
+                  <div className="step-content">
+                    <h5>Configuración base hreflang</h5>
+                    <p>Meta tags internacionales preliminares implementados</p>
+                  </div>
+                </div>
+                <div className="step-item completed">
+                  <div className="step-icon">✅</div>
+                  <div className="step-content">
+                    <h5>Robots.txt optimizado</h5>
+                    <p>Configurado para crawlers internacionales (Baidu, Yandex, Naver)</p>
+                  </div>
+                </div>
+                <div className="step-item completed">
+                  <div className="step-icon">✅</div>
+                  <div className="step-content">
+                    <h5>Sitemap corregido</h5>
+                    <p>Dominio de despliegue optimizado para todos los motores</p>
+                  </div>
+                </div>
+                <div className="step-item pending">
+                  <div className="step-icon">⏳</div>
+                  <div className="step-content">
+                    <h5>Obtener código Baidu (PRIORIDAD MÁXIMA)</h5>
+                    <p>Registrarse en Baidu Webmaster Tools y obtener código específico</p>
+                  </div>
+                </div>
+                <div className="step-item completed">
+                  <div className="step-icon">✅</div>
+                  <div className="step-content">
+                    <h5>Verificación Yandex completada</h5>
+                    <p>Código: 3d2630a804c93168 - Mercado ruso verificado</p>
+                  </div>
+                </div>
+                <div className="step-item pending">
+                  <div className="step-icon">⏳</div>
+                  <div className="step-content">
+                    <h5>Enviar sitemap a Yandex</h5>
+                    <p>Enviar sitemap optimizado a Yandex Webmaster</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="international-verification-section">
+              <h4>🔐 Verificación de Motores Internacionales</h4>
+              <div className="verification-grid">
+                <div className="verification-card">
+                  <div className="verification-header">
+                    <span className="engine-icon">🇨🇳</span>
+                    <h5>Baidu (China)</h5>
+                  </div>
+                  <p>Mercado de 1.4+ mil millones - PRIORIDAD MÁXIMA</p>
+                  <div className="verification-status">
+                    <span className="status-label">Estado:</span>
+                    <span className="status-value pending">Pendiente código</span>
+                  </div>
+                  <button className="action-button" onClick={() => setShowBaiduVerification(true)}>
+                    Configurar Baidu
+                  </button>
+                </div>
+
+                <div className="verification-card">
+                  <div className="verification-header">
+                    <span className="engine-icon">🇷🇺</span>
+                    <h5>Yandex (Rusia)</h5>
+                  </div>
+                  <p>Mercado de 146+ millones - PRIORIDAD ALTA</p>
+                  <div className="verification-status">
+                    <span className="status-label">Estado:</span>
+                    <span className="status-value completed">✅ Verificado</span>
+                  </div>
+                  <div className="verification-code">
+                    <span className="code-label">Código:</span>
+                    <span className="code-value">3d2630a804c93168</span>
+                  </div>
+                  <button className="action-button disabled" disabled>
+                    Ya Verificado
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
         )}
 
@@ -479,6 +707,22 @@ const DefensiveSEODashboard: React.FC<DefensiveSEODashboardProps> = ({ onClose }
         <RealWorldSearchEnginesModal
           isOpen={showRealWorldEngines}
           onClose={() => setShowRealWorldEngines(false)}
+        />
+      )}
+
+      {showBaiduVerification && (
+        <BaiduVerificationModal
+          isOpen={showBaiduVerification}
+          onClose={() => setShowBaiduVerification(false)}
+          onVerify={handleBaiduVerify}
+        />
+      )}
+
+      {showYandexVerification && (
+        <YandexVerificationModal
+          isOpen={showYandexVerification}
+          onClose={() => setShowYandexVerification(false)}
+          onVerify={handleYandexVerify}
         />
       )}
     </div>

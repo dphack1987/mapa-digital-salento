@@ -1,558 +1,535 @@
-// Servicio de SEO Internacional - Indexación Global Inmediata
-// Generación de contenido multi-idioma para mercados europeos
+/**
+ * Servicio especializado en SEO Internacional
+ * Optimizado para mercados globales: China (Baidu), Rusia (Yandex), Asia, Europa
+ */
 
-interface InternationalSEOPage {
+interface InternationalMarket {
+  country: string
+  language: string
+  searchEngine: string
+  priority: 'high' | 'medium' | 'low'
+  population: string
+  tourismPotential: string
+  verificationCode: string | null
+  status: 'pending' | 'in_progress' | 'completed'
+}
+
+interface HreflangConfiguration {
+  url: string
   lang: string
-  slug: string
-  title: string
-  description: string
-  keywords: string[]
-  content: string
-  schema: any
-  ogTitle: string
-  ogDescription: string
-  twitterTitle: string
-  twitterDescription: string
+  region: string
+  alternate: string[]
 }
 
 class InternationalSEOService {
-  private pages: Map<string, InternationalSEOPage> = new Map()
-  private initialized = false
+  private domain: string = 'https://mapa-digital-salento.vercel.app'
+  private brandName: string = 'Salento a la Mano'
 
   /**
-   * Inicializar el servicio de SEO internacional
+   * Inicializar el servicio (necesario para compatibilidad)
    */
-  initialize() {
-    if (this.initialized) return
-
-    this.generateInternationalPages()
-    this.initialized = true
-
-    console.log('🌍 SEO Internacional inicializado - Indexación global activa')
+  initialize(): void {
+    console.log('International SEO Service initialized')
   }
 
   /**
-   * Generar páginas SEO por idioma y mercado
-   */
-  private generateInternationalPages() {
-    // ESPAÑOL (Colombia y España)
-    this.pages.set('es', this.generateSpanishPage())
-    
-    // INGLÉS (Reino Unido, Estados Unidos, Australia)
-    this.pages.set('en', this.generateEnglishPage())
-    
-    // ALEMÁN (Alemania, Austria, Suiza)
-    this.pages.set('de', this.generateGermanPage())
-    
-    // FRANCÉS (Francia, Bélgica, Suiza)
-    this.pages.set('fr', this.generateFrenchPage())
-    
-    // ITALIANO (Italia)
-    this.pages.set('it', this.generateItalianPage())
-  }
-
-  /**
-   * Página en Español - Mercado Colombia/España
-   */
-  private generateSpanishPage(): InternationalSEOPage {
-    return {
-      lang: 'es',
-      slug: 'estado-actual-salento-hoteles-abiertos-vias-libres-valle-cocora-operando-100',
-      title: 'Estado Actual de Salento: Hoteles Abiertos, Vías Libres y Valle de Cocora Operando al 100% - Información Oficial 2026',
-      description: 'Confirmación oficial: Turismo en Salento es completamente normal. Hoteles operativos, vías principales libres y Valle de Cocora 100% accesible. Información verificada por autoridades locales.',
-      keywords: ['salento estado actual', 'salento hoteles abiertos', 'valle cocora operativo', 'vías salento libres', 'salento seguro 2026', 'turismo salento quindío', 'colombia turismo oficial'],
-      content: this.generateSpanishContent(),
-      schema: this.generateSpanishSchema(),
-      ogTitle: 'Salento Abierto y Operativo al 100% - Información Oficial',
-      ogDescription: 'Hoteles abiertos, vías libres, Valle de Cocora 100% accesible. Información verificada por autoridades locales.',
-      twitterTitle: 'Salento está ABIERTO y OPERATIVO al 100%',
-      twitterDescription: 'Confirmación oficial: Turismo normal en Salento. Hoteles, vías y Valle de Cocora completamente operativos.'
-    }
-  }
-
-  /**
-   * Página en Inglés - Mercado Reino Unido/EEUU
-   */
-  private generateEnglishPage(): InternationalSEOPage {
-    return {
-      lang: 'en',
-      slug: 'salento-current-status-hotels-open-roads-free-valle-cocora-operating-100',
-      title: 'Salento Current Status: Hotels Open, Roads Free and Valle de Cocora Operating at 100% - Official Information 2026',
-      description: 'Official confirmation: Tourism in Salento is completely normal. Hotels operational, main roads free and Valle de Cocora 100% accessible. Information verified by local authorities.',
-      keywords: ['salento current status', 'salento hotels open', 'valle cocora accessible', 'salento roads open', 'salento safe 2026', 'colombia tourism official', 'salento quindio tourism'],
-      content: this.generateEnglishContent(),
-      schema: this.generateEnglishSchema(),
-      ogTitle: 'Salento OPEN and OPERATIONAL at 100% - Official Information',
-      ogDescription: 'Hotels open, roads free, Valle de Cocora 100% accessible. Information verified by local authorities.',
-      twitterTitle: 'Salento is OPEN and OPERATIONAL at 100%',
-      twitterDescription: 'Official confirmation: Normal tourism in Salento. Hotels, roads and Valle de Cocora fully operational.'
-    }
-  }
-
-  /**
-   * Página en Alemán - Mercado Alemania
-   */
-  private generateGermanPage(): InternationalSEOPage {
-    return {
-      lang: 'de',
-      slug: 'salento-aktueller-status-hotels-geoffnet-strassen-frei-valle-cocora-betriebsbereit-100',
-      title: 'Salento Aktueller Status: Hotels Geöffnet, Straßen Frei und Valle de Cocora Zu 100% Betriebsbereit - Offizielle Information 2026',
-      description: 'Offizielle Bestätigung: Tourismus in Salento ist völlig normal. Hotels betriebsbereit, Hauptstraßen frei und Valle de Cocora zu 100% zugänglich. Informationen von lokalen Behörden verifiziert.',
-      keywords: ['salento sicherheit', 'salento hotels geöffnet', 'valle cocora zugänglich', 'salento straßen offen', 'salento sicher 2026', 'kolumbien tourismus offiziell', 'salento erdbeben'],
-      content: this.generateGermanContent(),
-      schema: this.generateGermanSchema(),
-      ogTitle: 'Salento OFFEN und BETRIEBSBEREIT zu 100% - Offizielle Information',
-      ogDescription: 'Hotels geöffnet, Straßen frei, Valle de Cocora 100% zugänglich. Informationen von lokalen Behörden verifiziert.',
-      twitterTitle: 'Salento ist OFFEN und BETRIEBSBEREIT zu 100%',
-      twitterDescription: 'Offizielle Bestätigung: Normaler Tourismus in Salento. Hotels, Straßen und Valle de Cocora vollständig betriebsbereit.'
-    }
-  }
-
-  /**
-   * Página en Francés - Mercado Francia
-   */
-  private generateFrenchPage(): InternationalSEOPage {
-    return {
-      lang: 'fr',
-      slug: 'salento-statut-actuel-hotels-ouverts-routes-libres-valle-cocora-operationnel-100',
-      title: 'Salento Statut Actuel: Hôtels Ouverts, Routes Libres et Valle de Cocora Opérationnel à 100% - Information Officielle 2026',
-      description: 'Confirmation officielle: Le tourisme à Salento est complètement normal. Hôtels opérationnels, routes principales libres et Valle de Cocora 100% accessible. Informations vérifiées par les autorités locales.',
-      keywords: ['salento sécurité', 'salento hôtels ouverts', 'valle cocora accessible', 'salento routes ouvertes', 'salento sûr 2026', 'colombie tourisme officiel', 'salento tremblement'],
-      content: this.generateFrenchContent(),
-      schema: this.generateFrenchSchema(),
-      ogTitle: 'Salento OUVERT et OPÉRATIONNEL à 100% - Information Officielle',
-      ogDescription: 'Hôtels ouverts, routes libres, Valle de Cocora 100% accessible. Informations vérifiées par les autorités locales.',
-      twitterTitle: 'Salento est OUVERT et OPÉRATIONNEL à 100%',
-      twitterDescription: 'Confirmation officielle: Tourisme normal à Salento. Hôtels, routes et Valle de Cocora entièrement opérationnels.'
-    }
-  }
-
-  /**
-   * Página en Italiano - Mercado Italia
-   */
-  private generateItalianPage(): InternationalSEOPage {
-    return {
-      lang: 'it',
-      slug: 'salento-stato-attuale-hotel-aperti-strade-libere-valle-cocora-operativo-100',
-      title: 'Salento Stato Attuale: Hotel Aperti, Strade Libere e Valle de Cocora Operativo al 100% - Informazione Ufficiale 2026',
-      description: 'Conferma ufficiale: Il turismo a Salento è completamente normale. Hotel operativi, strade principali libere e Valle de Cocora 100% accessibile. Informazioni verificate dalle autorità locali.',
-      keywords: ['salento sicurezza', 'salento hotel aperti', 'valle cocora accessibile', 'salento strade aperte', 'salento sicuro 2026', 'colombia turismo ufficiale', 'salento terremoto'],
-      content: this.generateItalianContent(),
-      schema: this.generateItalianSchema(),
-      ogTitle: 'Salento APERTO e OPERATIVO al 100% - Informazione Ufficiale',
-      ogDescription: 'Hotel aperti, strade libere, Valle de Cocora 100% accessibile. Informazioni verificate dalle autorità locali.',
-      twitterTitle: 'Salento è APERTO e OPERATIVO al 100%',
-      twitterDescription: 'Conferma ufficiale: Turismo normale a Salento. Hotel, strade e Valle de Cocora completamente operativi.'
-    }
-  }
-
-  /**
-   * Generar contenido en español
-   */
-  private generateSpanishContent(): string {
-    return `
-      <h1>Estado Actual de Salento: Hoteles Abiertos, Vías Libres y Valle de Cocora Operando al 100%</h1>
-      
-      <p class="alert-verified">✅ <strong>INFORMACIÓN OFICIAL VERIFICADA</strong> - Actualizada: 31/08/2026</p>
-      
-      <h2>🏨 Hoteles y Alojamiento</h2>
-      <p>Confirmamos que <strong>todos los hoteles, hostales y fincas hoteleras en Salento están abiertos</strong> y operando con normalidad.</p>
-      
-      <h2>🛣️ Estado de Vías</h2>
-      <p>Las vías de acceso a Salento están <strong>libres y en buen estado</strong>. No hay cierres ni restricciones de acceso.</p>
-      
-      <h2>🌿 Valle de Cocora</h2>
-      <p>El <strong>Valle de Cocora está operando al 100%</strong>. Todas las actividades turísticas están disponibles.</p>
-      
-      <h2>🛡️ Seguridad</h2>
-      <p>Salento es un destino <strong>seguro para el turismo</strong>. Las autoridades locales confirman normalidad en la seguridad.</p>
-    `
-  }
-
-  /**
-   * Generar contenido en inglés
-   */
-  private generateEnglishContent(): string {
-    return `
-      <h1>Salento Current Status: Hotels Open, Roads Free and Valle de Cocora Operating at 100%</h1>
-      
-      <p class="alert-verified">✅ <strong>OFFICIAL VERIFIED INFORMATION</strong> - Updated: August 31, 2026</p>
-      
-      <h2>🏨 Hotels and Accommodation</h2>
-      <p>We confirm that <strong>all hotels, hostels and farm hotels in Salento are open</strong> and operating normally.</p>
-      
-      <h2>🛣️ Road Status</h2>
-      <p>The access roads to Salento are <strong>free and in good condition</strong>. There are no closures or access restrictions.</p>
-      
-      <h2>🌿 Valle de Cocora</h2>
-      <p>The <strong>Valle de Cocora is operating at 100%</strong>. All tourist activities are available.</p>
-      
-      <h2>🛡️ Safety</h2>
-      <p>Salento is a <strong>safe destination for tourism</strong>. Local authorities confirm normal security conditions.</p>
-    `
-  }
-
-  /**
-   * Generar contenido en alemán
-   */
-  private generateGermanContent(): string {
-    return `
-      <h1>Salento Aktueller Status: Hotels Geöffnet, Straßen Frei und Valle de Cocora Zu 100% Betriebsbereit</h1>
-      
-      <p class="alert-verified">✅ <strong>OFFIZIELL VERIFIZIERTE INFORMATION</strong> - Aktualisiert: 31. August 2026</p>
-      
-      <h2>🏨 Hotels und Unterkünfte</h2>
-      <p>Wir bestätigen, dass <strong>alle Hotels, Hostels und Farmhotels in Salento geöffnet</strong> und normal betrieben werden.</p>
-      
-      <h2>🛣️ Straßenstatus</h2>
-      <p>Die Zugangsstraßen nach Salento sind <strong>frei und in gutem Zustand</strong>. Es gibt keine Straßensperrungen oder Zugangsbeschränkungen.</p>
-      
-      <h2>🌿 Valle de Cocora</h2>
-      <p>Der <strong>Valle de Cocora ist zu 100% betriebsbereit</strong>. Alle touristischen Aktivitäten sind verfügbar.</p>
-      
-      <h2>🛡️ Sicherheit</h2>
-      <p>Salento ist ein <strong>sicheres Reiseziel für den Tourismus</strong>. Lokale Behörden bestätigen normale Sicherheitsbedingungen.</p>
-    `
-  }
-
-  /**
-   * Generar contenido en francés
-   */
-  private generateFrenchContent(): string {
-    return `
-      <h1>Salento Statut Actuel: Hôtels Ouverts, Routes Libres et Valle de Cocora Opérationnel à 100%</h1>
-      
-      <p class="alert-verified">✅ <strong>INFORMATION OFFICIELLE VÉRIFIÉE</strong> - Mise à jour: 31 août 2026</p>
-      
-      <h2>🏨 Hôtels et Hébergement</h2>
-      <p>Nous confirmons que <strong>tous les hôtels, auberges et fermes hôtelières à Salento sont ouverts</strong> et fonctionnent normalement.</p>
-      
-      <h2>🛣️ Statut des Routes</h2>
-      <p>Les routes d'accès à Salento sont <strong>libres et en bon état</strong>. Il n'y a pas de fermetures ni de restrictions d'accès.</p>
-      
-      <h2>🌿 Valle de Cocora</h2>
-      <p>Le <strong>Valle de Cocora est opérationnel à 100%</strong>. Toutes les activités touristiques sont disponibles.</p>
-      
-      <h2>🛡️ Sécurité</h2>
-      <p>Salento est une <strong>destination sûre pour le tourisme</strong>. Les autorités locales confirment des conditions de sécurité normales.</p>
-    `
-  }
-
-  /**
-   * Generar contenido en italiano
-   */
-  private generateItalianContent(): string {
-    return `
-      <h1>Salento Stato Attuale: Hotel Aperti, Strade Libere e Valle de Cocora Operativo al 100%</h1>
-      
-      <p class="alert-verified">✅ <strong>INFORMAZIONE UFFICIALE VERIFICATA</strong> - Aggiornato: 31 agosto 2026</p>
-      
-      <h2>🏨 Hotel e Alloggio</h2>
-      <p>Confermiamo che <strong>tutti gli hotel, ostelli e fattorie hotel a Salento sono aperti</strong> e operano normalmente.</p>
-      
-      <h2>🛣️ Stato delle Strade</h2>
-      <p>Le strade di accesso a Salento sono <strong>libere e in buone condizioni</strong>. Non ci sono chiusure o restrizioni di accesso.</p>
-      
-      <h2>🌿 Valle de Cocora</h2>
-      <p>Il <strong>Valle de Cocora è operativo al 100%</strong>. Tutte le attività turistiche sono disponibili.</p>
-      
-      <h2>🛡️ Sicurezza</h2>
-      <p>Salento è una <strong>destinazione sicura per il turismo</strong>. Le autorità locali confermano normali condizioni di sicurezza.</p>
-    `
-  }
-
-  /**
-   * Generar Schema.org en español
-   */
-  private generateSpanishSchema(): any {
-    return {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "headline": "Estado Actual de Salento: Hoteles Abiertos, Vías Libres y Valle de Cocora Operando al 100%",
-      "description": "Confirmación oficial: Turismo en Salento es completamente normal",
-      "inLanguage": "es",
-      "author": {
-        "@type": "Organization",
-        "name": "Turismo Oficial Salento"
-      },
-      "publisher": {
-        "@type": "Organization",
-        "name": "Turismo Oficial Salento"
-      },
-      "datePublished": "2026-08-31",
-      "dateModified": "2026-08-31"
-    }
-  }
-
-  /**
-   * Generar Schema.org en inglés
-   */
-  private generateEnglishSchema(): any {
-    return {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "headline": "Salento Current Status: Hotels Open, Roads Free and Valle de Cocora Operating at 100%",
-      "description": "Official confirmation: Tourism in Salento is completely normal",
-      "inLanguage": "en",
-      "author": {
-        "@type": "Organization",
-        "name": "Official Tourism Salento"
-      },
-      "publisher": {
-        "@type": "Organization",
-        "name": "Official Tourism Salento"
-      },
-      "datePublished": "2026-08-31",
-      "dateModified": "2026-08-31"
-    }
-  }
-
-  /**
-   * Generar Schema.org en alemán
-   */
-  private generateGermanSchema(): any {
-    return {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "headline": "Salento Aktueller Status: Hotels Geöffnet, Straßen Frei und Valle de Cocora Zu 100% Betriebsbereit",
-      "description": "Offizielle Bestätigung: Tourismus in Salento ist völlig normal",
-      "inLanguage": "de",
-      "author": {
-        "@type": "Organization",
-        "name": "Offizieller Tourismus Salento"
-      },
-      "publisher": {
-        "@type": "Organization",
-        "name": "Offizieller Tourismus Salento"
-      },
-      "datePublished": "2026-08-31",
-      "dateModified": "2026-08-31"
-    }
-  }
-
-  /**
-   * Generar Schema.org en francés
-   */
-  private generateFrenchSchema(): any {
-    return {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "headline": "Salento Statut Actuel: Hôtels Ouverts, Routes Libres et Valle de Cocora Opérationnel à 100%",
-      "description": "Confirmation officielle: Le tourisme à Salento est complètement normal",
-      "inLanguage": "fr",
-      "author": {
-        "@type": "Organization",
-        "name": "Tourisme Officiel Salento"
-      },
-      "publisher": {
-        "@type": "Organization",
-        "name": "Tourisme Officiel Salento"
-      },
-      "datePublished": "2026-08-31",
-      "dateModified": "2026-08-31"
-    }
-  }
-
-  /**
-   * Generar Schema.org en italiano
-   */
-  private generateItalianSchema(): any {
-    return {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "headline": "Salento Stato Attuale: Hotel Aperti, Strade Libere e Valle de Cocora Operativo al 100%",
-      "description": "Conferma ufficiale: Il turismo a Salento è completamente normale",
-      "inLanguage": "it",
-      "author": {
-        "@type": "Organization",
-        "name": "Turismo Ufficiale Salento"
-      },
-      "publisher": {
-        "@type": "Organization",
-        "name": "Turismo Ufficiale Salento"
-      },
-      "datePublished": "2026-08-31",
-      "dateModified": "2026-08-31"
-    }
-  }
-
-  /**
-   * Obtener página por idioma
-   */
-  getPageByLang(lang: string): InternationalSEOPage | null {
-    return this.pages.get(lang) || null
-  }
-
-  /**
-   * Obtener todas las páginas
-   */
-  getAllPages(): InternationalSEOPage[] {
-    return Array.from(this.pages.values())
-  }
-
-  /**
-   * Generar hreflang tags dinámicos para mapa-digital-salento.vercel.app
-   */
-  generateHreflangTags(): string {
-    const baseUrl = 'https://mapa-digital-salento.vercel.app'
-    const languages = ['es', 'en', 'de', 'fr', 'it']
-    
-    let hreflangHTML = ''
-    
-    languages.forEach(lang => {
-      const page = this.pages.get(lang)
-      if (page) {
-        hreflangHTML += `<link rel="alternate" hreflang="${lang}" href="${baseUrl}/${lang}/${page.slug}" />\n`
-      }
-    })
-    
-    // Add x-default
-    hreflangHTML += `<link rel="alternate" hreflang="x-default" href="${baseUrl}/" />`
-    
-    return hreflangHTML
-  }
-
-  /**
-   * Generar meta tags completos para posicionamiento SEO
+   * Generar meta tags (para compatibilidad con dashboard existente)
    */
   generateMetaTags(): string {
-    const baseUrl = 'https://mapa-digital-salento.vercel.app'
-    const brandName = 'Salento a la Mano'
-    
-    return `
-      <!-- Meta tags básicos para SEO -->
-      <meta name="title" content="Salento a la Mano - Guía Oficial de Turismo en Salento, Quindío">
-      <meta name="description" content="Descubre Salento, Quindío con Salento a la Mano. Mapa interactivo, hoteles, restaurantes, Valle de Cocora y turismo local. Información oficial y actualizada.">
-      <meta name="keywords" content="salento, quindio, turismo salento, valle cocora, hoteles salento, restaurantes salento, mapa salento, salentoalamano, turismo colombia">
-      
-      <!-- Open Graph para redes sociales -->
-      <meta property="og:title" content="Salento a la Mano - Guía Oficial de Turismo en Salento">
-      <meta property="og:description" content="Mapa interactivo de Salento con hoteles, restaurantes y turismo local. Información oficial y actualizada del Valle de Cocora.">
-      <meta property="og:url" content="${baseUrl}/">
-      <meta property="og:type" content="website">
-      <meta property="og:site_name" content="${brandName}">
-      <meta property="og:locale" content="es_CO">
-      
-      <!-- Twitter Cards -->
-      <meta name="twitter:card" content="summary_large_image">
-      <meta name="twitter:title" content="Salento a la Mano - Guía Oficial de Turismo">
-      <meta name="twitter:description" content="Mapa interactivo de Salento con información oficial de hoteles, restaurantes y Valle de Cocora.">
-      <meta name="twitter:url" content="${baseUrl}/">
-      
-      <!-- Canonical URL -->
-      <link rel="canonical" href="${baseUrl}/">
-      
-      <!-- Autoría y marca -->
-      <meta name="author" content="${brandName}">
-      <meta name="publisher" content="${brandName}">
-      <meta name="application-name" content="${brandName}">
-      
-      <!-- Robots y indexación -->
-      <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-      <meta name="googlebot" content="index, follow">
-      <meta name="bingbot" content="index, follow">
-      
-      <!-- Geolocalización para SEO local -->
-      <meta name="geo.region" content="CO-COL">
-      <meta name="geo.placename" content="Salento, Quindío">
-      <meta name="geo.position" content="4.6371;-75.5706">
-      <meta name="ICBM" content="4.6371, -75.5706">
-      
-      <!-- Tema y colores -->
-      <meta name="theme-color" content="#e76c52">
-      <meta name="msapplication-TileColor" content="#e76c52">
-    `
+    return this.generateInternationalMetaTags()
   }
 
   /**
-   * Generar Schema.org JSON-LD para Salento a la Mano
+   * Generar Schema.org (para compatibilidad con dashboard existente)
    */
   generateBrandSchema(): string {
-    const baseUrl = 'https://mapa-digital-salento.vercel.app'
-    const brandName = 'Salento a la Mano'
-    
-    const schema = {
+    return JSON.stringify({
       "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": "Organization",
-          "@id": `${baseUrl}/#organization`,
-          "name": brandName,
-          "url": baseUrl,
-          "logo": `${baseUrl}/logo.png`,
-          "description": "Guía oficial de turismo y comercio en Salento, Quindío. Mapa interactivo con información verificada de hoteles, restaurantes y servicios locales.",
-          "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Salento",
-            "addressRegion": "Quindío",
-            "addressCountry": "CO"
-          },
-          "contactPoint": {
-            "@type": "ContactPoint",
-            "telephone": "+57-XXX-XXX-XXXX",
-            "contactType": "customer service"
-          },
-          "sameAs": [
-            "https://www.facebook.com/salentoalamano",
-            "https://www.instagram.com/salentoalamano",
-            "https://www.twitter.com/salentoalamano"
-          ]
-        },
-        {
-          "@type": "WebSite",
-          "@id": `${baseUrl}/#website`,
-          "url": baseUrl,
-          "name": brandName,
-          "description": "Mapa interactivo oficial de Salento, Quindío con información de turismo, hoteles, restaurantes y Valle de Cocora.",
-          "publisher": {
-            "@id": `${baseUrl}/#organization`
-          },
-          "potentialAction": {
-            "@type": "SearchAction",
-            "target": `${baseUrl}/?search={search_term_string}`,
-            "query-input": "required name=search_term_string"
-          }
-        },
-        {
-          "@type": "Place",
-          "@id": `${baseUrl}/#place`,
-          "name": "Salento, Quindío",
-          "description": "Pueblo turístico en el corazón del Eje Cafetero colombiano, famoso por su arquitectura, gastronomía y cercanía al Valle de Cocora.",
-          "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": 4.6371,
-            "longitude": -75.5706
-          },
-          "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Salento",
-            "addressRegion": "Quindío",
-            "addressCountry": "CO"
-          }
-        },
-        {
-          "@type": "TouristDestination",
-          "@id": `${baseUrl}/#tourist-destination`,
-          "name": "Salento, Quindío - Colombia",
-          "description": "Destino turístico en el Eje Cafetero con acceso al Valle de Cocora, arquitectura tradicional, gastronomía local y cultura cafetera.",
-          "touristType": ["Cultural", "Nature", "Gastronomy", "Adventure"],
-          "includesAttraction": [
-            {
-              "@type": "TouristAttraction",
-              "name": "Valle de Cocora",
-              "description": "Valle natural con palmas de cera, senderismo y cabalgatas"
-            },
-            {
-              "@type": "TouristAttraction", 
-              "name": "Calle Real de Salento",
-              "description": "Calle principal con arquitectura tradicional y comercios locales"
-            }
-          ]
+      "@type": "TravelAction",
+      "name": this.brandName,
+      "url": this.domain,
+      "description": "Mapa turístico interactivo de Salento, Colombia",
+      "location": {
+        "@type": "Place",
+        "name": "Salento, Quindío, Colombia",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Salento",
+          "addressRegion": "Quindío",
+          "addressCountry": "CO"
         }
+      },
+      "targetAudience": [
+        "Turistas internacionales",
+        "Viajeros asiáticos",
+        "Turistas rusos",
+        "Visitantes europeos"
+      ]
+    }, null, 2)
+  }
+
+  /**
+   * Obtener todos los mercados internacionales prioritarios
+   */
+  getInternationalMarkets(): InternationalMarket[] {
+    return [
+      {
+        country: 'China',
+        language: 'zh-CN',
+        searchEngine: 'Baidu',
+        priority: 'high',
+        population: '1.4+ mil millones',
+        tourismPotential: 'Turismo de lujo creciente hacia América Latina',
+        verificationCode: null,
+        status: 'pending'
+      },
+      {
+        country: 'Rusia',
+        language: 'ru-RU',
+        searchEngine: 'Yandex',
+        priority: 'high',
+        population: '146+ millones',
+        tourismPotential: 'Turismo de lujo importante para Sudamérica',
+        verificationCode: '3d2630a804c93168',
+        status: 'completed'
+      },
+      {
+        country: 'Japón',
+        language: 'ja-JP',
+        searchEngine: 'Yahoo Japan',
+        priority: 'medium',
+        population: '126+ millones',
+        tourismPotential: 'Turismo de calidad alta interesado en Colombia',
+        verificationCode: null,
+        status: 'pending'
+      },
+      {
+        country: 'Corea del Sur',
+        language: 'ko-KR',
+        searchEngine: 'Naver',
+        priority: 'medium',
+        population: '51+ millones',
+        tourismPotential: 'Turismo de negocios y experiencias auténticas',
+        verificationCode: null,
+        status: 'pending'
+      },
+      {
+        country: 'Alemania',
+        language: 'de-DE',
+        searchEngine: 'Google',
+        priority: 'medium',
+        population: '83+ millones',
+        tourismPotential: 'Turismo ecológico y experiencias sostenibles',
+        verificationCode: null,
+        status: 'pending'
+      },
+      {
+        country: 'Francia',
+        language: 'fr-FR',
+        searchEngine: 'Google',
+        priority: 'medium',
+        population: '67+ millones',
+        tourismPotential: 'Turismo cultural y gastronómico',
+        verificationCode: null,
+        status: 'pending'
+      },
+      {
+        country: 'Reino Unido',
+        language: 'en-GB',
+        searchEngine: 'Google',
+        priority: 'medium',
+        population: '67+ millones',
+        tourismPotential: 'Turismo de aventura y naturaleza',
+        verificationCode: null,
+        status: 'pending'
+      },
+      {
+        country: 'Estados Unidos',
+        language: 'en-US',
+        searchEngine: 'Google',
+        priority: 'medium',
+        population: '331+ millones',
+        tourismPotential: 'Turismo de lujo y experiencias únicas',
+        verificationCode: null,
+        status: 'pending'
+      },
+      {
+        country: 'Brasil',
+        language: 'pt-BR',
+        searchEngine: 'Google',
+        priority: 'medium',
+        population: '213+ millones',
+        tourismPotential: 'Turismo regional y experiencias compartidas',
+        verificationCode: null,
+        status: 'pending'
+      },
+      {
+        country: 'México',
+        language: 'es-MX',
+        searchEngine: 'Google',
+        priority: 'medium',
+        population: '128+ millones',
+        tourismPotential: 'Turismo cultural y gastronómico',
+        verificationCode: null,
+        status: 'pending'
+      }
+    ]
+  }
+
+  /**
+   * Generar configuración hreflang para SEO internacional
+   */
+  generateHreflangConfiguration(): HreflangConfiguration[] {
+    const baseUrl = this.domain
+    const pages = [
+      '/',
+      '/estado-actual-salento-hoteles-abiertos-vias-libres-valle-cocora-operando-100',
+      '/salento-abierto-hoy-turismo-seguro-valle-cocora-accesible',
+      '/paso-valle-cocora-abierto-acceso-total-jeeps-willys-operativos'
+    ]
+
+    const configurations: HreflangConfiguration[] = []
+
+    pages.forEach(page => {
+      const url = baseUrl + page
+      configurations.push({
+        url: url,
+        lang: 'es',
+        region: 'CO',
+        alternate: [
+          'es-CO', // Colombia (idioma original)
+          'en-US', // Estados Unidos
+          'zh-CN', // China
+          'ru-RU', // Rusia
+          'ja-JP', // Japón
+          'ko-KR', // Corea del Sur
+          'de-DE', // Alemania
+          'fr-FR', // Francia
+          'en-GB', // Reino Unido
+          'pt-BR', // Brasil
+          'es-MX'  // México
+        ]
+      })
+    })
+
+    return configurations
+  }
+
+  /**
+   * Generar meta tags específicos para mercados internacionales
+   */
+  generateInternationalMetaTags(): string {
+    return `
+<!-- Meta tags para SEO Internacional -->
+
+<!-- Baidu (China) - Prioridad Máxima -->
+<!-- <meta name="baidu-site-verification" content="TU_CODIGO_BAIDU" /> -->
+<meta name="baidu-site-verification" content="salento-al-mano-turismo-colombia" />
+
+<!-- Yandex (Rusia) - Prioridad Alta -->
+<!-- <meta name="yandex-verification" content="TU_CODIGO_YANDEX" /> -->
+<meta name="yandex-verification" content="salento-turismo-colombia-rusia" />
+
+<!-- Configuración de idioma para crawlers internacionales -->
+<meta http-equiv="Content-Language" content="es" />
+
+<!-- Open Graph para redes sociales internacionales -->
+<meta property="og:locale" content="es_CO" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta property="og:locale:alternate" content="zh_CN" />
+<meta property="og:locale:alternate" content="ru_RU" />
+<meta property="og:locale:alternate" content="ja_JP" />
+<meta property="og:locale:alternate" content="ko_KR" />
+<meta property="og:locale:alternate" content="de_DE" />
+<meta property="og:locale:alternate" content="fr_FR" />
+<meta property="og:locale:alternate" content="en_GB" />
+<meta property="og:locale:alternate" content="pt_BR" />
+<meta property="og:locale:alternate" content="es_MX" />
+
+<!-- Twitter Cards para mercados internacionales -->
+<meta name="twitter:locale" content="es" />
+
+<!-- Hreflang para SEO internacional -->
+<link rel="alternate" hreflang="es-CO" href="${this.domain}/" />
+<link rel="alternate" hreflang="en-US" href="${this.domain}/" />
+<link rel="alternate" hreflang="zh-CN" href="${this.domain}/" />
+<link rel="alternate" hreflang="ru-RU" href="${this.domain}/" />
+<link rel="alternate" hreflang="ja-JP" href="${this.domain}/" />
+<link rel="alternate" hreflang="ko-KR" href="${this.domain}/" />
+<link rel="alternate" hreflang="de-DE" href="${this.domain}/" />
+<link rel="alternate" hreflang="fr-FR" href="${this.domain}/" />
+<link rel="alternate" hreflang="en-GB" href="${this.domain}/" />
+<link rel="alternate" hreflang="pt-BR" href="${this.domain}/" />
+<link rel="alternate" hreflang="es-MX" href="${this.domain}/" />
+<link rel="alternate" hreflang="x-default" href="${this.domain}/" />
+`
+  }
+
+  /**
+   * Generar robots.txt optimizado para crawlers internacionales
+   */
+  generateInternationalRobotsTxt(): string {
+    return `# Robots.txt para SEO Internacional - ${this.brandName}
+# Dominio: ${this.domain}
+# Estrategia: Prioridad para mercados internacionales
+
+# Configuración general
+User-agent: *
+Allow: /
+Crawl-delay: 1
+
+# Páginas prioritarias para turismo internacional
+Allow: /estado-actual-salento-hoteles-abiertos-vias-libres-valle-cocora-operando-100
+Allow: /salento-abierto-hoy-turismo-seguro-valle-cocora-accesible
+Allow: /paso-valle-cocora-abierto-acceso-total-jeeps-willys-operativos
+
+# Bloquear archivos técnicos
+Disallow: /admin/
+Disallow: /api/
+Disallow: /private/
+Disallow: /*.json$
+Disallow: /*.map$
+
+# Baidu (China) - Prioridad Máxima
+User-agent: Baiduspider
+Allow: /
+Crawl-delay: 1
+Allow: /estado-actual-salento-hoteles-abiertos-vias-libres-valle-cocora-operando-100
+Allow: /salento-abierto-hoy-turismo-seguro-valle-cocora-accesible
+
+# Yandex (Rusia) - Prioridad Alta
+User-agent: Yandexbot
+Allow: /
+Crawl-delay: 1
+Allow: /estado-actual-salento-hoteles-abiertos-vias-libres-valle-cocora-operando-100
+Allow: /salento-abierto-hoy-turismo-seguro-valle-cocora-accesible
+
+# Naver (Corea del Sur) - Prioridad Media
+User-agent: Yeti
+Allow: /
+Crawl-delay: 1
+
+# Yahoo Japan - Prioridad Media
+User-agent: Slurp
+Allow: /
+Crawl-delay: 1
+
+# Google (Base internacional)
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+# Bing (Soporte para Yahoo internacional)
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+# Bots de redes sociales internacionales
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+# Sitemaps para todos los motores internacionales
+Sitemap: ${this.domain}/sitemap.xml
+Sitemap: ${this.domain}/salentoalamano-defensive-sitemap.xml
+
+# Host para Yandex
+Host: mapa-digital-salento.vercel.app
+`
+  }
+
+  /**
+   * Generar guía de implementación para SEO internacional
+   */
+  generateInternationalImplementationGuide(): string {
+    return `# Guía de Implementación SEO Internacional - ${this.brandName}
+
+## Estrategia Principal: SEO Internacional Prioritario
+
+### Mercado Prioritario: China (Baidu)
+- **Población**: 1.4+ mil millones de usuarios
+- **Potencial turístico**: Turismo de lujo creciente hacia América Latina
+- **Prioridad**: MÁXIMA
+- **Estado**: Pendiente de código de verificación Baidu
+- **Pasos**:
+  1. Registrarse en Baidu Webmaster Tools
+  2. Obtener código de verificación específico
+  3. Implementar meta tag en index.html
+  4. Enviar sitemap a Baidu
+  5. Optimizar contenido para palabras clave en chino
+
+### Mercado Prioritario: Rusia (Yandex)
+- **Población**: 146+ millones de usuarios
+- **Potencial turístico**: Turismo de lujo importante para Sudamérica
+- **Prioridad**: ALTA
+- **Estado**: Pendiente de código de verificación Yandex
+- **Pasos**:
+  1. Registrarse en Yandex Webmaster
+  2. Obtener código de verificación específico
+  3. Implementar meta tag en index.html
+  4. Enviar sitemap a Yandex
+  5. Optimizar contenido para palabras clave en ruso
+
+### Mercados Secundarios
+- **Japón**: 126+ millones, turismo de calidad alta
+- **Corea del Sur**: 51+ millones, turismo de negocios
+- **Alemania**: 83+ millones, turismo ecológico
+- **Francia**: 67+ millones, turismo cultural
+- **Reino Unido**: 67+ millones, turismo de aventura
+- **Estados Unidos**: 331+ millones, turismo de lujo
+- **Brasil**: 213+ millones, turismo regional
+- **México**: 128+ millones, turismo cultural
+
+## Implementación Técnica
+
+### 1. Meta Tags Internacionales
+\`\`\`html
+<!-- Meta tags implementados en index.html -->
+<meta name="baidu-site-verification" content="TU_CODIGO_BAIDU" />
+<meta name="yandex-verification" content="TU_CODIGO_YANDEX" />
+<meta http-equiv="Content-Language" content="es" />
+\`\`\`
+
+### 2. Hreflang Configuration
+\`\`\`html
+<!-- Hreflang para SEO internacional -->
+<link rel="alternate" hreflang="es-CO" href="${this.domain}/" />
+<link rel="alternate" hreflang="en-US" href="${this.domain}/" />
+<link rel="alternate" hreflang="zh-CN" href="${this.domain}/" />
+<link rel="alternate" hreflang="ru-RU" href="${this.domain}/" />
+<link rel="alternate" hreflang="x-default" href="${this.domain}/" />
+\`\`\`
+
+### 3. Robots.txt Internacional
+- Configurado para Baidu, Yandex, Naver, Yahoo Japan
+- Prioridad de crawling para páginas turísticas
+- Sitemaps específicos para cada motor
+
+### 4. Optimización de Contenido
+- Palabras clave en múltiples idiomas
+- Descripciones meta internacionales
+- Imágenes con alt text multilingüe
+- Estructura de datos Schema.org internacional
+
+## Cronograma de Implementación
+
+### Fase 1: Esta semana (PRIORIDAD MÁXIMA)
+1. Obtener código de verificación Baidu
+2. Implementar verificación Baidu
+3. Obtener código de verificación Yandex
+4. Implementar verificación Yandex
+5. Enviar sitemap a ambos motores
+
+### Fase 2: Próxima semana (PRIORIDAD ALTA)
+1. Optimizar contenido para mercado chino
+2. Optimizar contenido para mercado ruso
+3. Implementar hreflang completo
+4. Configurar analítica internacional
+
+### Fase 3: Mes siguiente (PRIORIDAD MEDIA)
+1. Expandir a mercados asiáticos adicionales
+2. Expandir a mercados europeos
+3. Optimizar para mercado norteamericano
+4. Analizar resultados y ajustar estrategia
+
+## Ventajas Competitivas
+
+### Disrupción de Comisiones
+- Modelo de comisión cero vs plataformas tradicionales
+- Atractivo para turistas internacionales que buscan valor
+- Diferenciación clara en mercados saturados
+
+### Enfoque Local
+- Conocimiento profundo de Salento y Colombia
+- Experiencias auténticas no disponibles en plataformas globales
+- Personalización para diferentes culturas turísticas
+
+### Tecnología
+- Mapa interactivo optimizado para dispositivos móviles
+- Información en tiempo real sobre condiciones locales
+- Integración con servicios locales
+
+## Métricas de Éxito
+
+### KPIs a Monitorear
+- Tráfico desde Baidu (China)
+- Tráfico desde Yandex (Rusia)
+- Tráfico desde otros motores internacionales
+- Conversiones de turistas internacionales
+- Tiempo de permanencia por idioma/region
+- Tasa de rebote por mercado
+
+### Objetivos
+- **Mes 1**: Verificación en Baidu y Yandex
+- **Mes 3**: 10% de tráfico desde motores internacionales
+- **Mes 6**: 25% de tráfico desde motores internacionales
+- **Mes 12**: 40% de tráfico desde motores internacionales
+
+## Recursos Adicionales
+
+### Herramientas de SEO Internacional
+- Baidu Webmaster Tools
+- Yandex Webmaster
+- Google Search Console (configuración internacional)
+- Bing Webmaster Tools
+- Herramientas de traducción profesional
+
+### Investigación de Mercado
+- Tendencias de turismo internacional en Colombia
+- Comportamiento de turistas chinos y rusos
+- Palabras clave en múltiples idiomas
+- Análisis de competencia internacional
+`
+  }
+
+  /**
+   * Obtener estado actual de implementación internacional
+   */
+  getInternationalImplementationStatus(): {
+    overallStatus: string
+    markets: InternationalMarket[]
+    completedSteps: string[]
+    pendingSteps: string[]
+    recommendations: string[]
+  } {
+    const markets = this.getInternationalMarkets()
+    const completedSteps = [
+      'Configuración base hreflang',
+      'Meta tags internacionales preliminares',
+      'Robots.txt optimizado para crawlers internacionales',
+      'Sitemap corregido para dominio de despliegue',
+      'Verificación Yandex completada con código: 3d2630a804c93168'
+    ]
+
+    const pendingSteps = [
+      'Obtener código de verificación Baidu (PRIORIDAD MÁXIMA)',
+      'Implementar verificación Baidu',
+      'Enviar sitemap a Yandex (YA VERIFICADO)',
+      'Enviar sitemap a Baidu',
+      'Optimizar contenido para mercado chino',
+      'Optimizar contenido para mercado ruso',
+      'Expander a mercados asiáticos adicionales',
+      'Expander a mercados europeos'
+    ]
+
+    return {
+      overallStatus: 'En progreso - Prioridad: SEO Internacional',
+      markets: markets,
+      completedSteps: completedSteps,
+      pendingSteps: pendingSteps,
+      recommendations: [
+        'FOCO PRINCIPAL: Baidu (China) - mercado de 1.4+ mil millones',
+        'FOCO SECUNDARIO: Yandex (Rusia) - mercado de 146+ millones',
+        'FOCO TERCIARIO: Expansión a mercados asiáticos y europeos',
+        'Estrategia: Disrupción de comisiones en mercados internacionales',
+        'Oportunidad: Capturar turismo internacional de alto valor'
       ]
     }
-    
-    return `<script type="application/ld+json">${JSON.stringify(schema, null, 2)}</script>`
   }
 }
 

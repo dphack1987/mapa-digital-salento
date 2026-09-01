@@ -1,17 +1,18 @@
-# Robots.txt - Salento a la Mano
-# SEO para marca, mapa turístico y turismo en Salento
-# Compatible con Google, Bing, DuckDuckGo, Yahoo, Baidu, Yandex
-# Dominios: salentoalamano.com y mapa-digital-salento.vercel.app
+# Robots.txt para SEO Internacional - Salento a la Mano
+# Dominio: mapa-digital-salento.vercel.app
+# Estrategia: Prioridad para mercados internacionales (China, Rusia, Asia, Europa)
 
+# Configuración general
 User-agent: *
 Allow: /
+Crawl-delay: 1
 
-# Priorizar páginas importantes para turismo en Salento
+# Páginas prioritarias para turismo internacional
 Allow: /estado-actual-salento-hoteles-abiertos-vias-libres-valle-cocora-operando-100
 Allow: /salento-abierto-hoy-turismo-seguro-valle-cocora-accesible
 Allow: /paso-valle-cocora-abierto-acceso-total-jeeps-willys-operativos
 
-# Bloquear archivos de configuración y sistema
+# Bloquear archivos técnicos
 Disallow: /admin/
 Disallow: /api/
 Disallow: /private/
@@ -19,37 +20,46 @@ Disallow: /temp/
 Disallow: /*.json$
 Disallow: /*.map$
 
-# Google-specific configuration
-User-agent: Googlebot
+# Baidu (China) - Prioridad Máxima
+User-agent: Baiduspider
+Allow: /
+Crawl-delay: 1
+Allow: /estado-actual-salento-hoteles-abiertos-vias-libres-valle-cocora-operando-100
+Allow: /salento-abierto-hoy-turismo-seguro-valle-cocora-accesible
+
+# Yandex (Rusia) - Prioridad Alta
+User-agent: Yandexbot
+Allow: /
+Crawl-delay: 1
+Allow: /estado-actual-salento-hoteles-abiertos-vias-libres-valle-cocora-operando-100
+Allow: /salento-abierto-hoy-turismo-seguro-valle-cocora-accesible
+
+# Naver (Corea del Sur) - Prioridad Media
+User-agent: Yeti
 Allow: /
 Crawl-delay: 1
 
-# Bing-specific configuration
-User-agent: Bingbot
-Allow: /
-Crawl-delay: 1
-
-# Yahoo-specific configuration (usa Bing)
+# Yahoo Japan - Prioridad Media
 User-agent: Slurp
 Allow: /
 Crawl-delay: 1
 
-# DuckDuckGo-specific configuration
+# Google (Base internacional)
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+# Bing (Soporte para Yahoo internacional)
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+# DuckDuckGo
 User-agent: DuckDuckBot
 Allow: /
 Crawl-delay: 1
 
-# Baidu-specific configuration (China)
-User-agent: Baiduspider
-Allow: /
-Crawl-delay: 1
-
-# Yandex-specific configuration (Rusia)
-User-agent: Yandexbot
-Allow: /
-Crawl-delay: 1
-
-# Social media bots para sharing
+# Bots de redes sociales internacionales
 User-agent: facebookexternalhit
 Allow: /
 
@@ -59,11 +69,9 @@ Allow: /
 User-agent: LinkedInBot
 Allow: /
 
-# Sitemaps para todos los motores de búsqueda
-Sitemap: https://salentoalamano.com/sitemap.xml
+# Sitemaps para todos los motores internacionales
 Sitemap: https://mapa-digital-salento.vercel.app/sitemap.xml
-Sitemap: https://salentoalamano.com/salentoalamano-defensive-sitemap.xml
 Sitemap: https://mapa-digital-salento.vercel.app/salentoalamano-defensive-sitemap.xml
 
 # Host para Yandex
-Host: salentoalamano.com
+Host: mapa-digital-salento.vercel.app
