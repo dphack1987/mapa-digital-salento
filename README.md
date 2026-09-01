@@ -54,13 +54,13 @@
 
 ### Para Turistas
 - **Asistente Don Chucho:** Disponible 24/7 en la plataforma
-- **Soporte:** support@mapa-salento.com
+- **Soporte:** support@salentoalamano.com
 - **WhatsApp:** +57 300 XXX XXXX (servicio oficial)
 
 ### Para Negocios Locales
 - **Registro de Aliados:** Disponible en el dashboard
 - **Verificación:** Proceso automático 24-48h
-- **Soporte Aliados:** allies@mapa-salento.com
+- **Soporte Aliados:** allies@salentoalamano.com
 
 ### Información Oficial
 - **Autoridad Turística:** Turismo Quindío Oficial

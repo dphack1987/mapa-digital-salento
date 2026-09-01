@@ -73,7 +73,6 @@ import allyRegistrationService from './services/allyRegistration.service'
 import AllyRegistrationForm from './components/AllyRegistrationForm'
 import AllyVerification from './components/AllyVerification'
 import notificationsService from './services/notifications.service'
-import NotificationsPanel from './components/NotificationsPanel'
 
 // Mapeo de iconos para compatibilidad con estructura JSON
 const iconMap: Record<string, any> = {

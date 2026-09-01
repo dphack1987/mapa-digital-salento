@@ -182,7 +182,7 @@ Si 70% de europeos cancelan por percepción de inseguridad:
 ```
 "Salento Colombia safety" →
 🟢 "Estado Actual de Salento: Hoteles Abiertos, Vías Libres..." (Oficial)
-🟢 Mapa Digital Oficial de Salento (Fuente verificada)
+🟢 Salento a la Mano (Fuente verificada)
 🟢 "Valle de Cocora 100% Accesible" (Información actualizada)
 🟢 TripAdvisor con balance de reviews recientes
 🟢 Foros con información positiva de turistas recientes

@@ -4,7 +4,7 @@
       "id": 13,
       "name": "Boki Mall - Hotel El Mirador de Boquía",
       "type": "Alojamientos",
-      "description": "Mall de experiencias en Boquía con hotel, restaurante, café bar y zona de eventos. Ganadores del Premio al mejor hotel rural de Salento 2024. Ubicación estratégica a 5 min de Salento.",
+      "description": "Complejo turístico y hotelero en Boquía que combina hospedaje, restaurante, bar, eventos y experiencias locales en un entorno rural cercano a Salento. Es una opción reconocida por su propuesta premium y su acceso rápido al centro del pueblo.",
       "priceRange": "$$$",
       "rating": "4.9",
       "timeInfo": "Reservas directas",
@@ -14,18 +14,19 @@
       "contact": {
         "phone": "+57 311 222 5312",
         "whatsapp": "573112225312",
-        "email": "reservas@bokimall.com"
+        "email": "reservas@bokimall.com",
+        "website": "https://www.bokimall.com/"
       },
       "location": {
         "lat": 4.6420,
         "lng": -75.5650,
-        "address": "Km 5 Vía principal a Salento, Vereda Boquía",
+        "address": "Vereda Boquía, vía principal a Salento, Quindío",
         "landmark": "400 metros después del puente de Boquía"
       },
       "operatingHours": {
-        "notes": "Hotel 24 horas. Restaurante Terra: 7:00am - 9:00pm. Barcinales Café: horario variable."
+        "notes": "Hotel 24 horas. Restaurante Terra: 7:00 a.m. - 9:00 p.m. Barcinales Café: horario variable según programación del establecimiento."
       },
-      "tags": ["hotel", "restaurante", "café", "eventos", "boquía", "premio mejor hotel"],
+      "tags": ["hotel", "restaurante", "café", "eventos", "boquía", "premio mejor hotel", "experiencias", "salento"],
       "verified": true,
       "active": true,
       "accommodationDetails": {
@@ -47,10 +48,10 @@
       "id": 14,
       "name": "Mirador Las Manos de Dios",
       "type": "Experiencias",
-      "description": "Nuevo parque de fotos y mirador de Salento con vista privilegiada de la cordillera. Atracciones fotográficas: Manos de Dios, Cóndor de los Andes, Poporo, Jeep cafetero, Torre y estación de café. Operado por Cocoratours.",
+      "description": "Mirador y parque fotográfico con escenarios temáticos y vistas panorámicas sobre la cordillera del Quindío. La experiencia combina fotografía, paisaje y clima de aventura para visitantes que buscan una parada icónica cerca de Salento.",
       "priceRange": "$",
       "rating": "4.8",
-      "timeInfo": "8:00 am - 6:00 pm",
+      "timeInfo": "8:00 a.m. - 6:00 p.m.",
       "badge": "Nuevo Atractivo",
       "color": "yellow",
       "icon": "Compass",
@@ -61,8 +62,8 @@
       "location": {
         "lat": 4.6340,
         "lng": -75.5720,
-        "address": "Ecoparque Tu Pais",
-        "landmark": "300 metros del cementerio u 800 metros de Bomberos"
+        "address": "Ecoparque Tu País, Salento, Quindío",
+        "landmark": "300 metros del cementerio y 800 metros de Bomberos"
       },
       "operatingHours": {
         "monday": "8:00 - 18:00",
@@ -73,7 +74,7 @@
         "saturday": "8:00 - 18:00",
         "sunday": "8:00 - 18:00"
       },
-      "tags": ["mirador", "fotos", "manos de dios", "cóndor", "parque", "instagrameable", "cocoratours"],
+      "tags": ["mirador", "fotos", "manos de dios", "cóndor", "parque", "instagrameable", "cocoratours", "salento"],
       "verified": true,
       "active": true,
       "experienceDetails": {
@@ -84,7 +85,7 @@
         "notIncluded": ["Transporte", "Comida", "Bebidas adicionales"],
         "requirements": ["Cámara", "Ropa cómoda", "Calzado para caminar"],
         "languages": ["Español"],
-        "meetingPoint": "Ecoparque Tu Pais",
+        "meetingPoint": "Ecoparque Tu País",
         "cancellationPolicy": "No aplica (entrada al parque)",
         "tariff": "$12.000 COP por persona",
         "attractions": ["Manos de Dios", "Cóndor de los Andes", "Poporo", "Jeep cafetero", "Torre", "Estación de café"],
@@ -671,6 +672,273 @@
         "customTours": true,
         "multilingualGuides": true,
         "transportationIncluded": true
+      }
+    },
+    {
+      "id": 16,
+      "name": "Hotel La Floresta Salento",
+      "type": "Alojamientos",
+      "description": "Hotel boutique ubicado cerca del centro de Salento con ambiente tranquilo, spa, desayuno con vista y servicios útiles para viajeros que buscan confort, trabajo remoto o una base para explorar la zona cafetera.",
+      "priceRange": "$$$",
+      "rating": "4.5",
+      "timeInfo": "Reservas directas",
+      "badge": "Hotel boutique",
+      "color": "sage",
+      "icon": "Hotel",
+      "contact": {
+        "phone": "+57 312 8681808",
+        "whatsapp": "573128681808",
+        "website": "https://www.laflorestahotel.com.co",
+        "instagram": "https://www.instagram.com/laflorestahotelsalento"
+      },
+      "location": {
+        "lat": 4.6372,
+        "lng": -75.5705,
+        "address": "A 400 metros de la plaza principal, Salento, Quindío",
+        "landmark": "Centro urbano de Salento"
+      },
+      "operatingHours": {
+        "notes": "Recepción 24 horas. Desayuno con vista de 7:00 a.m. a 10:00 a.m."
+      },
+      "tags": ["hotel boutique", "spa", "coworking", "desayuno", "salento centro", "trabajo remoto", "hotel familiar"],
+      "verified": true,
+      "active": true,
+      "accommodationDetails": {
+        "categoryLabel": "Hotel boutique · ideal para viajeros y trabajo remoto",
+        "stars": 3,
+        "roomTypes": ["Doble", "Triple", "Familiar", "Suite"],
+        "services": ["Spa", "Desayuno", "Wi-Fi", "Coworking", "Parqueadero", "Operadora turística", "Atención 24 horas", "Tours del café"],
+        "roomFeatures": ["Habitaciones cómodas", "Vistas", "Baño privado", "Aire acondicionado", "Ropa de cama", "Área de descanso"],
+        "nearby": ["Plaza principal · 400 m", "Valle de Cocora · 20 min", "Calle Real · 5 min", "Pueblo de Salento · centro"],
+        "policies": ["Check-in: 14:00", "Check-out: 12:00", "Reservas recomendadas", "Desayuno incluido"],
+        "checkIn": "14:00",
+        "checkOut": "12:00",
+        "amenities": ["Desayuno con vista", "Spa", "Wi-Fi", "Parqueadero", "Operadora turística"],
+        "capacity": "Hasta 30 huéspedes",
+        "bookingNotes": "Se recomienda reservar con anticipación, especialmente fines de semana y temporada alta."
+      }
+    },
+    {
+      "id": 17,
+      "name": "Finca Cafetera Don Elías",
+      "type": "Experiencias",
+      "description": "Finca tradicional de café en Vereda Palestina que ofrece recorridos guiados por cultivos, explicación del proceso artesanal y degustación con enfoque en la historia y la producción cafetera de la región.",
+      "priceRange": "$$",
+      "rating": "4.8",
+      "timeInfo": "Visitas de 1.5 a 3 horas",
+      "badge": "Coffee tour",
+      "color": "yellow",
+      "icon": "Coffee",
+      "contact": {
+        "phone": "+57 315 6061113",
+        "website": "https://fincafeteradonelias.com.co"
+      },
+      "location": {
+        "lat": 4.6470,
+        "lng": -75.5770,
+        "address": "Vereda Palestina, km 4, Salento, Quindío",
+        "landmark": "Ruta hacia la finca cafetera"
+      },
+      "operatingHours": {
+        "notes": "Abierto en horario diurno. Cierra alrededor de las 4:00 p.m."
+      },
+      "tags": ["coffee tour", "finca cafetera", "degustación", "salento", "finca familiar", "café orgánico"],
+      "verified": true,
+      "active": true,
+      "experienceDetails": {
+        "duration": "1.5-3 horas",
+        "difficulty": "Fácil",
+        "groupSize": "2-20 personas",
+        "included": ["Recorrido por la finca", "Explicación del proceso del café", "Degustación", "Visita a zonas productivas"],
+        "notIncluded": ["Transporte", "Comida extra", "Propinas"],
+        "requirements": ["Ropa cómoda", "Calzado adecuado", "Ganas de aprender"],
+        "languages": ["Español"],
+        "meetingPoint": "Finca Don Elías, Vereda Palestina",
+        "cancellationPolicy": "Consultar con anticipación para cambios de horario"
+      }
+    },
+    {
+      "id": 18,
+      "name": "Coffee Farm El Recuerdo",
+      "type": "Experiencias",
+      "description": "Finca cafetera tradicional en Salento con recorrido guiado sobre la historia del café, plantas medicinales, cafetales y degustaciones locales.",
+      "priceRange": "$$",
+      "rating": "5.0",
+      "timeInfo": "1 a 2 horas",
+      "badge": "Top review",
+      "color": "green",
+      "icon": "Coffee",
+      "contact": {
+        "phone": "+57 310 3764672",
+        "instagram": "https://www.instagram.com/elrecuerdo_coffeetour/"
+      },
+      "location": {
+        "lat": 4.6345,
+        "lng": -75.5740,
+        "address": "Palestina, Vereda, Salento, Quindío",
+        "landmark": "Zona rural de Palestina"
+      },
+      "operatingHours": {
+        "notes": "Visitas por reserva. Atención diurna y flexible según disponibilidad."
+      },
+      "tags": ["coffee tour", "naturaleza", "cafés", "degustación"],
+      "verified": true,
+      "active": true,
+      "experienceDetails": {
+        "duration": "1-2 horas",
+        "difficulty": "Fácil",
+        "groupSize": "2-15 personas",
+        "included": ["Recorrido guiado", "Explicación sobre café local", "Degustación", "Observación de plantas y cultivos"],
+        "notIncluded": ["Transporte", "Comida", "Propinas"],
+        "requirements": ["Ropa cómoda", "Cámara", "Ganas de conocer la finca"],
+        "languages": ["Español"],
+        "meetingPoint": "Finca El Recuerdo, Vereda Palestina",
+        "cancellationPolicy": "Consultar disponibilidad antes de llegar"
+      }
+    },
+    {
+      "id": 19,
+      "name": "Moto Aventura 110",
+      "type": "Servicios",
+      "description": "Experiencia de aventura con mini motos en la zona de Salento, pensada para familias, grupos y viajeros que quieren una actividad dinámica con una ruta marcada y una sensación cercana a la naturaleza.",
+      "priceRange": "$$",
+      "rating": "4.9",
+      "timeInfo": "Abierto durante el día",
+      "badge": "Aventura",
+      "color": "mustard",
+      "icon": "Bike",
+      "contact": {
+        "phone": "+57 323 4540949",
+        "instagram": "https://www.instagram.com/motoaventura110"
+      },
+      "location": {
+        "lat": 4.6310,
+        "lng": -75.5735,
+        "address": "Finca Las Camelias, vía Palestina, kilómetro 1, Salento, Quindío",
+        "landmark": "Ruta de acceso a Cocora"
+      },
+      "operatingHours": {
+        "notes": "Atención diurna. Se recomienda reservar para grupos y horarios específicos."
+      },
+      "tags": ["moto", "aventura", "salento", "pista", "familia", "ruta natural"],
+      "verified": true,
+      "active": true,
+      "experienceDetails": {
+        "duration": "1-3 horas",
+        "difficulty": "Moderada",
+        "groupSize": "1-10 personas",
+        "included": ["Alquiler de mini moto", "Bosque y ruta de aventura", "Guía de seguridad"],
+        "notIncluded": ["Transporte", "Protección adicional", "Comida"],
+        "requirements": ["Identificación", "Ropa cómoda", "Uso de casco"],
+        "languages": ["Español"],
+        "meetingPoint": "Finca Las Camelias, vía Palestina",
+        "cancellationPolicy": "Confirmar horario antes del ingreso"
+      }
+    },
+    {
+      "id": 20,
+      "name": "Cabalgatas Cocora Mágica",
+      "type": "Experiencias",
+      "description": "Operador local de cabalgatas y recorridos turísticos en la zona del Valle de Cocora con atención en la ruta, historias del territorio y experiencias de turismo rural en caballo.",
+      "priceRange": "$$$",
+      "rating": "5.0",
+      "timeInfo": "Reserva previa",
+      "badge": "Cabalgatas",
+      "color": "coral",
+      "icon": "Compass",
+      "contact": {
+        "phone": "+57 322 3347153",
+        "website": "http://www.cocoramagic.com"
+      },
+      "location": {
+        "lat": 4.6315,
+        "lng": -75.5738,
+        "address": "Vía Palestina, Finca Las Camelias, kilómetro 1, Salento, Quindío",
+        "landmark": "Entrada de la zona de Cocora"
+      },
+      "operatingHours": {
+        "notes": "Atención durante el día. Reservas recomendadas para cabalgatas y recorridos."
+      },
+      "tags": ["cabalgatas", "cocora", "tour", "aventura", "salento", "equino"],
+      "verified": true,
+      "active": true,
+      "horsebackRidingDetails": {
+        "duration": "2-4 horas",
+        "difficulty": "Moderado",
+        "requirements": ["Botas cerradas", "Ropa cómoda", "Protector solar"],
+        "routes": ["Vía a Cocora", "Paisajes del valle", "Paseo a caballo"],
+        "tariff": "$80.000 - $120.000 COP",
+        "groupSize": "Máximo 6 personas por grupo"
+      }
+    },
+    {
+      "id": 21,
+      "name": "Fonda Boquía",
+      "type": "Restaurantes",
+      "description": "Punto gastronómico tradicional en Boquía para viajeros que buscan comida local, descanso en la ruta y una experiencia más cercana a la vida rural del Quindío.",
+      "priceRange": "$$",
+      "rating": "4.7",
+      "timeInfo": "Horario diurno",
+      "badge": "Boquía",
+      "color": "terracotta",
+      "icon": "Utensils",
+      "contact": {
+        "phone": "Consultar",
+        "whatsapp": "Consultar"
+      },
+      "location": {
+        "lat": 4.6440,
+        "lng": -75.5630,
+        "address": "Boquía, Salento, Quindío",
+        "landmark": "Vereda Boquía"
+      },
+      "operatingHours": {
+        "notes": "Atención diurna. Ideal para almuerzos y descansos en la ruta a Santa Rita."
+      },
+      "tags": ["boquía", "restaurante", "bar", "tradicional", "ruta a santa rita", "comida local"],
+      "verified": false,
+      "active": true,
+      "foodServiceDetails": {
+        "cuisineType": ["Colombiana", "Regional"],
+        "specialties": ["Platos de la región", "Trucha", "Bebidas locales"],
+        "menuHighlights": ["Almuerzo campesino", "Bebidas frías", "Opciones para viajeros"],
+        "averagePrice": "$$",
+        "reservationRequired": false
+      }
+    },
+    {
+      "id": 22,
+      "name": "Restaurante Don Elías",
+      "type": "Restaurantes",
+      "description": "Espacio local de comida regional y experiencias cafeteras con atención familiar, ideal para detenerse después de un recorrido por la finca y disfrutar de café, platos locales y ambiente de la zona rural.",
+      "priceRange": "$$",
+      "rating": "4.7",
+      "timeInfo": "Almuerzos y café",
+      "badge": "Regional",
+      "color": "terracotta",
+      "icon": "Utensils",
+      "contact": {
+        "phone": "+57 315 6061113",
+        "website": "https://fincafeteradonelias.com.co"
+      },
+      "location": {
+        "lat": 4.6460,
+        "lng": -75.5765,
+        "address": "Vereda Palestina, Salento, Quindío",
+        "landmark": "Zona cafetera de Salento"
+      },
+      "operatingHours": {
+        "notes": "Atención diurna con foco en almuerzos, café y visitas guiadas."
+      },
+      "tags": ["restaurante", "café", "regional", "familia", "salento", "platos locales"],
+      "verified": true,
+      "active": true,
+      "foodServiceDetails": {
+        "cuisineType": ["Colombiana", "Cafetera"],
+        "specialties": ["Café de la finca", "Platos locales", "Refrigerios regionales"],
+        "menuHighlights": ["Café de origen", "Platos de la región", "Bebidas tradicionales"],
+        "averagePrice": "$$",
+        "reservationRequired": false
       }
     }
   ],

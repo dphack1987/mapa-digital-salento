@@ -8,6 +8,13 @@
       "isPartner": true
     },
     {
+      "id": "hotel-la-floresta-salento",
+      "name": "Hotel La Floresta Salento",
+      "address": "A 400 metros de la plaza principal, Salento, Quindío",
+      "phone": "+57 312 8681808",
+      "isPartner": true
+    },
+    {
       "id": "hotel-kawa-mountain-retreat",
       "name": "Hotel Kawa Mountain Retreat",
       "address": "Por confirmar",

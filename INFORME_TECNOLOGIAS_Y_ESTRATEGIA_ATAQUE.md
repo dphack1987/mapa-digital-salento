@@ -194,7 +194,7 @@ class UrgencySchemaService {
       },
       "availableChannel": {
         "@type": "ServiceChannel",
-        "serviceUrl": "https://mapa-salento.com/emergencias"
+        "serviceUrl": "https://salentoalamano.com/emergencias"
       }
     }
   }
@@ -356,7 +356,7 @@ class LocalBacklinksService {
     return {
       type: 'verified_business',
       html: `
-        <a href="https://mapa-salento.com/${ally.slug}" 
+        <a href="https://salentoalamano.com/${ally.slug}" 
            rel="nofollow sponsored" 
            title="${ally.name} - Verificado por Turismo Oficial Salento">
           ${ally.name} en Mapa Oficial Salento

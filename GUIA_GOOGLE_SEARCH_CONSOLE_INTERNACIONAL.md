@@ -18,12 +18,12 @@ Configurar Google Search Console para indexación internacional inmediata, permi
 1. Acceder a [Google Search Console](https://search.google.com/search-console)
 2. Hacer clic en "Agregar propiedad"
 3. Seleccionar "Prefijo de URL"
-4. Ingresar: `https://mapa-salento.com/`
+4. Ingresar: `https://salentoalamano.com/`
 5. Verificar propiedad (archivo HTML o DNS)
 
 ### 1.2 Configurar Propiedad Dominio (Opcional pero Recomendado)
 1. Agregar propiedad "Dominio"
-2. Ingresar: `mapa-salento.com`
+2. Ingresar: `salentoalamano.com`
 3. Verificar mediante registro DNS
 
 ---
@@ -85,7 +85,7 @@ Configurar Google Search Console para indexación internacional inmediata, permi
 
 ### 4.2 Prueba de Resultados Enriquecidos
 1. Usar [Herramienta de prueba de resultados enriquecidos](https://search.google.com/test/rich-results)
-2. Ingresar URL principal: `https://mapa-salento.com/`
+2. Ingresar URL principal: `https://salentoalamano.com/`
 3. Verificar que NewsArticle y Place sean detectados
 4. Corregir errores antes de indexación
 
@@ -111,7 +111,7 @@ Configurar Google Search Console para indexación internacional inmediata, permi
 
 ### 6.1 Registro en Bing Webmaster Tools
 1. Acceder a [Bing Webmaster Tools](https://www.bing.com/webmasters)
-2. Agregar sitio: `https://mapa-salento.com/`
+2. Agregar sitio: `https://salentoalamano.com/`
 3. Verificar propiedad (método meta tag o archivo)
 4. Configurar sitemap: `sitemap.xml`
 
@@ -144,10 +144,10 @@ Configurar Google Search Console para indexación internacional inmediata, permi
 ### 8.1 Indexación Manual de URLs Críticas
 1. Usar "Inspección de URL" en Search Console
 2. Ingresar URLs críticas manualmente:
-   - `https://mapa-salento.com/`
-   - `https://mapa-salento.com/estado-actual-salento-hoteles-abiertos-vias-libres-valle-cocora-operando-100`
-   - `https://mapa-salento.com/de/salento-sicherheit-2026`
-   - `https://mapa-salento.com/fr/salento-securite-2026`
+   - `https://salentoalamano.com/`
+   - `https://salentoalamano.com/estado-actual-salento-hoteles-abiertos-vias-libres-valle-cocora-operando-100`
+   - `https://salentoalamano.com/de/salento-sicherheit-2026`
+   - `https://salentoalamano.com/fr/salento-securite-2026`
 3. Solicitar indexación para cada URL
 4. Monitorear estado de indexación
 

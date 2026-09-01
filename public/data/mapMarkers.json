@@ -89,6 +89,76 @@
       "tone": "green",
       "placeId": 15,
       "description": "Reserva natural con cascadas y senderos en Boquía"
+    },
+    {
+      "id": 10,
+      "label": "Hotel La Floresta Salento",
+      "type": "Comercial",
+      "lat": 4.6372,
+      "lng": -75.5705,
+      "tone": "green",
+      "placeId": 16,
+      "description": "Hotel boutique con spa, restaurante, coworking y desayuno con vista"
+    },
+    {
+      "id": 11,
+      "label": "Finca Cafetera Don Elías",
+      "type": "Turístico",
+      "lat": 4.6470,
+      "lng": -75.5770,
+      "tone": "yellow",
+      "placeId": 17,
+      "description": "Finca cafetera tradicional con tour del café y degustación"
+    },
+    {
+      "id": 12,
+      "label": "Coffee Farm El Recuerdo",
+      "type": "Turístico",
+      "lat": 4.6345,
+      "lng": -75.5740,
+      "tone": "coral",
+      "placeId": 18,
+      "description": "Coffee tour en entorno natural con recorrido guiado por cafetales"
+    },
+    {
+      "id": 13,
+      "label": "Moto Aventura 110",
+      "type": "Turístico",
+      "lat": 4.6310,
+      "lng": -75.5735,
+      "tone": "green",
+      "placeId": 19,
+      "description": "Alquiler de mini motos y experiencias de aventura en Salento"
+    },
+    {
+      "id": 14,
+      "label": "Cocora Magic",
+      "type": "Turístico",
+      "lat": 4.6315,
+      "lng": -75.5738,
+      "tone": "yellow",
+      "placeId": 20,
+      "description": "Cabalgatas y recorridos turísticos en la vía a Cocora"
+    },
+    {
+      "id": 15,
+      "label": "Fonda Boquía",
+      "type": "Gastronómico",
+      "lat": 4.6440,
+      "lng": -75.5630,
+      "tone": "coral",
+      "placeId": 21,
+      "description": "Restaurante-bar tradicional de Boquía con comida local y ambiente familiar"
+    },
+    {
+      "id": 16,
+      "label": "Restaurante Don Elías",
+      "type": "Gastronómico",
+      "lat": 4.6460,
+      "lng": -75.5765,
+      "tone": "green",
+      "placeId": 22,
+      "description": "Comedor local y café tradicional con platos de la región"
     }
   ],
   "lastUpdated": "2026-08-31T10:50:00.000Z",

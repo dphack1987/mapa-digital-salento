@@ -1,7 +1,7 @@
 {
-  "name": "Salento a la mano",
-  "short_name": "Salento",
-  "description": "Mapa digital, pedidos locales y planes para descubrir Salento.",
+  "name": "Salento a la Mano",
+  "short_name": "Salento a la Mano",
+  "description": "Mapa turístico digital de Salento, Quindío para descubrir hoteles, restaurantes, rutas y negocios locales.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#f5f1e8",

@@ -22,7 +22,7 @@
 ✅ Valle de Cocora 100% accesible
 ✅ Turismo seguro y normal
 
-🛡️ PRESENTAMOS: Mapa Digital Oficial de Salento
+🛡️ PRESENTAMOS: Salento a la Mano
 Tu guía confiable con información VERIFICADA en tiempo real.
 
 🗺️ Mapa interactivo con hoteles, restaurantes y servicios
@@ -33,7 +33,7 @@ Tu guía confiable con información VERIFICADA en tiempo real.
 ❌ IGNORA RUMORES EN REDES SOCIALES
 ✅ CONSULTA FUENTES OFICIALES VERIFICADAS
 
-🔗 Visita: mapa-salento.com
+🔗 Visita: salentoalamano.com
 📞 Para turistas: +57 300 XXX XXXX
 🏢 Oficina de Turismo: Centro de Salento
 
@@ -66,13 +66,13 @@ Ante videos alarmistas en redes sociales, confirmamos:
 ❌ Contenido viral sin verificación
 ❌ Buscadores desactualizados
 
-✅ SOLUCIÓN: Mapa Digital Oficial de Salento
+✅ SOLUCIÓN: Salento a la Mano
 - Información actualizada en tiempo real
 - Verificada por autoridades locales
 - Fuente oficial de turismo
 - Respuestas inmediatas a dudas
 
-🗺️ Consulta información oficial: mapa-salento.com
+🗺️ Consulta información oficial: salentoalamano.com
 📞 Oficina Turismo Salento: Ubicada en el centro
 🆘 Emergencias: 123
 
@@ -103,7 +103,7 @@ Ante videos alarmistas en redes sociales, confirmamos:
 ✅ Notificaciones en tiempo real
 ✅ Amplificación en mapa oficial
 
-📝 REGISTRO GRATIS: mapa-salento.com/aliados
+📝 REGISTRO GRATIS: salentoalamano.com/aliados
 ⏱️ Verificación automática 24-48h
 🎯 Alcance turístico masivo
 
@@ -137,7 +137,7 @@ Te escribimos para confirmarte INFORMACIÓN OFICIAL VERIFICADA:
 ✅ Valle de Cocora 100% accesible
 ✅ Turismo seguro y normal
 
-🛡️ PRESENTAMOS: Mapa Digital Oficial de Salento
+🛡️ PRESENTAMOS: Salento a la Mano
 
 Tu fuente confiable de información turística verificada en tiempo real.
 
@@ -150,7 +150,7 @@ Tu fuente confiable de información turística verificada en tiempo real.
 
 🎯 PLANIFICA TU VISITA CON CONFIANZA
 
-Visita: mapa-salento.com
+Visita: salentoalamano.com
 📞 Soporte turístico: +57 300 XXX XXXX
 🏢 Oficina de Turismo: Centro de Salento
 
@@ -189,7 +189,7 @@ Te invitamos a unirte a la RED OFICIAL DE ALIADOS DE SALENTO.
 ✅ Conexión directa con turistas internacionales
 
 📝 REGISTRO SIMPLE Y RÁPIDO:
-1. Completa el formulario en: mapa-salento.com/aliados
+1. Completa el formulario en: salentoalamano.com/aliados
 2. Sube documentos básicos (cámara de comercio/identidad)
 3. Recibe verificación automática 24-48h
 4. ¡Empieza a recibir turistas verificados!
@@ -204,8 +204,8 @@ Te invitamos a unirte a la RED OFICIAL DE ALIADOS DE SALENTO.
 
 Juntos podemos presentar la verdad sobre Salento y apoyar a la comunidad local.
 
-🔗 REGÍSTRATE HOY: mapa-salento.com/aliados
-📞 Preguntas: allies@mapa-salento.com
+🔗 REGÍSTRATE HOY: salentoalamano.com/aliados
+📞 Preguntas: allies@salentoalamano.com
 
 ¡Salento está abierto y esperando turistas!
 
@@ -226,7 +226,7 @@ Equipo de Turismo Oficial Salento
 **CUERPO:**
 
 ```
-SALENTO, QUINDÍO - Ante la proliferación de contenido alarmista y desinformación en redes sociales y buscadores, hoy se lanza oficialmente el "Mapa Digital de Salento", una plataforma tecnológica integral que proporciona información turística verificada en tiempo real sobre el destino.
+SALENTO, QUINDÍO - Ante la proliferación de contenido alarmista y desinformación en redes sociales y buscadores, hoy se lanza oficialmente el "Salento a la Mano", una plataforma tecnológica integral que proporciona información turística verificada en tiempo real sobre el destino.
 
 EL PROBLEMA: DESINFORMACIÓN ALARMISTA
 
@@ -234,7 +234,7 @@ En los últimos meses, videos y publicaciones no verificadas han creado percepci
 
 LA SOLUCIÓN: TECNOLOGÍA + INFORMACIÓN OFICIAL
 
-El Mapa Digital de Salento combina:
+El Salento a la Mano combina:
 • Mapa interactivo con información actualizada de hoteles, restaurantes y servicios
 • Asistente virtual "Don Chucho" con respuestas verificadas sobre rumores
 • Sistema de verificación de negocios locales
@@ -274,14 +274,14 @@ OBJETIVOS A CORTO PLAZO
 CONTACTO DE PRENSA
 
 • Nombre: [Nombre del Contacto]
-• Email: prensa@mapa-salento.com
+• Email: prensa@salentoalamano.com
 • Teléfono: +57 300 XXX XXXX
-• Sitio web: mapa-salento.com
+• Sitio web: salentoalamano.com
 • Oficina: Centro de Salento, Quindío
 
 SOBRE EL PROYECTO
 
-El Mapa Digital de Salento es una iniciativa pública-privada para combatir la desinformación turística mediante tecnología moderna y colaboración con la comunidad local. El proyecto cuenta con un presupuesto de 20 millones de pesos colombianos y un plan de ejecución acelerado de 4 semanas.
+El Salento a la Mano es una iniciativa pública-privada para combatir la desinformación turística mediante tecnología moderna y colaboración con la comunidad local. El proyecto cuenta con un presupuesto de 20 millones de pesos colombianos y un plan de ejecución acelerado de 4 semanas.
 
 FIN
 ```
@@ -292,13 +292,13 @@ FIN
 
 ### Descripción del Negocio
 
-**Nombre:** Mapa Digital Oficial de Salento  
+**Nombre:** Salento a la Mano  
 **Categoría:** Servicio de Información Turística / Oficina de Turismo
 
 **Descripción principal:**
 
 ```
-Mapa Digital Oficial de Salento - Tu fuente confiable de información turística verificada en tiempo real. 
+Salento a la Mano - Tu fuente confiable de información turística verificada en tiempo real. 
 
 🌿 INFORMACIÓN OFICIAL VERIFICADA:
 • Estado actual de vías y accesos
@@ -321,7 +321,7 @@ Mapa Digital Oficial de Salento - Tu fuente confiable de información turística
 
 📍 UBICACIÓN: Salento, Quindío, Colombia
 📞 CONTACTO: +57 300 XXX XXXX
-🌐 SITIO WEB: mapa-salento.com
+🌐 SITIO WEB: salentoalamano.com
 ```
 
 **Palabras clave:** Salento turismo, Valle de Cocora, hoteles Salento, turismo Quindío, mapa turístico, información oficial Salento
@@ -343,7 +343,7 @@ Mapa Digital Oficial de Salento - Tu fuente confiable de información turística
 🛡️ MAPA DIGITAL OFICIAL DE SALENTO
 Tu guía confiable con información VERIFICADA en tiempo real.
 
-🗺️ mapa-salento.com
+🗺️ salentoalamano.com
 📞 +57 300 XXX XXXX
 
 ❌ NO CONFÍES EN RUMORES NO VERIFICADOS

@@ -394,7 +394,7 @@ class InternationalSEOService {
    * Generar hreflang tags dinámicos
    */
   generateHreflangTags(): string {
-    const baseUrl = 'https://mapa-salento.com'
+    const baseUrl = 'https://salentoalamano.com'
     const languages = ['es', 'en', 'de', 'fr', 'it']
     
     let hreflangHTML = ''

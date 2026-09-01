@@ -1,11 +1,13 @@
-# Robots.txt - Mapa Digital de Salento
-# Configuración para indexación global y crawlers internacionales
+# Robots.txt - Salento a la Mano
+# SEO para marca, mapa turístico y turismo en Salento
 
-# Permitir todos los crawlers principales
 User-agent: *
 Allow: /
+Disallow: /admin/
+Disallow: /api/
+Disallow: /private/
+Disallow: /temp/
 
-# Priorizar crawlers de buscadores principales
 User-agent: Googlebot
 Allow: /
 Crawl-delay: 1
@@ -16,21 +18,16 @@ Crawl-delay: 1
 
 User-agent: Slurp
 Allow: /
-Crawl-delay: 1
 
 User-agent: DuckDuckBot
 Allow: /
-Crawl-delay: 1
 
 User-agent: Baiduspider
 Allow: /
-Crawl-delay: 1
 
 User-agent: Yandexbot
 Allow: /
-Crawl-delay: 1
 
-# Permitir crawlers de redes sociales para Open Graph
 User-agent: facebookexternalhit
 Allow: /
 
@@ -40,18 +37,5 @@ Allow: /
 User-agent: LinkedInBot
 Allow: /
 
-# Bloquear crawlers de bots maliciosos
-User-agent: *
-Disallow: /admin/
-Disallow: /api/
-Disallow: /private/
-Disallow: /temp/
-
-# Sitemap para indexación global
-Sitemap: https://mapa-salento.com/sitemap.xml
-
-# Indicar ubicación del sitemap para buscadores específicos
-# Google Search Console
-# Bing Webmaster Tools
-# Yandex Webmaster
-# Baidu Webmaster Tools
+Sitemap: https://salentoalamano.com/sitemap.xml
+Host: salentoalamano.com
