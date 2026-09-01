@@ -135,29 +135,6 @@
 2. **Contenido de lanzamiento** - Copywriting, assets gráficos
 3. **Checklist técnico final** - Verificación completa
 4. **Preparación launch** - Deploy final a producción
-# - Verificar negocio
-# - Añadir fotos oficiales
-# - Configurar horarios
-# - Añadir información de contacto
-
-# Social Media
-# - Crear perfiles consistentes
-# - Setup bio con link a plataforma
-# - Configurar branding básico
-```
-
-### Acción 3: Preparación Técnica
-```bash
-# Verificar configuración Vercel
-# - Test deploy a staging
-# - Verificar variables de entorno
-# - Confirmar routing SPA
-
-# Performance baseline
-# - Lighthouse test en build local
-# - Core Web Vitals measurement
-# - Mobile responsiveness test
-```
 
 ---
 

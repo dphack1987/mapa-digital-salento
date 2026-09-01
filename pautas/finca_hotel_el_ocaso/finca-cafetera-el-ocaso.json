@@ -1,0 +1,42 @@
+﻿{
+    "slug": "finca-cafetera-el-ocaso",
+    "nombre": "Finca Cafetera El Ocaso",
+    "municipio": "Salento",
+    "ubicacion": "Vereda Palestina, Kilómetro 3.8 vía Salento (costado derecho después de la cancha de baloncesto), Salento, Quindío",
+    "contacto": {
+        "telefono": "+573122968668",
+        "whatsapp": "573122968668",
+        "email": "contacto@fincaelocasosalento.com",
+        "web_oficial": "https://web.fincaelocasosalento.com/"
+    },
+    "descripcion": "Emblemática finca cafetera en funcionamiento rodeada por los imponentes paisajes del Quindío y arquitectura tradicional de la colonización antioqueña. Ofrece experiencias inmersivas de turismo vivencial, caficultura sostenible y alojamiento rural en un entorno natural único.",
+    "experiencias": [
+        {
+            "titulo": "Coffee Tour Tradicional",
+            "duracion": "1 hora y 30 minutos",
+            "precio": "Desde $60.000 COP",
+            "detalle": "Recorrido guiado por plantaciones, proceso de beneficio (despulpado, lavado y secado artesanal), estación de compostaje y degustación de café sostenible de la finca."
+        },
+        {
+            "titulo": "Coffee Tour Premium",
+            "duracion": "Aprox. 3 horas",
+            "precio": "Desde $120.000 COP",
+            "detalle": "Inmersión profunda en la caficultura, visita a la zona de tostado y sesión sensorial avanzada / cata técnica de cafés especiales."
+        },
+        {
+            "titulo": "Alojamiento Rural",
+            "duracion": "Estadía por noche",
+            "precio": "Consultar disponibilidad",
+            "detalle": "Hospedaje en auténtica casa típica cafetera con comodidades tradicionales, avistamiento de fauna y flora local."
+        }
+    ],
+    "multimedia": {
+        "fotos": [
+            "foto_casa_ocaso.png"
+        ],
+        "logo": "logo_ocaso.png",
+        "videos": [
+            "https://www.youtube.com/watch?v=uE5cEDRVIhA"
+        ]
+    }
+}

@@ -1,0 +1,73 @@
+from pathlib import Path
+import re
+
+ROOT = Path(__file__).resolve().parents[1]
+TARGETS = [
+    'mapa-salento.com',
+    'mapa-digital-salento.vercel.app',
+    'salentoalamano.com',
+    'salento a la mano',
+    'Salento a la Mano'
+]
+
+EXCLUDE_DIRS = {
+    '.git',
+    'node_modules',
+    'dist',
+    '.next',
+    'coverage',
+    '__pycache__'
+}
+
+
+def iter_files(root: Path):
+    for path in root.rglob('*'):
+        if path.is_dir():
+            if path.name in EXCLUDE_DIRS:
+                continue
+            continue
+        if path.suffix.lower() in {'.html', '.xml', '.txt', '.json', '.md', '.ts', '.tsx', '.js', '.css'}:
+            yield path
+
+
+def main():
+    findings = {target: [] for target in TARGETS}
+    for file in iter_files(ROOT):
+        try:
+            text = file.read_text(encoding='utf-8')
+        except Exception:
+            continue
+        for target in TARGETS:
+            if target.lower() in text.lower():
+                findings[target].append(str(file.relative_to(ROOT)))
+
+    print('=== SEO BRAND AUDIT ===')
+    print(f'ROOT: {ROOT}')
+    print()
+
+    old_domain_hits = findings['mapa-salento.com'] + findings['mapa-digital-salento.vercel.app']
+    brand_hits = findings['salentoalamano.com'] + findings['salento a la mano'] + findings['Salento a la Mano']
+
+    print('OLD DOMAIN HITS:')
+    if old_domain_hits:
+        for item in sorted(set(old_domain_hits)):
+            print(f'  - {item}')
+    else:
+        print('  Ningún hit. OK.')
+
+    print('\nBRAND HITS:')
+    if brand_hits:
+        for item in sorted(set(brand_hits))[:30]:
+            print(f'  - {item}')
+    else:
+        print('  Ningún hit. Revisar branding. ')
+
+    print('\nRECOMENDACION:')
+    print('1) Canonical y Open Graph deben apuntar a salentoalamano.com.')
+    print('2) robots.txt y sitemap deben apuntar al dominio corto de marca.')
+    print('3) El texto visible debe reforzar Salento a la Mano en títulos, encabezados y CTA.')
+    print('4) Mantener Vercel como infraestructura, pero posicionar la marca como el nombre principal del negocio.')
+
+
+if __name__ == '__main__':
+    main()
