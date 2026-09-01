@@ -3,10 +3,11 @@
 // Optimizado para mapa-digital-salento.vercel.app y marca Salento a la Mano
 
 import { useState, useEffect } from 'react'
-import { Shield, AlertTriangle, CheckCircle, TrendingUp, Globe, FileText, Download, RefreshCw, ExternalLink, Search, BarChart, Chrome } from 'lucide-react'
+import { Shield, AlertTriangle, CheckCircle, TrendingUp, Globe, FileText, Download, RefreshCw, ExternalLink, Search, BarChart, Chrome, SearchIcon } from 'lucide-react'
 import defensiveSEOGService from '../services/defensiveSEOG.service'
 import internationalSEOService from '../services/internationalSEO.service'
 import GoogleVerificationModal from './GoogleVerificationModal'
+import SearchEngineIndexingModal from './SearchEngineIndexingModal'
 
 interface DefensiveSEODashboardProps {
   onClose?: () => void
@@ -22,6 +23,7 @@ const DefensiveSEODashboard: React.FC<DefensiveSEODashboardProps> = ({ onClose }
   const [loading, setLoading] = useState(true)
   const [activeTab, setActiveTab] = useState<'pages' | 'claims' | 'keywords' | 'sitemap' | 'advanced'>('pages')
   const [showGoogleVerification, setShowGoogleVerification] = useState(false)
+  const [showSearchEngineIndexing, setShowSearchEngineIndexing] = useState(false)
   const targetDomain = 'https://mapa-digital-salento.vercel.app'
   const brandName = 'Salento a la Mano'
 
@@ -374,6 +376,18 @@ const DefensiveSEODashboard: React.FC<DefensiveSEODashboardProps> = ({ onClose }
 
               <div className="advanced-seo-card">
                 <div className="card-header">
+                  <SearchIcon size={20} className="text-green-600" />
+                  <h4>Indexación Múltiple</h4>
+                </div>
+                <p className="card-description">Configurar indexación en Google, Bing, DuckDuckGo, Yahoo, Baidu y Yandex.</p>
+                <button className="download-button" onClick={() => setShowSearchEngineIndexing(true)}>
+                  <Globe size={16} />
+                  Configurar Motores de Búsqueda
+                </button>
+              </div>
+
+              <div className="advanced-seo-card">
+                <div className="card-header">
                   <BarChart size={20} className="text-orange-600" />
                   <h4>Keywords Estratégicas</h4>
                 </div>
@@ -437,6 +451,13 @@ const DefensiveSEODashboard: React.FC<DefensiveSEODashboardProps> = ({ onClose }
         <GoogleVerificationModal
           isOpen={showGoogleVerification}
           onClose={() => setShowGoogleVerification(false)}
+        />
+      )}
+
+      {showSearchEngineIndexing && (
+        <SearchEngineIndexingModal
+          isOpen={showSearchEngineIndexing}
+          onClose={() => setShowSearchEngineIndexing(false)}
         />
       )}
     </div>

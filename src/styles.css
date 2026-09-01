@@ -847,6 +847,583 @@ button { cursor: pointer; }
 .content-metric { display: flex; align-items: center; gap: 8px; }
 .content-metric svg { color: var(--green); }
 .content-metric .metric-value { font: 600 16px; color: var(--ink); }
+
+/* Search Engine Indexing Modal Styles */
+.search-engine-indexing-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.search-engine-indexing-modal {
+  background: white;
+  border-radius: 12px;
+  max-width: 900px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 24px;
+}
+
+.search-engine-indexing-modal .modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #e1ddd0;
+}
+
+.search-engine-indexing-modal .modal-header h2 {
+  font: 600 24px;
+  margin: 0;
+  color: var(--ink);
+}
+
+.search-engine-indexing-modal .close-button {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #72796d;
+}
+
+.search-engine-indexing-modal .modal-body {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.search-engine-indexing-modal .indexing-overview {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.search-engine-indexing-modal .status-card,
+.search-engine-indexing-modal .domain-info {
+  padding: 16px;
+  background: #f5f1e8;
+  border-radius: 8px;
+}
+
+.search-engine-indexing-modal .status-card h3,
+.search-engine-indexing-modal .domain-info h3 {
+  font: 600 16px;
+  margin: 0 0 8px;
+  color: var(--ink);
+}
+
+.search-engine-indexing-modal .status-text {
+  font: 600 18px;
+  color: var(--green);
+  margin: 8px 0;
+}
+
+.search-engine-indexing-modal .engines-count {
+  font-size: 14px;
+  color: #72796d;
+}
+
+.search-engine-indexing-modal .search-engines-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.search-engine-indexing-modal .search-engines-list h3 {
+  font: 600 18px;
+  margin: 0 0 16px;
+  color: var(--ink);
+}
+
+.search-engine-indexing-modal .engine-card {
+  padding: 16px;
+  background: white;
+  border: 1px solid #e1ddd0;
+  border-radius: 8px;
+}
+
+.search-engine-indexing-modal .engine-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.search-engine-indexing-modal .engine-icon {
+  font-size: 24px;
+}
+
+.search-engine-indexing-modal .engine-header h4 {
+  font: 600 16px;
+  margin: 0;
+  color: var(--ink);
+}
+
+.search-engine-indexing-modal .engine-priority {
+  font-size: 12px;
+  color: #72796d;
+  margin-left: auto;
+}
+
+.search-engine-indexing-modal .engine-status {
+  margin-bottom: 12px;
+}
+
+.search-engine-indexing-modal .status-badge {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.search-engine-indexing-modal .status-badge:contains('✅') {
+  background: rgba(125, 168, 140, 0.2);
+  color: var(--green);
+}
+
+.search-engine-indexing-modal .status-badge:contains('⏳') {
+  background: rgba(243, 204, 110, 0.2);
+  color: #ad8121;
+}
+
+.search-engine-indexing-modal .status-badge:contains('❌') {
+  background: rgba(220, 38, 38, 0.1);
+  color: #dc2626;
+}
+
+.search-engine-indexing-modal .engine-details {
+  margin-bottom: 12px;
+  font-size: 14px;
+}
+
+.search-engine-indexing-modal .engine-details p {
+  margin: 4px 0;
+  color: var(--ink);
+}
+
+.search-engine-indexing-modal .engine-details a {
+  color: var(--green);
+  text-decoration: none;
+}
+
+.search-engine-indexing-modal .engine-details a:hover {
+  text-decoration: underline;
+}
+
+.search-engine-indexing-modal .engine-actions {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.search-engine-indexing-modal .engine-actions .btn-primary,
+.search-engine-indexing-modal .engine-actions .btn-secondary {
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.search-engine-indexing-modal .engine-actions .btn-primary {
+  background: var(--green);
+  color: white;
+  border: none;
+}
+
+.search-engine-indexing-modal .engine-actions .btn-secondary {
+  background: white;
+  color: var(--ink);
+  border: 1px solid #e1ddd0;
+}
+
+.search-engine-indexing-modal .engine-instructions {
+  margin-top: 12px;
+}
+
+.search-engine-indexing-modal .engine-instructions details {
+  border: 1px solid #e1ddd0;
+  border-radius: 6px;
+  padding: 12px;
+}
+
+.search-engine-indexing-modal .engine-instructions summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.search-engine-indexing-modal .engine-instructions ol {
+  margin: 12px 0 0 20px;
+  padding: 0;
+}
+
+.search-engine-indexing-modal .engine-instructions li {
+  margin: 8px 0;
+  font-size: 14px;
+  color: var(--ink);
+}
+
+.search-engine-indexing-modal .recommendations {
+  padding: 16px;
+  background: #f5f1e8;
+  border-radius: 8px;
+}
+
+.search-engine-indexing-modal .recommendations h3 {
+  font: 600 16px;
+  margin: 0 0 12px;
+  color: var(--ink);
+}
+
+.search-engine-indexing-modal .recommendations ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.search-engine-indexing-modal .recommendations li {
+  margin: 8px 0;
+  font-size: 14px;
+  color: var(--ink);
+}
+
+.search-engine-indexing-modal .sitemap-submission {
+  padding: 16px;
+  background: white;
+  border: 1px solid #e1ddd0;
+  border-radius: 8px;
+}
+
+.search-engine-indexing-modal .sitemap-submission h3 {
+  font: 600 16px;
+  margin: 0 0 12px;
+  color: var(--ink);
+}
+
+.search-engine-indexing-modal .sitemap-submission p {
+  font-size: 14px;
+  color: var(--ink);
+  margin: 8px 0;
+}
+
+.search-engine-indexing-modal .sitemap-submission a {
+  color: var(--green);
+  text-decoration: none;
+}
+
+.search-engine-indexing-modal .sitemap-submission a:hover {
+  text-decoration: underline;
+}
+
+.search-engine-indexing-modal .sitemap-buttons {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.search-engine-indexing-modal .sitemap-buttons .btn-primary {
+  padding: 8px 16px;
+  background: var(--green);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+}
+
+/* Bing Verification Modal Styles */
+.bing-verification-modal-overlay,
+.baidu-verification-modal-overlay,
+.yandex-verification-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1001;
+}
+
+.bing-verification-modal,
+.baidu-verification-modal,
+.yandex-verification-modal {
+  background: white;
+  border-radius: 12px;
+  max-width: 600px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 24px;
+}
+
+.bing-verification-modal .modal-header,
+.baidu-verification-modal .modal-header,
+.yandex-verification-modal .modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #e1ddd0;
+}
+
+.bing-verification-modal .modal-header h2,
+.baidu-verification-modal .modal-header h2,
+.yandex-verification-modal .modal-header h2 {
+  font: 600 20px;
+  margin: 0;
+  color: var(--ink);
+}
+
+.bing-verification-modal .close-button,
+.baidu-verification-modal .close-button,
+.yandex-verification-modal .close-button {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #72796d;
+}
+
+.bing-verification-modal .modal-body,
+.baidu-verification-modal .modal-body,
+.yandex-verification-modal .modal-body {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.bing-verification-step,
+.baidu-verification-step,
+.yandex-verification-step {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.bing-verification-step h3,
+.baidu-verification-step h3,
+.yandex-verification-step h3 {
+  font: 600 18px;
+  margin: 0;
+  color: var(--ink);
+}
+
+.bing-verification-step ol,
+.baidu-verification-step ol,
+.yandex-verification-step ol {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.bing-verification-step li,
+.baidu-verification-step li,
+.yandex-verification-step li {
+  margin: 8px 0;
+  font-size: 14px;
+  color: var(--ink);
+}
+
+.bing-verification-step .method-selector,
+.baidu-verification-step .method-selector,
+.yandex-verification-step .method-selector {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.bing-verification-step .method-selector label,
+.baidu-verification-step .method-selector label,
+.yandex-verification-step .method-selector label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: var(--ink);
+}
+
+.bing-verification-step .verification-input,
+.baidu-verification-step .verification-input,
+.yandex-verification-step .verification-input {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.bing-verification-step .verification-input label,
+.baidu-verification-step .verification-input label,
+.yandex-verification-step .verification-input label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.bing-verification-step .verification-code-input,
+.baidu-verification-step .verification-code-input,
+.yandex-verification-step .verification-code-input {
+  padding: 12px;
+  border: 1px solid #e1ddd0;
+  border-radius: 6px;
+  font-size: 14px;
+  color: var(--ink);
+}
+
+.bing-verification-step .method-preview,
+.baidu-verification-step .method-preview,
+.yandex-verification-step .method-preview {
+  padding: 12px;
+  background: #f5f1e8;
+  border-radius: 6px;
+}
+
+.bing-verification-step .method-preview h4,
+.baidu-verification-step .method-preview h4,
+.yandex-verification-step .method-preview h4 {
+  font: 600 14px;
+  margin: 0 0 8px;
+  color: var(--ink);
+}
+
+.bing-verification-step .method-preview code,
+.baidu-verification-step .method-preview code,
+.yandex-verification-step .method-preview code {
+  font-family: monospace;
+  font-size: 13px;
+  color: var(--ink);
+  background: white;
+  padding: 8px;
+  border-radius: 4px;
+  display: block;
+}
+
+.bing-verification-step .method-preview pre,
+.baidu-verification-step .method-preview pre,
+.yandex-verification-step .method-preview pre {
+  font-family: monospace;
+  font-size: 13px;
+  color: var(--ink);
+  background: white;
+  padding: 8px;
+  border-radius: 4px;
+  margin: 0;
+}
+
+.bing-verification-step .warning-box,
+.baidu-verification-step .warning-box,
+.yandex-verification-step .warning-box {
+  padding: 12px;
+  background: rgba(243, 204, 110, 0.2);
+  border-radius: 6px;
+  border-left: 4px solid #ad8121;
+}
+
+.bing-verification-step .warning-box p,
+.baidu-verification-step .warning-box p,
+.yandex-verification-step .warning-box p {
+  margin: 0;
+  font-size: 14px;
+  color: #ad8121;
+}
+
+.bing-verification-step .step-buttons,
+.baidu-verification-step .step-buttons,
+.yandex-verification-step .step-buttons {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.bing-verification-step .btn-primary,
+.baidu-verification-step .btn-primary,
+.yandex-verification-step .btn-primary {
+  padding: 10px 20px;
+  background: var(--green);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.bing-verification-step .btn-primary:disabled,
+.baidu-verification-step .btn-primary:disabled,
+.yandex-verification-step .btn-primary:disabled {
+  background: #e1ddd0;
+  cursor: not-allowed;
+}
+
+.bing-verification-step .btn-secondary,
+.baidu-verification-step .btn-secondary,
+.yandex-verification-step .btn-secondary {
+  padding: 10px 20px;
+  background: white;
+  color: var(--ink);
+  border: 1px solid #e1ddd0;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.bing-verification-step .verification-summary,
+.baidu-verification-step .verification-summary,
+.yandex-verification-step .verification-summary {
+  padding: 12px;
+  background: #f5f1e8;
+  border-radius: 6px;
+}
+
+.bing-verification-step .verification-summary p,
+.baidu-verification-step .verification-summary p,
+.yandex-verification-step .verification-summary p {
+  margin: 4px 0;
+  font-size: 14px;
+  color: var(--ink);
+}
+
+.bing-verification-step .next-steps,
+.baidu-verification-step .next-steps,
+.yandex-verification-step .next-steps {
+  margin-top: 12px;
+}
+
+.bing-verification-step .next-steps h4,
+.baidu-verification-step .next-steps h4,
+.yandex-verification-step .next-steps h4 {
+  font: 600 14px;
+  margin: 0 0 8px;
+  color: var(--ink);
+}
+
+.bing-verification-step .next-steps ol,
+.baidu-verification-step .next-steps ol,
+.yandex-verification-step .next-steps ol {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.bing-verification-step .next-steps li,
+.baidu-verification-step .next-steps li,
+.yandex-verification-step .next-steps li {
+  margin: 4px 0;
+  font-size: 14px;
+  color: var(--ink);
+}
 .content-metric .metric-label { font-size: 11px; color: #72796d; }
 .content-bounce { display: flex; justify-content: space-between; align-items: center; padding-top: 12px; border-top: 1px solid #e1ddd0; }
 .bounce-label { font-size: 12px; color: #72796d; }

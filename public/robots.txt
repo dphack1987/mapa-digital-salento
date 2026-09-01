@@ -1,33 +1,55 @@
 # Robots.txt - Salento a la Mano
 # SEO para marca, mapa turístico y turismo en Salento
+# Compatible con Google, Bing, DuckDuckGo, Yahoo, Baidu, Yandex
+# Dominios: salentoalamano.com y mapa-digital-salento.vercel.app
 
 User-agent: *
 Allow: /
+
+# Priorizar páginas importantes para turismo en Salento
+Allow: /estado-actual-salento-hoteles-abiertos-vias-libres-valle-cocora-operando-100
+Allow: /salento-abierto-hoy-turismo-seguro-valle-cocora-accesible
+Allow: /paso-valle-cocora-abierto-acceso-total-jeeps-willys-operativos
+
+# Bloquear archivos de configuración y sistema
 Disallow: /admin/
 Disallow: /api/
 Disallow: /private/
 Disallow: /temp/
+Disallow: /*.json$
+Disallow: /*.map$
 
+# Google-specific configuration
 User-agent: Googlebot
 Allow: /
 Crawl-delay: 1
 
+# Bing-specific configuration
 User-agent: Bingbot
 Allow: /
 Crawl-delay: 1
 
+# Yahoo-specific configuration (usa Bing)
 User-agent: Slurp
 Allow: /
+Crawl-delay: 1
 
+# DuckDuckGo-specific configuration
 User-agent: DuckDuckBot
 Allow: /
+Crawl-delay: 1
 
+# Baidu-specific configuration (China)
 User-agent: Baiduspider
 Allow: /
+Crawl-delay: 1
 
+# Yandex-specific configuration (Rusia)
 User-agent: Yandexbot
 Allow: /
+Crawl-delay: 1
 
+# Social media bots para sharing
 User-agent: facebookexternalhit
 Allow: /
 
@@ -37,5 +59,11 @@ Allow: /
 User-agent: LinkedInBot
 Allow: /
 
+# Sitemaps para todos los motores de búsqueda
 Sitemap: https://salentoalamano.com/sitemap.xml
+Sitemap: https://mapa-digital-salento.vercel.app/sitemap.xml
+Sitemap: https://salentoalamano.com/salentoalamano-defensive-sitemap.xml
+Sitemap: https://mapa-digital-salento.vercel.app/salentoalamano-defensive-sitemap.xml
+
+# Host para Yandex
 Host: salentoalamano.com
