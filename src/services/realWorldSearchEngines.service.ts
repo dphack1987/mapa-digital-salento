@@ -174,126 +174,131 @@ class RealWorldSearchEnginesService {
   }
 
   /**
-   * VenXplor - Plataforma turística colombiana
+   * VenXplor - Competencia directa (pero modelo similar sin comisiones)
    */
   private getVenXplorConfig(): RealSearchEngine {
     return {
-      name: 'VenXplor',
+      name: 'VenXplor (COMPETENCIA)',
       marketShareColombia: 'N/A (plataforma turística)',
       relevanceForTourism: 'alta',
       tourismSpecialized: true,
       colombian: true,
       url: 'https://venxplor.com',
       webmasterUrl: 'https://venxplor.com',
-      currentSalentoVisibility: 'Potencial - Plataforma específica para turismo colombiano',
-      optimizationPriority: 2,
+      currentSalentoVisibility: 'Potencial - Salento a la Mano compite con ellos',
+      optimizationPriority: 1,
       instructions: [
-        'CRÍTICO PARA TURISMO: Plataforma colombiana especializada',
-        'Conecta turistas con empresas y municipios',
-        'Sin comisiones y sin intermediarios',
-        'Registrar Salento a la Mano en VenXplor',
-        'Agregar experiencias y planes reales',
-        'Muestra cultura, gastronomía y gente local'
+        'COMPETENCIA DIRECTA: VenXplor es competencia pero tiene modelo similar',
+        'Ellos también ofrecen sin comisiones y sin intermediarios',
+        'DIFERENCIACIÓN: Salento a la Mano debe ofrecer herramientas superiores',
+        'Analizar sus funcionalidades y mejorarlas',
+        'Posicionarse como alternativa más completa y especializada en Salento',
+        'Enfocarse en experiencia de usuario superior y herramientas más avanzadas',
+        'Objetivo: Ser la opción preferida para comerciantes de Salento'
       ]
     }
   }
 
   /**
-   * KAYAK - Motor de búsqueda de viajes
+   * KAYAK - Competencia principal (modelo de comisiones)
    */
   private getKayakConfig(): RealSearchEngine {
     return {
-      name: 'KAYAK',
+      name: 'KAYAK (COMPETENCIA)',
       marketShareColombia: 'Alto en turismo',
       relevanceForTourism: 'alta',
       tourismSpecialized: true,
       colombian: false,
       url: 'https://kayak.com.co',
       webmasterUrl: 'https://kayak.com/partners',
-      currentSalentoVisibility: 'Media - Salento aparece en búsquedas de vuelos a Pereira/Armenia',
-      optimizationPriority: 2,
+      currentSalentoVisibility: 'Competencia - KAYAK cobra comisiones que nosotros no cobramos',
+      optimizationPriority: 1,
       instructions: [
-        'CRÍTICO PARA TURISMO: Motor de búsqueda de viajes líder',
-        'Los colombianos usan KAYAK para buscar destinos',
-        'Optimizar para búsquedas "vuelos a Armenia/Pereira"',
-        'KAYAK muestra tendencias de viajes en Colombia',
-        'Destinos nacionales lideran búsquedas (Santa Marta, Cartagena)',
-        'Pereira está en top 10 destinos nacionales (#9)'
+        'COMPETENCIA PRINCIPAL: KAYAK cobra comisiones por reservas',
+        'NUESTRA VENTAJA: Salento a la Mano es 100% sin comisiones',
+        'Analizar funcionalidades de KAYAK y replicarlas gratis',
+        'Ofrecer las mismas herramientas de búsqueda y comparación',
+        'Diferenciación: Enfoque local en Salento y Eje Cafetero',
+        'Marketing: "Las mismas herramientas de KAYAK, sin comisiones"',
+        'Objetivo: Capturar mercado que busca evitar comisiones'
       ]
     }
   }
 
   /**
-   * Booking.com - Plataforma de reservas
+   * Booking.com - Competencia principal (modelo de comisiones)
    */
   private getBookingConfig(): RealSearchEngine {
     return {
-      name: 'Booking.com',
+      name: 'Booking.com (COMPETENCIA)',
       marketShareColombia: 'Alto en alojamiento',
       relevanceForTourism: 'alta',
       tourismSpecialized: true,
       colombian: false,
       url: 'https://booking.com',
       webmasterUrl: 'https://booking.com/partners',
-      currentSalentoVisibility: 'Media - Hoteles en Salento aparecen en Booking',
-      optimizationPriority: 2,
+      currentSalentoVisibility: 'Competencia - Booking cobra 15-25% comisión',
+      optimizationPriority: 1,
       instructions: [
-        'CRÍTICO PARA ALOJAMIENTO: Plataforma líder de reservas',
-        'Optimizar perfiles de hoteles en Salento',
-        'Usar fotos de alta calidad de Salento',
-        'Descripciones detalladas en español',
-        'Precios competitivos para temporada alta',
-        'Responder rápidamente a reseñas'
+        'COMPETENCIA PRINCIPAL: Booking cobra 15-25% comisión por reserva',
+        'NUESTRA VENTAJA: Salento a la Mano es 100% gratuito para comerciantes',
+        'Ofrecer las mismas herramientas de gestión de reservas',
+        'Sistema de calendarios, precios dinámicos, notificaciones',
+        'Diferenciación: Sin comisiones, soporte local, personalización',
+        'Marketing: "La potencia de Booking.com, sin las comisiones"',
+        'Objetivo: Revolucionar el modelo de reservas en Salento'
       ]
     }
   }
 
   /**
-   * TripAdvisor - Reseñas de turismo
+   * TripAdvisor - Competencia en reseñas (modelo freemium)
    */
   private getTripAdvisorConfig(): RealSearchEngine {
     return {
-      name: 'TripAdvisor',
+      name: 'TripAdvisor (COMPETENCIA)',
       marketShareColombia: 'Alto en reseñas',
       relevanceForTourism: 'alta',
       tourismSpecialized: true,
       colombian: false,
       url: 'https://tripadvisor.com.co',
       webmasterUrl: 'https://tripadvisor.com/owners',
-      currentSalentoVisibility: 'Alta - Salento tiene muchas reseñas en TripAdvisor',
-      optimizationPriority: 2,
+      currentSalentoVisibility: 'Competencia - TripAdvisor cobra por características premium',
+      optimizationPriority: 1,
       instructions: [
-        'CRÍTICO PARA RESEÑAS: Plataforma líder de opiniones',
-        'Salento ya tiene visibilidad en TripAdvisor',
-        'Responder a todas las reseñas (positivas y negativas)',
-        'Agregar fotos auténticas de experiencias',
-        'Actualizar información de horarios y precios',
-        'Promocionar en TripAdvisor Business Advantage'
+        'COMPETENCIA: TripAdvisor cobra por Business Advantage',
+        'NUESTRA VENTAJA: Todas las herramientas gratis en Salento a la Mano',
+        'Sistema de reseñas completo: fotos, calificaciones, respuestas',
+        'Analytics de visibilidad y rendimiento gratis',
+        'Diferenciación: Enfoque local, sin costo, herramientas iguales o mejores',
+        'Marketing: "TripAdvisor gratis para Salento"',
+        'Objetivo: Capturar mercado de reseñas local sin barreras de entrada'
       ]
     }
   }
 
   /**
-   * Airbnb - Alojamiento alternativo
+   * Airbnb - Competencia en alojamiento alternativo (modelo de comisiones)
    */
   private getAirbnbConfig(): RealSearchEngine {
     return {
-      name: 'Airbnb',
+      name: 'Airbnb (COMPETENCIA)',
       marketShareColombia: 'Alto en alojamiento alternativo',
       relevanceForTourism: 'media',
       tourismSpecialized: true,
       colombian: false,
       url: 'https://airbnb.com.co',
       webmasterUrl: 'https://airbnb.com/hosts',
-      currentSalentoVisibility: 'Media - Airbnb en Salento es popular',
-      optimizationPriority: 3,
+      currentSalentoVisibility: 'Competencia - Airbnb cobra 3% huésped + 3% anfitrión',
+      optimizationPriority: 2,
       instructions: [
-        'IMPORTANTE PARA ALOJAMIENTO: Plataforma de alquileres',
-        'Optimizar listados de Airbnb en Salento',
-        'Fotos profesionales de espacios',
-        'Descripciones que destaquen la experiencia local',
-        'Experiencias únicas de Salento (café, caminatas)',
-        'Precios competitivos según temporada'
+        'COMPETENCIA: Airbnb cobra 3% al huésped + 3% al anfitrión',
+        'NUESTRA VENTAJA: Salento a la Mano cobra 0% a ambas partes',
+        'Ofrecer las mismas herramientas de gestión de propiedades',
+        'Calendarios, mensajes, sistema de precios, experiencias',
+        'Diferenciación: Sin comisiones, foco en experiencias locales de Salento',
+        'Marketing: "Airbnb sin comisiones para Salento"',
+        'Objetivo: Democratizar el alquiler de propiedades en Salento'
       ]
     }
   }
@@ -305,29 +310,30 @@ class RealWorldSearchEnginesService {
     destination: string
     overallVisibility: string
     marketReality: string
+    competitiveAdvantage: string
     topCompetitors: string[]
-    improvementOpportunities: string[]
+    disruptionOpportunity: string[]
   } {
     return {
       destination: this.targetDestination,
-      overallVisibility: 'Media - Salento es conocido pero no lidera búsquedas turísticas',
-      marketReality: 'Los destinos de playa (Cartagena, Santa Marta, San Andrés) lideran búsquedas. Pereira (#9) es el destino más cercano al top 10, lo que beneficia a Salento.',
+      overallVisibility: 'Media - Salento es conocido pero sufre de comisiones de plataformas externas',
+      marketReality: 'Los gigantes del turismo (Booking, Airbnb, KAYAK) dominan el mercado cobrando 3-25% en comisiones. Salento a la Mano debe disruptar este modelo ofreciendo las mismas herramientas sin costo.',
+      competitiveAdvantage: 'Nuestra ventaja competitiva es ofrecer las mismas herramientas de los gigantes (búsqueda, reservas, reseñas, analytics) pero sin ninguna comisión, empoderando a pequeños comerciantes de Salento.',
       topCompetitors: [
-        'Cartagena (lidera búsquedas con 100 puntos)',
-        'Santa Marta (55 puntos)',
-        'San Andrés (53 puntos)',
-        'Medellín (42 puntos)',
-        'Bogotá (71 puntos)',
-        'Pereira (18 puntos) - más cercano a Salento'
+        'Booking.com (cobra 15-25% comisión)',
+        'Airbnb (cobra 3% huésped + 3% anfitrión)',
+        'KAYAK (cobra comisiones por reservas)',
+        'TripAdvisor (cobra por Business Advantage)',
+        'VenXplor (competencia directa pero con modelo similar)'
       ],
-      improvementOpportunities: [
-        'Aprovechar la cercanía a Pereira (top 10 destino)',
-        'Posicionarse como "puerta al Valle de Cocora"',
-        'Destacar experiencias únicas: palma de cera, café, caminatas',
-        'Optimizar para "qué hacer en Salento" y "Valle de Cocora"',
-        'Usar Google Trends para identificar keywords de tendencia',
-        'Crear contenido visual fuerte (Instagram, YouTube)',
-        'Colaborar con VenXplor para visibilidad turística local'
+      disruptionOpportunity: [
+        'Democratizar acceso a herramientas de turismo para pequeños comerciantes',
+        'Eliminar barreras de entrada sin costos de comisión',
+        'Ofrecer experiencia de usuario superior y especializada en Salento',
+        'Posicionamiento: "La potencia de los gigantes, sin las comisiones"',
+        'Enfoque local: herramientas personalizadas para Salento y Eje Cafetero',
+        'Capturar mercado de comerciantes descontentos con comisiones altas',
+        'Ofrecer analytics y herramientas de gestión gratis que otros cobran'
       ]
     }
   }
@@ -339,6 +345,7 @@ class RealWorldSearchEnginesService {
     priority1: RealSearchEngine[]
     priority2: RealSearchEngine[]
     priority3: RealSearchEngine[]
+    disruptionStrategy: string
     budgetRecommendation: string
     timeline: string
   } {
@@ -348,8 +355,9 @@ class RealWorldSearchEnginesService {
       priority1: engines.filter(e => e.optimizationPriority <= 2),
       priority2: engines.filter(e => e.optimizationPriority === 3),
       priority3: engines.filter(e => e.optimizationPriority >= 4),
-      budgetRecommendation: 'Enfocar 80% del presupuesto en Google (93-96% del mercado) y 20% en plataformas turísticas especializadas (VenXplor, KAYAK, TripAdvisor)',
-      timeline: '3-6 meses para visibilidad significativa en Google. 1-2 meses para plataformas turísticas especializadas.'
+      disruptionStrategy: 'Enfocar 100% en disrupción del modelo de comisiones. Posicionar Salento a la Mano como "la potencia de los gigantes, sin las comisiones". Ofrecer las mismas herramientas (búsqueda, reservas, reseñas, analytics) pero sin costo para pequeños comerciantes de Salento.',
+      budgetRecommendation: 'Enfocar 90% del presupuesto en SEO de Google (93-96% del mercado) y 10% en desarrollo de herramientas disruptivas que compitan directamente con Booking, Airbnb, KAYAK y TripAdvisor.',
+      timeline: '3-6 meses para visibilidad significativa en Google. 6-12 meses para desarrollar herramientas que igualen o superen a la competencia en funcionalidad.'
     }
   }
 }
