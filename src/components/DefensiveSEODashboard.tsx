@@ -3,11 +3,12 @@
 // Optimizado para mapa-digital-salento.vercel.app y marca Salento a la Mano
 
 import { useState, useEffect } from 'react'
-import { Shield, AlertTriangle, CheckCircle, TrendingUp, Globe, FileText, Download, RefreshCw, ExternalLink, Search, BarChart, Chrome, SearchIcon } from 'lucide-react'
+import { Shield, AlertTriangle, CheckCircle, TrendingUp, Globe, FileText, Download, RefreshCw, ExternalLink, Search, BarChart, Chrome, SearchIcon, Target } from 'lucide-react'
 import defensiveSEOGService from '../services/defensiveSEOG.service'
 import internationalSEOService from '../services/internationalSEO.service'
 import GoogleVerificationModal from './GoogleVerificationModal'
 import SearchEngineIndexingModal from './SearchEngineIndexingModal'
+import RealWorldSearchEnginesModal from './RealWorldSearchEnginesModal'
 
 interface DefensiveSEODashboardProps {
   onClose?: () => void
@@ -24,6 +25,7 @@ const DefensiveSEODashboard: React.FC<DefensiveSEODashboardProps> = ({ onClose }
   const [activeTab, setActiveTab] = useState<'pages' | 'claims' | 'keywords' | 'sitemap' | 'advanced'>('pages')
   const [showGoogleVerification, setShowGoogleVerification] = useState(false)
   const [showSearchEngineIndexing, setShowSearchEngineIndexing] = useState(false)
+  const [showRealWorldEngines, setShowRealWorldEngines] = useState(false)
   const targetDomain = 'https://mapa-digital-salento.vercel.app'
   const brandName = 'Salento a la Mano'
 
@@ -388,6 +390,18 @@ const DefensiveSEODashboard: React.FC<DefensiveSEODashboardProps> = ({ onClose }
 
               <div className="advanced-seo-card">
                 <div className="card-header">
+                  <Target size={20} className="text-purple-600" />
+                  <h4>Motores del Mundo Real</h4>
+                </div>
+                <p className="card-description">Análisis real de motores de búsqueda en Colombia y su visibilidad para Salento Quindío.</p>
+                <button className="download-button" onClick={() => setShowRealWorldEngines(true)}>
+                  <Globe size={16} />
+                  Analizar Motores Reales
+                </button>
+              </div>
+
+              <div className="advanced-seo-card">
+                <div className="card-header">
                   <BarChart size={20} className="text-orange-600" />
                   <h4>Keywords Estratégicas</h4>
                 </div>
@@ -458,6 +472,13 @@ const DefensiveSEODashboard: React.FC<DefensiveSEODashboardProps> = ({ onClose }
         <SearchEngineIndexingModal
           isOpen={showSearchEngineIndexing}
           onClose={() => setShowSearchEngineIndexing(false)}
+        />
+      )}
+
+      {showRealWorldEngines && (
+        <RealWorldSearchEnginesModal
+          isOpen={showRealWorldEngines}
+          onClose={() => setShowRealWorldEngines(false)}
         />
       )}
     </div>
