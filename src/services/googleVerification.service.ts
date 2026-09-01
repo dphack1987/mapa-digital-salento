@@ -100,7 +100,8 @@ class GoogleVerificationService {
   } {
     const fileName = 'google' + this.verificationCode + '.html'
 
-    const htmlContent = '<!DOCTYPE html>\n<html>\n<head>\n  <meta charset="UTF-8">\n  <title>Verificación de Google</title>\n</head>\n<body>\n  <meta name="google-site-verification" content="' + this.verificationCode + '" />\n  <p>Verificación de propiedad para ' + this.domain + '</p>\n  <p>Marca: ' + this.brandName + '</p>\n</body>\n</html>'
+    // Google espera un archivo HTML básico con el meta tag en el head
+    const htmlContent = '<html>\n<head>\n<meta name="google-site-verification" content="' + this.verificationCode + '" />\n</head>\n<body>\n</body>\n</html>'
 
     return {
       fileName: fileName,
