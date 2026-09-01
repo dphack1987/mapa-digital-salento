@@ -38,6 +38,7 @@ import {
   Share2,
   Link,
   Building2,
+  ChevronRight,
 } from 'lucide-react'
 import { Category, Language, Currency, Place, MapMarker, Hotel as HotelType } from './types'
 import dataService from './services/dataService'
@@ -76,6 +77,7 @@ import allyRegistrationService from './services/allyRegistration.service'
 import AllyRegistrationForm from './components/AllyRegistrationForm'
 import AllyVerification from './components/AllyVerification'
 import notificationsService from './services/notifications.service'
+import ProviderSelectionModal from './components/ProviderSelectionModal'
 
 // Mapeo de iconos para compatibilidad con estructura JSON
 const iconMap: Record<string, any> = {
@@ -177,6 +179,48 @@ function App() {
   const [showAllyBacklinksDashboard, setShowAllyBacklinksDashboard] = useState(false)
   const [showAllyRegistrationForm, setShowAllyRegistrationForm] = useState(false)
   const [showAllyVerification, setShowAllyVerification] = useState(false)
+  const [showProviderModal, setShowProviderModal] = useState(false)
+  const [selectedCategory, setSelectedCategory] = useState<Category | null>(null)
+
+  // Función para manejar acciones del modal de pautantes
+  const handleProviderAction = (providerId: number, action: 'reserve' | 'order' | 'contact') => {
+    const provider = places.find(p => p.id === providerId)
+    if (!provider) return
+
+    switch (action) {
+      case 'reserve':
+        if (provider.contact.whatsapp) {
+          const message = isEnglish 
+            ? `Hello! I want to make a reservation at ${provider.name}. What availability do you have?`
+            : `¡Hola! Quiero hacer una reserva en ${provider.name}. ¿Qué disponibilidad tienen?`
+          window.open(`https://wa.me/${provider.contact.whatsapp}?text=${encodeURIComponent(message)}`, '_blank')
+        }
+        break
+      case 'order':
+        if (provider.contact.whatsapp) {
+          const message = isEnglish
+            ? `Hello! I want to place an order with ${provider.name}. What's available?`
+            : `¡Hola! Quiero hacer un pedido con ${provider.name}. ¿Qué tienen disponible?`
+          window.open(`https://wa.me/${provider.contact.whatsapp}?text=${encodeURIComponent(message)}`, '_blank')
+        }
+        break
+      case 'contact':
+        if (provider.contact.whatsapp) {
+          const message = isEnglish
+            ? `Hello! I'm interested in your services. Can you provide more information?`
+            : `¡Hola! Me interesan sus servicios. ¿Pueden proporcionar más información?`
+          window.open(`https://wa.me/${provider.contact.whatsapp}?text=${encodeURIComponent(message)}`, '_blank')
+        }
+        break
+    }
+  }
+
+  const handleProviderSelect = (providerId: number) => {
+    const provider = places.find(p => p.id === providerId)
+    if (provider) {
+      setSelectedPlace(provider)
+    }
+  }
   const [selectedAllyForVerification, setSelectedAllyForVerification] = useState<string | null>(null)
   
   // Función helper para obtener traducciones
@@ -325,30 +369,37 @@ function App() {
         <div className="header-actions-mobile">
           <button className="icon-button notification-trigger" aria-label="Notificaciones" onClick={() => setShowNotifications(!showNotifications)}>
             <Bell size={18} />
+            <span className="button-label">Notificaciones</span>
             {notificationService.getUnreadNotifications().length > 0 && (
               <span className="notification-dot" />
             )}
           </button>
-          <button className="icon-button support-trigger" aria-label="Soporte" onClick={() => setShowSupport(true)}>
+          <button className="icon-button support-trigger" aria-label="Centro de Soporte" onClick={() => setShowSupport(true)}>
             <LifeBuoy size={18} />
+            <span className="button-label">Soporte</span>
           </button>
           <button className="icon-button defensive-seo-trigger" aria-label="SEO Defensivo" onClick={() => setShowDefensiveSEODashboard(true)}>
             <Shield size={18} />
+            <span className="button-label">SEO Defensivo</span>
           </button>
           <button className="icon-button ally-backlinks-trigger" aria-label="Backlinks Aliados" onClick={() => setShowAllyBacklinksDashboard(true)}>
             <Link size={18} />
+            <span className="button-label">Backlinks</span>
           </button>
           <button className="icon-button ally-registration-trigger" aria-label="Registrar Aliado" onClick={() => setShowAllyRegistrationForm(true)}>
             <Building2 size={18} />
+            <span className="button-label">Registrar Aliado</span>
           </button>
           <button className="icon-button notifications-trigger" aria-label="Notificaciones" onClick={() => setShowNotifications(!showNotifications)}>
             <Bell size={18} />
+            <span className="button-label">Notificaciones</span>
             {notificationsService.getUnreadCount() > 0 && (
               <span className="notification-badge">{notificationsService.getUnreadCount()}</span>
             )}
           </button>
           <button className="icon-button qr-share-trigger" aria-label="Compartir QR" onClick={() => setShowQRShare(true)}>
             <Share2 size={18} />
+            <span className="button-label">Compartir QR</span>
           </button>
           <button className="cart-button" onClick={() => setShowCart(true)} aria-label="Carrito">
             <ShoppingBag size={16} />
@@ -413,82 +464,96 @@ function App() {
           <div className="loading-container">
             <div className="loading-spinner">{t('loading')}</div>
           </div>
-        ) : selectedPlace ? <PlaceDetail place={selectedPlace} currency={currency} onBack={() => setSelectedPlace(null)} language={language} t={t} /> : <>
+        ) : selectedPlace ? <PlaceDetail place={selectedPlace} currency={currency} onBack={() => setSelectedPlace(null)} language={language} t={t} /> : (
+          <>
         <section className="mobile-dashboard" id="servicios">
           <div className="services-grid">
-            <button className="service-card gastronomy" onClick={() => handleDirectOrder('restaurantes')}>
+            <button className="service-card gastronomy" onClick={() => { setSelectedCategory('Restaurantes'); setShowProviderModal(true) }}>
               <div className="service-icon">🍽️</div>
               <div className="service-content">
                 <h3>Gastronomía</h3>
                 <p>Restaurantes y cafés</p>
               </div>
-              <div className="service-whatsapp">
-                <MessageSquare size={16} />
-                <span>Pedir por WhatsApp</span>
+              <div className="service-info">
+                <span className="provider-count">{places.filter(p => p.type.toLowerCase().includes('restaurante') || p.type.toLowerCase().includes('café')).length} {language === 'es' ? 'pautantes' : 'providers'}</span>
+                <ChevronRight size={16} />
               </div>
             </button>
 
-            <button className="service-card transport" onClick={() => handleDirectOrder('transporte')}>
+            <button className="service-card transport" onClick={() => { setSelectedCategory('Servicios'); setShowProviderModal(true) }}>
               <div className="service-icon">🚖</div>
               <div className="service-content">
                 <h3>Transporte</h3>
                 <p>Jeeps y movilidad</p>
               </div>
-              <div className="service-whatsapp">
-                <MessageSquare size={16} />
-                <span>Contactar por WhatsApp</span>
+              <div className="service-info">
+                <span className="provider-count">{places.filter(p => p.type.toLowerCase().includes('transporte') || p.type.toLowerCase().includes('moto')).length} {language === 'es' ? 'pautantes' : 'providers'}</span>
+                <ChevronRight size={16} />
               </div>
             </button>
 
-            <button className="service-card horseback-riding featured" onClick={() => handleDirectOrder('caballos')}>
-              <div className="service-badge">⭐ ESPECIAL</div>
+            <button className="service-card horseback-riding featured" onClick={() => { setSelectedCategory('Experiencias'); setShowProviderModal(true) }}>
+              <div className="service-badge">⭐ {language === 'es' ? 'ESPECIAL' : 'FEATURED'}</div>
               <div className="service-icon">🐎</div>
               <div className="service-content">
                 <h3>Cabalgatas</h3>
                 <p>Valle de Cocora</p>
               </div>
-              <div className="service-whatsapp">
-                <MessageSquare size={16} />
-                <span>Reservar por WhatsApp</span>
+              <div className="service-info">
+                <span className="provider-count">{places.filter(p => p.type.toLowerCase().includes('cabalgata') || p.experienceDetails?.activityType?.toLowerCase().includes('cabalgata')).length} {language === 'es' ? 'pautantes' : 'providers'}</span>
+                <ChevronRight size={16} />
               </div>
             </button>
 
-            <button className="service-card guides" onClick={() => handleDirectOrder('guias')}>
+            <button className="service-card guides" onClick={() => { setSelectedCategory('Experiencias'); setShowProviderModal(true) }}>
               <div className="service-icon">🧭</div>
               <div className="service-content">
                 <h3>Guías</h3>
                 <p>Tours locales</p>
               </div>
-              <div className="service-whatsapp">
-                <MessageSquare size={16} />
-                <span>Contactar por WhatsApp</span>
+              <div className="service-info">
+                <span className="provider-count">{places.filter(p => p.type.toLowerCase().includes('guía') || p.experienceDetails?.activityType?.toLowerCase().includes('tour')).length} {language === 'es' ? 'pautantes' : 'providers'}</span>
+                <ChevronRight size={16} />
               </div>
             </button>
-            
-            <button className="service-card supermarkets" onClick={() => handleDirectOrder('supermercados')}>
+
+            <button className="service-card accommodation" onClick={() => { setSelectedCategory('Alojamientos'); setShowProviderModal(true) }}>
+              <div className="service-icon">🏨</div>
+              <div className="service-content">
+                <h3>Alojamientos</h3>
+                <p>Hoteles y hostales</p>
+              </div>
+              <div className="service-info">
+                <span className="provider-count">{places.filter(p => p.accommodationDetails).length} {language === 'es' ? 'pautantes' : 'providers'}</span>
+                <ChevronRight size={16} />
+              </div>
+            </button>
+
+            <button className="service-card artisan" onClick={() => { setSelectedCategory('Artesanías'); setShowProviderModal(true) }}>
+              <div className="service-icon">🎨</div>
+              <div className="service-content">
+                <h3>Artesanías</h3>
+                <p>Productos locales</p>
+              </div>
+              <div className="service-info">
+                <span className="provider-count">{places.filter(p => p.commerceDetails).length} {language === 'es' ? 'pautantes' : 'providers'}</span>
+                <ChevronRight size={16} />
+              </div>
+            </button>
+
+            <button className="service-card commerce" onClick={() => { setSelectedCategory('Tiendas'); setShowProviderModal(true) }}>
               <div className="service-icon">🛒</div>
               <div className="service-content">
-                <h3>Supermercados</h3>
-                <p>Tiendas y abastos</p>
+                <h3>Tiendas</h3>
+                <p>Comercios locales</p>
               </div>
-              <div className="service-whatsapp">
-                <MessageSquare size={16} />
-                <span>Pedir domicilio</span>
-              </div>
-            </button>
-            
-            <button className="service-card operators" onClick={() => handleDirectOrder('operadoras')}>
-              <div className="service-icon">🎯</div>
-              <div className="service-content">
-                <h3>Operadoras</h3>
-                <p>Turismo local</p>
-              </div>
-              <div className="service-whatsapp">
-                <MessageSquare size={16} />
-                <span>Consultar paquetes</span>
+              <div className="service-info">
+                <span className="provider-count">{places.filter(p => p.commerceDetails).length} {language === 'es' ? 'pautantes' : 'providers'}</span>
+                <ChevronRight size={16} />
               </div>
             </button>
           </div>
+        </section>
 
           <div className="official-info-section">
             <h3>🛡️ Información Oficial</h3>
@@ -524,7 +589,6 @@ function App() {
               </button>
             </div>
           </div>
-        </section>
 
         <section className="quick-section" id="pedidos">
           <div className="section-heading"><div><p className="eyebrow">{t('nearby')}</p><h2>{t('today')}</h2></div><button className="text-button">Ver todo <ArrowRight size={16} /></button></div>
@@ -569,7 +633,8 @@ function App() {
             <section className="advertising-section" id="pautas"><div><p className="eyebrow">Hazte visible en Salento</p><h2>Pautas que llegan<br /><i>al lugar correcto.</i></h2><p>Tu negocio aparece en el mapa digital, en las búsquedas y frente a turistas listos para comprar o reservar.</p></div><div className="advertising-cards"><article><span className="ad-tag">Gastronomía</span><strong>Tu sabor, en el mapa.</strong><small>Ficha + ubicación + pedidos</small></article><article><span className="ad-tag green-tag">Comercio local</span><strong>Lo local se encuentra.</strong><small>Ficha + ubicación + contacto</small></article><article><span className="ad-tag yellow-tag">Experiencias</span><strong>El plan empieza aquí.</strong><small>Ficha + reservas + rutas</small></article></div><button className="dark-button ad-button">Conoce las pautas <ArrowRight size={17} /></button></section>
 
         <section className="stay-banner" id="experiencias"><div><p className="eyebrow">Para tu estadía</p><h2>Que no te cuenten<br /><i>el plan completo.</i></h2></div><div className="stay-actions"><p>Recibe recomendaciones según tu hospedaje, tus gustos y el tiempo que tienes.</p><button className="outline-button">Personalizar mi visita <ArrowRight size={16} /></button></div></section>
-        </>}
+          </>
+        )}
       </main>
 
       <footer className="trust-footer">
@@ -601,6 +666,17 @@ function App() {
       {showDefensiveSEODashboard && <DefensiveSEODashboard onClose={() => setShowDefensiveSEODashboard(false)} />}
       {showAllyBacklinksDashboard && <AllyBacklinksDashboard onClose={() => setShowAllyBacklinksDashboard(false)} />}
       {showAllyRegistrationForm && <AllyRegistrationForm onClose={() => setShowAllyRegistrationForm(false)} />}
+      {showProviderModal && selectedCategory && (
+        <ProviderSelectionModal
+          isOpen={showProviderModal}
+          onClose={() => setShowProviderModal(false)}
+          category={selectedCategory}
+          places={places}
+          onDirectOrder={handleProviderAction}
+          onProviderSelect={handleProviderSelect}
+          language={language as 'es' | 'en'}
+        />
+      )}
       {showAllyVerification && selectedAllyForVerification && (
         <AllyVerification 
           allyId={selectedAllyForVerification} 
