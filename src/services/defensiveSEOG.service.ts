@@ -26,6 +26,8 @@ class DefensiveSEOGService {
   private defensivePages: DefensiveSEOPage[] = []
   private misinformationClaims: MisinformationClaim[] = []
   private initialized = false
+  private readonly targetDomain = 'https://mapa-digital-salento.vercel.app'
+  private readonly brandName = 'Salento a la Mano'
 
   /**
    * Inicializar el servicio de SEO defensivo
@@ -37,7 +39,7 @@ class DefensiveSEOGService {
     this.misinformationClaims = this.loadMisinformationClaims()
     this.initialized = true
 
-    console.log('🛡️ SEO Defensivo inicializado - Plan de Contrataque activado')
+    console.log('🛡️ SEO Defensivo inicializado - Plan de Contrataque activado para', this.targetDomain)
   }
 
   /**
@@ -51,27 +53,27 @@ class DefensiveSEOGService {
     // Optimizadas para lanzamiento con keywords específicas
     pages.push({
       slug: 'estado-actual-salento-hoteles-abiertos-vias-libres-valle-cocora-operando-100',
-      title: 'Estado Actual de Salento: Hoteles Abiertos, Vías Libres y Valle de Cocora Operando al 100% - Información Oficial 2026',
-      description: 'Confirmación oficial: Turismo en Salento es completamente normal. Hoteles operativos, vías principales libres y Valle de Cocora 100% accesible. Información verificada por autoridades locales y actualizada hoy mismo.',
+      title: 'Estado Actual de Salento: Hoteles Abiertos, Vías Libres y Valle de Cocora Operando al 100% - Salento a la Mano 2026',
+      description: 'Confirmación oficial por Salento a la Mano: Turismo en Salento es completamente normal. Hoteles operativos, vías principales libres y Valle de Cocora 100% accesible. Información verificada en mapa-digital-salento.vercel.app',
       content: this.generateSalentoStatusContent(),
       schemaType: 'NewsArticle',
-      keywords: ['salento estado actual', 'salento hoteles abiertos', 'valle cocora operativo', 'vías salento libres', 'salento turismo activo', 'salento seguro 2026', 'turismo salento quindío', 'valle cocora accesible', 'hoteles salento disponibles', 'información oficial salento'],
+      keywords: ['salento estado actual', 'salento hoteles abiertos', 'valle cocora operativo', 'vías salento libres', 'salento turismo activo', 'salento seguro 2026', 'turismo salento quindío', 'valle cocora accesible', 'hoteles salento disponibles', 'salento a la mano', 'mapa digital salento'],
       urgency: 'high',
       lastUpdated: currentDate,
-      author: 'Red Oficial de Turismo Salento',
+      author: 'Salento a la Mano - Guía Oficial',
       verifiedSource: true
     })
 
     pages.push({
       slug: 'salento-abierto-hoy-turismo-seguro-valle-cocora-accesible',
-      title: 'Salento Abierto Hoy: Turismo Seguro y Valle de Cocora 100% Accesible',
-      description: 'Confirmación oficial: Salento está completamente abierto para el turismo hoy. El Valle de Cocora es totalmente accesible, todos los servicios turísticos operan con normalidad y seguridad garantizada.',
+      title: 'Salento Abierto Hoy: Turismo Seguro y Valle de Cocora 100% Accesible - Salento a la Mano',
+      description: 'Confirmación oficial por Salento a la Mano: Salento está completamente abierto para el turismo hoy. El Valle de Cocora es totalmente accesible, todos los servicios turísticos operan con normalidad. Verificar en mapa-digital-salento.vercel.app',
       content: this.generateSalentoOpenTodayContent(),
       schemaType: 'NewsArticle',
-      keywords: ['salento abierto hoy', 'turismo seguro salento', 'valle cocora accesible', 'salento operativo', 'viajar a salento hoy'],
+      keywords: ['salento abierto hoy', 'turismo seguro salento', 'valle cocora accesible', 'salento operativo', 'viajar a salento hoy', 'salento a la mano', 'mapa digital salento'],
       urgency: 'high',
       lastUpdated: currentDate,
-      author: 'Comité de Turismo Local Salento',
+      author: 'Salento a la Mano - Turismo Oficial',
       verifiedSource: true
     })
 
@@ -741,8 +743,8 @@ class DefensiveSEOGService {
    * Generar sitemap XML para páginas defensivas
    */
   generateDefensiveSitemap(): string {
-    const baseUrl = 'https://salentoalamano.com'
-    
+    const baseUrl = this.targetDomain
+
     const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${this.defensivePages.map(page => `  <url>
@@ -770,7 +772,7 @@ ${this.defensivePages.map(page => `  <url>
   }
 
   /**
-   * Generar metadatos para redes sociales
+   * Generar metadatos para redes sociales con marca Salento a la Mano
    */
   generateSocialMetadata(page: DefensiveSEOPage): {
     'og:title': string
@@ -782,12 +784,12 @@ ${this.defensivePages.map(page => `  <url>
     'twitter:description': string
   } {
     return {
-      'og:title': page.title,
+      'og:title': `${page.title} - ${this.brandName}`,
       'og:description': page.description,
-      'og:image': 'https://salentoalamano.com/og-image-defensive.jpg',
-      'og:url': `https://salentoalamano.com/${page.slug}`,
+      'og:image': `${this.targetDomain}/og-image-defensive.jpg`,
+      'og:url': `${this.targetDomain}/${page.slug}`,
       'twitter:card': 'summary_large_image',
-      'twitter:title': page.title,
+      'twitter:title': `${page.title} - ${this.brandName}`,
       'twitter:description': page.description
     }
   }

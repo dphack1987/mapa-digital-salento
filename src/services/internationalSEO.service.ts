@@ -391,10 +391,10 @@ class InternationalSEOService {
   }
 
   /**
-   * Generar hreflang tags dinámicos
+   * Generar hreflang tags dinámicos para mapa-digital-salento.vercel.app
    */
   generateHreflangTags(): string {
-    const baseUrl = 'https://salentoalamano.com'
+    const baseUrl = 'https://mapa-digital-salento.vercel.app'
     const languages = ['es', 'en', 'de', 'fr', 'it']
     
     let hreflangHTML = ''
@@ -410,6 +410,149 @@ class InternationalSEOService {
     hreflangHTML += `<link rel="alternate" hreflang="x-default" href="${baseUrl}/" />`
     
     return hreflangHTML
+  }
+
+  /**
+   * Generar meta tags completos para posicionamiento SEO
+   */
+  generateMetaTags(): string {
+    const baseUrl = 'https://mapa-digital-salento.vercel.app'
+    const brandName = 'Salento a la Mano'
+    
+    return `
+      <!-- Meta tags básicos para SEO -->
+      <meta name="title" content="Salento a la Mano - Guía Oficial de Turismo en Salento, Quindío">
+      <meta name="description" content="Descubre Salento, Quindío con Salento a la Mano. Mapa interactivo, hoteles, restaurantes, Valle de Cocora y turismo local. Información oficial y actualizada.">
+      <meta name="keywords" content="salento, quindio, turismo salento, valle cocora, hoteles salento, restaurantes salento, mapa salento, salentoalamano, turismo colombia">
+      
+      <!-- Open Graph para redes sociales -->
+      <meta property="og:title" content="Salento a la Mano - Guía Oficial de Turismo en Salento">
+      <meta property="og:description" content="Mapa interactivo de Salento con hoteles, restaurantes y turismo local. Información oficial y actualizada del Valle de Cocora.">
+      <meta property="og:url" content="${baseUrl}/">
+      <meta property="og:type" content="website">
+      <meta property="og:site_name" content="${brandName}">
+      <meta property="og:locale" content="es_CO">
+      
+      <!-- Twitter Cards -->
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:title" content="Salento a la Mano - Guía Oficial de Turismo">
+      <meta name="twitter:description" content="Mapa interactivo de Salento con información oficial de hoteles, restaurantes y Valle de Cocora.">
+      <meta name="twitter:url" content="${baseUrl}/">
+      
+      <!-- Canonical URL -->
+      <link rel="canonical" href="${baseUrl}/">
+      
+      <!-- Autoría y marca -->
+      <meta name="author" content="${brandName}">
+      <meta name="publisher" content="${brandName}">
+      <meta name="application-name" content="${brandName}">
+      
+      <!-- Robots y indexación -->
+      <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+      <meta name="googlebot" content="index, follow">
+      <meta name="bingbot" content="index, follow">
+      
+      <!-- Geolocalización para SEO local -->
+      <meta name="geo.region" content="CO-COL">
+      <meta name="geo.placename" content="Salento, Quindío">
+      <meta name="geo.position" content="4.6371;-75.5706">
+      <meta name="ICBM" content="4.6371, -75.5706">
+      
+      <!-- Tema y colores -->
+      <meta name="theme-color" content="#e76c52">
+      <meta name="msapplication-TileColor" content="#e76c52">
+    `
+  }
+
+  /**
+   * Generar Schema.org JSON-LD para Salento a la Mano
+   */
+  generateBrandSchema(): string {
+    const baseUrl = 'https://mapa-digital-salento.vercel.app'
+    const brandName = 'Salento a la Mano'
+    
+    const schema = {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": `${baseUrl}/#organization`,
+          "name": brandName,
+          "url": baseUrl,
+          "logo": `${baseUrl}/logo.png`,
+          "description": "Guía oficial de turismo y comercio en Salento, Quindío. Mapa interactivo con información verificada de hoteles, restaurantes y servicios locales.",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Salento",
+            "addressRegion": "Quindío",
+            "addressCountry": "CO"
+          },
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+57-XXX-XXX-XXXX",
+            "contactType": "customer service"
+          },
+          "sameAs": [
+            "https://www.facebook.com/salentoalamano",
+            "https://www.instagram.com/salentoalamano",
+            "https://www.twitter.com/salentoalamano"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": `${baseUrl}/#website`,
+          "url": baseUrl,
+          "name": brandName,
+          "description": "Mapa interactivo oficial de Salento, Quindío con información de turismo, hoteles, restaurantes y Valle de Cocora.",
+          "publisher": {
+            "@id": `${baseUrl}/#organization`
+          },
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": `${baseUrl}/?search={search_term_string}`,
+            "query-input": "required name=search_term_string"
+          }
+        },
+        {
+          "@type": "Place",
+          "@id": `${baseUrl}/#place`,
+          "name": "Salento, Quindío",
+          "description": "Pueblo turístico en el corazón del Eje Cafetero colombiano, famoso por su arquitectura, gastronomía y cercanía al Valle de Cocora.",
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 4.6371,
+            "longitude": -75.5706
+          },
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Salento",
+            "addressRegion": "Quindío",
+            "addressCountry": "CO"
+          }
+        },
+        {
+          "@type": "TouristDestination",
+          "@id": `${baseUrl}/#tourist-destination`,
+          "name": "Salento, Quindío - Colombia",
+          "description": "Destino turístico en el Eje Cafetero con acceso al Valle de Cocora, arquitectura tradicional, gastronomía local y cultura cafetera.",
+          "touristType": ["Cultural", "Nature", "Gastronomy", "Adventure"],
+          "includesAttraction": [
+            {
+              "@type": "TouristAttraction",
+              "name": "Valle de Cocora",
+              "description": "Valle natural con palmas de cera, senderismo y cabalgatas"
+            },
+            {
+              "@type": "TouristAttraction", 
+              "name": "Calle Real de Salento",
+              "description": "Calle principal con arquitectura tradicional y comercios locales"
+            }
+          ]
+        }
+      ]
+    }
+    
+    return `<script type="application/ld+json">${JSON.stringify(schema, null, 2)}</script>`
   }
 }
 
