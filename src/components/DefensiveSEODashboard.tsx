@@ -7,6 +7,7 @@ import { Shield, AlertTriangle, CheckCircle, TrendingUp, Globe, FileText, Downlo
 import defensiveSEOGService from '../services/defensiveSEOG.service'
 import internationalSEOService from '../services/internationalSEO.service'
 import internationalKeywordsService from '../services/internationalKeywords.service'
+import backlinkStrategyService from '../services/backlinkStrategy.service'
 import GoogleVerificationModal from './GoogleVerificationModal'
 import SearchEngineIndexingModal from './SearchEngineIndexingModal'
 import RealWorldSearchEnginesModal from './RealWorldSearchEnginesModal'
@@ -30,6 +31,9 @@ const DefensiveSEODashboard: React.FC<DefensiveSEODashboardProps> = ({ onClose }
   const [internationalStatus, setInternationalStatus] = useState<any>(null)
   const [internationalKeywords, setInternationalKeywords] = useState<any[]>([])
   const [keywordStats, setKeywordStats] = useState<any>(null)
+  const [backlinkSources, setBacklinkSources] = useState<any[]>([])
+  const [backlinkStats, setBacklinkStats] = useState<any>(null)
+  const [contentLocalization, setContentLocalization] = useState<any[]>([])
   const [showGoogleVerification, setShowGoogleVerification] = useState(false)
   const [showSearchEngineIndexing, setShowSearchEngineIndexing] = useState(false)
   const [showRealWorldEngines, setShowRealWorldEngines] = useState(false)
@@ -59,6 +63,12 @@ const DefensiveSEODashboard: React.FC<DefensiveSEODashboardProps> = ({ onClose }
       const status = internationalSEOService.getInternationalImplementationStatus()
       const intKeywords = internationalKeywordsService.getInternationalKeywords()
       const stats = internationalKeywordsService.getInternationalKeywordStats()
+      const chinaBacklinks = backlinkStrategyService.getChineseBacklinkSources()
+      const taiwanHKBacklinks = backlinkStrategyService.getTaiwanHongKongBacklinkSources()
+      const seaBacklinks = backlinkStrategyService.getSoutheastAsiaBacklinkSources()
+      const allBacklinks = [...chinaBacklinks, ...taiwanHKBacklinks, ...seaBacklinks]
+      const backlinkStatsData = backlinkStrategyService.getBacklinkStrategyStats()
+      const contentLocalizationNeeds = backlinkStrategyService.getContentLocalizationNeeds()
 
       setDefensivePages(pages)
       setMisinformationClaims(claims)
@@ -70,6 +80,9 @@ const DefensiveSEODashboard: React.FC<DefensiveSEODashboardProps> = ({ onClose }
       setInternationalStatus(status)
       setInternationalKeywords(intKeywords)
       setKeywordStats(stats)
+      setBacklinkSources(allBacklinks)
+      setBacklinkStats(backlinkStatsData)
+      setContentLocalization(contentLocalizationNeeds)
     } catch (error) {
       console.error('Error loading defensive SEO data:', error)
     } finally {
@@ -137,6 +150,12 @@ const DefensiveSEODashboard: React.FC<DefensiveSEODashboardProps> = ({ onClose }
       'Rusia': '🇷🇺',
       'Japón': '🇯🇵',
       'Corea del Sur': '🇰🇷',
+      'Taiwán': '🇹🇼',
+      'Hong Kong': '🇭🇰',
+      'Tailandia': '🇹🇭',
+      'Vietnam': '🇻🇳',
+      'Indonesia': '🇮🇩',
+      'Malasia': '🇲🇾',
       'Alemania': '🇩🇪',
       'Francia': '🇫🇷',
       'Reino Unido': '🇬🇧',
@@ -543,6 +562,151 @@ const DefensiveSEODashboard: React.FC<DefensiveSEODashboardProps> = ({ onClose }
                     Ya Verificado
                   </button>
                 </div>
+              </div>
+            </div>
+
+            <div className="international-backlinks-section">
+              <h4>🔗 Estrategia de Backlinks Internacionales</h4>
+              {backlinkStats && (
+                <div className="backlink-stats-overview">
+                  <div className="stat-item">
+                    <span className="stat-label">Total Fuentes:</span>
+                    <span className="stat-value">{backlinkStats.totalSources}</span>
+                  </div>
+                  <div className="stat-item">
+                    <span className="stat-label">Prioridad Alta:</span>
+                    <span className="stat-value">{backlinkStats.highPrioritySources}</span>
+                  </div>
+                  <div className="stat-item">
+                    <span className="stat-label">Fuentes China:</span>
+                    <span className="stat-value">{backlinkStats.chinaSources}</span>
+                  </div>
+                  <div className="stat-item">
+                    <span className="stat-label">Gratuitas:</span>
+                    <span className="stat-value">{backlinkStats.freeSources}</span>
+                  </div>
+                </div>
+              )}
+
+              <div className="backlink-sources-grid">
+                <h5>🇨🇳 Fuentes Chinas (Baidu) - PRIORIDAD MÁXIMA</h5>
+                {backlinkSources.filter((source: any) => source.country === 'China').map((source: any, index: number) => (
+                  <div key={index} className={`backlink-source-card priority-${source.priority}`}>
+                    <div className="source-header">
+                      <h6>{source.platform}</h6>
+                      <span className={`priority-badge ${source.priority}`}>
+                        {source.priority === 'high' ? 'ALTA' : 'MEDIA'}
+                      </span>
+                    </div>
+                    <div className="source-details">
+                      <div className="source-detail">
+                        <span className="detail-label">Impacto:</span>
+                        <span className="detail-value">{source.estimatedImpact}</span>
+                      </div>
+                      <div className="source-detail">
+                        <span className="detail-label">Dificultad:</span>
+                        <span className="detail-value">{source.difficulty}</span>
+                      </div>
+                      <div className="source-detail">
+                        <span className="detail-label">Costo:</span>
+                        <span className="detail-value">{source.cost}</span>
+                      </div>
+                    </div>
+                    <div className="source-strategy">
+                      <p>{source.strategy}</p>
+                    </div>
+                  </div>
+                ))}
+
+                <h5>🇹🇼🇭🇰 Taiwán/Hong Kong (Google) - PRIORIDAD ALTA</h5>
+                {backlinkSources.filter((source: any) => source.country === 'Taiwán' || source.country === 'Hong Kong').map((source: any, index: number) => (
+                  <div key={index} className={`backlink-source-card priority-${source.priority}`}>
+                    <div className="source-header">
+                      <h6>{source.platform} ({source.country})</h6>
+                      <span className={`priority-badge ${source.priority}`}>
+                        {source.priority === 'high' ? 'ALTA' : 'MEDIA'}
+                      </span>
+                    </div>
+                    <div className="source-details">
+                      <div className="source-detail">
+                        <span className="detail-label">Impacto:</span>
+                        <span className="detail-value">{source.estimatedImpact}</span>
+                      </div>
+                      <div className="source-detail">
+                        <span className="detail-label">Dificultad:</span>
+                        <span className="detail-value">{source.difficulty}</span>
+                      </div>
+                    </div>
+                    <div className="source-strategy">
+                      <p>{source.strategy}</p>
+                    </div>
+                  </div>
+                ))}
+
+                <h5>🌏 Sureste Asiático (Google) - PRIORIDAD MEDIA</h5>
+                {backlinkSources.filter((source: any) => 
+                  ['Tailandia', 'Vietnam', 'Indonesia', 'Malasia', 'Singapur'].includes(source.country)
+                ).map((source: any, index: number) => (
+                  <div key={index} className={`backlink-source-card priority-${source.priority}`}>
+                    <div className="source-header">
+                      <h6>{source.platform} ({source.country})</h6>
+                      <span className={`priority-badge ${source.priority}`}>
+                        {source.priority === 'high' ? 'ALTA' : 'MEDIA'}
+                      </span>
+                    </div>
+                    <div className="source-details">
+                      <div className="source-detail">
+                        <span className="detail-label">Impacto:</span>
+                        <span className="detail-value">{source.estimatedImpact}</span>
+                      </div>
+                      <div className="source-detail">
+                        <span className="detail-label">Dificultad:</span>
+                        <span className="detail-value">{source.difficulty}</span>
+                      </div>
+                    </div>
+                    <div className="source-strategy">
+                      <p>{source.strategy}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="international-content-section">
+              <h4>🌐 Localización de Contenido por Mercado</h4>
+              <div className="content-localization-grid">
+                {contentLocalization.map((localization: any, index: number) => (
+                  <div key={index} className={`content-localization-card priority-${localization.priority}`}>
+                    <div className="localization-header">
+                      <div className="language-region">
+                        <span className="flag">{getCountryFlag(localization.region)}</span>
+                        <h6>{localization.language} - {localization.region}</h6>
+                      </div>
+                      <span className={`priority-badge ${localization.priority}`}>
+                        {localization.priority === 'high' ? 'PRIORIDAD ALTA' : 'PRIORIDAD MEDIA'}
+                      </span>
+                    </div>
+                    <div className="localization-content">
+                      <p className="content-type">{localization.contentType}</p>
+                      <div className="content-needs">
+                        <h7>Necesidades de Contenido:</h7>
+                        <ul>
+                          {localization.contentNeeds.map((need: string, i: number) => (
+                            <li key={i}>{need}</li>
+                          ))}
+                        </ul>
+                      </div>
+                      <div className="cultural-adaptations">
+                        <h7>Adaptaciones Culturales:</h7>
+                        <ul>
+                          {localization.culturalAdaptations.map((adaptation: string, i: number) => (
+                            <li key={i}>{adaptation}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
