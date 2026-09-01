@@ -378,18 +378,6 @@ function App() {
             <LifeBuoy size={18} />
             <span className="button-label">Soporte</span>
           </button>
-          <button className="icon-button defensive-seo-trigger" aria-label="SEO Defensivo" onClick={() => setShowDefensiveSEODashboard(true)}>
-            <Shield size={18} />
-            <span className="button-label">SEO Defensivo</span>
-          </button>
-          <button className="icon-button ally-backlinks-trigger" aria-label="Backlinks Aliados" onClick={() => setShowAllyBacklinksDashboard(true)}>
-            <Link size={18} />
-            <span className="button-label">Backlinks</span>
-          </button>
-          <button className="icon-button ally-registration-trigger" aria-label="Registrar Aliado" onClick={() => setShowAllyRegistrationForm(true)}>
-            <Building2 size={18} />
-            <span className="button-label">Registrar Aliado</span>
-          </button>
           <button className="icon-button notifications-trigger" aria-label="Notificaciones" onClick={() => setShowNotifications(!showNotifications)}>
             <Bell size={18} />
             <span className="button-label">Notificaciones</span>
