@@ -48,6 +48,310 @@
 .chucho-trigger:hover { transform: translateY(-2px); box-shadow: 0 18px 34px rgba(39,54,43,.24); }
 .chucho-button-image { width: 38px; height: 38px; object-fit: contain; border-radius: 50%; background: linear-gradient(135deg, #e8bb58 0%, #e76c52 100%); padding: 4px; box-shadow: 0 8px 20px rgba(231,108,82,.25); }
 .chucho-greeting { position: absolute; top: -28px; right: 0; background: var(--coral); color: white; padding: 4px 8px; border-radius: 12px; font-size: 9px; font-weight: 600; white-space: nowrap; animation: bounce 2s infinite; }
+
+/* International Markets Display Styles */
+.international-markets-display {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 1200px;
+  max-height: 90vh;
+  background: rgba(255, 255, 255, 0.98);
+  border: 2px solid var(--line);
+  border-radius: 24px;
+  padding: 24px;
+  z-index: 1000;
+  overflow-y: auto;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 20px 60px rgba(39, 54, 43, 0.15);
+}
+
+.markets-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--line);
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.header-icon {
+  color: var(--coral);
+}
+
+.header-content h3 {
+  font: 600 20px Fraunces;
+  color: var(--ink);
+  margin: 0;
+}
+
+.header-content p {
+  font: 10px 'DM Mono';
+  color: #697568;
+  margin: 4px 0 0 0;
+}
+
+.header-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.stats-toggle,
+.close-button {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.96);
+  color: var(--ink);
+  border-radius: 12px;
+  font: 10px 'DM Mono';
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.stats-toggle:hover,
+.close-button:hover {
+  background: var(--ink);
+  color: white;
+  transform: translateY(-2px);
+}
+
+.markets-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-bottom: 24px;
+  padding: 16px;
+  background: var(--ink);
+  border-radius: 16px;
+}
+
+.stat-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+}
+
+.stat-value {
+  font: 600 28px Fraunces;
+  color: var(--yellow);
+  margin-bottom: 4px;
+}
+
+.stat-label {
+  font: 10px 'DM Mono';
+  color: #bdc7bd;
+  text-transform: uppercase;
+}
+
+.markets-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.loading-markets {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  gap: 16px;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid var(--line);
+  border-top-color: var(--coral);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.loading-markets p {
+  font: 10px 'DM Mono';
+  color: #697568;
+}
+
+.market-card {
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 16px;
+  transition: all 0.3s ease;
+}
+
+.market-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(39, 54, 43, 0.12);
+  border-color: var(--coral);
+}
+
+.market-card.status-indexed {
+  border-left: 4px solid var(--green);
+}
+
+.market-card.status-in_progress {
+  border-left: 4px solid var(--yellow);
+}
+
+.market-card.status-pending {
+  border-left: 4px solid #697568;
+}
+
+.market-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.country-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.flag {
+  font-size: 24px;
+}
+
+.country-info h4 {
+  font: 600 14px Fraunces;
+  color: var(--ink);
+  margin: 0;
+}
+
+.status-indicator {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font: 10px 'DM Mono';
+  text-transform: uppercase;
+}
+
+.status-icon.indexed {
+  color: var(--green);
+}
+
+.status-icon.in-progress {
+  color: var(--yellow);
+}
+
+.status-icon.pending {
+  color: #697568;
+}
+
+.status-text {
+  color: #697568;
+}
+
+.market-details {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font: 10px 'DM Mono';
+}
+
+.detail-label {
+  color: #697568;
+  text-transform: uppercase;
+}
+
+.detail-value {
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.market-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+}
+
+.feature {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font: 9px 'DM Mono';
+  color: #697568;
+  background: rgba(255, 255, 255, 0.96);
+  padding: 4px 8px;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+}
+
+.feature-icon {
+  color: var(--green);
+}
+
+.markets-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+}
+
+.markets-note {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font: 10px 'DM Mono';
+  color: #697568;
+}
+
+.note-icon {
+  color: var(--coral);
+}
+
+.engines-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font: 10px 'DM Mono';
+  color: #697568;
+}
+
+.legend-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
 .chucho-panel { position: absolute; right: 0; bottom: 58px; width: min(380px, calc(100vw - 32px)); padding: 20px; background: var(--paper); border: 2px solid var(--line); box-shadow: 8px 8px 0 rgba(39,54,43,.15); border-radius: 16px; animation: slideUp 0.3s ease; }
 .offline-status { position: fixed; z-index: 30; left: 16px; bottom: 18px; display: flex; align-items: center; gap: 7px; color: #6e796d; background: rgba(245,241,232,.92); border: 1px solid var(--line); padding: 8px 10px; font: 9px 'DM Mono'; border-radius: 999px; box-shadow: 0 6px 14px rgba(39,54,43,.05); }
 .chucho-head { display: flex; justify-content: space-between; align-items: start; padding-bottom: 16px; border-bottom: 1px solid var(--line); }

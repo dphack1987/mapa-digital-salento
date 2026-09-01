@@ -28,6 +28,8 @@ import {
   Search,
   Send,
   Shield,
+  Globe,
+  Eye,
   ShoppingBasket,
   Sparkles,
   Star,
@@ -38,13 +40,15 @@ import {
   Share2,
   Link,
   Building2,
-  ChevronRight,
+  ChevronRight
 } from 'lucide-react'
 import { Category, Language, Currency, Place, MapMarker, Hotel as HotelType } from './types'
 import dataService from './services/dataService'
 import translationService from './services/translationService'
 import orderSyncService from './services/orderSyncService'
 import donChuchoKnowledge from './services/donChuchoKnowledge'
+import internationalSEOService from './services/internationalSEO.service'
+import InternationalMarketsDisplay from './components/InternationalMarketsDisplay'
 import currencyService from './services/currencyService'
 import weatherService from './services/weatherService'
 import eventsService from './services/eventsService'
@@ -117,6 +121,33 @@ function adaptPlaceForCompatibility(place: Place): any {
   }
 }
 
+function normalizePlaceText(value: string | undefined): string {
+  return (value ?? '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+}
+
+function matchesKeywords(place: Place, keywords: string[]): boolean {
+  const searchableText = [
+    place.type,
+    place.name,
+    place.description,
+    place.badge,
+    place.tags?.join(' '),
+    (place as any).experienceDetails?.activityType,
+    (place as any).experienceDetails?.meetingPoint,
+    (place as any).foodServiceDetails?.cuisineType?.join(' '),
+    (place as any).commerceDetails?.productTypes?.join(' '),
+    (place as any).commerceDetails?.mainProducts?.join(' '),
+    (place as any).accommodationDetails?.categoryLabel,
+  ].filter(Boolean).join(' ')
+
+  const normalized = normalizePlaceText(searchableText)
+  return keywords.some(keyword => normalized.includes(normalizePlaceText(keyword)))
+}
+
+function countMatchingPlaces(list: Place[], keywords: string[]): number {
+  return list.filter((place) => matchesKeywords(place, keywords)).length
+}
+
 // Inicializar servicios
 currencyService.initialize()
 weatherService.initialize()
@@ -178,6 +209,7 @@ function App() {
   const [showDefensiveSEODashboard, setShowDefensiveSEODashboard] = useState(false)
   const [showAllyBacklinksDashboard, setShowAllyBacklinksDashboard] = useState(false)
   const [showAllyRegistrationForm, setShowAllyRegistrationForm] = useState(false)
+  const [showInternationalMarkets, setShowInternationalMarkets] = useState(false)
   const [showAllyVerification, setShowAllyVerification] = useState(false)
   const [showProviderModal, setShowProviderModal] = useState(false)
   const [selectedCategory, setSelectedCategory] = useState<Category | null>(null)
@@ -463,7 +495,7 @@ function App() {
                 <p>Restaurantes y cafés</p>
               </div>
               <div className="service-info">
-                <span className="provider-count">{places.filter(p => p.type.toLowerCase().includes('restaurante') || p.type.toLowerCase().includes('café')).length} {language === 'es' ? 'pautantes' : 'providers'}</span>
+                <span className="provider-count">{countMatchingPlaces(places, ['restaurante', 'cafe', 'cafeteria', 'gastronomia', 'brunch', 'comida', 'coffee', 'bar'])} {language === 'es' ? 'pautantes' : 'providers'}</span>
                 <ChevronRight size={16} />
               </div>
             </button>
@@ -475,7 +507,7 @@ function App() {
                 <p>Jeeps y movilidad</p>
               </div>
               <div className="service-info">
-                <span className="provider-count">{places.filter(p => p.type.toLowerCase().includes('transporte') || p.type.toLowerCase().includes('moto')).length} {language === 'es' ? 'pautantes' : 'providers'}</span>
+                <span className="provider-count">{countMatchingPlaces(places, ['transporte', 'moto', 'jeep', 'taxi', 'movilidad', 'transfer', 'transport', 'vehicle'])} {language === 'es' ? 'pautantes' : 'providers'}</span>
                 <ChevronRight size={16} />
               </div>
             </button>
@@ -488,7 +520,7 @@ function App() {
                 <p>Valle de Cocora</p>
               </div>
               <div className="service-info">
-                <span className="provider-count">{places.filter(p => p.type.toLowerCase().includes('cabalgata') || p.experienceDetails?.activityType?.toLowerCase().includes('cabalgata')).length} {language === 'es' ? 'pautantes' : 'providers'}</span>
+                <span className="provider-count">{countMatchingPlaces(places, ['cabalgata', 'caballo', 'equitacion', 'horse', 'ride'])} {language === 'es' ? 'pautantes' : 'providers'}</span>
                 <ChevronRight size={16} />
               </div>
             </button>
@@ -500,7 +532,7 @@ function App() {
                 <p>Tours locales</p>
               </div>
               <div className="service-info">
-                <span className="provider-count">{places.filter(p => p.type.toLowerCase().includes('guía') || p.experienceDetails?.activityType?.toLowerCase().includes('tour')).length} {language === 'es' ? 'pautantes' : 'providers'}</span>
+                <span className="provider-count">{countMatchingPlaces(places, ['guia', 'guia turistico', 'tour', 'ruta', 'senderismo', 'adventure', 'guide'])} {language === 'es' ? 'pautantes' : 'providers'}</span>
                 <ChevronRight size={16} />
               </div>
             </button>
@@ -512,7 +544,7 @@ function App() {
                 <p>Hoteles y hostales</p>
               </div>
               <div className="service-info">
-                <span className="provider-count">{places.filter(p => p.accommodationDetails).length} {language === 'es' ? 'pautantes' : 'providers'}</span>
+                <span className="provider-count">{countMatchingPlaces(places, ['alojamiento', 'hotel', 'hostal', 'hospedaje', 'resort', 'lodging'])} {language === 'es' ? 'pautantes' : 'providers'}</span>
                 <ChevronRight size={16} />
               </div>
             </button>
@@ -524,7 +556,7 @@ function App() {
                 <p>Productos locales</p>
               </div>
               <div className="service-info">
-                <span className="provider-count">{places.filter(p => p.commerceDetails).length} {language === 'es' ? 'pautantes' : 'providers'}</span>
+                <span className="provider-count">{countMatchingPlaces(places, ['artesania', 'artesanias', 'manualidades', 'tejido', 'fibras', 'craft', 'handmade'])} {language === 'es' ? 'pautantes' : 'providers'}</span>
                 <ChevronRight size={16} />
               </div>
             </button>
@@ -536,7 +568,7 @@ function App() {
                 <p>Comercios locales</p>
               </div>
               <div className="service-info">
-                <span className="provider-count">{places.filter(p => p.commerceDetails).length} {language === 'es' ? 'pautantes' : 'providers'}</span>
+                <span className="provider-count">{countMatchingPlaces(places, ['tienda', 'shop', 'comercio', 'mercado', 'venta', 'boutique', 'store'])} {language === 'es' ? 'pautantes' : 'providers'}</span>
                 <ChevronRight size={16} />
               </div>
             </button>
@@ -654,6 +686,7 @@ function App() {
       {showDefensiveSEODashboard && <DefensiveSEODashboard onClose={() => setShowDefensiveSEODashboard(false)} />}
       {showAllyBacklinksDashboard && <AllyBacklinksDashboard onClose={() => setShowAllyBacklinksDashboard(false)} />}
       {showAllyRegistrationForm && <AllyRegistrationForm onClose={() => setShowAllyRegistrationForm(false)} />}
+      {showInternationalMarkets && <InternationalMarketsDisplay onClose={() => setShowInternationalMarkets(false)} />}
       {showProviderModal && selectedCategory && (
         <ProviderSelectionModal
           isOpen={showProviderModal}
@@ -684,6 +717,9 @@ function App() {
       <div className="floating-nav-toolbar" aria-label="Navegación rápida">
         <button className="floating-nav-button" onClick={scrollToHome} aria-label="Volver al inicio">
           <Home size={18} />
+        </button>
+        <button className="floating-nav-button" onClick={() => setShowInternationalMarkets(true)} aria-label="Mercados internacionales">
+          <Globe size={18} />
         </button>
         <button className="floating-nav-button" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} aria-label="Subir arriba">
           <ArrowUp size={18} />
