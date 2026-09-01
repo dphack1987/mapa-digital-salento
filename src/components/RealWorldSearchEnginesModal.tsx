@@ -31,25 +31,25 @@ const RealWorldSearchEnginesModal: React.FC<RealWorldSearchEnginesModalProps> = 
   const renderEnginesTab = () => (
     <div className="real-engines-tab">
       <div className="market-reality">
-        <h3>🌍 Realidad del Mercado Colombiano 2024-2025</h3>
+        <h3>🎯 Realidad del Mercado: Competencia y Disrupción</h3>
         <div className="reality-grid">
           <div className="reality-card">
             <Target size={24} className="text-blue-600" />
-            <h4>Dominio de Google</h4>
-            <p className="reality-stat">93-96%</p>
-            <p className="reality-label">Cuota de mercado</p>
+            <h4>Modelo de Comisiones</h4>
+            <p className="reality-stat">3-25%</p>
+            <p className="reality-label">Booking, Airbnb, KAYAK</p>
           </div>
           <div className="reality-card">
             <TrendingUp size={24} className="text-green-600" />
-            <h4>Bing en crecimiento</h4>
-            <p className="reality-stat">2-4%</p>
-            <p className="reality-label">Cuota de mercado</p>
+            <h4>Nuestra Ventaja</h4>
+            <p className="reality-stat">0%</p>
+            <p className="reality-label">Sin comisiones para comerciantes</p>
           </div>
           <div className="reality-card">
             <Globe size={24} className="text-orange-600" />
-            <h4>Plataformas turísticas</h4>
-            <p className="reality-stat">Alta relevancia</p>
-            <p className="reality-label">Para el sector</p>
+            <h4>Estrategia</h4>
+            <p className="reality-stat">Disrupción</p>
+            <p className="reality-label">Igualar herramientas, eliminar comisiones</p>
           </div>
         </div>
       </div>
@@ -115,15 +115,16 @@ const RealWorldSearchEnginesModal: React.FC<RealWorldSearchEnginesModalProps> = 
           <div className="analysis-content">
             <p><strong>Visibilidad general:</strong> {visibilityAnalysis.overallVisibility}</p>
             <p><strong>Realidad del mercado:</strong> {visibilityAnalysis.marketReality}</p>
+            <p><strong>Ventaja competitiva:</strong> {visibilityAnalysis.competitiveAdvantage}</p>
           </div>
         </div>
 
         <div className="competitors-section">
-          <h4>🏆 Top Competidores en Búsquedas (Puntos Google Trends)</h4>
+          <h4>⚔️ Principales Competidores (Modelo de Comisiones)</h4>
           <div className="competitors-list">
             {visibilityAnalysis.topCompetitors.map((competitor, index) => (
-              <div key={index} className="competitor-item">
-                <span className="competitor-rank">#{index + 1}</span>
+              <div key={index} className="competitor-item competitive">
+                <span className="competitor-rank competitive">⚔️</span>
                 <span className="competitor-name">{competitor}</span>
               </div>
             ))}
@@ -131,9 +132,9 @@ const RealWorldSearchEnginesModal: React.FC<RealWorldSearchEnginesModalProps> = 
         </div>
 
         <div className="opportunities-section">
-          <h4>🚀 Oportunidades de Mejora</h4>
+          <h4>🚀 Oportunidades de Disrupción</h4>
           <ul className="opportunities-list">
-            {visibilityAnalysis.improvementOpportunities.map((opportunity, index) => (
+            {visibilityAnalysis.disruptionOpportunity.map((opportunity, index) => (
               <li key={index} className="opportunity-item">
                 <CheckCircle size={16} className="text-green-600" />
                 <span>{opportunity}</span>
@@ -151,10 +152,17 @@ const RealWorldSearchEnginesModal: React.FC<RealWorldSearchEnginesModalProps> = 
         <h3>🎯 Estrategia de Optimización Basada en Realidad</h3>
 
         <div className="strategy-section">
-          <h4>🔴 Prioridad 1 (Crítico - 80% del presupuesto)</h4>
+          <h4>🎯 Estrategia de Disrupción</h4>
+          <div className="strategy-card">
+            <p>{optimizationStrategy.disruptionStrategy}</p>
+          </div>
+        </div>
+
+        <div className="strategy-section">
+          <h4>🔴 Prioridad 1 (Competencia Principal - 90% del presupuesto)</h4>
           <div className="priority-engines">
             {optimizationStrategy.priority1.map((engine, index) => (
-              <div key={index} className="priority-engine critical">
+              <div key={index} className="priority-engine competitive">
                 <h5>{engine.name}</h5>
                 <p>{engine.marketShareColombia} del mercado</p>
                 <p className="reason">{engine.instructions[0]}</p>

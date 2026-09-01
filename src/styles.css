@@ -1733,13 +1733,32 @@ button { cursor: pointer; }
   gap: 8px;
 }
 
-.real-world-search-engines-modal .competitor-item {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 8px;
-  background: #f5f1e8;
-  border-radius: 6px;
+.real-world-search-engines-modal .competitor-item.competitive {
+  background: rgba(220, 38, 38, 0.1);
+  border-color: rgba(220, 38, 38, 0.3);
+}
+
+.real-world-search-engines-modal .competitor-rank.competitive {
+  font-size: 16px;
+  color: #dc2626;
+}
+
+.real-world-search-engines-modal .priority-engine.competitive {
+  background: rgba(220, 38, 38, 0.1);
+  border-color: rgba(220, 38, 38, 0.3);
+}
+
+.real-world-search-engines-modal .strategy-card {
+  padding: 16px;
+  background: rgba(243, 204, 110, 0.2);
+  border-radius: 8px;
+  border: 1px solid rgba(243, 204, 110, 0.3);
+}
+
+.real-world-search-engines-modal .strategy-card p {
+  font-size: 14px;
+  color: var(--ink);
+  margin: 0;
 }
 
 .real-world-search-engines-modal .competitor-rank {
