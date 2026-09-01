@@ -1,168 +1,76 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
-  <!-- Página Principal - Multi-idioma -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Página Principal - mapa-digital-salento.vercel.app -->
   <url>
-    <loc>https://salentoalamano.com/</loc>
-    <lastmod>2026-08-31</lastmod>
+    <loc>https://mapa-digital-salento.vercel.app/</loc>
+    <lastmod>2026-09-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="es" href="https://salentoalamano.com/es/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://salentoalamano.com/en/"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://salentoalamano.com/de/"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://salentoalamano.com/fr/"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://salentoalamano.com/it/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://salentoalamano.com/"/>
   </url>
 
   <!-- Página Estado Actual Salento - CRÍTICA PARA INDEXACIÓN -->
   <url>
-    <loc>https://salentoalamano.com/estado-actual-salento-hoteles-abiertos-vias-libres-valle-cocora-operando-100</loc>
-    <lastmod>2026-08-31</lastmod>
+    <loc>https://mapa-digital-salento.vercel.app/estado-actual-salento-hoteles-abiertos-vias-libres-valle-cocora-operando-100</loc>
+    <lastmod>2026-09-01</lastmod>
     <changefreq>hourly</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="es" href="https://salentoalamano.com/es/estado-actual-salento"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://salentoalamano.com/en/salento-current-status"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://salentoalamano.com/de/salento-aktueller-status"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://salentoalamano.com/fr/salento-statut-actuel"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://salentoalamano.com/it/salento-stato-attuale"/>
   </url>
 
   <!-- Página Valle de Cocora - SEO Alta Prioridad -->
   <url>
-    <loc>https://salentoalamano.com/valle-cocora-accesible-100</loc>
-    <lastmod>2026-08-31</lastmod>
+    <loc>https://mapa-digital-salento.vercel.app/valle-cocora-accesible-100</loc>
+    <lastmod>2026-09-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="es" href="https://salentoalamano.com/es/valle-cocora-accesible"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://salentoalamano.com/en/valle-cocora-accessible"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://salentoalamano.com/de/valle-cocora-zuganglich"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://salentoalamano.com/fr/valle-cocora-accessible"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://salentoalamano.com/it/valle-cocora-accessibile"/>
   </url>
 
   <!-- Página Seguridad Salento - SEO Defensivo -->
   <url>
-    <loc>https://salentoalamano.com/salento-seguro-turismo</loc>
-    <lastmod>2026-08-31</lastmod>
+    <loc>https://mapa-digital-salento.vercel.app/salento-seguro-turismo</loc>
+    <lastmod>2026-09-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="es" href="https://salentoalamano.com/es/salento-seguro"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://salentoalamano.com/en/salento-safe"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://salentoalamano.com/de/salento-sicher"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://salentoalamano.com/fr/salento-sur"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://salentoalamano.com/it/salento-sicuro"/>
   </url>
 
   <!-- Página Hoteles Abiertos - SEO Comercial -->
   <url>
-    <loc>https://salentoalamano.com/hoteles-abiertos-salento</loc>
-    <lastmod>2026-08-31</lastmod>
+    <loc>https://mapa-digital-salento.vercel.app/hoteles-abiertos-salento</loc>
+    <lastmod>2026-09-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="es" href="https://salentoalamano.com/es/hoteles-abiertos"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://salentoalamano.com/en/hotels-open"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://salentoalamano.com/de/hotels-geöffnet"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://salentoalamano.com/fr/hotels-ouverts"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://salentoalamano.com/it/hotel-aperti"/>
   </url>
 
   <!-- Página Vías Salento - SEO Logística -->
   <url>
-    <loc>https://salentoalamano.com/vias-salento-libres-acceso</loc>
-    <lastmod>2026-08-31</lastmod>
+    <loc>https://mapa-digital-salento.vercel.app/vias-salento-libres-acceso</loc>
+    <lastmod>2026-09-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="es" href="https://salentoalamano.com/es/vias-libres"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://salentoalamano.com/en/roads-open"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://salentoalamano.com/de/straßen-offen"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://salentoalamano.com/fr/routes-ouvertes"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://salentoalamano.com/it/strade-aperte"/>
   </url>
 
   <!-- Página Registro Aliados - SEO Comercial -->
   <url>
-    <loc>https://salentoalamano.com/registro-aliados</loc>
-    <lastmod>2026-08-31</lastmod>
+    <loc>https://mapa-digital-salento.vercel.app/registro-aliados</loc>
+    <lastmod>2026-09-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="es" href="https://salentoalamano.com/es/registro-aliados"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://salentoalamano.com/en/ally-registration"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://salentoalamano.com/de/allianz-anmeldung"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://salentoalamano.com/fr/inscription-alliés"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://salentoalamano.com/it/registrazione-alleati"/>
   </url>
 
   <!-- Página Don Chucho - SEO Interactivo -->
   <url>
-    <loc>https://salentoalamano.com/don-chucho-asistente</loc>
-    <lastmod>2026-08-31</lastmod>
+    <loc>https://mapa-digital-salento.vercel.app/don-chucho-asistente</loc>
+    <lastmod>2026-09-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="es" href="https://salentoalamano.com/es/don-chucho"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://salentoalamano.com/en/don-chucho"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://salentoalamano.com/de/don-chucho"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://salentoalamano.com/fr/don-chucho"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://salentoalamano.com/it/don-chucho"/>
   </url>
 
   <!-- Página Mapa Interactivo - SEO Principal -->
   <url>
-    <loc>https://salentoalamano.com/mapa-interactivo-salento</loc>
-    <lastmod>2026-08-31</lastmod>
+    <loc>https://mapa-digital-salento.vercel.app/mapa-interactivo-salento</loc>
+    <lastmod>2026-09-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="es" href="https://salentoalamano.com/es/mapa-interactivo"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://salentoalamano.com/en/interactive-map"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://salentoalamano.com/de/interaktive-karte"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://salentoalamano.com/fr/carte-interactive"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://salentoalamano.com/it/mappa-interattiva"/>
-  </url>
-
-  <!-- Página Específica Alemania - SEO Mercado Alemán -->
-  <url>
-    <loc>https://salentoalamano.com/de/salento-sicherheit-2026</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="de" href="https://salentoalamano.com/de/salento-sicherheit-2026"/>
-  </url>
-
-  <!-- Página Específica Francia - SEO Mercado Francés -->
-  <url>
-    <loc>https://salentoalamano.com/fr/salento-securite-2026</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://salentoalamano.com/fr/salento-securite-2026"/>
-  </url>
-
-  <!-- Página Específica Reino Unido - SEO Mercado Británico -->
-  <url>
-    <loc>https://salentoalamano.com/en/salento-safety-2026</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://salentoalamano.com/en/salento-safety-2026"/>
-  </url>
-
-  <!-- Página Específica España - SEO Mercado Español -->
-  <url>
-    <loc>https://salentoalamano.com/es/salento-seguridad-2026</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="es" href="https://salentoalamano.com/es/salento-seguridad-2026"/>
-  </url>
-
-  <!-- Página Específica Italia - SEO Mercado Italiano -->
-  <url>
-    <loc>https://salentoalamano.com/it/salento-sicurezza-2026</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="it" href="https://salentoalamano.com/it/salento-sicurezza-2026"/>
   </url>
 
 </urlset>
