@@ -271,29 +271,127 @@ class InternationalKeywordsService {
         localTranslation: 'Viagem Colômbia café (Colombia coffee travel)'
       },
 
-      // Keywords para mercado mexicano (Google)
+      // Keywords para mercado taiwanés (Google - Chino Tradicional)
       {
-        keyword: 'Colombia Salento turismo',
-        language: 'es-MX',
-        region: 'MX',
-        volume: 'Alto',
-        difficulty: 'Media',
-        intent: 'informational',
-        searchEngine: 'Google',
-        priority: 'medium',
-        localTranslation: 'Colombia Salento turismo (Colombia Salento tourism)'
-      },
-      {
-        keyword: 'Viaje a Colombia café',
-        language: 'es-MX',
-        region: 'MX',
+        keyword: '台灣 哥倫比亞 薩倫托 旅游',
+        language: 'zh-TW',
+        region: 'TW',
         volume: 'Medio',
         difficulty: 'Media',
         intent: 'informational',
         searchEngine: 'Google',
         priority: 'medium',
-        localTranslation: 'Viaje a Colombia café (Colombia coffee travel)'
-      }
+        localTranslation: '台灣 哥倫比亞 薩倫托 旅游 (Taiwan Colombia Salento Tourism)'
+      },
+      {
+        keyword: '哥倫比亞 咖啡 三角洲',
+        language: 'zh-TW',
+        region: 'TW',
+        volume: 'Bajo',
+        difficulty: 'Alta',
+        intent: 'informational',
+        searchEngine: 'Google',
+        priority: 'medium',
+        localTranslation: '哥倫比亞 咖啡 三角洲 (Colombia Coffee Triangle)'
+      },
+
+      // Keywords para mercado hongkonés (Google - Chino Tradicional)
+      {
+        keyword: '香港 哥倫比亞 薩倫托 旅游',
+        language: 'zh-HK',
+        region: 'HK',
+        volume: 'Bajo',
+        difficulty: 'Media',
+        intent: 'informational',
+        searchEngine: 'Google',
+        priority: 'medium',
+        localTranslation: '香港 哥倫比亞 薩倫托 旅游 (Hong Kong Colombia Salento Tourism)'
+      },
+
+      // Keywords para mercado tailandés (Google)
+      {
+        keyword: 'โคลอมเบีย ซาเลนโต ท่องเที่ยว',
+        language: 'th-TH',
+        region: 'TH',
+        volume: 'Medio',
+        difficulty: 'Media',
+        intent: 'informational',
+        searchEngine: 'Google',
+        priority: 'medium',
+        localTranslation: 'โคลอมเบีย ซาเลนโต ท่องเที่ยว (Colombia Salento Tourism)'
+      },
+      {
+        keyword: 'โคลอมเบีย กาแฟ ท่องเที่ยว',
+        language: 'th-TH',
+        region: 'TH',
+        volume: 'Medio',
+        difficulty: 'Media',
+        intent: 'informational',
+        searchEngine: 'Google',
+        priority: 'medium',
+        localTranslation: 'โคลอมเบีย กาแฟ ท่องเที่ยว (Colombia Coffee Travel)'
+      },
+
+      // Keywords para mercado vietnamita (Google)
+      {
+        keyword: 'Colombia Salento du lịch',
+        language: 'vi-VN',
+        region: 'VN',
+        volume: 'Medio',
+        difficulty: 'Media',
+        intent: 'informational',
+        searchEngine: 'Google',
+        priority: 'medium',
+        localTranslation: 'Colombia Salento du lịch (Colombia Salento Tourism)'
+      },
+      {
+        keyword: 'Colombia cà phê du lịch',
+        language: 'vi-VN',
+        region: 'VN',
+        volume: 'Bajo',
+        difficulty: 'Media',
+        intent: 'informational',
+        searchEngine: 'Google',
+        priority: 'medium',
+        localTranslation: 'Colombia cà phê du lịch (Colombia Coffee Travel)'
+      },
+
+      // Keywords para mercado indonesio (Google)
+      {
+        keyword: 'Kolombia Salento wisata',
+        language: 'id-ID',
+        region: 'ID',
+        volume: 'Medio',
+        difficulty: 'Media',
+        intent: 'informational',
+        searchEngine: 'Google',
+        priority: 'medium',
+        localTranslation: 'Kolombia Salento wisata (Colombia Salento Tourism)'
+      },
+      {
+        keyword: 'Kolombia kopi wisata',
+        language: 'id-ID',
+        region: 'ID',
+        volume: 'Medio',
+        difficulty: 'Media',
+        intent: 'informational',
+        searchEngine: 'Google',
+        priority: 'medium',
+        localTranslation: 'Kolombia kopi wisata (Colombia Coffee Travel)'
+      },
+
+      // Keywords para mercado malayo (Google)
+      {
+        keyword: 'Colombia Salento pelancongan',
+        language: 'ms-MY',
+        region: 'MY',
+        volume: 'Bajo',
+        difficulty: 'Media',
+        intent: 'informational',
+        searchEngine: 'Google',
+        priority: 'medium',
+        localTranslation: 'Colombia Salento pelancongan (Colombia Salento Tourism)'
+      },
     ]
   }
 
@@ -425,9 +523,15 @@ class InternationalKeywordsService {
   generateInternationalMetaDescriptions(): { [key: string]: string } {
     return {
       'zh-CN': '探索哥伦比亚萨伦托的咖啡文化和自然美景。免费互动地图，酒店信息，当地美食和真实体验。零佣金预订，直接联系当地商家。',
+      'zh-TW': '探索哥倫比亞薩倫托的咖啡文化和自然美景。免費互動地圖，酒店資訊，當地美食和真實體驗。零佣金預訂，直接聯繫當地商家。',
+      'zh-HK': '探索哥倫比亞薩倫托的咖啡文化和自然美景。免費互動地圖，酒店資訊，當地美食和真實體驗。零佣金預訂，直接聯繫當地商家。',
       'ru-RU': 'Откройте для себя кофейную культуру и природную красоту Саленто, Колумбия. Бесплатная интерактивная карта, информация об отелях, местная кухня и аутентичные впечатления. Бронирование без комиссии.',
       'ja-JP': 'コロンビアのサレントでコーヒー文化と自然の美しさを体験。無料のインタラクティブマップ、ホテル情報、地元の料理、本格的な体験。手数料なしの予約。',
       'ko-KR': '콜롬비아 살렌토에서 커피 문화와 자연의 아름다움을 발견하세요. 무료 인터랙티브 지도, 호텔 정보, 현지 요리, 진정한 경험. 수수료 없는 예약.',
+      'th-TH': 'สำรวจวัฒนธรรมกาแฟและความงามทางธรรมชาติของ Salento โคลอมเบีย แผนที่โต้ตอบฟรี ข้อมูลโรงแรม อาหารท้องถิ่น และประสบการณ์ที่แท้จริง จองโดยไม่มีค่าคอมมิชชั่น',
+      'vi-VN': 'Khám phá văn hóa cà phê và vẻ đẹp thiên nhiên của Salento, Colombia. Bản đồ tương tác miễn phí, thông tin khách sạn, ẩm thực địa phương và trải nghiệm xác thực. Đặt phòng không phí hoa hồng.',
+      'id-ID': 'Jelajahi budaya kopi dan keindahan alam Salento, Kolombia. Peta interaktif gratis, info hotel, kuliner lokal, dan pengalaman otentik. Reservasi tanpa komisi.',
+      'ms-MY': 'Terokai budaya kopi dan keindahan alam Salento, Colombia. Peta interaktif percuma, maklumat hotel, masakan tempatan, dan pengalaman otentik. Tempahan tanpa komisen.',
       'de-DE': 'Entdecken Sie die Kaffeekultur und natürliche Schönheit von Salento, Kolumbien. Kostenlose interaktive Karte, Hotelinformationen, lokale Küche und authentische Erlebnisse. Buchung ohne Provision.',
       'fr-FR': 'Découvrez la culture du café et la beauté naturelle de Salento, Colombie. Carte interactive gratuite, informations hôtelières, cuisine locale et expériences authentiques. Réservation sans commission.',
       'en-GB': 'Discover the coffee culture and natural beauty of Salento, Colombia. Free interactive map, hotel information, local cuisine, and authentic experiences. Commission-free booking.',
@@ -444,9 +548,15 @@ class InternationalKeywordsService {
   generateInternationalTitles(): { [key: string]: string } {
     return {
       'zh-CN': '萨伦托哥伦比亚旅游指南 - 免费互动地图与零佣金预订',
+      'zh-TW': '薩倫托哥倫比亞旅遊指南 - 免費互動地圖與零佣金預訂',
+      'zh-HK': '薩倫托哥倫比亞旅遊指南 - 免費互動地圖與零佣金預訂',
       'ru-RU': 'Саленто Колумбия Туризм - Бесплатная Карта и Бронирование Без Комиссии',
       'ja-JP': 'サレントコロンビア観光ガイド - 無料地図と手数料なし予約',
       'ko-KR': '살렌토 콜롬비아 여행 가이드 - 무료 지도와 수수료 없는 예약',
+      'th-TH': 'คู่มือการท่องเที่ยว Salento โคลอมเบีย - แผนที่ฟรีและการจองที่ไม่มีค่าธรรมเนียม',
+      'vi-VN': 'Hướng dẫn du lịch Salento Colombia - Bản đồ miễn phí và đặt phòng không phí hoa hồng',
+      'id-ID': 'Panduan Wisata Salento Kolombia - Peta Gratis dan Reservasi Tanpa Komisi',
+      'ms-MY': 'Pelancongan Panduan Salento Colombia - Peta Percuma dan Tempahan Tanpa Komisen',
       'de-DE': 'Salento Kolumbien Tourismus - Kostenlose Karte und Provision-freie Buchung',
       'fr-FR': 'Tourisme Salento Colombie - Carte Gratuite et Réservation Sans Commission',
       'en-GB': 'Salento Colombia Travel Guide - Free Map and Commission-Free Booking',
