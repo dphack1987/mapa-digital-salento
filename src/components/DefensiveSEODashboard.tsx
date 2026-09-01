@@ -3,9 +3,10 @@
 // Optimizado para mapa-digital-salento.vercel.app y marca Salento a la Mano
 
 import { useState, useEffect } from 'react'
-import { Shield, AlertTriangle, CheckCircle, TrendingUp, Globe, FileText, Download, RefreshCw, ExternalLink, Search, BarChart } from 'lucide-react'
+import { Shield, AlertTriangle, CheckCircle, TrendingUp, Globe, FileText, Download, RefreshCw, ExternalLink, Search, BarChart, Chrome } from 'lucide-react'
 import defensiveSEOGService from '../services/defensiveSEOG.service'
 import internationalSEOService from '../services/internationalSEO.service'
+import GoogleVerificationModal from './GoogleVerificationModal'
 
 interface DefensiveSEODashboardProps {
   onClose?: () => void
@@ -20,6 +21,7 @@ const DefensiveSEODashboard: React.FC<DefensiveSEODashboardProps> = ({ onClose }
   const [brandSchema, setBrandSchema] = useState<string>('')
   const [loading, setLoading] = useState(true)
   const [activeTab, setActiveTab] = useState<'pages' | 'claims' | 'keywords' | 'sitemap' | 'advanced'>('pages')
+  const [showGoogleVerification, setShowGoogleVerification] = useState(false)
   const targetDomain = 'https://mapa-digital-salento.vercel.app'
   const brandName = 'Salento a la Mano'
 
@@ -129,9 +131,15 @@ const DefensiveSEODashboard: React.FC<DefensiveSEODashboardProps> = ({ onClose }
             <p>Estrategia defensiva para {targetDomain}</p>
           </div>
         </div>
-        <button className="icon-button" onClick={onClose} aria-label="Cerrar">
-          ✕
-        </button>
+        <div className="header-actions">
+          <button className="google-verification-button" onClick={() => setShowGoogleVerification(true)}>
+            <Chrome size={18} />
+            Verificar en Google
+          </button>
+          <button className="icon-button" onClick={onClose} aria-label="Cerrar">
+            ✕
+          </button>
+        </div>
       </div>
 
       <div className="defensive-seo-stats">
@@ -424,6 +432,13 @@ const DefensiveSEODashboard: React.FC<DefensiveSEODashboardProps> = ({ onClose }
           Este plan neutraliza desinformación mediante autoridad técnica y datos oficiales verificables.
         </p>
       </div>
+
+      {showGoogleVerification && (
+        <GoogleVerificationModal
+          isOpen={showGoogleVerification}
+          onClose={() => setShowGoogleVerification(false)}
+        />
+      )}
     </div>
   )
 }
