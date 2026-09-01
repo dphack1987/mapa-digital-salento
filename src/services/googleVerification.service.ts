@@ -12,7 +12,7 @@ interface VerificationMethod {
 class GoogleVerificationService {
   private readonly domain = 'https://mapa-digital-salento.vercel.app'
   private readonly brandName = 'Salento a la Mano'
-  private readonly verificationCode = 'googleac76b27847921d06' // Código real de Google Search Console
+  private readonly verificationCode = 'jHPxwutu-FWCZaMEyI4UOcFCGdg7MLiXiOrJvQQ114w' // Código específico de la cuenta del usuario
 
   /**
    * Generar todos los métodos de verificación disponibles
