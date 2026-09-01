@@ -114,6 +114,66 @@ class InternationalSEOService {
         status: 'pending'
       },
       {
+        country: 'Taiwán',
+        language: 'zh-TW',
+        searchEngine: 'Google',
+        priority: 'medium',
+        population: '23+ millones',
+        tourismPotential: 'Turismo de calidad alta interesado en Colombia',
+        verificationCode: null,
+        status: 'pending'
+      },
+      {
+        country: 'Hong Kong',
+        language: 'zh-HK',
+        searchEngine: 'Google',
+        priority: 'medium',
+        population: '7.5+ millones',
+        tourismPotential: 'Turismo de negocios y experiencias premium',
+        verificationCode: null,
+        status: 'pending'
+      },
+      {
+        country: 'Tailandia',
+        language: 'th-TH',
+        searchEngine: 'Google',
+        priority: 'medium',
+        population: '70+ millones',
+        tourismPotential: 'Turismo asiático interesado en destinos latinoamericanos',
+        verificationCode: null,
+        status: 'pending'
+      },
+      {
+        country: 'Vietnam',
+        language: 'vi-VN',
+        searchEngine: 'Google',
+        priority: 'medium',
+        population: '98+ millones',
+        tourismPotential: 'Turismo de crecimiento rápido hacia nuevos destinos',
+        verificationCode: null,
+        status: 'pending'
+      },
+      {
+        country: 'Indonesia',
+        language: 'id-ID',
+        searchEngine: 'Google',
+        priority: 'medium',
+        population: '273+ millones',
+        tourismPotential: 'Turismo masivo interesado en experiencias naturales',
+        verificationCode: null,
+        status: 'pending'
+      },
+      {
+        country: 'Malasia',
+        language: 'ms-MY',
+        searchEngine: 'Google',
+        priority: 'medium',
+        population: '33+ millones',
+        tourismPotential: 'Turismo multicultural interesado en destinos diversos',
+        verificationCode: null,
+        status: 'pending'
+      },
+      {
         country: 'Alemania',
         language: 'de-DE',
         searchEngine: 'Google',
