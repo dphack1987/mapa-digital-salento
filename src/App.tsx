@@ -2,7 +2,9 @@ import { useMemo, useState, useEffect } from 'react'
 import { CircleMarker, MapContainer, Popup, TileLayer, useMap } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css'
 import {
+  ArrowDown,
   ArrowRight,
+  ArrowUp,
   Bike,
   Bell,
   ChevronDown,
@@ -10,6 +12,7 @@ import {
   Coffee,
   Compass,
   Heart,
+  Home,
   LifeBuoy,
   Hotel,
   Mail,
@@ -284,9 +287,26 @@ function App() {
     setCartCount((count) => count + 1)
   }
 
+  function scrollToSection(id: string) {
+    const element = document.getElementById(id)
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }
+    setMobileNav(false)
+  }
+
+  function scrollToHome() {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+    setMobileNav(false)
+  }
+
+  function scrollToBottom() {
+    window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' })
+  }
+
   return (
     <div className="app-shell">
-      <header className="mobile-header">
+      <header className="mobile-header site-header">
         <div className="identity-header">
           <div className="brand-mobile">
             <img src="/logo_salento2026.png" alt="Salento a la Mano" className="mobile-logo" />
@@ -348,7 +368,27 @@ function App() {
             <select aria-label="Cambiar moneda" value={currency} onChange={(event) => setCurrency(event.target.value as Currency)}><option value="COP">COP</option><option value="USD">USD</option><option value="EUR">EUR</option></select>
           </div>
         </div>
+
+        {mobileNav && (
+          <nav className="mobile-nav-panel" aria-label="Navegación móvil">
+            <button onClick={() => scrollToSection('inicio')}>Inicio</button>
+            <button onClick={() => scrollToSection('servicios')}>Servicios</button>
+            <button onClick={() => scrollToSection('pedidos')}>Directorio</button>
+            <button onClick={() => scrollToSection('mapa')}>Mapa</button>
+            <button onClick={() => scrollToSection('pautas')}>Pautas</button>
+            <button onClick={() => scrollToSection('guia-offline')}>Guía offline</button>
+          </nav>
+        )}
       </header>
+
+      <nav className="main-nav sticky-nav" aria-label="Navegación principal">
+        <button onClick={scrollToHome}>Inicio</button>
+        <button onClick={() => scrollToSection('servicios')}>Servicios</button>
+        <button onClick={() => scrollToSection('pedidos')}>Directorio</button>
+        <button onClick={() => scrollToSection('mapa')}>Mapa</button>
+        <button onClick={() => scrollToSection('pautas')}>Pautas</button>
+        <button onClick={() => scrollToSection('guia-offline')}>Guía offline</button>
+      </nav>
 
       {showWeatherBanner && weather && (
         <div className={`weather-events-banner ${weather.color}`}>
@@ -577,6 +617,17 @@ function App() {
       {showNotifications && (
         <NotificationsPanel onClose={() => setShowNotifications(false)} />
       )}
+      <div className="floating-nav-toolbar" aria-label="Navegación rápida">
+        <button className="floating-nav-button" onClick={scrollToHome} aria-label="Volver al inicio">
+          <Home size={18} />
+        </button>
+        <button className="floating-nav-button" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} aria-label="Subir arriba">
+          <ArrowUp size={18} />
+        </button>
+        <button className="floating-nav-button" onClick={scrollToBottom} aria-label="Bajar abajo">
+          <ArrowDown size={18} />
+        </button>
+      </div>
       <DonChucho language={language} t={t} places={places} weather={weather} todayEvents={todayEvents} />
       <div className="offline-status">
         <span className={isOffline ? 'offline-indicator' : 'online-indicator'} />
@@ -605,6 +656,95 @@ function DonChucho({ language, t, places, weather, todayEvents }: { language: La
     }
   }, [weather, todayEvents, isEnglish])
 
+  function decorateDonChuchoReply(text: string, baseReply: string): string {
+    const query = text.toLowerCase()
+    const reply = baseReply.trim()
+
+    if (!reply) return reply
+
+    const naturalOpeners = [
+      'Pues mira,',
+      'Ay, hermano,',
+      'Mira nomás,',
+      'Eso sí te lo digo,',
+      'Con toda sinceridad,',
+      'Pues sí,',
+      'Aja, y aquí va la verdad,'
+    ]
+
+    const closers = [
+      '¿Te armo la ruta del día?',
+      '¿Quieres que te diga qué te conviene más?',
+      'Si quieres, te lo dejo más sencillo.',
+      '¿Te ayudo a elegir entre varias opciones?'
+    ]
+
+    const opener = naturalOpeners[Math.floor(Math.random() * naturalOpeners.length)]
+    const closer = closers[Math.floor(Math.random() * closers.length)]
+
+    const recomendacion = query.includes('recomi') || query.includes('suger') || query.includes('conviene') || query.includes('dónde me conviene')
+    const plan = query.includes('plan') || query.includes('qué hacer') || query.includes('ruta') || query.includes('itinerario')
+    const busquedaLugar = /hotel|restaurante|mirador|cascada|finca|cabalgata|moto|boquía|salento/.test(query)
+
+    if (!isEnglish) {
+      if (recomendacion) {
+        return `${opener} en Salento yo te diría: ${reply} ${closer}`
+      }
+
+      if (plan) {
+        return `${opener} para un plan bien rico en Salento, ${reply} ${closer}`
+      }
+
+      if (busquedaLugar) {
+        return `${opener} ${reply} ${closer}`
+      }
+    }
+
+    return `${reply} ${isEnglish ? 'Want me to build a simple plan for you?' : closer}`
+  }
+
+  function buildNaturalSuggestions(text: string, isDefensive: boolean): string[] {
+    const query = text.toLowerCase()
+    const spanishSuggestions = {
+      hotel: ['¿Te sirve algo más cerca del centro?', '¿Quieres opción con desayuno?', '¿Prefieres algo más tranquilo?'],
+      comida: ['¿Te gusta trucha o cocina local?', '¿Quieres algo para almuerzo?', '¿Te conviene algo tipo típico?'],
+      mirador: ['¿Te interesa ir al atardecer?', '¿Te lo combino con Cocora?', '¿Quieres ruta corta o más caminata?'],
+      cascada: ['¿Quieres la ruta más fácil?', '¿Te interesa ir desde Boquía?', '¿Te sirve algo para ir temprano?'],
+      finca: ['¿Te interesa el tour del café?', '¿Quieres reserva o sugerencia?', '¿Te sirve algo más educativo?'],
+      default: ['¿Te ayudo con la ruta?', '¿Quieres plan del día?', '¿Quieres algo más tranquilo?']
+    }
+
+    const englishSuggestions = {
+      hotel: ['Need something closer to town?', 'Would you like breakfast included?', 'Prefer a quieter stay?'],
+      food: ['Do you want trout or local dishes?', 'Planning lunch?', 'Interested in something traditional?'],
+      viewpoint: ['Do you want sunset?', 'Shall I combine it with Cocora?', 'Short route or a longer walk?'],
+      waterfall: ['Want the easiest trail?', 'Do you want a Boquía route?', 'Would you like an early departure?'],
+      farm: ['Interested in a coffee tour?', 'Need a reservation tip?', 'Want something more educational?'],
+      default: ['Need help with the route?', 'Want a day plan?', 'Prefer a quieter option?']
+    }
+
+    if (isDefensive) {
+      return isEnglish ? ['Need a safe route?', 'Want hotel options?', 'Prefer a relaxed plan?'] : ['¿Te ayudo con la ruta segura?', '¿Quieres ver opciones de hoteles?', '¿Prefieres plan tranquilo?']
+    }
+
+    if (isEnglish) {
+      if (query.includes('hotel') || query.includes('stay')) return englishSuggestions.hotel
+      if (query.includes('eat') || query.includes('restaurant') || query.includes('trout') || query.includes('lunch')) return englishSuggestions.food
+      if (query.includes('mirador') || query.includes('photo') || query.includes('view')) return englishSuggestions.viewpoint
+      if (query.includes('waterfall') || query.includes('trail') || query.includes('boquia')) return englishSuggestions.waterfall
+      if (query.includes('farm') || query.includes('coffee')) return englishSuggestions.farm
+      return englishSuggestions.default
+    }
+
+    if (query.includes('hotel') || query.includes('hospedaje')) return spanishSuggestions.hotel
+    if (query.includes('comer') || query.includes('restaurante') || query.includes('trucha') || query.includes('almuerzo')) return spanishSuggestions.comida
+    if (query.includes('mirador') || query.includes('fotos') || query.includes('vista')) return spanishSuggestions.mirador
+    if (query.includes('cascada') || query.includes('sendero') || query.includes('boquía')) return spanishSuggestions.cascada
+    if (query.includes('finca') || query.includes('cafe') || query.includes('café')) return spanishSuggestions.finca
+
+    return spanishSuggestions.default
+  }
+
   function ask(text: string) {
     setQuestion(text)
     setShowGreeting(false)
@@ -617,7 +757,7 @@ function DonChucho({ language, t, places, weather, todayEvents }: { language: La
     if (isWeatherQuestion && weather) {
       const weatherAnswer = isEnglish 
         ? `Currently in Salento: ${weatherService.formatTemperature(weather.salento.temperature)}. In Cocora Valley: ${weatherService.formatTemperature(weather.valleCocora.temperature)}. ${weather.recommendation}`
-        : `Actualmente en Salento: ${weatherService.formatTemperature(weather.salento.temperature)}. En el Valle de Cocora: ${weatherService.formatTemperature(weather.valleCocora.temperature)}. ${weather.recommendation}`
+        : `Pues mira, el clima por aquí va así: en Salento ${weatherService.formatTemperature(weather.salento.temperature)} y en el Valle de Cocora ${weatherService.formatTemperature(weather.valleCocora.temperature)}. ${weather.recommendation}`
       setAnswer(weatherAnswer)
       setSuggestions(['¿Para el valle?', '¿Qué ropa llevar?', '¿Mejor hora para salir?'])
       return
@@ -639,12 +779,13 @@ function DonChucho({ language, t, places, weather, todayEvents }: { language: La
     
     // Usar base de conocimiento local mejorada
     const knowledgeAnswer = donChuchoKnowledge.getAnswer(text, isEnglish ? 'en' : 'es')
+    const naturalAnswer = decorateDonChuchoReply(text, knowledgeAnswer)
     
     // Verificar si es una respuesta defensiva
     const isDefensive = donChuchoKnowledge.isDefensiveResponse(text)
     const defensiveActions = donChuchoKnowledge.getDefensiveActions(text)
     
-    setAnswer(knowledgeAnswer)
+    setAnswer(naturalAnswer)
     
     // Si es defensiva, mostrar acciones específicas
     if (isDefensive) {
@@ -658,7 +799,7 @@ function DonChucho({ language, t, places, weather, todayEvents }: { language: La
     } else {
       // Obtener sugerencias de seguimiento normales
       const followUpSuggestions = donChuchoKnowledge.getFollowUpSuggestions(text, isEnglish ? 'en' : 'es')
-      setSuggestions(followUpSuggestions.length > 0 ? followUpSuggestions : [])
+      setSuggestions(followUpSuggestions.length > 0 ? followUpSuggestions : buildNaturalSuggestions(text, false))
     }
     
     // Obtener lugares relacionados
@@ -667,7 +808,7 @@ function DonChucho({ language, t, places, weather, todayEvents }: { language: La
       const relatedPlaces = places.filter(p => relatedPlaceIds.includes(p.id))
       if (relatedPlaces.length > 0) {
         const placeNames = relatedPlaces.map(p => p.name).join(', ')
-        const enhancedAnswer = knowledgeAnswer + (isEnglish ? ` Related places: ${placeNames}` : ` Lugares relacionados: ${placeNames}`)
+        const enhancedAnswer = naturalAnswer + (isEnglish ? ` Related places: ${placeNames}` : ` Lugares relacionados: ${placeNames}`)
         setAnswer(enhancedAnswer)
         setRelatedPlace(relatedPlaces[0]) // Tomar el primer lugar relacionado
       }

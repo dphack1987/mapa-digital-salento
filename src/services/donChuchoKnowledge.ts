@@ -18,6 +18,96 @@ interface KnowledgeItem {
 
 const knowledgeBase: KnowledgeItem[] = [
   {
+    keywords: ['hotel la floresta', 'la floresta salento', 'floresta salento', 'hotel floresta'],
+    category: 'hospedaje',
+    answer: {
+      es: 'Hotel La Floresta es una opción muy buena cuando buscas descansar en Salento con ambiente tranquilo y cercanía al centro. Si quieres alojamiento, puedes pedir información de habitaciones, desayuno y disponibilidad para tu fecha. ¿Te interesa saber si está cerca del pueblo o si tienen wifi y parking?',
+      en: 'Hotel La Floresta is a very good option if you want a quiet stay in Salento and close access to the center. If you need lodging, I can help with room availability, breakfast and dates. Do you want to know if it is near the town or if it has Wi‑Fi and parking?'
+    },
+    followUp: ['¿Necesitas ubicación exacta?', '¿Quieres saber si tienen desayuno?', '¿Te interesa si está cerca del centro?'],
+    relatedPlaces: [5]
+  },
+  {
+    keywords: ['boki mall', 'boki mall boquía', 'boquía hotel', 'hotel boki mall', 'boki'],
+    category: 'hospedaje',
+    answer: {
+      es: 'Boki Mall en Boquía es una de las opciones más completas de Salento: hotel, restaurante, café bar y vistas. Es ideal si quieres combinar descanso con buena comida y un ambiente más exclusivo. ¿Te interesa reservar, saber cómo llegar o comparar con otros hoteles?',
+      en: 'Boki Mall in Boquía is one of the most complete options in Salento: hotel, restaurant, coffee bar and views. It is ideal if you want to combine rest with good food and a more exclusive atmosphere. Do you want to book, know how to get there, or compare it with other hotels?'
+    },
+    followUp: ['¿Quieres ver disponibilidad?', '¿Te sirve la ubicación en Boquía?', '¿Prefieres hotel o restaurante?'],
+    relatedPlaces: [13]
+  },
+  {
+    keywords: ['mirador las manos de dios', 'las manos de dios', 'manos de dios salento', 'mirador manos de dios'],
+    category: 'turismo',
+    answer: {
+      es: 'El Mirador Las Manos de Dios es un atractivo muy visitado por su valor fotográfico y por la vista del paisaje. Está cerca del pueblo y combina muy bien con una caminata o con otros planes del día. ¿Quieres saber cómo llegar, la mejor hora para ir o si vale la pena combinarlo con Cocora?',
+      en: 'Mirador Las Manos de Dios is a very popular attraction because of its photo value and landscape view. It is close to town and pairs very well with a walk or other daytime plans. Do you want to know how to get there, the best time to visit, or if it is worth combining with Cocora?'
+    },
+    followUp: ['¿Cómo llegar desde el centro?', '¿Mejor hora para fotos?', '¿Lo combino con Cocora?'],
+    relatedPlaces: [14]
+  },
+  {
+    keywords: ['cascadas santa rita', 'santa rita salento', 'cascada santa rita', 'santa rita'],
+    category: 'turismo',
+    answer: {
+      es: 'Las Cascadas Santa Rita son una buena opción si buscas un paseo más natural y tranquilo. Son una caminata muy disfrutada desde Boquía y tienen mucho valor para quien quiere paisaje, agua y senderismo suave. ¿Quieres saber la ruta, la duración o si conviene ir temprano?',
+      en: 'Santa Rita Waterfalls are a great option if you are looking for a more natural and peaceful outing. They are a very enjoyable walk from Boquía and are ideal for those who want landscapes, water and gentle hiking. Do you want to know the route, the duration, or whether it is better to go early?'
+    },
+    followUp: ['¿Cuánto dura la caminata?', '¿Conviene ir temprano?', '¿Cómo llegar desde Salento?'],
+    relatedPlaces: [15]
+  },
+  {
+    keywords: ['finca cafetera don elias', 'finca don elias', 'don elias salento', 'cafetera don elias'],
+    category: 'turismo',
+    answer: {
+      es: 'La Finca Cafetera Don Elías es ideal para quienes quieren entender el café de verdad, desde la plantación hasta la taza. Es una experiencia muy auténtica y muy buena para viajeros que buscan algo más local y educativo. ¿Quieres saber horario, si se recomienda reservar o qué incluye la visita?',
+      en: 'Don Elías Coffee Farm is ideal for those who want to understand coffee in a real way, from the plantation to the cup. It is a very authentic experience and great for travelers looking for something more local and educational. Do you want to know the hours, whether a reservation is recommended, or what the visit includes?'
+    },
+    followUp: ['¿Es recomendable reservar?', '¿Qué incluye la visita?', '¿Cuánto dura?'],
+    relatedPlaces: [8]
+  },
+  {
+    keywords: ['restaurante don elias', 'don elias restaurante', 'don elías salento restaurante', 'restaurantes don elias'],
+    category: 'comida',
+    answer: {
+      es: 'Restaurante Don Elías se destaca por su propuesta más local y por la experiencia gastronómica en Salento. Si buscas comer bien sin perder la esencia del pueblo, es una gran referencia. ¿Te interesa saber si tienen cocina típica, menú para parejas o si conviene reservar?',
+      en: 'Restaurante Don Elías stands out for its local proposal and the gastronomic experience in Salento. If you are looking for a good meal without losing the essence of the town, it is a great reference. Do you want to know if they have typical cuisine, a couple-friendly menu, or if booking is recommended?'
+    },
+    followUp: ['¿Tienen cocina típica?', '¿Es recomendable reservar?', '¿Precio aproximado?'],
+    relatedPlaces: [9]
+  },
+  {
+    keywords: ['moto aventura 110', 'aventura 110', 'moto aventura', 'mototaxi aventura 110'],
+    category: 'transporte',
+    answer: {
+      es: 'Moto Aventura 110 es una muy buena referencia si quieres movilidad local en Salento y rutas más rápidas o más flexibles. Es útil para quienes quieren recorrer zonas cercanas sin depender solo de rutas fijas. ¿Te interesa saber si trabajan recorridos, traslado o recomendaciones de ruta?',
+      en: 'Moto Aventura 110 is a very good reference if you want local mobility in Salento and faster or more flexible routes. It is useful for those who want to explore nearby areas without depending only on fixed routes. Do you want to know if they offer rides, transfers, or route recommendations?'
+    },
+    followUp: ['¿Ofrecen traslados?', '¿Cómo contactar?', '¿Qué rutas suelen manejar?'],
+    relatedPlaces: [11]
+  },
+  {
+    keywords: ['cabalgatas cocora magica', 'cocora magica', 'cabalgatas salento', 'cabalgata cocora magica'],
+    category: 'turismo',
+    answer: {
+      es: 'Cabalgatas Cocora Mágica es una opción muy buena para vivir el Valle de Cocora de una forma distinta. Si buscas experiencia, paisaje y una propuesta más tradicional, es una gran alternativa. ¿Quieres saber si incluyen recorrido, horario o si es recomendable para familias?',
+      en: 'Cabalgatas Cocora Mágica is a very good option if you want to experience Cocora Valley in a different way. If you are looking for an experience, landscape and a more traditional proposal, it is a great alternative. Do you want to know if it includes a route, schedule, or if it is recommended for families?'
+    },
+    followUp: ['¿Incluye transporte?', '¿Es buena para familias?', '¿Cuánto dura?'],
+    relatedPlaces: [10]
+  },
+  {
+    keywords: ['fonda boquía', 'boquía restaurante', 'fonda salento', 'fonda boquía salento'],
+    category: 'comida',
+    answer: {
+      es: 'Fonda Boquía es una referencia muy útil si quieres comer bien mientras exploras la zona rural de Salento. Tiene ese sabor casero y local que mucha gente busca cuando viene a Boquía. ¿Te interesa saber si es buena para almuerzo, si tienen platos típicos o si está cerca de la cascada?',
+      en: 'Fonda Boquía is a very useful reference if you want to eat well while exploring the rural area of Salento. It has that homemade and local flavor that many people look for when they come to Boquía. Do you want to know if it is good for lunch, if they have typical dishes, or if it is close to the waterfall?'
+    },
+    followUp: ['¿Tienen platos típicos?', '¿Es buena para almuerzo?', '¿Qué tan cerca está de la cascada?'],
+    relatedPlaces: [12]
+  },
+  {
     keywords: ['cafe', 'coffee', 'cafetería', 'café especialidad', 'origen'],
     category: 'cafe',
     answer: {
@@ -298,15 +388,14 @@ class DonChuchoKnowledge {
    * Buscar respuesta basada en keywords
    */
   findAnswer(query: string, language: 'es' | 'en' = 'es'): KnowledgeItem | null {
-    const normalizedQuery = query.toLowerCase()
-    
-    // Buscar coincidencias en keywords
-    for (const item of knowledgeBase) {
-      for (const keyword of item.keywords) {
-        if (normalizedQuery.includes(keyword.toLowerCase())) {
-          return item
-        }
-      }
+    const normalizedQuery = query
+      .toLowerCase()
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+
+    const scoredResults = this.searchWithScore(normalizedQuery, language)
+    if (scoredResults.length > 0) {
+      return scoredResults[0].item
     }
 
     return null
@@ -385,12 +474,20 @@ class DonChuchoKnowledge {
       let score = 0
       const queryWords = normalizedQuery.split(/\s+/)
 
-      for (const word of queryWords) {
-        for (const keyword of item.keywords) {
-          if (keyword.toLowerCase().includes(word)) {
-            score += 1
-            if (keyword.toLowerCase() === word) {
-              score += 2 // Coincidencia exacta tiene más peso
+      for (const keyword of item.keywords) {
+        const normalizedKeyword = keyword.toLowerCase()
+        if (normalizedQuery.includes(normalizedKeyword)) {
+          score += 12
+          if (normalizedQuery === normalizedKeyword) {
+            score += 8
+          }
+        }
+
+        for (const word of queryWords) {
+          if (normalizedKeyword.includes(word)) {
+            score += 3
+            if (normalizedKeyword === word) {
+              score += 6
             }
           }
         }

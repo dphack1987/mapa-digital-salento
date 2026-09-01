@@ -32,15 +32,22 @@ def iter_files(root: Path):
 
 def main():
     findings = {target: [] for target in TARGETS}
+    files_scanned = 0
+    
+    print(f'Escaneando archivos en: {ROOT}')
+    
     for file in iter_files(ROOT):
+        files_scanned += 1
         try:
             text = file.read_text(encoding='utf-8')
-        except Exception:
+        except Exception as e:
+            print(f'Error leyendo {file}: {e}')
             continue
         for target in TARGETS:
             if target.lower() in text.lower():
                 findings[target].append(str(file.relative_to(ROOT)))
 
+    print(f'Archivos escaneados: {files_scanned}')
     print('=== SEO BRAND AUDIT ===')
     print(f'ROOT: {ROOT}')
     print()
@@ -61,6 +68,13 @@ def main():
             print(f'  - {item}')
     else:
         print('  Ningún hit. Revisar branding. ')
+
+    print('\nDETAILED FINDINGS:')
+    for target, hits in findings.items():
+        print(f'{target}: {len(hits)} hits')
+        if hits:
+            for hit in hits[:5]:
+                print(f'  - {hit}')
 
     print('\nRECOMENDACION:')
     print('1) Canonical y Open Graph deben apuntar a salentoalamano.com.')
