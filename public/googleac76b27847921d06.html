@@ -3,5 +3,18 @@
 <meta name="google-site-verification" content="jHPxwutu-FWCZaMEyI4UOcFCGdg7MLiXiOrJvQQ114w" />
 </head>
 <body>
+
+<style>
+  .floating-nav { position: fixed; right: 18px; bottom: 22px; display: flex; flex-direction: column; gap: 10px; z-index: 1000; }
+  .float-btn { width: 46px; height: 46px; border: none; border-radius: 50%; background: #1f2d26; color: #fff; font-size: 22px; font-weight: 700; display: grid; place-items: center; cursor: pointer; box-shadow: 0 8px 20px rgba(0,0,0,0.18); }
+  .home-btn { background: #dd7f5d; }
+</style>
+
+<div class="floating-nav" aria-label="Navegación rápida">
+  <a href="/index.html" class="float-btn home-btn" aria-label="Volver al inicio">🏠</a>
+  <button class="float-btn" type="button" aria-label="Subir arriba" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">↑</button>
+  <button class="float-btn" type="button" aria-label="Bajar abajo" onclick="window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' })">↓</button>
+</div>
+
 </body>
 </html>

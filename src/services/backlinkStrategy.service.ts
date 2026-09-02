@@ -25,7 +25,7 @@ interface ContentLocalization {
 }
 
 class BacklinkStrategyService {
-  private domain: string = 'https://mapa-digital-salento.vercel.app'
+  private domain: string = 'https://salentoalamano.com'
   private brandName: string = 'Salento a la Mano'
 
   /**

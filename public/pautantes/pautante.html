@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pautante | Salento a la Mano</title>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap');
+      :root { --paper:#f5f1e8; --ink:#1f2d26; --line:#d9d0bf; --coral:#dd7f5d; --green:#5a7d63; --white:#fff; }
+      *{box-sizing:border-box} body{margin:0;background:var(--paper);color:var(--ink);font-family:Arial,sans-serif} a{text-decoration:none;color:inherit} .container{max-width:1200px;margin:0 auto;padding:32px 20px 80px}.breadcrumb{color:#59665f;margin-bottom:16px} .brand{font-weight:700;font-size:1.3rem}.topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px}.btn{display:inline-flex;align-items:center;justify-content:center;padding:10px 14px;border-radius:999px;border:1px solid var(--line);background:var(--white);font-weight:700}.primary{background:var(--ink);color:var(--white);border-color:var(--ink)}.whatsapp{background:#25d366;border-color:#25d366;color:#fff}.hero{display:grid;grid-template-columns:1.2fr .8fr;gap:24px}.panel{background:var(--white);border:1px solid var(--line);border-radius:24px;padding:24px}.provider-head{display:flex;align-items:center;gap:16px;margin-bottom:12px}.logo{width:72px;height:72px;border-radius:18px;background:linear-gradient(135deg,var(--coral),var(--yellow));display:grid;place-items:center;font-weight:700;color:#fff;font-size:1.4rem}.name{margin:0;font-size:clamp(2rem,4vw,3rem)}.meta{display:flex;flex-wrap:wrap;gap:10px;margin:12px 0}.pill{display:inline-flex;padding:7px 10px;border-radius:999px;background:#f3ead6;border:1px solid var(--line);font-size:11px;font-weight:700;text-transform:uppercase}.desc{color:#526057;line-height:1.7}.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px}.gallery img{width:100%;height:180px;object-fit:cover;border-radius:16px;border:1px solid var(--line)}.info-list{display:grid;gap:12px}.info-item{padding:12px 0;border-bottom:1px solid var(--line)}.info-item strong{display:block;margin-bottom:4px;font-size:11px;text-transform:uppercase;color:#5b685f}.tag-list{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}.tag{background:#f3ead6;border:1px solid var(--line);padding:7px 10px;border-radius:999px;font-size:11px} @media (max-width: 860px){ .hero{grid-template-columns:1fr}.gallery{grid-template-columns:1fr} }
+        *{box-sizing:border-box} body{margin:0;background:var(--paper);color:var(--ink);font-family:'DM Sans',sans-serif} a{text-decoration:none;color:inherit} .container{max-width:1200px;margin:0 auto;padding:32px 20px 80px}.breadcrumb{color:#59665f;margin-bottom:16px} .brand{display:inline-flex;align-items:center;gap:10px;font-weight:700;font-size:1.3rem}.brand-logo{width:42px;height:42px;object-fit:contain;border-radius:50%}.topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px}.btn{display:inline-flex;align-items:center;justify-content:center;padding:10px 14px;border-radius:999px;border:1px solid var(--line);background:var(--white);font-weight:700}.primary{background:var(--ink);color:var(--white);border-color:var(--ink)}.whatsapp{background:#25d366;border-color:#25d366;color:#fff}.hero{display:grid;grid-template-columns:1.2fr .8fr;gap:24px}.panel{background:var(--white);border:1px solid var(--line);border-radius:24px;padding:24px}.provider-head{display:flex;align-items:center;gap:16px;margin-bottom:12px}.logo{width:72px;height:72px;border-radius:18px;background:linear-gradient(135deg,var(--coral),var(--yellow));display:grid;place-items:center;font-weight:700;color:#fff;font-size:1.4rem}.name{margin:0;font-size:clamp(2rem,4vw,3rem)}.meta{display:flex;flex-wrap:wrap;gap:10px;margin:12px 0}.pill{display:inline-flex;padding:7px 10px;border-radius:999px;background:#f3ead6;border:1px solid var(--line);font-size:11px;font-weight:700;text-transform:uppercase}.desc{color:#526057;line-height:1.7}.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px}.gallery img{width:100%;height:180px;object-fit:cover;border-radius:16px;border:1px solid var(--line)}.info-list{display:grid;gap:12px}.info-item{padding:12px 0;border-bottom:1px solid var(--line)}.info-item strong{display:block;margin-bottom:4px;font-size:11px;text-transform:uppercase;color:#5b685f}.tag-list{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}.tag{background:#f3ead6;border:1px solid var(--line);padding:7px 10px;border-radius:999px;font-size:11px} @media (max-width: 860px){ .hero{grid-template-columns:1fr}.gallery{grid-template-columns:1fr} }
+    </style>
+    <link rel="stylesheet" href="/page-theme.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="topbar">
+        <div class="brand">Salento a la Mano</div>
+          <div class="brand"><img src="/logo_salento2026.png" alt="Salento a la Mano" class="brand-logo"/><span>Salento a la Mano</span></div>
+        <a id="backLink" class="btn" href="/categorias/index.html">Volver</a>
+      </div>
+
+      <div class="breadcrumb" id="breadcrumb">Inicio / Pautante</div>
+
+      <div class="hero">
+        <section class="panel">
+          <div class="provider-head">
+            <div id="logo" class="logo">S</div>
+            <div>
+              <div class="meta">
+                <span id="typePill" class="pill">Servicio</span>
+                <span id="ratingPill" class="pill">⭐ 4.8</span>
+              </div>
+              <h1 id="name" class="name">Pautante</h1>
+            </div>
+          </div>
+
+          <p id="description" class="desc">Descripción del servicio.</p>
+          <div class="actions">
+            <a id="whatsappBtn" class="btn whatsapp" href="#" target="_blank" rel="noreferrer">WhatsApp directo</a>
+            <a id="phoneBtn" class="btn" href="#">Llamar</a>
+            <a id="websiteBtn" class="btn" href="#" target="_blank" rel="noreferrer">Web</a>
+          </div>
+
+          <div id="gallery" class="gallery"></div>
+        </section>
+
+        <aside class="panel">
+          <div class="info-list">
+            <div class="info-item"><strong>Dirección</strong><span id="address">Sin dirección</span></div>
+            <div class="info-item"><strong>Referencia</strong><span id="landmark">Sin referencia</span></div>
+            <div class="info-item"><strong>Horario</strong><span id="hours">Horario por confirmar</span></div>
+            <div class="info-item"><strong>Precio</strong><span id="price">$$</span></div>
+            <div class="info-item"><strong>Contacto</strong><span id="contactList">Datos por confirmar</span></div>
+          </div>
+        </aside>
+      </div>
+
+      <section class="panel" style="margin-top:24px;">
+        <h2>Información del establecimiento</h2>
+        <div id="tags" class="tag-list"></div>
+      </section>
+    </div>
+
+    <script>
+      const params = new URLSearchParams(window.location.search);
+      const name = params.get('name');
+      const fallback = [
+        'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80',
+        'https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=900&q=80',
+        'https://images.unsplash.com/photo-1527631746610-bca00a040d60?auto=format&fit=crop&w=900&q=80'
+      ];
+
+      async function loadProvider() {
+        const res = await fetch('/data/places.json');
+        const data = await res.json();
+        const provider = (data.places || []).find((p) => p.name === name);
+
+        if (!provider) {
+          document.getElementById('name').textContent = 'No se encontró el pautante';
+          return;
+        }
+
+        const logo = document.getElementById('logo');
+        const initials = provider.name.split(' ').filter(Boolean).slice(0,2).map((part) => part[0]).join('').toUpperCase();
+        logo.textContent = initials || 'S';
+
+        document.getElementById('name').textContent = provider.name;
+        document.getElementById('typePill').textContent = provider.type || 'Servicio';
+        document.getElementById('ratingPill').textContent = `⭐ ${provider.rating || '4.8'}`;
+        document.getElementById('description').textContent = provider.description || 'Servicio destacado en Salento.';
+        document.getElementById('address').textContent = provider.location?.address || 'Sin dirección registrada';
+        document.getElementById('landmark').textContent = provider.location?.landmark || 'Sin referencia';
+        document.getElementById('hours').textContent = provider.operatingHours?.notes || provider.operatingHours?.monday || 'Horario por confirmar';
+        document.getElementById('price').textContent = provider.priceRange || '$$';
+
+        const contactList = [
+          provider.contact?.phone ? `<div><a href="tel:${provider.contact.phone}">${provider.contact.phone}</a></div>` : '',
+          provider.contact?.email ? `<div><a href="mailto:${provider.contact.email}">${provider.contact.email}</a></div>` : '',
+          provider.contact?.website ? `<div><a href="${provider.contact.website}" target="_blank" rel="noreferrer">${provider.contact.website}</a></div>` : ''
+        ].filter(Boolean).join('');
+        document.getElementById('contactList').innerHTML = contactList || 'Datos por confirmar';
+
+        const whatsappNumber = String(provider.contact?.whatsapp || '').replace(/\D/g, '');
+        const phoneNumber = String(provider.contact?.phone || '').replace(/[^+\d]/g, '');
+        const whatsappBtn = document.getElementById('whatsappBtn');
+        const phoneBtn = document.getElementById('phoneBtn');
+        const websiteBtn = document.getElementById('websiteBtn');
+        whatsappBtn.hidden = !/^\d{8,15}$/.test(whatsappNumber);
+        phoneBtn.hidden = !/^\+?\d{8,15}$/.test(phoneNumber);
+        websiteBtn.hidden = !provider.contact?.website;
+        whatsappBtn.href = `https://wa.me/${whatsappNumber}`;
+        phoneBtn.href = `tel:${phoneNumber}`;
+        websiteBtn.href = provider.contact?.website || '/categorias/index.html';
+
+        const gallery = document.getElementById('gallery');
+        gallery.innerHTML = (provider.images || fallback).slice(0, 3).map((img) => `<img src="${img}" alt="${provider.name}" loading="lazy" />`).join('');
+
+        const tags = document.getElementById('tags');
+        tags.innerHTML = (provider.tags || ['Servicio local']).map((tag) => `<span class="tag">${tag}</span>`).join('');
+
+        const currentType = provider.type || 'Servicios';
+        const backUrl = `/categorias/${currentType.toLowerCase().replace(/\s+/g, '').replace(/á/g,'a').replace(/é/g,'e').replace(/í/g,'i').replace(/ó/g,'o').replace(/ú/g,'u')}.html`;
+        document.getElementById('backLink').href = backUrl;
+        document.getElementById('breadcrumb').innerHTML = `Inicio / <a href="/categorias/index.html">Categorías</a> / <a href="${backUrl}">${currentType}</a> / ${provider.name}`;
+      }
+
+      loadProvider();
+    </script>
+  
+<style>
+  .floating-nav { position: fixed; right: 18px; bottom: 22px; display: flex; flex-direction: column; gap: 10px; z-index: 1000; }
+  .float-btn { width: 46px; height: 46px; border: none; border-radius: 50%; background: #1f2d26; color: #fff; font-size: 22px; font-weight: 700; display: grid; place-items: center; cursor: pointer; box-shadow: 0 8px 20px rgba(0,0,0,0.18); }
+  .home-btn { background: #dd7f5d; }
+</style>
+
+<div class="floating-nav" aria-label="Navegación rápida">
+  <a href="/index.html" class="float-btn home-btn" aria-label="Volver al inicio">🏠</a>
+  <button class="float-btn" type="button" aria-label="Subir arriba" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">↑</button>
+  <button class="float-btn" type="button" aria-label="Bajar abajo" onclick="window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' })">↓</button>
+</div>
+
+</body>
+</html>

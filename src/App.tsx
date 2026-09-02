@@ -44,6 +44,43 @@ import {
 } from 'lucide-react'
 import { Category, Language, Currency, Place, MapMarker, Hotel as HotelType } from './types'
 import dataService from './services/dataService'
+
+const salentoImageGallery = [
+  ['1326163558.webp', 'Paisaje urbano de Salento'],
+  ['1326163759.webp', 'Paisaje de Salento'],
+  ['631026720.webp', 'Arquitectura tradicional de Salento'],
+  ['631032744.webp', 'Iglesia y plaza de Salento'],
+  ['653410779.webp', 'Palmas de cera del Quindío'],
+  ['calle.jfif', 'Calle colorida de Salento'],
+  ['destinos-75.png', 'Destinos turísticos de Salento'],
+  ['iglesia.jfif', 'Iglesia de Salento'],
+  ['images (1).jfif', 'Paisaje del destino'],
+  ['images (2).jfif', 'Paisaje natural del Quindío'],
+  ['images.jfif', 'Vista de Salento'],
+  ['patacon 3.jfif', 'Patacón de la cocina local'],
+  ['patacon.jfif', 'Patacón tradicional'],
+  ['patacon2.jfif', 'Plato local con patacón'],
+  ['patacon4.jfif', 'Gastronomía local'],
+  ['pueblo.jfif', 'Pueblo de Salento'],
+  ['trucha y patacon.jfif', 'Trucha con patacón'],
+  ['Trucha-con-camarones-Salento-Quindio-1024x768.jpeg.webp', 'Trucha con camarones'],
+  ['trucha1.jfif', 'Trucha de la cocina salentina'],
+  ['truite-a-la-plancha.jpg', 'Trucha a la plancha']
+]
+
+const serviceCardImages = {
+  gastronomy: '/imagenes-salento/trucha%20y%20patacon.jfif',
+  transport: '/imagenes-salento/destinos-75.png',
+  horseback: '/imagenes-salento/1326163558.webp',
+  guides: '/imagenes-salento/pueblo.jfif',
+  accommodation: '/pautas/finca_hotel_el_ocaso/imagenes/vistas.webp',
+  artisan: '/imagenes-salento/calle.jfif',
+  commerce: '/imagenes-salento/iglesia.jfif'
+} as const
+
+function providerSlug(name: string) {
+  return name.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')
+}
 import translationService from './services/translationService'
 import orderSyncService from './services/orderSyncService'
 import donChuchoKnowledge from './services/donChuchoKnowledge'
@@ -147,6 +184,18 @@ function getCountryFlag(country: string): string {
     'Estados Unidos': 'us',
     Brasil: 'br',
     México: 'mx',
+    Italia: 'it',
+    Dinamarca: 'dk',
+    España: 'es',
+    'Países Bajos': 'nl',
+    Suiza: 'ch',
+    Suecia: 'se',
+    Noruega: 'no',
+    Portugal: 'pt',
+    Bélgica: 'be',
+    Austria: 'at',
+    Irlanda: 'ie',
+    Finlandia: 'fi',
   }
   return flags[country] || 'un'
 }
@@ -244,6 +293,7 @@ function App() {
   const [showAllyVerification, setShowAllyVerification] = useState(false)
   const [showProviderModal, setShowProviderModal] = useState(false)
   const [selectedCategory, setSelectedCategory] = useState<Category | null>(null)
+  const [selectedCategoryPage, setSelectedCategoryPage] = useState<Category | null>(null)
 
   // Función para manejar acciones del modal de pautantes
   const handleProviderAction = (providerId: number, action: 'reserve' | 'order' | 'contact') => {
@@ -383,10 +433,29 @@ function App() {
   }, [activeCategory, search, places])
 
   const internationalMarketsPreview = useMemo(() => {
-    return internationalSEOService.getInternationalMarkets().slice(0, 8)
+    return internationalSEOService.getInternationalMarkets()
   }, [])
 
   const visibleMarkers = useMemo(() => mapMarkers.filter((marker) => activeCategory === 'Todo' || marker.type === categoryToMapType(activeCategory)), [activeCategory, mapMarkers])
+
+  const categoryPagePlaces = useMemo(() => {
+    if (!selectedCategoryPage || selectedCategoryPage === 'Todo') {
+      return places
+    }
+
+    const categoryKeywords: Record<Category, string[]> = {
+      Todo: [],
+      Alojamientos: ['alojamiento', 'hotel', 'hostal', 'hospedaje', 'resort', 'lodging', 'cabin', 'cabaña'],
+      Restaurantes: ['restaurante', 'cafe', 'cafeteria', 'gastronomia', 'brunch', 'comida', 'coffee', 'bar', 'pizza', 'burger'],
+      'Cafés': ['cafe', 'cafeteria', 'coffee', 'espresso', 'brunch'],
+      Artesanías: ['artesania', 'artesanias', 'manualidades', 'tejido', 'fibras', 'craft', 'handmade', 'regalo'],
+      Tiendas: ['tienda', 'shop', 'comercio', 'mercado', 'venta', 'boutique', 'store', 'souvenir'],
+      Experiencias: ['cabalgata', 'caballo', 'equitacion', 'horse', 'ride', 'guia', 'tour', 'ruta', 'senderismo', 'adventure', 'guide', 'experiencia'],
+      Servicios: ['transporte', 'moto', 'jeep', 'taxi', 'movilidad', 'transfer', 'transport', 'vehicle', 'servicio'],
+    }
+
+    return places.filter((place) => matchesKeywords(place, categoryKeywords[selectedCategoryPage]))
+  }, [places, selectedCategoryPage])
 
   // Manejar cambio de idioma
   function handleLanguageChange(newLanguage: Language) {
@@ -406,8 +475,38 @@ function App() {
     setMobileNav(false)
   }
 
+  function searchService(term: string) {
+    setActiveCategory('Todo')
+    setSelectedCategoryPage(null)
+    setSelectedPlace(null)
+    setSearch(term)
+    setTimeout(() => scrollToSection('pedidos'), 0)
+  }
+
   function scrollToHome() {
     window.scrollTo({ top: 0, behavior: 'smooth' })
+    setMobileNav(false)
+    setSelectedCategoryPage(null)
+  }
+
+  function goToCategory(category: Category) {
+    const categoryPaths: Partial<Record<Category, string>> = {
+      Alojamientos: 'alojamientos',
+      Restaurantes: 'restaurantes',
+      Cafés: 'cafes',
+      Artesanías: 'artesanias',
+      Tiendas: 'tiendas',
+      Experiencias: 'experiencias',
+      Servicios: 'servicios'
+    }
+    const categoryPath = categoryPaths[category]
+    if (categoryPath) {
+      window.location.assign(`/categorias/${categoryPath}.html`)
+      return
+    }
+    setActiveCategory(category)
+    setSelectedCategoryPage(category)
+    setSelectedPlace(null)
     setMobileNav(false)
   }
 
@@ -461,6 +560,9 @@ function App() {
             <b>{cartCount}</b>
             <span>Carrito</span>
           </button>
+          <button className="header-home-button" onClick={scrollToHome} aria-label="Volver al inicio">
+            <Home size={18} />
+          </button>
           <button className="icon-button mobile-menu" aria-label="Abrir menú" onClick={() => setMobileNav(!mobileNav)}><Menu size={20} /></button>
           <div className="locale-tools-mobile">
             <select aria-label="Cambiar idioma" value={language} onChange={(event) => handleLanguageChange(event.target.value as Language)}>
@@ -479,21 +581,26 @@ function App() {
           <nav className="mobile-nav-panel" aria-label="Navegación móvil">
             <button onClick={() => scrollToSection('inicio')}>Inicio</button>
             <button onClick={() => scrollToSection('servicios')}>Servicios</button>
+            <button onClick={() => goToCategory('Alojamientos')}>Alojamientos</button>
             <button onClick={() => scrollToSection('pedidos')}>Directorio</button>
             <button onClick={() => scrollToSection('mapa')}>Mapa</button>
             <button onClick={() => scrollToSection('pautas')}>Pautas</button>
             <button onClick={() => scrollToSection('guia-offline')}>Guía offline</button>
+            <button onClick={() => searchService('cabalgata')}>Cabalgatas</button>
+            <button onClick={() => searchService('taxi')}>Transporte urbano</button>
+            <button onClick={() => searchService('jeep')}>Transporte rural</button>
+            <button onClick={() => searchService('moto')}>Alquiler de motos</button>
+            <button onClick={() => searchService('bicicleta')}>Alquiler de bicicletas</button>
           </nav>
         )}
       </header>
 
-      <nav className="main-nav sticky-nav" aria-label="Navegación principal">
-        <button onClick={scrollToHome}>Inicio</button>
-        <button onClick={() => scrollToSection('servicios')}>Servicios</button>
-        <button onClick={() => scrollToSection('pedidos')}>Directorio</button>
+      <nav className="tourist-nav sticky-nav" aria-label="Navegación para turistas">
+        <button onClick={() => goToCategory('Alojamientos')}>Alojamientos</button>
+        <button onClick={() => goToCategory('Restaurantes')}>Comer</button>
+        <button onClick={() => goToCategory('Experiencias')}>Ver</button>
         <button onClick={() => scrollToSection('mapa')}>Mapa</button>
-        <button onClick={() => scrollToSection('pautas')}>Pautas</button>
-        <button onClick={() => scrollToSection('guia-offline')}>Guía offline</button>
+        <button onClick={() => goToCategory('Alojamientos')}>Reservar</button>
       </nav>
 
       <div className="international-presence-banner" aria-label="Mercados internacionales">
@@ -501,20 +608,22 @@ function App() {
           <span className="presence-tag">Marketing global</span>
           <strong>Salento llega a más mercados</strong>
         </div>
-        <div className="presence-flags" aria-label="Banderas de mercados internacionales">
-          {internationalMarketsPreview.map((market) => (
-            <div key={market.country} className="flag-pill" title={`${market.country} · ${market.language}`} aria-label={market.country}>
-              <img
-                className="flag-emoji"
-                src={`https://flagcdn.com/w40/${getCountryFlag(market.country)}.png`}
-                alt={market.country}
-                loading="lazy"
-              />
-            </div>
-          ))}
-          <span className="presence-more" aria-label="Más mercados internacionales">
-            +{Math.max(0, internationalSEOService.getInternationalMarkets().length - internationalMarketsPreview.length)}
-          </span>
+        <div className="presence-flags-viewport" aria-label="Banderas de mercados internacionales">
+          <div className="presence-flags-track">
+            {[...internationalMarketsPreview, ...internationalMarketsPreview].map((market, index) => (
+              <div key={`${market.country}-${index}`} className="flag-pill" title={`${market.country} · ${market.language}`} aria-label={market.country}>
+                <img
+                  className="flag-emoji"
+                  src={`https://flagcdn.com/w40/${getCountryFlag(market.country)}.png`}
+                  alt={market.country}
+                  loading="lazy"
+                />
+              </div>
+            ))}
+            <span className="presence-more" aria-label="Más mercados internacionales">
+              +{Math.max(0, internationalSEOService.getInternationalMarkets().length - internationalMarketsPreview.length)}
+            </span>
+          </div>
         </div>
       </div>
 
@@ -537,7 +646,39 @@ function App() {
       )}
 
       <main id="inicio">
-        {loading ? (
+        {selectedCategoryPage ? (
+          <section className="category-page-shell" id="category-page">
+            <div className="category-page-header">
+              <div>
+                <p className="eyebrow">Categoría</p>
+                <h2>{selectedCategoryPage}</h2>
+              </div>
+              <button className="text-button" onClick={() => setSelectedCategoryPage(null)}>Volver al directorio</button>
+            </div>
+
+            <div className="category-page-summary">
+              <span>{categoryPagePlaces.length} lugares disponibles</span>
+              <strong>{selectedCategoryPage}</strong>
+            </div>
+
+            <div className="place-grid category-page-grid">
+              {categoryPagePlaces.map((place) => (
+                <PlaceCard
+                  key={place.id}
+                  place={adaptPlaceForCompatibility(place)}
+                  currency={currency}
+                  onAdd={addToCart}
+                  onOpen={() => window.location.assign(`/paginas-pautantes/${providerSlug(place.name)}/`)}
+                  onReviews={() => { setShowReviews(place.id); setSelectedPlaceForReviews({ id: place.id, name: place.name, type: place.type }) }}
+                />
+              ))}
+            </div>
+
+            {categoryPagePlaces.length === 0 && (
+              <div className="empty-state">Todavía no hay servicios disponibles en esta categoría. Prueba otra opción del mapa.</div>
+            )}
+          </section>
+        ) : loading ? (
           <div className="loading-container">
             <div className="loading-spinner">{t('loading')}</div>
           </div>
@@ -545,7 +686,7 @@ function App() {
           <>
         <section className="mobile-dashboard" id="servicios">
           <div className="services-grid">
-            <button className="service-card gastronomy" onClick={() => { setSelectedCategory('Restaurantes'); setShowProviderModal(true) }}>
+            <button className="service-card gastronomy" style={{ backgroundImage: `url(${serviceCardImages.gastronomy})` }} onClick={() => { setSelectedCategory('Restaurantes'); setShowProviderModal(true) }}>
               <div className="service-icon">🍽️</div>
               <div className="service-content">
                 <h3>Gastronomía</h3>
@@ -557,7 +698,7 @@ function App() {
               </div>
             </button>
 
-            <button className="service-card transport" onClick={() => { setSelectedCategory('Servicios'); setShowProviderModal(true) }}>
+            <button className="service-card transport" style={{ backgroundImage: `url(${serviceCardImages.transport})` }} onClick={() => { setSelectedCategory('Servicios'); setShowProviderModal(true) }}>
               <div className="service-icon">🚖</div>
               <div className="service-content">
                 <h3>Transporte</h3>
@@ -569,7 +710,7 @@ function App() {
               </div>
             </button>
 
-            <button className="service-card horseback-riding featured" onClick={() => { setSelectedCategory('Experiencias'); setShowProviderModal(true) }}>
+            <button className="service-card horseback-riding featured" style={{ backgroundImage: `url(${serviceCardImages.horseback})` }} onClick={() => { setSelectedCategory('Experiencias'); setShowProviderModal(true) }}>
               <div className="service-badge">⭐ {language === 'es' ? 'ESPECIAL' : 'FEATURED'}</div>
               <div className="service-icon">🐎</div>
               <div className="service-content">
@@ -582,7 +723,7 @@ function App() {
               </div>
             </button>
 
-            <button className="service-card guides" onClick={() => { setSelectedCategory('Experiencias'); setShowProviderModal(true) }}>
+            <button className="service-card guides" style={{ backgroundImage: `url(${serviceCardImages.guides})` }} onClick={() => { setSelectedCategory('Experiencias'); setShowProviderModal(true) }}>
               <div className="service-icon">🧭</div>
               <div className="service-content">
                 <h3>Guías</h3>
@@ -594,7 +735,7 @@ function App() {
               </div>
             </button>
 
-            <button className="service-card accommodation" onClick={() => { setSelectedCategory('Alojamientos'); setShowProviderModal(true) }}>
+            <button className="service-card accommodation" style={{ backgroundImage: `url(${serviceCardImages.accommodation})` }} onClick={() => { setSelectedCategory('Alojamientos'); setShowProviderModal(true) }}>
               <div className="service-icon">🏨</div>
               <div className="service-content">
                 <h3>Alojamientos</h3>
@@ -606,7 +747,7 @@ function App() {
               </div>
             </button>
 
-            <button className="service-card artisan" onClick={() => { setSelectedCategory('Artesanías'); setShowProviderModal(true) }}>
+            <button className="service-card artisan" style={{ backgroundImage: `url(${serviceCardImages.artisan})` }} onClick={() => { setSelectedCategory('Artesanías'); setShowProviderModal(true) }}>
               <div className="service-icon">🎨</div>
               <div className="service-content">
                 <h3>Artesanías</h3>
@@ -618,7 +759,7 @@ function App() {
               </div>
             </button>
 
-            <button className="service-card commerce" onClick={() => { setSelectedCategory('Tiendas'); setShowProviderModal(true) }}>
+            <button className="service-card commerce" style={{ backgroundImage: `url(${serviceCardImages.commerce})` }} onClick={() => { setSelectedCategory('Tiendas'); setShowProviderModal(true) }}>
               <div className="service-icon">🛒</div>
               <div className="service-content">
                 <h3>Tiendas</h3>
@@ -679,7 +820,7 @@ function App() {
           </div>
           <div className="directory-intro"><span><MapPin size={16} /> Directorio local</span><small>{filteredPlaces.length} lugares para descubrir</small></div>
           <div className="place-grid">
-            {filteredPlaces.map((place) => <PlaceCard key={place.id} place={adaptPlaceForCompatibility(place)} currency={currency} onAdd={addToCart} onOpen={() => { window.history.pushState({}, '', `#pautante-${place.id}`); setSelectedPlace(place) }} onReviews={() => { setShowReviews(place.id); setSelectedPlaceForReviews({ id: place.id, name: place.name, type: place.type }) }} />)}
+            {filteredPlaces.map((place) => <PlaceCard key={place.id} place={adaptPlaceForCompatibility(place)} currency={currency} onAdd={addToCart} onOpen={() => window.location.assign(`/paginas-pautantes/${providerSlug(place.name)}/`)} onReviews={() => { setShowReviews(place.id); setSelectedPlaceForReviews({ id: place.id, name: place.name, type: place.type }) }} />)}
             {filteredPlaces.length === 0 && <div className="empty-state">No encontramos ese plan todavía. Prueba con “café”, “artesanía” o “trucha”.</div>}
           </div>
         </section>
@@ -699,6 +840,13 @@ function App() {
             <img src="/salento/631026720.webp" alt="Calle colorida de Salento" />
             <img src="/salento/631032744.webp" alt="Iglesia y plaza de Salento" />
             <img src="/salento/653410779.webp" alt="Palmas de cera en el Valle de Cocora" />
+          </div>
+        </section>
+
+        <section className="image-inventory-section" aria-label="Galería de imágenes de Salento">
+          <div className="section-heading"><div><p className="eyebrow">Imágenes del territorio</p><h2>Salento en<br /><i>cada detalle.</i></h2></div><small>Destino, cultura y sabores locales</small></div>
+          <div className="image-inventory-grid">
+            {salentoImageGallery.map(([file, alt]) => <figure key={file}><img src={`/imagenes-salento/${encodeURIComponent(file)}`} alt={alt} loading="lazy" /><figcaption>{alt}</figcaption></figure>)}
           </div>
         </section>
 
@@ -777,26 +925,11 @@ function App() {
         <NotificationsPanel onClose={() => setShowNotifications(false)} />
       )}
       <div className="floating-nav-toolbar" aria-label="Navegación rápida">
-        <button className="floating-nav-button" onClick={scrollToHome} aria-label="Volver al inicio">
-          <Home size={18} />
-        </button>
-        <button className="floating-nav-button" onClick={() => setShowLandingPageEstadoActual(true)} aria-label="Estado actual Salento">
-          <Shield size={18} />
-        </button>
-        <button className="floating-nav-button" onClick={() => setShowLandingPageValleCocora(true)} aria-label="Valle de Cocora">
-          <Mountain size={18} />
-        </button>
-        <button className="floating-nav-button" onClick={() => setShowLandingPageHoteles(true)} aria-label="Hoteles">
-          <Hotel size={18} />
-        </button>
-        <button className="floating-nav-button" onClick={() => setShowInternationalMarkets(true)} aria-label="Mercados internacionales">
-          <Globe size={18} />
-        </button>
         <button className="floating-nav-button" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} aria-label="Subir arriba">
-          <ArrowUp size={18} />
+          <ArrowUp size={14} />
         </button>
         <button className="floating-nav-button" onClick={scrollToBottom} aria-label="Bajar abajo">
-          <ArrowDown size={18} />
+          <ArrowDown size={14} />
         </button>
       </div>
       <DonChucho language={language} t={t} places={places} weather={weather} todayEvents={todayEvents} />
@@ -1066,6 +1199,7 @@ function categoryToMapType(category: Category) {
 function PlaceCard({ place, currency, onAdd, onOpen, onReviews }: { place: Place; currency: Currency; onAdd: () => void; onOpen: () => void; onReviews?: () => void }) {
   const Icon = place.icon
   const stats = reviewsService.getPlaceStats(place.id)
+  const mapUrl = `https://www.google.com/maps/search/${encodeURIComponent(place.location?.address || `${place.name} Salento`)}`
   
   return (
     <article className="place-card">
@@ -1100,6 +1234,7 @@ function PlaceCard({ place, currency, onAdd, onOpen, onReviews }: { place: Place
           Desde {formatPrice(35000, currency)} · tasa de referencia
         </small>
         <button className="detail-button" onClick={onOpen}>Ampliar información <ArrowRight size={14} /></button>
+        <a className="map-link-button" href={mapUrl} target="_blank" rel="noopener noreferrer">Cómo llegar <MapPin size={14} /></a>
         {onReviews && (
           <button className="reviews-button" onClick={onReviews} aria-label={`Ver reseñas de ${place.name}`}>
             <Star size={14} />

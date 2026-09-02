@@ -1,0 +1,67 @@
+Escaneando archivos en: C:\Users\user\Documents\mapa-salento-2026\salento-mapa-turistico
+Archivos escaneados: 4195
+=== SEO BRAND AUDIT ===
+ROOT: C:\Users\user\Documents\mapa-salento-2026\salento-mapa-turistico
+
+OLD DOMAIN HITS:
+  Ning·n hit. OK.
+
+BRAND HITS:
+  - ANALISIS_REACTIVACION_ECONOMICA_POSTTERREMOTO.md
+  - CONTENIDO_LANZAMIENTO.md
+  - COSTOS_PROYECTO.md
+  - GUIA_GOOGLE_SEARCH_CONSOLE_INTERNACIONAL.md
+  - INFORME_COMPLETO_PRESENTACION.md
+  - INFORME_EMPRESARIOS_SALENTO.md
+  - INFORME_PROYECTO_SALENTO.md
+  - INFORME_TECNOLOGIAS_Y_ESTRATEGIA_ATAQUE.md
+  - PERCEPCION_EUROPA_SALENTO.md
+  - PLAN_PRESUPUESTO_20M.md
+  - PORCENTAJE_PROYECTO_ACTUAL.md
+  - README.md
+  - dist\assets\index-9UoyZRpS.js
+  - dist\index.html
+  - dist\robots.txt
+  - dist\sitemap.xml
+  - index.html
+  - public\robots.txt
+  - public\sitemap.xml
+  - src\App.tsx
+  - src\components\BusinessLogin.tsx
+  - src\components\QRShare.tsx
+  - src\services\authService.ts
+  - src\services\backlinkGeneratorService.ts
+  - src\services\defensiveSEOG.service.ts
+  - src\services\donationService.ts
+  - src\services\internationalSEO.service.ts
+  - src\services\localBacklinks.service.ts
+  - src\services\orderSyncService.ts
+  - src\services\programmaticSEOLandingService.ts
+
+DETAILED FINDINGS:
+salentoalamano.com: 0 hits
+salentoalamano.com: 0 hits
+salentoalamano.com: 21 hits
+  - CONTENIDO_LANZAMIENTO.md
+  - GUIA_GOOGLE_SEARCH_CONSOLE_INTERNACIONAL.md
+  - index.html
+  - INFORME_COMPLETO_PRESENTACION.md
+  - INFORME_EMPRESARIOS_SALENTO.md
+salento a la mano: 25 hits
+  - ANALISIS_REACTIVACION_ECONOMICA_POSTTERREMOTO.md
+  - CONTENIDO_LANZAMIENTO.md
+  - COSTOS_PROYECTO.md
+  - index.html
+  - INFORME_COMPLETO_PRESENTACION.md
+Salento a la Mano: 25 hits
+  - ANALISIS_REACTIVACION_ECONOMICA_POSTTERREMOTO.md
+  - CONTENIDO_LANZAMIENTO.md
+  - COSTOS_PROYECTO.md
+  - index.html
+  - INFORME_COMPLETO_PRESENTACION.md
+
+RECOMENDACION:
+1) Canonical y Open Graph deben apuntar a salentoalamano.com.
+2) robots.txt y sitemap deben apuntar al dominio corto de marca.
+3) El texto visible debe reforzar Salento a la Mano en tÝtulos, encabezados y CTA.
+4) Mantener Vercel como infraestructura, pero posicionar la marca como el nombre principal del negocio.

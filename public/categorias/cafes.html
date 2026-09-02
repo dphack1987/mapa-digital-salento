@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cafés | Salento a la Mano</title>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap');
+      :root {
+        --paper: #f5f1e8;
+        --ink: #1f2d26;
+        --line: #d9d0bf;
+        --coral: #dd7f5d;
+        --green: #5a7d63;
+        --yellow: #e7c77b;
+        --white: #fff;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0; font-family: 'DM Sans', sans-serif; background: var(--paper); color: var(--ink);
+      }
+      a { color: inherit; text-decoration: none; }
+      .container { max-width: 1100px; margin: 0 auto; padding: 32px 20px 80px; }
+      .topbar { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-bottom: 24px; }
+      .brand { font-size: 20px; font-weight: 700; }
+      .brand { display: inline-flex; align-items: center; gap: 10px; }
+      .brand-logo { width: 42px; height: 42px; object-fit: contain; border-radius: 50%; }
+      .nav-link { background: var(--white); border: 1px solid var(--line); padding: 10px 14px; border-radius: 999px; }
+      .hero {
+        display: grid; grid-template-columns: 1.3fr .7fr; gap: 20px; align-items: stretch; margin-bottom: 28px;
+      }
+      .hero-copy, .hero-visual {
+        background: var(--white); border: 1px solid var(--line); border-radius: 22px; overflow: hidden;
+      }
+      .hero-copy { padding: 30px 28px; }
+      .eyebrow { text-transform: uppercase; letter-spacing: .12em; font-size: 11px; color: var(--coral); font-weight: 700; }
+      h1 { font-size: clamp(2rem, 4vw, 4rem); margin: 12px 0 12px; }
+      .sub { color: #536057; font-size: 1.05rem; line-height: 1.6; }
+      .stats { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 20px; }
+      .stat { background: #f1eadb; border: 1px solid var(--line); border-radius: 14px; padding: 12px 14px; }
+      .hero-visual {
+        background-image: linear-gradient(rgba(0,0,0,.15), rgba(0,0,0,.3)), url('https://images.unsplash.com/photo-1497636577773-f1231844b336?auto=format&fit=crop&w=1200&q=80');
+        background-size: cover; background-position: center; min-height: 260px;
+      }
+      .provider-grid {
+        display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; margin-top: 24px;
+      }
+      .empty-category { display: flex; align-items: center; gap: 18px; margin-top: 24px; padding: 24px; border: 1px dashed var(--coral); background: rgba(255,255,255,.7); }
+      .empty-category-mark { display: grid; place-items: center; width: 42px; height: 42px; flex: 0 0 42px; border: 1px solid var(--coral); border-radius: 50%; color: var(--coral); font-size: 25px; }
+      .empty-category h2 { margin: 0 0 6px; font: 600 22px Fraunces, serif; }
+      .empty-category p { margin: 0; color: #59665f; line-height: 1.5; }
+      .provider-card {
+        background: var(--white); border: 1px solid var(--line); border-radius: 20px; overflow: hidden; 
+      }
+      .card-image {
+        height: 150px; background-size: cover; background-position: center; width: 100%;
+      }
+      .card-body { padding: 18px; }
+      .card-header-row, .meta-row, .card-actions { display: flex; justify-content: space-between; gap: 10px; align-items: center; }
+      .card-header-row { margin-bottom: 10px; }
+      .pill { background: #f3ead6; border-radius: 999px; padding: 6px 10px; font-size: 10px; font-weight: 700; text-transform: uppercase; }
+      .rating { font-size: 12px; font-weight: 700; }
+      h3 { margin: 8px 0 10px; font-size: 1.35rem; }
+      .card-body p { margin: 0 0 14px; color: #59665f; line-height: 1.5; font-size: 0.96rem; }
+      .meta-row { color: #4d5a51; font-size: 12px; margin-bottom: 16px; }
+      .btn {
+        display: inline-flex; align-items: center; justify-content: center; padding: 10px 12px; border-radius: 10px; border: 1px solid var(--line); font-weight: 700; font-size: 12px;
+      }
+      .btn.primary { background: var(--ink); color: var(--white); border-color: var(--ink); }
+      .btn.whatsapp { background: #25d366; border-color: #25d366; color: #fff; }
+      @media (max-width: 760px) {
+        .hero { grid-template-columns: 1fr; }
+        .topbar { flex-direction: column; align-items: flex-start; }
+      }
+    </style>
+    <link rel="stylesheet" href="/page-theme.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="topbar">
+        <a class="brand" href="/index.html"><img src="/logo_salento2026.png" alt="Salento a la Mano" class="brand-logo"/><span>Salento a la Mano</span></a>
+        <nav class="top-actions"><a class="nav-link" href="/">Inicio</a><a class="nav-link" href="/index.html">Volver al inicio</a></nav>
+      </div>
+
+      <section class="hero">
+        <div class="hero-copy">
+          <div class="eyebrow">Categoría</div>
+          <h1>Cafés</h1>
+          <div class="sub">Espacios para tomar café, brunch y momentos tranquilos</div>
+          <div class="stats">
+            <div class="stat"><strong>1</strong> pautantes</div>
+            <div class="stat"><strong>Directo</strong> con locales</div>
+            <div class="stat"><strong>WhatsApp</strong> en cada ficha</div>
+          </div>
+        </div>
+        <div class="hero-visual" aria-label="Cafés"></div>
+      </section>
+
+      <div class="provider-grid">
+        
+      <article class="provider-card">
+        <div class="card-image" style="background-image:url('https://images.unsplash.com/photo-1497636577773-f1231844b336?auto=format&fit=crop&w=1200&q=80')"></div>
+        <div class="card-body">
+          <div class="card-header-row">
+            <span class="pill">Cafés</span>
+            <span class="rating">⭐ 4.9</span>
+          </div>
+          <h3>Café de Altura</h3>
+          <p>Café de origen, métodos filtrados y una pausa con paisaje.</p>
+          <div class="meta-row">
+            <span>$$</span>
+            <span>Abierto hoy</span>
+          </div>
+          <div class="card-actions">
+            <a class="btn primary" href="/pautantes/cafe-de-altura.html">Ver ficha</a>
+            <a class="btn" href="/paginas-pautantes/cafe-de-altura/">Conocer</a>
+            <a class="btn" href="https://www.google.com/maps/search/Calle%20Real" target="_blank" rel="noreferrer">Cómo llegar</a>
+            <a class="btn whatsapp" href="https://wa.me/573209876543" target="_blank" rel="noreferrer">WhatsApp</a>
+          </div>
+        </div>
+      </article>
+    
+        
+      </div>
+    </div>
+  </body>
+</html>

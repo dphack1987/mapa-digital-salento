@@ -1,0 +1,67 @@
+Escaneando archivos en: C:\Users\user\Documents\mapa-salento-2026\salento-mapa-turistico
+Archivos escaneados: 195
+=== SEO BRAND AUDIT ===
+ROOT: C:\Users\user\Documents\mapa-salento-2026\salento-mapa-turistico
+
+OLD DOMAIN HITS:
+  Ning·n hit. OK.
+
+BRAND HITS:
+  - ACTIVACION_INDEXACION.md
+  - ANALISIS_REACTIVACION_ECONOMICA_POSTTERREMOTO.md
+  - CONTENIDO_LANZAMIENTO.md
+  - COSTOS_PROYECTO.md
+  - DIAGNOSTICO_INDEXACION.md
+  - GUIA_GOOGLE_SEARCH_CONSOLE_INTERNACIONAL.md
+  - INFORME_COMPLETO_PRESENTACION.md
+  - INFORME_EMPRESARIOS_SALENTO.md
+  - INFORME_ESTADO_PROYECTO.md
+  - INFORME_PROYECTO_SALENTO.md
+  - INFORME_TECNOLOGIAS_Y_ESTRATEGIA_ATAQUE.md
+  - PERCEPCION_EUROPA_SALENTO.md
+  - PLAN_PRESUPUESTO_20M.md
+  - PORCENTAJE_PROYECTO_ACTUAL.md
+  - README.md
+  - audit_output.txt
+  - index.html
+  - public\categorias\alojamientos.html
+  - public\categorias\artesanias.html
+  - public\categorias\cafes.html
+  - public\categorias\experiencias.html
+  - public\categorias\index.html
+  - public\categorias\restaurantes.html
+  - public\categorias\servicios.html
+  - public\categorias\tiendas.html
+  - public\paginas-pautantes\boki-mall-hotel-el-mirador-de-boquia\index.html
+  - public\paginas-pautantes\brunch-de-la-plaza\index.html
+  - public\paginas-pautantes\cabalgatas-cocora-magica\index.html
+  - public\paginas-pautantes\cabalgatas-valle-de-cocora\index.html
+  - public\paginas-pautantes\cafe-de-altura\index.html
+
+DETAILED FINDINGS:
+mapa-salento.com: 0 hits
+mapa-digital-salento.vercel.app: 0 hits
+salentoalamano.com: 29 hits
+  - ACTIVACION_INDEXACION.md
+  - audit_output.txt
+  - CONTENIDO_LANZAMIENTO.md
+  - DIAGNOSTICO_INDEXACION.md
+  - GUIA_GOOGLE_SEARCH_CONSOLE_INTERNACIONAL.md
+salento a la mano: 93 hits
+  - ANALISIS_REACTIVACION_ECONOMICA_POSTTERREMOTO.md
+  - audit_output.txt
+  - CONTENIDO_LANZAMIENTO.md
+  - COSTOS_PROYECTO.md
+  - DIAGNOSTICO_INDEXACION.md
+Salento a la Mano: 93 hits
+  - ANALISIS_REACTIVACION_ECONOMICA_POSTTERREMOTO.md
+  - audit_output.txt
+  - CONTENIDO_LANZAMIENTO.md
+  - COSTOS_PROYECTO.md
+  - DIAGNOSTICO_INDEXACION.md
+
+RECOMENDACION:
+1) Canonical y Open Graph deben apuntar a salentoalamano.com.
+2) robots.txt y sitemap deben apuntar al dominio corto de marca.
+3) El texto visible debe reforzar Salento a la Mano en tÝtulos, encabezados y CTA.
+4) Mantener Vercel como infraestructura, pero posicionar la marca como el nombre principal del negocio.

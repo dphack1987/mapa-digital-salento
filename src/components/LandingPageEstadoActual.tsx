@@ -4,9 +4,13 @@
  */
 
 import { useState, useEffect } from 'react'
-import { CheckCircle, AlertTriangle, Phone, MapPin, Calendar, Hotel, Route, Shield, Star } from 'lucide-react'
+import { CheckCircle, AlertTriangle, Phone, MapPin, Calendar, Hotel, Route, Shield, Star, X } from 'lucide-react'
 
-const LandingPageEstadoActual: React.FC = () => {
+interface LandingPageEstadoActualProps {
+  onClose?: () => void
+}
+
+const LandingPageEstadoActual: React.FC<LandingPageEstadoActualProps> = ({ onClose }) => {
   const [loading, setLoading] = useState(true)
   const [actualData, setActualData] = useState({
     hotelesAbiertos: 85,
@@ -58,12 +62,19 @@ const LandingPageEstadoActual: React.FC = () => {
       {/* Header SEO */}
       <header className="landing-header">
         <div className="header-content">
-          <h1>Estado Actual Salento 2026: Hoteles Abiertos, Vías Libres y Turismo Seguro</h1>
-          <p className="subtitle">Información actualizada sobre la situación de Salento tras el terremoto de agosto 2026</p>
-          <div className="last-update">
-            <Calendar size={16} />
-            <span>Última actualización: {actualData.ultimaActualizacion}</span>
+          <div className="header-main">
+            <h1>Estado Actual Salento 2026: Hoteles Abiertos, Vías Libres y Turismo Seguro</h1>
+            <p className="subtitle">Información actualizada sobre la situación de Salento tras el terremoto de agosto 2026</p>
+            <div className="last-update">
+              <Calendar size={16} />
+              <span>Última actualización: {actualData.ultimaActualizacion}</span>
+            </div>
           </div>
+          {onClose && (
+            <button className="close-button" onClick={onClose} aria-label="Cerrar">
+              <X size={24} />
+            </button>
+          )}
         </div>
       </header>
 

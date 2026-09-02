@@ -21,8 +21,32 @@ interface HreflangConfiguration {
   alternate: string[]
 }
 
+const EUROPEAN_MARKETS: InternationalMarket[] = [
+  ['Italia', 'it-IT', '59+ millones'],
+  ['Dinamarca', 'da-DK', '6+ millones'],
+  ['España', 'es-ES', '48+ millones'],
+  ['Países Bajos', 'nl-NL', '18+ millones'],
+  ['Suiza', 'de-CH', '9+ millones'],
+  ['Suecia', 'sv-SE', '11+ millones'],
+  ['Noruega', 'nb-NO', '5+ millones'],
+  ['Portugal', 'pt-PT', '10+ millones'],
+  ['Bélgica', 'nl-BE', '12+ millones'],
+  ['Austria', 'de-AT', '9+ millones'],
+  ['Irlanda', 'en-IE', '5+ millones'],
+  ['Finlandia', 'fi-FI', '6+ millones'],
+].map(([country, language, population]) => ({
+  country,
+  language,
+  searchEngine: 'Google',
+  priority: 'medium',
+  population,
+  tourismPotential: 'Turismo europeo interesado en naturaleza y experiencias auténticas',
+  verificationCode: null,
+  status: 'pending',
+}))
+
 class InternationalSEOService {
-  private domain: string = 'https://mapa-digital-salento.vercel.app'
+  private domain: string = 'https://salentoalamano.com'
   private brandName: string = 'Salento a la Mano'
 
   /**
@@ -72,7 +96,7 @@ class InternationalSEOService {
    * Obtener todos los mercados internacionales prioritarios
    */
   getInternationalMarkets(): InternationalMarket[] {
-    return [
+    return [...[
       {
         country: 'China',
         language: 'zh-CN',
@@ -233,7 +257,7 @@ class InternationalSEOService {
         verificationCode: null,
         status: 'pending'
       }
-    ]
+    ], ...EUROPEAN_MARKETS]
   }
 
   /**
@@ -399,7 +423,7 @@ Sitemap: ${this.domain}/sitemap.xml
 Sitemap: ${this.domain}/salentoalamano-defensive-sitemap.xml
 
 # Host para Yandex
-Host: mapa-digital-salento.vercel.app
+Host: salentoalamano.com
 `
   }
 

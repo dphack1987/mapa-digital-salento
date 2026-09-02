@@ -1,3 +1,4 @@
+import os
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -14,13 +15,12 @@ EXTS = {'.html', '.xml', '.txt', '.json', '.md', '.ts', '.tsx', '.js', '.css'}
 
 
 def iter_files(root: Path):
-    for path in root.rglob('*'):
-        if path.is_dir():
-            if path.name in EXCLUDED:
-                continue
-            continue
-        if path.suffix.lower() in EXTS:
-            yield path
+    for current_root, directories, filenames in os.walk(root):
+        directories[:] = [directory for directory in directories if directory not in EXCLUDED]
+        for filename in filenames:
+            path = Path(current_root) / filename
+            if path.suffix.lower() in EXTS:
+                yield path
 
 
 def main():

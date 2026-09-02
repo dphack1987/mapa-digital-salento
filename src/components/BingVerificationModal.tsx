@@ -28,7 +28,7 @@ const BingVerificationModal: React.FC<BingVerificationModalProps> = ({ isOpen, o
         <li>Visita <a href="https://www.bing.com/webmasters" target="_blank" rel="noopener noreferrer">Bing Webmaster Tools</a></li>
         <li>Inicia sesión con tu cuenta Microsoft</li>
         <li>Haz clic en "Add a site"</li>
-        <li>Ingresa tu URL: https://mapa-digital-salento.vercel.app</li>
+        <li>Ingresa tu URL: https://salentoalamano.com</li>
         <li>Selecciona el método de verificación</li>
         <li>Copia el código de verificación proporcionado</li>
       </ol>
