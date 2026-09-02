@@ -134,6 +134,37 @@ const iconMap: Record<string, any> = {
   Store,
   Compass,
   Zap,
+  Mountain,
+  MapPin,
+  Sparkles,
+  Heart,
+  Star,
+  Home,
+  Menu,
+  X,
+  Search,
+  Bell,
+  Phone,
+  Share2,
+  Link,
+  Building2,
+  ChevronDown,
+  ChevronRight,
+  ArrowDown,
+  ArrowUp,
+  ArrowRight,
+  LifeBuoy,
+  Mail,
+  MessageCircle,
+  MessageSquare,
+  Minus,
+  Plus,
+  Send,
+  Shield,
+  Globe,
+  Eye,
+  ShoppingBag,
+  Clock3,
 }
 
 // Función para convertir iconos de string a componentes Lucide
@@ -223,32 +254,33 @@ function countMatchingPlaces(list: Place[], keywords: string[]): number {
   return list.filter((place) => matchesKeywords(place, keywords)).length
 }
 
-// Inicializar servicios
-currencyService.initialize()
-weatherService.initialize()
-eventsService.initialize()
-donationService.initialize()
-gamificationService.initialize()
-horsebackRidingService.initialize()
-reviewsService.generateSampleReviews()
-analyticsService.initialize()
-supportService.initialize()
-seoLandingService.initialize()
-performanceOptimizer.initialize()
-performanceOptimizer.runAutoOptimizations()
-defensiveSEOGService.initialize()
-urgencySchemaService.initialize()
-urgencySchemaService.injectSchemasIntoDOM()
-localBacklinksService.initialize()
-internationalSEOService.initialize()
-allyRegistrationService.initialize()
-notificationsService.initialize()
-
-// Inicializar sistema QR con hoteles existentes
-hotelQRService.initializeWithHotels([
-  { id: '5', name: 'Hotel Camino Nacional' },
-  { id: '9', name: 'Finca Hotel El Ocaso' }
-])
+function initializeAllServicesSafely() {
+  try { currencyService.initialize() } catch (e: any) { console.warn('[init] currencyService:', e?.message || e) }
+  try { weatherService.initialize() } catch (e: any) { console.warn('[init] weatherService:', e?.message || e) }
+  try { eventsService.initialize() } catch (e: any) { console.warn('[init] eventsService:', e?.message || e) }
+  try { donationService.initialize() } catch (e: any) { console.warn('[init] donationService:', e?.message || e) }
+  try { gamificationService.initialize() } catch (e: any) { console.warn('[init] gamificationService:', e?.message || e) }
+  try { horsebackRidingService.initialize() } catch (e: any) { console.warn('[init] horsebackRidingService:', e?.message || e) }
+  try { reviewsService.generateSampleReviews() } catch (e: any) { console.warn('[init] reviewsService:', e?.message || e) }
+  try { analyticsService.initialize() } catch (e: any) { console.warn('[init] analyticsService:', e?.message || e) }
+  try { supportService.initialize() } catch (e: any) { console.warn('[init] supportService:', e?.message || e) }
+  try { seoLandingService.initialize() } catch (e: any) { console.warn('[init] seoLandingService:', e?.message || e) }
+  try { performanceOptimizer.initialize() } catch (e: any) { console.warn('[init] performanceOptimizer:', e?.message || e) }
+  try { performanceOptimizer.runAutoOptimizations() } catch (e: any) { console.warn('[init] performanceOptimizer.run:', e?.message || e) }
+  try { defensiveSEOGService.initialize() } catch (e: any) { console.warn('[init] defensiveSEOGService:', e?.message || e) }
+  try { urgencySchemaService.initialize() } catch (e: any) { console.warn('[init] urgencySchemaService:', e?.message || e) }
+  try { urgencySchemaService.injectSchemasIntoDOM() } catch (e: any) { console.warn('[init] urgencySchema.inject:', e?.message || e) }
+  try { localBacklinksService.initialize() } catch (e: any) { console.warn('[init] localBacklinksService:', e?.message || e) }
+  try { internationalSEOService.initialize() } catch (e: any) { console.warn('[init] internationalSEOService:', e?.message || e) }
+  try { allyRegistrationService.initialize() } catch (e: any) { console.warn('[init] allyRegistrationService:', e?.message || e) }
+  try { notificationsService.initialize() } catch (e: any) { console.warn('[init] notificationsService:', e?.message || e) }
+  try {
+    hotelQRService.initializeWithHotels([
+      { id: '5', name: 'Hotel Camino Nacional' },
+      { id: '9', name: 'Finca Hotel El Ocaso' }
+    ])
+  } catch (e: any) { console.warn('[init] hotelQRService:', e?.message || e) }
+}
 
 function formatPrice(cop: number, currency: Currency) {
   return currencyService.formatAmount(currencyService.convertFromCOP(cop, currency), currency)
@@ -260,7 +292,9 @@ function App() {
   const [showCart, setShowCart] = useState(false)
   const [search, setSearch] = useState('')
   const [mobileNav, setMobileNav] = useState(false)
-  const [language, setLanguage] = useState<Language>(() => translationService.initialize() as Language)
+  const [language, setLanguage] = useState<Language>(() => {
+    try { return translationService.initialize() as Language } catch (e) { console.warn('[init] translation lazy fallback ES:', e); return 'ES' as Language }
+  })
   const [currency, setCurrency] = useState<Currency>('COP')
   const [selectedPlace, setSelectedPlace] = useState<Place | null>(null)
   const [places, setPlaces] = useState<Place[]>([])
@@ -276,10 +310,12 @@ function App() {
   const [selectedPlaceForReviews, setSelectedPlaceForReviews] = useState<{ id: string; name: string; type: string } | null>(null)
   const [showSupport, setShowSupport] = useState(false)
   const [showLandingPage, setShowLandingPage] = useState<string | null>(null)
-  const [showDirectOrder, setShowDirectOrder] = useState<string | null>(null) // Para pedidos directos
+  const [showDirectOrder, setShowDirectOrder] = useState<string | null>(null)
   const [showHotelModal, setShowHotelModal] = useState(false)
   const [pendingOrderCategory, setPendingOrderCategory] = useState<string | null>(null)
-  const [isOffline, setIsOffline] = useState(!navigator.onLine)
+  const [isOffline, setIsOffline] = useState<boolean>(() => {
+    try { return !navigator.onLine } catch (e) { return false }
+  })
   const [showQRShare, setShowQRShare] = useState(false)
   const [showDefensiveSEODashboard, setShowDefensiveSEODashboard] = useState(false)
   const [showAllyBacklinksDashboard, setShowAllyBacklinksDashboard] = useState(false)
@@ -294,6 +330,9 @@ function App() {
   const [showProviderModal, setShowProviderModal] = useState(false)
   const [selectedCategory, setSelectedCategory] = useState<Category | null>(null)
   const [selectedCategoryPage, setSelectedCategoryPage] = useState<Category | null>(null)
+  const [selectedAllyForVerification, setSelectedAllyForVerification] = useState<string | null>(null)
+
+  const isEnglish = language === 'EN'
 
   // Función para manejar acciones del modal de pautantes
   const handleProviderAction = (providerId: number, action: 'reserve' | 'order' | 'contact') => {
@@ -334,66 +373,68 @@ function App() {
       setSelectedPlace(provider)
     }
   }
-  const [selectedAllyForVerification, setSelectedAllyForVerification] = useState<string | null>(null)
   
   // Función helper para obtener traducciones
   const t = (key: string, fallback?: string) => translationService.translate(key, fallback)
 
   // Cargar datos al montar el componente
   useEffect(() => {
+    initializeAllServicesSafely()
+
     async function loadData() {
       try {
         setLoading(true)
-        
-        // Inicializar sistema offline primero
-        await offlineStorage.initialize()
-        
-        // Intentar cargar datos desde offline primero
-        const offlinePlaces = await offlineStorage.getPlaces()
-        const offlineHotels = await offlineStorage.getHotels()
-        
+
+        try { await offlineStorage.initialize() } catch (e) { console.warn('[App] offline init skip:', e) }
+
+        let offlinePlaces: Place[] = []
+        let offlineHotels: HotelType[] = []
+        try {
+          offlinePlaces = await offlineStorage.getPlaces()
+          offlineHotels = await offlineStorage.getHotels()
+        } catch (e) { console.warn('[App] offline read skip:', e) }
+
         if (offlinePlaces.length > 0 && offlineHotels.length > 0) {
           console.log('Loading data from offline storage')
           setPlaces(offlinePlaces)
           setHotels(offlineHotels)
         }
-        
-        // Cargar datos frescos si hay conexión
-        const [loadedPlaces, loadedMarkers, loadedHotels, weatherData, eventsData] = await Promise.all([
-          dataService.getPlaces(),
-          dataService.getMapMarkers(),
-          dataService.getHotels(),
-          weatherService.getWeatherComparison(),
-          Promise.resolve(eventsService.getTodayEvents())
-        ])
-        
-        setPlaces(loadedPlaces)
-        setMapMarkers(loadedMarkers)
-        setHotels(loadedHotels)
-        setWeather(weatherData)
-        setTodayEvents(eventsData)
-        
-        // Guardar datos en caché offline
-        await offlineStorage.savePlaces(loadedPlaces)
-        await offlineStorage.saveHotels(loadedHotels)
-        
-        // Generar alertas inteligentes
-        if (weatherData) {
-          notificationService.generateWeatherAlert(weatherData)
-        }
-        
-        eventsData.forEach((event: any) => {
-          notificationService.generateEventAlert(event)
-        })
-        
-        // Iniciar servicio de sincronización de pedidos
-        orderSyncService.start()
+
+        let loadedPlaces: Place[] = offlinePlaces
+        let loadedMarkers: MapMarker[] = []
+        let loadedHotels: HotelType[] = offlineHotels
+        let weatherData: any = null
+        let eventsData: any[] = []
+
+        try {
+          ;[loadedPlaces, loadedMarkers, loadedHotels, weatherData, eventsData] = await Promise.all([
+            dataService.getPlaces(),
+            dataService.getMapMarkers(),
+            dataService.getHotels(),
+            Promise.resolve().then(() => weatherService.getWeatherComparison()).catch(() => null),
+            Promise.resolve().then(() => eventsService.getTodayEvents()).catch(() => [] as any[])
+          ])
+        } catch (e) { console.warn('[App] data fetch partial fail:', e) }
+
+        if (loadedPlaces?.length) setPlaces(loadedPlaces)
+        if (loadedMarkers?.length) setMapMarkers(loadedMarkers)
+        if (loadedHotels?.length) setHotels(loadedHotels)
+        if (weatherData) setWeather(weatherData)
+        if (eventsData?.length) setTodayEvents(eventsData)
+
+        try {
+          if (loadedPlaces?.length) await offlineStorage.savePlaces(loadedPlaces)
+          if (loadedHotels?.length) await offlineStorage.saveHotels(loadedHotels)
+        } catch (e) { console.warn('[App] offline save skip:', e) }
+
+        try {
+          if (weatherData) notificationService.generateWeatherAlert(weatherData)
+          ;(eventsData || []).forEach((event: any) => notificationService.generateEventAlert(event))
+        } catch (e) { console.warn('[App] notifications skip:', e) }
+
+        try { orderSyncService.start() } catch (e) { console.warn('[App] orderSync start skip:', e) }
       } catch (error) {
         console.error('Error loading data:', error)
-        // Fallback a datos vacíos si falla la carga
-        setPlaces([])
-        setMapMarkers([])
-        setHotels([])
       } finally {
         setLoading(false)
       }
@@ -401,25 +442,29 @@ function App() {
     loadData()
 
     // Check for landing page in URL
-    const hash = window.location.hash.replace('#', '')
-    if (hash && (hash.startsWith('estado-') || hash.startsWith('hoteles-') || hash.startsWith('valle-') || hash.startsWith('turismo-') || hash.startsWith('transporte-'))) {
-      setShowLandingPage(hash)
-    }
+    try {
+      const hash = window.location.hash.replace('#', '')
+      if (hash && (hash.startsWith('estado-') || hash.startsWith('hoteles-') || hash.startsWith('valle-') || hash.startsWith('turismo-') || hash.startsWith('transporte-'))) {
+        setShowLandingPage(hash)
+      }
+    } catch (e) { console.warn('[App] hash parse skip:', e) }
 
     // Monitorear estado de conexión
-    const cleanupConnectionListener = offlineStorage.onConnectionChange((online) => {
-      setIsOffline(!online)
-      if (online) {
-        console.log('Connection restored, syncing data...')
-        // Volver a cargar datos cuando se recupere la conexión
-        loadData()
-      }
-    })
+    let cleanupConnectionListener: (() => void) | null = null
+    try {
+      cleanupConnectionListener = offlineStorage.onConnectionChange((online) => {
+        setIsOffline(!online)
+        if (online) {
+          console.log('Connection restored, syncing data...')
+          loadData()
+        }
+      })
+    } catch (e) { console.warn('[App] connection listener skip:', e) }
 
     // Cleanup al desmontar
     return () => {
-      orderSyncService.stop()
-      cleanupConnectionListener()
+      try { orderSyncService.stop() } catch (e) { console.warn('[App] orderSync stop skip:', e) }
+      try { if (cleanupConnectionListener) cleanupConnectionListener() } catch (e) { console.warn('[App] conn cleanup skip:', e) }
     }
   }, [])
 

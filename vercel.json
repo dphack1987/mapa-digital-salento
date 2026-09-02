@@ -3,9 +3,38 @@
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "cleanUrls": true,
+  "trailingSlash": false,
   "framework": "vite",
   "installCommand": "npm install",
   "rewrites": [
+    {
+      "source": "/categorias/:path*",
+      "destination": "/categorias/:path*"
+    },
+    {
+      "source": "/pautantes/:path*",
+      "destination": "/pautantes/:path*"
+    },
+    {
+      "source": "/paginas-pautantes/:path*",
+      "destination": "/paginas-pautantes/:path*"
+    },
+    {
+      "source": "/es/:path*",
+      "destination": "/es/:path*"
+    },
+    {
+      "source": "/en/:path*",
+      "destination": "/en/:path*"
+    },
+    {
+      "source": "/fr/:path*",
+      "destination": "/fr/:path*"
+    },
+    {
+      "source": "/de/:path*",
+      "destination": "/de/:path*"
+    },
     {
       "source": "/(.*)",
       "destination": "/index.html"

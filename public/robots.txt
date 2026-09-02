@@ -2,25 +2,26 @@
 # Dominio: salentoalamano.com
 # Estrategia: Prioridad para mercados internacionales (China, Rusia, Asia, Europa)
 
-# Configuración general
+# Configuracion general
 User-agent: *
 Allow: /
 Crawl-delay: 1
 
-# Páginas prioritarias para turismo internacional
+# Paginas prioritarias para turismo internacional
 Allow: /estado-actual-salento-hoteles-abiertos-vias-libres-valle-cocora-operando-100
 Allow: /salento-abierto-hoy-turismo-seguro-valle-cocora-accesible
 Allow: /paso-valle-cocora-abierto-acceso-total-jeeps-willys-operativos
 
-# Bloquear archivos técnicos
+# Permitir crawleo de estructura de datos local (places, mapMarkers, hotels)
+Allow: /data/
+
+# Bloquear archivos tecnicos
 Disallow: /admin/
 Disallow: /api/
 Disallow: /private/
 Disallow: /temp/
-Disallow: /*.json$
-Disallow: /*.map$
 
-# Baidu (China) - Prioridad Máxima
+# Baidu (China) - Prioridad Maxima
 User-agent: Baiduspider
 Allow: /
 Crawl-delay: 1
@@ -69,9 +70,9 @@ Allow: /
 User-agent: LinkedInBot
 Allow: /
 
-# Sitemaps para todos los motores internacionales
+# Sitemap unificado para indexacion: contiene todas las URLs
+# (home, landings, categorias, pautantes, SEO internacional)
 Sitemap: https://salentoalamano.com/sitemap.xml
-Sitemap: https://salentoalamano.com/salentoalamano-defensive-sitemap.xml
 
 # Host para Yandex
 Host: salentoalamano.com

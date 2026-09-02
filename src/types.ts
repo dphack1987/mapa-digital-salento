@@ -106,6 +106,54 @@ export type CommerceDetails = {
   }
 }
 
+// Información específica para transporte (Jeeps Willys, motos, taxis locales)
+export type TransportDetails = {
+  transportType: 'Jeep Willys' | 'Moto Aventura' | 'Taxi Local' | 'Shuttle' | 'Bus'
+  routes: string[]
+  vehicleCount?: number
+  languages: string[]
+  capacity: string
+  meetingPoint: string
+  pricingNotes?: string
+  included: string[]
+  notIncluded: string[]
+  operatingDays?: string[]
+  advanceBookingRequired?: boolean
+}
+
+// Información específica para cabalgatas
+export type HorsebackRidingDetails = {
+  trails: string[]
+  horseBreeds: string[]
+  guidesCount?: number
+  difficulty: 'Fácil' | 'Moderada' | 'Difícil'
+  minAge?: number
+  maxWeightKg?: number
+  safetyGearIncluded: boolean
+  safetyGearList?: string[]
+  routeDuration: string
+  departureTimes: string[]
+  included: string[]
+  notIncluded: string[]
+  languages: string[]
+  requirements?: string[]
+}
+
+// Información específica para servicios turísticos generales
+export type TourismDetails = {
+  attractions: string[]
+  languages: string[]
+  guidedAvailable: boolean
+  bestVisitTime: string
+  tips: string[]
+  accessibilityInfo?: string[]
+  tourDuration?: string
+  includesGuide: boolean
+  meetingPoint?: string
+  capacity?: string
+  photoStops?: string[]
+}
+
 // Producto para catálogo
 export type Product = {
   id: string
@@ -191,6 +239,9 @@ export type Place = {
   foodServiceDetails?: FoodServiceDetails
   experienceDetails?: ExperienceDetails
   commerceDetails?: CommerceDetails
+  transportDetails?: TransportDetails
+  horsebackRidingDetails?: HorsebackRidingDetails
+  tourismDetails?: TourismDetails
 }
 
 // Marcador para el mapa
