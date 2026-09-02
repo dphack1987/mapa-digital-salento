@@ -381,13 +381,42 @@
   background: var(--ink);
   color: white;
   border-radius: 24px;
-  text-align: center;
+  position: relative;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.header-main {
+  flex: 1;
 }
 
 .header-content h1 {
   font: 600 32px Fraunces;
   margin: 0 0 16px 0;
   line-height: 1.2;
+}
+
+.close-button {
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  border-radius: 12px;
+  padding: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.close-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: rotate(90deg);
 }
 
 .subtitle {
@@ -858,6 +887,673 @@
   color: #697568;
 }
 
+/* Landing Page Valle Cocora Styles */
+.landing-page-valle-cocora {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #e8f4e8 0%, #d4e8d4 100%);
+  padding: 20px;
+}
+
+.accessibility-summary {
+  max-width: 1200px;
+  margin: 0 auto 40px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.main-info {
+  max-width: 1200px;
+  margin: 0 auto 40px;
+}
+
+.info-card {
+  background: white;
+  border: 2px solid var(--line);
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: 0 4px 12px rgba(39, 54, 43, 0.08);
+}
+
+.info-card h2 {
+  font: 600 24px Fraunces;
+  color: var(--ink);
+  margin: 0 0 16px 0;
+}
+
+.info-card p {
+  font: 14px 'DM Sans';
+  color: #697568;
+  line-height: 1.6;
+  margin: 0 0 20px 0;
+}
+
+.highlights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.highlight-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font: 12px 'DM Sans';
+  color: var(--ink);
+}
+
+.hiking-routes,
+.tours-section,
+.how-to-reach {
+  max-width: 1200px;
+  margin: 0 auto 40px;
+}
+
+.routes-grid,
+.tours-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.route-card,
+.tour-card {
+  background: white;
+  border: 2px solid var(--line);
+  border-radius: 16px;
+  padding: 20px;
+  transition: all 0.3s ease;
+}
+
+.route-card:hover,
+.tour-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(39, 54, 43, 0.12);
+  border-color: var(--coral);
+}
+
+.route-header,
+.tour-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.route-header h3,
+.tour-content h3 {
+  font: 600 16px Fraunces;
+  color: var(--ink);
+  margin: 0;
+}
+
+.route-status {
+  padding: 4px 12px;
+  border-radius: 8px;
+  font: 10px 'DM Mono';
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.route-status.accessible {
+  background: rgba(220, 229, 209, 0.5);
+  color: var(--green);
+}
+
+.route-details,
+.tour-details {
+  margin-bottom: 16px;
+}
+
+.route-button,
+.tour-button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px;
+  background: var(--coral);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font: 12px 'DM Mono';
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.route-button:hover,
+.tour-button:hover {
+  background: var(--ink);
+  transform: translateY(-2px);
+}
+
+.tour-card {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.tour-icon {
+  color: var(--coral);
+  flex-shrink: 0;
+}
+
+.tour-content {
+  flex: 1;
+}
+
+.tour-details {
+  display: flex;
+  gap: 12px;
+  margin: 8px 0;
+}
+
+.tour-detail {
+  font: 12px 'DM Sans';
+  color: #697568;
+}
+
+.tour-status {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 8px;
+  font: 10px 'DM Mono';
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-top: 8px;
+}
+
+.tour-status.operational {
+  background: rgba(220, 229, 209, 0.5);
+  color: var(--green);
+}
+
+.transport-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.transport-option {
+  background: white;
+  border: 2px solid var(--line);
+  border-radius: 16px;
+  padding: 24px;
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.transport-icon {
+  color: var(--coral);
+  flex-shrink: 0;
+}
+
+.transport-info h3 {
+  font: 600 18px Fraunces;
+  color: var(--ink);
+  margin: 0 0 8px 0;
+}
+
+.transport-info p {
+  font: 14px 'DM Sans';
+  color: #697568;
+  margin: 0 0 8px 0;
+}
+
+.transport-price {
+  font: 12px 'DM Mono';
+  color: var(--coral);
+  font-weight: 600;
+}
+
+/* Landing Page Salento Seguro Styles */
+.landing-page-salento-seguro {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #e8f0f8 0%, #d4e4f0 100%);
+  padding: 20px;
+}
+
+.security-summary {
+  max-width: 1200px;
+  margin: 0 auto 40px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.security-message {
+  max-width: 1200px;
+  margin: 0 auto 40px;
+  background: rgba(220, 229, 209, 0.3);
+  border: 2px solid var(--green);
+  border-radius: 16px;
+  padding: 32px;
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+.emergency-contacts {
+  max-width: 1200px;
+  margin: 0 auto 40px;
+}
+
+.contacts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.contact-card {
+  background: white;
+  border: 2px solid var(--line);
+  border-radius: 16px;
+  padding: 20px;
+}
+
+.contact-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.contact-header h3 {
+  font: 600 16px Fraunces;
+  color: var(--ink);
+  margin: 0;
+}
+
+.status-badge {
+  padding: 4px 12px;
+  border-radius: 8px;
+  font: 10px 'DM Mono';
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.status-badge.operational {
+  background: rgba(220, 229, 209, 0.5);
+  color: var(--green);
+}
+
+.status-badge.warning {
+  background: rgba(232, 187, 88, 0.3);
+  color: #e8bb58;
+}
+
+.contact-details {
+  margin-bottom: 16px;
+}
+
+.detail-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+  font: 12px 'DM Sans';
+  color: #697568;
+}
+
+.contact-button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px;
+  background: var(--coral);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font: 12px 'DM Mono';
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.contact-button:hover {
+  background: var(--ink);
+  transform: translateY(-2px);
+}
+
+.security-measures {
+  max-width: 1200px;
+  margin: 0 auto 40px;
+}
+
+.measures-list {
+  background: white;
+  border: 2px solid var(--line);
+  border-radius: 16px;
+  padding: 24px;
+}
+
+.measure-item {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.measure-item:last-child {
+  border-bottom: none;
+}
+
+.safe-zones {
+  max-width: 1200px;
+  margin: 0 auto 40px;
+}
+
+.zones-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.zone-card {
+  background: white;
+  border: 2px solid var(--line);
+  border-radius: 16px;
+  padding: 20px;
+  display: flex;
+  gap: 16px;
+}
+
+.zone-icon {
+  color: var(--green);
+}
+
+.zone-content h3 {
+  font: 600 16px Fraunces;
+  color: var(--ink);
+  margin: 0 0 8px 0;
+}
+
+.zone-content p {
+  font: 14px 'DM Sans';
+  color: #697568;
+  margin: 0 0 8px 0;
+}
+
+.zone-status {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 8px;
+  font: 10px 'DM Mono';
+  font-weight: 600;
+  background: rgba(220, 229, 209, 0.5);
+  color: var(--green);
+}
+
+/* Landing Page Hoteles Styles */
+.landing-page-hoteles {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f8f0e8 0%, #f0e4d8 100%);
+  padding: 20px;
+}
+
+.hotels-summary {
+  max-width: 1200px;
+  margin: 0 auto 40px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.categories-section {
+  max-width: 1200px;
+  margin: 0 auto 40px;
+}
+
+.categories-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.category-card {
+  background: white;
+  border: 2px solid var(--line);
+  border-radius: 16px;
+  padding: 24px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.category-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(39, 54, 43, 0.12);
+  border-color: var(--coral);
+}
+
+.category-icon {
+  font-size: 32px;
+  margin-bottom: 12px;
+}
+
+.category-card h3 {
+  font: 600 18px Fraunces;
+  color: var(--ink);
+  margin: 0 0 8px 0;
+}
+
+.category-count {
+  font: 12px 'DM Mono';
+  color: #697568;
+}
+
+.hotel-stars {
+  display: flex;
+  gap: 2px;
+  color: #e8bb58;
+}
+
+.hotel-price {
+  margin: 12px 0;
+}
+
+.price-range {
+  font: 600 18px Fraunces;
+  color: var(--ink);
+}
+
+.price-period {
+  font: 12px 'DM Sans';
+  color: #697568;
+}
+
+.hotel-services {
+  margin: 16px 0;
+}
+
+.hotel-services h4 {
+  font: 600 14px Fraunces;
+  color: var(--ink);
+  margin: 0 0 8px 0;
+}
+
+.services-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.service-tag {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px;
+  background: rgba(39, 54, 43, 0.05);
+  border-radius: 6px;
+  font: 10px 'DM Mono';
+  color: #697568;
+}
+
+.hotel-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.reserve-button {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px;
+  background: var(--ink);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font: 12px 'DM Mono';
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.reserve-button:hover {
+  background: var(--coral);
+  transform: translateY(-2px);
+}
+
+/* Landing Page Vias Styles */
+.landing-page-vias {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f0f4f8 0%, #e0e8f0 100%);
+  padding: 20px;
+}
+
+.roads-summary {
+  max-width: 1200px;
+  margin: 0 auto 40px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.roads-status {
+  max-width: 1200px;
+  margin: 0 auto 40px;
+}
+
+.route-name {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font: 14px 'DM Sans';
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.route-observations p {
+  font: 12px 'DM Sans';
+  color: #697568;
+  margin: 0;
+}
+
+.maintenance-note {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font: 10px 'DM Mono';
+  color: #e8bb58;
+  margin-top: 4px;
+}
+
+.transport-section {
+  max-width: 1200px;
+  margin: 0 auto 40px;
+}
+
+.transport-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.transport-card {
+  background: white;
+  border: 2px solid var(--line);
+  border-radius: 16px;
+  padding: 20px;
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.transport-icon {
+  color: var(--coral);
+}
+
+.transport-content h3 {
+  font: 600 16px Fraunces;
+  color: var(--ink);
+  margin: 0 0 8px 0;
+}
+
+.transport-status {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.availability {
+  font: 12px 'DM Sans';
+  color: #697568;
+}
+
+.control-points {
+  max-width: 1200px;
+  margin: 0 auto 40px;
+}
+
+.control-points-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.control-point {
+  background: white;
+  border: 2px solid var(--line);
+  border-radius: 16px;
+  padding: 20px;
+  display: flex;
+  gap: 16px;
+}
+
+.point-icon {
+  color: var(--coral);
+}
+
+.point-content h3 {
+  font: 600 16px Fraunces;
+  color: var(--ink);
+  margin: 0 0 8px 0;
+}
+
+.point-content p {
+  font: 14px 'DM Sans';
+  color: #697568;
+  margin: 0 0 8px 0;
+}
+
+.point-status {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 8px;
+  font: 10px 'DM Mono';
+  font-weight: 600;
+  background: rgba(220, 229, 209, 0.5);
+  color: var(--green);
+}
+
 .chucho-panel { position: absolute; right: 0; bottom: 58px; width: min(380px, calc(100vw - 32px)); padding: 20px; background: var(--paper); border: 2px solid var(--line); box-shadow: 8px 8px 0 rgba(39,54,43,.15); border-radius: 16px; animation: slideUp 0.3s ease; }
 .offline-status { position: fixed; z-index: 30; left: 16px; bottom: 18px; display: flex; align-items: center; gap: 7px; color: #6e796d; background: rgba(245,241,232,.92); border: 1px solid var(--line); padding: 8px 10px; font: 9px 'DM Mono'; border-radius: 999px; box-shadow: 0 6px 14px rgba(39,54,43,.05); }
 .chucho-head { display: flex; justify-content: space-between; align-items: start; padding-bottom: 16px; border-bottom: 1px solid var(--line); }
@@ -1134,33 +1830,35 @@
   align-items: center;
   justify-content: flex-end;
   flex-wrap: wrap;
-  gap: 6px;
+  gap: 8px;
 }
 .flag-pill {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 34px;
-  height: 34px;
+  width: 40px;
+  height: 40px;
   padding: 0;
   border: 1px solid rgba(39, 54, 43, 0.12);
   border-radius: 50%;
-  background: rgba(255,255,255,0.7);
-  color: var(--ink);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.7);
+  background: rgba(255,255,255,0.8);
+  box-shadow: 0 3px 8px rgba(39, 54, 43, 0.08);
+  overflow: hidden;
 }
 .flag-emoji {
-  display: inline-block;
-  font-size: 22px;
-  line-height: 1;
-  font-family: "Apple Color Emoji", "Segoe UI Emoji", "Twemoji Mozilla", "Noto Color Emoji", sans-serif;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  background: #fff;
 }
 .presence-more {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 28px;
-  height: 28px;
+  width: 30px;
+  height: 30px;
   border: 1px solid rgba(39, 54, 43, 0.12);
   border-radius: 50%;
   background: rgba(39, 54, 43, 0.05);
