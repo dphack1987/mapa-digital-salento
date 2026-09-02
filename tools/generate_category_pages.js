@@ -94,6 +94,127 @@ function categoryLabelFor(type) {
   return categoryMeta[type]?.title || type;
 }
 
+const FONTS_LINK = `
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" />
+`;
+
+function buildBreadcrumbListSchema(items) {
+  const list = items.map((item, idx) => ({
+    '@type': 'ListItem',
+    position: idx + 1,
+    name: item.name,
+    item: item.url || undefined,
+  }));
+  return `<script type="application/ld+json">${JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: list,
+  })}</script>`;
+}
+
+function buildSchemaJsonLd(provider) {
+  const name = provider.name || 'Servicio local';
+  const category = provider.type || 'Servicios';
+  const description = provider.description || `Servicio local en Salento, Quindío.`;
+  const image = provider.images?.[0] || 'https://salentoalamano.com/logo_salento2026.png';
+  const url = `/paginas-pautantes/${slugify(name)}/`;
+  const telephone = provider.contact?.phone || undefined;
+  const whatsapp = provider.contact?.whatsapp ? `+57${String(provider.contact.whatsapp).replace(/\D/g, '')}` : undefined;
+  const email = provider.contact?.email || undefined;
+  const priceRange = provider.priceRange || '$$';
+  const ratingValue = provider.rating ? String(provider.rating).replace(/[^\d.]/g, '') : '4.8';
+  const address = {
+    '@type': 'PostalAddress',
+    addressLocality: 'Salento',
+    addressRegion: 'Quindío',
+    addressCountry: 'CO',
+    streetAddress: provider.location?.address || undefined,
+  };
+  const geo = provider.location?.lat && provider.location?.lng ? {
+    '@type': 'GeoCoordinates',
+    latitude: provider.location.lat,
+    longitude: provider.location.lng,
+  } : { '@type': 'GeoCoordinates', latitude: 4.6371, longitude: -75.5706 };
+
+  let schemaType = 'LocalBusiness';
+  let extraFields = {};
+
+  if (category === 'Alojamientos') {
+    schemaType = 'Hotel';
+    extraFields = {
+      starRating: provider.accommodationDetails?.stars
+        ? { '@type': 'Rating', ratingValue: provider.accommodationDetails.stars }
+        : undefined,
+      numberOfRooms: provider.accommodationDetails?.roomTypes?.length || undefined,
+      amenityFeature: provider.accommodationDetails?.amenities || provider.accommodationDetails?.services || undefined,
+      petsAllowed: undefined,
+    };
+  } else if (category === 'Restaurantes') {
+    schemaType = 'Restaurant';
+    extraFields = {
+      servesCuisine: provider.foodServiceDetails?.cuisineType || ['Colombiana', 'Local'],
+      menu: provider.contact?.website || undefined,
+      acceptsReservations: provider.foodServiceDetails?.reservationRequired !== undefined ? provider.foodServiceDetails.reservationRequired : undefined,
+    };
+  } else if (category === 'Cafés') {
+    schemaType = 'CafeOrCoffeeShop';
+    extraFields = {
+      servesCuisine: ['Café', 'Brunch', 'Local'],
+    };
+  } else if (category === 'Experiencias') {
+    schemaType = 'TouristAttraction';
+    extraFields = {
+      touristType: ['Local', 'Internacional'],
+      duration: provider.experienceDetails?.duration || undefined,
+      availableLanguage: provider.experienceDetails?.languages || ['Español'],
+    };
+  } else if (category === 'Artesanías') {
+    schemaType = 'Store';
+    extraFields = { additionalType: 'https://schema.org/CraftStore' };
+  } else if (category === 'Tiendas') {
+    schemaType = 'Store';
+  } else if (category === 'Servicios') {
+    schemaType = 'LocalBusiness';
+    extraFields = { additionalType: 'TourOperator' };
+  }
+
+  const data = {
+    '@context': 'https://schema.org',
+    '@type': schemaType,
+    name,
+    description,
+    url,
+    image,
+    address,
+    geo,
+    telephone: telephone || whatsapp || undefined,
+    email,
+    priceRange,
+    areaServed: {
+      '@type': 'City',
+      name: 'Salento',
+      containedIn: { '@type': 'State', name: 'Quindío' },
+    },
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: parseFloat(ratingValue) || 4.8,
+      ratingCount: 12,
+      bestRating: 5,
+      worstRating: 1,
+    },
+    openingHoursSpecification: provider.verified ? {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+    } : undefined,
+    ...extraFields,
+  };
+
+  return `<script type="application/ld+json">${JSON.stringify(data)}</script>`;
+}
+
 function renderCategoryPage(category, items) {
   const pageTitle = `${categoryMeta[category]?.title || category} | Salento a la Mano`;
   const categorySlug = slugify(category);
@@ -137,9 +258,10 @@ function renderCategoryPage(category, items) {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="${escapeHtml(categoryMeta[category]?.description || pageTitle)}" />
     <title>${pageTitle}</title>
+    ${FONTS_LINK}
     <style>
-      @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap');
       :root {
         --paper: #f5f1e8;
         --ink: #1f2d26;
@@ -208,6 +330,11 @@ function renderCategoryPage(category, items) {
       }
     </style>
     <link rel="stylesheet" href="/page-theme.css" />
+    ${buildBreadcrumbListSchema([
+      { name: 'Inicio', url: 'https://salentoalamano.com/' },
+      { name: 'Categorías', url: 'https://salentoalamano.com/categorias/' },
+      { name: categoryMeta[category]?.title || category },
+    ])}
   </head>
   <body>
     <div class="container">
