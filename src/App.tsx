@@ -50,6 +50,10 @@ import donChuchoKnowledge from './services/donChuchoKnowledge'
 import internationalSEOService from './services/internationalSEO.service'
 import InternationalMarketsDisplay from './components/InternationalMarketsDisplay'
 import LandingPageEstadoActual from './components/LandingPageEstadoActual'
+import LandingPageValleCocora from './components/LandingPageValleCocora'
+import LandingPageSalentoSeguro from './components/LandingPageSalentoSeguro'
+import LandingPageHoteles from './components/LandingPageHoteles'
+import LandingPageVias from './components/LandingPageVias'
 import currencyService from './services/currencyService'
 import weatherService from './services/weatherService'
 import eventsService from './services/eventsService'
@@ -127,24 +131,24 @@ function normalizePlaceText(value: string | undefined): string {
 
 function getCountryFlag(country: string): string {
   const flags: Record<string, string> = {
-    China: '🇨🇳',
-    Rusia: '🇷🇺',
-    Japón: '🇯🇵',
-    'Corea del Sur': '🇰🇷',
-    Taiwán: '🇹🇼',
-    'Hong Kong': '🇭🇰',
-    Tailandia: '🇹🇭',
-    Vietnam: '🇻🇳',
-    Indonesia: '🇮🇩',
-    Malasia: '🇲🇾',
-    Alemania: '🇩🇪',
-    Francia: '🇫🇷',
-    'Reino Unido': '🇬🇧',
-    'Estados Unidos': '🇺🇸',
-    Brasil: '🇧🇷',
-    México: '🇲🇽',
+    China: 'cn',
+    Rusia: 'ru',
+    Japón: 'jp',
+    'Corea del Sur': 'kr',
+    Taiwán: 'tw',
+    'Hong Kong': 'hk',
+    Tailandia: 'th',
+    Vietnam: 'vn',
+    Indonesia: 'id',
+    Malasia: 'my',
+    Alemania: 'de',
+    Francia: 'fr',
+    'Reino Unido': 'gb',
+    'Estados Unidos': 'us',
+    Brasil: 'br',
+    México: 'mx',
   }
-  return flags[country] || '🌍'
+  return flags[country] || 'un'
 }
 
 function matchesKeywords(place: Place, keywords: string[]): boolean {
@@ -233,6 +237,10 @@ function App() {
   const [showAllyRegistrationForm, setShowAllyRegistrationForm] = useState(false)
   const [showInternationalMarkets, setShowInternationalMarkets] = useState(false)
   const [showLandingPageEstadoActual, setShowLandingPageEstadoActual] = useState(false)
+  const [showLandingPageValleCocora, setShowLandingPageValleCocora] = useState(false)
+  const [showLandingPageSalentoSeguro, setShowLandingPageSalentoSeguro] = useState(false)
+  const [showLandingPageHoteles, setShowLandingPageHoteles] = useState(false)
+  const [showLandingPageVias, setShowLandingPageVias] = useState(false)
   const [showAllyVerification, setShowAllyVerification] = useState(false)
   const [showProviderModal, setShowProviderModal] = useState(false)
   const [selectedCategory, setSelectedCategory] = useState<Category | null>(null)
@@ -496,7 +504,12 @@ function App() {
         <div className="presence-flags" aria-label="Banderas de mercados internacionales">
           {internationalMarketsPreview.map((market) => (
             <div key={market.country} className="flag-pill" title={`${market.country} · ${market.language}`} aria-label={market.country}>
-              <span className="flag-emoji">{getCountryFlag(market.country)}</span>
+              <img
+                className="flag-emoji"
+                src={`https://flagcdn.com/w40/${getCountryFlag(market.country)}.png`}
+                alt={market.country}
+                loading="lazy"
+              />
             </div>
           ))}
           <span className="presence-more" aria-label="Más mercados internacionales">
@@ -731,7 +744,11 @@ function App() {
       {showAllyBacklinksDashboard && <AllyBacklinksDashboard onClose={() => setShowAllyBacklinksDashboard(false)} />}
       {showAllyRegistrationForm && <AllyRegistrationForm onClose={() => setShowAllyRegistrationForm(false)} />}
       {showInternationalMarkets && <InternationalMarketsDisplay onClose={() => setShowInternationalMarkets(false)} />}
-      {showLandingPageEstadoActual && <LandingPageEstadoActual />}
+      {showLandingPageEstadoActual && <LandingPageEstadoActual onClose={() => setShowLandingPageEstadoActual(false)} />}
+      {showLandingPageValleCocora && <LandingPageValleCocora onClose={() => setShowLandingPageValleCocora(false)} />}
+      {showLandingPageSalentoSeguro && <LandingPageSalentoSeguro onClose={() => setShowLandingPageSalentoSeguro(false)} />}
+      {showLandingPageHoteles && <LandingPageHoteles onClose={() => setShowLandingPageHoteles(false)} />}
+      {showLandingPageVias && <LandingPageVias onClose={() => setShowLandingPageVias(false)} />}
       {showProviderModal && selectedCategory && (
         <ProviderSelectionModal
           isOpen={showProviderModal}
@@ -765,6 +782,12 @@ function App() {
         </button>
         <button className="floating-nav-button" onClick={() => setShowLandingPageEstadoActual(true)} aria-label="Estado actual Salento">
           <Shield size={18} />
+        </button>
+        <button className="floating-nav-button" onClick={() => setShowLandingPageValleCocora(true)} aria-label="Valle de Cocora">
+          <Mountain size={18} />
+        </button>
+        <button className="floating-nav-button" onClick={() => setShowLandingPageHoteles(true)} aria-label="Hoteles">
+          <Hotel size={18} />
         </button>
         <button className="floating-nav-button" onClick={() => setShowInternationalMarkets(true)} aria-label="Mercados internacionales">
           <Globe size={18} />
