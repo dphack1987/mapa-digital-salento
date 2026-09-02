@@ -49,6 +49,7 @@ import orderSyncService from './services/orderSyncService'
 import donChuchoKnowledge from './services/donChuchoKnowledge'
 import internationalSEOService from './services/internationalSEO.service'
 import InternationalMarketsDisplay from './components/InternationalMarketsDisplay'
+import LandingPageEstadoActual from './components/LandingPageEstadoActual'
 import currencyService from './services/currencyService'
 import weatherService from './services/weatherService'
 import eventsService from './services/eventsService'
@@ -76,7 +77,6 @@ import DefensiveSEODashboard from './components/DefensiveSEODashboard'
 import urgencySchemaService from './services/urgencySchema.service'
 import localBacklinksService from './services/localBacklinks.service'
 import AllyBacklinksDashboard from './components/AllyBacklinksDashboard'
-import internationalSEOService from './services/internationalSEO.service'
 import allyRegistrationService from './services/allyRegistration.service'
 import AllyRegistrationForm from './components/AllyRegistrationForm'
 import AllyVerification from './components/AllyVerification'
@@ -123,6 +123,28 @@ function adaptPlaceForCompatibility(place: Place): any {
 
 function normalizePlaceText(value: string | undefined): string {
   return (value ?? '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+}
+
+function getCountryFlag(country: string): string {
+  const flags: Record<string, string> = {
+    China: '🇨🇳',
+    Rusia: '🇷🇺',
+    Japón: '🇯🇵',
+    'Corea del Sur': '🇰🇷',
+    Taiwán: '🇹🇼',
+    'Hong Kong': '🇭🇰',
+    Tailandia: '🇹🇭',
+    Vietnam: '🇻🇳',
+    Indonesia: '🇮🇩',
+    Malasia: '🇲🇾',
+    Alemania: '🇩🇪',
+    Francia: '🇫🇷',
+    'Reino Unido': '🇬🇧',
+    'Estados Unidos': '🇺🇸',
+    Brasil: '🇧🇷',
+    México: '🇲🇽',
+  }
+  return flags[country] || '🌍'
 }
 
 function matchesKeywords(place: Place, keywords: string[]): boolean {
@@ -210,6 +232,7 @@ function App() {
   const [showAllyBacklinksDashboard, setShowAllyBacklinksDashboard] = useState(false)
   const [showAllyRegistrationForm, setShowAllyRegistrationForm] = useState(false)
   const [showInternationalMarkets, setShowInternationalMarkets] = useState(false)
+  const [showLandingPageEstadoActual, setShowLandingPageEstadoActual] = useState(false)
   const [showAllyVerification, setShowAllyVerification] = useState(false)
   const [showProviderModal, setShowProviderModal] = useState(false)
   const [selectedCategory, setSelectedCategory] = useState<Category | null>(null)
@@ -351,6 +374,10 @@ function App() {
     })
   }, [activeCategory, search, places])
 
+  const internationalMarketsPreview = useMemo(() => {
+    return internationalSEOService.getInternationalMarkets().slice(0, 8)
+  }, [])
+
   const visibleMarkers = useMemo(() => mapMarkers.filter((marker) => activeCategory === 'Todo' || marker.type === categoryToMapType(activeCategory)), [activeCategory, mapMarkers])
 
   // Manejar cambio de idioma
@@ -460,6 +487,23 @@ function App() {
         <button onClick={() => scrollToSection('pautas')}>Pautas</button>
         <button onClick={() => scrollToSection('guia-offline')}>Guía offline</button>
       </nav>
+
+      <div className="international-presence-banner" aria-label="Mercados internacionales">
+        <div className="presence-copy">
+          <span className="presence-tag">Marketing global</span>
+          <strong>Salento llega a más mercados</strong>
+        </div>
+        <div className="presence-flags" aria-label="Banderas de mercados internacionales">
+          {internationalMarketsPreview.map((market) => (
+            <div key={market.country} className="flag-pill" title={`${market.country} · ${market.language}`} aria-label={market.country}>
+              <span className="flag-emoji">{getCountryFlag(market.country)}</span>
+            </div>
+          ))}
+          <span className="presence-more" aria-label="Más mercados internacionales">
+            +{Math.max(0, internationalSEOService.getInternationalMarkets().length - internationalMarketsPreview.length)}
+          </span>
+        </div>
+      </div>
 
       {showWeatherBanner && weather && (
         <div className={`weather-events-banner ${weather.color}`}>
@@ -687,6 +731,7 @@ function App() {
       {showAllyBacklinksDashboard && <AllyBacklinksDashboard onClose={() => setShowAllyBacklinksDashboard(false)} />}
       {showAllyRegistrationForm && <AllyRegistrationForm onClose={() => setShowAllyRegistrationForm(false)} />}
       {showInternationalMarkets && <InternationalMarketsDisplay onClose={() => setShowInternationalMarkets(false)} />}
+      {showLandingPageEstadoActual && <LandingPageEstadoActual />}
       {showProviderModal && selectedCategory && (
         <ProviderSelectionModal
           isOpen={showProviderModal}
@@ -717,6 +762,9 @@ function App() {
       <div className="floating-nav-toolbar" aria-label="Navegación rápida">
         <button className="floating-nav-button" onClick={scrollToHome} aria-label="Volver al inicio">
           <Home size={18} />
+        </button>
+        <button className="floating-nav-button" onClick={() => setShowLandingPageEstadoActual(true)} aria-label="Estado actual Salento">
+          <Shield size={18} />
         </button>
         <button className="floating-nav-button" onClick={() => setShowInternationalMarkets(true)} aria-label="Mercados internacionales">
           <Globe size={18} />
