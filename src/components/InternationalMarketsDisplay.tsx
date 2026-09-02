@@ -74,7 +74,19 @@ const InternationalMarketsDisplay: React.FC<InternationalMarketsDisplayProps> = 
       'Reino Unido': '🇬🇧',
       'Estados Unidos': '🇺🇸',
       'Brasil': '🇧🇷',
-      'México': '🇲🇽'
+      'México': '🇲🇽',
+      'Italia': '🇮🇹',
+      'Dinamarca': '🇩🇰',
+      'España': '🇪🇸',
+      'Países Bajos': '🇳🇱',
+      'Suiza': '🇨🇭',
+      'Suecia': '🇸🇪',
+      'Noruega': '🇳🇴',
+      'Portugal': '🇵🇹',
+      'Bélgica': '🇧🇪',
+      'Austria': '🇦🇹',
+      'Irlanda': '🇮🇪',
+      'Finlandia': '🇫🇮'
     }
     return flags[country] || '🌍'
   }

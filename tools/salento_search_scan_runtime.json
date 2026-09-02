@@ -1,0 +1,27 @@
+{
+  "generated_at": "2026-09-02T18:58:58Z",
+  "providers": [
+    "google"
+  ],
+  "seed_queries": [
+    "Salento Colombia"
+  ],
+  "intent_distribution": {
+    "informational": 1
+  },
+  "top_queries_by_strength": [
+    "Salento Colombia"
+  ],
+  "summaries": [
+    {
+      "query": "Salento Colombia",
+      "intent": "informational",
+      "strength": 3,
+      "search_engine_coverage": {
+        "google": 0
+      },
+      "top_related_terms": [],
+      "sample_results": []
+    }
+  ]
+}

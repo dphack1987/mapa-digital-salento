@@ -1,0 +1,352 @@
+{
+  "generated_at": "2026-09-01T21:41:59Z",
+  "providers": [
+    "google"
+  ],
+  "seed_queries": [
+    "Salento Colombia",
+    "Salento Quindío",
+    "hoteles en Salento",
+    "restaurantes en Salento",
+    "Valle de Cocora Salento",
+    "tour en Salento",
+    "Salento turismo",
+    "Salento actividades",
+    "Salento cosas para hacer",
+    "Salento mapa",
+    "Salento seguridad",
+    "Salento clima",
+    "Salento viajes",
+    "finca cafetera Salento",
+    "cabalgatas en Salento",
+    "Salento restaurante recomendado",
+    "Salento hotel barato",
+    "Salento con niños",
+    "Salento para parejas",
+    "Salento desde Armenia",
+    "como llegar a Salento",
+    "Salento que hacer",
+    "Salento Boquía",
+    "Salento naturaleza",
+    "Salento café",
+    "Salento opiniones",
+    "Salento reserva hotel",
+    "Salento tours en español",
+    "Salento finca coffee tour"
+  ],
+  "intent_distribution": {
+    "informational": 21,
+    "transactional": 4,
+    "local": 2,
+    "commercial": 2
+  },
+  "top_queries_by_strength": [
+    "Salento Colombia",
+    "Salento Quindío",
+    "hoteles en Salento",
+    "restaurantes en Salento",
+    "Valle de Cocora Salento",
+    "tour en Salento",
+    "Salento turismo",
+    "Salento actividades",
+    "Salento cosas para hacer",
+    "Salento mapa",
+    "Salento seguridad",
+    "Salento clima",
+    "Salento viajes",
+    "finca cafetera Salento",
+    "cabalgatas en Salento"
+  ],
+  "summaries": [
+    {
+      "query": "Salento Colombia",
+      "intent": "informational",
+      "strength": 3,
+      "search_engine_coverage": {
+        "google": 0
+      },
+      "top_related_terms": [],
+      "sample_results": []
+    },
+    {
+      "query": "Salento Quindío",
+      "intent": "informational",
+      "strength": 3,
+      "search_engine_coverage": {
+        "google": 0
+      },
+      "top_related_terms": [],
+      "sample_results": []
+    },
+    {
+      "query": "hoteles en Salento",
+      "intent": "informational",
+      "strength": 3,
+      "search_engine_coverage": {
+        "google": 0
+      },
+      "top_related_terms": [],
+      "sample_results": []
+    },
+    {
+      "query": "restaurantes en Salento",
+      "intent": "informational",
+      "strength": 3,
+      "search_engine_coverage": {
+        "google": 0
+      },
+      "top_related_terms": [],
+      "sample_results": []
+    },
+    {
+      "query": "Valle de Cocora Salento",
+      "intent": "informational",
+      "strength": 3,
+      "search_engine_coverage": {
+        "google": 0
+      },
+      "top_related_terms": [],
+      "sample_results": []
+    },
+    {
+      "query": "tour en Salento",
+      "intent": "transactional",
+      "strength": 3,
+      "search_engine_coverage": {
+        "google": 0
+      },
+      "top_related_terms": [],
+      "sample_results": []
+    },
+    {
+      "query": "Salento turismo",
+      "intent": "informational",
+      "strength": 3,
+      "search_engine_coverage": {
+        "google": 0
+      },
+      "top_related_terms": [],
+      "sample_results": []
+    },
+    {
+      "query": "Salento actividades",
+      "intent": "informational",
+      "strength": 3,
+      "search_engine_coverage": {
+        "google": 0
+      },
+      "top_related_terms": [],
+      "sample_results": []
+    },
+    {
+      "query": "Salento cosas para hacer",
+      "intent": "informational",
+      "strength": 3,
+      "search_engine_coverage": {
+        "google": 0
+      },
+      "top_related_terms": [],
+      "sample_results": []
+    },
+    {
+      "query": "Salento mapa",
+      "intent": "local",
+      "strength": 3,
+      "search_engine_coverage": {
+        "google": 0
+      },
+      "top_related_terms": [],
+      "sample_results": []
+    },
+    {
+      "query": "Salento seguridad",
+      "intent": "informational",
+      "strength": 3,
+      "search_engine_coverage": {
+        "google": 0
+      },
+      "top_related_terms": [],
+      "sample_results": []
+    },
+    {
+      "query": "Salento clima",
+      "intent": "informational",
+      "strength": 3,
+      "search_engine_coverage": {
+        "google": 0
+      },
+      "top_related_terms": [],
+      "sample_results": []
+    },
+    {
+      "query": "Salento viajes",
+      "intent": "informational",
+      "strength": 3,
+      "search_engine_coverage": {
+        "google": 0
+      },
+      "top_related_terms": [],
+      "sample_results": []
+    },
+    {
+      "query": "finca cafetera Salento",
+      "intent": "informational",
+      "strength": 3,
+      "search_engine_coverage": {
+        "google": 0
+      },
+      "top_related_terms": [],
+      "sample_results": []
+    },
+    {
+      "query": "cabalgatas en Salento",
+      "intent": "informational",
+      "strength": 3,
+      "search_engine_coverage": {
+        "google": 0
+      },
+      "top_related_terms": [],
+      "sample_results": []
+    },
+    {
+      "query": "Salento restaurante recomendado",
+      "intent": "commercial",
+      "strength": 3,
+      "search_engine_coverage": {
+        "google": 0
+      },
+      "top_related_terms": [],
+      "sample_results": []
+    },
+    {
+      "query": "Salento hotel barato",
+      "intent": "transactional",
+      "strength": 3,
+      "search_engine_coverage": {
+        "google": 0
+      },
+      "top_related_terms": [],
+      "sample_results": []
+    },
+    {
+      "query": "Salento con niños",
+      "intent": "informational",
+      "strength": 3,
+      "search_engine_coverage": {
+        "google": 0
+      },
+      "top_related_terms": [],
+      "sample_results": []
+    },
+    {
+      "query": "Salento para parejas",
+      "intent": "informational",
+      "strength": 3,
+      "search_engine_coverage": {
+        "google": 0
+      },
+      "top_related_terms": [],
+      "sample_results": []
+    },
+    {
+      "query": "Salento desde Armenia",
+      "intent": "informational",
+      "strength": 3,
+      "search_engine_coverage": {
+        "google": 0
+      },
+      "top_related_terms": [],
+      "sample_results": []
+    },
+    {
+      "query": "como llegar a Salento",
+      "intent": "local",
+      "strength": 3,
+      "search_engine_coverage": {
+        "google": 0
+      },
+      "top_related_terms": [],
+      "sample_results": []
+    },
+    {
+      "query": "Salento que hacer",
+      "intent": "informational",
+      "strength": 3,
+      "search_engine_coverage": {
+        "google": 0
+      },
+      "top_related_terms": [],
+      "sample_results": []
+    },
+    {
+      "query": "Salento Boquía",
+      "intent": "informational",
+      "strength": 3,
+      "search_engine_coverage": {
+        "google": 0
+      },
+      "top_related_terms": [],
+      "sample_results": []
+    },
+    {
+      "query": "Salento naturaleza",
+      "intent": "informational",
+      "strength": 3,
+      "search_engine_coverage": {
+        "google": 0
+      },
+      "top_related_terms": [],
+      "sample_results": []
+    },
+    {
+      "query": "Salento café",
+      "intent": "informational",
+      "strength": 3,
+      "search_engine_coverage": {
+        "google": 0
+      },
+      "top_related_terms": [],
+      "sample_results": []
+    },
+    {
+      "query": "Salento opiniones",
+      "intent": "commercial",
+      "strength": 3,
+      "search_engine_coverage": {
+        "google": 0
+      },
+      "top_related_terms": [],
+      "sample_results": []
+    },
+    {
+      "query": "Salento reserva hotel",
+      "intent": "informational",
+      "strength": 3,
+      "search_engine_coverage": {
+        "google": 0
+      },
+      "top_related_terms": [],
+      "sample_results": []
+    },
+    {
+      "query": "Salento tours en español",
+      "intent": "transactional",
+      "strength": 3,
+      "search_engine_coverage": {
+        "google": 0
+      },
+      "top_related_terms": [],
+      "sample_results": []
+    },
+    {
+      "query": "Salento finca coffee tour",
+      "intent": "transactional",
+      "strength": 3,
+      "search_engine_coverage": {
+        "google": 0
+      },
+      "top_related_terms": [],
+      "sample_results": []
+    }
+  ]
+}

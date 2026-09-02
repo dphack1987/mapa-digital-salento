@@ -1,5 +1,5 @@
 # Robots.txt para SEO Internacional - Salento a la Mano
-# Dominio: mapa-digital-salento.vercel.app
+# Dominio: salentoalamano.com
 # Estrategia: Prioridad para mercados internacionales (China, Rusia, Asia, Europa)
 
 # Configuración general
@@ -70,8 +70,8 @@ User-agent: LinkedInBot
 Allow: /
 
 # Sitemaps para todos los motores internacionales
-Sitemap: https://mapa-digital-salento.vercel.app/sitemap.xml
-Sitemap: https://mapa-digital-salento.vercel.app/salentoalamano-defensive-sitemap.xml
+Sitemap: https://salentoalamano.com/sitemap.xml
+Sitemap: https://salentoalamano.com/salentoalamano-defensive-sitemap.xml
 
 # Host para Yandex
-Host: mapa-digital-salento.vercel.app
+Host: salentoalamano.com

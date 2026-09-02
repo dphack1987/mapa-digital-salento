@@ -1,7 +1,7 @@
 # 🚨 DIAGNÓSTICO DE INDEXACIÓN - Salento a la Mano
 
 **Fecha:** 1 de septiembre de 2026  
-**Dominio:** mapa-digital-salento.vercel.app  
+**Dominio:** salentoalamano.com  
 **Estado:** CRÍTICO - Sin indexación visible
 
 ---
@@ -9,12 +9,12 @@
 ## 📊 RESULTADOS DEL DIAGNÓSTICO
 
 ### **❌ Verificación de Indexación en Google**
-- **Resultado:** `site:mapa-digital-salento.vercel.app` - **No results found**
+- **Resultado:** `site:salentoalamano.com` - **No results found**
 - **Estado:** El dominio NO está indexado por Google
 - **Impacto:** Cero visibilidad orgánica en resultados de búsqueda
 
 ### **❌ Búsqueda del Dominio Directo**
-- **Resultado:** Búsqueda de "mapa-digital-salento.vercel.app" - **No aparece**
+- **Resultado:** Búsqueda de "salentoalamano.com" - **No aparece**
 - **Confusión:** Los resultados muestran sitios de "Salento" (Italia), no Salento Quindío Colombia
 - **Estado:** Sin presencia en resultados de búsqueda
 
@@ -108,13 +108,13 @@
 
 #### **1.1 Verificar propiedad en Google Search Console**
 - [ ] Ingresar a Google Search Console
-- [ ] Agregar propiedad: mapa-digital-salento.vercel.app
+- [ ] Agregar propiedad: salentoalamano.com
 - [ ] Verificar propiedad con archivo: googleac76b27847921d06.html
 - [ ] Confirmar verificación exitosa
 
 #### **1.2 Enviar Sitemap a Google**
 - [ ] Navegar a "Sitemaps" en Search Console
-- [ ] Enviar: https://mapa-digital-salento.vercel.app/sitemap.xml
+- [ ] Enviar: https://salentoalamano.com/sitemap.xml
 - [ ] Verificar que el sitemap sea procesado
 - [ ] Revisar errores de indexación
 

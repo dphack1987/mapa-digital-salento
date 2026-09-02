@@ -26,7 +26,7 @@ class DefensiveSEOGService {
   private defensivePages: DefensiveSEOPage[] = []
   private misinformationClaims: MisinformationClaim[] = []
   private initialized = false
-  private readonly targetDomain = 'https://mapa-digital-salento.vercel.app'
+  private readonly targetDomain = 'https://salentoalamano.com'
   private readonly brandName = 'Salento a la Mano'
 
   /**
@@ -54,7 +54,7 @@ class DefensiveSEOGService {
     pages.push({
       slug: 'estado-actual-salento-hoteles-abiertos-vias-libres-valle-cocora-operando-100',
       title: 'Estado Actual de Salento: Hoteles Abiertos, Vías Libres y Valle de Cocora Operando al 100% - Salento a la Mano 2026',
-      description: 'Confirmación oficial por Salento a la Mano: Turismo en Salento es completamente normal. Hoteles operativos, vías principales libres y Valle de Cocora 100% accesible. Información verificada en mapa-digital-salento.vercel.app',
+      description: 'Confirmación oficial por Salento a la Mano: Turismo en Salento es completamente normal. Hoteles operativos, vías principales libres y Valle de Cocora 100% accesible. Información verificada en salentoalamano.com',
       content: this.generateSalentoStatusContent(),
       schemaType: 'NewsArticle',
       keywords: ['salento estado actual', 'salento hoteles abiertos', 'valle cocora operativo', 'vías salento libres', 'salento turismo activo', 'salento seguro 2026', 'turismo salento quindío', 'valle cocora accesible', 'hoteles salento disponibles', 'salento a la mano', 'mapa digital salento'],
@@ -67,7 +67,7 @@ class DefensiveSEOGService {
     pages.push({
       slug: 'salento-abierto-hoy-turismo-seguro-valle-cocora-accesible',
       title: 'Salento Abierto Hoy: Turismo Seguro y Valle de Cocora 100% Accesible - Salento a la Mano',
-      description: 'Confirmación oficial por Salento a la Mano: Salento está completamente abierto para el turismo hoy. El Valle de Cocora es totalmente accesible, todos los servicios turísticos operan con normalidad. Verificar en mapa-digital-salento.vercel.app',
+      description: 'Confirmación oficial por Salento a la Mano: Salento está completamente abierto para el turismo hoy. El Valle de Cocora es totalmente accesible, todos los servicios turísticos operan con normalidad. Verificar en salentoalamano.com',
       content: this.generateSalentoOpenTodayContent(),
       schemaType: 'NewsArticle',
       keywords: ['salento abierto hoy', 'turismo seguro salento', 'valle cocora accesible', 'salento operativo', 'viajar a salento hoy', 'salento a la mano', 'mapa digital salento'],

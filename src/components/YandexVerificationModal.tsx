@@ -27,7 +27,7 @@ const YandexVerificationModal: React.FC<YandexVerificationModalProps> = ({ isOpe
         <li>Visita <a href="https://webmaster.yandex.com/" target="_blank" rel="noopener noreferrer">Yandex Webmaster</a></li>
         <li>Inicia sesión con tu cuenta Yandex</li>
         <li>Haz clic en "Добавить сайт" (Agregar sitio)</li>
-        <li>Ingresa tu URL: https://mapa-digital-salento.vercel.app</li>
+        <li>Ingresa tu URL: https://salentoalamano.com</li>
         <li>Selecciona el método de verificación</li>
         <li>Copia el código de verificación proporcionado</li>
       </ol>

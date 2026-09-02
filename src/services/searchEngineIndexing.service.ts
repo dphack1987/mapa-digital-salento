@@ -13,7 +13,7 @@ interface SearchEngine {
 }
 
 class SearchEngineIndexingService {
-  private readonly domain = 'https://mapa-digital-salento.vercel.app'
+  private readonly domain = 'https://salentoalamano.com'
   private readonly brandName = 'Salento a la Mano'
   private readonly sitemapUrl = this.domain + '/sitemap.xml'
 
@@ -378,7 +378,7 @@ class SearchEngineIndexingService {
       totalEngines: engines.length,
       verifiedEngines: verifiedCount,
       indexingStatus: verifiedCount === 0 ? 'No verificado' : verifiedCount === engines.length ? 'Completamente indexado' : 'Parcialmente indexado',
-      sitemapStatus: 'Sitemap corregido para mapa-digital-salento.vercel.app - pendiente de envío a Google',
+      sitemapStatus: 'Sitemap corregido para salentoalamano.com - pendiente de envío a Google',
       verificationCodes: {
         google: this.verificationCode,
         bing: null, // Pendiente de código específico
@@ -474,7 +474,7 @@ class SearchEngineIndexingService {
       + '- Estado: ✅ Configurado\n\n'
       + '## Sitemap\n\n'
       + '- URL: ' + this.sitemapUrl + '\n'
-      + '- Estado: ✅ Corregido para mapa-digital-salento.vercel.app\n'
+      + '- Estado: ✅ Corregido para salentoalamano.com\n'
       + '- Páginas: 8 URLs principales\n'
       + '- Estado: ⏳ Pendiente de envío a Google Search Console\n\n'
       + '## Cronograma de Implementación Internacional\n\n'

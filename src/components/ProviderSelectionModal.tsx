@@ -21,6 +21,10 @@ import {
 } from 'lucide-react'
 import { Place, Category } from '../types'
 
+function providerSlug(name: string) {
+  return name.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')
+}
+
 interface ProviderSelectionModalProps {
   isOpen: boolean
   onClose: () => void
@@ -194,7 +198,7 @@ function ProviderSelectionModal({ isOpen, onClose, category, places, onDirectOrd
             className="action-button secondary"
             onClick={(e) => {
               e.stopPropagation()
-              handleProviderAction(provider, 'contact')
+              window.location.assign(`/paginas-pautantes/${providerSlug(provider.name)}/`)
             }}
           >
             <Phone size={16} />

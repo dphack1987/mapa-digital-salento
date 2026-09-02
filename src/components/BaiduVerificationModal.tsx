@@ -27,7 +27,7 @@ const BaiduVerificationModal: React.FC<BaiduVerificationModalProps> = ({ isOpen,
         <li>Visita <a href="https://ziyuan.baidu.com/" target="_blank" rel="noopener noreferrer">Baidu Webmaster Tools</a> (en chino)</li>
         <li>Inicia sesión con tu cuenta Baidu</li>
         <li>Haz clic en "添加网站" (Agregar sitio)</li>
-        <li>Ingresa tu URL: https://mapa-digital-salento.vercel.app</li>
+        <li>Ingresa tu URL: https://salentoalamano.com</li>
         <li>Selecciona el método de verificación</li>
         <li>Copia el código de verificación proporcionado</li>
       </ol>

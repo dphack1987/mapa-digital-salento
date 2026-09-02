@@ -50,6 +50,12 @@ const SearchEngineIndexingModal: React.FC<SearchEngineIndexingModalProps> = ({ i
     return '❌ No configurado'
   }
 
+  const getEngineStatusClass = (engine: any): string => {
+    if (engine.verified) return 'verified'
+    if (engine.verificationCode) return 'pending'
+    return 'unconfigured'
+  }
+
   const getEnginePriority = (engineName: string): string => {
     if (engineName.includes('Google') || engineName.includes('Bing')) return 'Alta'
     if (engineName.includes('DuckDuckGo') || engineName.includes('Yahoo')) return 'Media'
@@ -91,7 +97,7 @@ const SearchEngineIndexingModal: React.FC<SearchEngineIndexingModalProps> = ({ i
                 </div>
 
                 <div className="engine-status">
-                  <span className="status-badge">{getEngineStatus(engine)}</span>
+                  <span className={`status-badge ${getEngineStatusClass(engine)}`}>{getEngineStatus(engine)}</span>
                 </div>
 
                 <div className="engine-details">

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Coffee Farm El Recuerdo | Salento a la Mano</title>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap');
+      :root { --paper: #f5f1e8; --ink: #1f2d26; --line: #d9d0bf; --coral: #dd7f5d; --green: #5a7d63; --yellow: #e7c77b; --white: #fff; }
+      body { margin: 0; background: var(--paper); color: var(--ink); font-family: 'DM Sans', sans-serif; }
+      a { color: inherit; text-decoration: none; }
+      .container { max-width: 1200px; margin: 0 auto; padding: 28px 20px 80px; }
+      .breadcrumb { color: #59665f; margin-bottom: 20px; }
+      .topbar { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 30px; }
+      .brand { font-size: 20px; font-weight: 700; }
+      .brand { display: inline-flex; align-items: center; gap: 10px; }
+      .brand-logo { width: 42px; height: 42px; object-fit: contain; border-radius: 50%; }
+      .back-btn, .pill, .action-btn { border-radius: 999px; }
+      .back-btn { background: var(--white); border: 1px solid var(--line); padding: 10px 14px; }
+      .hero { display: grid; grid-template-columns: 1.1fr .9fr; gap: 24px; align-items: start; }
+      .main-panel, .side-panel { background: var(--white); border: 1px solid var(--line); border-radius: 24px; padding: 24px; }
+      .provider-row { display: flex; align-items: center; gap: 16px; margin-bottom: 16px; }
+      .provider-logo { width: 72px; height: 72px; border-radius: 18px; background: linear-gradient(135deg, var(--coral), var(--yellow)); display: grid; place-items: center; color: #fff; font-weight: 700; font-size: 1.5rem; }
+      .provider-name { margin: 0; font-size: clamp(2rem, 4vw, 3rem); }
+      .meta { display: flex; flex-wrap: wrap; gap: 10px; margin: 16px 0; }
+      .pill { display: inline-flex; background: #f3ead6; border: 1px solid var(--line); padding: 7px 10px; font-size: 11px; font-weight: 700; text-transform: uppercase; }
+      .description { color: #535f55; line-height: 1.7; font-size: 1rem; }
+      .actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+      .action-btn { display: inline-flex; align-items: center; justify-content: center; padding: 12px 16px; font-weight: 700; border: 1px solid var(--line); }
+      .action-btn.primary { background: #25d366; color: #fff; border-color: #25d366; }
+      .action-btn.secondary { background: var(--ink); color: var(--white); border-color: var(--ink); }
+      .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 18px; }
+      .gallery img { width: 100%; height: 170px; object-fit: cover; border-radius: 16px; border: 1px solid var(--line); }
+      .info-list { display: grid; gap: 12px; margin-top: 18px; }
+      .info-item { padding: 12px 0; border-bottom: 1px solid var(--line); }
+      .info-item strong { display: block; margin-bottom: 4px; font-size: 12px; text-transform: uppercase; color: #5e695f; }
+      .info-item span, .info-item a { color: var(--ink); }
+      .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+      .tag { background: #f3ead6; border: 1px solid var(--line); border-radius: 999px; padding: 7px 10px; font-size: 11px; }
+      @media (max-width: 800px) { .hero { grid-template-columns: 1fr; } .gallery { grid-template-columns: 1fr; } }
+    </style>
+    <link rel="stylesheet" href="/page-theme.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="breadcrumb"><a href="/index.html">Inicio</a> / <a href="/categorias/experiencias.html">Experiencias</a> / Coffee Farm El Recuerdo</div>
+      <div class="topbar">
+        <a class="brand" href="/index.html"><img src="/logo_salento2026.png" alt="Salento a la Mano" class="brand-logo"/><span>Salento a la Mano</span></a>
+        <div class="topbar-actions">
+          <a class="back-btn" href="/">Inicio</a>
+          <a class="back-btn" href="/paginas-pautantes/coffee-farm-el-recuerdo/">Página del pautante</a>
+          <a class="back-btn" href="/categorias/experiencias.html">← Volver a Experiencias</a>
+        </div>
+      </div>
+
+      <div class="hero">
+        <section class="main-panel">
+          <div class="provider-row">
+            
+    <div class="provider-logo" aria-label="Logo de Coffee Farm El Recuerdo">CF</div>
+  
+            <div>
+              <div class="meta">
+                <span class="pill">Experiencias</span>
+                <span class="pill">⭐ 5.0</span>
+              </div>
+              <h1 class="provider-name">Coffee Farm El Recuerdo</h1>
+            </div>
+          </div>
+
+          <p class="description">Finca cafetera tradicional en Salento con recorrido guiado sobre la historia del café, plantas medicinales, cafetales y degustaciones locales.</p>
+
+          <div class="actions">
+            <span class="muted">WhatsApp por confirmar</span>
+            <a class="action-btn secondary" href="tel:+573103764672">Llamar</a>
+            
+          </div>
+
+          <div class="gallery">
+            <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80" alt="Coffee Farm El Recuerdo foto 1" loading="lazy"/><img src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=900&q=80" alt="Coffee Farm El Recuerdo foto 2" loading="lazy"/><img src="https://images.unsplash.com/photo-1527631746610-bca00a040d60?auto=format&fit=crop&w=900&q=80" alt="Coffee Farm El Recuerdo foto 3" loading="lazy"/>
+          </div>
+        </section>
+
+        <aside class="side-panel">
+          <div class="info-list">
+            <div class="info-item"><strong>Dirección</strong><span>Palestina, Vereda, Salento, Quindío</span></div>
+            <div class="info-item"><strong>Referencia</strong><span>Zona rural de Palestina</span></div>
+            <div class="info-item"><strong>Horario</strong><span>Visitas por reserva. Atención diurna y flexible según disponibilidad.</span></div>
+            <div class="info-item"><strong>Precio</strong><span>$$</span></div>
+            <div class="info-item"><strong>Contacto</strong>
+              <div><a href="tel:+573103764672">+57 310 3764672</a></div>
+              
+              
+            </div>
+          </div>
+        </aside>
+      </div>
+
+      <section class="main-panel" style="margin-top: 24px;">
+        <h2>Información y servicios</h2>
+        <div class="tags">
+          <span class="tag">coffee tour</span><span class="tag">naturaleza</span><span class="tag">cafés</span><span class="tag">degustación</span>
+        </div>
+
+        <div class="info-list">
+          <div class="info-item"><strong>Descripcion</strong><span>Finca cafetera tradicional en Salento con recorrido guiado sobre la historia del café, plantas medicinales, cafetales y degustaciones locales.</span></div>
+          <div class="info-item"><strong>Experiencia</strong><span>1-2 horas</span></div>
+          <div class="info-item"><strong>Cómo llegar</strong><span><a href="https://www.google.com/maps/search/Palestina%2C%20Vereda%2C%20Salento%2C%20Quind%C3%ADo" target="_blank" rel="noreferrer">Abrir en Google Maps</a></span></div>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

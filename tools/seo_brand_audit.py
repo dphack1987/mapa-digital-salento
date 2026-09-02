@@ -1,3 +1,4 @@
+import os
 from pathlib import Path
 import re
 
@@ -21,13 +22,12 @@ EXCLUDE_DIRS = {
 
 
 def iter_files(root: Path):
-    for path in root.rglob('*'):
-        if path.is_dir():
-            if path.name in EXCLUDE_DIRS:
-                continue
-            continue
-        if path.suffix.lower() in {'.html', '.xml', '.txt', '.json', '.md', '.ts', '.tsx', '.js', '.css'}:
-            yield path
+    for current_root, directories, filenames in os.walk(root):
+        directories[:] = [directory for directory in directories if directory not in EXCLUDE_DIRS]
+        for filename in filenames:
+            path = Path(current_root) / filename
+            if path.suffix.lower() in {'.html', '.xml', '.txt', '.json', '.md', '.ts', '.tsx', '.js', '.css'}:
+                yield path
 
 
 def main():
