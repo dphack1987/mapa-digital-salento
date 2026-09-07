@@ -824,14 +824,14 @@ function App() {
               </div>
             </button>
 
-            <button className="service-card guides" style={{ backgroundImage: `url(${serviceCardImages.guides})` }} onClick={() => { setSelectedCategory('Experiencias'); setShowProviderModal(true) }}>
+            <button className="service-card guides" style={{ backgroundImage: `url(${serviceCardImages.guides})` }} onClick={() => { setSelectedCategory('Atractivos Turísticos'); setShowProviderModal(true) }}>
               <div className="service-icon">🧭</div>
               <div className="service-content">
-                <h3>Guías</h3>
-                <p>Tours locales</p>
+                <h3>Atractivos Turísticos</h3>
+                <p>Naturaleza y miradores</p>
               </div>
               <div className="service-info">
-                <span className="provider-count">{countMatchingPlaces(places, ['guia', 'guia turistico', 'tour', 'ruta', 'senderismo', 'adventure', 'guide'])} {language === 'es' ? 'pautantes' : 'providers'}</span>
+                <span className="provider-count">{countMatchingPlaces(places, ['atractivo', 'mirador', 'cascada', 'sendero', 'parque', 'natural', 'reserva', 'turistico', 'vista', 'attraction'])} {language === 'es' ? 'pautantes' : 'providers'}</span>
                 <ChevronRight size={16} />
               </div>
             </button>
