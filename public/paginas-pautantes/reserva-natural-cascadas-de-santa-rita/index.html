@@ -413,6 +413,13 @@
 
       <div id="mapa" class="section gallery-section">
         <h2>🗺️ Mapa Interactivo - Puntos de Interés</h2>
+        <div class="info-item" style="margin-bottom: 20px;">
+          <h4>📍 Activar GPS para mejor experiencia</h4>
+          <p style="margin-bottom: 12px;">Activa tu ubicación para ver tu posición en el mapa y calcular distancias a los puntos de interés.</p>
+          <button onclick="enableGPS()" class="contact-btn primary" style="width: auto; min-width: 200px;">
+            📍 Activar GPS
+          </button>
+        </div>
         <div id="map"></div>
         <div class="info-grid">
           <div class="info-item">
@@ -573,6 +580,7 @@
     <script>
       let map = null;
       let markers = [];
+      let userMarker = null;
 
       function showCategory(category) {
         // Remove active class from all buttons
@@ -718,6 +726,103 @@
         // Fit map to show all markers
         const group = new L.featureGroup(markers);
         map.fitBounds(group.getBounds().pad(0.1));
+      }
+
+      function enableGPS() {
+        if (!map) {
+          alert('Por favor, selecciona primero la categoría Mapa para cargar el mapa.');
+          return;
+        }
+
+        if (!navigator.geolocation) {
+          alert('Tu navegador no soporta geolocalización. Por favor, intenta con otro navegador.');
+          return;
+        }
+
+        const gpsButton = event.target;
+        gpsButton.textContent = '📍 Buscando ubicación...';
+        gpsButton.disabled = true;
+
+        navigator.geolocation.getCurrentPosition(
+          (position) => {
+            const lat = position.coords.latitude;
+            const lng = position.coords.longitude;
+            
+            // Remove existing user marker if any
+            if (userMarker) {
+              map.removeLayer(userMarker);
+            }
+
+            // Create custom user marker
+            const userIcon = L.divIcon({
+              className: 'custom-marker',
+              html: '<div style="background: #25d366; border: 3px solid white; border-radius: 50%; width: 20px; height: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center; color: white; font-size: 12px;">📍</div>',
+              iconSize: [20, 20],
+              iconAnchor: [10, 10]
+            });
+
+            userMarker = L.marker([lat, lng], { icon: userIcon }).addTo(map);
+            
+            const userPopupContent = `
+              <div style="min-width: 200px;">
+                <strong style="font-size: 16px; color: var(--ink);">📍 Tu ubicación</strong>
+                <p style="margin: 8px 0 0; color: var(--muted); font-size: 14px;">Lat: ${lat.toFixed(6)}, Lng: ${lng.toFixed(6)}</p>
+                <small style="color: var(--coral); font-weight: 700;">Ubicación actual activa</small>
+              </div>
+            `;
+            
+            userMarker.bindPopup(userPopupContent).openPopup();
+
+            // Center map on user location
+            map.setView([lat, lng], 15);
+
+            // Calculate distance to main location (Santa Rita)
+            const mainCoords = [4.64, -75.56];
+            const distance = calculateDistance(lat, lng, mainCoords[0], mainCoords[1]);
+            
+            alert(`✅ GPS activado. Estás a aproximadamente ${distance.toFixed(2)} km de Cascadas de Santa Rita.`);
+
+            gpsButton.textContent = '📍 GPS Activado';
+            gpsButton.style.background = '#25d366';
+            gpsButton.style.borderColor = '#25d366';
+          },
+          (error) => {
+            let errorMessage = 'No se pudo obtener tu ubicación. ';
+            switch(error.code) {
+              case error.PERMISSION_DENIED:
+                errorMessage += 'Por favor, permite el acceso a tu ubicación en tu navegador.';
+                break;
+              case error.POSITION_UNAVAILABLE:
+                errorMessage += 'La información de ubicación no está disponible.';
+                break;
+              case error.TIMEOUT:
+                errorMessage += 'El tiempo de espera para obtener ubicación ha expirado.';
+                break;
+              default:
+                errorMessage += 'Error desconocido al obtener ubicación.';
+            }
+            alert(errorMessage);
+            gpsButton.textContent = '📍 Activar GPS';
+            gpsButton.disabled = false;
+          },
+          {
+            enableHighAccuracy: true,
+            timeout: 10000,
+            maximumAge: 0
+          }
+        );
+      }
+
+      function calculateDistance(lat1, lon1, lat2, lon2) {
+        const R = 6371; // Radio de la Tierra en km
+        const dLat = (lat2 - lat1) * Math.PI / 180;
+        const dLon = (lon2 - lon1) * Math.PI / 180;
+        const a = 
+          Math.sin(dLat/2) * Math.sin(dLat/2) +
+          Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) * 
+          Math.sin(dLon/2) * Math.sin(dLon/2);
+        const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+        return R * c;
       }
     </script>
   </body>
