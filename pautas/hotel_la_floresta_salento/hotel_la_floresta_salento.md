@@ -14,19 +14,29 @@
 - Teléfono publicado: 312 8681808
 - Calificación Google: 4.5/5 con 439 opiniones
 - Tipo de oferta: hotel con ambiente de finca, spa, café gratuito, coworking y experiencia cafetera
+- Propuesta: alojamiento tranquilo, desayuno, Wi‑Fi, spa, espacios de trabajo y base para recorrer Salento y sus alrededores
 
-## Descripción preliminar
-Hotel La Floresta Salento ofrece una experiencia de descanso en un entorno cercano a la naturaleza, con una propuesta de alojamiento típica del Eje Cafetero. Se presenta como opción para turistas que buscan comodidad, tranquilidad y acceso a la zona central de Salento.
+## Modelo de reserva directa
+- Canal principal: WhatsApp o contacto directo para reservas
+- Comisión por venta de la plataforma: 0%
+- Rol de Salento a la Mano: visibilidad, contacto directo y guía para reservar
+- Cobertura: Salento cabecera y viajeros en tránsito o estadía corta
+- Modalidad: alojamiento, descanso y servicios complementarios
+- Pago: directo con el hotel según disponibilidad y tarifa
 
-## Servicios confirmados por búsqueda
-- Habitaciones inspiradas en aves locales
-- Spa / zona de relajación o hidromasajes
-- Área de café gratuito y zonas comunes
-- Cocina compartida
-- Wi-Fi gratis
+## Catálogo de servicios y productos
+### Hospedaje
+- Habitación estándar: precio por confirmar
+- Habitación con balcón o vista: precio por confirmar
+- Paquete para parejas o descanso: precio por confirmar
+- Estancia por noche o fin de semana: tarifa según temporada
+
+### Servicios complementarios
+- Spa o zona de relajación
+- Café gratuito y zonas comunes
+- Coworking o espacio de trabajo
 - Información turística para recorridos de la zona
-- Operador turístico / planes especiales para parejas
-- Gimnasio
+- Gimnasio o bienestar por confirmar
 
 ## Contacto y datos faltantes
 Se requieren confirmar:

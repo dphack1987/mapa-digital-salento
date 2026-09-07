@@ -1,5 +1,5 @@
 // Servicio de Verificación de Propiedad de Google Search Console
-// Genera métodos de verificación para salentoalamano.com
+// Genera métodos de verificación para mapa-digital-salento.vercel.app
 
 interface VerificationMethod {
   name: string
@@ -10,7 +10,7 @@ interface VerificationMethod {
 }
 
 class GoogleVerificationService {
-  private readonly domain = 'https://salentoalamano.com'
+  private readonly domain = 'https://mapa-digital-salento.vercel.app'
   private readonly brandName = 'Salento a la Mano'
   private readonly verificationCode = 'jHPxwutu-FWCZaMEyI4UOcFCGdg7MLiXiOrJvQQ114w' // Código específico de la cuenta del usuario
 
@@ -166,8 +166,7 @@ class GoogleVerificationService {
       + 'Disallow: /*.json$\n'
       + 'Disallow: /*.xml$\n\n'
       + '# Sitemap\n'
-      + 'Sitemap: ' + this.domain + '/sitemap.xml\n'
-      + 'Sitemap: ' + this.domain + '/salentoalamano-defensive-sitemap.xml\n\n'
+      + 'Sitemap: ' + this.domain + '/sitemap.xml\n\n'
       + '# Crawl-delay para sobrecarga\n'
       + 'Crawl-delay: 1'
   }

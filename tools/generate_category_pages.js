@@ -94,6 +94,10 @@ function categoryLabelFor(type) {
   return categoryMeta[type]?.title || type;
 }
 
+function canonicalTag(pathname) {
+  return `<link rel="canonical" href="https://salentoalamano.com${pathname}" />`;
+}
+
 const FONTS_LINK = `
     <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
@@ -260,6 +264,7 @@ function renderCategoryPage(category, items) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="${escapeHtml(categoryMeta[category]?.description || pageTitle)}" />
     <title>${pageTitle}</title>
+    ${canonicalTag(`/categorias/${categorySlug}.html`)}
     ${FONTS_LINK}
     <style>
       :root {
@@ -335,6 +340,23 @@ function renderCategoryPage(category, items) {
       { name: 'Categorías', url: 'https://salentoalamano.com/categorias/' },
       { name: categoryMeta[category]?.title || category },
     ])}
+    <script type="application/ld+json">${JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'CollectionPage',
+      name: `${categoryMeta[category]?.title || category} | Salento a la Mano`,
+      description: categoryMeta[category]?.description || 'Directorio de servicios locales en Salento, Quindío.',
+      url: `https://salentoalamano.com/categorias/${slugify(category)}.html`,
+      inLanguage: 'es',
+      mainEntity: {
+        '@type': 'ItemList',
+        itemListElement: items.map((it, idx) => ({
+          '@type': 'ListItem',
+          position: idx + 1,
+          name: it.name,
+          url: `https://salentoalamano.com/paginas-pautantes/${slugify(it.name)}/`
+        }))
+      }
+    })}</script>
   </head>
   <body>
     <div class="container">
@@ -381,7 +403,9 @@ function renderProviderPage(provider) {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="${escapeHtml(provider.description || `Conoce ${provider.name} y contacta directamente en Salento, Quindío.`)}" />
     <title>${escapeHtml(provider.name)} | Salento a la Mano</title>
+    ${canonicalTag(`/pautantes/${slugify(provider.name)}.html`)}
     <style>
       @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap');
       :root { --paper: #f5f1e8; --ink: #1f2d26; --line: #d9d0bf; --coral: #dd7f5d; --green: #5a7d63; --yellow: #e7c77b; --white: #fff; }
@@ -523,6 +547,7 @@ function renderProviderLandingPage(provider) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="${escapeHtml(provider.description || `Conoce ${provider.name} y contacta directamente.`)}" />
     <title>${escapeHtml(provider.name)} | Vive Salento directamente</title>
+    ${canonicalTag(`/paginas-pautantes/${slug}/`)}
     <style>
       @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap');
       :root { --paper:#f5f1e8; --ink:#1f2d26; --muted:#59665f; --line:#d9d0bf; --coral:#dd7f5d; --yellow:#e7c77b; --white:#fff; }
@@ -544,6 +569,12 @@ function renderProviderLandingPage(provider) {
       @media (max-width:800px) { .hero,.two-col { grid-template-columns:1fr; } .hero-image { min-height:260px; order:-1; } .topbar { align-items:flex-start; flex-direction:column; } .gallery { grid-template-columns:1fr; } }
     </style>
     <link rel="stylesheet" href="/page-theme.css" />
+    ${buildBreadcrumbListSchema([
+      { name: 'Inicio', url: 'https://salentoalamano.com/' },
+      { name: categoryLabelFor(category), url: hrefBack },
+      { name: provider.name }
+    ])}
+    ${buildSchemaJsonLd(provider)}
   </head>
   <body>
     <main class="container">
@@ -585,7 +616,9 @@ const indexHtml = `<!DOCTYPE html>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Explora categorías de alojamientos, gastronomía, experiencias y servicios locales en Salento, Quindío." />
     <title>Categorías | Salento a la Mano</title>
+    ${canonicalTag('/categorias/')}
     <style>
       @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap');
       body { margin: 0; background: #f5f1e8; color: #1f2d26; font-family: 'DM Sans', sans-serif; }

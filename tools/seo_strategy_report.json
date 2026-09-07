@@ -1,0 +1,791 @@
+{
+  "generated_at": "2026-09-04T17:25:24.024396+00:00",
+  "read_only": true,
+  "origin": "https://mapa-digital-salento.vercel.app",
+  "pages_scanned": 78,
+  "summary": {
+    "total_internal_edges": 365,
+    "pages_with_hreflang": 17,
+    "pages_with_json_ld": 78,
+    "high_priority_opportunities": 0,
+    "total_opportunities": 73
+  },
+  "top_authority_pages": [
+    {
+      "url": "https://mapa-digital-salento.vercel.app/",
+      "path": "index.html",
+      "title": "Salento a la Mano | Mapa turístico de Salento, Quindío",
+      "word_count": 6,
+      "h1_count": 0,
+      "json_ld_count": 2,
+      "internal_links": [],
+      "hreflang_count": 18,
+      "incoming_links": 64,
+      "authority_score": 100
+    },
+    {
+      "url": "https://mapa-digital-salento.vercel.app/categorias/alojamientos",
+      "path": "public/categorias/alojamientos.html",
+      "title": "Alojamientos | Salento a la Mano",
+      "word_count": 183,
+      "h1_count": 1,
+      "json_ld_count": 2,
+      "internal_links": [
+        "https://mapa-digital-salento.vercel.app/",
+        "https://mapa-digital-salento.vercel.app/index",
+        "https://mapa-digital-salento.vercel.app/paginas-pautantes/boki-mall-hotel-el-mirador-de-boquia",
+        "https://mapa-digital-salento.vercel.app/paginas-pautantes/finca-hotel-el-ocaso",
+        "https://mapa-digital-salento.vercel.app/paginas-pautantes/hotel-camino-nacional-salento",
+        "https://mapa-digital-salento.vercel.app/paginas-pautantes/hotel-la-floresta-salento",
+        "https://mapa-digital-salento.vercel.app/pautantes/boki-mall-hotel-el-mirador-de-boquia",
+        "https://mapa-digital-salento.vercel.app/pautantes/finca-hotel-el-ocaso",
+        "https://mapa-digital-salento.vercel.app/pautantes/hotel-camino-nacional-salento",
+        "https://mapa-digital-salento.vercel.app/pautantes/hotel-la-floresta-salento"
+      ],
+      "hreflang_count": 0,
+      "incoming_links": 9,
+      "authority_score": 100
+    },
+    {
+      "url": "https://mapa-digital-salento.vercel.app/categorias/experiencias",
+      "path": "public/categorias/experiencias.html",
+      "title": "Experiencias | Salento a la Mano",
+      "word_count": 251,
+      "h1_count": 1,
+      "json_ld_count": 2,
+      "internal_links": [
+        "https://mapa-digital-salento.vercel.app/",
+        "https://mapa-digital-salento.vercel.app/index",
+        "https://mapa-digital-salento.vercel.app/paginas-pautantes/cabalgatas-cocora-magica",
+        "https://mapa-digital-salento.vercel.app/paginas-pautantes/cabalgatas-valle-de-cocora",
+        "https://mapa-digital-salento.vercel.app/paginas-pautantes/coffee-farm-el-recuerdo",
+        "https://mapa-digital-salento.vercel.app/paginas-pautantes/finca-cafetera-don-elias",
+        "https://mapa-digital-salento.vercel.app/paginas-pautantes/mirador-las-manos-de-dios",
+        "https://mapa-digital-salento.vercel.app/paginas-pautantes/reserva-natural-cascadas-de-santa-rita",
+        "https://mapa-digital-salento.vercel.app/paginas-pautantes/salento-tour-operadora",
+        "https://mapa-digital-salento.vercel.app/paginas-pautantes/valle-en-bicicleta",
+        "https://mapa-digital-salento.vercel.app/pautantes/cabalgatas-cocora-magica",
+        "https://mapa-digital-salento.vercel.app/pautantes/cabalgatas-valle-de-cocora",
+        "https://mapa-digital-salento.vercel.app/pautantes/coffee-farm-el-recuerdo",
+        "https://mapa-digital-salento.vercel.app/pautantes/finca-cafetera-don-elias",
+        "https://mapa-digital-salento.vercel.app/pautantes/mirador-las-manos-de-dios",
+        "https://mapa-digital-salento.vercel.app/pautantes/reserva-natural-cascadas-de-santa-rita",
+        "https://mapa-digital-salento.vercel.app/pautantes/salento-tour-operadora",
+        "https://mapa-digital-salento.vercel.app/pautantes/valle-en-bicicleta"
+      ],
+      "hreflang_count": 0,
+      "incoming_links": 17,
+      "authority_score": 100
+    },
+    {
+      "url": "https://mapa-digital-salento.vercel.app/categorias",
+      "path": "public/categorias/index.html",
+      "title": "Categorías | Salento a la Mano",
+      "word_count": 75,
+      "h1_count": 1,
+      "json_ld_count": 1,
+      "internal_links": [
+        "https://mapa-digital-salento.vercel.app/categorias/alojamientos",
+        "https://mapa-digital-salento.vercel.app/categorias/artesanias",
+        "https://mapa-digital-salento.vercel.app/categorias/cafes",
+        "https://mapa-digital-salento.vercel.app/categorias/experiencias",
+        "https://mapa-digital-salento.vercel.app/categorias/restaurantes",
+        "https://mapa-digital-salento.vercel.app/categorias/servicios",
+        "https://mapa-digital-salento.vercel.app/categorias/tiendas",
+        "https://mapa-digital-salento.vercel.app/index"
+      ],
+      "hreflang_count": 0,
+      "incoming_links": 9,
+      "authority_score": 100
+    },
+    {
+      "url": "https://mapa-digital-salento.vercel.app/categorias/restaurantes",
+      "path": "public/categorias/restaurantes.html",
+      "title": "Restaurantes | Salento a la Mano",
+      "word_count": 122,
+      "h1_count": 1,
+      "json_ld_count": 2,
+      "internal_links": [
+        "https://mapa-digital-salento.vercel.app/",
+        "https://mapa-digital-salento.vercel.app/index",
+        "https://mapa-digital-salento.vercel.app/paginas-pautantes/brunch-de-la-plaza",
+        "https://mapa-digital-salento.vercel.app/paginas-pautantes/fonda-boquia",
+        "https://mapa-digital-salento.vercel.app/paginas-pautantes/la-fogata-salentina",
+        "https://mapa-digital-salento.vercel.app/paginas-pautantes/restaurante-don-elias",
+        "https://mapa-digital-salento.vercel.app/pautantes/brunch-de-la-plaza",
+        "https://mapa-digital-salento.vercel.app/pautantes/la-fogata-salentina",
+        "https://mapa-digital-salento.vercel.app/pautantes/restaurante-don-elias"
+      ],
+      "hreflang_count": 0,
+      "incoming_links": 9,
+      "authority_score": 100
+    },
+    {
+      "url": "https://mapa-digital-salento.vercel.app/categorias/servicios",
+      "path": "public/categorias/servicios.html",
+      "title": "Servicios | Salento a la Mano",
+      "word_count": 102,
+      "h1_count": 1,
+      "json_ld_count": 2,
+      "internal_links": [
+        "https://mapa-digital-salento.vercel.app/",
+        "https://mapa-digital-salento.vercel.app/index",
+        "https://mapa-digital-salento.vercel.app/paginas-pautantes/guias-del-cocora",
+        "https://mapa-digital-salento.vercel.app/paginas-pautantes/jeeps-willys-salento",
+        "https://mapa-digital-salento.vercel.app/paginas-pautantes/moto-aventura-110",
+        "https://mapa-digital-salento.vercel.app/pautantes/guias-del-cocora",
+        "https://mapa-digital-salento.vercel.app/pautantes/jeeps-willys-salento",
+        "https://mapa-digital-salento.vercel.app/pautantes/moto-aventura-110"
+      ],
+      "hreflang_count": 0,
+      "incoming_links": 7,
+      "authority_score": 100
+    },
+    {
+      "url": "https://mapa-digital-salento.vercel.app/don-chucho-asistente",
+      "path": "public/don-chucho-asistente.html",
+      "title": "Don Chucho: asistente turístico de Salento | Salento a la Mano",
+      "word_count": 64,
+      "h1_count": 1,
+      "json_ld_count": 1,
+      "internal_links": [
+        "https://mapa-digital-salento.vercel.app/",
+        "https://mapa-digital-salento.vercel.app/categorias",
+        "https://mapa-digital-salento.vercel.app/es",
+        "https://mapa-digital-salento.vercel.app/estado-actual-salento-hoteles-abiertos-vias-libres-valle-cocora-operando-100",
+        "https://mapa-digital-salento.vercel.app/hoteles-abiertos-salento",
+        "https://mapa-digital-salento.vercel.app/landing-estado-actual-salento-2026",
+        "https://mapa-digital-salento.vercel.app/mapa-interactivo-salento",
+        "https://mapa-digital-salento.vercel.app/registro-aliados",
+        "https://mapa-digital-salento.vercel.app/salento-seguro-turismo",
+        "https://mapa-digital-salento.vercel.app/valle-cocora-accesible-100",
+        "https://mapa-digital-salento.vercel.app/vias-salento-libres-acceso"
+      ],
+      "hreflang_count": 0,
+      "incoming_links": 8,
+      "authority_score": 100
+    },
+    {
+      "url": "https://mapa-digital-salento.vercel.app/es",
+      "path": "public/es/index.html",
+      "title": "Salento a la Mano | Guía turística de Salento, Quindío",
+      "word_count": 116,
+      "h1_count": 1,
+      "json_ld_count": 1,
+      "internal_links": [
+        "https://mapa-digital-salento.vercel.app/",
+        "https://mapa-digital-salento.vercel.app/de",
+        "https://mapa-digital-salento.vercel.app/en",
+        "https://mapa-digital-salento.vercel.app/es/guias/10-tours-cafe-salento",
+        "https://mapa-digital-salento.vercel.app/es/guias/guia-valle-del-cocora",
+        "https://mapa-digital-salento.vercel.app/es/guias/que-hacer-en-salento-3-dias",
+        "https://mapa-digital-salento.vercel.app/fr"
+      ],
+      "hreflang_count": 5,
+      "incoming_links": 15,
+      "authority_score": 100
+    },
+    {
+      "url": "https://mapa-digital-salento.vercel.app/estado-actual-salento-hoteles-abiertos-vias-libres-valle-cocora-operando-100",
+      "path": "public/estado-actual-salento-hoteles-abiertos-vias-libres-valle-cocora-operando-100.html",
+      "title": "Estado actual de Salento: información turística verificada",
+      "word_count": 70,
+      "h1_count": 1,
+      "json_ld_count": 1,
+      "internal_links": [
+        "https://mapa-digital-salento.vercel.app/",
+        "https://mapa-digital-salento.vercel.app/categorias",
+        "https://mapa-digital-salento.vercel.app/don-chucho-asistente",
+        "https://mapa-digital-salento.vercel.app/es",
+        "https://mapa-digital-salento.vercel.app/hoteles-abiertos-salento",
+        "https://mapa-digital-salento.vercel.app/landing-estado-actual-salento-2026",
+        "https://mapa-digital-salento.vercel.app/mapa-interactivo-salento",
+        "https://mapa-digital-salento.vercel.app/registro-aliados",
+        "https://mapa-digital-salento.vercel.app/salento-seguro-turismo",
+        "https://mapa-digital-salento.vercel.app/valle-cocora-accesible-100",
+        "https://mapa-digital-salento.vercel.app/vias-salento-libres-acceso"
+      ],
+      "hreflang_count": 0,
+      "incoming_links": 8,
+      "authority_score": 100
+    },
+    {
+      "url": "https://mapa-digital-salento.vercel.app/hoteles-abiertos-salento",
+      "path": "public/hoteles-abiertos-salento.html",
+      "title": "Hoteles abiertos en Salento: alojamientos y contacto directo",
+      "word_count": 62,
+      "h1_count": 1,
+      "json_ld_count": 1,
+      "internal_links": [
+        "https://mapa-digital-salento.vercel.app/",
+        "https://mapa-digital-salento.vercel.app/categorias",
+        "https://mapa-digital-salento.vercel.app/don-chucho-asistente",
+        "https://mapa-digital-salento.vercel.app/es",
+        "https://mapa-digital-salento.vercel.app/estado-actual-salento-hoteles-abiertos-vias-libres-valle-cocora-operando-100",
+        "https://mapa-digital-salento.vercel.app/landing-estado-actual-salento-2026",
+        "https://mapa-digital-salento.vercel.app/mapa-interactivo-salento",
+        "https://mapa-digital-salento.vercel.app/registro-aliados",
+        "https://mapa-digital-salento.vercel.app/salento-seguro-turismo",
+        "https://mapa-digital-salento.vercel.app/valle-cocora-accesible-100",
+        "https://mapa-digital-salento.vercel.app/vias-salento-libres-acceso"
+      ],
+      "hreflang_count": 0,
+      "incoming_links": 8,
+      "authority_score": 100
+    },
+    {
+      "url": "https://mapa-digital-salento.vercel.app/landing-estado-actual-salento-2026",
+      "path": "public/landing-estado-actual-salento-2026.html",
+      "title": "Salento 2026: guía de estado actual y planificación turística",
+      "word_count": 66,
+      "h1_count": 1,
+      "json_ld_count": 1,
+      "internal_links": [
+        "https://mapa-digital-salento.vercel.app/",
+        "https://mapa-digital-salento.vercel.app/categorias",
+        "https://mapa-digital-salento.vercel.app/don-chucho-asistente",
+        "https://mapa-digital-salento.vercel.app/es",
+        "https://mapa-digital-salento.vercel.app/estado-actual-salento-hoteles-abiertos-vias-libres-valle-cocora-operando-100",
+        "https://mapa-digital-salento.vercel.app/hoteles-abiertos-salento",
+        "https://mapa-digital-salento.vercel.app/mapa-interactivo-salento",
+        "https://mapa-digital-salento.vercel.app/registro-aliados",
+        "https://mapa-digital-salento.vercel.app/salento-seguro-turismo",
+        "https://mapa-digital-salento.vercel.app/valle-cocora-accesible-100",
+        "https://mapa-digital-salento.vercel.app/vias-salento-libres-acceso"
+      ],
+      "hreflang_count": 0,
+      "incoming_links": 8,
+      "authority_score": 100
+    },
+    {
+      "url": "https://mapa-digital-salento.vercel.app/mapa-interactivo-salento",
+      "path": "public/mapa-interactivo-salento.html",
+      "title": "Mapa interactivo de Salento, Quindío | Salento a la Mano",
+      "word_count": 64,
+      "h1_count": 1,
+      "json_ld_count": 1,
+      "internal_links": [
+        "https://mapa-digital-salento.vercel.app/",
+        "https://mapa-digital-salento.vercel.app/categorias",
+        "https://mapa-digital-salento.vercel.app/don-chucho-asistente",
+        "https://mapa-digital-salento.vercel.app/es",
+        "https://mapa-digital-salento.vercel.app/estado-actual-salento-hoteles-abiertos-vias-libres-valle-cocora-operando-100",
+        "https://mapa-digital-salento.vercel.app/hoteles-abiertos-salento",
+        "https://mapa-digital-salento.vercel.app/landing-estado-actual-salento-2026",
+        "https://mapa-digital-salento.vercel.app/registro-aliados",
+        "https://mapa-digital-salento.vercel.app/salento-seguro-turismo",
+        "https://mapa-digital-salento.vercel.app/valle-cocora-accesible-100",
+        "https://mapa-digital-salento.vercel.app/vias-salento-libres-acceso"
+      ],
+      "hreflang_count": 0,
+      "incoming_links": 8,
+      "authority_score": 100
+    },
+    {
+      "url": "https://mapa-digital-salento.vercel.app/registro-aliados",
+      "path": "public/registro-aliados.html",
+      "title": "Registro de aliados turísticos de Salento | Salento a la Mano",
+      "word_count": 63,
+      "h1_count": 1,
+      "json_ld_count": 1,
+      "internal_links": [
+        "https://mapa-digital-salento.vercel.app/",
+        "https://mapa-digital-salento.vercel.app/categorias",
+        "https://mapa-digital-salento.vercel.app/don-chucho-asistente",
+        "https://mapa-digital-salento.vercel.app/es",
+        "https://mapa-digital-salento.vercel.app/estado-actual-salento-hoteles-abiertos-vias-libres-valle-cocora-operando-100",
+        "https://mapa-digital-salento.vercel.app/hoteles-abiertos-salento",
+        "https://mapa-digital-salento.vercel.app/landing-estado-actual-salento-2026",
+        "https://mapa-digital-salento.vercel.app/mapa-interactivo-salento",
+        "https://mapa-digital-salento.vercel.app/salento-seguro-turismo",
+        "https://mapa-digital-salento.vercel.app/valle-cocora-accesible-100",
+        "https://mapa-digital-salento.vercel.app/vias-salento-libres-acceso"
+      ],
+      "hreflang_count": 0,
+      "incoming_links": 8,
+      "authority_score": 100
+    },
+    {
+      "url": "https://mapa-digital-salento.vercel.app/salento-seguro-turismo",
+      "path": "public/salento-seguro-turismo.html",
+      "title": "Turismo en Salento: recomendaciones y planificación segura",
+      "word_count": 64,
+      "h1_count": 1,
+      "json_ld_count": 1,
+      "internal_links": [
+        "https://mapa-digital-salento.vercel.app/",
+        "https://mapa-digital-salento.vercel.app/categorias",
+        "https://mapa-digital-salento.vercel.app/don-chucho-asistente",
+        "https://mapa-digital-salento.vercel.app/es",
+        "https://mapa-digital-salento.vercel.app/estado-actual-salento-hoteles-abiertos-vias-libres-valle-cocora-operando-100",
+        "https://mapa-digital-salento.vercel.app/hoteles-abiertos-salento",
+        "https://mapa-digital-salento.vercel.app/landing-estado-actual-salento-2026",
+        "https://mapa-digital-salento.vercel.app/mapa-interactivo-salento",
+        "https://mapa-digital-salento.vercel.app/registro-aliados",
+        "https://mapa-digital-salento.vercel.app/valle-cocora-accesible-100",
+        "https://mapa-digital-salento.vercel.app/vias-salento-libres-acceso"
+      ],
+      "hreflang_count": 0,
+      "incoming_links": 8,
+      "authority_score": 100
+    },
+    {
+      "url": "https://mapa-digital-salento.vercel.app/valle-cocora-accesible-100",
+      "path": "public/valle-cocora-accesible-100.html",
+      "title": "Valle de Cocora: acceso, rutas y planificación de visita",
+      "word_count": 65,
+      "h1_count": 1,
+      "json_ld_count": 1,
+      "internal_links": [
+        "https://mapa-digital-salento.vercel.app/",
+        "https://mapa-digital-salento.vercel.app/categorias",
+        "https://mapa-digital-salento.vercel.app/don-chucho-asistente",
+        "https://mapa-digital-salento.vercel.app/es",
+        "https://mapa-digital-salento.vercel.app/estado-actual-salento-hoteles-abiertos-vias-libres-valle-cocora-operando-100",
+        "https://mapa-digital-salento.vercel.app/hoteles-abiertos-salento",
+        "https://mapa-digital-salento.vercel.app/landing-estado-actual-salento-2026",
+        "https://mapa-digital-salento.vercel.app/mapa-interactivo-salento",
+        "https://mapa-digital-salento.vercel.app/registro-aliados",
+        "https://mapa-digital-salento.vercel.app/salento-seguro-turismo",
+        "https://mapa-digital-salento.vercel.app/vias-salento-libres-acceso"
+      ],
+      "hreflang_count": 0,
+      "incoming_links": 8,
+      "authority_score": 100
+    }
+  ],
+  "opportunities": [
+    {
+      "priority": "medium",
+      "type": "thin-content",
+      "url": "https://mapa-digital-salento.vercel.app/categorias/artesanias",
+      "action": "Añadir información original: precios, acceso, horarios, requisitos y fuente de actualización."
+    },
+    {
+      "priority": "medium",
+      "type": "thin-content",
+      "url": "https://mapa-digital-salento.vercel.app/categorias/cafes",
+      "action": "Añadir información original: precios, acceso, horarios, requisitos y fuente de actualización."
+    },
+    {
+      "priority": "medium",
+      "type": "thin-content",
+      "url": "https://mapa-digital-salento.vercel.app/categorias",
+      "action": "Añadir información original: precios, acceso, horarios, requisitos y fuente de actualización."
+    },
+    {
+      "priority": "medium",
+      "type": "thin-content",
+      "url": "https://mapa-digital-salento.vercel.app/categorias/restaurantes",
+      "action": "Añadir información original: precios, acceso, horarios, requisitos y fuente de actualización."
+    },
+    {
+      "priority": "medium",
+      "type": "thin-content",
+      "url": "https://mapa-digital-salento.vercel.app/categorias/servicios",
+      "action": "Añadir información original: precios, acceso, horarios, requisitos y fuente de actualización."
+    },
+    {
+      "priority": "medium",
+      "type": "thin-content",
+      "url": "https://mapa-digital-salento.vercel.app/categorias/tiendas",
+      "action": "Añadir información original: precios, acceso, horarios, requisitos y fuente de actualización."
+    },
+    {
+      "priority": "medium",
+      "type": "thin-content",
+      "url": "https://mapa-digital-salento.vercel.app/de/guias/10-tours-cafe-salento",
+      "action": "Añadir información original: precios, acceso, horarios, requisitos y fuente de actualización."
+    },
+    {
+      "priority": "medium",
+      "type": "thin-content",
+      "url": "https://mapa-digital-salento.vercel.app/de/guias/guia-valle-del-cocora",
+      "action": "Añadir información original: precios, acceso, horarios, requisitos y fuente de actualización."
+    },
+    {
+      "priority": "medium",
+      "type": "thin-content",
+      "url": "https://mapa-digital-salento.vercel.app/de/guias/que-hacer-en-salento-3-dias",
+      "action": "Añadir información original: precios, acceso, horarios, requisitos y fuente de actualización."
+    },
+    {
+      "priority": "medium",
+      "type": "thin-content",
+      "url": "https://mapa-digital-salento.vercel.app/de",
+      "action": "Añadir información original: precios, acceso, horarios, requisitos y fuente de actualización."
+    },
+    {
+      "priority": "medium",
+      "type": "thin-content",
+      "url": "https://mapa-digital-salento.vercel.app/don-chucho-asistente",
+      "action": "Añadir información original: precios, acceso, horarios, requisitos y fuente de actualización."
+    },
+    {
+      "priority": "medium",
+      "type": "thin-content",
+      "url": "https://mapa-digital-salento.vercel.app/en/guias/10-tours-cafe-salento",
+      "action": "Añadir información original: precios, acceso, horarios, requisitos y fuente de actualización."
+    },
+    {
+      "priority": "medium",
+      "type": "thin-content",
+      "url": "https://mapa-digital-salento.vercel.app/en/guias/guia-valle-del-cocora",
+      "action": "Añadir información original: precios, acceso, horarios, requisitos y fuente de actualización."
+    },
+    {
+      "priority": "medium",
+      "type": "thin-content",
+      "url": "https://mapa-digital-salento.vercel.app/en/guias/que-hacer-en-salento-3-dias",
+      "action": "Añadir información original: precios, acceso, horarios, requisitos y fuente de actualización."
+    },
+    {
+      "priority": "medium",
+      "type": "thin-content",
+      "url": "https://mapa-digital-salento.vercel.app/en",
+      "action": "Añadir información original: precios, acceso, horarios, requisitos y fuente de actualización."
+    },
+    {
+      "priority": "medium",
+      "type": "thin-content",
+      "url": "https://mapa-digital-salento.vercel.app/es/guias/10-tours-cafe-salento",
+      "action": "Añadir información original: precios, acceso, horarios, requisitos y fuente de actualización."
+    },
+    {
+      "priority": "medium",
+      "type": "thin-content",
+      "url": "https://mapa-digital-salento.vercel.app/es/guias/guia-valle-del-cocora",
+      "action": "Añadir información original: precios, acceso, horarios, requisitos y fuente de actualización."
+    },
+    {
+      "priority": "medium",
+      "type": "thin-content",
+      "url": "https://mapa-digital-salento.vercel.app/es/guias/que-hacer-en-salento-3-dias",
+      "action": "Añadir información original: precios, acceso, horarios, requisitos y fuente de actualización."
+    },
+    {
+      "priority": "medium",
+      "type": "thin-content",
+      "url": "https://mapa-digital-salento.vercel.app/es",
+      "action": "Añadir información original: precios, acceso, horarios, requisitos y fuente de actualización."
+    },
+    {
+      "priority": "medium",
+      "type": "thin-content",
+      "url": "https://mapa-digital-salento.vercel.app/estado-actual-salento-hoteles-abiertos-vias-libres-valle-cocora-operando-100",
+      "action": "Añadir información original: precios, acceso, horarios, requisitos y fuente de actualización."
+    },
+    {
+      "priority": "medium",
+      "type": "thin-content",
+      "url": "https://mapa-digital-salento.vercel.app/fr/guias/10-tours-cafe-salento",
+      "action": "Añadir información original: precios, acceso, horarios, requisitos y fuente de actualización."
+    },
+    {
+      "priority": "medium",
+      "type": "thin-content",
+      "url": "https://mapa-digital-salento.vercel.app/fr/guias/guia-valle-del-cocora",
+      "action": "Añadir información original: precios, acceso, horarios, requisitos y fuente de actualización."
+    },
+    {
+      "priority": "medium",
+      "type": "thin-content",
+      "url": "https://mapa-digital-salento.vercel.app/fr/guias/que-hacer-en-salento-3-dias",
+      "action": "Añadir información original: precios, acceso, horarios, requisitos y fuente de actualización."
+    },
+    {
+      "priority": "medium",
+      "type": "thin-content",
+      "url": "https://mapa-digital-salento.vercel.app/fr",
+      "action": "Añadir información original: precios, acceso, horarios, requisitos y fuente de actualización."
+    },
+    {
+      "priority": "medium",
+      "type": "thin-content",
+      "url": "https://mapa-digital-salento.vercel.app/hoteles-abiertos-salento",
+      "action": "Añadir información original: precios, acceso, horarios, requisitos y fuente de actualización."
+    },
+    {
+      "priority": "medium",
+      "type": "thin-content",
+      "url": "https://mapa-digital-salento.vercel.app/landing-estado-actual-salento-2026",
+      "action": "Añadir información original: precios, acceso, horarios, requisitos y fuente de actualización."
+    },
+    {
+      "priority": "medium",
+      "type": "thin-content",
+      "url": "https://mapa-digital-salento.vercel.app/mapa-interactivo-salento",
+      "action": "Añadir información original: precios, acceso, horarios, requisitos y fuente de actualización."
+    },
+    {
+      "priority": "medium",
+      "type": "thin-content",
+      "url": "https://mapa-digital-salento.vercel.app/paginas-pautantes/brunch-de-la-plaza",
+      "action": "Añadir información original: precios, acceso, horarios, requisitos y fuente de actualización."
+    },
+    {
+      "priority": "medium",
+      "type": "thin-content",
+      "url": "https://mapa-digital-salento.vercel.app/paginas-pautantes/cabalgatas-cocora-magica",
+      "action": "Añadir información original: precios, acceso, horarios, requisitos y fuente de actualización."
+    },
+    {
+      "priority": "medium",
+      "type": "thin-content",
+      "url": "https://mapa-digital-salento.vercel.app/paginas-pautantes/cabalgatas-valle-de-cocora",
+      "action": "Añadir información original: precios, acceso, horarios, requisitos y fuente de actualización."
+    },
+    {
+      "priority": "medium",
+      "type": "thin-content",
+      "url": "https://mapa-digital-salento.vercel.app/paginas-pautantes/cafe-de-altura",
+      "action": "Añadir información original: precios, acceso, horarios, requisitos y fuente de actualización."
+    },
+    {
+      "priority": "medium",
+      "type": "thin-content",
+      "url": "https://mapa-digital-salento.vercel.app/paginas-pautantes/canasto-quindiano",
+      "action": "Añadir información original: precios, acceso, horarios, requisitos y fuente de actualización."
+    },
+    {
+      "priority": "medium",
+      "type": "thin-content",
+      "url": "https://mapa-digital-salento.vercel.app/paginas-pautantes/coffee-farm-el-recuerdo",
+      "action": "Añadir información original: precios, acceso, horarios, requisitos y fuente de actualización."
+    },
+    {
+      "priority": "medium",
+      "type": "thin-content",
+      "url": "https://mapa-digital-salento.vercel.app/paginas-pautantes/finca-cafetera-don-elias",
+      "action": "Añadir información original: precios, acceso, horarios, requisitos y fuente de actualización."
+    },
+    {
+      "priority": "medium",
+      "type": "thin-content",
+      "url": "https://mapa-digital-salento.vercel.app/paginas-pautantes/finca-hotel-el-ocaso",
+      "action": "Añadir información original: precios, acceso, horarios, requisitos y fuente de actualización."
+    },
+    {
+      "priority": "medium",
+      "type": "thin-content",
+      "url": "https://mapa-digital-salento.vercel.app/paginas-pautantes/fonda-boquia",
+      "action": "Añadir información original: precios, acceso, horarios, requisitos y fuente de actualización."
+    },
+    {
+      "priority": "medium",
+      "type": "thin-content",
+      "url": "https://mapa-digital-salento.vercel.app/paginas-pautantes/guias-del-cocora",
+      "action": "Añadir información original: precios, acceso, horarios, requisitos y fuente de actualización."
+    },
+    {
+      "priority": "medium",
+      "type": "thin-content",
+      "url": "https://mapa-digital-salento.vercel.app/paginas-pautantes/hotel-la-floresta-salento",
+      "action": "Añadir información original: precios, acceso, horarios, requisitos y fuente de actualización."
+    },
+    {
+      "priority": "medium",
+      "type": "thin-content",
+      "url": "https://mapa-digital-salento.vercel.app/paginas-pautantes/jeeps-willys-salento",
+      "action": "Añadir información original: precios, acceso, horarios, requisitos y fuente de actualización."
+    },
+    {
+      "priority": "medium",
+      "type": "thin-content",
+      "url": "https://mapa-digital-salento.vercel.app/paginas-pautantes/la-fogata-salentina",
+      "action": "Añadir información original: precios, acceso, horarios, requisitos y fuente de actualización."
+    },
+    {
+      "priority": "medium",
+      "type": "thin-content",
+      "url": "https://mapa-digital-salento.vercel.app/paginas-pautantes/mirador-las-manos-de-dios",
+      "action": "Añadir información original: precios, acceso, horarios, requisitos y fuente de actualización."
+    },
+    {
+      "priority": "medium",
+      "type": "thin-content",
+      "url": "https://mapa-digital-salento.vercel.app/paginas-pautantes/moto-aventura-110",
+      "action": "Añadir información original: precios, acceso, horarios, requisitos y fuente de actualización."
+    },
+    {
+      "priority": "medium",
+      "type": "thin-content",
+      "url": "https://mapa-digital-salento.vercel.app/paginas-pautantes/reserva-natural-cascadas-de-santa-rita",
+      "action": "Añadir información original: precios, acceso, horarios, requisitos y fuente de actualización."
+    },
+    {
+      "priority": "medium",
+      "type": "thin-content",
+      "url": "https://mapa-digital-salento.vercel.app/paginas-pautantes/restaurante-don-elias",
+      "action": "Añadir información original: precios, acceso, horarios, requisitos y fuente de actualización."
+    },
+    {
+      "priority": "medium",
+      "type": "thin-content",
+      "url": "https://mapa-digital-salento.vercel.app/paginas-pautantes/salento-tour-operadora",
+      "action": "Añadir información original: precios, acceso, horarios, requisitos y fuente de actualización."
+    },
+    {
+      "priority": "medium",
+      "type": "thin-content",
+      "url": "https://mapa-digital-salento.vercel.app/paginas-pautantes/tienda-la-montana",
+      "action": "Añadir información original: precios, acceso, horarios, requisitos y fuente de actualización."
+    },
+    {
+      "priority": "medium",
+      "type": "thin-content",
+      "url": "https://mapa-digital-salento.vercel.app/paginas-pautantes/valle-en-bicicleta",
+      "action": "Añadir información original: precios, acceso, horarios, requisitos y fuente de actualización."
+    },
+    {
+      "priority": "medium",
+      "type": "thin-content",
+      "url": "https://mapa-digital-salento.vercel.app/pautantes/boki-mall-hotel-el-mirador-de-boquia",
+      "action": "Añadir información original: precios, acceso, horarios, requisitos y fuente de actualización."
+    },
+    {
+      "priority": "medium",
+      "type": "thin-content",
+      "url": "https://mapa-digital-salento.vercel.app/pautantes/brunch-de-la-plaza",
+      "action": "Añadir información original: precios, acceso, horarios, requisitos y fuente de actualización."
+    },
+    {
+      "priority": "medium",
+      "type": "thin-content",
+      "url": "https://mapa-digital-salento.vercel.app/pautantes/cabalgatas-cocora-magica",
+      "action": "Añadir información original: precios, acceso, horarios, requisitos y fuente de actualización."
+    },
+    {
+      "priority": "medium",
+      "type": "thin-content",
+      "url": "https://mapa-digital-salento.vercel.app/pautantes/cabalgatas-valle-de-cocora",
+      "action": "Añadir información original: precios, acceso, horarios, requisitos y fuente de actualización."
+    },
+    {
+      "priority": "medium",
+      "type": "thin-content",
+      "url": "https://mapa-digital-salento.vercel.app/pautantes/cafe-de-altura",
+      "action": "Añadir información original: precios, acceso, horarios, requisitos y fuente de actualización."
+    },
+    {
+      "priority": "medium",
+      "type": "thin-content",
+      "url": "https://mapa-digital-salento.vercel.app/pautantes/canasto-quindiano",
+      "action": "Añadir información original: precios, acceso, horarios, requisitos y fuente de actualización."
+    },
+    {
+      "priority": "medium",
+      "type": "thin-content",
+      "url": "https://mapa-digital-salento.vercel.app/pautantes/coffee-farm-el-recuerdo",
+      "action": "Añadir información original: precios, acceso, horarios, requisitos y fuente de actualización."
+    },
+    {
+      "priority": "medium",
+      "type": "thin-content",
+      "url": "https://mapa-digital-salento.vercel.app/pautantes/finca-cafetera-don-elias",
+      "action": "Añadir información original: precios, acceso, horarios, requisitos y fuente de actualización."
+    },
+    {
+      "priority": "medium",
+      "type": "thin-content",
+      "url": "https://mapa-digital-salento.vercel.app/pautantes/finca-hotel-el-ocaso",
+      "action": "Añadir información original: precios, acceso, horarios, requisitos y fuente de actualización."
+    },
+    {
+      "priority": "medium",
+      "type": "thin-content",
+      "url": "https://mapa-digital-salento.vercel.app/pautantes/guias-del-cocora",
+      "action": "Añadir información original: precios, acceso, horarios, requisitos y fuente de actualización."
+    },
+    {
+      "priority": "medium",
+      "type": "thin-content",
+      "url": "https://mapa-digital-salento.vercel.app/pautantes/hotel-camino-nacional-salento",
+      "action": "Añadir información original: precios, acceso, horarios, requisitos y fuente de actualización."
+    },
+    {
+      "priority": "medium",
+      "type": "thin-content",
+      "url": "https://mapa-digital-salento.vercel.app/pautantes/hotel-la-floresta-salento",
+      "action": "Añadir información original: precios, acceso, horarios, requisitos y fuente de actualización."
+    },
+    {
+      "priority": "medium",
+      "type": "thin-content",
+      "url": "https://mapa-digital-salento.vercel.app/pautantes/jeeps-willys-salento",
+      "action": "Añadir información original: precios, acceso, horarios, requisitos y fuente de actualización."
+    },
+    {
+      "priority": "medium",
+      "type": "thin-content",
+      "url": "https://mapa-digital-salento.vercel.app/pautantes/la-fogata-salentina",
+      "action": "Añadir información original: precios, acceso, horarios, requisitos y fuente de actualización."
+    },
+    {
+      "priority": "medium",
+      "type": "thin-content",
+      "url": "https://mapa-digital-salento.vercel.app/pautantes/mirador-las-manos-de-dios",
+      "action": "Añadir información original: precios, acceso, horarios, requisitos y fuente de actualización."
+    },
+    {
+      "priority": "medium",
+      "type": "thin-content",
+      "url": "https://mapa-digital-salento.vercel.app/pautantes/moto-aventura-110",
+      "action": "Añadir información original: precios, acceso, horarios, requisitos y fuente de actualización."
+    },
+    {
+      "priority": "medium",
+      "type": "thin-content",
+      "url": "https://mapa-digital-salento.vercel.app/pautantes/reserva-natural-cascadas-de-santa-rita",
+      "action": "Añadir información original: precios, acceso, horarios, requisitos y fuente de actualización."
+    },
+    {
+      "priority": "medium",
+      "type": "thin-content",
+      "url": "https://mapa-digital-salento.vercel.app/pautantes/restaurante-don-elias",
+      "action": "Añadir información original: precios, acceso, horarios, requisitos y fuente de actualización."
+    },
+    {
+      "priority": "medium",
+      "type": "thin-content",
+      "url": "https://mapa-digital-salento.vercel.app/pautantes/salento-tour-operadora",
+      "action": "Añadir información original: precios, acceso, horarios, requisitos y fuente de actualización."
+    },
+    {
+      "priority": "medium",
+      "type": "thin-content",
+      "url": "https://mapa-digital-salento.vercel.app/pautantes/tienda-la-montana",
+      "action": "Añadir información original: precios, acceso, horarios, requisitos y fuente de actualización."
+    },
+    {
+      "priority": "medium",
+      "type": "thin-content",
+      "url": "https://mapa-digital-salento.vercel.app/pautantes/valle-en-bicicleta",
+      "action": "Añadir información original: precios, acceso, horarios, requisitos y fuente de actualización."
+    },
+    {
+      "priority": "medium",
+      "type": "thin-content",
+      "url": "https://mapa-digital-salento.vercel.app/registro-aliados",
+      "action": "Añadir información original: precios, acceso, horarios, requisitos y fuente de actualización."
+    },
+    {
+      "priority": "medium",
+      "type": "thin-content",
+      "url": "https://mapa-digital-salento.vercel.app/salento-seguro-turismo",
+      "action": "Añadir información original: precios, acceso, horarios, requisitos y fuente de actualización."
+    },
+    {
+      "priority": "medium",
+      "type": "thin-content",
+      "url": "https://mapa-digital-salento.vercel.app/valle-cocora-accesible-100",
+      "action": "Añadir información original: precios, acceso, horarios, requisitos y fuente de actualización."
+    },
+    {
+      "priority": "medium",
+      "type": "thin-content",
+      "url": "https://mapa-digital-salento.vercel.app/vias-salento-libres-acceso",
+      "action": "Añadir información original: precios, acceso, horarios, requisitos y fuente de actualización."
+    }
+  ]
+}

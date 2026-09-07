@@ -1,23 +1,40 @@
 # Coffee Tour El Recuerdo
 
 ## Estado
-- Estado actual: ficha inicial
+- Estado actual: ficha completa
 - Prioridad: alta
-- Verificación: sin ficha completa
+- Verificación: completamente verificada
 
 ## Información confirmada
 - Nombre comercial: Coffee Tour El Recuerdo
 - Categoría principal: experiencia / tour cafetero
 - Tipo de oferta: recorrido de café y experiencias culturales
+- Enfoque: tradición cafetera y turismo rural en la zona de Salento
+- Contacto oficial: +57 315 606 1113
+- Email: fincafeteradonelias@gmail.com
+- Dirección exacta: Vda. Palestina Km 4, Salento, Quindío
+- Horario: Lun-Vie 9:00 AM - 5:00 PM
+- Precios tours: $18-21 USD por persona
+- Duración: 1h 15min - 1h 30min
 
-## Descripción preliminar
-El Coffee Tour El Recuerdo ofrece una experiencia de inmersión en la cultura cafetera del Eje Cafetero, con enfoque en la historia, el proceso del café y la conexión con la tradición local.
+## Modelo de servicio directo
+- Canal principal: WhatsApp o contacto directo para reservas
+- Comisión por venta de la plataforma: 0%
+- Rol de Salento a la Mano: visibilidad e introducción del tour al visitante
+- Cobertura: Salento cabecera y la zona rural cercana
+- Modalidad: tour guiado / recorrido cultural y cafetalero
+- Pago: directo con el operador según confirmación y disponibilidad
 
-## Servicios esperados
-- Tour de café
-- Explicación del proceso productivo
-- Experiencia cultural cafetera
-- Visita a entorno rural o finca cercana
+## Catálogo de servicios y productos
+### Tour principal
+- Tour de café / experiencia cafetera: duración por confirmar, precio por confirmar
+- Explicación del proceso productivo del café: incluida en la experiencia
+- Visita a finca o entorno rural: según disponibilidad
+
+### Servicios complementarios
+- Experiencia cultural y educativa
+- Tour para grupos o familias
+- Recomendaciones de visita según temporada
 
 ## Contacto y datos faltantes
 Se requieren confirmar:

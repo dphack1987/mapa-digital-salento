@@ -1,112 +1,55 @@
 # Finca Hotel El Ocaso
 
-## Información del pautante
+## Estado
+- Estado actual: ficha inicial
+- Prioridad: alta
+- Verificación: sin ficha completa
 
-- **Nombre comercial:** Finca Hotel El Ocaso
-- **Categoría:** Finca Hotel / Alojamiento rural
-- **Ubicación:** Salento, Quindío, Colombia
-- **Ideal para:** Parejas, familias, grupos pequeños y naturaleza
+## Información confirmada
+- Nombre comercial: Finca Hotel El Ocaso
+- Categoría principal: alojamiento / finca hotel / turismo rural
+- Ubicación: Salento, Quindío, Colombia
+- Ideal para: parejas, familias, grupos pequeños y viajeros que buscan naturaleza
+- Tipo de oferta: alojamiento rural, descanso, experiencia cafetera y entorno tranquilo
 
-## Contacto directo
+## Modelo de reserva directa
+- Canal principal: WhatsApp o contacto directo para reservar la estadía
+- Comisión por venta de la plataforma: 0%
+- Rol de Salento a la Mano: visibilidad, conexión directa y guía para reservar
+- Cobertura: Salento cabecera y viajeros que buscan alojamiento rural cercano
+- Modalidad: hospedaje, descanso y experiencia de finca
+- Pago: directo con el establecimiento según disponibilidad y tarifa
 
-- **Celular:** Por confirmar
-- **WhatsApp:** Por confirmar
-- **Correo electrónico:** Por confirmar
+## Catálogo de servicios y productos
+### Hospedaje
+- Habitación estándar: precio por confirmar
+- Habitación con vista o ambiente rural: precio por confirmar
+- Estancia por noche o fin de semana: tarifa según temporada
+- Reserva para parejas o familias: disponibilidad por confirmar
 
-> La dirección exacta, el sitio web y las redes sociales deben confirmarse con el establecimiento.
-
-## Descripción
-
-Finca Hotel El Ocaso ofrece una experiencia auténtica de la cultura cafetera con habitaciones confortables rodeadas de naturaleza. Ubicada en un entorno tranquilo cerca de Salento, combina la hospitalidad tradicional con comodidades modernas. Perfecto para quienes buscan desconectarse del ruido y conectarse con el paisaje del Eje Cafetero.
-
-## Servicios y comodidades
-
-### Servicios generales
-
-- Desayuno incluido
+### Servicios complementarios
+- Desayuno incluido o por confirmar
 - Wi-Fi en áreas comunes
-- Parqueadero gratuito
+- Parqueadero
 - Jardines y zonas verdes
-- Chimenea
-- Terraza con vistas
-- Área de descanso
-- Información turística
+- Terraza o vistas panorámicas
+- Información turística para recorridos de la zona
+- Experiencias rurales o senderismo por confirmar
 
-### Alimentación
+## Descripción preliminar
+Finca Hotel El Ocaso ofrece una experiencia auténtica de la cultura cafetera con habitaciones confortables rodeadas de naturaleza. Ubicado en un entorno tranquilo cerca de Salento, combina la hospitalidad tradicional con comodidades básicas para quienes buscan desconectarse del ruido y conectarse con el paisaje del Eje Cafetero.
 
-- Desayuno tradicional cafetero
-- Opciones vegetarianas disponibles
-- Café de la finca
-- Zona de BBQ disponible
-
-### Experiencias
-
-- Tours de café (en propiedad o cercanos)
-- Senderismo en los alrededores
-- Observación de aves
-- Bonfires nocturnas
-- Conexión con naturaleza
-
-### Ubicación y entorno
-
-- Entorno rural tranquilo
-- Vistas panorámicas
-- Cerca de rutas turísticas
-- Acceso a caminos rurales
-
-## Habitaciones y comodidades
-
-- Habitaciones con vistas panorámicas
-- Baños privados
-- Agua caliente
-- Ropa de cama de calidad
-- Ventilación natural
-- Calefacción en zonas comunes
-
-## Lugares cercanos
-
-- **Salento centro:** 10-15 minutos en carro
-- **Valle de Cocora:** 20 minutos en carro
-- **Cascada Santa Rita:** 15 minutos en carro
-- **Miradores:** Acceso cercano
-- **Fincas cafeteras:** Zona rodeada de cafetales
-
-## Horarios y políticas
-
-- **Check-in:** 14:00 - 20:00
-- **Check-out:** 08:00 - 12:00
-- **Desayuno:** 7:00 - 10:00
-- **Política de mascotas:** Consultar
-- **Política de niños:** Bienvenidos
-- **Fumar:** Solo en áreas designadas
-
-## Precios
-
-Las tarifas varían según temporada, tipo de habitación y número de huéspedes. Deben confirmarse directamente con la finca.
-
-Para consultar disponibilidad y precios actualizados, contactar directamente.
-
-## Experiencias especiales
-
-- **Coffee Tour:** Experiencia completa del proceso del café
-- **Sunset Watch:** Miradores atardecer
-- **Bird Watching:** Observación de aves locales
-- **Nature Walks:** Caminatas guiadas por senderos locales
-
-## Galería disponible
-
-La carpeta `imagenes/` debe contener fotografías del establecimiento para utilizar en la ficha digital:
-
-Sugerencia de categorías de imágenes:
-1. Fachada principal
-2. Habitaciones (interior y vistas)
-3. Jardines y zonas comunes
-4. Áreas de desayuno
-5. Vistas panorámicas
-6. Experiencias (café, senderismo, etc.)
+## Contacto y datos faltantes
+Se requieren confirmar:
+- WhatsApp oficial
+- celular de contacto directo
+- dirección exacta
+- correo o redes sociales
+- tarifas por tipo de habitación
+- horario de check-in y check-out
+- fotos reales del establecimiento, habitaciones y entorno
 
 ## Pendientes para completar la ficha pública
-
 - Dirección exacta y coordenadas GPS
 - Números de contacto actualizados
 - Tarifas por tipo de habitación
@@ -116,3 +59,12 @@ Sugerencia de categorías de imágenes:
 - Redes sociales y sitio web oficial
 - Confirmación de servicios sujetos a disponibilidad
 - Política de cancelación
+
+## Criterio para pasar a ficha publicada
+La ficha se considerará lista cuando tenga:
+- nombre comercial completo
+- ubicación exacta
+- contacto verificable
+- servicios bien definidos
+- descripción útil para turista
+- fotos reales del alojamiento

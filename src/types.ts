@@ -154,6 +154,49 @@ export type TourismDetails = {
   photoStops?: string[]
 }
 
+// Tipos extendidos Fase2 — SEO voz/IA, guías, FAQs, internacionalización
+export type I18nLocale = 'ES' | 'EN' | 'DE' | 'FR' | 'PT' | 'IT' | 'ZH' | 'JA' | 'KO' | 'TH' | 'VI' | 'ID' | 'MS' | 'EN_GB'
+
+export type HowToStep = {
+  stepNumber: number
+  name: string
+  text: string
+  imageUrl?: string
+}
+
+export type MiniFAQ = {
+  question: string
+  answer: string
+}
+
+export type GuidePage = {
+  slug: string
+  title: string
+  locale: I18nLocale
+  description: string
+  heroLead: string
+  travelDuration?: string
+  bestSeason?: string
+  difficulty?: 'Fácil' | 'Moderada' | 'Difícil'
+  itineraryItems: Array<{ day: number | string; title: string; description: string }>
+  howToSteps?: HowToStep[]
+  miniFaqs: MiniFAQ[]
+  relatedLandingsSlugs: string[]
+  relatedCategories: Array<Exclude<Category, 'Todo'>>
+}
+
+export type FAQCategory = 'General' | 'Alojamiento' | 'Transporte' | 'Clima' | 'Gastronomía' | 'Experiencias' | 'Presupuesto' | 'Accesibilidad' | 'Voz'
+
+export type FAQ = {
+  id: number | string
+  category: FAQCategory
+  keywords: string[]
+  question: string
+  answer: string
+  speakable: boolean
+  speakableCss?: { question: string; answer: string }
+}
+
 // Producto para catálogo
 export type Product = {
   id: string
@@ -233,6 +276,7 @@ export type Place = {
   tags?: string[]
   verified: boolean // Indica si los datos están validados comercialmente
   active: boolean // Indica si el lugar está activo en el sistema
+  isFree?: boolean // Indica si la actividad es gratuita / sin costo de entrada
   
   // Detalles específicos según tipo
   accommodationDetails?: AccommodationDetails
@@ -242,6 +286,11 @@ export type Place = {
   transportDetails?: TransportDetails
   horsebackRidingDetails?: HorsebackRidingDetails
   tourismDetails?: TourismDetails
+
+  // Campos extendidos Fase2 — SEO voz/IA y SERP features
+  aggregateRating?: { ratingValue: number | string; reviewCount?: number }
+  actionTarget?: { reserveUrl?: string; orderUrl?: string; viewUrl?: string }
+  speakable?: string[]
 }
 
 // Marcador para el mapa
@@ -264,3 +313,29 @@ export type SystemData = {
   lastUpdated: string
   version: string
 }
+
+// Catálogo 14 locales internacionales Fase2 — SEO i18n
+export const LOCALES_14: Record<I18nLocale, {
+  code: I18nLocale
+  hreflang: string
+  inLanguage: string
+  ogLocale: string
+  label: string
+  isDefault?: boolean
+  xDefault?: boolean
+}> = {
+  ES: { code: 'ES', hreflang: 'es-CO', inLanguage: 'es', ogLocale: 'es_CO', label: 'Español (Colombia)', isDefault: true, xDefault: true },
+  EN: { code: 'EN', hreflang: 'en-US', inLanguage: 'en', ogLocale: 'en_US', label: 'English (US)' },
+  EN_GB: { code: 'EN_GB', hreflang: 'en-GB', inLanguage: 'en', ogLocale: 'en_GB', label: 'English (UK)' },
+  DE: { code: 'DE', hreflang: 'de-DE', inLanguage: 'de', ogLocale: 'de_DE', label: 'Deutsch' },
+  FR: { code: 'FR', hreflang: 'fr-FR', inLanguage: 'fr', ogLocale: 'fr_FR', label: 'Français' },
+  PT: { code: 'PT', hreflang: 'pt-BR', inLanguage: 'pt', ogLocale: 'pt_BR', label: 'Português (Brasil)' },
+  IT: { code: 'IT', hreflang: 'it-IT', inLanguage: 'it', ogLocale: 'it_IT', label: 'Italiano' },
+  ZH: { code: 'ZH', hreflang: 'zh-CN', inLanguage: 'zh', ogLocale: 'zh_CN', label: '简体中文' },
+  JA: { code: 'JA', hreflang: 'ja-JP', inLanguage: 'ja', ogLocale: 'ja_JP', label: '日本語' },
+  KO: { code: 'KO', hreflang: 'ko-KR', inLanguage: 'ko', ogLocale: 'ko_KR', label: '한국어' },
+  TH: { code: 'TH', hreflang: 'th-TH', inLanguage: 'th', ogLocale: 'th_TH', label: 'ไทย' },
+  VI: { code: 'VI', hreflang: 'vi-VN', inLanguage: 'vi', ogLocale: 'vi_VN', label: 'Tiếng Việt' },
+  ID: { code: 'ID', hreflang: 'id-ID', inLanguage: 'id', ogLocale: 'id_ID', label: 'Bahasa Indonesia' },
+  MS: { code: 'MS', hreflang: 'ms-MY', inLanguage: 'ms', ogLocale: 'ms_MY', label: 'Bahasa Melayu' },
+} as const
