@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#f5f1e8" />
-    <meta name="description" content="Transporte, movilidad y ayuda rápida para tu visita" />
-    <title>Servicios | Salento a la Mano</title>
+    <meta name="description" content="Lugares emblemáticos, rutas de café, miradores y sitios de interés en Salento" />
+    <title>Atractivos Turísticos | Salento a la Mano</title>
     
     <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
@@ -46,17 +46,13 @@
       .stats { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 20px; }
       .stat { background: #f1eadb; border: 1px solid var(--line); border-radius: 14px; padding: 12px 14px; }
       .hero-visual {
-        background-image: linear-gradient(rgba(0,0,0,.15), rgba(0,0,0,.3)), url('https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&w=1200&q=80');
+        background-image: linear-gradient(rgba(0,0,0,.15), rgba(0,0,0,.3)), url('https://images.unsplash.com/photo-1469854523086-cc02fe5c8a8a?auto=format&fit=crop&w=1200&q=80');
         background-size: cover; background-position: center; min-height: 260px;
       }
-      .provider-grid {
+      .attraction-grid {
         display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; margin-top: 24px;
       }
-      .empty-category { display: flex; align-items: center; gap: 18px; margin-top: 24px; padding: 24px; border: 1px dashed var(--coral); background: rgba(255,255,255,.7); }
-      .empty-category-mark { display: grid; place-items: center; width: 42px; height: 42px; flex: 0 0 42px; border: 1px solid var(--coral); border-radius: 50%; color: var(--coral); font-size: 25px; }
-      .empty-category h2 { margin: 0 0 6px; font: 600 22px Fraunces, serif; }
-      .empty-category p { margin: 0; color: #59665f; line-height: 1.5; }
-      .provider-card {
+      .attraction-card {
         background: var(--white); border: 1px solid var(--line); border-radius: 20px; overflow: hidden; 
       }
       .card-image {
@@ -81,10 +77,10 @@
       }
     </style>
     <link rel="stylesheet" href="/page-theme.css" />
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://mapa-digital-salento.vercel.app/"},{"@type":"ListItem","position":2,"name":"Categorías","item":"https://mapa-digital-salento.vercel.app/categorias/"},{"@type":"ListItem","position":3,"name":"Servicios"}]}</script>
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"Servicios | Salento a la Mano","description":"Transporte, movilidad y ayuda rápida para tu visita","url":"https://mapa-digital-salento.vercel.app/categorias/servicios.html","inLanguage":"es","mainEntity":{"@type":"ItemList","itemListElement":[{"@type":"ListItem","position":1,"name":"Jeeps Willys Salento","url":"https://mapa-digital-salento.vercel.app/paginas-pautantes/jeeps-willys-salento/"},{"@type":"ListItem","position":2,"name":"Moto Aventura 110","url":"https://mapa-digital-salento.vercel.app/paginas-pautantes/moto-aventura-110/"}}]}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://mapa-digital-salento.vercel.app/"},{"@type":"ListItem","position":2,"name":"Categorías","item":"https://mapa-digital-salento.vercel.app/categorias/"},{"@type":"ListItem","position":3,"name":"Atractivos Turísticos"}]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"Atractivos Turísticos | Salento a la Mano","description":"Lugares emblemáticos, rutas de café, miradores y sitios de interés en Salento","url":"https://mapa-digital-salento.vercel.app/categorias/atractivos-turisticos.html","inLanguage":"es","mainEntity":{"@type":"ItemList","itemListElement":[{"@type":"ListItem","position":1,"name":"Guía del Valle del Cocora","url":"https://mapa-digital-salento.vercel.app/es/guias/guia-valle-del-cocora.html"},{"@type":"ListItem","position":2,"name":"Qué hacer en Salento: itinerario de 3 días","url":"https://mapa-digital-salento.vercel.app/es/guias/que-hacer-en-salento-3-dias.html"},{"@type":"ListItem","position":3,"name":"10 Tours de Café en Salento","url":"https://mapa-digital-salento.vercel.app/es/guias/10-tours-cafe-salento.html"}]}}</script>
   
-    <link rel="canonical" href="https://mapa-digital-salento.vercel.app/categorias/servicios.html" />
+    <link rel="canonical" href="https://mapa-digital-salento.vercel.app/categorias/atractivos-turisticos.html" />
   </head>
   <body>
     <div class="container">
@@ -96,59 +92,75 @@
       <section class="hero">
         <div class="hero-copy">
           <div class="eyebrow">Categoría</div>
-          <h1>Servicios</h1>
-          <div class="sub">Transporte, movilidad y ayuda rápida para tu visita</div>
+          <h1>Atractivos Turísticos</h1>
+          <div class="sub">Lugares emblemáticos, rutas de café, miradores y sitios de interés</div>
           <div class="stats">
-            <div class="stat"><strong>2</strong> pautantes</div>
-            <div class="stat"><strong>Directo</strong> con locales</div>
-            <div class="stat"><strong>WhatsApp</strong> en cada ficha</div>
+            <div class="stat"><strong>3</strong> rutas y guías</div>
+            <div class="stat"><strong>Información</strong> detallada</div>
+            <div class="stat"><strong>Planificación</strong> completa</div>
           </div>
         </div>
-        <div class="hero-visual" aria-label="Servicios"></div>
+        <div class="hero-visual" aria-label="Atractivos Turísticos"></div>
       </section>
 
-      <div class="provider-grid">
+      <div class="attraction-grid">
         
-      <article class="provider-card">
-        <div class="card-image" style="background-image:url('https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&w=1200&q=80')"></div>
+      <article class="attraction-card">
+        <div class="card-image" style="background-image:url('https://images.unsplash.com/photo-1518182170546-0766e655ce74?auto=format&fit=crop&w=1200&q=80')"></div>
         <div class="card-body">
           <div class="card-header-row">
-            <span class="pill">Servicios</span>
+            <span class="pill">Atractivo Natural</span>
             <span class="rating">⭐ 4.9</span>
           </div>
-          <h3>Jeeps Willys Salento</h3>
-          <p>Transporte oficial a Valle de Cocora y alrededores. Jeeps tradicionales con operadores certificados.</p>
+          <h3>Guía del Valle del Cocora</h3>
+          <p>Itinerario completo para visitar el Valle del Cocora: senderismo, palmas de cera, miradores y recomendaciones para la caminata. Incluye información sobre la ruta de 6 km, dificultad y mejor época para visitar.</p>
           <div class="meta-row">
-            <span>$</span>
-            <span>Salidas cada 30 min</span>
+            <span>6 km caminata</span>
+            <span>3-4 horas</span>
           </div>
           <div class="card-actions">
-            <a class="btn primary" href="/pautantes/jeeps-willys-salento.html">Ver ficha</a>
-            <a class="btn" href="/paginas-pautantes/jeeps-willys-salento/">Conocer</a>
-            <a class="btn" href="https://www.google.com/maps/search/Plaza%20Principal" target="_blank" rel="noreferrer">Cómo llegar</a>
-            <a class="btn whatsapp" href="https://wa.me/573101234567" target="_blank" rel="noreferrer">WhatsApp</a>
+            <a class="btn primary" href="/es/guias/guia-valle-del-cocora.html">Ver guía</a>
+            <a class="btn" href="https://www.google.com/maps/search/Valle%20del%20Cocora" target="_blank" rel="noreferrer">Cómo llegar</a>
           </div>
         </div>
       </article>
     
-      <article class="provider-card">
-        <div class="card-image" style="background-image:url('https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&w=1200&q=80')"></div>
+      <article class="attraction-card">
+        <div class="card-image" style="background-image:url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1200&q=80')"></div>
         <div class="card-body">
           <div class="card-header-row">
-            <span class="pill">Servicios</span>
-            <span class="rating">⭐ 4.9</span>
+            <span class="pill">Itinerario</span>
+            <span class="rating">⭐ 4.8</span>
           </div>
-          <h3>Moto Aventura 110</h3>
-          <p>Experiencia de aventura con mini motos en la zona de Salento, pensada para familias, grupos y viajeros que quieren una actividad dinámica con una ruta marcada y una sensación cercana a la naturaleza.</p>
+          <h3>Qué hacer en Salento: 3 días</h3>
+          <p>Una base flexible para combinar pueblo, café, naturaleza, gastronomía y compras locales. Planificación detallada por días: pueblo y gastronomía, naturaleza, café y compras con recomendaciones de contacto directo.</p>
           <div class="meta-row">
-            <span>$$</span>
-            <span>Abierto durante el día</span>
+            <span>3 días</span>
+            <span>Completo</span>
           </div>
           <div class="card-actions">
-            <a class="btn primary" href="/pautantes/moto-aventura-110.html">Ver ficha</a>
-            <a class="btn" href="/paginas-pautantes/moto-aventura-110/">Conocer</a>
-            <a class="btn" href="https://www.google.com/maps/search/Finca%20Las%20Camelias%2C%20v%C3%ADa%20Palestina%2C%20kil%C3%B3metro%201%2C%20Salento%2C%20Quind%C3%ADo" target="_blank" rel="noreferrer">Cómo llegar</a>
-            
+            <a class="btn primary" href="/es/guias/que-hacer-en-salento-3-dias.html">Ver guía</a>
+            <a class="btn" href="/categorias/index.html">Explorar mapa</a>
+          </div>
+        </div>
+      </article>
+    
+      <article class="attraction-card">
+        <div class="card-image" style="background-image:url('https://images.unsplash.com/photo-1497636577773-f1231844b336?auto=format&fit=crop&w=1200&q=80')"></div>
+        <div class="card-body">
+          <div class="card-header-row">
+            <span class="pill">Ruta de Café</span>
+            <span class="rating">⭐ 4.7</span>
+          </div>
+          <h3>10 Tours de Café en Salento</h3>
+          <p>Recopilación de las mejores experiencias cafeteras en Salento: fincas tradicionales, recorridos guiados, degustaciones y rutas por las veredas cafeteras del Quindío. Información de contacto directo con cada finca.</p>
+          <div class="meta-row">
+            <span>10 opciones</span>
+            <span>Veredas locales</span>
+          </div>
+          <div class="card-actions">
+            <a class="btn primary" href="/es/guias/10-tours-cafe-salento.html">Ver guía</a>
+            <a class="btn" href="/categorias/cafes.html">Ver categoría cafés</a>
           </div>
         </div>
       </article>
