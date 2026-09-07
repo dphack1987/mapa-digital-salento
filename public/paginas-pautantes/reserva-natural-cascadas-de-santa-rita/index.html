@@ -4,65 +4,296 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#f5f1e8" />
-    <meta name="description" content="Hermosa quebrada con caída de 20 metros a piscina natural en Boquía. Sendero de 4.8 km con bosque, montes, valle, antigua vía de tren, túnel y puente colgante. Incluye segunda cascada por cavernas y zonas de camping." />
-    <title>Reserva Natural Cascadas de Santa Rita | Vive Salento directamente</title>
-    <style>
-      <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    <meta name="description" content="Reserva Natural Cascadas de Santa Rita en Boquía, Salento. Pasadía, camping, habitaciones, senderismo y cascadas. Experiencia natural auténtica con precios accesibles." />
+    <title>Reserva Natural Cascadas de Santa Rita | Salento a la Mano</title>
+    
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" />;
-      :root { --paper:#f5f1e8; --ink:#1f2d26; --muted:#59665f; --line:#d9d0bf; --coral:#dd7f5d; --yellow:#e7c77b; --white:#fff; }
-      * { box-sizing:border-box; } body { margin:0; background:var(--paper); color:var(--ink); font-family:'DM Sans',sans-serif; }
-      a { color:inherit; text-decoration:none; } .container { max-width:1180px; margin:0 auto; padding:24px 20px 72px; }
-      .topbar { display:flex; justify-content:space-between; gap:16px; align-items:center; margin-bottom:28px; } .brand { display:inline-flex; align-items:center; gap:10px; font-weight:700; font-size:20px; } .brand-logo { width:42px; height:42px; object-fit:contain; border-radius:50%; }
-      .top-actions,.actions { display:flex; flex-wrap:wrap; gap:10px; } .button { display:inline-flex; align-items:center; justify-content:center; border:1px solid var(--line); border-radius:999px; padding:11px 15px; font-weight:700; font-size:13px; background:var(--white); }
-      .button.primary { background:#25d366; border-color:#25d366; color:#fff; } .button.dark { background:var(--ink); border-color:var(--ink); color:#fff; }
-      .hero { display:grid; grid-template-columns:1.1fr .9fr; gap:24px; align-items:stretch; } .hero-copy,.hero-image,.section { background:var(--white); border:1px solid var(--line); border-radius:24px; }
-      .hero-copy { padding:34px; } .eyebrow { color:var(--coral); text-transform:uppercase; letter-spacing:.12em; font-size:11px; font-weight:700; }
-      h1 { font-size:clamp(2.3rem,5vw,4.8rem); line-height:1.02; margin:14px 0; } .lead { color:var(--muted); line-height:1.7; font-size:1.08rem; max-width:650px; }
-      .hero-image { min-height:360px; background:linear-gradient(rgba(0,0,0,.08),rgba(0,0,0,.25)),url('https://images.unsplash.com/photo-1432405972618-c6b0b90a2b5c?auto=format&fit=crop&w=1200&q=80') center/cover; }
-      .highlights { display:flex; flex-wrap:wrap; gap:8px; margin:22px 0; } .highlight,.tag { padding:8px 11px; border:1px solid var(--line); border-radius:999px; background:#f3ead6; font-size:12px; font-weight:700; }
-      .section { padding:26px; margin-top:24px; } h2 { margin:0 0 16px; font-size:1.5rem; } .two-col { display:grid; grid-template-columns:1fr 1fr; gap:24px; }
-      .gallery { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; } .gallery img { width:100%; height:190px; object-fit:cover; border-radius:16px; border:1px solid var(--line); }
-      .facts { display:grid; gap:0; } .fact { padding:13px 0; border-bottom:1px solid var(--line); } .fact strong { display:block; color:var(--muted); font-size:11px; text-transform:uppercase; margin-bottom:5px; }
-      .service-section strong { display:block; color:var(--muted); font-size:11px; text-transform:uppercase; margin:14px 0 6px; } .service-grid { display:grid; grid-template-columns:1fr 1fr; gap:28px; } .service-section ul { margin:6px 0 18px; padding-left:20px; color:var(--muted); line-height:1.8; } .service-section p { color:var(--muted); line-height:1.6; } .muted { color:var(--muted); }
-      .tags { display:flex; flex-wrap:wrap; gap:8px; } .trust { color:var(--muted); line-height:1.6; } .verified { color:#39734b; font-weight:700; }
-      .price-card { background:#f8f5eb; border:1px solid var(--line); border-radius:16px; padding:20px; margin:12px 0; } .price-card h3 { margin:0 0 10px; font-size:1.1rem; color:var(--ink); } .price-card .price { font-size:1.4rem; font-weight:700; color:var(--coral); margin-bottom:8px; } .price-card .note { font-size:0.9rem; color:var(--muted); }
-      @media (max-width:800px) { .hero,.two-col { grid-template-columns:1fr; } .hero-image { min-height:260px; order:-1; } .topbar { align-items:flex-start; flex-direction:column; } .gallery { grid-template-columns:1fr; } }
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" />
+    
+    <style>
+      :root {
+        --paper: #f5f1e8;
+        --ink: #1f2d26;
+        --muted: #59665f;
+        --line: #d9d0bf;
+        --coral: #dd7f5d;
+        --green: #5a7d63;
+        --yellow: #e7c77b;
+        --white: #fff;
+        --nature-dark: #2d4a3e;
+        --nature-light: #4a7c59;
+      }
+      * { box-sizing: border-box; }
+      body { margin: 0; background: var(--paper); color: var(--ink); font-family: 'DM Sans', sans-serif; }
+      a { color: inherit; text-decoration: none; }
+      .container { max-width: 1200px; margin: 0 auto; padding: 24px 20px 80px; }
+      
+      .topbar { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-bottom: 28px; }
+      .brand { display: inline-flex; align-items: center; gap: 10px; font-weight: 700; font-size: 20px; }
+      .brand-logo { width: 42px; height: 42px; object-fit: contain; border-radius: 50%; }
+      .top-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+      .button { display: inline-flex; align-items: center; justify-content: center; border: 1px solid var(--line); border-radius: 999px; padding: 11px 15px; font-weight: 700; font-size: 13px; background: var(--white); transition: all 0.2s; }
+      .button:hover { background: var(--muted); color: var(--white); }
+      .button.primary { background: var(--nature-light); border-color: var(--nature-light); color: var(--white); }
+      .button.primary:hover { background: var(--nature-dark); }
+      .button.whatsapp { background: #25d366; border-color: #25d366; color: var(--white); }
+      .button.whatsapp:hover { background: #128c7e; }
+      
+      .hero { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: stretch; margin-bottom: 40px; }
+      .hero-content, .hero-gallery { background: var(--white); border: 1px solid var(--line); border-radius: 24px; overflow: hidden; }
+      .hero-content { padding: 40px; }
+      .eyebrow { color: var(--coral); text-transform: uppercase; letter-spacing: .12em; font-size: 11px; font-weight: 700; }
+      h1 { font-size: clamp(2.5rem, 5vw, 4rem); line-height: 1.05; margin: 14px 0; font-family: 'Fraunces', serif; }
+      .lead { color: var(--muted); line-height: 1.7; font-size: 1.1rem; margin-bottom: 24px; }
+      .hero-gallery { position: relative; min-height: 400px; }
+      .hero-gallery img { width: 100%; height: 100%; object-fit: cover; }
+      .hero-info { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.7)); color: var(--white); padding: 24px; }
+      .hero-info p { margin: 0; font-size: 14px; }
+      
+      .highlights { display: flex; flex-wrap: wrap; gap: 8px; margin: 24px 0; }
+      .highlight { padding: 10px 16px; border: 1px solid var(--line); border-radius: 999px; background: #f3ead6; font-size: 12px; font-weight: 700; }
+      
+      .section { background: var(--white); border: 1px solid var(--line); border-radius: 24px; padding: 32px; margin-bottom: 24px; }
+      .section h2 { margin: 0 0 20px; font-size: 1.8rem; font-family: 'Fraunces', serif; color: var(--nature-dark); }
+      
+      .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+      .price-card { border: 2px solid var(--line); border-radius: 16px; padding: 24px; transition: all 0.3s; }
+      .price-card:hover { border-color: var(--nature-light); transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.1); }
+      .price-card.featured { border-color: var(--coral); background: #fff9f5; }
+      .price-icon { font-size: 32px; margin-bottom: 12px; }
+      .price-card h3 { margin: 0 0 8px; font-size: 1.3rem; color: var(--ink); }
+      .price-card .price { font-size: 2rem; font-weight: 700; color: var(--coral); margin-bottom: 8px; }
+      .price-card .description { color: var(--muted); line-height: 1.5; margin-bottom: 12px; }
+      .price-card .note { font-size: 13px; color: var(--muted); line-height: 1.4; background: #f3ead6; padding: 12px; border-radius: 8px; }
+      .price-card .note strong { color: var(--ink); }
+      
+      .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
+      .gallery img { width: 100%; height: 200px; object-fit: cover; border-radius: 16px; cursor: pointer; transition: transform 0.3s; }
+      .gallery img:hover { transform: scale(1.05); }
+      
+      .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+      .info-item { padding: 20px; background: #f8f5eb; border-radius: 16px; }
+      .info-item h4 { margin: 0 0 8px; color: var(--nature-dark); font-size: 1.1rem; }
+      .info-item p { margin: 0; color: var(--muted); line-height: 1.5; }
+      
+      .facts { display: grid; gap: 0; }
+      .fact { padding: 16px 0; border-bottom: 1px solid var(--line); }
+      .fact strong { display: block; color: var(--muted); font-size: 11px; text-transform: uppercase; margin-bottom: 6px; }
+      
+      .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+      .tag { padding: 8px 14px; border: 1px solid var(--line); border-radius: 999px; background: #f3ead6; font-size: 12px; font-weight: 700; }
+      
+      .trust { color: var(--muted); line-height: 1.6; }
+      .verified { color: var(--nature-light); font-weight: 700; }
+      
+      @media (max-width: 768px) {
+        .hero { grid-template-columns: 1fr; }
+        .hero-gallery { min-height: 300px; order: -1; }
+        .topbar { flex-direction: column; align-items: flex-start; }
+        .gallery { grid-template-columns: repeat(2, 1fr); }
+      }
     </style>
     <link rel="stylesheet" href="/page-theme.css" />
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://mapa-digital-salento.vercel.app/"},{"@type":"ListItem","position":2,"name":"Atractivos Turísticos","item":"/categorias/atractivos-turisticos.html"},{"@type":"ListItem","position":3,"name":"Reserva Natural Cascadas de Santa Rita"}]}</script>
+    
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://mapa-digital-salento.vercel.app/"},{"@type":"ListItem","position":2,"name":"Atractivos Turísticos","item":"https://mapa-digital-salento.vercel.app/categorias/atractivos-turisticos.html"},{"@type":"ListItem","position":3,"name":"Reserva Natural Cascadas de Santa Rita"}]}</script>
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"TouristAttraction","name":"Reserva Natural Cascadas de Santa Rita","description":"Hermosa quebrada con caída de 20 metros a piscina natural en Boquía. Sendero de 4.8 km con bosque, montes, valle, antigua vía de tren, túnel y puente colgante. Incluye segunda cascada por cavernas y zonas de camping.","url":"/paginas-pautantes/reserva-natural-cascadas-de-santa-rita/","image":"https://mapa-digital-salento.vercel.app/logo_salento2026.png","address":{"@type":"PostalAddress","addressLocality":"Salento","addressRegion":"Quindío","addressCountry":"CO","streetAddress":"Vereda Boquía"},"geo":{"@type":"GeoCoordinates","latitude":4.64,"longitude":-75.56},"telephone":"+57 301 503 8254","priceRange":"$","areaServed":{"@type":"City","name":"Salento","containedIn":{"@type":"State","name":"Quindío"}},"aggregateRating":{"@type":"AggregateRating","ratingValue":4.7,"ratingCount":8,"bestRating":5,"worstRating":1},"openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]},"touristType":["Local","Internacional"],"duration":"3-4 horas","availableLanguage":["Español"]}</script>
-  
+    
     <link rel="canonical" href="https://mapa-digital-salento.vercel.app/paginas-pautantes/reserva-natural-cascadas-de-santa-rita/" />
   </head>
   <body>
-    <main class="container">
-      <header class="topbar"><a class="brand" href="/index.html"><img src="/logo_salento2026.png" alt="Salento a la Mano" class="brand-logo"/><span>Salento a la Mano</span></a><nav class="top-actions"><a class="button" href="/">Inicio</a><a class="button" href="/categorias/atractivos-turisticos.html">Ver categoría</a></nav></header>
+    <div class="container">
+      <header class="topbar">
+        <a class="brand" href="/index.html">
+          <img src="/logo_salento2026.png" alt="Salento a la Mano" class="brand-logo"/>
+          <span>Salento a la Mano</span>
+        </a>
+        <nav class="top-actions">
+          <a class="button" href="/">Inicio</a>
+          <a class="button" href="/categorias/atractivos-turisticos.html">Atractivos Turísticos</a>
+        </nav>
+      </header>
+
       <section class="hero">
-        <div class="hero-copy"><div class="eyebrow">Atractivos Turísticos · naturaleza</div><h1>Reserva Natural Cascadas de Santa Rita</h1><p class="lead">Hermosa quebrada con caída de 20 metros a piscina natural en Boquía. Sendero de 4.8 km con bosque, montes, valle, antigua vía de tren, túnel y puente colgante. Incluye segunda cascada por cavernas y zonas de camping.</p>
-          <div class="highlights"><span class="highlight">Duración: 3-4 horas</span><span class="highlight">Rango: $</span><span class="highlight">Acceso durante el día</span></div>
-          <div class="actions"><a class="button primary" href="https://wa.me/573015038254" target="_blank" rel="noreferrer">Contactar por WhatsApp</a><a class="button dark" href="tel:+573015038254">Llamar ahora</a><a class="button" href="https://www.google.com/maps/search/Vereda%20Boqu%C3%ADa%2C%20Salento%2C%20Quind%C3%ADo" target="_blank" rel="noreferrer">Cómo llegar</a></div>
-        </div><div class="hero-image" aria-label="Reserva Natural Cascadas de Santa Rita"></div>
+        <div class="hero-content">
+          <div class="eyebrow">Atractivos Turísticos · Naturaleza</div>
+          <h1>Reserva Natural Cascadas de Santa Rita</h1>
+          <p class="lead">Hermosa quebrada con caída de 20 metros a piscina natural en Boquía. Sendero de 4.8 km con bosque, montes, valle, antigua vía de tren, túnel y puente colgante. Experiencia natural auténtica con precios accesibles.</p>
+          <div class="highlights">
+            <span class="highlight">🌿 Sendero 4.8 km</span>
+            <span class="highlight">💧 Cascada 20m</span>
+            <span class="highlight">🏕️ Piscina natural</span>
+            <span class="highlight">⛺️ Camping disponible</span>
+          </div>
+          <div class="top-actions">
+            <a class="button primary" href="https://wa.me/573015038254" target="_blank" rel="noreferrer">Reservar por WhatsApp</a>
+            <a class="button" href="tel:+573015038254">Llamar ahora</a>
+            <a class="button" href="https://www.google.com/maps/search/Vereda%20Boqu%C3%ADa%2C%20200%20metros%20del%20puente%20amarillo" target="_blank" rel="noreferrer">Cómo llegar</a>
+          </div>
+        </div>
+        <div class="hero-gallery">
+          <img src="/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/rita1.jpg" alt="Cascadas de Santa Rita vista principal" />
+          <div class="hero-info">
+            <p>📍 200 metros del puente amarillo de Boquía, Salento</p>
+          </div>
+        </div>
       </section>
-      <section class="section"><h2>Conoce la experiencia</h2><div class="two-col"><div><p class="trust">Hermosa quebrada con caída de 20 metros a piscina natural en Boquía. Sendero de 4.8 km con bosque, montes, valle, antigua vía de tren, túnel y puente colgante. Incluye segunda cascada por cavernas y zonas de camping.</p><p class="verified">✓ Información verificada en el catálogo local</p></div><div class="facts"><div class="fact"><strong>Ubicación</strong>Vereda Boquía</div><div class="fact"><strong>Referencia</strong>200 metros del puente amarillo de Boquía</div><div class="fact"><strong>Horario</strong>Acceso durante el día</div></div></div></section>
-      
-      <section class="section"><h2>Tarifas y servicios</h2>
-        <div class="price-card"><h3>🍃 Pasadía</h3><div class="price">$11.000 por persona</div><div class="note">Acceso a senderos, cascadas y piscina natural</div></div>
-        <div class="price-card"><h3>⛺️ Camping</h3><div class="price">$28.000 por persona por noche</div><div class="note">Nota: Traer todos los implementos necesarios, se vende madera y carbón</div></div>
-        <div class="price-card"><h3>🏠 Habitación</h3><div class="price">$140.000 por pareja incluido el desayuno</div><div class="note">Mascota: $15.000 pesos. Incluye caminata por senderos, piscina natural, cascadas, cavernas y túnel</div></div>
-        <div class="price-card"><h3>🍳 Desayuno</h3><div class="price">$12.000 pesos</div></div>
-        <div class="price-card"><h3>🍛 Calentado</h3><div class="price">$15.000 pesos</div></div>
-        <div class="price-card"><h3>🥘 Almuerzo</h3><div class="price">$18.000 pesos</div></div>
-        <div class="price-card"><h3>🐟 Trucha</h3><div class="price">$28.000 pesos</div></div>
-        <div class="price-card"><h3>🏍️🚗 Parqueadero</h3><div class="price">Gratis</div><div class="note">Para motos y carros</div></div>
+
+      <section class="section">
+        <h2>💰 Tarifas y Servicios</h2>
+        <div class="pricing-grid">
+          <div class="price-card featured">
+            <div class="price-icon">🍃</div>
+            <h3>Pasadía</h3>
+            <div class="price">$11.000</div>
+            <div class="description">Por persona</div>
+            <div class="note">Incluye acceso a senderos, cascadas y piscina natural</div>
+          </div>
+          
+          <div class="price-card">
+            <div class="price-icon">⛺️</div>
+            <h3>Camping</h3>
+            <div class="price">$28.000</div>
+            <div class="description">Por persona por noche</div>
+            <div class="note"><strong>Nota:</strong> Traer todos los implementos necesarios. Se vende madera y carbón en sitio.</div>
+          </div>
+          
+          <div class="price-card">
+            <div class="price-icon">🏠</div>
+            <h3>Habitación</h3>
+            <div class="price">$140.000</div>
+            <div class="description">Por pareja</div>
+            <div class="note">Incluye desayuno. <strong>Mascota:</strong> $15.000 pesos</div>
+          </div>
+          
+          <div class="price-card">
+            <div class="price-icon">🍳</div>
+            <h3>Desayuno</h3>
+            <div class="price">$12.000</div>
+            <div class="description">Desayuno completo</div>
+          </div>
+          
+          <div class="price-card">
+            <div class="price-icon">🍛</div>
+            <h3>Calentado</h3>
+            <div class="price">$15.000</div>
+            <div class="description">Plato típico caliente</div>
+          </div>
+          
+          <div class="price-card">
+            <div class="price-icon">🥘</div>
+            <h3>Almuerzo</h3>
+            <div class="price">$18.000</div>
+            <div class="description">Menú del día</div>
+          </div>
+          
+          <div class="price-card">
+            <div class="price-icon">🐟</div>
+            <h3>Trucha</h3>
+            <div class="price">$28.000</div>
+            <div class="description">Trucha fresca</div>
+          </div>
+          
+          <div class="price-card">
+            <div class="price-icon">🏍️🚗</div>
+            <h3>Parqueadero</h3>
+            <div class="price">Gratis</div>
+            <div class="description">Para motos y carros</div>
+          </div>
+        </div>
+        <div class="note" style="margin-top: 20px; text-align: center;">
+          <strong>✨ Incluye camping y habitación:</strong> Caminata por senderos, piscina natural, cascadas, cavernas y túnel
+        </div>
       </section>
-      
-      <section class="section"><h2>Galería de imágenes</h2><div class="gallery"><img src="https://images.unsplash.com/photo-1432405972618-c6b0b90a2b5c?auto=format&fit=crop&w=900&q=80" alt="Cascadas de Santa Rita foto 1" loading="lazy"/><img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=900&q=80" alt="Cascadas de Santa Rita foto 2" loading="lazy"/><img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=900&q=80" alt="Cascadas de Santa Rita foto 3" loading="lazy"/></div></section>
-      
-      <section class="section service-section"><h2>Plan de la experiencia</h2><div class="service-grid"><div><strong>Incluye</strong><ul><li>Acceso a senderos</li><li>Cascada principal</li><li>Piscina natural</li><li>Segunda cascada</li><li>Áreas de camping</li></ul><strong>Qué llevar</strong><ul><li>Ropa cómoda</li><li>Calzado de trekking</li><li>Agua suficiente</li><li>Protector solar</li><li>Ropa de baño</li></ul></div><div><strong>Duración</strong><p>3-4 horas</p><strong>Dificultad</strong><p>Moderada a difícil</p><strong>Punto de encuentro</strong><p>Hacienda Santa Rita, 200 metros del puente amarillo de Boquía</p><strong>Idiomas</strong><p>Español</p></div></div><div class="actions"><a class="button primary" href="https://wa.me/573015038254">Contactar para reservar</a></div></section>
-      
-      <section class="section"><h2>Lo que puedes encontrar</h2><div class="tags"><span class="tag">cascada</span><span class="tag">senderismo</span><span class="tag">naturaleza</span><span class="tag">baño</span><span class="tag">camping</span><span class="tag">boquía</span><span class="tag">cavernas</span></div></section>
-    </main>
+
+      <section class="section">
+        <h2>📸 Galería de Imágenes</h2>
+        <div class="gallery">
+          <img src="/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/rita1.jpg" alt="Cascadas de Santa Rita" loading="lazy" />
+          <img src="/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/rita2.jpg" alt="Piscina natural" loading="lazy" />
+          <img src="/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/rita3.jpg" alt="Sendero" loading="lazy" />
+          <img src="/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/rita4.jpg" alt="Cavernas" loading="lazy" />
+          <img src="/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/rita5.jpg" alt="Túnel" loading="lazy" />
+          <img src="/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/rita6.jpg" alt="Puente colgante" loading="lazy" />
+          <img src="/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/rita7.jpg" alt="Vistas panorámicas" loading="lazy" />
+          <img src="/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/rita8.jpg" alt="Flora local" loading="lazy" />
+          <img src="/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/f2.jpeg" alt="Cascada principal" loading="lazy" />
+          <img src="/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/f3.jpeg" alt="Sendero bosque" loading="lazy" />
+          <img src="/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/f10.jpeg" alt="WhatsApp info" loading="lazy" />
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>ℹ️ Información Práctica</h2>
+        <div class="info-grid">
+          <div class="info-item">
+            <h4>📍 Ubicación</h4>
+            <p>Vereda Boquía, 200 metros del puente amarillo de Boquía, Salento, Quindío</p>
+          </div>
+          <div class="info-item">
+            <h4>⏰ Horario</h4>
+            <p>Acceso durante el día. Se recomienda iniciar temprano (8:00 AM)</p>
+          </div>
+          <div class="info-item">
+            <h4>🎯 Duración</h4>
+            <p>3-4 horas de caminata completa</p>
+          </div>
+          <div class="info-item">
+            <h4>📞 Contacto</h4>
+            <p>+57 301 503 8254<br/>WhatsApp disponible</p>
+          </div>
+          <div class="info-item">
+            <h4>🥾 Dificultad</h4>
+            <p>Moderada a difícil. Se recomienda calzado de trekking y ropa cómoda</p>
+          </div>
+          <div class="info-item">
+            <h4>🌿 Qué incluye</h4>
+            <p>Senderos, cascada principal, piscina natural, segunda cascada, cavernas, antigua vía de tren, túnel y puente colgante</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>📝 Recomendaciones</h2>
+        <div class="info-grid">
+          <div class="info-item">
+            <h4>🎒 Qué llevar</h4>
+            <p>Ropa cómoda, calzado de trekking, agua suficiente, protector solar, ropa de baño, toalla</p>
+          </div>
+          <div class="info-item">
+            <h4>⚠️ Importante</h4>
+            <p>Para camping traer todos los implementos necesarios. Se vende madera y carbón en sitio.</p>
+          </div>
+          <div class="info-item">
+            <h4>🌦️ Mejor época</h4>
+            <p>Todo el año, evitando épocas de mucha lluvia que pueden dificultar el sendero</p>
+          </div>
+          <div class="info-item">
+            <h4>📱 Comunicación</h4>
+            <p>Para reservaciones y consultas, contactar por WhatsApp</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>🏷️ Lo que puedes encontrar</h2>
+        <div class="tags">
+          <span class="tag">cascada</span>
+          <span class="tag">senderismo</span>
+          <span class="tag">naturaleza</span>
+          <span class="tag">baño</span>
+          <span class="tag">camping</span>
+          <span class="tag">boquía</span>
+          <span class="tag">cavernas</span>
+          <span class="tag">túnel</span>
+          <span class="tag">puente colgante</span>
+        </div>
+        <p class="trust" style="margin-top: 20px;">
+          ✓ Información verificada en el catálogo local<br/>
+          ✓ Precios actualizados directamente con el proveedor
+        </p>
+      </section>
+    </div>
   </body>
 </html>
