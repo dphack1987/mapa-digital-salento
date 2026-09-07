@@ -1,77 +1,76 @@
 # Boki Mall - Hotel El Mirador de Boquía
 
 ## Estado
-- Estado actual: ficha completa
+- Estado actual: información verificada desde sitio oficial
 - Prioridad: alta
 - Verificación: completamente verificada
 
 ## Información confirmada
 - Nombre comercial: Boki Mall - Hotel El Mirador de Boquía
-- Categoría principal: alojamiento / experiencia / hotel rural premium
-- Ubicación general: Vereda Boquía, vía principal a Salento
-- Distancia aproximada: 5 min de Salento en carro
-- Dirección publicada en Google: "metros después del Río Quindío, Vía A Salento #500, Salento, Quindío"
 - Sitio web oficial: https://www.bokimall.com/
-- Teléfono publicado: +57 311 222 5312
-- Calificación Google: 4.7/5 con 218 opiniones
-- WhatsApp oficial: https://wa.me/573112225312
-- Email de reservas: reservas@bokimall.com
+- Teléfono: +57 311 222 5312
+- WhatsApp: https://wa.me/573112225312
+- Email: reservas@bokimall.com
 - Dirección exacta: Km 5 Vía principal a Salento, Vereda Boquía, 400 metros después del puente de Boquía
 - Registro Nacional de Turismo: #91079
-- Tipo de oferta: hotel, restaurante, café bar, eventos, experiencias turísticas
-- Evidencia disponible: nombre, ubicación general, servicios y referencias en el catálogo del proyecto y web oficial
-- Propuesta: hotel con restaurante, bar, espacios de eventos y experiencia rural en Boquía
+- Ubicación: 5 minutos de Salento, 15 minutos del Valle del Cocora
+- Hotel campestre con ambiente cafetero rodeado de naturaleza
+- Río Quindío a 500 metros de distancia
 
-## Modelo de venta o reserva directa
-- Canal principal: WhatsApp, reservas directas y contacto con recepción
-- Comisión por venta de la plataforma: 0%
-- Rol de Salento a la Mano: visibilidad, conexión directa y reserva guiada
-- Cobertura: Salento cabecera y alrededores cercanos
-- Modalidad: hospedaje, restaurante, café, eventos y paquetes turísticos
-- Pago: directo con el negocio, según disponibilidad y confirmación
-- Punto de referencia: Boquía, vía principal a Salento
+## 4 Servicios Principales
 
-## Catálogo de servicios y productos
-### Hospedaje
-- Habitación doble / estándar: precio por confirmar
-- Habitación superior / premium: precio por confirmar
-- Paquete fin de semana: precio por confirmar
-- Alojamiento para familias o grupos: precio por confirmar
+### 1. Hotel El Mirador de Boquía
+- 9 habitaciones disponibles con nombres que tienen historia
+- Check-in: A partir de 15:00
+- Check-out: Hasta 12:00
+- Servicios incluidos:
+  - Parqueadero privado gratuito
+  - Desayuno incluido en algunas tarifas
+  - Baño privado
+  - Agua caliente
+  - Televisión por cable
+  - Conexión Wi-Fi gratuito
+  - Seguro hotelero
+  - Pet Friendly
+  - Servicio a la habitación (Room Service)
+  - Estación de café gratuita
+  - Zonas verdes con árboles frutales
+  - Mirador natural del ecosistema
+- Traslado al aeropuerto disponible con costo adicional (reservar con antelación)
 
-### Gastronomía y bar
-- Restaurante Terra: servicio de comida y ambiente local
-- Café bar: bebidas, café y espacio de descanso
-- Eventos o celebraciones: paquetes por confirmar
+### 2. Restaurante Terra
+- Horario: 7:00 AM - 9:00 PM
+- Platos vegetarianos, veganos y libres de gluten disponibles
+- Menú especial para niños
+- Opciones saludables y deliciosas
+- Reserva recomendada especialmente fines de semana y temporadas altas
+- Reservas: +57 301 685 5199
 
-### Experiencias y actividades
-- Paquetes turísticos y recorridos
-- Operador logístico Boki Travel
-- Experiencias con enfoque de turismo rural
-- Eventos y reuniones
+### 3. Barcinales Café - Bar
+- Mejor café y cócteles
+- Bar con ambiente cafetero
+- Espacio para disfrutar de la gastronomía exquisita
+- Zona de eventos y celebraciones privadas
 
-## Contacto y datos faltantes
-Se requieren confirmar:
-- WhatsApp oficial de reservas y atención directa
-- correo de recepción o reservas
-- dirección exacta y coordenadas GPS
-- horario exacto por servicio
-- tarifas actuales por habitación, restaurante y paquetes
-- fotos reales del hotel, restaurante, zonas comunes y entorno
+### 4. Boki Travel (Operador Logístico)
+- Tour por fincas cafeteras
+- Senderismo en Boquía y Reserva la Patasola
+- Avistamiento de aves
+- Cabalgatas en Boquía y Valle del Cocora
+- Excursión a la Cascada de Santa Rita
+- Jeepy Tour por Valle del Cocora
+- Servicio de transporte
+- Experiencias personalizadas
+- Consulta en recepción para más detalles
 
-## Pendientes para completar la ficha pública
-- Dirección exacta y coordenadas GPS
-- WhatsApp oficial y número de contacto
-- Email de reservas o recepción
-- Tarifas actualizadas por habitación o paquete
-- Fotografías reales del hotel, restaurante, eventos y entorno
-- Descripción final para turistas
-- Confirmación de disponibilidad y reservas
+## Información de Contacto
+- Reservas Hotel: +57 311 222 5312
+- Reservas Restaurante: +57 301 685 5199
+- Email: reservas@bokimall.com
+- Ubicación: Vía a Salento, Quindío, 500 m después del Río Quindío
+- WhatsApp disponible en sitio web
 
-## Criterio para pasar a ficha publicada
-La ficha solo se considerará lista cuando tenga:
-- nombre comercial completo
-- ubicación exacta
-- contacto verificable
-- servicios claros
-- descripción útil para turista
-- 3 a 5 fotos reales del lugar
+## Página publicada
+- URL: /paginas-pautantes/boki-mall-hotel-el-mirador-de-boquia/
+- Categoría: Alojamientos
+- Información verificada desde sitio oficial
