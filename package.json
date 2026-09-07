@@ -8,7 +8,13 @@
     "build": "vite build",
     "preview": "vite preview",
     "type-check": "tsc --noEmit",
-    "seo:generate": "node tools/generate_international_seo_pages.js && node tools/generate_category_pages.js"
+    "seo:generate": "node tools/generate_international_seo_pages.js && node tools/generate_category_pages.js",
+    "seo:audit": "python tools/seo_technical_audit.py --output tools/seo_technical_audit.json",
+    "seo:enrich": "python tools/enrich_static_seo.py",
+    "seo:routes": "python tools/generate_sitemap_route_pages.py",
+    "seo:meta": "python tools/optimize_static_meta.py",
+    "seo:strategy": "python tools/seo_strategy_analyzer.py --output tools/seo_strategy_report.json",
+    "seo:structured": "python tools/enrich_structured_data.py"
   },
   "dependencies": {
     "@types/qrcode": "^1.5.6",

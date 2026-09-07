@@ -1,4 +1,5 @@
 import { useMemo, useState, useEffect } from 'react'
+import { Helmet } from 'react-helmet-async'
 import { CircleMarker, MapContainer, Popup, TileLayer, useMap } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css'
 import {
@@ -334,6 +335,51 @@ function App() {
 
   const isEnglish = language === 'EN'
 
+  const helmetTitle = useMemo(() => {
+    try {
+      if (selectedPlace) {
+        const cat = selectedPlace.type || 'Servicios locales'
+        return isEnglish
+          ? `${selectedPlace.name} | Salento a la Mano 2026 - ${cat} direct in Salento, Quindío`
+          : `${selectedPlace.name} | Salento a la Mano 2026 - ${cat} directo en Salento, Quindío`
+      }
+      const effectiveCategory = selectedCategoryPage || selectedCategory
+      if (effectiveCategory && effectiveCategory !== 'Todo') {
+        return isEnglish
+          ? `${effectiveCategory} in Salento, Quindío 2026 | Salento a la Mano`
+          : `${effectiveCategory} en Salento, Quindío 2026 | Salento a la Mano`
+      }
+      return isEnglish
+        ? 'Salento a la Mano | Tourist Map of Salento, Quindío 2026 - Direct, no intermediaries'
+        : 'Salento a la Mano | Mapa turístico de Salento, Quindío 2026 - Directo, sin intermediarios'
+    } catch (e) {
+      return 'Salento a la Mano | Mapa turístico de Salento, Quindío'
+    }
+  }, [selectedPlace, selectedCategoryPage, selectedCategory, isEnglish])
+
+  const helmetDescription = useMemo(() => {
+    try {
+      if (selectedPlace) {
+        const desc = (selectedPlace.description || '').slice(0, 140)
+        const extras = [selectedPlace.contact?.phone, selectedPlace.contact?.whatsapp ? 'WhatsApp disponible' : null, selectedPlace.priceRange].filter(Boolean).join(' · ')
+        return isEnglish
+          ? `${desc || selectedPlace.name} in Salento, Quindío. ${extras}. Book direct, no intermediaries.`
+          : `${desc || selectedPlace.name} en Salento, Quindío. ${extras}. Reserva directa, sin intermediarios.`
+      }
+      const effectiveCategory = selectedCategoryPage || selectedCategory
+      if (effectiveCategory && effectiveCategory !== 'Todo') {
+        return isEnglish
+          ? `Find and book the best ${effectiveCategory.toLowerCase()} in Salento, Quindío 2026. Verified local providers, direct contact, Valle de Cocora, coffee tours, horseback riding and jeeps Willys.`
+          : `Encuentra y reserva los mejores ${effectiveCategory.toLowerCase()} en Salento, Quindío 2026. Aliados locales verificados, contacto directo, Valle de Cocora, tours de café, cabalgatas y jeeps Willys.`
+      }
+      return isEnglish
+        ? 'Interactive tourist map of Salento, Quindío 2026. Hotels, restaurants, cafes, experiences, crafts, Valle de Cocora jeeps and horseback riding. Direct contact with verified locals, no intermediaries. Safe travel and open roads.'
+        : 'Mapa turístico interactivo de Salento, Quindío 2026. Hoteles, restaurantes, cafés, experiencias, artesanías, jeeps Valle de Cocora y cabalgatas. Contacto directo con locales verificados, sin intermediarios. Viaje seguro y vías abiertas.'
+    } catch (e) {
+      return 'Mapa turístico interactivo de Salento, Quindío. Alojamientos, gastronomía, experiencias y comercio local verificados.'
+    }
+  }, [selectedPlace, selectedCategoryPage, selectedCategory, isEnglish])
+
   // Función para manejar acciones del modal de pautantes
   const handleProviderAction = (providerId: number, action: 'reserve' | 'order' | 'contact') => {
     const provider = places.find(p => p.id === providerId)
@@ -561,6 +607,14 @@ function App() {
 
   return (
     <div className="app-shell">
+      <Helmet>
+        <title>{helmetTitle}</title>
+        <meta name="description" content={helmetDescription} />
+        <meta property="og:title" content={helmetTitle} />
+        <meta property="og:description" content={helmetDescription} />
+        <meta name="twitter:title" content={helmetTitle} />
+        <meta name="twitter:description" content={helmetDescription} />
+      </Helmet>
       <header className="mobile-header site-header">
         <div className="identity-header">
           <div className="brand-mobile">
@@ -818,6 +872,23 @@ function App() {
           </div>
         </section>
 
+        <section className="direct-orders-banner" id="pedidos-directos" aria-labelledby="direct-orders-title">
+          <div className="direct-orders-copy">
+            <p className="eyebrow">{language === 'es' ? 'Compra local, directo' : 'Buy local, direct'}</p>
+            <h2 id="direct-orders-title">{language === 'es' ? 'Pide, reserva y solicita servicios desde aquí.' : 'Order, reserve and request services from here.'}</h2>
+            <p>{language === 'es' ? 'Encuentra negocios de Salento, arma tu pedido o reserva y contacta directamente al comerciante por WhatsApp, sin intermediarios ni comisiones por venta.' : 'Find Salento businesses, build your order or reservation and contact the merchant directly by WhatsApp, with no intermediaries or sales commissions.'}</p>
+            <div className="direct-orders-actions">
+              <button className="dark-button" onClick={() => scrollToSection('pedidos')}><ShoppingBag size={17} /> {language === 'es' ? 'Explorar pedidos' : 'Explore orders'}</button>
+              <button className="outline-button" onClick={() => setShowProviderModal(true)}><MessageCircle size={17} /> {language === 'es' ? 'Buscar un servicio' : 'Find a service'}</button>
+            </div>
+          </div>
+          <div className="direct-orders-points" aria-label={language === 'es' ? 'Beneficios del servicio directo' : 'Direct service benefits'}>
+            <div><span className="direct-orders-icon"><ShoppingBag size={18} /></span><strong>{language === 'es' ? 'Pedidos' : 'Orders'}</strong><small>{language === 'es' ? 'Comida y productos' : 'Food and products'}</small></div>
+            <div><span className="direct-orders-icon"><Clock3 size={18} /></span><strong>{language === 'es' ? 'Reservas' : 'Reservations'}</strong><small>{language === 'es' ? 'Experiencias y hospedaje' : 'Experiences and lodging'}</small></div>
+            <div><span className="direct-orders-icon"><Bike size={18} /></span><strong>{language === 'es' ? 'Domicilios' : 'Delivery'}</strong><small>{language === 'es' ? 'Cabecera y alrededores' : 'Town and nearby areas'}</small></div>
+          </div>
+        </section>
+
           <div className="official-info-section">
             <h3>🛡️ Información Oficial</h3>
             <p>Reportes actualizados del estado de Salento</p>
@@ -854,7 +925,7 @@ function App() {
           </div>
 
         <section className="quick-section" id="pedidos">
-          <div className="section-heading"><div><p className="eyebrow">{t('nearby')}</p><h2>{t('today')}</h2></div><button className="text-button">Ver todo <ArrowRight size={16} /></button></div>
+          <div className="section-heading"><div><p className="eyebrow">{t('nearby')}</p><h2>{t('today')}</h2></div><button className="text-button" onClick={() => { setActiveCategory('Todo'); scrollToSection('pedidos') }}>Ver todo <ArrowRight size={16} /></button></div>
           <div className="category-row">
             {(['Todo', 'Alojamientos', 'Restaurantes', 'Cafés', 'Artesanías', 'Tiendas', 'Experiencias', 'Servicios'] as Category[]).map((category) => (
               <button key={category} className={activeCategory === category ? 'category active' : 'category'} onClick={() => setActiveCategory(category)}>
@@ -896,13 +967,13 @@ function App() {
         </section>
 
         <section className="map-section" id="mapa">
-          <div className="map-copy"><p className="eyebrow">Orienta tu paseo</p><h2>{t('map')}</h2><p>Descubre rutas a pie, lugares favoritos y recomendaciones de quienes hacen de Salento su casa.</p><button className="dark-button">Abrir mapa completo <ArrowRight size={17} /></button><div className="map-legend"><span><i className="legend-dot coral" />Favoritos locales</span><span><i className="legend-dot green" />Para descubrir</span></div></div>
+          <div className="map-copy"><p className="eyebrow">Orienta tu paseo</p><h2>{t('map')}</h2><p>Descubre rutas a pie, lugares favoritos y recomendaciones de quienes hacen de Salento su casa.</p><button className="dark-button" onClick={() => scrollToSection('mapa')}><span>Abrir mapa completo</span> <ArrowRight size={17} /></button><div className="map-legend"><span><i className="legend-dot coral" />Favoritos locales</span><span><i className="legend-dot green" />Para descubrir</span></div></div>
           <div className="map-visual" aria-label="Mapa interactivo de Salento con lugares destacados"><MapContainer center={[4.6371, -75.5706]} zoom={16} scrollWheelZoom={false} className="leaflet-map"><TileLayer attribution="&copy; OpenStreetMap" url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />{visibleMarkers.map((marker) => <CircleMarker key={marker.label} center={[marker.lat, marker.lng]} radius={10} pathOptions={{ color: marker.tone === 'green' ? '#56755b' : marker.tone === 'yellow' ? '#ba8a25' : '#e76c52', fillColor: marker.tone === 'green' ? '#56755b' : marker.tone === 'yellow' ? '#e8bb58' : '#e76c52', fillOpacity: 0.9 }}><Popup><strong>{marker.label}</strong><br /><span>{marker.type} · Salento</span><br /><button className="popup-action">Ver ficha <ArrowRight size={13} /></button></Popup></CircleMarker>)}<MapControls /></MapContainer></div>
         </section>
 
-            <section className="advertising-section" id="pautas"><div><p className="eyebrow">Hazte visible en Salento</p><h2>Pautas que llegan<br /><i>al lugar correcto.</i></h2><p>Tu negocio aparece en el mapa digital, en las búsquedas y frente a turistas listos para comprar o reservar.</p></div><div className="advertising-cards"><article><span className="ad-tag">Gastronomía</span><strong>Tu sabor, en el mapa.</strong><small>Ficha + ubicación + pedidos</small></article><article><span className="ad-tag green-tag">Comercio local</span><strong>Lo local se encuentra.</strong><small>Ficha + ubicación + contacto</small></article><article><span className="ad-tag yellow-tag">Experiencias</span><strong>El plan empieza aquí.</strong><small>Ficha + reservas + rutas</small></article></div><button className="dark-button ad-button">Conoce las pautas <ArrowRight size={17} /></button></section>
+            <section className="advertising-section" id="pautas"><div><p className="eyebrow">Hazte visible en Salento</p><h2>Pautas que llegan<br /><i>al lugar correcto.</i></h2><p>Tu negocio aparece en el mapa digital, en las búsquedas y frente a turistas listos para comprar o reservar.</p></div><div className="advertising-cards"><article><span className="ad-tag">Gastronomía</span><strong>Tu sabor, en el mapa.</strong><small>Ficha + ubicación + pedidos</small></article><article><span className="ad-tag green-tag">Comercio local</span><strong>Lo local se encuentra.</strong><small>Ficha + ubicación + contacto</small></article><article><span className="ad-tag yellow-tag">Experiencias</span><strong>El plan empieza aquí.</strong><small>Ficha + reservas + rutas</small></article></div><button className="dark-button ad-button" onClick={() => setShowProviderModal(true)}>Conoce las pautas <ArrowRight size={17} /></button></section>
 
-        <section className="stay-banner" id="experiencias"><div><p className="eyebrow">Para tu estadía</p><h2>Que no te cuenten<br /><i>el plan completo.</i></h2></div><div className="stay-actions"><p>Recibe recomendaciones según tu hospedaje, tus gustos y el tiempo que tienes.</p><button className="outline-button">Personalizar mi visita <ArrowRight size={16} /></button></div></section>
+        <section className="stay-banner" id="experiencias"><div><p className="eyebrow">Para tu estadía</p><h2>Que no te cuenten<br /><i>el plan completo.</i></h2></div><div className="stay-actions"><p>Recibe recomendaciones según tu hospedaje, tus gustos y el tiempo que tienes.</p><button className="outline-button" onClick={() => setShowProviderModal(true)}>Personalizar mi visita <ArrowRight size={16} /></button></div></section>
           </>
         )}
       </main>

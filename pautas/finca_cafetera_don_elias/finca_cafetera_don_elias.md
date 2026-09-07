@@ -9,15 +9,26 @@
 - Nombre comercial: Finca Cafetera Don Elías
 - Categoría principal: experiencia cafetera / finca / turismo rural
 - Tipo de oferta: recorrido cafetero, finca y experiencia local
+- Enfoque: turismo rural y educación cafetera en la zona de Salento
 
-## Descripción preliminar
-La Finca Cafetera Don Elías es una propuesta de turismo rural y experiencia cafetera en la región de Salento, orientada a visitantes interesados en conocer el proceso y la tradición cafetera de la zona.
+## Modelo de servicio directo
+- Canal principal: contacto directo para reserva o visita guiada
+- Comisión por venta de la plataforma: 0%
+- Rol de Salento a la Mano: visibilidad y conexión del visitante con la experiencia local
+- Cobertura: Salento cabecera y alrededores cercanos
+- Modalidad: tour de finca / experiencia cafetera / visita guiada
+- Pago: directo con la finca según disponibilidad
 
-## Servicios esperados
-- Tour de café
-- Experiencia en finca cafetera
-- Ambiente rural
-- Posible visita guiada y explicación del proceso del café
+## Catálogo de servicios y productos
+### Experiencias principales
+- Tour de café: duración por confirmar, precio por confirmar
+- Visita a la finca y proceso productivo: precio por confirmar
+- Experiencia turística en entorno rural: servicio por confirmar
+
+### Servicios complementarios
+- Explicación del proceso del café
+- Acompañamiento o guía local
+- Visita para grupos o familias
 
 ## Contacto y datos faltantes
 Se requieren confirmar:
@@ -42,5 +53,5 @@ La ficha se considerará lista cuando tenga:
 - ubicación verificable
 - descripción del recorrido
 - contacto real
-- holgura de horario y tarifa
+- horario y tarifa
 - fotos reales

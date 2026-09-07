@@ -9,15 +9,26 @@
 - Nombre comercial: Moto Aventura 110
 - Categoría principal: experiencia / aventura / servicio turístico
 - Tipo de oferta: recorridos, aventura y movilidad turística específica
+- Enfoque: exploración local y recorridos con opción de movimiento dinámico
 
-## Descripción preliminar
-Moto Aventura 110 ofrece una propuesta de aventura y recorrido turístico para visitantes que desean explorar la zona con una experiencia más dinámica y cercana a la naturaleza.
+## Modelo de servicio directo
+- Canal principal: WhatsApp o contacto directo para reservar la experiencia
+- Comisión por venta de la plataforma: 0%
+- Rol de Salento a la Mano: visibilidad y punto de contacto directo con el operador
+- Cobertura: Salento cabecera y alrededores cercanos
+- Modalidad: rutas o recorridos personalizados por servicio
+- Pago: directo con la operación según confirmación y disponibilidad
 
-## Servicios esperados
-- Rutas o recorridos en moto
-- Aventura local
-- Exploración del paisaje cercano
-- Posible servicio para turistas
+## Catálogo de servicios y productos
+### Experiencias principales
+- Ruta o recorrido en moto: duración por confirmar, precio por confirmar
+- Aventura local o recorrido turístico: servicio principal
+- Experiencia de exploración con enfoque de paisaje cercano: precio por confirmar
+
+### Servicios complementarios
+- Acompañamiento o guía local
+- Recomendaciones de seguridad y ruta
+- Atención para grupos o visitantes por confirmar
 
 ## Contacto y datos faltantes
 Se requieren confirmar:

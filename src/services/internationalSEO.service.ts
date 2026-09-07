@@ -46,7 +46,7 @@ const EUROPEAN_MARKETS: InternationalMarket[] = [
 }))
 
 class InternationalSEOService {
-  private domain: string = 'https://salentoalamano.com'
+  private domain: string = 'https://mapa-digital-salento.vercel.app'
   private brandName: string = 'Salento a la Mano'
 
   /**
@@ -420,10 +420,9 @@ Allow: /
 
 # Sitemaps para todos los motores internacionales
 Sitemap: ${this.domain}/sitemap.xml
-Sitemap: ${this.domain}/salentoalamano-defensive-sitemap.xml
 
 # Host para Yandex
-Host: salentoalamano.com
+Host: mapa-digital-salento.vercel.app
 `
   }
 

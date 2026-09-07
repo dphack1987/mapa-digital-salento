@@ -1,5 +1,5 @@
 // Modal de Verificación de Google Search Console
-// Muestra métodos de verificación para salentoalamano.com
+// Muestra métodos de verificación para mapa-digital-salento.vercel.app
 
 import { useState } from 'react'
 import { 
@@ -31,7 +31,7 @@ const GoogleVerificationModal: React.FC<GoogleVerificationModalProps> = ({ isOpe
 
   const verificationMethods = googleVerificationService.generateAllVerificationMethods()
   const currentMethod = verificationMethods[activeMethod]
-  const domain = 'https://salentoalamano.com'
+  const domain = 'https://mapa-digital-salento.vercel.app'
   const brandName = 'Salento a la Mano'
 
   const handleCopyCode = () => {

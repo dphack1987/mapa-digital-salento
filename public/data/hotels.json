@@ -1,41 +1,42 @@
 {
   "hotels": [
     {
-      "id": "hotel-camino-nacional",
-      "name": "Hotel Camino Nacional",
-      "address": "Por confirmar",
-      "phone": "+57 311 3903550",
-      "isPartner": true
+      "id": "hotel_1",
+      "name": "Boki Mall - Hotel El Mirador de Boquía",
+      "address": "Vereda Boquía, vía principal a Salento, Quindío",
+      "phone": "+57 310 5692491",
+      "isPartner": true,
+      "placeId": 13,
+      "url": "/paginas-pautantes/boki-mall-hotel-el-mirador-de-boquia/"
     },
     {
-      "id": "hotel-la-floresta-salento",
+      "id": "hotel_2",
+      "name": "Hotel Camino Nacional Salento",
+      "address": "Por confirmar",
+      "phone": "+57 311 3903550",
+      "isPartner": true,
+      "placeId": 5,
+      "url": "/paginas-pautantes/hotel-camino-nacional-salento/"
+    },
+    {
+      "id": "hotel_3",
+      "name": "Finca Hotel El Ocaso",
+      "address": "Vía rural, Salento",
+      "phone": "",
+      "isPartner": true,
+      "placeId": 9,
+      "url": "/paginas-pautantes/finca-hotel-el-ocaso/"
+    },
+    {
+      "id": "hotel_4",
       "name": "Hotel La Floresta Salento",
       "address": "A 400 metros de la plaza principal, Salento, Quindío",
       "phone": "+57 312 8681808",
-      "isPartner": true
-    },
-    {
-      "id": "hotel-kawa-mountain-retreat",
-      "name": "Hotel Kawa Mountain Retreat",
-      "address": "Por confirmar",
-      "phone": "+57 300 0000000",
-      "isPartner": true
-    },
-    {
-      "id": "villas-del-cocora",
-      "name": "Villas del Cocora",
-      "address": "Por confirmar",
-      "phone": "+57 300 0000000",
-      "isPartner": true
-    },
-    {
-      "id": "otro-hospedaje",
-      "name": "Otro hospedaje",
-      "address": "Especificar en indicaciones",
-      "phone": "",
-      "isPartner": false
+      "isPartner": true,
+      "placeId": 16,
+      "url": "/paginas-pautantes/hotel-la-floresta-salento/"
     }
   ],
-  "lastUpdated": "2026-08-28T11:25:00.000Z",
-  "version": "1.0.0"
+  "lastUpdated": "2026-09-03T00:12:18.140Z",
+  "version": "1.2.0-verified-only"
 }

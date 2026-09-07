@@ -49,10 +49,10 @@ interface SEOAlert {
 
 interface SEOReport {
   period: string
-  overallScore: number
+  overallScore: number | null
   keywords: KeywordData[]
   contentPerformance: ContentPerformance[]
-  backlinkMetrics: BacklinkMetrics
+  backlinkMetrics: BacklinkMetrics | null
   alerts: SEOAlert[]
   recommendations: string[]
   generatedAt: Date
@@ -68,7 +68,6 @@ class SEOMonitoringService {
 
   initialize() {
     if (this.initialized) return
-    this.generateSampleData()
     this.initialized = true
   }
 
@@ -322,27 +321,36 @@ class SEOMonitoringService {
     })
   }
 
-  calculateOverallScore(): number {
+  calculateOverallScore(): number | null {
+    if (this.keywords.size === 0 && this.serpHistory.length === 0 && !this.backlinkMetrics) {
+      return null
+    }
     let score = 0
     let factors = 0
 
     // Puntuación de keywords (posición promedio)
-    const avgPosition = Array.from(this.keywords.values())
-      .reduce((sum, kw) => sum + kw.position, 0) / this.keywords.size
-    score += Math.max(0, 100 - (avgPosition - 1) * 10)
-    factors++
+    if (this.keywords.size > 0) {
+      const avgPosition = Array.from(this.keywords.values())
+        .reduce((sum, kw) => sum + kw.position, 0) / this.keywords.size
+      score += Math.max(0, 100 - (avgPosition - 1) * 10)
+      factors++
+    }
 
     // Tendencia de keywords
-    const trendingUp = this.getKeywordsByTrend('up').length
-    const trendingDown = this.getKeywordsByTrend('down').length
-    const trendScore = (trendingUp - trendingDown) / this.keywords.size * 100
-    score += Math.max(0, trendScore)
-    factors++
+    if (this.keywords.size > 0) {
+      const trendingUp = this.getKeywordsByTrend('up').length
+      const trendingDown = this.getKeywordsByTrend('down').length
+      const trendScore = (trendingUp - trendingDown) / this.keywords.size * 100
+      score += Math.max(0, trendScore)
+      factors++
+    }
 
     // Performance de contenido
-    const avgCTR = this.serpHistory.reduce((sum, tracking) => sum + tracking.ctr, 0) / this.serpHistory.length
-    score += avgCTR * 100
-    factors++
+    if (this.serpHistory.length > 0) {
+      const avgCTR = this.serpHistory.reduce((sum, tracking) => sum + tracking.ctr, 0) / this.serpHistory.length
+      score += avgCTR * 100
+      factors++
+    }
 
     // Backlinks
     if (this.backlinkMetrics) {
@@ -356,7 +364,7 @@ class SEOMonitoringService {
     score -= criticalAlerts * 15
     factors++
 
-    return Math.max(0, Math.min(100, score / factors))
+    return factors > 0 ? Math.max(0, Math.min(100, score / factors)) : null
   }
 
   generateWeeklyReport(): SEOReport {
@@ -366,13 +374,16 @@ class SEOMonitoringService {
     const alerts = this.getActiveAlerts()
 
     const recommendations = this.generateRecommendations()
+    if (keywords.length === 0 && contentPerformance.length === 0 && !backlinkMetrics) {
+      recommendations.unshift('No hay datos SEO reales conectados. Importa Search Console, Analytics o una fuente autorizada antes de interpretar posiciones.')
+    }
 
     return {
       period: 'Última semana',
       overallScore: this.calculateOverallScore(),
       keywords,
       contentPerformance,
-      backlinkMetrics: backlinkMetrics!,
+      backlinkMetrics,
       alerts,
       recommendations,
       generatedAt: new Date()
@@ -421,7 +432,7 @@ class SEOMonitoringService {
     return recommendations
   }
 
-  trackKeywordPosition(keyword: string, newPosition: number): void {
+  trackKeywordPosition(keyword: string, newPosition: number, evidence?: Pick<SERPTracking, 'organicClicks' | 'impressions' | 'ctr' | 'competitors'>): void {
     const existingKeyword = this.keywords.get(keyword)
     if (existingKeyword) {
       const oldPosition = existingKeyword.position
@@ -445,16 +456,14 @@ class SEOMonitoringService {
         })
       }
 
-      // Agregar al historial
-      this.serpHistory.push({
-        keyword,
-        date: new Date(),
-        position: newPosition,
-        organicClicks: Math.floor(Math.random() * 500) + 100,
-        impressions: Math.floor(Math.random() * 2000) + 500,
-        ctr: Math.random() * 0.3 + 0.05,
-        competitors: ['competitor1.com', 'competitor2.com']
-      })
+      if (evidence) {
+        this.serpHistory.push({
+          keyword,
+          date: new Date(),
+          position: newPosition,
+          ...evidence
+        })
+      }
     }
   }
 

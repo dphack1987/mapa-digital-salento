@@ -1,6 +1,19 @@
 .locale-tools { display: flex; align-items: center; gap: 4px; }.locale-button, .locale-tools select { height: 36px; border: 1px solid var(--line); background: transparent; color: var(--ink); font: 10px 'DM Mono'; }.locale-button { width: 38px; }.locale-tools select { width: 59px; padding: 0 4px; }
 .currency-hint { display: block; color: var(--coral); font: 9px 'DM Mono'; margin-top: 11px; }
 .directory-intro { display: flex; align-items: center; justify-content: space-between; padding: 13px 0 14px; color: var(--ink); }.directory-intro span { display: flex; align-items: center; gap: 7px; font: 11px 'DM Mono'; text-transform: uppercase; }.directory-intro span svg { color: var(--coral); }.directory-intro small { color: #899084; font-size: 10px; }
+.direct-orders-banner { max-width: 1184px; margin: 34px auto 44px; padding: 28px; display: grid; grid-template-columns: 1.15fr .85fr; gap: 34px; align-items: center; background: var(--ink); color: #fff; box-shadow: 0 14px 30px rgba(39,54,43,.12); }
+.direct-orders-copy h2 { max-width: 620px; margin: 7px 0 12px; color: #fff; font: 500 clamp(28px, 4vw, 48px)/.98 Fraunces; }
+.direct-orders-copy > p:last-of-type { max-width: 620px; margin: 0; color: #c5d0c6; font-size: 14px; line-height: 1.6; }
+.direct-orders-copy .eyebrow { color: var(--yellow); }
+.direct-orders-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+.direct-orders-actions .dark-button, .direct-orders-actions .outline-button { display: inline-flex; align-items: center; gap: 7px; }
+.direct-orders-actions .dark-button { background: var(--coral); border-color: var(--coral); color: #fff; }
+.direct-orders-actions .outline-button { border-color: rgba(255,255,255,.6); color: #fff; background: transparent; }
+.direct-orders-points { display: grid; gap: 9px; }
+.direct-orders-points > div { display: grid; grid-template-columns: 34px 1fr; column-gap: 10px; align-items: center; padding: 12px; border: 1px solid rgba(255,255,255,.2); }
+.direct-orders-icon { grid-row: span 2; display: grid; place-items: center; width: 32px; height: 32px; color: var(--ink); background: var(--yellow); }
+.direct-orders-points strong { font: 600 17px Fraunces; }
+.direct-orders-points small { color: #c5d0c6; font-size: 11px; }
 .contact-actions { display: flex; gap: 8px; padding-top: 10px; }.contact-btn { width: 40px; height: 38px; display: grid; place-items: center; border: 2px solid var(--ink); background: #fff; border-radius: 4px; color: var(--ink); text-decoration: none; transition: all 0.2s; }.contact-btn:hover { color: #fff; transform: translateY(-2px); }.contact-btn.whatsapp { color: #168a48; border-color: #168a48; }.contact-btn.whatsapp:hover { background: #25d366; border-color: #25d366; }.contact-btn.phone { color: var(--coral); border-color: var(--coral); }.contact-btn.phone:hover { background: var(--coral); border-color: var(--coral); }.contact-btn.email { color: var(--green); border-color: var(--green); }.contact-btn.email:hover { background: var(--green); border-color: var(--green); }
 .place-photo { position: absolute; inset: 0; z-index: 0; width: 100%; height: 100%; object-fit: cover; filter: saturate(.82) contrast(.95); }.place-image:has(.place-photo):after { content: ''; position: absolute; inset: 0; z-index: 1; background: linear-gradient(180deg, rgba(39,54,43,.12), rgba(39,54,43,.38)); }.place-image:has(.place-photo) .image-pattern { z-index: 2; opacity: .12; }.place-image:has(.place-photo) .place-badge, .place-image:has(.place-photo) .heart-button, .place-image:has(.place-photo) .place-icon { z-index: 3; }.detail-button { display: flex; align-items: center; justify-content: space-between; gap: 8px; width: 100%; min-height: 42px; margin-top: 14px; padding: 0 14px; border: 1px solid var(--coral); background: var(--coral); color: #fff; font-size: 12px; font-weight: 700; text-align: left; transition: background .2s, transform .2s; }.detail-button:hover { background: var(--ink); border-color: var(--ink); transform: translateY(-2px); }
 .salento-photo-strip { max-width: 1184px; margin: 0 auto 88px; padding: 0 28px; display: grid; grid-template-columns: .7fr 1.3fr; gap: 42px; align-items: end; }.photo-strip-intro { padding-bottom: 12px; }.photo-strip-intro h2 { font-size: 43px; line-height: .98; }.salento-photo-grid { display: grid; grid-template-columns: 1.35fr .8fr .8fr; grid-template-rows: 130px 130px; gap: 9px; transform: rotate(-1deg); }.salento-photo-grid img { width: 100%; height: 100%; object-fit: cover; filter: saturate(.85); transition: filter .25s, transform .25s; }.salento-photo-grid img:first-child { grid-row: span 2; }.salento-photo-grid img:nth-child(4) { grid-column: span 1; }.salento-photo-grid img:hover { filter: saturate(1.1); transform: translateY(-4px); }.salento-photo-grid img:last-child { grid-column: span 2; }
@@ -48,6 +61,8 @@
 }
 
 @media (max-width: 800px) {
+  .direct-orders-banner { grid-template-columns: 1fr; gap: 22px; margin: 26px 16px 36px; padding: 22px 18px; }
+  .direct-orders-copy h2 { font-size: 34px; }
   .image-inventory-grid { grid-template-columns: repeat(2, 1fr); }
 }
 

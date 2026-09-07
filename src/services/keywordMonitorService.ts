@@ -29,6 +29,7 @@ class KeywordMonitorService {
   }
   private monitoringActive = false
   private monitoringInterval: NodeJS.Timeout | null = null
+  private trendProvider: (() => Promise<any[]>) | null = null
 
   constructor() {
     this.initializeMonitoredKeywords()
@@ -88,11 +89,19 @@ class KeywordMonitorService {
     console.log('[KeywordMonitor] Keyword monitoring stopped')
   }
 
+  setTrendProvider(provider: (() => Promise<any[]>) | null): void {
+    this.trendProvider = provider
+  }
+
   private async checkKeywords(): Promise<void> {
     console.log('[KeywordMonitor] Checking keywords...')
     
-    // Simulación de monitoreo - en producción esto conectaría con APIs reales
-    const detectedTrends = await this.simulateSocialMonitoring()
+    if (!this.trendProvider) {
+      console.warn('[KeywordMonitor] No hay una fuente real de tendencias conectada')
+      return
+    }
+
+    const detectedTrends = await this.trendProvider()
     
     for (const trend of detectedTrends) {
       this.processDetectedTrend(trend)

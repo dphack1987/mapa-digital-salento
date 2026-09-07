@@ -4,7 +4,7 @@ import { fileURLToPath } from 'node:url'
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 const publicDir = path.join(root, 'public')
-const domain = 'https://salentoalamano.com'
+const domain = 'https://mapa-digital-salento.vercel.app'
 
 const locales = {
   es: {
@@ -103,10 +103,11 @@ for (const [locale, data] of Object.entries(locales)) {
   fs.mkdirSync(guideDir, { recursive: true })
   for (const guide of guides) {
     const guideTitle = locale === 'es' ? guide.esTitle : guide.enTitle
+    const guideSeoTitle = `${guideTitle} | ${locale.toUpperCase()}`
     const guideIntro = locale === 'es' ? guide.esIntro : guide.enIntro
     const sectionHtml = guide.sections.map(([heading, text]) => `<div class="section"><h2>${escapeHtml(heading)}</h2><p>${escapeHtml(text)}</p></div>`).join('')
     const guideContent = `<section class="hero"><span class="eyebrow">${locale === 'es' ? 'Guía local' : 'Local guide'}</span><h1>${escapeHtml(guideTitle)}</h1><p>${escapeHtml(guideIntro)}</p></section>${sectionHtml}<section class="section"><h2>${locale === 'es' ? 'Explora negocios locales' : 'Explore local businesses'}</h2><p>${locale === 'es' ? 'Consulta el directorio y contacta directamente a los establecimientos registrados.' : 'Browse the directory and contact registered businesses directly.'}</p><a class="btn primary" href="/categorias/index.html">${data.cta}</a></section>`
-    fs.writeFileSync(path.join(guideDir, `${guide.slug}.html`), shell(locale, `guias/${guide.slug}.html`, guideTitle, guideIntro, guideContent), 'utf8')
+    fs.writeFileSync(path.join(guideDir, `${guide.slug}.html`), shell(locale, `guias/${guide.slug}.html`, guideSeoTitle, guideIntro, guideContent), 'utf8')
   }
 }
 

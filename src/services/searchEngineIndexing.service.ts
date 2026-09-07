@@ -13,7 +13,7 @@ interface SearchEngine {
 }
 
 class SearchEngineIndexingService {
-  private readonly domain = 'https://salentoalamano.com'
+  private readonly domain = 'https://mapa-digital-salento.vercel.app'
   private readonly brandName = 'Salento a la Mano'
   private readonly sitemapUrl = this.domain + '/sitemap.xml'
 
@@ -250,8 +250,7 @@ class SearchEngineIndexingService {
       + 'Disallow: /*.json$\n'
       + 'Disallow: /*.xml$\n\n'
       + '# Sitemaps para todos los motores\n'
-      + 'Sitemap: ' + this.sitemapUrl + '\n'
-      + 'Sitemap: ' + this.domain + '/salentoalamano-defensive-sitemap.xml\n\n'
+      + 'Sitemap: ' + this.sitemapUrl + '\n\n'
       + '# Crawl-delay para sobrecarga\n'
       + 'Crawl-delay: 1\n\n'
       + '# Google-specific\n'
@@ -378,9 +377,9 @@ class SearchEngineIndexingService {
       totalEngines: engines.length,
       verifiedEngines: verifiedCount,
       indexingStatus: verifiedCount === 0 ? 'No verificado' : verifiedCount === engines.length ? 'Completamente indexado' : 'Parcialmente indexado',
-      sitemapStatus: 'Sitemap corregido para salentoalamano.com - pendiente de envío a Google',
+      sitemapStatus: 'Sitemap corregido para mapa-digital-salento.vercel.app - pendiente de envío a Google',
       verificationCodes: {
-        google: this.verificationCode,
+        google: this.verificationCodes.google,
         bing: null, // Pendiente de código específico
         baidu: null, // Pendiente de código específico
         yandex: null // Pendiente de código específico
@@ -423,9 +422,9 @@ class SearchEngineIndexingService {
       + '- Nota: Estratégico para turismo de lujo ruso\n\n'
       + '### 🌍 AMÉRICA LATINA (Colombia - Mercado base)\n'
       + '**Google Search Console** (PRIORIDAD ALTA)\n'
-      + '- Código: ' + this.verificationCode + '\n'
+      + '- Código: ' + this.verificationCodes.google + '\n'
       + '- Meta tag: Ya implementado en index.html\n'
-      + '- Archivo HTML: public/google' + this.verificationCode + '.html\n'
+      + '- Archivo HTML: public/google' + this.verificationCodes.google + '.html\n'
       + '- Sitemap: ' + this.sitemapUrl + '\n'
       + '- Estado: ✅ Verificado con tu código específico\n\n'
       + '**Bing Webmaster Tools** (PRIORIDAD MEDIA)\n'
@@ -457,9 +456,9 @@ class SearchEngineIndexingService {
       + '- Modal: Implementado en el sistema\n'
       + '- Mercado: Rusia y países de habla rusa\n\n'
       + '### Google (✅ COMPLETADO)\n'
-      + '- Código: ' + this.verificationCode + '\n'
+      + '- Código: ' + this.verificationCodes.google + '\n'
       + '- Meta tag: index.html línea 17\n'
-      + '- Archivo HTML: public/google' + this.verificationCode + '.html\n'
+      + '- Archivo HTML: public/google' + this.verificationCodes.google + '.html\n'
       + '- Estado: Listo para verificación en Google Search Console\n\n'
       + '### Bing (⏳ PRIORIDAD MEDIA)\n'
       + '- Meta tag: index.html línea 20 (comentado)\n'
@@ -474,7 +473,7 @@ class SearchEngineIndexingService {
       + '- Estado: ✅ Configurado\n\n'
       + '## Sitemap\n\n'
       + '- URL: ' + this.sitemapUrl + '\n'
-      + '- Estado: ✅ Corregido para salentoalamano.com\n'
+      + '- Estado: ✅ Corregido para mapa-digital-salento.vercel.app\n'
       + '- Páginas: 8 URLs principales\n'
       + '- Estado: ⏳ Pendiente de envío a Google Search Console\n\n'
       + '## Cronograma de Implementación Internacional\n\n'

@@ -1,0 +1,1531 @@
+{
+  "generated_at": "2026-09-04T17:11:29.790155+00:00",
+  "origin": "https://mapa-digital-salento.vercel.app",
+  "read_only": true,
+  "pages_scanned": 71,
+  "summary": {
+    "error": 55,
+    "warning": 65,
+    "info": 1
+  },
+  "pages": [
+    {
+      "url": "https://mapa-digital-salento.vercel.app/",
+      "title": "Salento a la Mano | Mapa turístico de Salento, Quindío",
+      "description_length": 255,
+      "canonical": "https://mapa-digital-salento.vercel.app/",
+      "language": "es",
+      "h1_count": 0,
+      "json_ld_blocks": 2,
+      "valid_json_ld_blocks": 2,
+      "indexable": true
+    },
+    {
+      "url": "https://mapa-digital-salento.vercel.app/categorias/alojamientos",
+      "title": "Alojamientos | Salento a la Mano",
+      "description_length": 54,
+      "canonical": "",
+      "language": "es",
+      "h1_count": 1,
+      "json_ld_blocks": 2,
+      "valid_json_ld_blocks": 2,
+      "indexable": true
+    },
+    {
+      "url": "https://mapa-digital-salento.vercel.app/categorias/artesanias",
+      "title": "Artesanías | Salento a la Mano",
+      "description_length": 49,
+      "canonical": "",
+      "language": "es",
+      "h1_count": 1,
+      "json_ld_blocks": 2,
+      "valid_json_ld_blocks": 2,
+      "indexable": true
+    },
+    {
+      "url": "https://mapa-digital-salento.vercel.app/categorias/cafes",
+      "title": "Cafés | Salento a la Mano",
+      "description_length": 54,
+      "canonical": "",
+      "language": "es",
+      "h1_count": 1,
+      "json_ld_blocks": 2,
+      "valid_json_ld_blocks": 2,
+      "indexable": true
+    },
+    {
+      "url": "https://mapa-digital-salento.vercel.app/categorias/experiencias",
+      "title": "Experiencias | Salento a la Mano",
+      "description_length": 60,
+      "canonical": "",
+      "language": "es",
+      "h1_count": 1,
+      "json_ld_blocks": 2,
+      "valid_json_ld_blocks": 2,
+      "indexable": true
+    },
+    {
+      "url": "https://mapa-digital-salento.vercel.app/categorias/",
+      "title": "Categorías | Salento a la Mano",
+      "description_length": 0,
+      "canonical": "",
+      "language": "es",
+      "h1_count": 1,
+      "json_ld_blocks": 0,
+      "valid_json_ld_blocks": 0,
+      "indexable": true
+    },
+    {
+      "url": "https://mapa-digital-salento.vercel.app/categorias/restaurantes",
+      "title": "Restaurantes | Salento a la Mano",
+      "description_length": 56,
+      "canonical": "",
+      "language": "es",
+      "h1_count": 1,
+      "json_ld_blocks": 2,
+      "valid_json_ld_blocks": 2,
+      "indexable": true
+    },
+    {
+      "url": "https://mapa-digital-salento.vercel.app/categorias/servicios",
+      "title": "Servicios | Salento a la Mano",
+      "description_length": 51,
+      "canonical": "",
+      "language": "es",
+      "h1_count": 1,
+      "json_ld_blocks": 2,
+      "valid_json_ld_blocks": 2,
+      "indexable": true
+    },
+    {
+      "url": "https://mapa-digital-salento.vercel.app/categorias/tiendas",
+      "title": "Tiendas | Salento a la Mano",
+      "description_length": 47,
+      "canonical": "",
+      "language": "es",
+      "h1_count": 1,
+      "json_ld_blocks": 2,
+      "valid_json_ld_blocks": 2,
+      "indexable": true
+    },
+    {
+      "url": "https://mapa-digital-salento.vercel.app/de/guias/10-tours-cafe-salento",
+      "title": "Coffee Tours in Salento: How to Choose",
+      "description_length": 95,
+      "canonical": "https://mapa-digital-salento.vercel.app/de/guias/10-tours-cafe-salento.html",
+      "language": "de",
+      "h1_count": 1,
+      "json_ld_blocks": 0,
+      "valid_json_ld_blocks": 0,
+      "indexable": true
+    },
+    {
+      "url": "https://mapa-digital-salento.vercel.app/de/guias/guia-valle-del-cocora",
+      "title": "A Practical Guide to Visiting Cocora Valley",
+      "description_length": 124,
+      "canonical": "https://mapa-digital-salento.vercel.app/de/guias/guia-valle-del-cocora.html",
+      "language": "de",
+      "h1_count": 1,
+      "json_ld_blocks": 0,
+      "valid_json_ld_blocks": 0,
+      "indexable": true
+    },
+    {
+      "url": "https://mapa-digital-salento.vercel.app/de/guias/que-hacer-en-salento-3-dias",
+      "title": "What to Do in Salento: A 3-Day Itinerary",
+      "description_length": 76,
+      "canonical": "https://mapa-digital-salento.vercel.app/de/guias/que-hacer-en-salento-3-dias.html",
+      "language": "de",
+      "h1_count": 1,
+      "json_ld_blocks": 0,
+      "valid_json_ld_blocks": 0,
+      "indexable": true
+    },
+    {
+      "url": "https://mapa-digital-salento.vercel.app/de/",
+      "title": "Salento Kolumbien Reiseführer | Salento a la Mano",
+      "description_length": 110,
+      "canonical": "https://mapa-digital-salento.vercel.app/de/",
+      "language": "de",
+      "h1_count": 1,
+      "json_ld_blocks": 0,
+      "valid_json_ld_blocks": 0,
+      "indexable": true
+    },
+    {
+      "url": "https://mapa-digital-salento.vercel.app/en/guias/10-tours-cafe-salento",
+      "title": "Coffee Tours in Salento: How to Choose",
+      "description_length": 95,
+      "canonical": "https://mapa-digital-salento.vercel.app/en/guias/10-tours-cafe-salento.html",
+      "language": "en",
+      "h1_count": 1,
+      "json_ld_blocks": 0,
+      "valid_json_ld_blocks": 0,
+      "indexable": true
+    },
+    {
+      "url": "https://mapa-digital-salento.vercel.app/en/guias/guia-valle-del-cocora",
+      "title": "A Practical Guide to Visiting Cocora Valley",
+      "description_length": 124,
+      "canonical": "https://mapa-digital-salento.vercel.app/en/guias/guia-valle-del-cocora.html",
+      "language": "en",
+      "h1_count": 1,
+      "json_ld_blocks": 0,
+      "valid_json_ld_blocks": 0,
+      "indexable": true
+    },
+    {
+      "url": "https://mapa-digital-salento.vercel.app/en/guias/que-hacer-en-salento-3-dias",
+      "title": "What to Do in Salento: A 3-Day Itinerary",
+      "description_length": 76,
+      "canonical": "https://mapa-digital-salento.vercel.app/en/guias/que-hacer-en-salento-3-dias.html",
+      "language": "en",
+      "h1_count": 1,
+      "json_ld_blocks": 0,
+      "valid_json_ld_blocks": 0,
+      "indexable": true
+    },
+    {
+      "url": "https://mapa-digital-salento.vercel.app/en/",
+      "title": "Salento, Colombia Travel Guide | Salento a la Mano",
+      "description_length": 125,
+      "canonical": "https://mapa-digital-salento.vercel.app/en/",
+      "language": "en",
+      "h1_count": 1,
+      "json_ld_blocks": 0,
+      "valid_json_ld_blocks": 0,
+      "indexable": true
+    },
+    {
+      "url": "https://mapa-digital-salento.vercel.app/es/guias/10-tours-cafe-salento",
+      "title": "Tours de café en Salento: cómo elegir",
+      "description_length": 106,
+      "canonical": "https://mapa-digital-salento.vercel.app/es/guias/10-tours-cafe-salento.html",
+      "language": "es",
+      "h1_count": 1,
+      "json_ld_blocks": 0,
+      "valid_json_ld_blocks": 0,
+      "indexable": true
+    },
+    {
+      "url": "https://mapa-digital-salento.vercel.app/es/guias/guia-valle-del-cocora",
+      "title": "Guía para visitar el Valle del Cocora",
+      "description_length": 121,
+      "canonical": "https://mapa-digital-salento.vercel.app/es/guias/guia-valle-del-cocora.html",
+      "language": "es",
+      "h1_count": 1,
+      "json_ld_blocks": 0,
+      "valid_json_ld_blocks": 0,
+      "indexable": true
+    },
+    {
+      "url": "https://mapa-digital-salento.vercel.app/es/guias/que-hacer-en-salento-3-dias",
+      "title": "Qué hacer en Salento: itinerario de 3 días",
+      "description_length": 88,
+      "canonical": "https://mapa-digital-salento.vercel.app/es/guias/que-hacer-en-salento-3-dias.html",
+      "language": "es",
+      "h1_count": 1,
+      "json_ld_blocks": 0,
+      "valid_json_ld_blocks": 0,
+      "indexable": true
+    },
+    {
+      "url": "https://mapa-digital-salento.vercel.app/es/",
+      "title": "Salento a la Mano | Guía turística de Salento, Quindío",
+      "description_length": 113,
+      "canonical": "https://mapa-digital-salento.vercel.app/es/",
+      "language": "es",
+      "h1_count": 1,
+      "json_ld_blocks": 0,
+      "valid_json_ld_blocks": 0,
+      "indexable": true
+    },
+    {
+      "url": "https://mapa-digital-salento.vercel.app/fr/guias/10-tours-cafe-salento",
+      "title": "Coffee Tours in Salento: How to Choose",
+      "description_length": 95,
+      "canonical": "https://mapa-digital-salento.vercel.app/fr/guias/10-tours-cafe-salento.html",
+      "language": "fr",
+      "h1_count": 1,
+      "json_ld_blocks": 0,
+      "valid_json_ld_blocks": 0,
+      "indexable": true
+    },
+    {
+      "url": "https://mapa-digital-salento.vercel.app/fr/guias/guia-valle-del-cocora",
+      "title": "A Practical Guide to Visiting Cocora Valley",
+      "description_length": 124,
+      "canonical": "https://mapa-digital-salento.vercel.app/fr/guias/guia-valle-del-cocora.html",
+      "language": "fr",
+      "h1_count": 1,
+      "json_ld_blocks": 0,
+      "valid_json_ld_blocks": 0,
+      "indexable": true
+    },
+    {
+      "url": "https://mapa-digital-salento.vercel.app/fr/guias/que-hacer-en-salento-3-dias",
+      "title": "What to Do in Salento: A 3-Day Itinerary",
+      "description_length": 76,
+      "canonical": "https://mapa-digital-salento.vercel.app/fr/guias/que-hacer-en-salento-3-dias.html",
+      "language": "fr",
+      "h1_count": 1,
+      "json_ld_blocks": 0,
+      "valid_json_ld_blocks": 0,
+      "indexable": true
+    },
+    {
+      "url": "https://mapa-digital-salento.vercel.app/fr/",
+      "title": "Guide de voyage Salento Colombie | Salento a la Mano",
+      "description_length": 100,
+      "canonical": "https://mapa-digital-salento.vercel.app/fr/",
+      "language": "fr",
+      "h1_count": 1,
+      "json_ld_blocks": 0,
+      "valid_json_ld_blocks": 0,
+      "indexable": true
+    },
+    {
+      "url": "https://mapa-digital-salento.vercel.app/googleac76b27847921d06",
+      "title": "",
+      "description_length": 0,
+      "canonical": "",
+      "language": "",
+      "h1_count": 0,
+      "json_ld_blocks": 0,
+      "valid_json_ld_blocks": 0,
+      "indexable": true
+    },
+    {
+      "url": "https://mapa-digital-salento.vercel.app/paginas-pautantes/boki-mall-hotel-el-mirador-de-boquia/",
+      "title": "Boki Mall - Hotel El Mirador de Boquía | Vive Salento directamente",
+      "description_length": 241,
+      "canonical": "",
+      "language": "es",
+      "h1_count": 1,
+      "json_ld_blocks": 2,
+      "valid_json_ld_blocks": 2,
+      "indexable": true
+    },
+    {
+      "url": "https://mapa-digital-salento.vercel.app/paginas-pautantes/brunch-de-la-plaza/",
+      "title": "Brunch de la Plaza | Vive Salento directamente",
+      "description_length": 55,
+      "canonical": "",
+      "language": "es",
+      "h1_count": 1,
+      "json_ld_blocks": 2,
+      "valid_json_ld_blocks": 2,
+      "indexable": true
+    },
+    {
+      "url": "https://mapa-digital-salento.vercel.app/paginas-pautantes/cabalgatas-cocora-magica/",
+      "title": "Cabalgatas Cocora Mágica | Vive Salento directamente",
+      "description_length": 177,
+      "canonical": "",
+      "language": "es",
+      "h1_count": 1,
+      "json_ld_blocks": 2,
+      "valid_json_ld_blocks": 2,
+      "indexable": true
+    },
+    {
+      "url": "https://mapa-digital-salento.vercel.app/paginas-pautantes/cabalgatas-valle-de-cocora/",
+      "title": "Cabalgatas Valle de Cocora | Vive Salento directamente",
+      "description_length": 92,
+      "canonical": "",
+      "language": "es",
+      "h1_count": 1,
+      "json_ld_blocks": 2,
+      "valid_json_ld_blocks": 2,
+      "indexable": true
+    },
+    {
+      "url": "https://mapa-digital-salento.vercel.app/paginas-pautantes/cafe-de-altura/",
+      "title": "Café de Altura | Vive Salento directamente",
+      "description_length": 58,
+      "canonical": "",
+      "language": "es",
+      "h1_count": 1,
+      "json_ld_blocks": 2,
+      "valid_json_ld_blocks": 2,
+      "indexable": true
+    },
+    {
+      "url": "https://mapa-digital-salento.vercel.app/paginas-pautantes/canasto-quindiano/",
+      "title": "Canasto Quindiano | Vive Salento directamente",
+      "description_length": 53,
+      "canonical": "",
+      "language": "es",
+      "h1_count": 1,
+      "json_ld_blocks": 2,
+      "valid_json_ld_blocks": 2,
+      "indexable": true
+    },
+    {
+      "url": "https://mapa-digital-salento.vercel.app/paginas-pautantes/coffee-farm-el-recuerdo/",
+      "title": "Coffee Farm El Recuerdo | Vive Salento directamente",
+      "description_length": 142,
+      "canonical": "",
+      "language": "es",
+      "h1_count": 1,
+      "json_ld_blocks": 2,
+      "valid_json_ld_blocks": 2,
+      "indexable": true
+    },
+    {
+      "url": "https://mapa-digital-salento.vercel.app/paginas-pautantes/finca-cafetera-don-elias/",
+      "title": "Finca Cafetera Don Elías | Vive Salento directamente",
+      "description_length": 203,
+      "canonical": "",
+      "language": "es",
+      "h1_count": 1,
+      "json_ld_blocks": 2,
+      "valid_json_ld_blocks": 2,
+      "indexable": true
+    },
+    {
+      "url": "https://mapa-digital-salento.vercel.app/paginas-pautantes/finca-hotel-el-ocaso/",
+      "title": "Finca Hotel El Ocaso | Vive Salento directamente",
+      "description_length": 207,
+      "canonical": "",
+      "language": "es",
+      "h1_count": 1,
+      "json_ld_blocks": 2,
+      "valid_json_ld_blocks": 2,
+      "indexable": true
+    },
+    {
+      "url": "https://mapa-digital-salento.vercel.app/paginas-pautantes/fonda-boquia/",
+      "title": "Fonda Boquía | Vive Salento directamente",
+      "description_length": 158,
+      "canonical": "",
+      "language": "es",
+      "h1_count": 1,
+      "json_ld_blocks": 2,
+      "valid_json_ld_blocks": 2,
+      "indexable": true
+    },
+    {
+      "url": "https://mapa-digital-salento.vercel.app/paginas-pautantes/guias-del-cocora/",
+      "title": "Guías del Cocora | Vive Salento directamente",
+      "description_length": 57,
+      "canonical": "",
+      "language": "es",
+      "h1_count": 1,
+      "json_ld_blocks": 2,
+      "valid_json_ld_blocks": 2,
+      "indexable": true
+    },
+    {
+      "url": "https://mapa-digital-salento.vercel.app/paginas-pautantes/hotel-camino-nacional-salento/",
+      "title": "Hotel Camino Nacional Salento | Vive Salento directamente",
+      "description_length": 303,
+      "canonical": "",
+      "language": "es",
+      "h1_count": 1,
+      "json_ld_blocks": 2,
+      "valid_json_ld_blocks": 2,
+      "indexable": true
+    },
+    {
+      "url": "https://mapa-digital-salento.vercel.app/paginas-pautantes/hotel-la-floresta-salento/",
+      "title": "Hotel La Floresta Salento | Vive Salento directamente",
+      "description_length": 209,
+      "canonical": "",
+      "language": "es",
+      "h1_count": 1,
+      "json_ld_blocks": 2,
+      "valid_json_ld_blocks": 2,
+      "indexable": true
+    },
+    {
+      "url": "https://mapa-digital-salento.vercel.app/paginas-pautantes/jeeps-willys-salento/",
+      "title": "Jeeps Willys Salento | Vive Salento directamente",
+      "description_length": 100,
+      "canonical": "",
+      "language": "es",
+      "h1_count": 1,
+      "json_ld_blocks": 2,
+      "valid_json_ld_blocks": 2,
+      "indexable": true
+    },
+    {
+      "url": "https://mapa-digital-salento.vercel.app/paginas-pautantes/la-fogata-salentina/",
+      "title": "La Fogata Salentina | Vive Salento directamente",
+      "description_length": 52,
+      "canonical": "",
+      "language": "es",
+      "h1_count": 1,
+      "json_ld_blocks": 2,
+      "valid_json_ld_blocks": 2,
+      "indexable": true
+    },
+    {
+      "url": "https://mapa-digital-salento.vercel.app/paginas-pautantes/mirador-las-manos-de-dios/",
+      "title": "Mirador Las Manos de Dios | Vive Salento directamente",
+      "description_length": 234,
+      "canonical": "",
+      "language": "es",
+      "h1_count": 1,
+      "json_ld_blocks": 2,
+      "valid_json_ld_blocks": 2,
+      "indexable": true
+    },
+    {
+      "url": "https://mapa-digital-salento.vercel.app/paginas-pautantes/moto-aventura-110/",
+      "title": "Moto Aventura 110 | Vive Salento directamente",
+      "description_length": 199,
+      "canonical": "",
+      "language": "es",
+      "h1_count": 1,
+      "json_ld_blocks": 2,
+      "valid_json_ld_blocks": 2,
+      "indexable": true
+    },
+    {
+      "url": "https://mapa-digital-salento.vercel.app/paginas-pautantes/reserva-natural-cascadas-de-santa-rita/",
+      "title": "Reserva Natural Cascadas de Santa Rita | Vive Salento directamente",
+      "description_length": 216,
+      "canonical": "",
+      "language": "es",
+      "h1_count": 1,
+      "json_ld_blocks": 2,
+      "valid_json_ld_blocks": 2,
+      "indexable": true
+    },
+    {
+      "url": "https://mapa-digital-salento.vercel.app/paginas-pautantes/restaurante-don-elias/",
+      "title": "Restaurante Don Elías | Vive Salento directamente",
+      "description_length": 203,
+      "canonical": "",
+      "language": "es",
+      "h1_count": 1,
+      "json_ld_blocks": 2,
+      "valid_json_ld_blocks": 2,
+      "indexable": true
+    },
+    {
+      "url": "https://mapa-digital-salento.vercel.app/paginas-pautantes/salento-tour-operadora/",
+      "title": "Salento Tour Operadora | Vive Salento directamente",
+      "description_length": 83,
+      "canonical": "",
+      "language": "es",
+      "h1_count": 1,
+      "json_ld_blocks": 2,
+      "valid_json_ld_blocks": 2,
+      "indexable": true
+    },
+    {
+      "url": "https://mapa-digital-salento.vercel.app/paginas-pautantes/tienda-la-montana/",
+      "title": "Tienda La Montaña | Vive Salento directamente",
+      "description_length": 52,
+      "canonical": "",
+      "language": "es",
+      "h1_count": 1,
+      "json_ld_blocks": 2,
+      "valid_json_ld_blocks": 2,
+      "indexable": true
+    },
+    {
+      "url": "https://mapa-digital-salento.vercel.app/paginas-pautantes/valle-en-bicicleta/",
+      "title": "Valle en Bicicleta | Vive Salento directamente",
+      "description_length": 58,
+      "canonical": "",
+      "language": "es",
+      "h1_count": 1,
+      "json_ld_blocks": 2,
+      "valid_json_ld_blocks": 2,
+      "indexable": true
+    },
+    {
+      "url": "https://mapa-digital-salento.vercel.app/pautantes/boki-mall-hotel-el-mirador-de-boquia",
+      "title": "Boki Mall - Hotel El Mirador de Boquía | Salento a la Mano",
+      "description_length": 0,
+      "canonical": "",
+      "language": "es",
+      "h1_count": 1,
+      "json_ld_blocks": 0,
+      "valid_json_ld_blocks": 0,
+      "indexable": true
+    },
+    {
+      "url": "https://mapa-digital-salento.vercel.app/pautantes/brunch-de-la-plaza",
+      "title": "Brunch de la Plaza | Salento a la Mano",
+      "description_length": 0,
+      "canonical": "",
+      "language": "es",
+      "h1_count": 1,
+      "json_ld_blocks": 0,
+      "valid_json_ld_blocks": 0,
+      "indexable": true
+    },
+    {
+      "url": "https://mapa-digital-salento.vercel.app/pautantes/cabalgatas-cocora-magica",
+      "title": "Cabalgatas Cocora Mágica | Salento a la Mano",
+      "description_length": 0,
+      "canonical": "",
+      "language": "es",
+      "h1_count": 1,
+      "json_ld_blocks": 0,
+      "valid_json_ld_blocks": 0,
+      "indexable": true
+    },
+    {
+      "url": "https://mapa-digital-salento.vercel.app/pautantes/cabalgatas-valle-de-cocora",
+      "title": "Cabalgatas Valle de Cocora | Salento a la Mano",
+      "description_length": 0,
+      "canonical": "",
+      "language": "es",
+      "h1_count": 1,
+      "json_ld_blocks": 0,
+      "valid_json_ld_blocks": 0,
+      "indexable": true
+    },
+    {
+      "url": "https://mapa-digital-salento.vercel.app/pautantes/cafe-de-altura",
+      "title": "Café de Altura | Salento a la Mano",
+      "description_length": 0,
+      "canonical": "",
+      "language": "es",
+      "h1_count": 1,
+      "json_ld_blocks": 0,
+      "valid_json_ld_blocks": 0,
+      "indexable": true
+    },
+    {
+      "url": "https://mapa-digital-salento.vercel.app/pautantes/canasto-quindiano",
+      "title": "Canasto Quindiano | Salento a la Mano",
+      "description_length": 0,
+      "canonical": "",
+      "language": "es",
+      "h1_count": 1,
+      "json_ld_blocks": 0,
+      "valid_json_ld_blocks": 0,
+      "indexable": true
+    },
+    {
+      "url": "https://mapa-digital-salento.vercel.app/pautantes/coffee-farm-el-recuerdo",
+      "title": "Coffee Farm El Recuerdo | Salento a la Mano",
+      "description_length": 0,
+      "canonical": "",
+      "language": "es",
+      "h1_count": 1,
+      "json_ld_blocks": 0,
+      "valid_json_ld_blocks": 0,
+      "indexable": true
+    },
+    {
+      "url": "https://mapa-digital-salento.vercel.app/pautantes/finca-cafetera-don-elias",
+      "title": "Finca Cafetera Don Elías | Salento a la Mano",
+      "description_length": 0,
+      "canonical": "",
+      "language": "es",
+      "h1_count": 1,
+      "json_ld_blocks": 0,
+      "valid_json_ld_blocks": 0,
+      "indexable": true
+    },
+    {
+      "url": "https://mapa-digital-salento.vercel.app/pautantes/finca-hotel-el-ocaso",
+      "title": "Finca Hotel El Ocaso | Salento a la Mano",
+      "description_length": 0,
+      "canonical": "",
+      "language": "es",
+      "h1_count": 1,
+      "json_ld_blocks": 0,
+      "valid_json_ld_blocks": 0,
+      "indexable": true
+    },
+    {
+      "url": "https://mapa-digital-salento.vercel.app/pautantes/guias-del-cocora",
+      "title": "Guías del Cocora | Salento a la Mano",
+      "description_length": 0,
+      "canonical": "",
+      "language": "es",
+      "h1_count": 1,
+      "json_ld_blocks": 0,
+      "valid_json_ld_blocks": 0,
+      "indexable": true
+    },
+    {
+      "url": "https://mapa-digital-salento.vercel.app/pautantes/hotel-camino-nacional-salento",
+      "title": "Hotel Camino Nacional Salento | Salento a la Mano",
+      "description_length": 0,
+      "canonical": "",
+      "language": "es",
+      "h1_count": 1,
+      "json_ld_blocks": 0,
+      "valid_json_ld_blocks": 0,
+      "indexable": true
+    },
+    {
+      "url": "https://mapa-digital-salento.vercel.app/pautantes/hotel-la-floresta-salento",
+      "title": "Hotel La Floresta Salento | Salento a la Mano",
+      "description_length": 0,
+      "canonical": "",
+      "language": "es",
+      "h1_count": 1,
+      "json_ld_blocks": 0,
+      "valid_json_ld_blocks": 0,
+      "indexable": true
+    },
+    {
+      "url": "https://mapa-digital-salento.vercel.app/pautantes/jeeps-willys-salento",
+      "title": "Jeeps Willys Salento | Salento a la Mano",
+      "description_length": 0,
+      "canonical": "",
+      "language": "es",
+      "h1_count": 1,
+      "json_ld_blocks": 0,
+      "valid_json_ld_blocks": 0,
+      "indexable": true
+    },
+    {
+      "url": "https://mapa-digital-salento.vercel.app/pautantes/la-fogata-salentina",
+      "title": "La Fogata Salentina | Salento a la Mano",
+      "description_length": 0,
+      "canonical": "",
+      "language": "es",
+      "h1_count": 1,
+      "json_ld_blocks": 0,
+      "valid_json_ld_blocks": 0,
+      "indexable": true
+    },
+    {
+      "url": "https://mapa-digital-salento.vercel.app/pautantes/mirador-las-manos-de-dios",
+      "title": "Mirador Las Manos de Dios | Salento a la Mano",
+      "description_length": 0,
+      "canonical": "",
+      "language": "es",
+      "h1_count": 1,
+      "json_ld_blocks": 0,
+      "valid_json_ld_blocks": 0,
+      "indexable": true
+    },
+    {
+      "url": "https://mapa-digital-salento.vercel.app/pautantes/moto-aventura-110",
+      "title": "Moto Aventura 110 | Salento a la Mano",
+      "description_length": 0,
+      "canonical": "",
+      "language": "es",
+      "h1_count": 1,
+      "json_ld_blocks": 0,
+      "valid_json_ld_blocks": 0,
+      "indexable": true
+    },
+    {
+      "url": "https://mapa-digital-salento.vercel.app/pautantes/pautante",
+      "title": "Pautante | Salento a la Mano",
+      "description_length": 0,
+      "canonical": "",
+      "language": "es",
+      "h1_count": 1,
+      "json_ld_blocks": 0,
+      "valid_json_ld_blocks": 0,
+      "indexable": true
+    },
+    {
+      "url": "https://mapa-digital-salento.vercel.app/pautantes/reserva-natural-cascadas-de-santa-rita",
+      "title": "Reserva Natural Cascadas de Santa Rita | Salento a la Mano",
+      "description_length": 0,
+      "canonical": "",
+      "language": "es",
+      "h1_count": 1,
+      "json_ld_blocks": 0,
+      "valid_json_ld_blocks": 0,
+      "indexable": true
+    },
+    {
+      "url": "https://mapa-digital-salento.vercel.app/pautantes/restaurante-don-elias",
+      "title": "Restaurante Don Elías | Salento a la Mano",
+      "description_length": 0,
+      "canonical": "",
+      "language": "es",
+      "h1_count": 1,
+      "json_ld_blocks": 0,
+      "valid_json_ld_blocks": 0,
+      "indexable": true
+    },
+    {
+      "url": "https://mapa-digital-salento.vercel.app/pautantes/salento-tour-operadora",
+      "title": "Salento Tour Operadora | Salento a la Mano",
+      "description_length": 0,
+      "canonical": "",
+      "language": "es",
+      "h1_count": 1,
+      "json_ld_blocks": 0,
+      "valid_json_ld_blocks": 0,
+      "indexable": true
+    },
+    {
+      "url": "https://mapa-digital-salento.vercel.app/pautantes/tienda-la-montana",
+      "title": "Tienda La Montaña | Salento a la Mano",
+      "description_length": 0,
+      "canonical": "",
+      "language": "es",
+      "h1_count": 1,
+      "json_ld_blocks": 0,
+      "valid_json_ld_blocks": 0,
+      "indexable": true
+    },
+    {
+      "url": "https://mapa-digital-salento.vercel.app/pautantes/valle-en-bicicleta",
+      "title": "Valle en Bicicleta | Salento a la Mano",
+      "description_length": 0,
+      "canonical": "",
+      "language": "es",
+      "h1_count": 1,
+      "json_ld_blocks": 0,
+      "valid_json_ld_blocks": 0,
+      "indexable": true
+    }
+  ],
+  "sitemap": {
+    "url_count": 78,
+    "missing_local_pages": [
+      "https://mapa-digital-salento.vercel.app/de/guias/10-tours-cafe-salento.html",
+      "https://mapa-digital-salento.vercel.app/de/guias/guia-valle-del-cocora.html",
+      "https://mapa-digital-salento.vercel.app/de/guias/que-hacer-en-salento-3-dias.html",
+      "https://mapa-digital-salento.vercel.app/don-chucho-asistente",
+      "https://mapa-digital-salento.vercel.app/en/guias/10-tours-cafe-salento.html",
+      "https://mapa-digital-salento.vercel.app/en/guias/guia-valle-del-cocora.html",
+      "https://mapa-digital-salento.vercel.app/en/guias/que-hacer-en-salento-3-dias.html",
+      "https://mapa-digital-salento.vercel.app/es/guias/10-tours-cafe-salento.html",
+      "https://mapa-digital-salento.vercel.app/es/guias/guia-valle-del-cocora.html",
+      "https://mapa-digital-salento.vercel.app/es/guias/que-hacer-en-salento-3-dias.html",
+      "https://mapa-digital-salento.vercel.app/estado-actual-salento-hoteles-abiertos-vias-libres-valle-cocora-operando-100",
+      "https://mapa-digital-salento.vercel.app/fr/guias/10-tours-cafe-salento.html",
+      "https://mapa-digital-salento.vercel.app/fr/guias/guia-valle-del-cocora.html",
+      "https://mapa-digital-salento.vercel.app/fr/guias/que-hacer-en-salento-3-dias.html",
+      "https://mapa-digital-salento.vercel.app/hoteles-abiertos-salento",
+      "https://mapa-digital-salento.vercel.app/landing-estado-actual-salento-2026",
+      "https://mapa-digital-salento.vercel.app/mapa-interactivo-salento",
+      "https://mapa-digital-salento.vercel.app/registro-aliados",
+      "https://mapa-digital-salento.vercel.app/salento-seguro-turismo",
+      "https://mapa-digital-salento.vercel.app/valle-cocora-accesible-100",
+      "https://mapa-digital-salento.vercel.app/vias-salento-libres-acceso"
+    ]
+  },
+  "robots": {
+    "sitemaps": [
+      "https://mapa-digital-salento.vercel.app/sitemap.xml"
+    ],
+    "crawl_delay": true
+  },
+  "issues": [
+    {
+      "severity": "warning",
+      "code": "long-description",
+      "path": "index.html",
+      "message": "La descripción tiene 255 caracteres."
+    },
+    {
+      "severity": "warning",
+      "code": "h1-count",
+      "path": "index.html",
+      "message": "La página contiene 0 elementos H1; se espera uno."
+    },
+    {
+      "severity": "error",
+      "code": "missing-canonical",
+      "path": "public/categorias/alojamientos.html",
+      "message": "Falta canonical."
+    },
+    {
+      "severity": "error",
+      "code": "missing-canonical",
+      "path": "public/categorias/artesanias.html",
+      "message": "Falta canonical."
+    },
+    {
+      "severity": "error",
+      "code": "missing-canonical",
+      "path": "public/categorias/cafes.html",
+      "message": "Falta canonical."
+    },
+    {
+      "severity": "error",
+      "code": "missing-canonical",
+      "path": "public/categorias/experiencias.html",
+      "message": "Falta canonical."
+    },
+    {
+      "severity": "warning",
+      "code": "missing-description",
+      "path": "public/categorias/index.html",
+      "message": "Falta meta description."
+    },
+    {
+      "severity": "error",
+      "code": "missing-canonical",
+      "path": "public/categorias/index.html",
+      "message": "Falta canonical."
+    },
+    {
+      "severity": "error",
+      "code": "missing-canonical",
+      "path": "public/categorias/restaurantes.html",
+      "message": "Falta canonical."
+    },
+    {
+      "severity": "error",
+      "code": "missing-canonical",
+      "path": "public/categorias/servicios.html",
+      "message": "Falta canonical."
+    },
+    {
+      "severity": "error",
+      "code": "missing-canonical",
+      "path": "public/categorias/tiendas.html",
+      "message": "Falta canonical."
+    },
+    {
+      "severity": "error",
+      "code": "missing-title",
+      "path": "public/googleac76b27847921d06.html",
+      "message": "Falta <title>."
+    },
+    {
+      "severity": "warning",
+      "code": "missing-description",
+      "path": "public/googleac76b27847921d06.html",
+      "message": "Falta meta description."
+    },
+    {
+      "severity": "error",
+      "code": "missing-canonical",
+      "path": "public/googleac76b27847921d06.html",
+      "message": "Falta canonical."
+    },
+    {
+      "severity": "warning",
+      "code": "missing-language",
+      "path": "public/googleac76b27847921d06.html",
+      "message": "Falta lang en <html>."
+    },
+    {
+      "severity": "warning",
+      "code": "h1-count",
+      "path": "public/googleac76b27847921d06.html",
+      "message": "La página contiene 0 elementos H1; se espera uno."
+    },
+    {
+      "severity": "warning",
+      "code": "long-title",
+      "path": "public/paginas-pautantes/boki-mall-hotel-el-mirador-de-boquia/index.html",
+      "message": "El título tiene 66 caracteres."
+    },
+    {
+      "severity": "warning",
+      "code": "long-description",
+      "path": "public/paginas-pautantes/boki-mall-hotel-el-mirador-de-boquia/index.html",
+      "message": "La descripción tiene 241 caracteres."
+    },
+    {
+      "severity": "error",
+      "code": "missing-canonical",
+      "path": "public/paginas-pautantes/boki-mall-hotel-el-mirador-de-boquia/index.html",
+      "message": "Falta canonical."
+    },
+    {
+      "severity": "error",
+      "code": "missing-canonical",
+      "path": "public/paginas-pautantes/brunch-de-la-plaza/index.html",
+      "message": "Falta canonical."
+    },
+    {
+      "severity": "warning",
+      "code": "long-description",
+      "path": "public/paginas-pautantes/cabalgatas-cocora-magica/index.html",
+      "message": "La descripción tiene 177 caracteres."
+    },
+    {
+      "severity": "error",
+      "code": "missing-canonical",
+      "path": "public/paginas-pautantes/cabalgatas-cocora-magica/index.html",
+      "message": "Falta canonical."
+    },
+    {
+      "severity": "error",
+      "code": "missing-canonical",
+      "path": "public/paginas-pautantes/cabalgatas-valle-de-cocora/index.html",
+      "message": "Falta canonical."
+    },
+    {
+      "severity": "error",
+      "code": "missing-canonical",
+      "path": "public/paginas-pautantes/cafe-de-altura/index.html",
+      "message": "Falta canonical."
+    },
+    {
+      "severity": "error",
+      "code": "missing-canonical",
+      "path": "public/paginas-pautantes/canasto-quindiano/index.html",
+      "message": "Falta canonical."
+    },
+    {
+      "severity": "error",
+      "code": "missing-canonical",
+      "path": "public/paginas-pautantes/coffee-farm-el-recuerdo/index.html",
+      "message": "Falta canonical."
+    },
+    {
+      "severity": "warning",
+      "code": "long-description",
+      "path": "public/paginas-pautantes/finca-cafetera-don-elias/index.html",
+      "message": "La descripción tiene 203 caracteres."
+    },
+    {
+      "severity": "error",
+      "code": "missing-canonical",
+      "path": "public/paginas-pautantes/finca-cafetera-don-elias/index.html",
+      "message": "Falta canonical."
+    },
+    {
+      "severity": "warning",
+      "code": "long-description",
+      "path": "public/paginas-pautantes/finca-hotel-el-ocaso/index.html",
+      "message": "La descripción tiene 207 caracteres."
+    },
+    {
+      "severity": "error",
+      "code": "missing-canonical",
+      "path": "public/paginas-pautantes/finca-hotel-el-ocaso/index.html",
+      "message": "Falta canonical."
+    },
+    {
+      "severity": "error",
+      "code": "missing-canonical",
+      "path": "public/paginas-pautantes/fonda-boquia/index.html",
+      "message": "Falta canonical."
+    },
+    {
+      "severity": "error",
+      "code": "missing-canonical",
+      "path": "public/paginas-pautantes/guias-del-cocora/index.html",
+      "message": "Falta canonical."
+    },
+    {
+      "severity": "warning",
+      "code": "long-description",
+      "path": "public/paginas-pautantes/hotel-camino-nacional-salento/index.html",
+      "message": "La descripción tiene 303 caracteres."
+    },
+    {
+      "severity": "error",
+      "code": "missing-canonical",
+      "path": "public/paginas-pautantes/hotel-camino-nacional-salento/index.html",
+      "message": "Falta canonical."
+    },
+    {
+      "severity": "warning",
+      "code": "long-description",
+      "path": "public/paginas-pautantes/hotel-la-floresta-salento/index.html",
+      "message": "La descripción tiene 209 caracteres."
+    },
+    {
+      "severity": "error",
+      "code": "missing-canonical",
+      "path": "public/paginas-pautantes/hotel-la-floresta-salento/index.html",
+      "message": "Falta canonical."
+    },
+    {
+      "severity": "error",
+      "code": "missing-canonical",
+      "path": "public/paginas-pautantes/jeeps-willys-salento/index.html",
+      "message": "Falta canonical."
+    },
+    {
+      "severity": "error",
+      "code": "missing-canonical",
+      "path": "public/paginas-pautantes/la-fogata-salentina/index.html",
+      "message": "Falta canonical."
+    },
+    {
+      "severity": "warning",
+      "code": "long-description",
+      "path": "public/paginas-pautantes/mirador-las-manos-de-dios/index.html",
+      "message": "La descripción tiene 234 caracteres."
+    },
+    {
+      "severity": "error",
+      "code": "missing-canonical",
+      "path": "public/paginas-pautantes/mirador-las-manos-de-dios/index.html",
+      "message": "Falta canonical."
+    },
+    {
+      "severity": "warning",
+      "code": "long-description",
+      "path": "public/paginas-pautantes/moto-aventura-110/index.html",
+      "message": "La descripción tiene 199 caracteres."
+    },
+    {
+      "severity": "error",
+      "code": "missing-canonical",
+      "path": "public/paginas-pautantes/moto-aventura-110/index.html",
+      "message": "Falta canonical."
+    },
+    {
+      "severity": "warning",
+      "code": "long-title",
+      "path": "public/paginas-pautantes/reserva-natural-cascadas-de-santa-rita/index.html",
+      "message": "El título tiene 66 caracteres."
+    },
+    {
+      "severity": "warning",
+      "code": "long-description",
+      "path": "public/paginas-pautantes/reserva-natural-cascadas-de-santa-rita/index.html",
+      "message": "La descripción tiene 216 caracteres."
+    },
+    {
+      "severity": "error",
+      "code": "missing-canonical",
+      "path": "public/paginas-pautantes/reserva-natural-cascadas-de-santa-rita/index.html",
+      "message": "Falta canonical."
+    },
+    {
+      "severity": "warning",
+      "code": "long-description",
+      "path": "public/paginas-pautantes/restaurante-don-elias/index.html",
+      "message": "La descripción tiene 203 caracteres."
+    },
+    {
+      "severity": "error",
+      "code": "missing-canonical",
+      "path": "public/paginas-pautantes/restaurante-don-elias/index.html",
+      "message": "Falta canonical."
+    },
+    {
+      "severity": "error",
+      "code": "missing-canonical",
+      "path": "public/paginas-pautantes/salento-tour-operadora/index.html",
+      "message": "Falta canonical."
+    },
+    {
+      "severity": "error",
+      "code": "missing-canonical",
+      "path": "public/paginas-pautantes/tienda-la-montana/index.html",
+      "message": "Falta canonical."
+    },
+    {
+      "severity": "error",
+      "code": "missing-canonical",
+      "path": "public/paginas-pautantes/valle-en-bicicleta/index.html",
+      "message": "Falta canonical."
+    },
+    {
+      "severity": "warning",
+      "code": "missing-description",
+      "path": "public/pautantes/boki-mall-hotel-el-mirador-de-boquia.html",
+      "message": "Falta meta description."
+    },
+    {
+      "severity": "error",
+      "code": "missing-canonical",
+      "path": "public/pautantes/boki-mall-hotel-el-mirador-de-boquia.html",
+      "message": "Falta canonical."
+    },
+    {
+      "severity": "warning",
+      "code": "missing-description",
+      "path": "public/pautantes/brunch-de-la-plaza.html",
+      "message": "Falta meta description."
+    },
+    {
+      "severity": "error",
+      "code": "missing-canonical",
+      "path": "public/pautantes/brunch-de-la-plaza.html",
+      "message": "Falta canonical."
+    },
+    {
+      "severity": "warning",
+      "code": "missing-description",
+      "path": "public/pautantes/cabalgatas-cocora-magica.html",
+      "message": "Falta meta description."
+    },
+    {
+      "severity": "error",
+      "code": "missing-canonical",
+      "path": "public/pautantes/cabalgatas-cocora-magica.html",
+      "message": "Falta canonical."
+    },
+    {
+      "severity": "warning",
+      "code": "missing-description",
+      "path": "public/pautantes/cabalgatas-valle-de-cocora.html",
+      "message": "Falta meta description."
+    },
+    {
+      "severity": "error",
+      "code": "missing-canonical",
+      "path": "public/pautantes/cabalgatas-valle-de-cocora.html",
+      "message": "Falta canonical."
+    },
+    {
+      "severity": "warning",
+      "code": "missing-description",
+      "path": "public/pautantes/cafe-de-altura.html",
+      "message": "Falta meta description."
+    },
+    {
+      "severity": "error",
+      "code": "missing-canonical",
+      "path": "public/pautantes/cafe-de-altura.html",
+      "message": "Falta canonical."
+    },
+    {
+      "severity": "warning",
+      "code": "missing-description",
+      "path": "public/pautantes/canasto-quindiano.html",
+      "message": "Falta meta description."
+    },
+    {
+      "severity": "error",
+      "code": "missing-canonical",
+      "path": "public/pautantes/canasto-quindiano.html",
+      "message": "Falta canonical."
+    },
+    {
+      "severity": "warning",
+      "code": "missing-description",
+      "path": "public/pautantes/coffee-farm-el-recuerdo.html",
+      "message": "Falta meta description."
+    },
+    {
+      "severity": "error",
+      "code": "missing-canonical",
+      "path": "public/pautantes/coffee-farm-el-recuerdo.html",
+      "message": "Falta canonical."
+    },
+    {
+      "severity": "warning",
+      "code": "missing-description",
+      "path": "public/pautantes/finca-cafetera-don-elias.html",
+      "message": "Falta meta description."
+    },
+    {
+      "severity": "error",
+      "code": "missing-canonical",
+      "path": "public/pautantes/finca-cafetera-don-elias.html",
+      "message": "Falta canonical."
+    },
+    {
+      "severity": "warning",
+      "code": "missing-description",
+      "path": "public/pautantes/finca-hotel-el-ocaso.html",
+      "message": "Falta meta description."
+    },
+    {
+      "severity": "error",
+      "code": "missing-canonical",
+      "path": "public/pautantes/finca-hotel-el-ocaso.html",
+      "message": "Falta canonical."
+    },
+    {
+      "severity": "warning",
+      "code": "missing-description",
+      "path": "public/pautantes/guias-del-cocora.html",
+      "message": "Falta meta description."
+    },
+    {
+      "severity": "error",
+      "code": "missing-canonical",
+      "path": "public/pautantes/guias-del-cocora.html",
+      "message": "Falta canonical."
+    },
+    {
+      "severity": "warning",
+      "code": "missing-description",
+      "path": "public/pautantes/hotel-camino-nacional-salento.html",
+      "message": "Falta meta description."
+    },
+    {
+      "severity": "error",
+      "code": "missing-canonical",
+      "path": "public/pautantes/hotel-camino-nacional-salento.html",
+      "message": "Falta canonical."
+    },
+    {
+      "severity": "warning",
+      "code": "missing-description",
+      "path": "public/pautantes/hotel-la-floresta-salento.html",
+      "message": "Falta meta description."
+    },
+    {
+      "severity": "error",
+      "code": "missing-canonical",
+      "path": "public/pautantes/hotel-la-floresta-salento.html",
+      "message": "Falta canonical."
+    },
+    {
+      "severity": "warning",
+      "code": "missing-description",
+      "path": "public/pautantes/jeeps-willys-salento.html",
+      "message": "Falta meta description."
+    },
+    {
+      "severity": "error",
+      "code": "missing-canonical",
+      "path": "public/pautantes/jeeps-willys-salento.html",
+      "message": "Falta canonical."
+    },
+    {
+      "severity": "warning",
+      "code": "missing-description",
+      "path": "public/pautantes/la-fogata-salentina.html",
+      "message": "Falta meta description."
+    },
+    {
+      "severity": "error",
+      "code": "missing-canonical",
+      "path": "public/pautantes/la-fogata-salentina.html",
+      "message": "Falta canonical."
+    },
+    {
+      "severity": "warning",
+      "code": "missing-description",
+      "path": "public/pautantes/mirador-las-manos-de-dios.html",
+      "message": "Falta meta description."
+    },
+    {
+      "severity": "error",
+      "code": "missing-canonical",
+      "path": "public/pautantes/mirador-las-manos-de-dios.html",
+      "message": "Falta canonical."
+    },
+    {
+      "severity": "warning",
+      "code": "missing-description",
+      "path": "public/pautantes/moto-aventura-110.html",
+      "message": "Falta meta description."
+    },
+    {
+      "severity": "error",
+      "code": "missing-canonical",
+      "path": "public/pautantes/moto-aventura-110.html",
+      "message": "Falta canonical."
+    },
+    {
+      "severity": "warning",
+      "code": "missing-description",
+      "path": "public/pautantes/pautante.html",
+      "message": "Falta meta description."
+    },
+    {
+      "severity": "error",
+      "code": "missing-canonical",
+      "path": "public/pautantes/pautante.html",
+      "message": "Falta canonical."
+    },
+    {
+      "severity": "warning",
+      "code": "missing-description",
+      "path": "public/pautantes/reserva-natural-cascadas-de-santa-rita.html",
+      "message": "Falta meta description."
+    },
+    {
+      "severity": "error",
+      "code": "missing-canonical",
+      "path": "public/pautantes/reserva-natural-cascadas-de-santa-rita.html",
+      "message": "Falta canonical."
+    },
+    {
+      "severity": "warning",
+      "code": "missing-description",
+      "path": "public/pautantes/restaurante-don-elias.html",
+      "message": "Falta meta description."
+    },
+    {
+      "severity": "error",
+      "code": "missing-canonical",
+      "path": "public/pautantes/restaurante-don-elias.html",
+      "message": "Falta canonical."
+    },
+    {
+      "severity": "warning",
+      "code": "missing-description",
+      "path": "public/pautantes/salento-tour-operadora.html",
+      "message": "Falta meta description."
+    },
+    {
+      "severity": "error",
+      "code": "missing-canonical",
+      "path": "public/pautantes/salento-tour-operadora.html",
+      "message": "Falta canonical."
+    },
+    {
+      "severity": "warning",
+      "code": "missing-description",
+      "path": "public/pautantes/tienda-la-montana.html",
+      "message": "Falta meta description."
+    },
+    {
+      "severity": "error",
+      "code": "missing-canonical",
+      "path": "public/pautantes/tienda-la-montana.html",
+      "message": "Falta canonical."
+    },
+    {
+      "severity": "warning",
+      "code": "missing-description",
+      "path": "public/pautantes/valle-en-bicicleta.html",
+      "message": "Falta meta description."
+    },
+    {
+      "severity": "error",
+      "code": "missing-canonical",
+      "path": "public/pautantes/valle-en-bicicleta.html",
+      "message": "Falta canonical."
+    },
+    {
+      "severity": "warning",
+      "code": "duplicate-title",
+      "path": "https://mapa-digital-salento.vercel.app/de/guias/10-tours-cafe-salento, https://mapa-digital-salento.vercel.app/en/guias/10-tours-cafe-salento, https://mapa-digital-salento.vercel.app/fr/guias/10-tours-cafe-salento",
+      "message": "Título duplicado en 3 URLs: coffee tours in salento: how to choose"
+    },
+    {
+      "severity": "warning",
+      "code": "duplicate-title",
+      "path": "https://mapa-digital-salento.vercel.app/de/guias/guia-valle-del-cocora, https://mapa-digital-salento.vercel.app/en/guias/guia-valle-del-cocora, https://mapa-digital-salento.vercel.app/fr/guias/guia-valle-del-cocora",
+      "message": "Título duplicado en 3 URLs: a practical guide to visiting cocora valley"
+    },
+    {
+      "severity": "warning",
+      "code": "duplicate-title",
+      "path": "https://mapa-digital-salento.vercel.app/de/guias/que-hacer-en-salento-3-dias, https://mapa-digital-salento.vercel.app/en/guias/que-hacer-en-salento-3-dias, https://mapa-digital-salento.vercel.app/fr/guias/que-hacer-en-salento-3-dias",
+      "message": "Título duplicado en 3 URLs: what to do in salento: a 3-day itinerary"
+    },
+    {
+      "severity": "warning",
+      "code": "sitemap-orphan",
+      "path": "public/sitemap.xml",
+      "message": "URL del sitemap sin HTML estático equivalente: https://mapa-digital-salento.vercel.app/de/guias/10-tours-cafe-salento.html"
+    },
+    {
+      "severity": "warning",
+      "code": "sitemap-orphan",
+      "path": "public/sitemap.xml",
+      "message": "URL del sitemap sin HTML estático equivalente: https://mapa-digital-salento.vercel.app/de/guias/guia-valle-del-cocora.html"
+    },
+    {
+      "severity": "warning",
+      "code": "sitemap-orphan",
+      "path": "public/sitemap.xml",
+      "message": "URL del sitemap sin HTML estático equivalente: https://mapa-digital-salento.vercel.app/de/guias/que-hacer-en-salento-3-dias.html"
+    },
+    {
+      "severity": "warning",
+      "code": "sitemap-orphan",
+      "path": "public/sitemap.xml",
+      "message": "URL del sitemap sin HTML estático equivalente: https://mapa-digital-salento.vercel.app/don-chucho-asistente"
+    },
+    {
+      "severity": "warning",
+      "code": "sitemap-orphan",
+      "path": "public/sitemap.xml",
+      "message": "URL del sitemap sin HTML estático equivalente: https://mapa-digital-salento.vercel.app/en/guias/10-tours-cafe-salento.html"
+    },
+    {
+      "severity": "warning",
+      "code": "sitemap-orphan",
+      "path": "public/sitemap.xml",
+      "message": "URL del sitemap sin HTML estático equivalente: https://mapa-digital-salento.vercel.app/en/guias/guia-valle-del-cocora.html"
+    },
+    {
+      "severity": "warning",
+      "code": "sitemap-orphan",
+      "path": "public/sitemap.xml",
+      "message": "URL del sitemap sin HTML estático equivalente: https://mapa-digital-salento.vercel.app/en/guias/que-hacer-en-salento-3-dias.html"
+    },
+    {
+      "severity": "warning",
+      "code": "sitemap-orphan",
+      "path": "public/sitemap.xml",
+      "message": "URL del sitemap sin HTML estático equivalente: https://mapa-digital-salento.vercel.app/es/guias/10-tours-cafe-salento.html"
+    },
+    {
+      "severity": "warning",
+      "code": "sitemap-orphan",
+      "path": "public/sitemap.xml",
+      "message": "URL del sitemap sin HTML estático equivalente: https://mapa-digital-salento.vercel.app/es/guias/guia-valle-del-cocora.html"
+    },
+    {
+      "severity": "warning",
+      "code": "sitemap-orphan",
+      "path": "public/sitemap.xml",
+      "message": "URL del sitemap sin HTML estático equivalente: https://mapa-digital-salento.vercel.app/es/guias/que-hacer-en-salento-3-dias.html"
+    },
+    {
+      "severity": "warning",
+      "code": "sitemap-orphan",
+      "path": "public/sitemap.xml",
+      "message": "URL del sitemap sin HTML estático equivalente: https://mapa-digital-salento.vercel.app/estado-actual-salento-hoteles-abiertos-vias-libres-valle-cocora-operando-100"
+    },
+    {
+      "severity": "warning",
+      "code": "sitemap-orphan",
+      "path": "public/sitemap.xml",
+      "message": "URL del sitemap sin HTML estático equivalente: https://mapa-digital-salento.vercel.app/fr/guias/10-tours-cafe-salento.html"
+    },
+    {
+      "severity": "warning",
+      "code": "sitemap-orphan",
+      "path": "public/sitemap.xml",
+      "message": "URL del sitemap sin HTML estático equivalente: https://mapa-digital-salento.vercel.app/fr/guias/guia-valle-del-cocora.html"
+    },
+    {
+      "severity": "warning",
+      "code": "sitemap-orphan",
+      "path": "public/sitemap.xml",
+      "message": "URL del sitemap sin HTML estático equivalente: https://mapa-digital-salento.vercel.app/fr/guias/que-hacer-en-salento-3-dias.html"
+    },
+    {
+      "severity": "warning",
+      "code": "sitemap-orphan",
+      "path": "public/sitemap.xml",
+      "message": "URL del sitemap sin HTML estático equivalente: https://mapa-digital-salento.vercel.app/hoteles-abiertos-salento"
+    },
+    {
+      "severity": "warning",
+      "code": "sitemap-orphan",
+      "path": "public/sitemap.xml",
+      "message": "URL del sitemap sin HTML estático equivalente: https://mapa-digital-salento.vercel.app/landing-estado-actual-salento-2026"
+    },
+    {
+      "severity": "warning",
+      "code": "sitemap-orphan",
+      "path": "public/sitemap.xml",
+      "message": "URL del sitemap sin HTML estático equivalente: https://mapa-digital-salento.vercel.app/mapa-interactivo-salento"
+    },
+    {
+      "severity": "warning",
+      "code": "sitemap-orphan",
+      "path": "public/sitemap.xml",
+      "message": "URL del sitemap sin HTML estático equivalente: https://mapa-digital-salento.vercel.app/registro-aliados"
+    },
+    {
+      "severity": "warning",
+      "code": "sitemap-orphan",
+      "path": "public/sitemap.xml",
+      "message": "URL del sitemap sin HTML estático equivalente: https://mapa-digital-salento.vercel.app/salento-seguro-turismo"
+    },
+    {
+      "severity": "warning",
+      "code": "sitemap-orphan",
+      "path": "public/sitemap.xml",
+      "message": "URL del sitemap sin HTML estático equivalente: https://mapa-digital-salento.vercel.app/valle-cocora-accesible-100"
+    },
+    {
+      "severity": "warning",
+      "code": "sitemap-orphan",
+      "path": "public/sitemap.xml",
+      "message": "URL del sitemap sin HTML estático equivalente: https://mapa-digital-salento.vercel.app/vias-salento-libres-acceso"
+    },
+    {
+      "severity": "info",
+      "code": "crawl-delay",
+      "path": "public/robots.txt",
+      "message": "Crawl-delay está presente; Google no lo interpreta como señal de ranking."
+    }
+  ]
+}

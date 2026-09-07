@@ -26,7 +26,7 @@
 Análisis previo del proyecto detectó 6 fallos 🔴 críticos + 7 altos. Esta fase aborda los 4 críticos y 4 de los altos con ROI más alto. Archivos afectados: `vercel.json`, `sitemap.xml`, `robots.txt`, `index.html`, `styles.css`, `src/App.tsx`, `src/types.ts`, `tools/generate_category_pages.js`. Archivos existentes no se tocan salvo aditivos.
 
 ## Functional Requirements
-- **FR-1**: Al acceder a `/categorias/restaurantes`, `/pautantes/fonda-boquia.html`, `/paginas-pautantes/hotel-camino-nacional-salento/`, `/es/guias/guia-valle-del-cocora.html` en Vercel, el servidor devuelve el archivo `.html` estático correspondiente (no el SPA index.html de React).
+- **FR-1**: Al acceder a `/categorias/restaurantes`, `/paginas-pautantes/fonda-boquia/`, `/paginas-pautantes/hotel-camino-nacional-salento/`, `/es/guias/guia-valle-del-cocora.html` en Vercel, el servidor devuelve el archivo `.html` estático correspondiente (no el SPA index.html de React).
 - **FR-2**: `sitemap.xml` contiene al menos 80 URLs (raíz + estado/seguro/vias/valle/hoteles + 8 categorías + 22 pautantes + 22 paginas-pautantes + 16 SEO internacional), con `xhtml:link hreflang` para URLs que tienen variantes de idioma y lastmod coherente.
 - **FR-3**: `robots.txt` no bloquea `/data/*.json` y su Sitmap: principal apunta a archivos existentes.
 - **FR-4**: Google Fonts se carga mediante 2-3 `<link>` tags en `<head>` (preconnect + dns-prefetch opcional + stylesheet), no mediante `@import` en CSS.

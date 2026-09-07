@@ -9,15 +9,27 @@
 - Nombre comercial: Restaurante Don Elías
 - Categoría principal: gastronomía / restaurante
 - Tipo de oferta: cocina local y experiencia gastronómica
+- Enfoque: comida local, visita turística y servicio directo
 
-## Descripción preliminar
-Restaurante Don Elías es una propuesta gastronómica de la zona con enfoque en la cocina local y la experiencia de restaurante para turistas y visitantes de la región.
+## Modelo de pedido directo
+- Canal principal: WhatsApp o contacto directo para pedido o reserva
+- Comisión por venta de la plataforma: 0%
+- Rol de Salento a la Mano: visibilidad y conexión directa con el restaurante
+- Cobertura: Salento cabecera y zona cercana de paso o domicilio por confirmar
+- Modalidad: restaurante y gastronomía local
+- Pago: directo con el restaurante según disponibilidad
 
-## Servicios esperados
-- Restaurante
-- Cocina local
-- Servicio para turistas
-- Posible experiencia gastronómica y cultural
+## Catálogo de servicios y productos
+### Cocina principal
+- Platos de la casa: precio por confirmar
+- Menú local o típico: precio por confirmar
+- Bebidas o acompañamientos: precio por confirmar
+- Servicio para turistas y clientes de paso: disponibilidad por confirmar
+
+### Servicios complementarios
+- Atención en restaurante
+- Consumo local y experiencia gastronómica
+- Reserva o pedido por confirmar
 
 ## Contacto y datos faltantes
 Se requieren confirmar:

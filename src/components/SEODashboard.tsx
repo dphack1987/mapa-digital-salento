@@ -110,14 +110,14 @@ const SEODashboard: React.FC<SEODashboardProps> = ({ onClose, language = 'es' })
         <div className="score-card">
           <div className="score-content">
             <h3>{language === 'es' ? 'Puntuación SEO General' : 'Overall SEO Score'}</h3>
-            <div className="score-value">{Math.round(report.overallScore)}</div>
-            <div className="score-label">/ 100</div>
+            <div className="score-value">{report.overallScore === null ? 'N/D' : Math.round(report.overallScore)}</div>
+            <div className="score-label">{report.overallScore === null ? 'sin datos reales' : '/ 100'}</div>
           </div>
           <div className="score-visual">
             <div 
               className="score-circle" 
               style={{ 
-                background: `conic-gradient(var(--green) ${report.overallScore}%, #e1ddd0 ${report.overallScore}%)` 
+                background: `conic-gradient(var(--green) ${report.overallScore ?? 0}%, #e1ddd0 ${report.overallScore ?? 0}%)`
               }}
             >
               <div className="score-inner">
