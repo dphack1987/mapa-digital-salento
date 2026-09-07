@@ -11,6 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
     
     <style>
       :root {
@@ -100,6 +101,28 @@
       .gallery img { width: 100%; height: 200px; object-fit: cover; border-radius: 16px; cursor: pointer; transition: transform 0.3s; }
       .gallery img:hover { transform: scale(1.05); }
       
+      #map { 
+        height: 500px; 
+        width: 100%; 
+        border-radius: 16px; 
+        margin-bottom: 24px; 
+        z-index: 1; 
+      }
+      .leaflet-popup-content-wrapper { 
+        border-radius: 12px; 
+        font-family: 'DM Sans', sans-serif; 
+      }
+      .leaflet-popup-content { 
+        margin: 12px 16px; 
+        line-height: 1.4; 
+      }
+      .custom-marker {
+        background: var(--coral);
+        border: 3px solid var(--white);
+        border-radius: 50%;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+      }
+      
       .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
       .info-item { padding: 20px; background: #f8f5eb; border-radius: 16px; }
       .info-item h4 { margin: 0 0 8px; color: var(--nature-dark); font-size: 1.1rem; }
@@ -149,6 +172,7 @@
       }
     </style>
     <link rel="stylesheet" href="/page-theme.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://mapa-digital-salento.vercel.app/"},{"@type":"ListItem","position":2,"name":"Atractivos Turísticos","item":"https://mapa-digital-salento.vercel.app/categorias/atractivos-turisticos.html"},{"@type":"ListItem","position":3,"name":"Cascadas de Santa Rita"}]}</script>
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"TouristAttraction","name":"Cascadas de Santa Rita","description":"Hermosa quebrada con caída de 20 metros a piscina natural en Boquía. Sendero de 4.8 km con bosque, montes, valle, antigua vía de tren, túnel y puente colgante. Incluye segunda cascada por cavernas y zonas de camping.","url":"/paginas-pautantes/reserva-natural-cascadas-de-santa-rita/","image":"https://mapa-digital-salento.vercel.app/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/logo_cascadas_de_santa_rita.jfif","address":{"@type":"PostalAddress","addressLocality":"Salento","addressRegion":"Quindío","addressCountry":"CO","streetAddress":"Vereda Boquía"},"geo":{"@type":"GeoCoordinates","latitude":4.64,"longitude":-75.56},"telephone":"+57 301 503 8254","priceRange":"$","areaServed":{"@type":"City","name":"Salento","containedIn":{"@type":"State","name":"Quindío"}},"aggregateRating":{"@type":"AggregateRating","ratingValue":4.8,"ratingCount":591,"bestRating":5,"worstRating":1},"openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"07:00","closes":"18:00"},"touristType":["Local","Internacional"],"duration":"3-4 horas","availableLanguage":["Español"]}</script>
@@ -388,7 +412,8 @@
       </div>
 
       <div id="mapa" class="section gallery-section">
-        <h2>🗺️ Mapa Offline - Puntos de Interés</h2>
+        <h2>🗺️ Mapa Interactivo - Puntos de Interés</h2>
+        <div id="map"></div>
         <div class="info-grid">
           <div class="info-item">
             <h4>🚩 Punto 1: Entrada Principal</h4>
@@ -546,6 +571,9 @@
     </div>
 
     <script>
+      let map = null;
+      let markers = [];
+
       function showCategory(category) {
         // Remove active class from all buttons
         document.querySelectorAll('.category-btn').forEach(btn => {
@@ -564,7 +592,132 @@
         const selectedSection = document.getElementById(category);
         if (selectedSection) {
           selectedSection.classList.add('active');
+          
+          // Initialize map when mapa section is shown
+          if (category === 'mapa' && !map) {
+            initializeMap();
+          }
         }
+      }
+
+      function initializeMap() {
+        // Coordinates for the main location (Santa Rita, Boquía)
+        const mainCoords = [4.64, -75.56];
+        
+        // Initialize the map
+        map = L.map('map').setView(mainCoords, 14);
+        
+        // Add OpenStreetMap tiles
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          attribution: '© OpenStreetMap contributors',
+          maxZoom: 19
+        }).addTo(map);
+        
+        // Points of interest with approximate coordinates
+        const points = [
+          {
+            name: "🚩 Entrada Principal",
+            description: "Puente amarillo de Boquía, 200 metros hasta la entrada de la reserva. Punto de encuentro y pago de tarifa.",
+            coords: [4.642, -75.558],
+            icon: "🚩"
+          },
+          {
+            name: "🥾 Inicio Sendero", 
+            description: "Comienzo del sendero de 4.8 km. Zona de preparación y explicación del recorrido.",
+            coords: [4.643, -75.559],
+            icon: "🥾"
+          },
+          {
+            name: "🌳 Bosque Nativo",
+            description: "Primer segmento del sendero con vegetación densa, helechos y árboles nativos.",
+            coords: [4.644, -75.560],
+            icon: "🌳"
+          },
+          {
+            name: "🚂 Antigua Vía de Tren",
+            description: "Restos de la antigua vía férrea histórica del Quindío. Punto fotográfico importante.",
+            coords: [4.645, -75.561],
+            icon: "🚂"
+          },
+          {
+            name: "🕳️ Túnel",
+            description: "Túnel de aproximadamente 30 metros de longitud. Requiere linternas y cuidado.",
+            coords: [4.646, -75.562],
+            icon: "🕳️"
+          },
+          {
+            name: "🌉 Puente Colgante",
+            description: "Puente sobre la quebrada. Vista panorámica del valle y experiencia emocionante.",
+            coords: [4.647, -75.563],
+            icon: "🌉"
+          },
+          {
+            name: "💧 Cascada Principal",
+            description: "Cascada de 20 metros de caída. Piscina natural para baño. Punto principal del recorrido.",
+            coords: [4.648, -75.564],
+            icon: "💧"
+          },
+          {
+            name: "🌊 Piscina Natural",
+            description: "Zona de baño al pie de la cascada. Agua fresca y cristalina. Ideal para nadar.",
+            coords: [4.6485, -75.5645],
+            icon: "🌊"
+          },
+          {
+            name: "🕳️ Cavernas",
+            description: "Segunda cascada accediendo por cavernas. Recorrido aventura con iluminación natural limitada.",
+            coords: [4.649, -75.565],
+            icon: "🕳️"
+          },
+          {
+            name: "⛺️ Zona de Camping",
+            description: "Áreas designadas para camping. Espacios para carpas con acceso a servicios básicos.",
+            coords: [4.641, -75.557],
+            icon: "⛺️"
+          },
+          {
+            name: "🏠 Alojamiento",
+            description: "Habitaciones disponibles para pernoctar. Confort básico con desayuno incluido.",
+            coords: [4.6415, -75.5575],
+            icon: "🏠"
+          },
+          {
+            name: "🍽️ Zona de Alimentos",
+            description: "Área para servicio de alimentos. Desayuno, almuerzo, calentado y trucha disponibles.",
+            coords: [4.642, -75.558],
+            icon: "🍽️"
+          }
+        ];
+
+        // Add markers for each point
+        points.forEach((point, index) => {
+          const marker = L.marker(point.coords).addTo(map);
+          
+          // Create custom popup content
+          const popupContent = `
+            <div style="min-width: 200px;">
+              <strong style="font-size: 16px; color: var(--ink);">${point.name}</strong>
+              <p style="margin: 8px 0 0; color: var(--muted); font-size: 14px;">${point.description}</p>
+              <small style="color: var(--coral); font-weight: 700;">Punto ${index + 1} de 12</small>
+            </div>
+          `;
+          
+          marker.bindPopup(popupContent);
+          markers.push(marker);
+        });
+
+        // Add a polyline to show the approximate trail route
+        const trailCoords = points.slice(0, 9).map(p => p.coords);
+        L.polyline(trailCoords, {
+          color: '#5a7d63',
+          weight: 4,
+          opacity: 0.7,
+          dashArray: '10, 5'
+        }).addTo(map);
+
+        // Fit map to show all markers
+        const group = new L.featureGroup(markers);
+        map.fitBounds(group.getBounds().pad(0.1));
       }
     </script>
   </body>
