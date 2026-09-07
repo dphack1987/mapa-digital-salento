@@ -539,9 +539,11 @@ function App() {
       Alojamientos: ['alojamiento', 'hotel', 'hostal', 'hospedaje', 'resort', 'lodging', 'cabin', 'cabaña'],
       Restaurantes: ['restaurante', 'cafe', 'cafeteria', 'gastronomia', 'brunch', 'comida', 'coffee', 'bar', 'pizza', 'burger'],
       'Cafés': ['cafe', 'cafeteria', 'coffee', 'espresso', 'brunch'],
+      'Coffee Tours': ['coffee tour', 'tour cafe', 'finca cafetera', 'cafeteria tour', 'coffee farm', 'tour de cafe'],
       Artesanías: ['artesania', 'artesanias', 'manualidades', 'tejido', 'fibras', 'craft', 'handmade', 'regalo'],
       Tiendas: ['tienda', 'shop', 'comercio', 'mercado', 'venta', 'boutique', 'store', 'souvenir'],
       Experiencias: ['cabalgata', 'caballo', 'equitacion', 'horse', 'ride', 'guia', 'tour', 'ruta', 'senderismo', 'adventure', 'guide', 'experiencia'],
+      'Atractivos Turísticos': ['atractivo', 'mirador', 'cascada', 'sendero', 'parque', 'natural', 'reserva', 'turistico', 'vista', 'attraction'],
       Servicios: ['transporte', 'moto', 'jeep', 'taxi', 'movilidad', 'transfer', 'transport', 'vehicle', 'servicio'],
     }
 
@@ -927,9 +929,9 @@ function App() {
         <section className="quick-section" id="pedidos">
           <div className="section-heading"><div><p className="eyebrow">{t('nearby')}</p><h2>{t('today')}</h2></div><button className="text-button" onClick={() => { setActiveCategory('Todo'); scrollToSection('pedidos') }}>Ver todo <ArrowRight size={16} /></button></div>
           <div className="category-row">
-            {(['Todo', 'Alojamientos', 'Restaurantes', 'Cafés', 'Artesanías', 'Tiendas', 'Experiencias', 'Servicios'] as Category[]).map((category) => (
+            {(['Todo', 'Alojamientos', 'Restaurantes', 'Cafés', 'Coffee Tours', 'Artesanías', 'Tiendas', 'Experiencias', 'Atractivos Turísticos', 'Servicios'] as Category[]).map((category) => (
               <button key={category} className={activeCategory === category ? 'category active' : 'category'} onClick={() => setActiveCategory(category)}>
-                {category === 'Todo' && <Sparkles size={17} />}{category === 'Alojamientos' && <Hotel size={17} />}{category === 'Restaurantes' && <Utensils size={17} />}{category === 'Cafés' && <Coffee size={17} />}{category === 'Artesanías' && <ShoppingBasket size={17} />}{category === 'Tiendas' && <Store size={17} />}{category === 'Experiencias' && <Compass size={17} />}{category === 'Servicios' && <Bike size={17} />}
+                {category === 'Todo' && <Sparkles size={17} />}{category === 'Alojamientos' && <Hotel size={17} />}{category === 'Restaurantes' && <Utensils size={17} />}{category === 'Cafés' && <Coffee size={17} />}{category === 'Coffee Tours' && <Coffee size={17} />}{category === 'Artesanías' && <ShoppingBasket size={17} />}{category === 'Tiendas' && <Store size={17} />}{category === 'Experiencias' && <Compass size={17} />}{category === 'Atractivos Turísticos' && <Mountain size={17} />}{category === 'Servicios' && <Bike size={17} />}
                 {t(`categories.${category}`)}
               </button>
             ))}
