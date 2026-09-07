@@ -198,6 +198,20 @@ class HotelQRService {
   }
 
   /**
+   * Generar hash simple para validación de QR
+   * Usamos un hash simple en lugar del secreto parcial para mayor seguridad
+   */
+  private generateSecretHash(secret: string): string {
+    // Hash simple: suma de caracteres + longitud + primer y último carácter
+    const chars = secret.split('')
+    const sum = chars.reduce((acc, char) => acc + char.charCodeAt(0), 0)
+    const len = secret.length
+    const first = secret.charCodeAt(0)
+    const last = secret.charCodeAt(secret.length - 1)
+    return `${sum}-${len}-${first}-${last}`
+  }
+
+  /**
    * Generar datos para código QR (payload)
    */
   generateQRPayload(qrId: string): string {
@@ -209,8 +223,8 @@ class HotelQRService {
     const payload = {
       id: qrId,
       h: qrCode.hotelId,
-      s: qrCode.secret.substring(0, 8), // Primeros 8 caracteres del secreto para validación rápida
-      v: '1.0' // Versión del formato
+      s: this.generateSecretHash(qrCode.secret), // Hash del secreto en lugar del secreto parcial
+      v: '2.0' // Versión del formato actualizada
     }
 
     return JSON.stringify(payload)
@@ -223,24 +237,41 @@ class HotelQRService {
     try {
       const data = JSON.parse(payload)
       
+      // Validar tipos y existencia de campos
       if (!data.id || !data.h || !data.s) {
         return { valid: false }
       }
 
-      const qrCode = this.qrCodes.get(data.id)
+      // Validar que los campos sean strings
+      if (typeof data.id !== 'string' || typeof data.h !== 'string' || typeof data.s !== 'string') {
+        return { valid: false }
+      }
+
+      // Sanitizar datos
+      const sanitizedId = data.id.trim()
+      const sanitizedHotelId = data.h.trim()
+      const sanitizedSecret = data.s.trim()
+
+      // Validar que no estén vacíos después de sanitizar
+      if (!sanitizedId || !sanitizedHotelId || !sanitizedSecret) {
+        return { valid: false }
+      }
+
+      const qrCode = this.qrCodes.get(sanitizedId)
       if (!qrCode) {
         return { valid: false }
       }
 
-      // Validar secreto parcial
-      if (qrCode.secret.substring(0, 8) !== data.s) {
+      // Validar hash del secreto
+      const expectedHash = this.generateSecretHash(qrCode.secret)
+      if (expectedHash !== sanitizedSecret) {
         return { valid: false }
       }
 
       return { 
         valid: true, 
-        hotelId: data.h, 
-        qrId: data.id 
+        hotelId: sanitizedHotelId, 
+        qrId: sanitizedId 
       }
     } catch (error) {
       console.error('Error parsing QR payload:', error)

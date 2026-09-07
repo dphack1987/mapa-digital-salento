@@ -1,6 +1,8 @@
 // Servicio de clima en tiempo real
 // Proporciona información meteorológica comparativa entre Salento y Valle de Cocora
 
+import logger from '../utils/logger'
+
 interface WeatherData {
   location: string
   temperature: number
@@ -24,6 +26,7 @@ class WeatherService {
   private cachedWeather: WeatherComparison | null = null
   private lastUpdate: number = 0
   private updateInterval = 30 * 60 * 1000 // 30 minutos
+  private intervalId: number | null = null
 
   // Coordenadas aproximadas
   private locations = {
@@ -71,7 +74,7 @@ class WeatherService {
         }
       }
     } catch (error) {
-      console.error('Error fetching weather data:', error)
+      logger.error('Error fetching weather data:', error)
       return this.getFallbackWeather(lat === this.locations.valleCocora.lat ? 'valle' : 'salento')
     }
   }
@@ -139,7 +142,7 @@ class WeatherService {
       
       return comparison
     } catch (error) {
-      console.error('Error getting weather comparison:', error)
+      logger.error('Error getting weather comparison:', error)
       return this.getFallbackComparison()
     }
   }
@@ -207,7 +210,7 @@ class WeatherService {
         lastUpdate: this.lastUpdate
       }))
     } catch (error) {
-      console.error('Error saving weather to storage:', error)
+      logger.error('Error saving weather to storage:', error)
     }
   }
 
@@ -224,7 +227,7 @@ class WeatherService {
         return data.comparison
       }
     } catch (error) {
-      console.error('Error loading weather from storage:', error)
+      logger.error('Error loading weather from storage:', error)
     }
     return null
   }
@@ -263,9 +266,19 @@ class WeatherService {
     this.loadWeatherFromStorage()
     
     // Actualizar periódicamente
-    setInterval(() => {
+    this.intervalId = window.setInterval(() => {
       this.getWeatherComparison()
     }, this.updateInterval)
+  }
+
+  /**
+   * Limpiar intervalos para evitar memory leaks
+   */
+  cleanup(): void {
+    if (this.intervalId !== null) {
+      clearInterval(this.intervalId)
+      this.intervalId = null
+    }
   }
 
   /**
