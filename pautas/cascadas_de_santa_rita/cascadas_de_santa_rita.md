@@ -1,9 +1,9 @@
 # Cascadas de Santa Rita
 
 ## Estado
-- Estado actual: ficha completa
+- Estado actual: ficha publicada con mapa offline y galería completa
 - Prioridad: alta
-- Verificación: completamente verificada
+- Verificación: completamente verificada con 15 fotos reales
 
 ## Información confirmada
 - Nombre comercial: Cascadas de Santa Rita
