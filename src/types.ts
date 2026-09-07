@@ -1,16 +1,18 @@
 // Tipos base del sistema
 export type Category = 'Todo' | 'Alojamientos' | 'Restaurantes' | 'Cafés' | 'Coffee Tours' | 'Artesanías' | 'Tiendas' | 'Experiencias' | 'Atractivos Turísticos' | 'Servicios'
 
-// Objeto de idioma que EXISTE EN RUNTIME (evita ReferenceError: Language is not defined)
-export const Language = {
-  ES: 'es',
-  EN: 'en',
-  FR: 'fr',
-  DE: 'de',
-  PT: 'pt',
-  IT: 'it'
+// String literal type para idiomas (evita inconsistencias de tipos)
+export type Language = 'es' | 'en' | 'fr' | 'de' | 'pt' | 'it';
+
+// Objeto de idioma para compatibilidad con código existente
+export const LanguageConst = {
+  es: 'es',
+  en: 'en',
+  fr: 'fr',
+  de: 'de',
+  pt: 'pt',
+  it: 'it'
 } as const;
-export type Language = (typeof Language)[keyof typeof Language];
 
 export type Currency = 'COP' | 'USD' | 'EUR'
 export type PriceRange = '$' | '$$' | '$$$' | '$$$$'
@@ -298,10 +300,10 @@ export type MapMarker = {
   id: number
   label: string
   type: 'Turístico' | 'Gastronómico' | 'Comercial'
-  lat: number
-  lng: number
-  tone: 'coral' | 'green' | 'yellow'
+  coord: [number, number] // [lat, lng]
+  tone: 'primary' | 'success' | 'warning' | 'danger' | 'info' | 'coral' | 'green' | 'yellow'
   placeId?: number // Referencia al lugar completo
+  note?: string
 }
 
 // Datos del sistema

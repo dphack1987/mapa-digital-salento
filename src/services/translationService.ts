@@ -6,9 +6,9 @@ interface TranslationDict {
 }
 
 class TranslationService {
-  private currentLanguage: Language = Language.ES
+  private currentLanguage: Language = 'es';
   private translations: Record<Language, TranslationDict> = {
-    [Language.ES]: {
+    'es': {
       explore: 'Explora',
       order: 'Pedidos',
       experiences: 'Experiencias',
@@ -40,7 +40,7 @@ class TranslationService {
       'donChucho.suggestions.coffee': 'Buen café',
       'donChucho.suggestions.cocora': 'Valle de Cocora'
     },
-    [Language.EN]: {
+    'en': {
       explore: 'Explore',
       order: 'Orders',
       experiences: 'Experiences',
@@ -72,7 +72,7 @@ class TranslationService {
       'donChucho.suggestions.coffee': 'Good coffee',
       'donChucho.suggestions.cocora': 'Cocora Valley'
     },
-    [Language.FR]: {
+    'fr': {
       explore: 'Explorer',
       order: 'Commandes',
       experiences: 'Expériences',
@@ -104,7 +104,7 @@ class TranslationService {
       'donChucho.suggestions.coffee': 'Bon café',
       'donChucho.suggestions.cocora': 'Vallée de Cocora'
     },
-    [Language.DE]: {
+    'de': {
       explore: 'Erkunden',
       order: 'Bestellungen',
       experiences: 'Erlebnisse',
@@ -136,7 +136,7 @@ class TranslationService {
       'donChucho.suggestions.coffee': 'Guter Kaffee',
       'donChucho.suggestions.cocora': 'Cocora-Tal'
     },
-    [Language.PT]: {
+    'pt': {
       explore: 'Explorar',
       order: 'Pedidos',
       experiences: 'Experiências',
@@ -168,7 +168,7 @@ class TranslationService {
       'donChucho.suggestions.coffee': 'Bom café',
       'donChucho.suggestions.cocora': 'Vale do Cocora'
     },
-    [Language.IT]: {
+    'it': {
       explore: 'Esplora',
       order: 'Ordini',
       experiences: 'Esperienze',
@@ -211,15 +211,15 @@ class TranslationService {
     
     // Mapeo de idiomas del navegador a nuestros idiomas soportados
     const langMap: Record<string, Language> = {
-      'es': Language.ES,
-      'en': Language.EN,
-      'fr': Language.FR,
-      'de': Language.DE,
-      'pt': Language.PT,
-      'it': Language.IT
+      'es': 'es',
+      'en': 'en',
+      'fr': 'fr',
+      'de': 'de',
+      'pt': 'pt',
+      'it': 'it'
     }
 
-    const detectedLang = langMap[browserLang] || Language.ES
+    const detectedLang = langMap[browserLang] || 'es';
     
     // Cargar preferencia guardada si existe
     const savedLang = localStorage.getItem('salento_language') as Language
@@ -253,7 +253,7 @@ class TranslationService {
    */
   translate(key: string, fallback?: string): string {
     const language = this.currentLanguage
-    const translations = this.translations[language] || this.translations[Language.ES]
+    const translations = this.translations[language] || this.translations['es'];
     
     const value = translations[key]
     

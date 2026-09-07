@@ -2,6 +2,7 @@
 // Usa APIs públicas para obtener tasas de cambio actualizadas
 
 import { Currency } from '../types'
+import logger from '../utils/logger'
 
 interface ExchangeRates {
   COP: number
@@ -34,6 +35,7 @@ class CurrencyService {
   private lastUpdate: number = 0
   private updateInterval = 60 * 60 * 1000 // 1 hora
   private isUpdating = false
+  private intervalId: number | null = null
 
   /**
    * Obtener tasas de cambio desde API pública
@@ -55,7 +57,7 @@ class CurrencyService {
         EUR: 1 / data.rates.EUR
       }
     } catch (error) {
-      console.error('Error fetching exchange rates:', error)
+      logger.error('Error fetching exchange rates:', error)
       return FALLBACK_RATES
     }
   }
@@ -76,9 +78,9 @@ class CurrencyService {
       // Guardar en localStorage
       this.saveRatesToStorage()
       
-      console.log('Exchange rates updated:', this.rates)
+      logger.log('Exchange rates updated:', this.rates)
     } catch (error) {
-      console.error('Error updating exchange rates:', error)
+      logger.error('Error updating exchange rates:', error)
     } finally {
       this.isUpdating = false
     }
@@ -205,9 +207,19 @@ class CurrencyService {
     }
 
     // Actualizar periódicamente
-    setInterval(() => {
+    this.intervalId = window.setInterval(() => {
       this.updateRates()
     }, this.updateInterval)
+  }
+
+  /**
+   * Limpiar intervalos para evitar memory leaks
+   */
+  cleanup(): void {
+    if (this.intervalId !== null) {
+      clearInterval(this.intervalId)
+      this.intervalId = null
+    }
   }
 
   /**

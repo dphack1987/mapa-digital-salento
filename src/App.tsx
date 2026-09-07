@@ -1,4 +1,4 @@
-import { useMemo, useState, useEffect } from 'react'
+import { useMemo, useState, useEffect, useCallback } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { CircleMarker, MapContainer, Popup, TileLayer, useMap } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css'
@@ -43,7 +43,7 @@ import {
   Building2,
   ChevronRight
 } from 'lucide-react'
-import { Category, Language, Currency, Place, MapMarker, Hotel as HotelType } from './types'
+import { Category, Language, Currency, Place, MapMarker, Hotel as HotelType, LanguageConst } from './types'
 import dataService from './services/dataService'
 
 const salentoImageGallery = [
@@ -92,13 +92,15 @@ import LandingPageValleCocora from './components/LandingPageValleCocora'
 import LandingPageSalentoSeguro from './components/LandingPageSalentoSeguro'
 import LandingPageHoteles from './components/LandingPageHoteles'
 import LandingPageVias from './components/LandingPageVias'
+import PublicQRGenerator from './components/PublicQRGenerator'
 import currencyService from './services/currencyService'
 import weatherService from './services/weatherService'
 import eventsService from './services/eventsService'
 import hotelQRService from './services/qrHotelService'
+import publicQRService from './services/publicQRService'
 import donationService from './services/donationService'
 import gamificationService from './services/gamificationService'
-import notificationService from './services/notificationService'
+
 import offlineStorage from './services/offlineStorage'
 import NotificationsPanel from './components/NotificationsPanel'
 import horsebackRidingService from './services/horsebackRidingService'
@@ -283,6 +285,11 @@ function initializeAllServicesSafely() {
   } catch (e: any) { console.warn('[init] hotelQRService:', e?.message || e) }
 }
 
+function cleanupAllServicesSafely() {
+  try { currencyService.cleanup() } catch (e: any) { console.warn('[cleanup] currencyService:', e?.message || e) }
+  try { weatherService.cleanup() } catch (e: any) { console.warn('[cleanup] weatherService:', e?.message || e) }
+}
+
 function formatPrice(cop: number, currency: Currency) {
   return currencyService.formatAmount(currencyService.convertFromCOP(cop, currency), currency)
 }
@@ -294,7 +301,7 @@ function App() {
   const [search, setSearch] = useState('')
   const [mobileNav, setMobileNav] = useState(false)
   const [language, setLanguage] = useState<Language>(() => {
-    try { return translationService.initialize() as Language } catch (e) { console.warn('[init] translation lazy fallback ES:', e); return 'ES' as Language }
+    try { return translationService.initialize() as Language } catch (e) { console.warn('[init] translation lazy fallback es:', e); return 'es' as Language }
   })
   const [currency, setCurrency] = useState<Currency>('COP')
   const [selectedPlace, setSelectedPlace] = useState<Place | null>(null)
@@ -329,6 +336,7 @@ function App() {
   const [showLandingPageVias, setShowLandingPageVias] = useState(false)
   const [showAllyVerification, setShowAllyVerification] = useState(false)
   const [showProviderModal, setShowProviderModal] = useState(false)
+  const [showPublicQR, setShowPublicQR] = useState(false)
   const [selectedCategory, setSelectedCategory] = useState<Category | null>(null)
   const [selectedCategoryPage, setSelectedCategoryPage] = useState<Category | null>(null)
   const [selectedAllyForVerification, setSelectedAllyForVerification] = useState<string | null>(null)
@@ -423,68 +431,69 @@ function App() {
   // Función helper para obtener traducciones
   const t = (key: string, fallback?: string) => translationService.translate(key, fallback)
 
+  // Función para cargar datos - movida fuera del useEffect y con useCallback
+  const loadData = useCallback(async () => {
+    try {
+      setLoading(true)
+
+      try { await offlineStorage.initialize() } catch (e) { console.warn('[App] offline init skip:', e) }
+
+      let offlinePlaces: Place[] = []
+      let offlineHotels: HotelType[] = []
+      try {
+        offlinePlaces = await offlineStorage.getPlaces()
+        offlineHotels = await offlineStorage.getHotels()
+      } catch (e) { console.warn('[App] offline read skip:', e) }
+
+      if (offlinePlaces.length > 0 && offlineHotels.length > 0) {
+        console.log('Loading data from offline storage')
+        setPlaces(offlinePlaces)
+        setHotels(offlineHotels)
+      }
+
+      let loadedPlaces: Place[] = offlinePlaces
+      let loadedMarkers: MapMarker[] = []
+      let loadedHotels: HotelType[] = offlineHotels
+      let weatherData: any = null
+      let eventsData: any[] = []
+
+      try {
+        ;[loadedPlaces, loadedMarkers, loadedHotels, weatherData, eventsData] = await Promise.all([
+          dataService.getPlaces(),
+          dataService.getMapMarkers(),
+          dataService.getHotels(),
+          Promise.resolve().then(() => weatherService.getWeatherComparison()).catch(() => null),
+          Promise.resolve().then(() => eventsService.getTodayEvents()).catch(() => [] as any[])
+        ])
+      } catch (e) { console.warn('[App] data fetch partial fail:', e) }
+
+      if (loadedPlaces?.length) setPlaces(loadedPlaces)
+      if (loadedMarkers?.length) setMapMarkers(loadedMarkers)
+      if (loadedHotels?.length) setHotels(loadedHotels)
+      if (weatherData) setWeather(weatherData)
+      if (eventsData?.length) setTodayEvents(eventsData)
+
+      try {
+        if (loadedPlaces?.length) await offlineStorage.savePlaces(loadedPlaces)
+        if (loadedHotels?.length) await offlineStorage.saveHotels(loadedHotels)
+      } catch (e) { console.warn('[App] offline save skip:', e) }
+
+      try {
+        if (weatherData) notificationsService.generateWeatherAlert(weatherData)
+        ;(eventsData || []).forEach((event: any) => notificationsService.generateEventAlert(event))
+      } catch (e) { console.warn('[App] notifications skip:', e) }
+
+      try { orderSyncService.start() } catch (e) { console.warn('[App] orderSync start skip:', e) }
+    } catch (error) {
+      console.error('Error loading data:', error)
+    } finally {
+      setLoading(false)
+    }
+  }, [])
+
   // Cargar datos al montar el componente
   useEffect(() => {
     initializeAllServicesSafely()
-
-    async function loadData() {
-      try {
-        setLoading(true)
-
-        try { await offlineStorage.initialize() } catch (e) { console.warn('[App] offline init skip:', e) }
-
-        let offlinePlaces: Place[] = []
-        let offlineHotels: HotelType[] = []
-        try {
-          offlinePlaces = await offlineStorage.getPlaces()
-          offlineHotels = await offlineStorage.getHotels()
-        } catch (e) { console.warn('[App] offline read skip:', e) }
-
-        if (offlinePlaces.length > 0 && offlineHotels.length > 0) {
-          console.log('Loading data from offline storage')
-          setPlaces(offlinePlaces)
-          setHotels(offlineHotels)
-        }
-
-        let loadedPlaces: Place[] = offlinePlaces
-        let loadedMarkers: MapMarker[] = []
-        let loadedHotels: HotelType[] = offlineHotels
-        let weatherData: any = null
-        let eventsData: any[] = []
-
-        try {
-          ;[loadedPlaces, loadedMarkers, loadedHotels, weatherData, eventsData] = await Promise.all([
-            dataService.getPlaces(),
-            dataService.getMapMarkers(),
-            dataService.getHotels(),
-            Promise.resolve().then(() => weatherService.getWeatherComparison()).catch(() => null),
-            Promise.resolve().then(() => eventsService.getTodayEvents()).catch(() => [] as any[])
-          ])
-        } catch (e) { console.warn('[App] data fetch partial fail:', e) }
-
-        if (loadedPlaces?.length) setPlaces(loadedPlaces)
-        if (loadedMarkers?.length) setMapMarkers(loadedMarkers)
-        if (loadedHotels?.length) setHotels(loadedHotels)
-        if (weatherData) setWeather(weatherData)
-        if (eventsData?.length) setTodayEvents(eventsData)
-
-        try {
-          if (loadedPlaces?.length) await offlineStorage.savePlaces(loadedPlaces)
-          if (loadedHotels?.length) await offlineStorage.saveHotels(loadedHotels)
-        } catch (e) { console.warn('[App] offline save skip:', e) }
-
-        try {
-          if (weatherData) notificationService.generateWeatherAlert(weatherData)
-          ;(eventsData || []).forEach((event: any) => notificationService.generateEventAlert(event))
-        } catch (e) { console.warn('[App] notifications skip:', e) }
-
-        try { orderSyncService.start() } catch (e) { console.warn('[App] orderSync start skip:', e) }
-      } catch (error) {
-        console.error('Error loading data:', error)
-      } finally {
-        setLoading(false)
-      }
-    }
     loadData()
 
     // Check for landing page in URL
@@ -511,8 +520,9 @@ function App() {
     return () => {
       try { orderSyncService.stop() } catch (e) { console.warn('[App] orderSync stop skip:', e) }
       try { if (cleanupConnectionListener) cleanupConnectionListener() } catch (e) { console.warn('[App] conn cleanup skip:', e) }
+      try { cleanupAllServicesSafely() } catch (e) { console.warn('[App] services cleanup skip:', e) }
     }
-  }, [])
+  }, [loadData])
 
   const filteredPlaces = useMemo(() => {
     const normalizedSearch = search.toLowerCase().trim()
@@ -634,23 +644,16 @@ function App() {
           </div>
         </div>
         <div className="header-actions-mobile">
-          <button className="icon-button notification-trigger" aria-label="Notificaciones" onClick={() => setShowNotifications(!showNotifications)}>
-            <Bell size={18} />
-            <span className="button-label">Notificaciones</span>
-            {notificationService.getUnreadNotifications().length > 0 && (
-              <span className="notification-dot" />
-            )}
-          </button>
-          <button className="icon-button support-trigger" aria-label="Centro de Soporte" onClick={() => setShowSupport(true)}>
-            <LifeBuoy size={18} />
-            <span className="button-label">Soporte</span>
-          </button>
           <button className="icon-button notifications-trigger" aria-label="Notificaciones" onClick={() => setShowNotifications(!showNotifications)}>
             <Bell size={18} />
             <span className="button-label">Notificaciones</span>
             {notificationsService.getUnreadCount() > 0 && (
               <span className="notification-badge">{notificationsService.getUnreadCount()}</span>
             )}
+          </button>
+          <button className="icon-button support-trigger" aria-label="Centro de Soporte" onClick={() => setShowSupport(true)}>
+            <LifeBuoy size={18} />
+            <span className="button-label">Soporte</span>
           </button>
           <button className="icon-button qr-share-trigger" aria-label="Compartir QR" onClick={() => setShowQRShare(true)}>
             <Share2 size={18} />
@@ -667,12 +670,12 @@ function App() {
           <button className="icon-button mobile-menu" aria-label="Abrir menú" onClick={() => setMobileNav(!mobileNav)}><Menu size={20} /></button>
           <div className="locale-tools-mobile">
             <select aria-label="Cambiar idioma" value={language} onChange={(event) => handleLanguageChange(event.target.value as Language)}>
-              <option value={Language.ES}>ES</option>
-              <option value={Language.EN}>EN</option>
-              <option value={Language.FR}>FR</option>
-              <option value={Language.DE}>DE</option>
-              <option value={Language.PT}>PT</option>
-              <option value={Language.IT}>IT</option>
+              <option value={LanguageConst.es}>ES</option>
+              <option value={LanguageConst.en}>EN</option>
+              <option value={LanguageConst.fr}>FR</option>
+              <option value={LanguageConst.de}>DE</option>
+              <option value={LanguageConst.pt}>PT</option>
+              <option value={LanguageConst.it}>IT</option>
             </select>
             <select aria-label="Cambiar moneda" value={currency} onChange={(event) => setCurrency(event.target.value as Currency)}><option value="COP">COP</option><option value="USD">USD</option><option value="EUR">EUR</option></select>
           </div>
@@ -970,7 +973,7 @@ function App() {
 
         <section className="map-section" id="mapa">
           <div className="map-copy"><p className="eyebrow">Orienta tu paseo</p><h2>{t('map')}</h2><p>Descubre rutas a pie, lugares favoritos y recomendaciones de quienes hacen de Salento su casa.</p><button className="dark-button" onClick={() => scrollToSection('mapa')}><span>Abrir mapa completo</span> <ArrowRight size={17} /></button><div className="map-legend"><span><i className="legend-dot coral" />Favoritos locales</span><span><i className="legend-dot green" />Para descubrir</span></div></div>
-          <div className="map-visual" aria-label="Mapa interactivo de Salento con lugares destacados"><MapContainer center={[4.6371, -75.5706]} zoom={16} scrollWheelZoom={false} className="leaflet-map"><TileLayer attribution="&copy; OpenStreetMap" url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />{visibleMarkers.map((marker) => <CircleMarker key={marker.label} center={[marker.lat, marker.lng]} radius={10} pathOptions={{ color: marker.tone === 'green' ? '#56755b' : marker.tone === 'yellow' ? '#ba8a25' : '#e76c52', fillColor: marker.tone === 'green' ? '#56755b' : marker.tone === 'yellow' ? '#e8bb58' : '#e76c52', fillOpacity: 0.9 }}><Popup><strong>{marker.label}</strong><br /><span>{marker.type} · Salento</span><br /><button className="popup-action">Ver ficha <ArrowRight size={13} /></button></Popup></CircleMarker>)}<MapControls /></MapContainer></div>
+          <div className="map-visual" aria-label="Mapa interactivo de Salento con lugares destacados"><MapContainer center={[4.6371, -75.5706]} zoom={16} scrollWheelZoom={false} className="leaflet-map"><TileLayer attribution="&copy; OpenStreetMap" url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />{visibleMarkers.map((marker) => <CircleMarker key={marker.label} center={marker.coord} radius={10} pathOptions={{ color: marker.tone === 'green' ? '#56755b' : marker.tone === 'yellow' ? '#ba8a25' : '#e76c52', fillColor: marker.tone === 'green' ? '#56755b' : marker.tone === 'yellow' ? '#e8bb58' : '#e76c52', fillOpacity: 0.9 }}><Popup><strong>{marker.label}</strong><br /><span>{marker.type} · Salento</span><br /><button className="popup-action">Ver ficha <ArrowRight size={13} /></button></Popup></CircleMarker>)}<MapControls /></MapContainer></div>
         </section>
 
             <section className="advertising-section" id="pautas"><div><p className="eyebrow">Hazte visible en Salento</p><h2>Pautas que llegan<br /><i>al lugar correcto.</i></h2><p>Tu negocio aparece en el mapa digital, en las búsquedas y frente a turistas listos para comprar o reservar.</p></div><div className="advertising-cards"><article><span className="ad-tag">Gastronomía</span><strong>Tu sabor, en el mapa.</strong><small>Ficha + ubicación + pedidos</small></article><article><span className="ad-tag green-tag">Comercio local</span><strong>Lo local se encuentra.</strong><small>Ficha + ubicación + contacto</small></article><article><span className="ad-tag yellow-tag">Experiencias</span><strong>El plan empieza aquí.</strong><small>Ficha + reservas + rutas</small></article></div><button className="dark-button ad-button" onClick={() => setShowProviderModal(true)}>Conoce las pautas <ArrowRight size={17} /></button></section>
