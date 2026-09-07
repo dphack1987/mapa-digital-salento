@@ -30,15 +30,21 @@
 
 ## Catálogo de servicios y productos
 ### Acceso y experiencia principal
-- Entrada al atractivo: precio por confirmar, según tarifa vigente
+- Pasadía: $11.000 por persona
 - Senderismo y recorrido natural: servicio incluido en la visita
 - Piscina natural: acceso según disponibilidad y horario
 - Segunda cascada / mirador natural: experiencia complementaria
 
 ### Servicios complementarios
 - Paseo de naturaleza y trekking
-- Área de descanso o camping por confirmar
-- Recomendaciones de preparación para visitantes
+- Camping: $28.000 por persona por noche (Nota: Traer todos los implementos necesarios, se vende madera y carbón)
+- Habitación: $140.000 por pareja incluido el desayuno (Mascota: $15.000 pesos)
+- Nota: El costo del Camping y la habitación incluye la caminata por los senderos, la piscina natural, cascadas, cavernas y túnel
+- Desayuno: $12.000 pesos
+- Calentado: $15.000 pesos
+- Almuerzo: $18.000 pesos
+- Trucha: $28.000 pesos
+- Parqueadero gratis 🏍️🚗
 
 ## Contacto y datos faltantes
 Se requieren confirmar:

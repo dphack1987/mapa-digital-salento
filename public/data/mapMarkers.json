@@ -37,54 +37,6 @@
       "note": "Reserva Natural Cascadas de Santa Rita"
     },
     {
-      "id": 1,
-      "label": "Brunch de la Plaza",
-      "type": "Gastronómico",
-      "placeId": 1,
-      "coord": [
-        4.6375,
-        -75.571
-      ],
-      "tone": "warning",
-      "note": "Brunch de la Plaza"
-    },
-    {
-      "id": 2,
-      "label": "Canasto Quindiano",
-      "type": "Comercial",
-      "placeId": 2,
-      "coord": [
-        4.638,
-        -75.57
-      ],
-      "tone": "info",
-      "note": "Canasto Quindiano"
-    },
-    {
-      "id": 3,
-      "label": "Valle en Bicicleta",
-      "type": "Turístico",
-      "placeId": 3,
-      "coord": [
-        4.637,
-        -75.569
-      ],
-      "tone": "success",
-      "note": "Valle en Bicicleta"
-    },
-    {
-      "id": 4,
-      "label": "La Fogata Salentina",
-      "type": "Gastronómico",
-      "placeId": 4,
-      "coord": [
-        4.6365,
-        -75.5715
-      ],
-      "tone": "warning",
-      "note": "La Fogata Salentina"
-    },
-    {
       "id": 5,
       "label": "Hotel Camino Nacional Salento",
       "type": "Turístico",
@@ -95,42 +47,6 @@
       ],
       "tone": "primary",
       "note": "Hotel Camino Nacional Salento"
-    },
-    {
-      "id": 6,
-      "label": "Café de Altura",
-      "type": "Gastronómico",
-      "placeId": 6,
-      "coord": [
-        4.6368,
-        -75.5712
-      ],
-      "tone": "warning",
-      "note": "Café de Altura"
-    },
-    {
-      "id": 7,
-      "label": "Tienda La Montaña",
-      "type": "Comercial",
-      "placeId": 7,
-      "coord": [
-        4.6378,
-        -75.5702
-      ],
-      "tone": "info",
-      "note": "Tienda La Montaña"
-    },
-    {
-      "id": 8,
-      "label": "Guías del Cocora",
-      "type": "Comercial",
-      "placeId": 8,
-      "coord": [
-        4.636,
-        -75.5695
-      ],
-      "tone": "info",
-      "note": "Guías del Cocora"
     },
     {
       "id": 9,
@@ -145,18 +61,6 @@
       "note": "Finca Hotel El Ocaso"
     },
     {
-      "id": 10,
-      "label": "Jeeps Willys Salento",
-      "type": "Comercial",
-      "placeId": 10,
-      "coord": [
-        4.637,
-        -75.57
-      ],
-      "tone": "info",
-      "note": "Jeeps Willys Salento"
-    },
-    {
       "id": 11,
       "label": "Cabalgatas Valle de Cocora",
       "type": "Turístico",
@@ -169,16 +73,16 @@
       "note": "Cabalgatas Valle de Cocora"
     },
     {
-      "id": 12,
-      "label": "Salento Tour Operadora",
+      "id": 20,
+      "label": "Cabalgatas Cocora Mágica",
       "type": "Turístico",
-      "placeId": 12,
+      "placeId": 20,
       "coord": [
-        4.6375,
-        -75.571
+        4.6315,
+        -75.5738
       ],
       "tone": "success",
-      "note": "Salento Tour Operadora"
+      "note": "Cabalgatas Cocora Mágica"
     },
     {
       "id": 16,
@@ -210,8 +114,8 @@
       "type": "Turístico",
       "placeId": 18,
       "coord": [
-        4.6345,
-        -75.574
+        4.632,
+        -75.571
       ],
       "tone": "success",
       "note": "Coffee Farm El Recuerdo"
@@ -229,16 +133,16 @@
       "note": "Moto Aventura 110"
     },
     {
-      "id": 20,
-      "label": "Cabalgatas Cocora Mágica",
+      "id": 23,
+      "label": "Finca Don Eduardo Coffee Tour",
       "type": "Turístico",
-      "placeId": 20,
+      "placeId": 23,
       "coord": [
-        4.6315,
-        -75.5738
+        4.638,
+        -75.569
       ],
       "tone": "success",
-      "note": "Cabalgatas Cocora Mágica"
+      "note": "Finca Don Eduardo Coffee Tour"
     },
     {
       "id": 21,
@@ -433,6 +337,6 @@
       "note": "Punto de Encuentro Jeeps Willys Plaza"
     }
   ],
-  "lastUpdated": "2026-09-03T00:11:22.313Z",
-  "version": "1.3.0-verified-only"
+  "lastUpdated": "2026-09-07T00:00:00.000Z",
+  "version": "2.0.0-pautantes-only"
 }

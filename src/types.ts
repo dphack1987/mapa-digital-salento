@@ -1,5 +1,5 @@
 // Tipos base del sistema
-export type Category = 'Todo' | 'Alojamientos' | 'Restaurantes' | 'Cafés' | 'Artesanías' | 'Tiendas' | 'Experiencias' | 'Servicios'
+export type Category = 'Todo' | 'Alojamientos' | 'Restaurantes' | 'Cafés' | 'Coffee Tours' | 'Artesanías' | 'Tiendas' | 'Experiencias' | 'Atractivos Turísticos' | 'Servicios'
 
 // Objeto de idioma que EXISTE EN RUNTIME (evita ReferenceError: Language is not defined)
 export const Language = {

@@ -12,15 +12,15 @@
       "color": "sage",
       "icon": "Hotel",
       "contact": {
-        "phone": "+57 310 5692491",
-        "whatsapp": "573105692491",
-        "email": "comercial@bokimall.com",
+        "phone": "+57 311 222 5312",
+        "whatsapp": "573112225312",
+        "email": "reservas@bokimall.com",
         "website": "https://www.bokimall.com/"
       },
       "location": {
         "lat": 4.642,
         "lng": -75.565,
-        "address": "Vereda Boquía, vía principal a Salento, Quindío",
+        "address": "Km 5, vía principal a Salento, Vereda Boquía",
         "landmark": "400 metros después del puente de Boquía"
       },
       "operatingHours": {
@@ -72,12 +72,12 @@
           "Miradores"
         ],
         "policies": [
-          "Check-in: 14:00",
+          "Check-in: 15:00",
           "Check-out: 12:00",
           "Reservas requeridas",
           "Eventos con reserva previa"
         ],
-        "checkIn": "14:00",
+        "checkIn": "15:00",
         "checkOut": "12:00",
         "amenities": [
           "Desayuno incluido",
@@ -86,21 +86,21 @@
           "Eventos",
           "Paquetes turísticos"
         ],
-        "capacity": "Por confirmar",
-        "bookingNotes": "Premio al mejor hotel rural de Salento 2024. Operador logístico Boki Travel para experiencias turísticas."
+        "capacity": "9 habitaciones",
+        "bookingNotes": "Premio al mejor hotel rural de Salento 2024. Operador logístico Boki Travel para experiencias turísticas. RNT: #91079"
       }
     },
     {
       "id": 14,
       "name": "Mirador Las Manos de Dios",
-      "type": "Experiencias",
+      "type": "Atractivos Turísticos",
       "description": "Mirador y parque fotográfico con escenarios temáticos y vistas panorámicas sobre la cordillera del Quindío. La experiencia combina fotografía, paisaje y clima de aventura para visitantes que buscan una parada icónica cerca de Salento.",
       "priceRange": "$",
       "rating": "4.8",
       "timeInfo": "8:00 a.m. - 6:00 p.m.",
       "badge": "Nuevo Atractivo",
       "color": "yellow",
-      "icon": "Compass",
+      "icon": "Mountain",
       "contact": {
         "phone": "+57 320 9876543",
         "whatsapp": "573209876543"
@@ -177,7 +177,7 @@
     {
       "id": 15,
       "name": "Reserva Natural Cascadas de Santa Rita",
-      "type": "Experiencias",
+      "type": "Atractivos Turísticos",
       "description": "Hermosa quebrada con caída de 20 metros a piscina natural en Boquía. Sendero de 4.8 km con bosque, montes, valle, antigua vía de tren, túnel y puente colgante. Incluye segunda cascada por cavernas y zonas de camping.",
       "priceRange": "$",
       "rating": "4.7",
@@ -186,14 +186,14 @@
       "color": "green",
       "icon": "Mountain",
       "contact": {
-        "phone": "+57 300 1234567",
-        "whatsapp": "573001234567"
+        "phone": "+57 301 503 8254",
+        "whatsapp": "573015038254"
       },
       "location": {
         "lat": 4.64,
         "lng": -75.56,
         "address": "Vereda Boquía",
-        "landmark": "1 km de la entrada de Boquía, Hacienda Santa Rita"
+        "landmark": "200 metros del puente amarillo de Boquía"
       },
       "operatingHours": {
         "notes": "Acceso durante el día. Se recomienda iniciar temprano (8am)"
@@ -236,9 +236,9 @@
         "languages": [
           "Español"
         ],
-        "meetingPoint": "Hacienda Santa Rita, 1 km de entrada Boquía",
+        "meetingPoint": "Hacienda Santa Rita, 200 metros del puente amarillo de Boquía",
         "cancellationPolicy": "No aplica (propiedad privada)",
-        "tariff": "$5.000 COP por persona",
+        "tariff": "Pasadía: $11.000 por persona. Camping: $28.000 por persona por noche. Habitación: $140.000 por pareja",
         "attractions": [
           "Cascada principal 20m",
           "Piscina natural",
@@ -256,270 +256,6 @@
           "Zonas de camping"
         ],
         "route": "Boquía → Hacienda Santa Rita → Sendero bosque → Vía tren → Túnel → Puente colgante → Cascada"
-      }
-    },
-    {
-      "id": 1,
-      "name": "Brunch de la Plaza",
-      "type": "Restaurantes",
-      "description": "Café de origen, arepas y desayunos con vista al parque.",
-      "priceRange": "$$",
-      "rating": "4.9",
-      "timeInfo": "20–30 min",
-      "badge": "Muy pedido",
-      "color": "terracotta",
-      "icon": "Coffee",
-      "contact": {
-        "phone": "+57 316 4567890",
-        "whatsapp": "573164567890"
-      },
-      "location": {
-        "lat": 4.6375,
-        "lng": -75.571,
-        "address": "Cerca de la Plaza Principal",
-        "landmark": "Plaza de Bolívar"
-      },
-      "operatingHours": {
-        "monday": "7:00 - 14:00",
-        "tuesday": "7:00 - 14:00",
-        "wednesday": "7:00 - 14:00",
-        "thursday": "7:00 - 14:00",
-        "friday": "7:00 - 14:00",
-        "saturday": "8:00 - 15:00",
-        "sunday": "8:00 - 15:00"
-      },
-      "tags": [
-        "desayuno",
-        "café",
-        "arepas",
-        "vista al parque"
-      ],
-      "verified": false,
-      "active": true,
-      "foodServiceDetails": {
-        "cuisineType": [
-          "Colombiana",
-          "Cafetería"
-        ],
-        "specialties": [
-          "Arepa de chocolo",
-          "Café de origen",
-          "Desayunos tradicionales"
-        ],
-        "menuHighlights": [
-          "Arepa de chocolo con café",
-          "Desayuno salentino",
-          "Juan Valerio"
-        ],
-        "averagePrice": "$$",
-        "reservationRequired": false,
-        "deliveryInfo": {
-          "available": true,
-          "areas": [
-            "Centro",
-            "Hoteles aliados"
-          ],
-          "minimumOrder": "$15.000",
-          "deliveryTime": "20-30 min",
-          "deliveryFee": "$3.000"
-        }
-      }
-    },
-    {
-      "id": 2,
-      "name": "Canasto Quindiano",
-      "type": "Artesanías",
-      "description": "Artesanías, café y detalles hechos por manos locales.",
-      "priceRange": "$$",
-      "rating": "4.8",
-      "timeInfo": "Entrega hoy",
-      "badge": "Local",
-      "color": "sage",
-      "icon": "ShoppingBasket",
-      "contact": {
-        "phone": "+57 318 5678901",
-        "whatsapp": "573185678901",
-        "email": "info@canastoquindiano.co"
-      },
-      "location": {
-        "lat": 4.638,
-        "lng": -75.57,
-        "address": "Calle Real",
-        "landmark": "Calle Real"
-      },
-      "operatingHours": {
-        "monday": "9:00 - 19:00",
-        "tuesday": "9:00 - 19:00",
-        "wednesday": "9:00 - 19:00",
-        "thursday": "9:00 - 19:00",
-        "friday": "9:00 - 20:00",
-        "saturday": "9:00 - 20:00",
-        "sunday": "10:00 - 18:00"
-      },
-      "tags": [
-        "artesanías",
-        "café",
-        "detalles locales",
-        "regalos"
-      ],
-      "verified": false,
-      "active": true,
-      "commerceDetails": {
-        "productTypes": [
-          "Artesanías",
-          "Café",
-          "Souvenirs",
-          "Ropa tradicional"
-        ],
-        "mainProducts": [
-          "Bolsos tejidos",
-          "Cerámica",
-          "Café de origen",
-          "Sombrero vueltiao"
-        ],
-        "paymentMethods": [
-          "Efectivo",
-          "Nequi",
-          "DaviPlata",
-          "Tarjeta"
-        ],
-        "deliveryInfo": {
-          "available": true,
-          "areas": [
-            "Centro",
-            "Hoteles"
-          ],
-          "minimumOrder": "$20.000",
-          "deliveryTime": "Mismo día"
-        }
-      }
-    },
-    {
-      "id": 3,
-      "name": "Valle en Bicicleta",
-      "type": "Experiencias",
-      "description": "Recorre el paisaje cultural cafetero con guías de Salento.",
-      "priceRange": "$$$",
-      "rating": "5.0",
-      "timeInfo": "Desde 8:00 am",
-      "badge": "Imperdible",
-      "color": "yellow",
-      "icon": "Bike",
-      "contact": {
-        "phone": "+57 300 1234567",
-        "whatsapp": "573001234567"
-      },
-      "location": {
-        "lat": 4.637,
-        "lng": -75.569,
-        "address": "Oficina principal",
-        "landmark": "Calle Real"
-      },
-      "operatingHours": {
-        "notes": "Reserva previa requerida. Salidas: 8:00 am y 2:00 pm"
-      },
-      "tags": [
-        "bicicleta",
-        "valle del cocora",
-        "tour",
-        "guía local"
-      ],
-      "verified": false,
-      "active": true,
-      "experienceDetails": {
-        "duration": "3-4 horas",
-        "difficulty": "Moderada",
-        "groupSize": "2-8 personas",
-        "included": [
-          "Bicicleta",
-          "Guía local",
-          "Seguro",
-          "Agua",
-          "Refrigerio"
-        ],
-        "notIncluded": [
-          "Entrada al valle",
-          "Propinas",
-          "Comida"
-        ],
-        "requirements": [
-          "Condición física moderada",
-          "Ropa cómoda",
-          "Protector solar"
-        ],
-        "languages": [
-          "Español",
-          "Inglés básico"
-        ],
-        "meetingPoint": "Oficina en Calle Real",
-        "cancellationPolicy": "Cancelación gratuita hasta 24h antes"
-      }
-    },
-    {
-      "id": 4,
-      "name": "La Fogata Salentina",
-      "type": "Restaurantes",
-      "description": "Trucha, patacón y sabores de montaña para compartir.",
-      "priceRange": "$$$",
-      "rating": "4.7",
-      "timeInfo": "35–45 min",
-      "badge": "Domicilio",
-      "color": "mustard",
-      "icon": "Utensils",
-      "contact": {
-        "phone": "+57 317 8901234",
-        "whatsapp": "573178901234"
-      },
-      "location": {
-        "lat": 4.6365,
-        "lng": -75.5715,
-        "address": "Cerca de la plaza",
-        "landmark": "Plaza Principal"
-      },
-      "operatingHours": {
-        "monday": "12:00 - 21:00",
-        "tuesday": "12:00 - 21:00",
-        "wednesday": "12:00 - 21:00",
-        "thursday": "12:00 - 21:00",
-        "friday": "12:00 - 22:00",
-        "saturday": "11:00 - 22:00",
-        "sunday": "11:00 - 21:00"
-      },
-      "tags": [
-        "trucha",
-        "patacón",
-        "comida tradicional",
-        "carnes"
-      ],
-      "verified": false,
-      "active": true,
-      "foodServiceDetails": {
-        "cuisineType": [
-          "Colombiana",
-          "Parrilla"
-        ],
-        "specialties": [
-          "Trucha arcoíris",
-          "Patacón con todo",
-          "Carne asada"
-        ],
-        "menuHighlights": [
-          "Trucha con patacón",
-          "Bandeja paisa mini",
-          "Carne a la brasa"
-        ],
-        "averagePrice": "$$$",
-        "reservationRequired": false,
-        "deliveryInfo": {
-          "available": true,
-          "areas": [
-            "Centro",
-            "Hoteles aliados"
-          ],
-          "minimumOrder": "$25.000",
-          "deliveryTime": "35-45 min",
-          "deliveryFee": "$4.000"
-        }
       }
     },
     {
@@ -653,197 +389,6 @@
       }
     },
     {
-      "id": 6,
-      "name": "Café de Altura",
-      "type": "Cafés",
-      "description": "Café de origen, métodos filtrados y una pausa con paisaje.",
-      "priceRange": "$$",
-      "rating": "4.9",
-      "timeInfo": "Abierto hoy",
-      "badge": "Origen local",
-      "color": "terracotta",
-      "icon": "Coffee",
-      "contact": {
-        "phone": "+57 320 9876543",
-        "whatsapp": "573209876543"
-      },
-      "location": {
-        "lat": 4.6368,
-        "lng": -75.5712,
-        "address": "Calle Real",
-        "landmark": "Mirador Alto de la Cruz"
-      },
-      "operatingHours": {
-        "monday": "7:00 - 18:00",
-        "tuesday": "7:00 - 18:00",
-        "wednesday": "7:00 - 18:00",
-        "thursday": "7:00 - 18:00",
-        "friday": "7:00 - 19:00",
-        "saturday": "8:00 - 19:00",
-        "sunday": "8:00 - 18:00"
-      },
-      "tags": [
-        "café especialidad",
-        "métodos filtrados",
-        "vista",
-        "origen"
-      ],
-      "verified": false,
-      "active": true,
-      "foodServiceDetails": {
-        "cuisineType": [
-          "Cafetería de especialidad"
-        ],
-        "specialties": [
-          "V60",
-          "Chemex",
-          "Aeropress",
-          "Cold Brew"
-        ],
-        "menuHighlights": [
-          "Cappuccino",
-          "Latte arte",
-          "Pour over",
-          "Cold brew"
-        ],
-        "dietaryOptions": [
-          "Leche vegetal",
-          "Sin azúcar",
-          "Sin gluten"
-        ],
-        "averagePrice": "$$",
-        "reservationRequired": false
-      }
-    },
-    {
-      "id": 7,
-      "name": "Tienda La Montaña",
-      "type": "Tiendas",
-      "description": "Snacks, bebidas, mercado básico y entregas al hotel.",
-      "priceRange": "$",
-      "rating": "4.6",
-      "timeInfo": "Entrega hoy",
-      "badge": "Domicilio",
-      "color": "mustard",
-      "icon": "Store",
-      "contact": {
-        "phone": "+57 315 5555555",
-        "whatsapp": "573155555555"
-      },
-      "location": {
-        "lat": 4.6378,
-        "lng": -75.5702,
-        "address": "Calle Principal",
-        "landmark": "Plaza Principal"
-      },
-      "operatingHours": {
-        "monday": "6:00 - 21:00",
-        "tuesday": "6:00 - 21:00",
-        "wednesday": "6:00 - 21:00",
-        "thursday": "6:00 - 21:00",
-        "friday": "6:00 - 22:00",
-        "saturday": "7:00 - 22:00",
-        "sunday": "7:00 - 20:00"
-      },
-      "tags": [
-        "supermercado",
-        "snacks",
-        "bebidas",
-        "domicilio"
-      ],
-      "verified": false,
-      "active": true,
-      "commerceDetails": {
-        "productTypes": [
-          "Alimentos",
-          "Bebidas",
-          "Aseo",
-          "Snacks"
-        ],
-        "mainProducts": [
-          "Agua",
-          "Gaseosas",
-          "Snacks",
-          "Pan",
-          "Leche"
-        ],
-        "paymentMethods": [
-          "Efectivo",
-          "Nequi",
-          "DaviPlata"
-        ],
-        "deliveryInfo": {
-          "available": true,
-          "areas": [
-            "Centro",
-            "Hoteles"
-          ],
-          "minimumOrder": "$10.000",
-          "deliveryTime": "30-45 min"
-        }
-      }
-    },
-    {
-      "id": 8,
-      "name": "Guías del Cocora",
-      "type": "Servicios",
-      "description": "Guías locales, transporte y planes seguros para el valle.",
-      "priceRange": "$$",
-      "rating": "5.0",
-      "timeInfo": "Reserva previa",
-      "badge": "Aliado local",
-      "color": "yellow",
-      "icon": "Compass",
-      "contact": {
-        "phone": "+57 300 8888888",
-        "whatsapp": "573008888888"
-      },
-      "location": {
-        "lat": 4.636,
-        "lng": -75.5695,
-        "address": "Oficina principal",
-        "landmark": "Terminal de transporte"
-      },
-      "operatingHours": {
-        "notes": "Atención 7:00 am - 7:00 pm para reservas"
-      },
-      "tags": [
-        "guías",
-        "valle del cocora",
-        "transporte",
-        "seguridad"
-      ],
-      "verified": false,
-      "active": true,
-      "experienceDetails": {
-        "duration": "Variable según plan",
-        "difficulty": "Variable",
-        "groupSize": "1-15 personas",
-        "included": [
-          "Guía certificado",
-          "Transporte si aplica",
-          "Seguro",
-          "Información local"
-        ],
-        "notIncluded": [
-          "Entradas",
-          "Comida",
-          "Propinas"
-        ],
-        "requirements": [
-          "Ropa adecuada",
-          "Calzado cómodo",
-          "Protector solar"
-        ],
-        "languages": [
-          "Español",
-          "Inglés"
-        ],
-        "meetingPoint": "Variable según plan",
-        "cancellationPolicy": "24 horas antes para reembolso completo"
-      }
-    },
-    {
       "id": 9,
       "name": "Finca Hotel El Ocaso",
       "type": "Alojamientos",
@@ -864,11 +409,11 @@
         "landmark": "10-15 min del centro de Salento"
       },
       "photos": [
-        "/pautas/finca_hotel_el_ocaso/imagenes/fachada.webp",
-        "/pautas/finca_hotel_el_ocaso/imagenes/habitacion.webp",
-        "/pautas/finca_hotel_el_ocaso/imagenes/jardines.webp",
-        "/pautas/finca_hotel_el_ocaso/imagenes/desayuno.webp",
-        "/pautas/finca_hotel_el_ocaso/imagenes/vistas.webp"
+        "/pautas/coffe-tour-alojamiento-finca_hotel_el_ocaso/imagenes/fachada.webp",
+        "/pautas/coffe-tour-alojamiento-finca_hotel_el_ocaso/imagenes/habitacion.webp",
+        "/pautas/coffe-tour-alojamiento-finca_hotel_el_ocaso/imagenes/jardines.webp",
+        "/pautas/coffe-tour-alojamiento-finca_hotel_el_ocaso/imagenes/desayuno.webp",
+        "/pautas/coffe-tour-alojamiento-finca_hotel_el_ocaso/imagenes/vistas.webp"
       ],
       "operatingHours": {
         "notes": "Check-in: 14:00-20:00, Check-out: 08:00-12:00, Desayuno: 7:00-10:00"
@@ -942,551 +487,371 @@
       }
     },
     {
-      "id": 10,
-      "name": "Jeeps Willys Salento",
-      "type": "Servicios",
-      "description": "Transporte oficial a Valle de Cocora y alrededores. Jeeps tradicionales con operadores certificados.",
-      "priceRange": "$",
-      "rating": "4.9",
-      "timeInfo": "Salidas cada 30 min",
-      "badge": "Oficial",
-      "color": "green",
-      "icon": "Bike",
-      "contact": {
-        "phone": "+57 310 1234567",
-        "whatsapp": "573101234567"
-      },
-      "location": {
-        "lat": 4.637,
-        "lng": -75.57,
-        "address": "Plaza Principal",
-        "landmark": "Plaza de Bolívar"
-      },
-      "operatingHours": {
-        "monday": "6:00 - 18:00",
-        "tuesday": "6:00 - 18:00",
-        "wednesday": "6:00 - 18:00",
-        "thursday": "6:00 - 18:00",
-        "friday": "6:00 - 18:00",
-        "saturday": "6:00 - 18:00",
-        "sunday": "6:00 - 18:00"
-      },
-      "tags": [
-        "transporte",
-        "jeeps",
-        "valle cocora",
-        "willys"
-      ],
-      "verified": true,
-      "active": true,
-      "transportDetails": {
-        "serviceType": "Transporte turístico",
-        "vehicles": [
-          "Jeep Willys",
-          "Mototaxis"
-        ],
-        "routes": [
-          "Salento - Valle de Cocora",
-          "Salento - Filandia",
-          "Salento - Boquía"
-        ],
-        "capacity": "4-6 pasajeros por vehículo",
-        "tariff": "$3.000 COP por persona Valle de Cocora",
-        "reservationRequired": false
-      }
-    },
-    {
-      "id": 11,
-      "name": "Cabalgatas Valle de Cocora",
-      "type": "Experiencias",
-      "description": "Cabalgatas tradicionales por el Valle de Cocora con operadores certificados y guías locales.",
-      "priceRange": "$$",
-      "rating": "5.0",
-      "timeInfo": "Reserva previa",
-      "badge": "⭐ ESPECIAL",
-      "color": "coral",
-      "icon": "Zap",
-      "contact": {
-        "phone": "+57 320 9876543",
-        "whatsapp": "573209876543"
-      },
-      "location": {
-        "lat": 4.636,
-        "lng": -75.575,
-        "address": "Entrada Valle de Cocora",
-        "landmark": "Valle de Cocora"
-      },
-      "operatingHours": {
-        "monday": "8:00 - 17:00",
-        "tuesday": "8:00 - 17:00",
-        "wednesday": "8:00 - 17:00",
-        "thursday": "8:00 - 17:00",
-        "friday": "8:00 - 17:00",
-        "saturday": "8:00 - 17:00",
-        "sunday": "8:00 - 16:00"
-      },
-      "tags": [
-        "cabalgatas",
-        "valle cocora",
-        "caballos",
-        "experiencia"
-      ],
-      "verified": true,
-      "active": true,
-      "horsebackRidingDetails": {
-        "duration": "3-4 horas",
-        "difficulty": "Moderado",
-        "requirements": [
-          "Botas cerradas",
-          "Ropa cómoda",
-          "Protector solar"
-        ],
-        "routes": [
-          "Miradores",
-          "Valle completo",
-          "Cascada Santa Rita"
-        ],
-        "tariff": "$80.000 - $120.000 COP",
-        "groupSize": "Máximo 6 personas por grupo"
-      }
-    },
-    {
-      "id": 12,
-      "name": "Salento Tour Operadora",
-      "type": "Experiencias",
-      "description": "Operadora turística completa con paquetes de experiences, alojamiento y transporte.",
-      "priceRange": "$$$",
-      "rating": "4.8",
-      "timeInfo": "Reserva previa",
-      "badge": "Completo",
-      "color": "purple",
-      "icon": "Compass",
-      "contact": {
-        "phone": "+57 300 7654321",
-        "whatsapp": "573007654321",
-        "email": "info@salentotour.com"
-      },
-      "location": {
-        "lat": 4.6375,
-        "lng": -75.571,
-        "address": "Calle Real",
-        "landmark": "Centro"
-      },
-      "operatingHours": {
-        "monday": "8:00 - 20:00",
-        "tuesday": "8:00 - 20:00",
-        "wednesday": "8:00 - 20:00",
-        "thursday": "8:00 - 20:00",
-        "friday": "8:00 - 20:00",
-        "saturday": "8:00 - 21:00",
-        "sunday": "8:00 - 21:00"
-      },
-      "tags": [
-        "operadora",
-        "paquetes",
-        "turismo",
-        "experiencias"
-      ],
-      "verified": true,
-      "active": true,
-      "tourismDetails": {
-        "packages": [
-          "Valle de Cocora + Alojamiento",
-          "Tour Cafetero Completo",
-          "Experiencias Aventura",
-          "Tour Cultural"
-        ],
-        "customTours": true,
-        "multilingualGuides": true,
-        "transportationIncluded": true
-      }
-    },
-    {
       "id": 16,
       "name": "Hotel La Floresta Salento",
       "type": "Alojamientos",
-      "description": "Hotel boutique ubicado cerca del centro de Salento con ambiente tranquilo, spa, desayuno con vista y servicios útiles para viajeros que buscan confort, trabajo remoto o una base para explorar la zona cafetera.",
-      "priceRange": "$$$",
-      "rating": "4.5",
+      "description": "Hospedaje cómodo en Salento con acceso fácil a las principales atracciones turísticas del municipio. Ambiente acogedor y atención personalizada para visitantes del Eje Cafetero.",
+      "priceRange": "$$",
+      "rating": "4.6",
       "timeInfo": "Reservas directas",
-      "badge": "Hotel boutique",
+      "badge": "Alojamiento local",
       "color": "sage",
       "icon": "Hotel",
       "contact": {
-        "phone": "+57 312 8681808",
-        "whatsapp": "573128681808",
-        "website": "https://www.laflorestahotel.com.co",
-        "instagram": "https://www.instagram.com/laflorestahotelsalento"
+        "phone": "Por confirmar"
       },
       "location": {
         "lat": 4.6372,
         "lng": -75.5705,
-        "address": "A 400 metros de la plaza principal, Salento, Quindío",
-        "landmark": "Centro urbano de Salento"
+        "address": "Salento, Quindío",
+        "landmark": "Cerca del centro histórico"
       },
       "operatingHours": {
-        "notes": "Recepción 24 horas. Desayuno con vista de 7:00 a.m. a 10:00 a.m."
+        "notes": "Recepción 24 horas"
       },
       "tags": [
-        "hotel boutique",
-        "spa",
-        "coworking",
-        "desayuno",
-        "salento centro",
-        "trabajo remoto",
-        "hotel familiar"
+        "hotel",
+        "centro",
+        "turismo",
+        "comodidad"
       ],
       "verified": true,
       "active": true,
       "accommodationDetails": {
-        "categoryLabel": "Hotel boutique · ideal para viajeros y trabajo remoto",
-        "stars": 3,
+        "categoryLabel": "Hotel · hospedaje cómodo en Salento",
         "roomTypes": [
           "Doble",
-          "Triple",
-          "Familiar",
-          "Suite"
+          "Triple"
         ],
         "services": [
-          "Spa",
-          "Desayuno",
           "Wi-Fi",
-          "Coworking",
-          "Parqueadero",
-          "Operadora turística",
-          "Atención 24 horas",
-          "Tours del café"
+          "Desayuno",
+          "Parqueadero"
         ],
         "roomFeatures": [
-          "Habitaciones cómodas",
-          "Vistas",
           "Baño privado",
-          "Aire acondicionado",
-          "Ropa de cama",
-          "Área de descanso"
+          "Televisor",
+          "Agua caliente"
         ],
         "nearby": [
-          "Plaza principal · 400 m",
-          "Valle de Cocora · 20 min",
-          "Calle Real · 5 min",
-          "Pueblo de Salento · centro"
+          "Plaza Principal",
+          "Calle Real",
+          "Valle de Cocora"
         ],
         "policies": [
+          "Reservas requeridas",
           "Check-in: 14:00",
-          "Check-out: 12:00",
-          "Reservas recomendadas",
-          "Desayuno incluido"
+          "Check-out: 12:00"
         ],
         "checkIn": "14:00",
         "checkOut": "12:00",
         "amenities": [
-          "Desayuno con vista",
-          "Spa",
-          "Wi-Fi",
-          "Parqueadero",
-          "Operadora turística"
+          "Desayuno incluido",
+          "Wi-Fi gratis"
         ],
-        "capacity": "Hasta 30 huéspedes",
-        "bookingNotes": "Se recomienda reservar con anticipación, especialmente fines de semana y temporada alta."
+        "capacity": "Por confirmar",
+        "bookingNotes": "Confirmar directamente con el hotel para disponibilidad y precios exactos."
       }
     },
     {
       "id": 17,
       "name": "Finca Cafetera Don Elías",
-      "type": "Experiencias",
-      "description": "Finca tradicional de café en Vereda Palestina que ofrece recorridos guiados por cultivos, explicación del proceso artesanal y degustación con enfoque en la historia y la producción cafetera de la región.",
+      "type": "Coffee Tours",
+      "description": "Tour auténtico de café en finca tradicional del Eje Cafetero. Experiencia educativa sobre el proceso del café desde la semilla hasta la taza, con degustación incluida.",
       "priceRange": "$$",
-      "rating": "4.8",
-      "timeInfo": "Visitas de 1.5 a 3 horas",
-      "badge": "Coffee tour",
-      "color": "yellow",
+      "rating": "4.9",
+      "timeInfo": "Tours programados",
+      "badge": "Tour auténtico",
+      "color": "coral",
       "icon": "Coffee",
       "contact": {
-        "phone": "+57 315 6061113",
-        "website": "https://fincafeteradonelias.com.co"
+        "phone": "Por confirmar"
       },
       "location": {
         "lat": 4.647,
         "lng": -75.577,
-        "address": "Vereda Palestina, km 4, Salento, Quindío",
-        "landmark": "Ruta hacia la finca cafetera"
+        "address": "Valle de Cocora",
+        "landmark": "Entrada Valle de Cocora"
       },
       "operatingHours": {
-        "notes": "Abierto en horario diurno. Cierra alrededor de las 4:00 p.m."
+        "notes": "Tours con reserva previa"
       },
       "tags": [
         "coffee tour",
         "finca cafetera",
-        "degustación",
-        "salento",
-        "finca familiar",
-        "café orgánico"
+        "tour de café",
+        "experiencia",
+        "valle cocora"
       ],
       "verified": true,
       "active": true,
       "experienceDetails": {
-        "duration": "1.5-3 horas",
+        "duration": "2-3 horas",
         "difficulty": "Fácil",
-        "groupSize": "2-20 personas",
+        "groupSize": "Variable",
         "included": [
-          "Recorrido por la finca",
-          "Explicación del proceso del café",
-          "Degustación",
-          "Visita a zonas productivas"
+          "Tour completo del proceso del café",
+          "Degustación de café",
+          "Recorrido por plantaciones",
+          "Información educativa"
         ],
         "notIncluded": [
           "Transporte",
-          "Comida extra",
-          "Propinas"
+          "Comida"
         ],
         "requirements": [
           "Ropa cómoda",
-          "Calzado adecuado",
-          "Ganas de aprender"
+          "Calzado para caminar"
         ],
         "languages": [
-          "Español"
+          "Español",
+          "Inglés básico"
         ],
-        "meetingPoint": "Finca Don Elías, Vereda Palestina",
-        "cancellationPolicy": "Consultar con anticipación para cambios de horario"
+        "meetingPoint": "Finca Don Elías, Valle de Cocora",
+        "cancellationPolicy": "Consultar política de cancelación",
+        "tariff": "Consultar tarifas actuales"
       }
     },
     {
       "id": 18,
       "name": "Coffee Farm El Recuerdo",
-      "type": "Experiencias",
-      "description": "Finca cafetera tradicional en Salento con recorrido guiado sobre la historia del café, plantas medicinales, cafetales y degustaciones locales.",
+      "type": "Coffee Tours",
+      "description": "Experiencia de café en finca familiar con vistas panorámicas del Valle de Cocora. Tour tradicional del proceso cafetero colombiano.",
       "priceRange": "$$",
-      "rating": "5.0",
-      "timeInfo": "1 a 2 horas",
-      "badge": "Top review",
-      "color": "green",
+      "rating": "4.7",
+      "timeInfo": "Tours programados",
+      "badge": "Finca familiar",
+      "color": "coral",
       "icon": "Coffee",
       "contact": {
-        "phone": "+57 310 3764672",
-        "instagram": "https://www.instagram.com/elrecuerdo_coffeetour/"
+        "phone": "Por confirmar"
       },
       "location": {
-        "lat": 4.6345,
-        "lng": -75.574,
-        "address": "Palestina, Vereda, Salento, Quindío",
-        "landmark": "Zona rural de Palestina"
+        "lat": 4.632,
+        "lng": -75.571,
+        "address": "Valle de Cocora",
+        "landmark": "Valle de Cocora"
       },
       "operatingHours": {
-        "notes": "Visitas por reserva. Atención diurna y flexible según disponibilidad."
+        "notes": "Tours con reserva previa"
       },
       "tags": [
         "coffee tour",
-        "naturaleza",
-        "cafés",
-        "degustación"
+        "finca cafetera",
+        "tour de café",
+        "experiencia",
+        "valle cocora"
       ],
       "verified": true,
       "active": true,
       "experienceDetails": {
-        "duration": "1-2 horas",
+        "duration": "2-3 horas",
         "difficulty": "Fácil",
-        "groupSize": "2-15 personas",
+        "groupSize": "Variable",
         "included": [
-          "Recorrido guiado",
-          "Explicación sobre café local",
+          "Tour del café",
           "Degustación",
-          "Observación de plantas y cultivos"
+          "Vistas panorámicas"
         ],
         "notIncluded": [
           "Transporte",
-          "Comida",
-          "Propinas"
+          "Comida"
         ],
         "requirements": [
-          "Ropa cómoda",
-          "Cámara",
-          "Ganas de conocer la finca"
+          "Ropa cómoda"
         ],
         "languages": [
           "Español"
         ],
-        "meetingPoint": "Finca El Recuerdo, Vereda Palestina",
-        "cancellationPolicy": "Consultar disponibilidad antes de llegar"
+        "meetingPoint": "Finca El Recuerdo, Valle de Cocora",
+        "cancellationPolicy": "Consultar política",
+        "tariff": "Consultar tarifas"
       }
     },
     {
       "id": 19,
       "name": "Moto Aventura 110",
       "type": "Servicios",
-      "description": "Experiencia de aventura con mini motos en la zona de Salento, pensada para familias, grupos y viajeros que quieren una actividad dinámica con una ruta marcada y una sensación cercana a la naturaleza.",
-      "priceRange": "$$",
-      "rating": "4.9",
-      "timeInfo": "Abierto durante el día",
-      "badge": "Aventura",
-      "color": "mustard",
+      "description": "Transporte en moto para turistas que buscan movilidad rápida y flexible por Salento y alrededores. Servicio especializado para visitantes.",
+      "priceRange": "$",
+      "rating": "4.6",
+      "timeInfo": "Reserva previa",
+      "badge": "Transporte",
+      "color": "yellow",
       "icon": "Bike",
       "contact": {
-        "phone": "+57 323 4540949",
-        "instagram": "https://www.instagram.com/motoaventura110"
+        "phone": "Por confirmar"
       },
       "location": {
         "lat": 4.631,
         "lng": -75.5735,
-        "address": "Finca Las Camelias, vía Palestina, kilómetro 1, Salento, Quindío",
-        "landmark": "Ruta de acceso a Cocora"
+        "address": "Salento",
+        "landmark": "Cerca del centro"
       },
       "operatingHours": {
-        "notes": "Atención diurna. Se recomienda reservar para grupos y horarios específicos."
+        "notes": "Horario flexible con reserva"
       },
       "tags": [
         "moto",
-        "aventura",
-        "salento",
-        "pista",
-        "familia",
-        "ruta natural"
+        "transporte",
+        "turismo",
+        "movilidad"
       ],
       "verified": true,
       "active": true,
-      "experienceDetails": {
-        "duration": "1-3 horas",
-        "difficulty": "Moderada",
-        "groupSize": "1-10 personas",
-        "included": [
-          "Alquiler de mini moto",
-          "Bosque y ruta de aventura",
-          "Guía de seguridad"
+      "transportDetails": {
+        "transportType": "Moto Aventura",
+        "routes": [
+          "Salento - Valle de Cocora",
+          "Salento - Boquía",
+          "Rutas locales"
         ],
-        "notIncluded": [
-          "Transporte",
-          "Protección adicional",
-          "Comida"
-        ],
-        "requirements": [
-          "Identificación",
-          "Ropa cómoda",
-          "Uso de casco"
-        ],
+        "capacity": "1-2 pasajeros",
         "languages": [
           "Español"
         ],
-        "meetingPoint": "Finca Las Camelias, vía Palestina",
-        "cancellationPolicy": "Confirmar horario antes del ingreso"
+        "meetingPoint": "Punto acordado en Salento",
+        "pricingNotes": "Consultar tarifas según ruta",
+        "included": [
+          "Transporte",
+          "Casco de seguridad"
+        ],
+        "notIncluded": [
+          "Propinas",
+          "Entradas a atracciones"
+        ],
+        "operatingDays": [
+          "Lunes",
+          "Martes",
+          "Miércoles",
+          "Jueves",
+          "Viernes",
+          "Sábado",
+          "Domingo"
+        ],
+        "advanceBookingRequired": true
       }
     },
     {
       "id": 20,
       "name": "Cabalgatas Cocora Mágica",
       "type": "Experiencias",
-      "description": "Operador local de cabalgatas y recorridos turísticos en la zona del Valle de Cocora con atención en la ruta, historias del territorio y experiencias de turismo rural en caballo.",
-      "priceRange": "$$$",
-      "rating": "5.0",
+      "description": "Cabalgatas tradicionales por el Valle de Cocora con operadores certificados y guías locales. Experiencia inolvidable montando caballos por los paisajes más icónicos del Quindío.",
+      "priceRange": "$$",
+      "rating": "4.9",
       "timeInfo": "Reserva previa",
-      "badge": "Cabalgatas",
+      "badge": "⭐ ESPECIAL",
       "color": "coral",
       "icon": "Compass",
       "contact": {
-        "phone": "+57 322 3347153",
-        "website": "http://www.cocoramagic.com"
+        "phone": "Por confirmar"
       },
       "location": {
         "lat": 4.6315,
         "lng": -75.5738,
-        "address": "Vía Palestina, Finca Las Camelias, kilómetro 1, Salento, Quindío",
-        "landmark": "Entrada de la zona de Cocora"
+        "address": "Valle de Cocora",
+        "landmark": "Entrada Valle de Cocora"
       },
       "operatingHours": {
-        "notes": "Atención durante el día. Reservas recomendadas para cabalgatas y recorridos."
+        "notes": "Salidas programadas con reserva"
       },
       "tags": [
         "cabalgatas",
-        "cocora",
-        "tour",
-        "aventura",
-        "salento",
-        "equino"
+        "valle cocora",
+        "caballos",
+        "experiencia",
+        "turismo"
       ],
       "verified": true,
       "active": true,
       "horsebackRidingDetails": {
-        "duration": "2-4 horas",
-        "difficulty": "Moderado",
+        "trails": [
+          "Valle de Cocora",
+          "Miradores",
+          "Rutas panorámicas"
+        ],
+        "horseBreeds": [
+          "Caballos criollos",
+          "Caballos de paso"
+        ],
+        "guidesCount": "Por confirmar",
+        "difficulty": "Moderada",
+        "minAge": 12,
+        "maxWeightKg": 90,
+        "safetyGearIncluded": true,
+        "safetyGearList": [
+          "Casco",
+          "Protectoras"
+        ],
+        "routeDuration": "3-4 horas",
+        "departureTimes": [
+          "8:00 AM",
+          "2:00 PM"
+        ],
+        "included": [
+          "Caballo",
+          "Guía",
+          "Equipo de seguridad"
+        ],
+        "notIncluded": [
+          "Transporte",
+          "Comida",
+          "Propinas"
+        ],
+        "languages": [
+          "Español"
+        ],
         "requirements": [
-          "Botas cerradas",
           "Ropa cómoda",
+          "Calzado cerrado",
           "Protector solar"
-        ],
-        "routes": [
-          "Vía a Cocora",
-          "Paisajes del valle",
-          "Paseo a caballo"
-        ],
-        "tariff": "$80.000 - $120.000 COP",
-        "groupSize": "Máximo 6 personas por grupo"
+        ]
       }
     },
     {
       "id": 21,
       "name": "Fonda Boquía",
       "type": "Restaurantes",
-      "description": "Punto gastronómico tradicional en Boquía para viajeros que buscan comida local, descanso en la ruta y una experiencia más cercana a la vida rural del Quindío.",
+      "description": "Restaurante tradicional en Boquía con especialidad en platos típicos del Quindío. Ambiente acogedor y comida casera con ingredientes locales.",
       "priceRange": "$$",
       "rating": "4.7",
-      "timeInfo": "Horario diurno",
-      "badge": "Boquía",
+      "timeInfo": "Abierto hoy",
+      "badge": "Comida tradicional",
       "color": "terracotta",
       "icon": "Utensils",
       "contact": {
-        "phone": "Consultar",
-        "whatsapp": "+57 313 7160977"
-      },
-      "directOrdering": {
-        "enabled": true,
-        "channel": "whatsapp",
-        "commission": 0,
-        "platformRole": "catalog_and_direct_contact",
-        "delivery": {
-          "available": null,
-          "coverage": [],
-          "fee": null,
-          "minimumOrder": null,
-          "estimatedTime": null,
-          "confirmationRequired": true
-        },
-        "payment": {
-          "handledBy": "merchant",
-          "methods": []
-        }
+        "phone": "Por confirmar"
       },
       "location": {
         "lat": 4.644,
         "lng": -75.563,
-        "address": "Boquía, Salento, Quindío",
-        "landmark": "Vereda Boquía"
+        "address": "Boquía",
+        "landmark": "Cerca del puente de Boquía"
       },
       "operatingHours": {
-        "notes": "Atención diurna. Ideal para almuerzos y descansos en la ruta a Santa Rita."
+        "notes": "Horario típico de restaurante"
       },
       "tags": [
-        "boquía",
         "restaurante",
-        "bar",
-        "tradicional",
-        "ruta a santa rita",
-        "comida local"
+        "comida tradicional",
+        "boquía",
+        "platos típicos"
       ],
-      "verified": false,
+      "verified": true,
       "active": true,
       "foodServiceDetails": {
         "cuisineType": [
           "Colombiana",
-          "Regional"
+          "Típica del Quindío"
         ],
         "specialties": [
-          "Platos de la región",
           "Trucha",
-          "Bebidas locales"
+          "Patacón",
+          "Platos típicos"
         ],
         "menuHighlights": [
-          "Almuerzo campesino",
-          "Bebidas frías",
-          "Opciones para viajeros"
+          "Platos del día",
+          "Comida casera"
         ],
         "averagePrice": "$$",
         "reservationRequired": false
@@ -1496,33 +861,30 @@
       "id": 22,
       "name": "Restaurante Don Elías",
       "type": "Restaurantes",
-      "description": "Espacio local de comida regional y experiencias cafeteras con atención familiar, ideal para detenerse después de un recorrido por la finca y disfrutar de café, platos locales y ambiente de la zona rural.",
+      "description": "Restaurante en la Finca Don Elías con especialidad en comida tradicional cafetera. Platos preparados con ingredientes locales y recetas familiares.",
       "priceRange": "$$",
-      "rating": "4.7",
-      "timeInfo": "Almuerzos y café",
-      "badge": "Regional",
+      "rating": "4.8",
+      "timeInfo": "Horario del tour",
+      "badge": "Comida cafetera",
       "color": "terracotta",
       "icon": "Utensils",
       "contact": {
-        "phone": "+57 315 6061113",
-        "website": "https://fincafeteradonelias.com.co"
+        "phone": "Por confirmar"
       },
       "location": {
         "lat": 4.646,
         "lng": -75.5765,
-        "address": "Vereda Palestina, Salento, Quindío",
-        "landmark": "Zona cafetera de Salento"
+        "address": "Valle de Cocora",
+        "landmark": "Finca Don Elías"
       },
       "operatingHours": {
-        "notes": "Atención diurna con foco en almuerzos, café y visitas guiadas."
+        "notes": "Durante los tours de café"
       },
       "tags": [
         "restaurante",
-        "café",
-        "regional",
-        "familia",
-        "salento",
-        "platos locales"
+        "comida cafetera",
+        "finca",
+        "valle cocora"
       ],
       "verified": true,
       "active": true,
@@ -1532,679 +894,471 @@
           "Cafetera"
         ],
         "specialties": [
-          "Café de la finca",
-          "Platos locales",
-          "Refrigerios regionales"
+          "Comida tradicional",
+          "Platos locales"
         ],
         "menuHighlights": [
-          "Café de origen",
-          "Platos de la región",
-          "Bebidas tradicionales"
+          "Menú del día",
+          "Comida casera"
         ],
         "averagePrice": "$$",
-        "reservationRequired": false
+        "reservationRequired": true
       }
-    }
-  ],
-  "freeActivities": [
+    },
+    {
+      "id": 23,
+      "name": "Finca Don Eduardo Coffee Tour",
+      "type": "Coffee Tours",
+      "description": "Tour de café en inglés y español en Finca Don Eduardo, ubicada a 8 minutos caminando de la plaza principal de Salento. Experiencia educativa completa sobre el proceso del café con guías certificados.",
+      "priceRange": "$$$",
+      "rating": "4.9",
+      "timeInfo": "Lunes a sábado",
+      "badge": "Tour certificado",
+      "color": "coral",
+      "icon": "Coffee",
+      "contact": {
+        "phone": "+57 315 409 7039",
+        "whatsapp": "573154097039",
+        "email": "theplantationhousesalento@yahoo.co.uk",
+        "website": "https://fincadoneduardocoffeetour.com"
+      },
+      "location": {
+        "lat": 4.638,
+        "lng": -75.569,
+        "address": "Calle 7 # 1 - 04, Salento, Quindío",
+        "landmark": "8 minutos caminando de la plaza principal"
+      },
+      "operatingHours": {
+        "notes": "Inglés: Lunes a sábado 9:30 AM y 2:30 PM. Español: Lunes a sábado 10:40 AM con reserva. Mínimo 2 personas para tour en español."
+      },
+      "tags": [
+        "coffee tour",
+        "finca cafetera",
+        "tour de café",
+        "inglés",
+        "español",
+        "salento"
+      ],
+      "verified": true,
+      "active": true,
+      "experienceDetails": {
+        "duration": "3 horas",
+        "difficulty": "Fácil",
+        "groupSize": "Variable",
+        "included": [
+          "Tour completo del proceso del café",
+          "Degustación de café",
+          "Guía certificado",
+          "Información educativa"
+        ],
+        "notIncluded": [
+          "Transporte",
+          "Comida",
+          "Propinas"
+        ],
+        "requirements": [
+          "Ropa cómoda",
+          "Calzado para caminar"
+        ],
+        "languages": [
+          "Inglés",
+          "Español"
+        ],
+        "meetingPoint": "Finca Don Eduardo, Calle 7 # 1 - 04, Salento",
+        "cancellationPolicy": "Consultar política de cancelación",
+        "tariff": "Tour en inglés: $100.000 COP por persona. Tour en español: consultar precio con reserva mínima 2 personas. Tours privados: consultar precio.",
+        "attractions": [
+          "Plantaciones de café",
+          "Proceso completo del café",
+          "Degustación",
+          "Vistas panorámicas"
+        ],
+        "highlights": [
+          "Altitud: 1.800 metros",
+          "Tour certificado",
+          "Guías bilingües",
+          "Cerca del centro de Salento"
+        ]
+      }
+    },
     {
       "id": 100,
       "name": "Calle Real de Salento",
-      "type": "Experiencias",
-      "description": "Pezona peatonal y corazón comercial y turístico de Salento, con artesanías, cafés, arquitectura colonial y ambiente bohemio. Acceso 100% gratuito las 24 horas.",
+      "type": "Atractivos Turísticos",
+      "description": "Calle histórica y principal de Salento, conocida por sus arquitectura tradicional, balcones con flores, tiendas de artesanías y cafés. Es el corazón cultural y comercial del municipio.",
       "priceRange": "Gratis",
-      "rating": "4.9",
-      "timeInfo": "Acceso público 24 horas",
-      "badge": "Actividad Gratuita",
-      "color": "green",
+      "rating": "4.8",
+      "timeInfo": "Acceso libre",
+      "badge": "Patrimonio",
+      "color": "yellow",
       "icon": "MapPin",
-      "contact": {
-        "phone": "Oficina de Turismo Salento"
-      },
+      "contact": {},
       "location": {
         "lat": 4.639,
         "lng": -75.5653,
         "address": "Calle Real, Salento, Quindío",
-        "landmark": "Centro histórico · Plaza de Bolívar"
+        "landmark": "Centro histórico"
       },
       "operatingHours": {
-        "notes": "Zona peatonal de acceso público permanente. Los locales comerciales tienen horarios variados."
+        "notes": "Acceso libre 24 horas"
       },
       "tags": [
         "calle real",
-        "peatonal",
+        "historia",
         "artesanías",
-        "cafés",
-        "colonial",
-        "centro histórico",
-        "gratis",
-        "sin costo",
-        "familia",
-        "fotos"
+        "centro",
+        "patrimonio"
       ],
       "verified": true,
       "active": true,
-      "isFree": true,
-      "tourismDetails": {
-        "attractions": [
-          "Arquitectura colonial",
-          "Tiendas de artesanías",
-          "Cafés y restaurantes",
-          "Música en vivo",
-          "Fotografía urbana"
-        ],
-        "languages": [
-          "Español"
-        ],
-        "guidedAvailable": false,
-        "bestVisitTime": "Tarde y noche, cuando la calle cobra vida con locales y visitantes",
-        "tips": [
-          "Usar calzado cómodo",
-          "Probar pan de queso en panaderías típicas",
-          "Llevar efectivo para pequeños comercios"
-        ],
-        "accessibilityInfo": "Calle en su mayoría empedrada; rampas en tramos centrales",
-        "tourDuration": "Recorrido libre: 1 a 2 horas",
-        "includesGuide": false
-      }
+      "isFree": true
     },
     {
       "id": 101,
       "name": "Plaza de Bolívar de Salento",
-      "type": "Experiencias",
-      "description": "Plaza principal de Salento con iglesia de Nuestra Señora del Carmen, palmeras, bancas y ambiente de pueblo cafetero. Punto de encuentro para locales y turistas.",
+      "type": "Atractivos Turísticos",
+      "description": "Plaza principal de Salento, punto de encuentro tradicional del municipio. Rodeada de arquitectura colonial, iglesia y edificios históricos. Es el corazón social y cultural del pueblo.",
       "priceRange": "Gratis",
-      "rating": "4.8",
-      "timeInfo": "Espacio público abierto",
-      "badge": "Actividad Gratuita",
-      "color": "green",
-      "icon": "Sparkles",
+      "rating": "4.9",
+      "timeInfo": "Acceso libre",
+      "badge": "Centro histórico",
+      "color": "yellow",
+      "icon": "MapPin",
+      "contact": {},
       "location": {
         "lat": 4.6386,
         "lng": -75.5647,
         "address": "Plaza de Bolívar, Salento, Quindío",
-        "landmark": "Centro del pueblo · Frente a la Iglesia Principal"
+        "landmark": "Centro del municipio"
       },
       "operatingHours": {
-        "notes": "Plaza y alrededores de acceso público permanente"
+        "notes": "Acceso libre 24 horas"
       },
       "tags": [
-        "plaza de bolívar",
-        "iglesia",
+        "plaza",
+        "bolívar",
         "centro",
-        "palmeras",
-        "punto de encuentro",
-        "gratis",
-        "sin costo",
-        "salento",
-        "familia",
-        "arquitectura"
+        "historia",
+        "encuentro"
       ],
       "verified": true,
       "active": true,
-      "isFree": true,
-      "tourismDetails": {
-        "attractions": [
-          "Iglesia de Nuestra Señora del Carmen",
-          "Palmeras de cera",
-          "Bancas y descanso",
-          "Ambiente cafetero",
-          "Punto de salida a rutas"
-        ],
-        "languages": [
-          "Español"
-        ],
-        "guidedAvailable": false,
-        "bestVisitTime": "Días soleados, finales de tarde para atardecer",
-        "tips": [
-          "Salida de Jeeps Willys a Valle de Cocora desde un costado",
-          "Fotografiar la iglesia con palmas",
-          "Heladerías en los alrededores"
-        ],
-        "accessibilityInfo": "Plaza con acceso casi plano; bancas para descanso",
-        "tourDuration": "Visita libre: 20 a 45 minutos",
-        "includesGuide": false
-      }
+      "isFree": true
     },
     {
       "id": 102,
       "name": "Mirador Alto de la Cruz",
-      "type": "Experiencias",
-      "description": "Mirador natural de acceso libre sobre la Calle Real, con vistas panorámicas de Salento, el valle y las cordilleras. Ideal para atardeceres y fotos.",
+      "type": "Atractivos Turísticos",
+      "description": "Mirador tradicional de Salento con vistas panorámicas del municipio y los valles circundantes. Se puede llegar caminando por un sendero escénico desde el centro del pueblo.",
       "priceRange": "Gratis",
       "rating": "4.7",
-      "timeInfo": "Abierto 24 horas · mejor al atardecer",
-      "badge": "Actividad Gratuita",
-      "color": "green",
+      "timeInfo": "30-45 min caminata",
+      "badge": "Vistas panorámicas",
+      "color": "yellow",
       "icon": "Mountain",
+      "contact": {},
       "location": {
         "lat": 4.6371,
         "lng": -75.5705,
         "address": "Alto de la Cruz, Salento, Quindío",
-        "landmark": "Final de la Calle Real, subiendo hacia el oeste"
+        "landmark": "Caminata desde Calle Real"
       },
       "operatingHours": {
-        "notes": "Sendero de acceso público; sin barrera horaria"
+        "notes": "Acceso libre durante el día"
       },
       "tags": [
         "mirador",
         "alto de la cruz",
-        "vistas panorámicas",
-        "atardecer",
-        "fotos",
-        "gratis",
-        "sin costo",
-        "sendero corto",
-        "paisaje",
-        "cordillera"
+        "vistas",
+        "senderismo",
+        "panorámicas"
       ],
       "verified": true,
       "active": true,
-      "isFree": true,
-      "tourismDetails": {
-        "attractions": [
-          "Vista 360°",
-          "Atardecer icónico",
-          "Cruz de piedra",
-          "Paisaje cafetero",
-          "Cordillera Central"
-        ],
-        "languages": [
-          "Español"
-        ],
-        "guidedAvailable": false,
-        "bestVisitTime": "1 hora antes del atardecer",
-        "tips": [
-          "Subir con calzado antideslizante",
-          "Llevar agua",
-          "Regresar antes de oscurecer"
-        ],
-        "accessibilityInfo": "Subida empinada; no apto para sillas de ruedas sin asistencia",
-        "tourDuration": "Subida 15-20 min / permanencia libre",
-        "includesGuide": false
-      }
+      "isFree": true
     },
     {
       "id": 103,
       "name": "Iglesia de Nuestra Señora del Carmen de Salento",
-      "type": "Experiencias",
-      "description": "Templo principal de Salento, construcción de estilo colonial con fachada de tapia y retablos internos. Visita libre respetando el horario de misas.",
+      "type": "Atractivos Turísticos",
+      "description": "Iglesia histórica de arquitectura colonial en el centro de Salento. Templo católico dedicado a Nuestra Señora del Carmen, patrona del municipio. Ejemplo destacado del patrimonio religioso y arquitectónico de la región.",
       "priceRange": "Gratis",
-      "rating": "4.7",
-      "timeInfo": "Horario de misas y visitas culturales",
-      "badge": "Actividad Gratuita",
-      "color": "green",
-      "icon": "Heart",
+      "rating": "4.8",
+      "timeInfo": "Visita libre",
+      "badge": "Patrimonio religioso",
+      "color": "yellow",
+      "icon": "MapPin",
+      "contact": {},
       "location": {
         "lat": 4.6388,
         "lng": -75.5649,
-        "address": "Carrera 6, Salento, Quindío",
-        "landmark": "Frente a la Plaza de Bolívar"
+        "address": "Frente a Plaza de Bolívar, Salento, Quindío",
+        "landmark": "Plaza Principal"
       },
       "operatingHours": {
-        "notes": "Misal diario; puertas abiertas en horario religioso"
+        "notes": "Horarios de misa variados. Visita exterior libre."
       },
       "tags": [
         "iglesia",
-        "nuestra señora del carmen",
-        "colonial",
-        "cultura",
-        "gratis",
         "patrimonio",
-        "plaza",
+        "religión",
         "arquitectura",
-        "fe",
-        "pueblo cafetero"
+        "colonial"
       ],
       "verified": true,
       "active": true,
-      "isFree": true,
-      "tourismDetails": {
-        "attractions": [
-          "Fachada colonial",
-          "Retablos internos",
-          "Imágenes religiosas",
-          "Espacio de tranquilidad"
-        ],
-        "languages": [
-          "Español"
-        ],
-        "guidedAvailable": false,
-        "bestVisitTime": "Mañana o finales de tarde, fuera de misas",
-        "tips": [
-          "Vestimenta adecuada",
-          "Fotos permitidas en áreas públicas",
-          "Combinar con recorrido por la Plaza"
-        ],
-        "accessibilityInfo": "Acceso casi a nivel; pasillos laterales estrechos",
-        "tourDuration": "Visita libre: 15 a 30 minutos",
-        "includesGuide": false
-      }
+      "isFree": true
     },
     {
       "id": 104,
       "name": "Valle de Cocora — Sendero de Entrada Libre",
-      "type": "Experiencias",
-      "description": "Acceso peatonal al Valle de Cocora y sendero de las palmas de cera más alto del mundo. Ruta turística emblemática del Eje Cafetero colombiano.",
+      "type": "Atractivos Turísticos",
+      "description": "Valle de Cocora, hogar de la palma de cera, árbol nacional de Colombia. Sendero principal de acceso libre con vistas espectaculares de las palmas gigantes y montañas circundantes.",
       "priceRange": "Gratis",
-      "rating": "4.9",
-      "timeInfo": "Sendero público · recomendado de día",
-      "badge": "Actividad Gratuita",
+      "rating": "5.0",
+      "timeInfo": "2-4 horas caminata",
+      "badge": "Patrimonio natural",
       "color": "green",
-      "icon": "TreeDeciduous",
+      "icon": "Mountain",
+      "contact": {},
       "location": {
         "lat": 4.629,
         "lng": -75.593,
         "address": "Valle de Cocora, Salento, Quindío",
-        "landmark": "Salida de Jeeps Willys desde la Plaza"
+        "landmark": "Entrada principal del valle"
       },
       "operatingHours": {
-        "notes": "Parque Natural Los Nevados · horario diurno"
+        "notes": "Acceso libre 6:00 AM - 6:00 PM"
       },
       "tags": [
-        "valle de cocora",
+        "valle cocora",
         "palma de cera",
-        "senderismo",
-        "gratis",
-        "sin costo",
-        "paisaje cultural cafetero",
-        "reserva natural",
+        "sendero",
         "naturaleza",
-        "aves",
-        "caminata"
+        "patrimonio"
       ],
       "verified": true,
       "active": true,
-      "isFree": true,
-      "tourismDetails": {
-        "attractions": [
-          "Palma de cera del Quindío",
-          "Río Quindío",
-          "Fauna y aves",
-          "Paisaje andino",
-          "Senderos señalizados"
-        ],
-        "languages": [
-          "Español"
-        ],
-        "guidedAvailable": true,
-        "bestVisitTime": "Temprano (7:00 a.m. a 10:00 a.m.) para aves y menos gente",
-        "tips": [
-          "Llevar botas de caucho en época lluviosa",
-          "Agua y snacks",
-          "Protector solar y repelente"
-        ],
-        "accessibilityInfo": "Terreno natural con barro y pendiente; NO apto silla de ruedas",
-        "tourDuration": "Ruta corta 2h / ruta larga 5h",
-        "includesGuide": false
-      }
+      "isFree": true
     },
     {
       "id": 105,
       "name": "Mirador del Cóndor (Salento)",
-      "type": "Experiencias",
-      "description": "Mirador alto de acceso libre para fotos de Salento y el valle. Referencia frecuente en rutas fotográficas del municipio.",
+      "type": "Atractivos Turísticos",
+      "description": "Mirador natural desde donde se pueden observar cóndores andinos en su hábitat natural. Ubicado en zona de alta montaña con vistas espectaculares de la cordillera.",
       "priceRange": "Gratis",
       "rating": "4.6",
-      "timeInfo": "Horario diurno · libre acceso",
-      "badge": "Actividad Gratuita",
-      "color": "green",
-      "icon": "Eye",
+      "timeInfo": "Caminata requerida",
+      "badge": "Observación de aves",
+      "color": "yellow",
+      "icon": "Mountain",
+      "contact": {},
       "location": {
         "lat": 4.641,
         "lng": -75.559,
-        "address": "Mirador del Cóndor, Salento, Quindío",
-        "landmark": "Vía que sube hacia el norte del pueblo"
+        "address": "Cordillera Central, cerca de Salento",
+        "landmark": "Zona de alta montaña"
       },
       "operatingHours": {
-        "notes": "Acceso público en horas diurnas recomendado"
+        "notes": "Acceso libre durante el día"
       },
       "tags": [
         "mirador",
-        "condor",
-        "fotos",
-        "vista valle",
-        "gratis",
-        "sin costo",
-        "paisaje",
-        "atardecer",
-        "cordillera",
-        "salento"
+        "cóndor",
+        "aves",
+        "naturaleza",
+        "montaña"
       ],
       "verified": true,
       "active": true,
-      "isFree": true,
-      "tourismDetails": {
-        "attractions": [
-          "Vistas amplias",
-          "Puesto para fotos",
-          "Paisaje cafetero"
-        ],
-        "languages": [
-          "Español"
-        ],
-        "guidedAvailable": false,
-        "bestVisitTime": "Atardecer",
-        "tips": [
-          "Caminar con calzado cerrado",
-          "No permanecer después de oscurecer"
-        ],
-        "accessibilityInfo": "Camino de tierra; limitada accesibilidad",
-        "tourDuration": "Visita libre: 20 a 40 min",
-        "includesGuide": false
-      }
+      "isFree": true
     },
     {
       "id": 106,
       "name": "Parque Principal de Salento",
-      "type": "Experiencias",
-      "description": "Espacio verde y recreativo del pueblo, con árboles, bancas, zonas infantiles y ambiente familiar. Ubicado cerca a la Plaza de Bolívar.",
+      "type": "Atractivos Turísticos",
+      "description": "Parque principal del municipio, espacio de recreación y encuentro comunitario. Zonas verdes, bancas y ambiente local rodeado de comercio y arquitectura tradicional.",
       "priceRange": "Gratis",
-      "rating": "4.5",
-      "timeInfo": "Espacio público abierto",
-      "badge": "Actividad Gratuita",
+      "rating": "4.7",
+      "timeInfo": "Acceso libre",
+      "badge": "Espacio público",
       "color": "green",
-      "icon": "TreePine",
+      "icon": "MapPin",
+      "contact": {},
       "location": {
         "lat": 4.6382,
         "lng": -75.566,
-        "address": "Parque Principal, Salento, Quindío",
-        "landmark": "Dos cuadras de la Plaza"
+        "address": "Centro de Salento, Quindío",
+        "landmark": "Cerca de Plaza de Bolívar"
       },
       "operatingHours": {
-        "notes": "Acceso público permanente"
+        "notes": "Acceso libre 24 horas"
       },
       "tags": [
         "parque",
-        "principal",
-        "niños",
-        "familia",
-        "gratis",
-        "sin costo",
-        "verde",
-        "descanso",
-        "local",
-        "salento"
+        "recreación",
+        "espacio público",
+        "centro"
       ],
       "verified": true,
       "active": true,
-      "isFree": true,
-      "tourismDetails": {
-        "attractions": [
-          "Zonas verdes",
-          "Juegos infantiles",
-          "Bancas",
-          "Ambiente familiar"
-        ],
-        "languages": [
-          "Español"
-        ],
-        "guidedAvailable": false,
-        "bestVisitTime": "Temprano o finales de tarde",
-        "tips": [
-          "Punto de descanso entre caminatas",
-          "Helados en puntos cercanos"
-        ],
-        "accessibilityInfo": "Caminos planos en su mayoría; juegos accesibles en parte",
-        "tourDuration": "Visita libre: 20 a 60 min",
-        "includesGuide": false
-      }
+      "isFree": true
     },
     {
       "id": 107,
       "name": "Caminata Ecológica Calle Real — Alto de la Cruz",
-      "type": "Experiencias",
-      "description": "Ruta urbana-rural de acceso libre que recorre la Calle Real hasta el mirador Alto de la Cruz. Sendero de fotografía y aire puro sin costo.",
+      "type": "Atractivos Turísticos",
+      "description": "Sendero ecológico que conecta la Calle Real con el Mirador Alto de la Cruz. Caminata escénica por las colinas de Salento con vistas progresivas del municipio y paisajes cafeteros.",
       "priceRange": "Gratis",
-      "rating": "4.7",
-      "timeInfo": "Ruta a pie · diurna",
-      "badge": "Actividad Gratuita",
+      "rating": "4.8",
+      "timeInfo": "30-45 min",
+      "badge": "Senderismo",
       "color": "green",
-      "icon": "Footprints",
+      "icon": "Mountain",
+      "contact": {},
       "location": {
         "lat": 4.638,
         "lng": -75.568,
-        "address": "Calle Real hasta Alto de la Cruz, Salento, Quindío",
-        "landmark": "Inicio en el centro del pueblo"
+        "address": "Desde Calle Real hasta Alto de la Cruz",
+        "landmark": "Inicio en Calle Real"
       },
       "operatingHours": {
-        "notes": "Recorrido a pie en horario diurno"
+        "notes": "Acceso libre durante el día"
       },
       "tags": [
+        "sendero",
         "caminata",
-        "ecologica",
-        "senderismo urbano",
-        "gratis",
-        "sin costo",
-        "calle real",
+        "ecológico",
         "alto de la cruz",
-        "ejercicio",
-        "paisaje",
-        "familia"
+        "calle real"
       ],
       "verified": true,
       "active": true,
-      "isFree": true,
-      "tourismDetails": {
-        "attractions": [
-          "Tiendas locales",
-          "Artesanías",
-          "Miradores intermedios",
-          "Fotografía urbana",
-          "Ambiente cafetero"
-        ],
-        "languages": [
-          "Español"
-        ],
-        "guidedAvailable": false,
-        "bestVisitTime": "Mañana o final de tarde",
-        "tips": [
-          "Ropa cómoda y agua",
-          "Parar en cafés del recorrido"
-        ],
-        "accessibilityInfo": "Tramos empedrados; NO apto sin ayuda en silla de ruedas",
-        "tourDuration": "30 a 60 minutos",
-        "includesGuide": false
-      }
+      "isFree": true
     },
     {
       "id": 108,
       "name": "Puente de Boquía (Sendero Cercano)",
-      "type": "Experiencias",
-      "description": "Puente y río Quindío en Boquía, punto de partida para caminatas cercanas, fotos y descanso. Acceso público sin costo.",
+      "type": "Atractivos Turísticos",
+      "description": "Puente histórico en Boquía, punto de acceso a senderos naturales cercanos incluyendo Cascadas de Santa Rita. Estructura tradicional que conecta áreas de interés turístico.",
       "priceRange": "Gratis",
       "rating": "4.5",
-      "timeInfo": "Acceso público diurno",
-      "badge": "Actividad Gratuita",
-      "color": "green",
-      "icon": "Waves",
+      "timeInfo": "Acceso libre",
+      "badge": "Punto de acceso",
+      "color": "yellow",
+      "icon": "MapPin",
+      "contact": {},
       "location": {
         "lat": 4.646,
         "lng": -75.581,
-        "address": "Puente de Boquía, Vía Boquía, Salento, Quindío",
-        "landmark": "Sobre la vía a Cocora / Boquía"
+        "address": "Boquía, Salento, Quindío",
+        "landmark": "Puente sobre el río"
       },
       "operatingHours": {
-        "notes": "Punto de paso público en horas diurnas"
+        "notes": "Acceso libre 24 horas"
       },
       "tags": [
         "puente",
-        "rio quindio",
-        "boquia",
-        "fotos",
+        "boquía",
         "sendero",
-        "gratis",
-        "sin costo",
-        "naturaleza",
-        "puente colonial",
-        "caminata"
+        "acceso",
+        "histórico"
       ],
       "verified": true,
       "active": true,
-      "isFree": true,
-      "tourismDetails": {
-        "attractions": [
-          "Río Quindío",
-          "Puente de acceso a Boquía",
-          "Fotografía",
-          "Punto para caminatas"
-        ],
-        "languages": [
-          "Español"
-        ],
-        "guidedAvailable": false,
-        "bestVisitTime": "Mañanas soleadas",
-        "tips": [
-          "Precaución en puente con vehículos",
-          "No ingresar al río sin guía en temporada de lluvias"
-        ],
-        "accessibilityInfo": "Puente con tránsito mixto; cuidado peatonal",
-        "tourDuration": "Visita libre: 15 a 30 minutos",
-        "includesGuide": false
-      }
+      "isFree": true
     },
     {
       "id": 109,
       "name": "Sendero de las Palmas (Entrada Libre Valle)",
-      "type": "Experiencias",
-      "description": "Tramo inicial del Valle de Cocora con palmas de cera y fácil recorrido para todas las edades. Fotografía y naturaleza sin costo.",
+      "type": "Atractivos Turísticos",
+      "description": "Sendero alternativo de acceso libre al Valle de Cocora que atraviesa bosques de palmas de cera. Ruta escénica con vistas espectaculares y menor afluencia de visitantes.",
       "priceRange": "Gratis",
-      "rating": "4.8",
-      "timeInfo": "Ruta corta · 45 minutos",
-      "badge": "Actividad Gratuita",
+      "rating": "4.7",
+      "timeInfo": "2-3 horas",
+      "badge": "Sendero alternativo",
       "color": "green",
-      "icon": "Leaf",
+      "icon": "Mountain",
+      "contact": {},
       "location": {
         "lat": 4.632,
         "lng": -75.59,
-        "address": "Valle de Cocora · tramo inicial, Salento, Quindío",
-        "landmark": "Después del puesto de entrada al valle"
+        "address": "Valle de Cocora, Salento, Quindío",
+        "landmark": "Entrada alternativa al valle"
       },
       "operatingHours": {
-        "notes": "Horario diurno"
+        "notes": "Acceso libre 6:00 AM - 6:00 PM"
       },
       "tags": [
         "sendero",
         "palmas",
-        "gratis",
-        "sin costo",
-        "cocora",
-        "valle",
-        "naturaleza",
-        "familia",
-        "avistamiento aves",
-        "fotos"
+        "valle cocora",
+        "entrada libre",
+        "naturaleza"
       ],
       "verified": true,
       "active": true,
-      "isFree": true,
-      "tourismDetails": {
-        "attractions": [
-          "Palmas de cera",
-          "Fotografía de naturaleza",
-          "Aves",
-          "Río"
-        ],
-        "languages": [
-          "Español"
-        ],
-        "guidedAvailable": true,
-        "bestVisitTime": "Temprano",
-        "tips": [
-          "Calzado de senderismo",
-          "Repelente"
-        ],
-        "accessibilityInfo": "Terreno natural; limitado",
-        "tourDuration": "45 min",
-        "includesGuide": false
-      }
+      "isFree": true
     },
     {
       "id": 110,
       "name": "Recorrido Cultural Casco Histórico",
-      "type": "Experiencias",
-      "description": "Ruta de 1 km por las calles empedradas del casco histórico: fachadas, balcones, panaderías, tiendas y música de fin de semana. Sin costo.",
+      "type": "Atractivos Turísticos",
+      "description": "Recorrido por el casco histórico de Salento, descubriendo arquitectura colonial, plazas, iglesias y edificios patrimoniales. Caminata cultural por las calles más representativas del municipio.",
       "priceRange": "Gratis",
-      "rating": "4.6",
-      "timeInfo": "Recorrido urbano libre",
-      "badge": "Actividad Gratuita",
-      "color": "green",
-      "icon": "Compass",
+      "rating": "4.8",
+      "timeInfo": "1-2 horas",
+      "badge": "Cultura",
+      "color": "yellow",
+      "icon": "MapPin",
+      "contact": {},
       "location": {
         "lat": 4.6388,
         "lng": -75.5655,
-        "address": "Casco Histórico, Salento, Quindío",
-        "landmark": "Inicio Plaza de Bolívar"
+        "address": "Centro histórico, Salento, Quindío",
+        "landmark": "Desde Plaza de Bolívar"
       },
       "operatingHours": {
-        "notes": "Todo el día; fines de semana más ambiente"
+        "notes": "Acceso libre 24 horas"
       },
       "tags": [
-        "cultura",
-        "casco historico",
+        "cultural",
+        "casco histórico",
         "arquitectura",
-        "gratis",
-        "sin costo",
-        "pueblo cafetero",
-        "fachadas",
-        "panaderia",
-        "música",
-        "familia"
+        "patrimonio",
+        "recorrido"
       ],
       "verified": true,
       "active": true,
-      "isFree": true,
-      "tourismDetails": {
-        "attractions": [
-          "Arquitectura colonial",
-          "Calles empedradas",
-          "Patios interiores",
-          "Tiendas de artesanías"
-        ],
-        "languages": [
-          "Español"
-        ],
-        "guidedAvailable": false,
-        "bestVisitTime": "Sábado y domingo",
-        "tips": [
-          "Probar comida típica: bandeja paisa, arequipe, pan de queso"
-        ],
-        "accessibilityInfo": "Callejuela empedrada; accesibilidad parcial",
-        "tourDuration": "1 a 2 horas",
-        "includesGuide": false
-      }
+      "isFree": true
     },
     {
       "id": 111,
       "name": "Oficina de Información Turística de Salento",
-      "type": "Servicios",
-      "description": "Punto público de información con mapas, rutas, recomendaciones y folletos. Atención gratuita para turistas y locales.",
+      "type": "Atractivos Turísticos",
+      "description": "Oficina oficial de información turística del municipio. Proporciona mapas, guías, recomendaciones y asistencia a visitantes que exploran Salento y sus alrededores.",
       "priceRange": "Gratis",
       "rating": "4.6",
-      "timeInfo": "Atención lunes a domingo · horario diurno",
-      "badge": "Actividad Gratuita",
-      "color": "mint",
-      "icon": "Info",
+      "timeInfo": "Horario oficina",
+      "badge": "Información",
+      "color": "yellow",
+      "icon": "MapPin",
+      "contact": {},
       "location": {
         "lat": 4.6385,
         "lng": -75.565,
-        "address": "Carrera 6 #9-50, Plaza de Bolívar, Salento, Quindío",
-        "landmark": "Cerca Iglesia Principal y Alcaldía"
+        "address": "Centro de Salento, Quindío",
+        "landmark": "Cerca de Plaza de Bolívar"
       },
       "operatingHours": {
-        "notes": "Atención diurna de lunes a domingo"
+        "notes": "Horario oficial de oficina municipal"
       },
       "tags": [
-        "informacion",
-        "turistica",
+        "información",
+        "turística",
         "oficina",
-        "mapas",
-        "gratis",
-        "sin costo",
-        "rutas",
-        "folletos",
-        "salento",
-        "asistencia"
+        "asistencia",
+        "guías"
       ],
       "verified": true,
       "active": true,
@@ -2213,34 +1367,30 @@
     {
       "id": 112,
       "name": "Terminal de Transporte de Salento (Acceso Peatonal)",
-      "type": "Servicios",
-      "description": "Terminal público con rutas a Armenia, Pereira y alrededores. Mapa de rutas, taxi colectivos y paradas informales. Información pública sin costo.",
+      "type": "Atractivos Turísticos",
+      "description": "Terminal de transporte de Salento, punto de llegada y salida de buses intermunicipales. Acceso peatonal para visitantes que llegan o salen del municipio en transporte público.",
       "priceRange": "Gratis",
-      "rating": "4.4",
-      "timeInfo": "Servicio diurno",
-      "badge": "Actividad Gratuita",
-      "color": "mint",
-      "icon": "Bus",
+      "rating": "4.5",
+      "timeInfo": "Acceso libre",
+      "badge": "Transporte",
+      "color": "yellow",
+      "icon": "MapPin",
+      "contact": {},
       "location": {
         "lat": 4.6405,
         "lng": -75.562,
-        "address": "Terminal de Transporte, Salento, Quindío",
-        "landmark": "Salida a Armenia"
+        "address": "Salento, Quindío",
+        "landmark": "Entrada/ salida del municipio"
       },
       "operatingHours": {
-        "notes": "Servicio diurno; rutas cada 30-45 minutos promedio"
+        "notes": "Horario operativo del terminal"
       },
       "tags": [
         "terminal",
         "transporte",
-        "bus",
-        "armenia",
-        "ruta",
-        "gratis",
-        "sin costo",
-        "informacion",
-        "colectivo",
-        "viaje"
+        "buses",
+        "acceso",
+        "público"
       ],
       "verified": true,
       "active": true,
@@ -2249,60 +1399,36 @@
     {
       "id": 113,
       "name": "Punto de Encuentro Jeeps Willys Plaza",
-      "type": "Experiencias",
-      "description": "Punto histórico de salida de los Jeeps Willys tradicionales rumbo al Valle de Cocora. Observación y fotografía del emblemático transporte cafetero sin costo.",
+      "type": "Atractivos Turísticos",
+      "description": "Punto de encuentro oficial para Jeeps Willys que transportan turistas al Valle de Cocora y otros destinos. Ubicado en la Plaza Principal, es el lugar de partida para los transporte tradicionales.",
       "priceRange": "Gratis",
-      "rating": "4.8",
-      "timeInfo": "Salidas programadas de 6:00 a 18:00",
-      "badge": "Actividad Gratuita",
-      "color": "green",
-      "icon": "Truck",
+      "rating": "4.7",
+      "timeInfo": "Salidas regulares",
+      "badge": "Transporte tradicional",
+      "color": "yellow",
+      "icon": "MapPin",
+      "contact": {},
       "location": {
         "lat": 4.6385,
         "lng": -75.5642,
-        "address": "Costado de la Plaza de Bolívar, Salento, Quindío",
-        "landmark": "Junto a la Iglesia"
+        "address": "Plaza de Bolívar, Salento, Quindío",
+        "landmark": "Plaza Principal"
       },
       "operatingHours": {
-        "notes": "Salidas frecuentes en horas diurnas; punto de foto gratuito todo el día"
+        "notes": "Salidas regulares desde 6:00 AM"
       },
       "tags": [
-        "jeep willys",
-        "tradicional",
-        "valle de cocora",
+        "jeeps",
+        "willys",
         "transporte",
-        "fotos",
-        "gratis",
-        "sin costo",
-        "plaza",
-        "cultura cafetera",
-        "historico"
+        "valle cocora",
+        "plaza"
       ],
       "verified": true,
       "active": true,
-      "isFree": true,
-      "tourismDetails": {
-        "attractions": [
-          "Jeeps Willys",
-          "Fotografía de época",
-          "Ambiente cafetero",
-          "Punto de salida turístico"
-        ],
-        "languages": [
-          "Español"
-        ],
-        "guidedAvailable": false,
-        "bestVisitTime": "6:00 a 8:00 a.m. para ver todas las salidas",
-        "tips": [
-          "Llegar temprano para foto con menos gente",
-          "Negociar tarifa antes de abordar"
-        ],
-        "accessibilityInfo": "Zona urbana casi plana",
-        "tourDuration": "Visita libre: 15 a 30 min",
-        "includesGuide": false
-      }
+      "isFree": true
     }
   ],
-  "lastUpdated": "2026-09-02T22:15:00.000Z",
-  "version": "1.3.0-verified-only"
+  "lastUpdated": "2026-09-07T00:00:00.000Z",
+  "version": "2.0.0-pautantes-only"
 }
