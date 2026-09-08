@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
-
-  <!-- Página Principal - salentoalamano.com -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://salentoalamano.com/</loc>
     <lastmod>2026-09-08</lastmod>
@@ -12,229 +8,382 @@
     <image:image>
       <image:loc>https://salentoalamano.com/imagenes-salento/1326163558.webp</image:loc>
       <image:title>Salento a la Mano - Guía Turística Oficial 2026</image:title>
-      <image:caption>Paisaje urbano de Salento, Quindío - Eje Cafetero Colombia</image:caption>
     </image:image>
-    <!-- Hreflang para SEO internacional -->
-    <xhtml:link rel="alternate" hreflang="es-CO" href="https://salentoalamano.com/" />
-    <xhtml:link rel="alternate" hreflang="en-US" href="https://salentoalamano.com/" />
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://salentoalamano.com/" />
-    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://salentoalamano.com/" />
-    <xhtml:link rel="alternate" hreflang="zh-HK" href="https://salentoalamano.com/" />
-    <xhtml:link rel="alternate" hreflang="ru-RU" href="https://salentoalamano.com/" />
-    <xhtml:link rel="alternate" hreflang="ja-JP" href="https://salentoalamano.com/" />
-    <xhtml:link rel="alternate" hreflang="ko-KR" href="https://salentoalamano.com/" />
-    <xhtml:link rel="alternate" hreflang="th-TH" href="https://salentoalamano.com/" />
-    <xhtml:link rel="alternate" hreflang="vi-VN" href="https://salentoalamano.com/" />
-    <xhtml:link rel="alternate" hreflang="id-ID" href="https://salentoalamano.com/" />
-    <xhtml:link rel="alternate" hreflang="ms-MY" href="https://salentoalamano.com/" />
-    <xhtml:link rel="alternate" hreflang="de-DE" href="https://salentoalamano.com/" />
-    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://salentoalamano.com/" />
-    <xhtml:link rel="alternate" hreflang="en-GB" href="https://salentoalamano.com/" />
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://salentoalamano.com/" />
-    <xhtml:link rel="alternate" hreflang="es-MX" href="https://salentoalamano.com/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://salentoalamano.com/" />
   </url>
-
-  <!-- Página Estado Actual Salento - CRÍTICA PARA INDEXACIÓN INTERNACIONAL -->
+  <url>
+    <loc>https://salentoalamano.com/categorias/index.html</loc>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://salentoalamano.com/categorias/alojamientos.html</loc>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://salentoalamano.com/categorias/coffee-tours.html</loc>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://salentoalamano.com/categorias/restaurantes.html</loc>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://salentoalamano.com/categorias/atractivos-turisticos.html</loc>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://salentoalamano.com/paginas-pautantes/boki-mall-hotel-el-mirador-de-boquia/</loc>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://salentoalamano.com/paginas-pautantes/cabalgatas-cocora-magica/</loc>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://salentoalamano.com/paginas-pautantes/coffee-tour-alojamiento-finca-hotel-el-ocaso/</loc>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://salentoalamano.com/paginas-pautantes/coffee-tour-finca-cafetera-don-elias/</loc>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://salentoalamano.com/paginas-pautantes/coffee-tour-finca-don-eduardo/</loc>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://salentoalamano.com/paginas-pautantes/fonda-boquia/</loc>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://salentoalamano.com/paginas-pautantes/hotel-camino-nacional-salento/</loc>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://salentoalamano.com/paginas-pautantes/hotel-la-floresta-salento/</loc>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://salentoalamano.com/paginas-pautantes/mirador-las-manos-de-dios/</loc>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://salentoalamano.com/paginas-pautantes/moto-aventura-110/</loc>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://salentoalamano.com/paginas-pautantes/reserva-natural-cascadas-de-santa-rita/</loc>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://salentoalamano.com/paginas-pautantes/restaurante-don-elias/</loc>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://salentoalamano.com/pautantes/boki-mall-hotel-el-mirador-de-boquia.html</loc>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://salentoalamano.com/pautantes/cabalgatas-cocora-magica.html</loc>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://salentoalamano.com/pautantes/finca-cafetera-don-elias.html</loc>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://salentoalamano.com/pautantes/finca-hotel-el-ocaso.html</loc>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://salentoalamano.com/pautantes/hotel-camino-nacional-salento.html</loc>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://salentoalamano.com/pautantes/hotel-la-floresta-salento.html</loc>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://salentoalamano.com/pautantes/mirador-las-manos-de-dios.html</loc>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://salentoalamano.com/pautantes/moto-aventura-110.html</loc>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://salentoalamano.com/pautantes/pautante.html</loc>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://salentoalamano.com/pautantes/restaurante-don-elias.html</loc>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
   <url>
     <loc>https://salentoalamano.com/estado-actual-salento-hoteles-abiertos-vias-libres-valle-cocora-operando-100</loc>
-    <lastmod>2026-09-01</lastmod>
-    <changefreq>hourly</changefreq>
-    <priority>1.0</priority>
-    <!-- Hreflang para SEO internacional -->
-    <xhtml:link rel="alternate" hreflang="es-CO" href="https://salentoalamano.com/estado-actual-salento-hoteles-abiertos-vias-libres-valle-cocora-operando-100" />
-    <xhtml:link rel="alternate" hreflang="en-US" href="https://salentoalamano.com/estado-actual-salento-hoteles-abiertos-vias-libres-valle-cocora-operando-100" />
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://salentoalamano.com/estado-actual-salento-hoteles-abiertos-vias-libres-valle-cocora-operando-100" />
-    <xhtml:link rel="alternate" hreflang="ru-RU" href="https://salentoalamano.com/estado-actual-salento-hoteles-abiertos-vias-libres-valle-cocora-operando-100" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://salentoalamano.com/estado-actual-salento-hoteles-abiertos-vias-libres-valle-cocora-operando-100" />
-  </url>
-
-  <!-- Landing Page Estado Actual 2026 - OPTIMIZADA PARA KEYWORDS ACTUALES -->
-  <url>
-    <loc>https://salentoalamano.com/landing-estado-actual-salento-2026</loc>
-    <lastmod>2026-09-01</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-    <!-- Hreflang para SEO internacional -->
-    <xhtml:link rel="alternate" hreflang="es-CO" href="https://salentoalamano.com/landing-estado-actual-salento-2026" />
-    <xhtml:link rel="alternate" hreflang="en-US" href="https://salentoalamano.com/landing-estado-actual-salento-2026" />
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://salentoalamano.com/landing-estado-actual-salento-2026" />
-    <xhtml:link rel="alternate" hreflang="ru-RU" href="https://salentoalamano.com/landing-estado-actual-salento-2026" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://salentoalamano.com/landing-estado-actual-salento-2026" />
-  </url>
-
-  <!-- Página Valle de Cocora - SEO Alta Prioridad Internacional -->
-  <url>
-    <loc>https://salentoalamano.com/valle-cocora-accesible-100</loc>
-    <lastmod>2026-09-01</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-    <!-- Hreflang para SEO internacional -->
-    <xhtml:link rel="alternate" hreflang="es-CO" href="https://salentoalamano.com/valle-cocora-accesible-100" />
-    <xhtml:link rel="alternate" hreflang="en-US" href="https://salentoalamano.com/valle-cocora-accesible-100" />
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://salentoalamano.com/valle-cocora-accesible-100" />
-    <xhtml:link rel="alternate" hreflang="ru-RU" href="https://salentoalamano.com/valle-cocora-accesible-100" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://salentoalamano.com/valle-cocora-accesible-100" />
-  </url>
-
-  <!-- Página Seguridad Salento - SEO Defensivo Internacional -->
-  <url>
-    <loc>https://salentoalamano.com/salento-seguro-turismo</loc>
-    <lastmod>2026-09-01</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-    <!-- Hreflang para SEO internacional -->
-    <xhtml:link rel="alternate" hreflang="es-CO" href="https://salentoalamano.com/salento-seguro-turismo" />
-    <xhtml:link rel="alternate" hreflang="en-US" href="https://salentoalamano.com/salento-seguro-turismo" />
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://salentoalamano.com/salento-seguro-turismo" />
-    <xhtml:link rel="alternate" hreflang="ru-RU" href="https://salentoalamano.com/salento-seguro-turismo" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://salentoalamano.com/salento-seguro-turismo" />
-  </url>
-
-  <!-- Página Hoteles Abiertos - SEO Comercial Internacional -->
-  <url>
-    <loc>https://salentoalamano.com/hoteles-abiertos-salento</loc>
-    <lastmod>2026-09-01</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-    <!-- Hreflang para SEO internacional -->
-    <xhtml:link rel="alternate" hreflang="es-CO" href="https://salentoalamano.com/hoteles-abiertos-salento" />
-    <xhtml:link rel="alternate" hreflang="en-US" href="https://salentoalamano.com/hoteles-abiertos-salento" />
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://salentoalamano.com/hoteles-abiertos-salento" />
-    <xhtml:link rel="alternate" hreflang="ru-RU" href="https://salentoalamano.com/hoteles-abiertos-salento" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://salentoalamano.com/hoteles-abiertos-salento" />
-  </url>
-
-  <!-- Página Vías Salento - SEO Logística Internacional -->
-  <url>
-    <loc>https://salentoalamano.com/vias-salento-libres-acceso</loc>
-    <lastmod>2026-09-01</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-    <!-- Hreflang para SEO internacional -->
-    <xhtml:link rel="alternate" hreflang="es-CO" href="https://salentoalamano.com/vias-salento-libres-acceso" />
-    <xhtml:link rel="alternate" hreflang="en-US" href="https://salentoalamano.com/vias-salento-libres-acceso" />
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://salentoalamano.com/vias-salento-libres-acceso" />
-    <xhtml:link rel="alternate" hreflang="ru-RU" href="https://salentoalamano.com/vias-salento-libres-acceso" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://salentoalamano.com/vias-salento-libres-acceso" />
-  </url>
-
-  <!-- Página Registro Aliados - SEO Comercial Internacional -->
-  <url>
-    <loc>https://salentoalamano.com/registro-aliados</loc>
-    <lastmod>2026-09-01</lastmod>
+    <lastmod>2026-09-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
-    <!-- Hreflang para SEO internacional -->
-    <xhtml:link rel="alternate" hreflang="es-CO" href="https://salentoalamano.com/registro-aliados" />
-    <xhtml:link rel="alternate" hreflang="en-US" href="https://salentoalamano.com/registro-aliados" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://salentoalamano.com/registro-aliados" />
   </url>
-
-  <!-- Página Don Chucho - SEO Interactivo Internacional -->
   <url>
-    <loc>https://salentoalamano.com/don-chucho-asistente</loc>
-    <lastmod>2026-09-01</lastmod>
-    <changefreq>daily</changefreq>
+    <loc>https://salentoalamano.com/landing-estado-actual-salento-2026</loc>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.7</priority>
-    <!-- Hreflang para SEO internacional -->
-    <xhtml:link rel="alternate" hreflang="es-CO" href="https://salentoalamano.com/don-chucho-asistente" />
-    <xhtml:link rel="alternate" hreflang="en-US" href="https://salentoalamano.com/don-chucho-asistente" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://salentoalamano.com/don-chucho-asistente" />
   </url>
-
-  <!-- Página Mapa Interactivo - SEO Principal Internacional -->
+  <url>
+    <loc>https://salentoalamano.com/valle-cocora-accesible-100</loc>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://salentoalamano.com/salento-seguro-turismo</loc>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://salentoalamano.com/hoteles-abiertos-salento</loc>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://salentoalamano.com/vias-salento-libres-acceso</loc>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
   <url>
     <loc>https://salentoalamano.com/mapa-interactivo-salento</loc>
-    <lastmod>2026-09-01</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-    <!-- Hreflang para SEO internacional -->
-    <xhtml:link rel="alternate" hreflang="es-CO" href="https://salentoalamano.com/mapa-interactivo-salento" />
-    <xhtml:link rel="alternate" hreflang="en-US" href="https://salentoalamano.com/mapa-interactivo-salento" />
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://salentoalamano.com/mapa-interactivo-salento" />
-    <xhtml:link rel="alternate" hreflang="ru-RU" href="https://salentoalamano.com/mapa-interactivo-salento" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://salentoalamano.com/mapa-interactivo-salento" />
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>
-
-  <url><loc>https://salentoalamano.com/es/</loc><lastmod>2026-09-08</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://salentoalamano.com/es/guias/guia-valle-del-cocora.html</loc><lastmod>2026-09-08</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://salentoalamano.com/es/guias/10-tours-cafe-salento.html</loc><lastmod>2026-09-08</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://salentoalamano.com/es/guias/que-hacer-en-salento-3-dias.html</loc><lastmod>2026-09-08</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://salentoalamano.com/en/</loc><lastmod>2026-09-08</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://salentoalamano.com/en/guias/guia-valle-del-cocora.html</loc><lastmod>2026-09-08</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://salentoalamano.com/en/guias/10-tours-cafe-salento.html</loc><lastmod>2026-09-08</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://salentoalamano.com/en/guias/que-hacer-en-salento-3-dias.html</loc><lastmod>2026-09-08</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://salentoalamano.com/de/</loc><lastmod>2026-09-08</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://salentoalamano.com/de/guias/guia-valle-del-cocora.html</loc><lastmod>2026-09-08</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://salentoalamano.com/de/guias/10-tours-cafe-salento.html</loc><lastmod>2026-09-08</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://salentoalamano.com/de/guias/que-hacer-en-salento-3-dias.html</loc><lastmod>2026-09-08</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://salentoalamano.com/fr/</loc><lastmod>2026-09-08</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://salentoalamano.com/fr/guias/guia-valle-del-cocora.html</loc><lastmod>2026-09-08</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://salentoalamano.com/fr/guias/10-tours-cafe-salento.html</loc><lastmod>2026-09-08</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://salentoalamano.com/fr/guias/que-hacer-en-salento-3-dias.html</loc><lastmod>2026-09-08</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-
-  <!-- ============================ -->
-  <!-- CATEGORÍAS DEL DIRECTORIO LOCAL -->
-  <!-- ============================ -->
-  <url><loc>https://salentoalamano.com/categorias/</loc><lastmod>2026-09-02</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
-  <url><loc>https://salentoalamano.com/categorias/alojamientos</loc><lastmod>2026-09-02</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
-  <url><loc>https://salentoalamano.com/categorias/restaurantes</loc><lastmod>2026-09-02</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
-  <url><loc>https://salentoalamano.com/categorias/cafes</loc><lastmod>2026-09-02</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
-  <url><loc>https://salentoalamano.com/categorias/artesanias</loc><lastmod>2026-09-02</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://salentoalamano.com/categorias/tiendas</loc><lastmod>2026-09-02</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://salentoalamano.com/categorias/experiencias</loc><lastmod>2026-09-02</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
-  <url><loc>https://salentoalamano.com/categorias/servicios</loc><lastmod>2026-09-02</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-
-  <!-- ============================ -->
-  <!-- FICHAS DE PAUTANTES (VERSIÓN COMPACTA) -->
-  <!-- ============================ -->
-  <url><loc>https://salentoalamano.com/pautantes/boki-mall-hotel-el-mirador-de-boquia</loc><lastmod>2026-09-02</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://salentoalamano.com/pautantes/brunch-de-la-plaza</loc><lastmod>2026-09-02</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://salentoalamano.com/pautantes/cabalgatas-cocora-magica</loc><lastmod>2026-09-02</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://salentoalamano.com/pautantes/cabalgatas-valle-de-cocora</loc><lastmod>2026-09-02</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://salentoalamano.com/pautantes/cafe-de-altura</loc><lastmod>2026-09-02</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://salentoalamano.com/pautantes/canasto-quindiano</loc><lastmod>2026-09-02</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  
-  <url><loc>https://salentoalamano.com/pautantes/coffee-tour-finca-cafetera-don-elias</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://salentoalamano.com/pautantes/coffee-tour-alojamiento-finca-hotel-el-ocaso</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://salentoalamano.com/pautantes/guias-del-cocora</loc><lastmod>2026-09-02</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://salentoalamano.com/pautantes/hotel-camino-nacional-salento</loc><lastmod>2026-09-02</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://salentoalamano.com/pautantes/hotel-la-floresta-salento</loc><lastmod>2026-09-02</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://salentoalamano.com/pautantes/jeeps-willys-salento</loc><lastmod>2026-09-02</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://salentoalamano.com/pautantes/la-fogata-salentina</loc><lastmod>2026-09-02</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://salentoalamano.com/pautantes/mirador-las-manos-de-dios</loc><lastmod>2026-09-02</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://salentoalamano.com/pautantes/moto-aventura-110</loc><lastmod>2026-09-02</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://salentoalamano.com/pautantes/reserva-natural-cascadas-de-santa-rita</loc><lastmod>2026-09-02</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://salentoalamano.com/pautantes/restaurante-don-elias</loc><lastmod>2026-09-02</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://salentoalamano.com/pautantes/salento-tour-operadora</loc><lastmod>2026-09-02</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://salentoalamano.com/pautantes/tienda-la-montana</loc><lastmod>2026-09-02</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://salentoalamano.com/pautantes/valle-en-bicicleta</loc><lastmod>2026-09-02</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-
-  <!-- ============================ -->
-  <!-- LANDING PAGES PROFUNDAS DE PAUTANTES (SEO DEEP - mayor prioridad) -->
-  <!-- ============================ -->
-  <url><loc>https://salentoalamano.com/paginas-pautantes/boki-mall-hotel-el-mirador-de-boquia/</loc><lastmod>2026-09-02</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
-  <url><loc>https://salentoalamano.com/paginas-pautantes/brunch-de-la-plaza/</loc><lastmod>2026-09-02</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
-  <url><loc>https://salentoalamano.com/paginas-pautantes/cabalgatas-cocora-magica/</loc><lastmod>2026-09-02</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
-  <url><loc>https://salentoalamano.com/paginas-pautantes/cabalgatas-valle-de-cocora/</loc><lastmod>2026-09-02</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
-  <url><loc>https://salentoalamano.com/paginas-pautantes/cafe-de-altura/</loc><lastmod>2026-09-02</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
-  <url><loc>https://salentoalamano.com/paginas-pautantes/canasto-quindiano/</loc><lastmod>2026-09-02</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
-  
-  <url><loc>https://salentoalamano.com/paginas-pautantes/coffee-tour-finca-cafetera-don-elias/</loc><lastmod>2026-09-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
-  <url><loc>https://salentoalamano.com/paginas-pautantes/coffee-tour-alojamiento-finca-hotel-el-ocaso/</loc><lastmod>2026-09-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
-  <url><loc>https://salentoalamano.com/paginas-pautantes/fonda-boquia/</loc><lastmod>2026-09-02</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
-  <url><loc>https://salentoalamano.com/paginas-pautantes/guias-del-cocora/</loc><lastmod>2026-09-02</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
-  <url><loc>https://salentoalamano.com/paginas-pautantes/hotel-camino-nacional-salento/</loc><lastmod>2026-09-02</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
-  <url><loc>https://salentoalamano.com/paginas-pautantes/hotel-la-floresta-salento/</loc><lastmod>2026-09-02</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
-  <url><loc>https://salentoalamano.com/paginas-pautantes/jeeps-willys-salento/</loc><lastmod>2026-09-02</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
-  <url><loc>https://salentoalamano.com/paginas-pautantes/la-fogata-salentina/</loc><lastmod>2026-09-02</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
-  <url><loc>https://salentoalamano.com/paginas-pautantes/mirador-las-manos-de-dios/</loc><lastmod>2026-09-02</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
-  <url><loc>https://salentoalamano.com/paginas-pautantes/moto-aventura-110/</loc><lastmod>2026-09-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
-  <url><loc>https://salentoalamano.com/moto-aventura-110</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://salentoalamano.com/paginas-pautantes/reserva-natural-cascadas-de-santa-rita/</loc><lastmod>2026-09-08</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
-  <url><loc>https://salentoalamano.com/paginas-pautantes/restaurante-don-elias/</loc><lastmod>2026-09-02</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
-  <url><loc>https://salentoalamano.com/paginas-pautantes/salento-tour-operadora/</loc><lastmod>2026-09-02</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
-  <url><loc>https://salentoalamano.com/paginas-pautantes/tienda-la-montana/</loc><lastmod>2026-09-02</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
-  <url><loc>https://salentoalamano.com/paginas-pautantes/valle-en-bicicleta/</loc><lastmod>2026-09-02</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url>
+    <loc>https://salentoalamano.com/registro-aliados</loc>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://salentoalamano.com/don-chucho-asistente</loc>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://salentoalamano.com/es/</loc>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="es-CO" href="https://salentoalamano.com/es/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://salentoalamano.com/en/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://salentoalamano.com/de/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://salentoalamano.com/fr/" />
+  </url>
+  <url>
+    <loc>https://salentoalamano.com/en/</loc>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="es-CO" href="https://salentoalamano.com/es/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://salentoalamano.com/en/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://salentoalamano.com/de/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://salentoalamano.com/fr/" />
+  </url>
+  <url>
+    <loc>https://salentoalamano.com/de/</loc>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="es-CO" href="https://salentoalamano.com/es/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://salentoalamano.com/en/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://salentoalamano.com/de/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://salentoalamano.com/fr/" />
+  </url>
+  <url>
+    <loc>https://salentoalamano.com/fr/</loc>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="es-CO" href="https://salentoalamano.com/es/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://salentoalamano.com/en/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://salentoalamano.com/de/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://salentoalamano.com/fr/" />
+  </url>
+  <url>
+    <loc>https://salentoalamano.com/es/guias/guia-valle-del-cocora.html</loc>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="es-CO" href="https://salentoalamano.com/es/guias/guia-valle-del-cocora.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://salentoalamano.com/en/guias/guia-valle-del-cocora.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://salentoalamano.com/de/guias/guia-valle-del-cocora.html" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://salentoalamano.com/fr/guias/guia-valle-del-cocora.html" />
+  </url>
+  <url>
+    <loc>https://salentoalamano.com/en/guias/guia-valle-del-cocora.html</loc>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="es-CO" href="https://salentoalamano.com/es/guias/guia-valle-del-cocora.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://salentoalamano.com/en/guias/guia-valle-del-cocora.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://salentoalamano.com/de/guias/guia-valle-del-cocora.html" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://salentoalamano.com/fr/guias/guia-valle-del-cocora.html" />
+  </url>
+  <url>
+    <loc>https://salentoalamano.com/de/guias/guia-valle-del-cocora.html</loc>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="es-CO" href="https://salentoalamano.com/es/guias/guia-valle-del-cocora.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://salentoalamano.com/en/guias/guia-valle-del-cocora.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://salentoalamano.com/de/guias/guia-valle-del-cocora.html" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://salentoalamano.com/fr/guias/guia-valle-del-cocora.html" />
+  </url>
+  <url>
+    <loc>https://salentoalamano.com/fr/guias/guia-valle-del-cocora.html</loc>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="es-CO" href="https://salentoalamano.com/es/guias/guia-valle-del-cocora.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://salentoalamano.com/en/guias/guia-valle-del-cocora.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://salentoalamano.com/de/guias/guia-valle-del-cocora.html" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://salentoalamano.com/fr/guias/guia-valle-del-cocora.html" />
+  </url>
+  <url>
+    <loc>https://salentoalamano.com/es/guias/10-tours-cafe-salento.html</loc>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="es-CO" href="https://salentoalamano.com/es/guias/10-tours-cafe-salento.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://salentoalamano.com/en/guias/10-tours-cafe-salento.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://salentoalamano.com/de/guias/10-tours-cafe-salento.html" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://salentoalamano.com/fr/guias/10-tours-cafe-salento.html" />
+  </url>
+  <url>
+    <loc>https://salentoalamano.com/en/guias/10-tours-cafe-salento.html</loc>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="es-CO" href="https://salentoalamano.com/es/guias/10-tours-cafe-salento.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://salentoalamano.com/en/guias/10-tours-cafe-salento.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://salentoalamano.com/de/guias/10-tours-cafe-salento.html" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://salentoalamano.com/fr/guias/10-tours-cafe-salento.html" />
+  </url>
+  <url>
+    <loc>https://salentoalamano.com/de/guias/10-tours-cafe-salento.html</loc>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="es-CO" href="https://salentoalamano.com/es/guias/10-tours-cafe-salento.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://salentoalamano.com/en/guias/10-tours-cafe-salento.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://salentoalamano.com/de/guias/10-tours-cafe-salento.html" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://salentoalamano.com/fr/guias/10-tours-cafe-salento.html" />
+  </url>
+  <url>
+    <loc>https://salentoalamano.com/fr/guias/10-tours-cafe-salento.html</loc>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="es-CO" href="https://salentoalamano.com/es/guias/10-tours-cafe-salento.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://salentoalamano.com/en/guias/10-tours-cafe-salento.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://salentoalamano.com/de/guias/10-tours-cafe-salento.html" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://salentoalamano.com/fr/guias/10-tours-cafe-salento.html" />
+  </url>
+  <url>
+    <loc>https://salentoalamano.com/es/guias/que-hacer-en-salento-3-dias.html</loc>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="es-CO" href="https://salentoalamano.com/es/guias/que-hacer-en-salento-3-dias.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://salentoalamano.com/en/guias/que-hacer-en-salento-3-dias.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://salentoalamano.com/de/guias/que-hacer-en-salento-3-dias.html" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://salentoalamano.com/fr/guias/que-hacer-en-salento-3-dias.html" />
+  </url>
+  <url>
+    <loc>https://salentoalamano.com/en/guias/que-hacer-en-salento-3-dias.html</loc>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="es-CO" href="https://salentoalamano.com/es/guias/que-hacer-en-salento-3-dias.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://salentoalamano.com/en/guias/que-hacer-en-salento-3-dias.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://salentoalamano.com/de/guias/que-hacer-en-salento-3-dias.html" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://salentoalamano.com/fr/guias/que-hacer-en-salento-3-dias.html" />
+  </url>
+  <url>
+    <loc>https://salentoalamano.com/de/guias/que-hacer-en-salento-3-dias.html</loc>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="es-CO" href="https://salentoalamano.com/es/guias/que-hacer-en-salento-3-dias.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://salentoalamano.com/en/guias/que-hacer-en-salento-3-dias.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://salentoalamano.com/de/guias/que-hacer-en-salento-3-dias.html" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://salentoalamano.com/fr/guias/que-hacer-en-salento-3-dias.html" />
+  </url>
+  <url>
+    <loc>https://salentoalamano.com/fr/guias/que-hacer-en-salento-3-dias.html</loc>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="es-CO" href="https://salentoalamano.com/es/guias/que-hacer-en-salento-3-dias.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://salentoalamano.com/en/guias/que-hacer-en-salento-3-dias.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://salentoalamano.com/de/guias/que-hacer-en-salento-3-dias.html" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://salentoalamano.com/fr/guias/que-hacer-en-salento-3-dias.html" />
+  </url>
 </urlset>
