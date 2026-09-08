@@ -18,6 +18,16 @@ interface MonitoringConfig {
   autoResponseEnabled: boolean
 }
 
+interface MonitoringReport {
+  timestamp: Date
+  totalMonitoredKeywords: number
+  criticalAlerts: number
+  highAlerts: number
+  risingTrends: number
+  topKeywords: ToxicKeywordAlert[]
+  recommendedActions: string[]
+}
+
 class KeywordMonitorService {
   private alerts: ToxicKeywordAlert[] = []
   private monitoredKeywords: Map<string, ToxicKeywordAlert> = new Map()
@@ -268,7 +278,7 @@ class KeywordMonitorService {
     }
   }
 
-  generateMonitoringReport(): {
+  generateMonitoringReport(): MonitoringReport {
     const totalAlerts = this.monitoredKeywords.size
     const criticalCount = Array.from(this.monitoredKeywords.values())
       .filter(alert => alert.severity === 'critical').length
