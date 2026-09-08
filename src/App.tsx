@@ -630,11 +630,11 @@ function App() {
       <header className="mobile-header site-header">
         <div className="identity-header">
           <div className="brand-mobile">
-            <img src="/logo_salento2026.png" alt="Salento a la Mano" className="mobile-logo" />
+            <img src="/logo_salento2026.png" alt="Salento a la Mano - Mapa turístico digital de Salento, Quindío" className="mobile-logo" />
             <div className="brand-text">
-              <h1>Salento a la Mano 🇨🇴</h1>
-              <p className="subtitle">Tu red de servicios directos en el corazón del Quindío</p>
-              <p className="no-intermediaries">Sin intermediarios, trato directo con locales</p>
+              <h1>Salento a la Mano 🇨🇴 - Mapa Turístico Digital de Salento, Quindío</h1>
+              <p className="subtitle">Descubre hoteles abiertos, restaurantes auténticos, experiencias únicas y negocios locales directos en el corazón del Eje Cafetero colombiano. Tu guía completa para turismo responsable y sin intermediarios.</p>
+              <p className="no-intermediaries">Estado actual 2026: Hoteles operativos, vías libres, Valle de Cocora accesible 100%. Turismo seguro y verificado.</p>
             </div>
           </div>
           <div className="location-indicator">
