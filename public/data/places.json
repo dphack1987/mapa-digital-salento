@@ -88,7 +88,12 @@
         ],
         "capacity": "9 habitaciones",
         "bookingNotes": "Premio al mejor hotel rural de Salento 2024. Operador logístico Boki Travel para experiencias turísticas. RNT: #91079"
-      }
+      },
+      "photos": [
+        "/pautas/boki_mall/hotel-mirador-boquia/Hotel_Mirador_de_Boquia_1747081077351.jpeg",
+        "/pautas/boki_mall/hotel-mirador-boquia/314270821.jpg",
+        "/pautas/boki_mall/hotel-mirador-boquia/370049629.jpg"
+      ]
     },
     {
       "id": 14,
@@ -256,7 +261,18 @@
           "Zonas de camping"
         ],
         "route": "Boquía → Hacienda Santa Rita → Sendero bosque → Vía tren → Túnel → Puente colgante → Cascada"
-      }
+      },
+      "photos": [
+        "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/rita1.jpg",
+        "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/rita2.jpg",
+        "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/rita3.jpg",
+        "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/rita4.jpg",
+        "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/rita5.jpg",
+        "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/f10.jpeg",
+        "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/f11.jpeg",
+        "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/f12.jpeg",
+        "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/foto1.jpeg"
+      ]
     },
     {
       "id": 5,
@@ -409,8 +425,7 @@
         "landmark": "10-15 min del centro de Salento"
       },
       "photos": [
-        "/pautas/coffee-tour-alojamiento-finca-hotel-el-ocaso/imagenes/foto_casa_ocaso.png",
-        "/pautas/coffee-tour-alojamiento-finca-hotel-el-ocaso/imagenes/logo_ocaso.png"
+        "/pautas/coffee-tour-alojamiento-finca-hotel-el-ocaso/imagenes/foto_casa_ocaso.png"
       ],
       "operatingHours": {
         "notes": "Check-in: 14:00-20:00, Check-out: 08:00-12:00, Desayuno: 7:00-10:00"
@@ -671,7 +686,14 @@
           "Domingo"
         ],
         "advanceBookingRequired": true
-      }
+      },
+      "photos": [
+        "/pautas/moto_aventura_110/imagenes/1.jpeg",
+        "/pautas/moto_aventura_110/imagenes/2.jpeg",
+        "/pautas/moto_aventura_110/imagenes/3.jpeg",
+        "/pautas/moto_aventura_110/imagenes/4.jpeg",
+        "/pautas/moto_aventura_110/imagenes/5.jpeg"
+      ]
     },
     {
       "id": 20,
@@ -796,7 +818,15 @@
         ],
         "averagePrice": "$$",
         "reservationRequired": false
-      }
+      },
+      "photos": [
+        "/pautas/restaurante_bar_fonda_boquia/imagenes/29389126_1005353112946875_6049563033867386880_n.jpg",
+        "/pautas/restaurante_bar_fonda_boquia/imagenes/30411747_1017613001720886_1046791999434260480_n.jpg",
+        "/pautas/restaurante_bar_fonda_boquia/imagenes/480508481_1169835038167384_4932382570318530100_n.jpg",
+        "/pautas/restaurante_bar_fonda_boquia/imagenes/481917729_1182180286932859_1362131829553801165_n.jpg",
+        "/pautas/restaurante_bar_fonda_boquia/imagenes/481961056_1182180233599531_8927232009685756092_n.jpg",
+        "/pautas/restaurante_bar_fonda_boquia/imagenes/65375183_1331615080320675_8125305373516103680_n.jpg"
+      ]
     },
     {
       "id": 22,
@@ -920,7 +950,19 @@
           "Guías bilingües",
           "Cerca del centro de Salento"
         ]
-      }
+      },
+      "photos": [
+        "/pautas/coffee-tour-finca-don-eduardo/IMG_0224.jpg",
+        "/pautas/coffee-tour-finca-don-eduardo/IMG_0366.jpg",
+        "/pautas/coffee-tour-finca-don-eduardo/IMG_0372.jpg",
+        "/pautas/coffee-tour-finca-don-eduardo/IMG_0736.jpg",
+        "/pautas/coffee-tour-finca-don-eduardo/IMG_3229.jpg",
+        "/pautas/coffee-tour-finca-don-eduardo/IMG_8454.jpg",
+        "/pautas/coffee-tour-finca-don-eduardo/IMG_9079.jpg",
+        "/pautas/coffee-tour-finca-don-eduardo/IMG_9320.jpg",
+        "/pautas/coffee-tour-finca-don-eduardo/IMG_9326.jpg",
+        "/pautas/coffee-tour-finca-don-eduardo/IMG_9360_1.jpg"
+      ]
     },
     {
       "id": 100,
