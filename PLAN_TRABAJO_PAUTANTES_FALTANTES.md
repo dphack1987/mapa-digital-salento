@@ -18,7 +18,6 @@ Cerrar la fase de contenido real y verificable antes de mejorar UX y SEO.
 | Boki Mall | Carpeta creada, sin ficha completa | Logo y nombre comercial | Descripción, contacto, ubicación, servicios, fotos reales | Alta |
 | Cabalgatas Cocora Mágica | Carpeta creada | Imagenes | Texto de experiencia, tarifas, horarios, contacto | Alta |
 | Cascadas de Santa Rita | Carpeta creada | Imagenes | Descripción real, acceso, costo, horario, contacto | Alta |
-| Coffee Tour El Recuerdo | Carpeta creada | Imagenes | Descripción del tour, ubicación, contacto, precio | Alta |
 | Finca Cafetera Don Elías | Carpeta creada, sin ficha sólida | Nombre y carpeta | Descripción, ubicación, servicios, contacto, fotos reales | Alta |
 | Finca Hotel El Ocaso | Ficha documentada parcialmente | Nombre, categoría, servicios, ubicación general, experiencia | Celular/WhatsApp, dirección exacta, precio, fotos reales | Media |
 | Hotel Camino Nacional | Ficha documentada bastante bien | Nombre, categoría, contacto, servicios, horarios, imagenes | Dirección exacta, precio, redes sociales, fotos categorizadas | Media |
@@ -39,7 +38,6 @@ Cerrar la fase de contenido real y verificable antes de mejorar UX y SEO.
 ### Bloque 2: Experiencias y atractivos
 - Cabalgatas Cocora Mágica
 - Cascadas de Santa Rita
-- Coffee Tour El Recuerdo
 - Mirador Mano de Dios
 - Moto Aventura 110
 

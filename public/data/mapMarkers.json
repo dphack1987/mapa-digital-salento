@@ -109,18 +109,6 @@
       "note": "Finca Cafetera Don Elías"
     },
     {
-      "id": 18,
-      "label": "Coffee Farm El Recuerdo",
-      "type": "Turístico",
-      "placeId": 18,
-      "coord": [
-        4.632,
-        -75.571
-      ],
-      "tone": "success",
-      "note": "Coffee Farm El Recuerdo"
-    },
-    {
       "id": 19,
       "label": "Moto Aventura 110",
       "type": "Comercial",
