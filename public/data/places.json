@@ -610,62 +610,6 @@
       }
     },
     {
-      "id": 18,
-      "name": "Coffee Farm El Recuerdo",
-      "type": "Coffee Tours",
-      "description": "Experiencia de café en finca familiar con vistas panorámicas del Valle de Cocora. Tour tradicional del proceso cafetero colombiano.",
-      "priceRange": "$$",
-      "rating": "4.7",
-      "timeInfo": "Tours programados",
-      "badge": "Finca familiar",
-      "color": "coral",
-      "icon": "Coffee",
-      "contact": {
-        "phone": "Por confirmar"
-      },
-      "location": {
-        "lat": 4.632,
-        "lng": -75.571,
-        "address": "Valle de Cocora",
-        "landmark": "Valle de Cocora"
-      },
-      "operatingHours": {
-        "notes": "Tours con reserva previa"
-      },
-      "tags": [
-        "coffee tour",
-        "finca cafetera",
-        "tour de café",
-        "experiencia",
-        "valle cocora"
-      ],
-      "verified": true,
-      "active": true,
-      "experienceDetails": {
-        "duration": "2-3 horas",
-        "difficulty": "Fácil",
-        "groupSize": "Variable",
-        "included": [
-          "Tour del café",
-          "Degustación",
-          "Vistas panorámicas"
-        ],
-        "notIncluded": [
-          "Transporte",
-          "Comida"
-        ],
-        "requirements": [
-          "Ropa cómoda"
-        ],
-        "languages": [
-          "Español"
-        ],
-        "meetingPoint": "Finca El Recuerdo, Valle de Cocora",
-        "cancellationPolicy": "Consultar política",
-        "tariff": "Consultar tarifas"
-      }
-    },
-    {
       "id": 19,
       "name": "Moto Aventura 110",
       "type": "Servicios",

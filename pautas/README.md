@@ -17,7 +17,7 @@ Ejemplos de pautantes activos:
 - hotel_la_floresta_salento
 - restaurante_bar_fonda_boquia
 - cascadas_de_santa_rita
-- coffee_tour_el_recuerdo
+
 - finca_cafetera_don_elias
 - restaurante_don_elias
 - moto_aventura_110
