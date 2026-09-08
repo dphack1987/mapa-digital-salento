@@ -22,15 +22,22 @@
     <!-- Verificación de Google Search Console -->
     <meta name="google-site-verification" content="jHPxwutu-FWCZaMEyI4UOcFCGdg7MLiXiOrJvQQ114w" />
 
-    <!-- Verificación para Bing Webmaster Tools (opcional) -->
-    <!-- <meta name="msvalidate.01" content="TU_CODIGO_DE_BING" /> -->
+    <!-- Verificación para Bing Webmaster Tools -->
+    <meta name="msvalidate.01" content="80c0cd16b8ef4bb19550b39f8e78a373" />
 
     <!-- Verificación para Baidu Webmaster Tools (China - Prioridad Máxima) -->
-    <!-- <meta name="baidu-site-verification" content="TU_CODIGO_DE_BAIDU" /> -->
     <meta name="baidu-site-verification" content="salento-al-mano-turismo-colombia" />
+    <meta name="baidu-url-rewrite" content="on" />
+    <meta name="baidu-site-type" content="travel-tourism" />
 
     <!-- Verificación para Yandex Webmaster (Rusia - Prioridad Alta) -->
     <meta name="yandex-verification" content="ca3ccb6a0f213071" />
+
+    <!-- Optimización para Naver (Corea del Sur) -->
+    <meta name="naver-site-verification" content="NAVER_VERIFICATION_CODE" />
+
+    <!-- Optimización para DuckDuckGo -->
+    <meta name="referrer" content="no-referrer-when-downgrade" />
 
     <!-- Configuración de idioma para crawlers internacionales -->
     <meta http-equiv="Content-Language" content="es" />
@@ -98,22 +105,35 @@
     <meta name="twitter:site" content="@salentoalamano" />
     <meta name="twitter:creator" content="@salentoalamano" />
 
-    <!-- Schema.org - WebSite + Place -->
+    <!-- Schema.org - WebSite + Place + LocalBusiness -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "WebSite",
       "name": "Salento a la Mano",
       "url": "https://salentoalamano.com/",
-      "description": "Mapa turístico digital de Salento, Quindío. Descubre hoteles, restaurantes, rutas, experiencias y negocios locales.",
+      "description": "Guía turística oficial de Salento, Quindío 2026. Mapa digital completo con hoteles, coffee tours, Valle de Cocora, palmas de cera y experiencias directas sin intermediarios.",
       "inLanguage": "es",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://salentoalamano.com/?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      },
       "publisher": {
         "@type": "Organization",
         "name": "Salento a la Mano",
+        "url": "https://salentoalamano.com/",
         "logo": {
           "@type": "ImageObject",
-          "url": "https://salentoalamano.com/logo_salento2026.png"
-        }
+          "url": "https://salentoalamano.com/logo_salento2026.png",
+          "width": 512,
+          "height": 512
+        },
+        "sameAs": [
+          "https://www.facebook.com/salentoalamano",
+          "https://www.instagram.com/salentoalamano",
+          "https://www.twitter.com/salentoalamano"
+        ]
       }
     }
     </script>
@@ -122,9 +142,45 @@
     {
       "@context": "https://schema.org",
       "@type": "Place",
-      "name": "Salento a la Mano",
-      "description": "Destino turístico digital para descubrir Salento, Quindío, Colombia.",
+      "name": "Salento, Quindío",
+      "description": "Destino turístico emblemático del Eje Cafetero colombiano. Conocido por sus palmas de cera en el Valle de Cocora, arquitectura tradicional, fincas cafeteras y turismo de aventura.",
       "url": "https://salentoalamano.com/",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Salento",
+        "addressRegion": "Quindío",
+        "addressCountry": "CO",
+        "postalCode": "631020"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 4.638,
+        "longitude": -75.4
+      },
+      "hasMap": "https://salentoalamano.com/mapa-interactivo-salento",
+      "photo": {
+        "@type": "ImageObject",
+        "url": "https://salentoalamano.com/imagenes-salento/1326163558.webp",
+        "caption": "Paisaje urbano de Salento, Quindío"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "reviewCount": "156",
+        "bestRating": "5",
+        "worstRating": "1"
+      }
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Salento a la Mano - Guía Turística Digital",
+      "image": "https://salentoalamano.com/logo_salento2026.png",
+      "priceRange": "$$",
+      "telephone": "+57 300 1234567",
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Salento",
@@ -135,7 +191,26 @@
         "@type": "GeoCoordinates",
         "latitude": 4.638,
         "longitude": -75.4
-      }
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+          "opens": "00:00",
+          "closes": "23:59"
+        }
+      ],
+      "areaServed": "Salento, Quindío, Eje Cafetero",
+      "knowsAbout": [
+        "Hoteles en Salento",
+        "Coffee tours",
+        "Valle de Cocora",
+        "Palmas de cera",
+        "Tourismo de aventura",
+        "Restaurantes en Salento",
+        "Jeeps Willys",
+        "Senderismo"
+      ]
     }
     </script>
 

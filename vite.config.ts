@@ -7,7 +7,7 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     copyPublicDir: true, // Asegurar que public se copie
-    chunkSizeWarningLimit: 1000, // Aumentar límite de advertencia
+    chunkSizeWarningLimit: 500, // Optimizado para Core Web Vitals
     minify: 'terser', // Minificación más agresiva
     sourcemap: false, // Desactivar sourcemaps en producción
     rollupOptions: {

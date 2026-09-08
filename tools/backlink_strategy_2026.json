@@ -1,0 +1,258 @@
+{
+  "strategy_name": "Estrategia de Backlinks para Dominar Rankings Salento Quindío 2026",
+  "domain": "salentoalamano.com",
+  "target_keywords": [
+    "Salento Quindío turismo",
+    "Valle de Cocora",
+    "coffee tours Salento",
+    "hoteles en Salento",
+    "palmas de cera Colombia",
+    "trucha arcoíris Salento",
+    "jeeps willys Salento",
+    "senderismo Salento",
+    "finca cafetera Salento",
+    "tourismo de aventura Quindío"
+  ],
+  "backlink_categories": {
+    "high_authority_tourism": {
+      "priority": 1,
+      "sites": [
+        {
+          "name": "Ministerio de Comercio, Industria y Turismo de Colombia",
+          "url": "https://www.mincit.gov.co",
+          "contact": "informacion@mincit.gov.co",
+          "approach": "Solicitar enlace como guía turística oficial de Salento",
+          "anchor_text": "Salento a la Mano - Guía turística oficial de Salento",
+          "difficulty": "Alta",
+          "expected_value": "Muy alta"
+        },
+        {
+          "name": "Proexport Colombia",
+          "url": "https://www.procolombia.co",
+          "contact": "info@procolombia.co",
+          "approach": "Ofrecer contenido para promoción de destino Eje Cafetero",
+          "anchor_text": "Guía de turismo Salento Quindío",
+          "difficulty": "Alta",
+          "expected_value": "Muy alta"
+        },
+        {
+          "name": "UNESCO - Paisaje Cultural Cafetero",
+          "url": "https://whc.unesco.org",
+          "contact": "contact@whc.unesco.org",
+          "approach": "Contribuir con información sobre sitios del patrimonio",
+          "anchor_text": "Salento Quindío - Eje Cafetero UNESCO",
+          "difficulty": "Muy alta",
+          "expected_value": "Extrema"
+        }
+      ]
+    },
+    "regional_authorities": {
+      "priority": 1,
+      "sites": [
+        {
+          "name": "Gobernación del Quindío",
+          "url": "https://www.quindio.gov.co",
+          "contact": "contactenos@quindio.gov.co",
+          "approach": "Solicitar enlace oficial como guía turística del departamento",
+          "anchor_text": "Salento a la Mano - Turismo Quindío",
+          "difficulty": "Media",
+          "expected_value": "Alta"
+        },
+        {
+          "name": "Alcaldía de Salento",
+          "url": "https://www.salento-quindio.gov.co",
+          "contact": "info@salento-quindio.gov.co",
+          "approach": "Solicitar reconocimiento como guía turística oficial del municipio",
+          "anchor_text": "Guía turística oficial de Salento",
+          "difficulty": "Media",
+          "expected_value": "Alta"
+        },
+        {
+          "name": "Cámara de Comercio del Quindío",
+          "url": "https://www.camaradecomerciodelquindio.com.co",
+          "contact": "info@camaradecomerciodelquindio.com.co",
+          "approach": "Solicitar enlace para asociados turísticos",
+          "anchor_text": "Salento a la Mano - Directorio turístico Quindío",
+          "difficulty": "Media",
+          "expected_value": "Alta"
+        }
+      ]
+    },
+    "travel_blogs": {
+      "priority": 2,
+      "sites": [
+        {
+          "name": "Colombia Travel Blog",
+          "url": "https://colombiatravelblog.com",
+          "contact": "contact@colombiatravelblog.com",
+          "approach": "Ofrecer guest post sobre Salento con enlace natural",
+          "anchor_text": "Guía completa de Salento Quindío",
+          "difficulty": "Media",
+          "expected_value": "Media-Alta"
+        },
+        {
+          "name": "Viajes National Geographic",
+          "url": "https://viajes.nationalgeographic.com.es",
+          "contact": "contacto@viajes.nationalgeographic.com.es",
+          "approach": "Proponer artículo sobre Valle de Cocora",
+          "anchor_text": "Valle de Cocora - Guía de visita",
+          "difficulty": "Alta",
+          "expected_value": "Muy alta"
+        },
+        {
+          "name": "Lonely Planet Colombia",
+          "url": "https://www.lonelyplanet.com/colombia",
+          "contact": "contact@lonelyplanet.com",
+          "approach": "Solicitar mención en guías de Salento",
+          "anchor_text": "Salento a la Mano - Directorio local",
+          "difficulty": "Muy alta",
+          "expected_value": "Extrema"
+        }
+      ]
+    },
+    "local_businesses": {
+      "priority": 1,
+      "strategy": "Crear red de enlaces cruzados con negocios locales",
+      "approach": "Implementar programa de alianzas con hoteles, restaurantes y operadores turísticos",
+      "benefits": [
+        "Enlaces naturales de alto valor contextual",
+        "Referencias de confianza local",
+        "Mayor visibilidad en comunidad turística"
+      ]
+    },
+    "social_media_links": {
+      "priority": 2,
+      "platforms": [
+        {
+          "platform": "Facebook",
+          "url": "https://www.facebook.com/salentoalamano",
+          "strategy": "Crear posts con enlaces al sitio web",
+          "frequency": "3-4 veces por semana"
+        },
+        {
+          "platform": "Instagram",
+          "url": "https://www.instagram.com/salentoalamano",
+          "strategy": "Bio link + Stories con enlaces temporales",
+          "frequency": "Diario"
+        },
+        {
+          "platform": "Twitter/X",
+          "url": "https://www.twitter.com/salentoalamano",
+          "strategy": "Threads con enlaces a contenido específico",
+          "frequency": "2-3 veces por día"
+        },
+        {
+          "platform": "YouTube",
+          "url": "https://www.youtube.com/@salentoalamano",
+          "strategy": "Descripciones de videos con enlaces",
+          "frequency": "Semanal"
+        }
+      ]
+    },
+    "press_and_media": {
+      "priority": 1,
+      "outlets": [
+        {
+          "name": "El Tiempo",
+          "url": "https://www.eltiempo.com",
+          "contact": "contenido@eltiempo.com",
+          "approach": "Enviar comunicados de prensa sobre turismo Salento",
+          "anchor_text": "Información oficial turismo Salento"
+        },
+        {
+          "name": "Portafolio",
+          "url": "https://www.portafolio.co",
+          "contact": "redaccion@portafolio.co",
+          "approach": "Artículos sobre turismo sostenible en Quindío",
+          "anchor_text": "Salento a la Mano - Turismo sostenible"
+        },
+        {
+          "name": "Revista Semana",
+          "url": "https://www.semana.com",
+          "contact": "contacto@semana.com",
+          "approach": "Proponer crónicas sobre turismo Salento",
+          "anchor_text": "Salento Quindío - Destino turístico"
+        }
+      ]
+    },
+    "directories_and_listings": {
+      "priority": 2,
+      "sites": [
+        {
+          "name": "TripAdvisor",
+          "url": "https://www.tripadvisor.com",
+          "approach": "Crear perfil de negocio con enlace al sitio",
+          "difficulty": "Baja",
+          "expected_value": "Media"
+        },
+        {
+          "name": "Google My Business",
+          "url": "https://business.google.com",
+          "approach": "Optimizar perfil con enlace al sitio web",
+          "difficulty": "Baja",
+          "expected_value": "Alta"
+        },
+        {
+          "name": "Yelp",
+          "url": "https://www.yelp.com",
+          "approach": "Crear listado de negocio turístico",
+          "difficulty": "Baja",
+          "expected_value": "Media"
+        }
+      ]
+    }
+  },
+  "action_plan": {
+    "phase_1_weeks_1_4": [
+      "Contactar autoridades locales (Alcaldía, Gobernación)",
+      "Optimizar Google My Business",
+      "Crear alianzas con 10 negocios locales",
+      "Establecer presencia en redes sociales"
+    ],
+    "phase_2_weeks_5_8": [
+      "Contactar blogs de viajes de nivel medio",
+      "Enviar comunicados de prensa a medios locales",
+      "Crear contenido para guest posts",
+      "Implementar programa de referidos"
+    ],
+    "phase_3_weeks_9_12": [
+      "Contactar sitios de alta autoridad (Ministerio, UNESCO)",
+      "Proponer artículos a medios nacionales",
+      "Expandir red de alianzas locales",
+      "Monitorear y ajustar estrategia"
+    ]
+  },
+  "kpi_tracking": {
+    "metrics": [
+      "Número total de backlinks",
+      "Autoridad de dominio (DA)",
+      "Autoridad de página (PA)",
+      "Tráfico orgánico de backlinks",
+      "Posicionamiento de keywords objetivo",
+      "Diversidad de dominios referentes"
+    ],
+    "tools": [
+      "Ahrefs",
+      "Moz",
+      "SEMrush",
+      "Google Search Console",
+      "Majestic SEO"
+    ]
+  },
+  "best_practices": [
+    "Usar anchor text natural y variado",
+    "Evitar over-optimization de keywords",
+    "Focalizar en calidad sobre cantidad",
+    "Priorizar backlinks de contexto relevante",
+    "Mantener diversidad de fuentes",
+    "Monitorear perfil de backlinks regularmente",
+    "Disavow enlaces tóxicos si es necesario"
+  ],
+  "risk_mitigation": [
+    "Evitar esquemas de backlinks",
+    "No comprar enlaces de baja calidad",
+    "Monitorear crecimiento anormal de backlinks",
+    "Mantener perfil de enlaces natural",
+    "Documentar todas las adquisiciones de backlinks"
+  ]
+}

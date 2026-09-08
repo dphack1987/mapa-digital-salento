@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 
   <!-- Página Principal - salentoalamano.com -->
   <url>
@@ -8,6 +9,11 @@
     <lastmod>2026-09-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://salentoalamano.com/imagenes-salento/1326163558.webp</image:loc>
+      <image:title>Salento a la Mano - Guía Turística Oficial 2026</image:title>
+      <image:caption>Paisaje urbano de Salento, Quindío - Eje Cafetero Colombia</image:caption>
+    </image:image>
     <!-- Hreflang para SEO internacional -->
     <xhtml:link rel="alternate" hreflang="es-CO" href="https://salentoalamano.com/" />
     <xhtml:link rel="alternate" hreflang="en-US" href="https://salentoalamano.com/" />
