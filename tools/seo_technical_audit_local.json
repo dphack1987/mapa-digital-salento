@@ -1,6 +1,6 @@
 {
   "generated_at": "2026-09-04T17:11:29.790155+00:00",
-  "origin": "https://mapa-digital-salento.vercel.app",
+  "origin": "https://salentoalamano.com",
   "read_only": true,
   "pages_scanned": 71,
   "summary": {
@@ -10,10 +10,10 @@
   },
   "pages": [
     {
-      "url": "https://mapa-digital-salento.vercel.app/",
+      "url": "https://salentoalamano.com/",
       "title": "Salento a la Mano | Mapa turístico de Salento, Quindío",
       "description_length": 255,
-      "canonical": "https://mapa-digital-salento.vercel.app/",
+      "canonical": "https://salentoalamano.com/",
       "language": "es",
       "h1_count": 0,
       "json_ld_blocks": 2,
@@ -21,7 +21,7 @@
       "indexable": true
     },
     {
-      "url": "https://mapa-digital-salento.vercel.app/categorias/alojamientos",
+      "url": "https://salentoalamano.com/categorias/alojamientos",
       "title": "Alojamientos | Salento a la Mano",
       "description_length": 54,
       "canonical": "",
@@ -32,7 +32,7 @@
       "indexable": true
     },
     {
-      "url": "https://mapa-digital-salento.vercel.app/categorias/artesanias",
+      "url": "https://salentoalamano.com/categorias/artesanias",
       "title": "Artesanías | Salento a la Mano",
       "description_length": 49,
       "canonical": "",
@@ -43,7 +43,7 @@
       "indexable": true
     },
     {
-      "url": "https://mapa-digital-salento.vercel.app/categorias/cafes",
+      "url": "https://salentoalamano.com/categorias/cafes",
       "title": "Cafés | Salento a la Mano",
       "description_length": 54,
       "canonical": "",
@@ -54,7 +54,7 @@
       "indexable": true
     },
     {
-      "url": "https://mapa-digital-salento.vercel.app/categorias/experiencias",
+      "url": "https://salentoalamano.com/categorias/experiencias",
       "title": "Experiencias | Salento a la Mano",
       "description_length": 60,
       "canonical": "",
@@ -65,7 +65,7 @@
       "indexable": true
     },
     {
-      "url": "https://mapa-digital-salento.vercel.app/categorias/",
+      "url": "https://salentoalamano.com/categorias/",
       "title": "Categorías | Salento a la Mano",
       "description_length": 0,
       "canonical": "",
@@ -76,7 +76,7 @@
       "indexable": true
     },
     {
-      "url": "https://mapa-digital-salento.vercel.app/categorias/restaurantes",
+      "url": "https://salentoalamano.com/categorias/restaurantes",
       "title": "Restaurantes | Salento a la Mano",
       "description_length": 56,
       "canonical": "",
@@ -87,7 +87,7 @@
       "indexable": true
     },
     {
-      "url": "https://mapa-digital-salento.vercel.app/categorias/servicios",
+      "url": "https://salentoalamano.com/categorias/servicios",
       "title": "Servicios | Salento a la Mano",
       "description_length": 51,
       "canonical": "",
@@ -98,7 +98,7 @@
       "indexable": true
     },
     {
-      "url": "https://mapa-digital-salento.vercel.app/categorias/tiendas",
+      "url": "https://salentoalamano.com/categorias/tiendas",
       "title": "Tiendas | Salento a la Mano",
       "description_length": 47,
       "canonical": "",
@@ -109,10 +109,10 @@
       "indexable": true
     },
     {
-      "url": "https://mapa-digital-salento.vercel.app/de/guias/10-tours-cafe-salento",
+      "url": "https://salentoalamano.com/de/guias/10-tours-cafe-salento",
       "title": "Coffee Tours in Salento: How to Choose",
       "description_length": 95,
-      "canonical": "https://mapa-digital-salento.vercel.app/de/guias/10-tours-cafe-salento.html",
+      "canonical": "https://salentoalamano.com/de/guias/10-tours-cafe-salento.html",
       "language": "de",
       "h1_count": 1,
       "json_ld_blocks": 0,
@@ -120,10 +120,10 @@
       "indexable": true
     },
     {
-      "url": "https://mapa-digital-salento.vercel.app/de/guias/guia-valle-del-cocora",
+      "url": "https://salentoalamano.com/de/guias/guia-valle-del-cocora",
       "title": "A Practical Guide to Visiting Cocora Valley",
       "description_length": 124,
-      "canonical": "https://mapa-digital-salento.vercel.app/de/guias/guia-valle-del-cocora.html",
+      "canonical": "https://salentoalamano.com/de/guias/guia-valle-del-cocora.html",
       "language": "de",
       "h1_count": 1,
       "json_ld_blocks": 0,
@@ -131,10 +131,10 @@
       "indexable": true
     },
     {
-      "url": "https://mapa-digital-salento.vercel.app/de/guias/que-hacer-en-salento-3-dias",
+      "url": "https://salentoalamano.com/de/guias/que-hacer-en-salento-3-dias",
       "title": "What to Do in Salento: A 3-Day Itinerary",
       "description_length": 76,
-      "canonical": "https://mapa-digital-salento.vercel.app/de/guias/que-hacer-en-salento-3-dias.html",
+      "canonical": "https://salentoalamano.com/de/guias/que-hacer-en-salento-3-dias.html",
       "language": "de",
       "h1_count": 1,
       "json_ld_blocks": 0,
@@ -142,10 +142,10 @@
       "indexable": true
     },
     {
-      "url": "https://mapa-digital-salento.vercel.app/de/",
+      "url": "https://salentoalamano.com/de/",
       "title": "Salento Kolumbien Reiseführer | Salento a la Mano",
       "description_length": 110,
-      "canonical": "https://mapa-digital-salento.vercel.app/de/",
+      "canonical": "https://salentoalamano.com/de/",
       "language": "de",
       "h1_count": 1,
       "json_ld_blocks": 0,
@@ -153,10 +153,10 @@
       "indexable": true
     },
     {
-      "url": "https://mapa-digital-salento.vercel.app/en/guias/10-tours-cafe-salento",
+      "url": "https://salentoalamano.com/en/guias/10-tours-cafe-salento",
       "title": "Coffee Tours in Salento: How to Choose",
       "description_length": 95,
-      "canonical": "https://mapa-digital-salento.vercel.app/en/guias/10-tours-cafe-salento.html",
+      "canonical": "https://salentoalamano.com/en/guias/10-tours-cafe-salento.html",
       "language": "en",
       "h1_count": 1,
       "json_ld_blocks": 0,
@@ -164,10 +164,10 @@
       "indexable": true
     },
     {
-      "url": "https://mapa-digital-salento.vercel.app/en/guias/guia-valle-del-cocora",
+      "url": "https://salentoalamano.com/en/guias/guia-valle-del-cocora",
       "title": "A Practical Guide to Visiting Cocora Valley",
       "description_length": 124,
-      "canonical": "https://mapa-digital-salento.vercel.app/en/guias/guia-valle-del-cocora.html",
+      "canonical": "https://salentoalamano.com/en/guias/guia-valle-del-cocora.html",
       "language": "en",
       "h1_count": 1,
       "json_ld_blocks": 0,
@@ -175,10 +175,10 @@
       "indexable": true
     },
     {
-      "url": "https://mapa-digital-salento.vercel.app/en/guias/que-hacer-en-salento-3-dias",
+      "url": "https://salentoalamano.com/en/guias/que-hacer-en-salento-3-dias",
       "title": "What to Do in Salento: A 3-Day Itinerary",
       "description_length": 76,
-      "canonical": "https://mapa-digital-salento.vercel.app/en/guias/que-hacer-en-salento-3-dias.html",
+      "canonical": "https://salentoalamano.com/en/guias/que-hacer-en-salento-3-dias.html",
       "language": "en",
       "h1_count": 1,
       "json_ld_blocks": 0,
@@ -186,10 +186,10 @@
       "indexable": true
     },
     {
-      "url": "https://mapa-digital-salento.vercel.app/en/",
+      "url": "https://salentoalamano.com/en/",
       "title": "Salento, Colombia Travel Guide | Salento a la Mano",
       "description_length": 125,
-      "canonical": "https://mapa-digital-salento.vercel.app/en/",
+      "canonical": "https://salentoalamano.com/en/",
       "language": "en",
       "h1_count": 1,
       "json_ld_blocks": 0,
@@ -197,10 +197,10 @@
       "indexable": true
     },
     {
-      "url": "https://mapa-digital-salento.vercel.app/es/guias/10-tours-cafe-salento",
+      "url": "https://salentoalamano.com/es/guias/10-tours-cafe-salento",
       "title": "Tours de café en Salento: cómo elegir",
       "description_length": 106,
-      "canonical": "https://mapa-digital-salento.vercel.app/es/guias/10-tours-cafe-salento.html",
+      "canonical": "https://salentoalamano.com/es/guias/10-tours-cafe-salento.html",
       "language": "es",
       "h1_count": 1,
       "json_ld_blocks": 0,
@@ -208,10 +208,10 @@
       "indexable": true
     },
     {
-      "url": "https://mapa-digital-salento.vercel.app/es/guias/guia-valle-del-cocora",
+      "url": "https://salentoalamano.com/es/guias/guia-valle-del-cocora",
       "title": "Guía para visitar el Valle del Cocora",
       "description_length": 121,
-      "canonical": "https://mapa-digital-salento.vercel.app/es/guias/guia-valle-del-cocora.html",
+      "canonical": "https://salentoalamano.com/es/guias/guia-valle-del-cocora.html",
       "language": "es",
       "h1_count": 1,
       "json_ld_blocks": 0,
@@ -219,10 +219,10 @@
       "indexable": true
     },
     {
-      "url": "https://mapa-digital-salento.vercel.app/es/guias/que-hacer-en-salento-3-dias",
+      "url": "https://salentoalamano.com/es/guias/que-hacer-en-salento-3-dias",
       "title": "Qué hacer en Salento: itinerario de 3 días",
       "description_length": 88,
-      "canonical": "https://mapa-digital-salento.vercel.app/es/guias/que-hacer-en-salento-3-dias.html",
+      "canonical": "https://salentoalamano.com/es/guias/que-hacer-en-salento-3-dias.html",
       "language": "es",
       "h1_count": 1,
       "json_ld_blocks": 0,
@@ -230,10 +230,10 @@
       "indexable": true
     },
     {
-      "url": "https://mapa-digital-salento.vercel.app/es/",
+      "url": "https://salentoalamano.com/es/",
       "title": "Salento a la Mano | Guía turística de Salento, Quindío",
       "description_length": 113,
-      "canonical": "https://mapa-digital-salento.vercel.app/es/",
+      "canonical": "https://salentoalamano.com/es/",
       "language": "es",
       "h1_count": 1,
       "json_ld_blocks": 0,
@@ -241,10 +241,10 @@
       "indexable": true
     },
     {
-      "url": "https://mapa-digital-salento.vercel.app/fr/guias/10-tours-cafe-salento",
+      "url": "https://salentoalamano.com/fr/guias/10-tours-cafe-salento",
       "title": "Coffee Tours in Salento: How to Choose",
       "description_length": 95,
-      "canonical": "https://mapa-digital-salento.vercel.app/fr/guias/10-tours-cafe-salento.html",
+      "canonical": "https://salentoalamano.com/fr/guias/10-tours-cafe-salento.html",
       "language": "fr",
       "h1_count": 1,
       "json_ld_blocks": 0,
@@ -252,10 +252,10 @@
       "indexable": true
     },
     {
-      "url": "https://mapa-digital-salento.vercel.app/fr/guias/guia-valle-del-cocora",
+      "url": "https://salentoalamano.com/fr/guias/guia-valle-del-cocora",
       "title": "A Practical Guide to Visiting Cocora Valley",
       "description_length": 124,
-      "canonical": "https://mapa-digital-salento.vercel.app/fr/guias/guia-valle-del-cocora.html",
+      "canonical": "https://salentoalamano.com/fr/guias/guia-valle-del-cocora.html",
       "language": "fr",
       "h1_count": 1,
       "json_ld_blocks": 0,
@@ -263,10 +263,10 @@
       "indexable": true
     },
     {
-      "url": "https://mapa-digital-salento.vercel.app/fr/guias/que-hacer-en-salento-3-dias",
+      "url": "https://salentoalamano.com/fr/guias/que-hacer-en-salento-3-dias",
       "title": "What to Do in Salento: A 3-Day Itinerary",
       "description_length": 76,
-      "canonical": "https://mapa-digital-salento.vercel.app/fr/guias/que-hacer-en-salento-3-dias.html",
+      "canonical": "https://salentoalamano.com/fr/guias/que-hacer-en-salento-3-dias.html",
       "language": "fr",
       "h1_count": 1,
       "json_ld_blocks": 0,
@@ -274,10 +274,10 @@
       "indexable": true
     },
     {
-      "url": "https://mapa-digital-salento.vercel.app/fr/",
+      "url": "https://salentoalamano.com/fr/",
       "title": "Guide de voyage Salento Colombie | Salento a la Mano",
       "description_length": 100,
-      "canonical": "https://mapa-digital-salento.vercel.app/fr/",
+      "canonical": "https://salentoalamano.com/fr/",
       "language": "fr",
       "h1_count": 1,
       "json_ld_blocks": 0,
@@ -285,7 +285,7 @@
       "indexable": true
     },
     {
-      "url": "https://mapa-digital-salento.vercel.app/googleac76b27847921d06",
+      "url": "https://salentoalamano.com/googleac76b27847921d06",
       "title": "",
       "description_length": 0,
       "canonical": "",
@@ -296,7 +296,7 @@
       "indexable": true
     },
     {
-      "url": "https://mapa-digital-salento.vercel.app/paginas-pautantes/boki-mall-hotel-el-mirador-de-boquia/",
+      "url": "https://salentoalamano.com/paginas-pautantes/boki-mall-hotel-el-mirador-de-boquia/",
       "title": "Boki Mall - Hotel El Mirador de Boquía | Vive Salento directamente",
       "description_length": 241,
       "canonical": "",
@@ -307,7 +307,7 @@
       "indexable": true
     },
     {
-      "url": "https://mapa-digital-salento.vercel.app/paginas-pautantes/brunch-de-la-plaza/",
+      "url": "https://salentoalamano.com/paginas-pautantes/brunch-de-la-plaza/",
       "title": "Brunch de la Plaza | Vive Salento directamente",
       "description_length": 55,
       "canonical": "",
@@ -318,7 +318,7 @@
       "indexable": true
     },
     {
-      "url": "https://mapa-digital-salento.vercel.app/paginas-pautantes/cabalgatas-cocora-magica/",
+      "url": "https://salentoalamano.com/paginas-pautantes/cabalgatas-cocora-magica/",
       "title": "Cabalgatas Cocora Mágica | Vive Salento directamente",
       "description_length": 177,
       "canonical": "",
@@ -329,7 +329,7 @@
       "indexable": true
     },
     {
-      "url": "https://mapa-digital-salento.vercel.app/paginas-pautantes/cabalgatas-valle-de-cocora/",
+      "url": "https://salentoalamano.com/paginas-pautantes/cabalgatas-valle-de-cocora/",
       "title": "Cabalgatas Valle de Cocora | Vive Salento directamente",
       "description_length": 92,
       "canonical": "",
@@ -340,7 +340,7 @@
       "indexable": true
     },
     {
-      "url": "https://mapa-digital-salento.vercel.app/paginas-pautantes/cafe-de-altura/",
+      "url": "https://salentoalamano.com/paginas-pautantes/cafe-de-altura/",
       "title": "Café de Altura | Vive Salento directamente",
       "description_length": 58,
       "canonical": "",
@@ -351,7 +351,7 @@
       "indexable": true
     },
     {
-      "url": "https://mapa-digital-salento.vercel.app/paginas-pautantes/canasto-quindiano/",
+      "url": "https://salentoalamano.com/paginas-pautantes/canasto-quindiano/",
       "title": "Canasto Quindiano | Vive Salento directamente",
       "description_length": 53,
       "canonical": "",
@@ -362,7 +362,7 @@
       "indexable": true
     },
     {
-      "url": "https://mapa-digital-salento.vercel.app/paginas-pautantes/coffee-farm-el-recuerdo/",
+      "url": "https://salentoalamano.com/paginas-pautantes/coffee-farm-el-recuerdo/",
       "title": "Coffee Farm El Recuerdo | Vive Salento directamente",
       "description_length": 142,
       "canonical": "",
@@ -373,7 +373,7 @@
       "indexable": true
     },
     {
-      "url": "https://mapa-digital-salento.vercel.app/paginas-pautantes/finca-cafetera-don-elias/",
+      "url": "https://salentoalamano.com/paginas-pautantes/finca-cafetera-don-elias/",
       "title": "Finca Cafetera Don Elías | Vive Salento directamente",
       "description_length": 203,
       "canonical": "",
@@ -384,7 +384,7 @@
       "indexable": true
     },
     {
-      "url": "https://mapa-digital-salento.vercel.app/paginas-pautantes/finca-hotel-el-ocaso/",
+      "url": "https://salentoalamano.com/paginas-pautantes/finca-hotel-el-ocaso/",
       "title": "Finca Hotel El Ocaso | Vive Salento directamente",
       "description_length": 207,
       "canonical": "",
@@ -395,7 +395,7 @@
       "indexable": true
     },
     {
-      "url": "https://mapa-digital-salento.vercel.app/paginas-pautantes/fonda-boquia/",
+      "url": "https://salentoalamano.com/paginas-pautantes/fonda-boquia/",
       "title": "Fonda Boquía | Vive Salento directamente",
       "description_length": 158,
       "canonical": "",
@@ -406,7 +406,7 @@
       "indexable": true
     },
     {
-      "url": "https://mapa-digital-salento.vercel.app/paginas-pautantes/guias-del-cocora/",
+      "url": "https://salentoalamano.com/paginas-pautantes/guias-del-cocora/",
       "title": "Guías del Cocora | Vive Salento directamente",
       "description_length": 57,
       "canonical": "",
@@ -417,7 +417,7 @@
       "indexable": true
     },
     {
-      "url": "https://mapa-digital-salento.vercel.app/paginas-pautantes/hotel-camino-nacional-salento/",
+      "url": "https://salentoalamano.com/paginas-pautantes/hotel-camino-nacional-salento/",
       "title": "Hotel Camino Nacional Salento | Vive Salento directamente",
       "description_length": 303,
       "canonical": "",
@@ -428,7 +428,7 @@
       "indexable": true
     },
     {
-      "url": "https://mapa-digital-salento.vercel.app/paginas-pautantes/hotel-la-floresta-salento/",
+      "url": "https://salentoalamano.com/paginas-pautantes/hotel-la-floresta-salento/",
       "title": "Hotel La Floresta Salento | Vive Salento directamente",
       "description_length": 209,
       "canonical": "",
@@ -439,7 +439,7 @@
       "indexable": true
     },
     {
-      "url": "https://mapa-digital-salento.vercel.app/paginas-pautantes/jeeps-willys-salento/",
+      "url": "https://salentoalamano.com/paginas-pautantes/jeeps-willys-salento/",
       "title": "Jeeps Willys Salento | Vive Salento directamente",
       "description_length": 100,
       "canonical": "",
@@ -450,7 +450,7 @@
       "indexable": true
     },
     {
-      "url": "https://mapa-digital-salento.vercel.app/paginas-pautantes/la-fogata-salentina/",
+      "url": "https://salentoalamano.com/paginas-pautantes/la-fogata-salentina/",
       "title": "La Fogata Salentina | Vive Salento directamente",
       "description_length": 52,
       "canonical": "",
@@ -461,7 +461,7 @@
       "indexable": true
     },
     {
-      "url": "https://mapa-digital-salento.vercel.app/paginas-pautantes/mirador-las-manos-de-dios/",
+      "url": "https://salentoalamano.com/paginas-pautantes/mirador-las-manos-de-dios/",
       "title": "Mirador Las Manos de Dios | Vive Salento directamente",
       "description_length": 234,
       "canonical": "",
@@ -472,7 +472,7 @@
       "indexable": true
     },
     {
-      "url": "https://mapa-digital-salento.vercel.app/paginas-pautantes/moto-aventura-110/",
+      "url": "https://salentoalamano.com/paginas-pautantes/moto-aventura-110/",
       "title": "Moto Aventura 110 | Vive Salento directamente",
       "description_length": 199,
       "canonical": "",
@@ -483,7 +483,7 @@
       "indexable": true
     },
     {
-      "url": "https://mapa-digital-salento.vercel.app/paginas-pautantes/reserva-natural-cascadas-de-santa-rita/",
+      "url": "https://salentoalamano.com/paginas-pautantes/reserva-natural-cascadas-de-santa-rita/",
       "title": "Reserva Natural Cascadas de Santa Rita | Vive Salento directamente",
       "description_length": 216,
       "canonical": "",
@@ -494,7 +494,7 @@
       "indexable": true
     },
     {
-      "url": "https://mapa-digital-salento.vercel.app/paginas-pautantes/restaurante-don-elias/",
+      "url": "https://salentoalamano.com/paginas-pautantes/restaurante-don-elias/",
       "title": "Restaurante Don Elías | Vive Salento directamente",
       "description_length": 203,
       "canonical": "",
@@ -505,7 +505,7 @@
       "indexable": true
     },
     {
-      "url": "https://mapa-digital-salento.vercel.app/paginas-pautantes/salento-tour-operadora/",
+      "url": "https://salentoalamano.com/paginas-pautantes/salento-tour-operadora/",
       "title": "Salento Tour Operadora | Vive Salento directamente",
       "description_length": 83,
       "canonical": "",
@@ -516,7 +516,7 @@
       "indexable": true
     },
     {
-      "url": "https://mapa-digital-salento.vercel.app/paginas-pautantes/tienda-la-montana/",
+      "url": "https://salentoalamano.com/paginas-pautantes/tienda-la-montana/",
       "title": "Tienda La Montaña | Vive Salento directamente",
       "description_length": 52,
       "canonical": "",
@@ -527,7 +527,7 @@
       "indexable": true
     },
     {
-      "url": "https://mapa-digital-salento.vercel.app/paginas-pautantes/valle-en-bicicleta/",
+      "url": "https://salentoalamano.com/paginas-pautantes/valle-en-bicicleta/",
       "title": "Valle en Bicicleta | Vive Salento directamente",
       "description_length": 58,
       "canonical": "",
@@ -538,7 +538,7 @@
       "indexable": true
     },
     {
-      "url": "https://mapa-digital-salento.vercel.app/pautantes/boki-mall-hotel-el-mirador-de-boquia",
+      "url": "https://salentoalamano.com/pautantes/boki-mall-hotel-el-mirador-de-boquia",
       "title": "Boki Mall - Hotel El Mirador de Boquía | Salento a la Mano",
       "description_length": 0,
       "canonical": "",
@@ -549,7 +549,7 @@
       "indexable": true
     },
     {
-      "url": "https://mapa-digital-salento.vercel.app/pautantes/brunch-de-la-plaza",
+      "url": "https://salentoalamano.com/pautantes/brunch-de-la-plaza",
       "title": "Brunch de la Plaza | Salento a la Mano",
       "description_length": 0,
       "canonical": "",
@@ -560,7 +560,7 @@
       "indexable": true
     },
     {
-      "url": "https://mapa-digital-salento.vercel.app/pautantes/cabalgatas-cocora-magica",
+      "url": "https://salentoalamano.com/pautantes/cabalgatas-cocora-magica",
       "title": "Cabalgatas Cocora Mágica | Salento a la Mano",
       "description_length": 0,
       "canonical": "",
@@ -571,7 +571,7 @@
       "indexable": true
     },
     {
-      "url": "https://mapa-digital-salento.vercel.app/pautantes/cabalgatas-valle-de-cocora",
+      "url": "https://salentoalamano.com/pautantes/cabalgatas-valle-de-cocora",
       "title": "Cabalgatas Valle de Cocora | Salento a la Mano",
       "description_length": 0,
       "canonical": "",
@@ -582,7 +582,7 @@
       "indexable": true
     },
     {
-      "url": "https://mapa-digital-salento.vercel.app/pautantes/cafe-de-altura",
+      "url": "https://salentoalamano.com/pautantes/cafe-de-altura",
       "title": "Café de Altura | Salento a la Mano",
       "description_length": 0,
       "canonical": "",
@@ -593,7 +593,7 @@
       "indexable": true
     },
     {
-      "url": "https://mapa-digital-salento.vercel.app/pautantes/canasto-quindiano",
+      "url": "https://salentoalamano.com/pautantes/canasto-quindiano",
       "title": "Canasto Quindiano | Salento a la Mano",
       "description_length": 0,
       "canonical": "",
@@ -604,7 +604,7 @@
       "indexable": true
     },
     {
-      "url": "https://mapa-digital-salento.vercel.app/pautantes/coffee-farm-el-recuerdo",
+      "url": "https://salentoalamano.com/pautantes/coffee-farm-el-recuerdo",
       "title": "Coffee Farm El Recuerdo | Salento a la Mano",
       "description_length": 0,
       "canonical": "",
@@ -615,7 +615,7 @@
       "indexable": true
     },
     {
-      "url": "https://mapa-digital-salento.vercel.app/pautantes/finca-cafetera-don-elias",
+      "url": "https://salentoalamano.com/pautantes/finca-cafetera-don-elias",
       "title": "Finca Cafetera Don Elías | Salento a la Mano",
       "description_length": 0,
       "canonical": "",
@@ -626,7 +626,7 @@
       "indexable": true
     },
     {
-      "url": "https://mapa-digital-salento.vercel.app/pautantes/finca-hotel-el-ocaso",
+      "url": "https://salentoalamano.com/pautantes/finca-hotel-el-ocaso",
       "title": "Finca Hotel El Ocaso | Salento a la Mano",
       "description_length": 0,
       "canonical": "",
@@ -637,7 +637,7 @@
       "indexable": true
     },
     {
-      "url": "https://mapa-digital-salento.vercel.app/pautantes/guias-del-cocora",
+      "url": "https://salentoalamano.com/pautantes/guias-del-cocora",
       "title": "Guías del Cocora | Salento a la Mano",
       "description_length": 0,
       "canonical": "",
@@ -648,7 +648,7 @@
       "indexable": true
     },
     {
-      "url": "https://mapa-digital-salento.vercel.app/pautantes/hotel-camino-nacional-salento",
+      "url": "https://salentoalamano.com/pautantes/hotel-camino-nacional-salento",
       "title": "Hotel Camino Nacional Salento | Salento a la Mano",
       "description_length": 0,
       "canonical": "",
@@ -659,7 +659,7 @@
       "indexable": true
     },
     {
-      "url": "https://mapa-digital-salento.vercel.app/pautantes/hotel-la-floresta-salento",
+      "url": "https://salentoalamano.com/pautantes/hotel-la-floresta-salento",
       "title": "Hotel La Floresta Salento | Salento a la Mano",
       "description_length": 0,
       "canonical": "",
@@ -670,7 +670,7 @@
       "indexable": true
     },
     {
-      "url": "https://mapa-digital-salento.vercel.app/pautantes/jeeps-willys-salento",
+      "url": "https://salentoalamano.com/pautantes/jeeps-willys-salento",
       "title": "Jeeps Willys Salento | Salento a la Mano",
       "description_length": 0,
       "canonical": "",
@@ -681,7 +681,7 @@
       "indexable": true
     },
     {
-      "url": "https://mapa-digital-salento.vercel.app/pautantes/la-fogata-salentina",
+      "url": "https://salentoalamano.com/pautantes/la-fogata-salentina",
       "title": "La Fogata Salentina | Salento a la Mano",
       "description_length": 0,
       "canonical": "",
@@ -692,7 +692,7 @@
       "indexable": true
     },
     {
-      "url": "https://mapa-digital-salento.vercel.app/pautantes/mirador-las-manos-de-dios",
+      "url": "https://salentoalamano.com/pautantes/mirador-las-manos-de-dios",
       "title": "Mirador Las Manos de Dios | Salento a la Mano",
       "description_length": 0,
       "canonical": "",
@@ -703,7 +703,7 @@
       "indexable": true
     },
     {
-      "url": "https://mapa-digital-salento.vercel.app/pautantes/moto-aventura-110",
+      "url": "https://salentoalamano.com/pautantes/moto-aventura-110",
       "title": "Moto Aventura 110 | Salento a la Mano",
       "description_length": 0,
       "canonical": "",
@@ -714,7 +714,7 @@
       "indexable": true
     },
     {
-      "url": "https://mapa-digital-salento.vercel.app/pautantes/pautante",
+      "url": "https://salentoalamano.com/pautantes/pautante",
       "title": "Pautante | Salento a la Mano",
       "description_length": 0,
       "canonical": "",
@@ -725,7 +725,7 @@
       "indexable": true
     },
     {
-      "url": "https://mapa-digital-salento.vercel.app/pautantes/reserva-natural-cascadas-de-santa-rita",
+      "url": "https://salentoalamano.com/pautantes/reserva-natural-cascadas-de-santa-rita",
       "title": "Reserva Natural Cascadas de Santa Rita | Salento a la Mano",
       "description_length": 0,
       "canonical": "",
@@ -736,7 +736,7 @@
       "indexable": true
     },
     {
-      "url": "https://mapa-digital-salento.vercel.app/pautantes/restaurante-don-elias",
+      "url": "https://salentoalamano.com/pautantes/restaurante-don-elias",
       "title": "Restaurante Don Elías | Salento a la Mano",
       "description_length": 0,
       "canonical": "",
@@ -747,7 +747,7 @@
       "indexable": true
     },
     {
-      "url": "https://mapa-digital-salento.vercel.app/pautantes/salento-tour-operadora",
+      "url": "https://salentoalamano.com/pautantes/salento-tour-operadora",
       "title": "Salento Tour Operadora | Salento a la Mano",
       "description_length": 0,
       "canonical": "",
@@ -758,7 +758,7 @@
       "indexable": true
     },
     {
-      "url": "https://mapa-digital-salento.vercel.app/pautantes/tienda-la-montana",
+      "url": "https://salentoalamano.com/pautantes/tienda-la-montana",
       "title": "Tienda La Montaña | Salento a la Mano",
       "description_length": 0,
       "canonical": "",
@@ -769,7 +769,7 @@
       "indexable": true
     },
     {
-      "url": "https://mapa-digital-salento.vercel.app/pautantes/valle-en-bicicleta",
+      "url": "https://salentoalamano.com/pautantes/valle-en-bicicleta",
       "title": "Valle en Bicicleta | Salento a la Mano",
       "description_length": 0,
       "canonical": "",
@@ -783,32 +783,32 @@
   "sitemap": {
     "url_count": 78,
     "missing_local_pages": [
-      "https://mapa-digital-salento.vercel.app/de/guias/10-tours-cafe-salento.html",
-      "https://mapa-digital-salento.vercel.app/de/guias/guia-valle-del-cocora.html",
-      "https://mapa-digital-salento.vercel.app/de/guias/que-hacer-en-salento-3-dias.html",
-      "https://mapa-digital-salento.vercel.app/don-chucho-asistente",
-      "https://mapa-digital-salento.vercel.app/en/guias/10-tours-cafe-salento.html",
-      "https://mapa-digital-salento.vercel.app/en/guias/guia-valle-del-cocora.html",
-      "https://mapa-digital-salento.vercel.app/en/guias/que-hacer-en-salento-3-dias.html",
-      "https://mapa-digital-salento.vercel.app/es/guias/10-tours-cafe-salento.html",
-      "https://mapa-digital-salento.vercel.app/es/guias/guia-valle-del-cocora.html",
-      "https://mapa-digital-salento.vercel.app/es/guias/que-hacer-en-salento-3-dias.html",
-      "https://mapa-digital-salento.vercel.app/estado-actual-salento-hoteles-abiertos-vias-libres-valle-cocora-operando-100",
-      "https://mapa-digital-salento.vercel.app/fr/guias/10-tours-cafe-salento.html",
-      "https://mapa-digital-salento.vercel.app/fr/guias/guia-valle-del-cocora.html",
-      "https://mapa-digital-salento.vercel.app/fr/guias/que-hacer-en-salento-3-dias.html",
-      "https://mapa-digital-salento.vercel.app/hoteles-abiertos-salento",
-      "https://mapa-digital-salento.vercel.app/landing-estado-actual-salento-2026",
-      "https://mapa-digital-salento.vercel.app/mapa-interactivo-salento",
-      "https://mapa-digital-salento.vercel.app/registro-aliados",
-      "https://mapa-digital-salento.vercel.app/salento-seguro-turismo",
-      "https://mapa-digital-salento.vercel.app/valle-cocora-accesible-100",
-      "https://mapa-digital-salento.vercel.app/vias-salento-libres-acceso"
+      "https://salentoalamano.com/de/guias/10-tours-cafe-salento.html",
+      "https://salentoalamano.com/de/guias/guia-valle-del-cocora.html",
+      "https://salentoalamano.com/de/guias/que-hacer-en-salento-3-dias.html",
+      "https://salentoalamano.com/don-chucho-asistente",
+      "https://salentoalamano.com/en/guias/10-tours-cafe-salento.html",
+      "https://salentoalamano.com/en/guias/guia-valle-del-cocora.html",
+      "https://salentoalamano.com/en/guias/que-hacer-en-salento-3-dias.html",
+      "https://salentoalamano.com/es/guias/10-tours-cafe-salento.html",
+      "https://salentoalamano.com/es/guias/guia-valle-del-cocora.html",
+      "https://salentoalamano.com/es/guias/que-hacer-en-salento-3-dias.html",
+      "https://salentoalamano.com/estado-actual-salento-hoteles-abiertos-vias-libres-valle-cocora-operando-100",
+      "https://salentoalamano.com/fr/guias/10-tours-cafe-salento.html",
+      "https://salentoalamano.com/fr/guias/guia-valle-del-cocora.html",
+      "https://salentoalamano.com/fr/guias/que-hacer-en-salento-3-dias.html",
+      "https://salentoalamano.com/hoteles-abiertos-salento",
+      "https://salentoalamano.com/landing-estado-actual-salento-2026",
+      "https://salentoalamano.com/mapa-interactivo-salento",
+      "https://salentoalamano.com/registro-aliados",
+      "https://salentoalamano.com/salento-seguro-turismo",
+      "https://salentoalamano.com/valle-cocora-accesible-100",
+      "https://salentoalamano.com/vias-salento-libres-acceso"
     ]
   },
   "robots": {
     "sitemaps": [
-      "https://mapa-digital-salento.vercel.app/sitemap.xml"
+      "https://salentoalamano.com/sitemap.xml"
     ],
     "crawl_delay": true
   },
@@ -1380,146 +1380,146 @@
     {
       "severity": "warning",
       "code": "duplicate-title",
-      "path": "https://mapa-digital-salento.vercel.app/de/guias/10-tours-cafe-salento, https://mapa-digital-salento.vercel.app/en/guias/10-tours-cafe-salento, https://mapa-digital-salento.vercel.app/fr/guias/10-tours-cafe-salento",
+      "path": "https://salentoalamano.com/de/guias/10-tours-cafe-salento, https://salentoalamano.com/en/guias/10-tours-cafe-salento, https://salentoalamano.com/fr/guias/10-tours-cafe-salento",
       "message": "Título duplicado en 3 URLs: coffee tours in salento: how to choose"
     },
     {
       "severity": "warning",
       "code": "duplicate-title",
-      "path": "https://mapa-digital-salento.vercel.app/de/guias/guia-valle-del-cocora, https://mapa-digital-salento.vercel.app/en/guias/guia-valle-del-cocora, https://mapa-digital-salento.vercel.app/fr/guias/guia-valle-del-cocora",
+      "path": "https://salentoalamano.com/de/guias/guia-valle-del-cocora, https://salentoalamano.com/en/guias/guia-valle-del-cocora, https://salentoalamano.com/fr/guias/guia-valle-del-cocora",
       "message": "Título duplicado en 3 URLs: a practical guide to visiting cocora valley"
     },
     {
       "severity": "warning",
       "code": "duplicate-title",
-      "path": "https://mapa-digital-salento.vercel.app/de/guias/que-hacer-en-salento-3-dias, https://mapa-digital-salento.vercel.app/en/guias/que-hacer-en-salento-3-dias, https://mapa-digital-salento.vercel.app/fr/guias/que-hacer-en-salento-3-dias",
+      "path": "https://salentoalamano.com/de/guias/que-hacer-en-salento-3-dias, https://salentoalamano.com/en/guias/que-hacer-en-salento-3-dias, https://salentoalamano.com/fr/guias/que-hacer-en-salento-3-dias",
       "message": "Título duplicado en 3 URLs: what to do in salento: a 3-day itinerary"
     },
     {
       "severity": "warning",
       "code": "sitemap-orphan",
       "path": "public/sitemap.xml",
-      "message": "URL del sitemap sin HTML estático equivalente: https://mapa-digital-salento.vercel.app/de/guias/10-tours-cafe-salento.html"
+      "message": "URL del sitemap sin HTML estático equivalente: https://salentoalamano.com/de/guias/10-tours-cafe-salento.html"
     },
     {
       "severity": "warning",
       "code": "sitemap-orphan",
       "path": "public/sitemap.xml",
-      "message": "URL del sitemap sin HTML estático equivalente: https://mapa-digital-salento.vercel.app/de/guias/guia-valle-del-cocora.html"
+      "message": "URL del sitemap sin HTML estático equivalente: https://salentoalamano.com/de/guias/guia-valle-del-cocora.html"
     },
     {
       "severity": "warning",
       "code": "sitemap-orphan",
       "path": "public/sitemap.xml",
-      "message": "URL del sitemap sin HTML estático equivalente: https://mapa-digital-salento.vercel.app/de/guias/que-hacer-en-salento-3-dias.html"
+      "message": "URL del sitemap sin HTML estático equivalente: https://salentoalamano.com/de/guias/que-hacer-en-salento-3-dias.html"
     },
     {
       "severity": "warning",
       "code": "sitemap-orphan",
       "path": "public/sitemap.xml",
-      "message": "URL del sitemap sin HTML estático equivalente: https://mapa-digital-salento.vercel.app/don-chucho-asistente"
+      "message": "URL del sitemap sin HTML estático equivalente: https://salentoalamano.com/don-chucho-asistente"
     },
     {
       "severity": "warning",
       "code": "sitemap-orphan",
       "path": "public/sitemap.xml",
-      "message": "URL del sitemap sin HTML estático equivalente: https://mapa-digital-salento.vercel.app/en/guias/10-tours-cafe-salento.html"
+      "message": "URL del sitemap sin HTML estático equivalente: https://salentoalamano.com/en/guias/10-tours-cafe-salento.html"
     },
     {
       "severity": "warning",
       "code": "sitemap-orphan",
       "path": "public/sitemap.xml",
-      "message": "URL del sitemap sin HTML estático equivalente: https://mapa-digital-salento.vercel.app/en/guias/guia-valle-del-cocora.html"
+      "message": "URL del sitemap sin HTML estático equivalente: https://salentoalamano.com/en/guias/guia-valle-del-cocora.html"
     },
     {
       "severity": "warning",
       "code": "sitemap-orphan",
       "path": "public/sitemap.xml",
-      "message": "URL del sitemap sin HTML estático equivalente: https://mapa-digital-salento.vercel.app/en/guias/que-hacer-en-salento-3-dias.html"
+      "message": "URL del sitemap sin HTML estático equivalente: https://salentoalamano.com/en/guias/que-hacer-en-salento-3-dias.html"
     },
     {
       "severity": "warning",
       "code": "sitemap-orphan",
       "path": "public/sitemap.xml",
-      "message": "URL del sitemap sin HTML estático equivalente: https://mapa-digital-salento.vercel.app/es/guias/10-tours-cafe-salento.html"
+      "message": "URL del sitemap sin HTML estático equivalente: https://salentoalamano.com/es/guias/10-tours-cafe-salento.html"
     },
     {
       "severity": "warning",
       "code": "sitemap-orphan",
       "path": "public/sitemap.xml",
-      "message": "URL del sitemap sin HTML estático equivalente: https://mapa-digital-salento.vercel.app/es/guias/guia-valle-del-cocora.html"
+      "message": "URL del sitemap sin HTML estático equivalente: https://salentoalamano.com/es/guias/guia-valle-del-cocora.html"
     },
     {
       "severity": "warning",
       "code": "sitemap-orphan",
       "path": "public/sitemap.xml",
-      "message": "URL del sitemap sin HTML estático equivalente: https://mapa-digital-salento.vercel.app/es/guias/que-hacer-en-salento-3-dias.html"
+      "message": "URL del sitemap sin HTML estático equivalente: https://salentoalamano.com/es/guias/que-hacer-en-salento-3-dias.html"
     },
     {
       "severity": "warning",
       "code": "sitemap-orphan",
       "path": "public/sitemap.xml",
-      "message": "URL del sitemap sin HTML estático equivalente: https://mapa-digital-salento.vercel.app/estado-actual-salento-hoteles-abiertos-vias-libres-valle-cocora-operando-100"
+      "message": "URL del sitemap sin HTML estático equivalente: https://salentoalamano.com/estado-actual-salento-hoteles-abiertos-vias-libres-valle-cocora-operando-100"
     },
     {
       "severity": "warning",
       "code": "sitemap-orphan",
       "path": "public/sitemap.xml",
-      "message": "URL del sitemap sin HTML estático equivalente: https://mapa-digital-salento.vercel.app/fr/guias/10-tours-cafe-salento.html"
+      "message": "URL del sitemap sin HTML estático equivalente: https://salentoalamano.com/fr/guias/10-tours-cafe-salento.html"
     },
     {
       "severity": "warning",
       "code": "sitemap-orphan",
       "path": "public/sitemap.xml",
-      "message": "URL del sitemap sin HTML estático equivalente: https://mapa-digital-salento.vercel.app/fr/guias/guia-valle-del-cocora.html"
+      "message": "URL del sitemap sin HTML estático equivalente: https://salentoalamano.com/fr/guias/guia-valle-del-cocora.html"
     },
     {
       "severity": "warning",
       "code": "sitemap-orphan",
       "path": "public/sitemap.xml",
-      "message": "URL del sitemap sin HTML estático equivalente: https://mapa-digital-salento.vercel.app/fr/guias/que-hacer-en-salento-3-dias.html"
+      "message": "URL del sitemap sin HTML estático equivalente: https://salentoalamano.com/fr/guias/que-hacer-en-salento-3-dias.html"
     },
     {
       "severity": "warning",
       "code": "sitemap-orphan",
       "path": "public/sitemap.xml",
-      "message": "URL del sitemap sin HTML estático equivalente: https://mapa-digital-salento.vercel.app/hoteles-abiertos-salento"
+      "message": "URL del sitemap sin HTML estático equivalente: https://salentoalamano.com/hoteles-abiertos-salento"
     },
     {
       "severity": "warning",
       "code": "sitemap-orphan",
       "path": "public/sitemap.xml",
-      "message": "URL del sitemap sin HTML estático equivalente: https://mapa-digital-salento.vercel.app/landing-estado-actual-salento-2026"
+      "message": "URL del sitemap sin HTML estático equivalente: https://salentoalamano.com/landing-estado-actual-salento-2026"
     },
     {
       "severity": "warning",
       "code": "sitemap-orphan",
       "path": "public/sitemap.xml",
-      "message": "URL del sitemap sin HTML estático equivalente: https://mapa-digital-salento.vercel.app/mapa-interactivo-salento"
+      "message": "URL del sitemap sin HTML estático equivalente: https://salentoalamano.com/mapa-interactivo-salento"
     },
     {
       "severity": "warning",
       "code": "sitemap-orphan",
       "path": "public/sitemap.xml",
-      "message": "URL del sitemap sin HTML estático equivalente: https://mapa-digital-salento.vercel.app/registro-aliados"
+      "message": "URL del sitemap sin HTML estático equivalente: https://salentoalamano.com/registro-aliados"
     },
     {
       "severity": "warning",
       "code": "sitemap-orphan",
       "path": "public/sitemap.xml",
-      "message": "URL del sitemap sin HTML estático equivalente: https://mapa-digital-salento.vercel.app/salento-seguro-turismo"
+      "message": "URL del sitemap sin HTML estático equivalente: https://salentoalamano.com/salento-seguro-turismo"
     },
     {
       "severity": "warning",
       "code": "sitemap-orphan",
       "path": "public/sitemap.xml",
-      "message": "URL del sitemap sin HTML estático equivalente: https://mapa-digital-salento.vercel.app/valle-cocora-accesible-100"
+      "message": "URL del sitemap sin HTML estático equivalente: https://salentoalamano.com/valle-cocora-accesible-100"
     },
     {
       "severity": "warning",
       "code": "sitemap-orphan",
       "path": "public/sitemap.xml",
-      "message": "URL del sitemap sin HTML estático equivalente: https://mapa-digital-salento.vercel.app/vias-salento-libres-acceso"
+      "message": "URL del sitemap sin HTML estático equivalente: https://salentoalamano.com/vias-salento-libres-acceso"
     },
     {
       "severity": "info",

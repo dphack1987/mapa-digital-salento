@@ -4,7 +4,7 @@ import { fileURLToPath } from 'node:url'
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 const publicDir = path.join(root, 'public')
-const domain = 'https://mapa-digital-salento.vercel.app'
+const domain = 'https://salentoalamano.com'
 
 const locales = {
   es: {

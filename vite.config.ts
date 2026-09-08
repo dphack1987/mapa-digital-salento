@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  base: '/', // Rutas absolutas para Vercel
+  base: '/', // Rutas absolutas para Vercel con dominio personalizado
   build: {
     outDir: 'dist',
     copyPublicDir: true, // Asegurar que public se copie
@@ -52,9 +52,5 @@ export default defineConfig({
   optimizeDeps: {
     include: ['react', 'react-dom', 'leaflet', 'lucide-react', 'qrcode'],
     force: false
-  },
-  // Configuración experimental para mejor rendimiento
-  experimental: {
-    renderBuiltUrl: true
   }
 })

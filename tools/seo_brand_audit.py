@@ -5,7 +5,7 @@ import re
 ROOT = Path(__file__).resolve().parents[1]
 TARGETS = [
     'mapa-salento.com',
-    'mapa-digital-salento.vercel.app',
+    'salentoalamano.com',
     'salentoalamano.com',
     'salento a la mano',
     'Salento a la Mano'
@@ -52,7 +52,7 @@ def main():
     print(f'ROOT: {ROOT}')
     print()
 
-    old_domain_hits = findings['mapa-salento.com'] + findings['mapa-digital-salento.vercel.app']
+    old_domain_hits = findings['mapa-salento.com'] + findings['salentoalamano.com']
     brand_hits = findings['salentoalamano.com'] + findings['salento a la mano'] + findings['Salento a la Mano']
 
     print('OLD DOMAIN HITS:')

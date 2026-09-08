@@ -40,7 +40,7 @@ BRAND HITS:
 
 DETAILED FINDINGS:
 mapa-salento.com: 0 hits
-mapa-digital-salento.vercel.app: 0 hits
+salentoalamano.com: 0 hits
 salentoalamano.com: 29 hits
   - ACTIVACION_INDEXACION.md
   - audit_output.txt
