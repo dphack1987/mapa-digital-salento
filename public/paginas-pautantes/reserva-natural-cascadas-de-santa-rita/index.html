@@ -82,7 +82,7 @@
       .hero-card .price { font-size: 2rem; font-weight: 700; color: var(--coral); }
       .hero-card p { margin: 8px 0 0; color: var(--muted); font-size: 14px; }
       
-      .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+      .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr)); gap: 20px; }
       .price-card { border: 2px solid var(--line); border-radius: 16px; padding: 24px; transition: all 0.3s; }
       .price-card:hover { border-color: var(--nature-light); transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.1); }
       .price-card.featured { border-color: var(--coral); background: #fff9f5; }
@@ -160,7 +160,7 @@
         box-shadow: 0 2px 8px rgba(0,0,0,0.3);
       }
       
-      .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+      .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 24px; }
       .info-item { padding: 20px; background: #f8f5eb; border-radius: 16px; }
       .info-item h4 { margin: 0 0 8px; color: var(--nature-dark); font-size: 1.1rem; }
       .info-item p { margin: 0; color: var(--muted); line-height: 1.5; }
