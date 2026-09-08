@@ -76,3 +76,6 @@ Sitemap: https://salentoalamano.com/sitemap.xml
 
 # Host para Yandex
 Host: salentoalamano.com
+
+# Verificación Yandex actualizada
+# Código: ca3ccb6a0f213071
