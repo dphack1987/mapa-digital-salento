@@ -39,7 +39,9 @@ export default defineConfig({
     // Habilitar CSS code splitting
     cssCodeSplit: true,
     // Compresión adicional
-    reportCompressedSize: true
+    reportCompressedSize: true,
+    // Optimización de assets
+    assetsInlineLimit: 4096 // Inline assets pequeños
   },
   publicDir: 'public',
   server: {
@@ -50,5 +52,9 @@ export default defineConfig({
   optimizeDeps: {
     include: ['react', 'react-dom', 'leaflet', 'lucide-react', 'qrcode'],
     force: false
+  },
+  // Configuración experimental para mejor rendimiento
+  experimental: {
+    renderBuiltUrl: true
   }
 })
