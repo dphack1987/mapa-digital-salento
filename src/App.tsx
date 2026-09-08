@@ -74,7 +74,7 @@ const serviceCardImages = {
   transport: '/imagenes-salento/destinos-75.png',
   horseback: '/imagenes-salento/1326163558.webp',
   guides: '/imagenes-salento/pueblo.jfif',
-  accommodation: '/pautas/finca_hotel_el_ocaso/imagenes/vistas.webp',
+  accommodation: '/pautas/coffee-tour-alojamiento-finca-hotel-el-ocaso/imagenes/foto_casa_ocaso.png',
   artisan: '/imagenes-salento/calle.jfif',
   commerce: '/imagenes-salento/iglesia.jfif'
 } as const
