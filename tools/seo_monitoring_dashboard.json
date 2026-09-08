@@ -1,0 +1,254 @@
+{
+  "dashboard_name": "SEO Monitoring Dashboard - Salento a la Mano",
+  "domain": "salentoalamano.com",
+  "monitoring_period": "2026-09-08 onwards",
+  "objective": "Dominar rankings para búsquedas relacionadas con Salento Quindío",
+
+  "kpi_objectives": {
+    "google_rankings": {
+      "target_keywords": [
+        "Salento Quindío turismo",
+        "Valle de Cocora",
+        "coffee tours Salento",
+        "hoteles en Salento",
+        "palmas de cera Colombia"
+      ],
+      "target_position": "Top 3",
+      "current_status": "Tracking iniciado"
+    },
+    "organic_traffic": {
+      "target_growth": "+50% en 3 meses",
+      "current_baseline": "Estableciendo"
+    },
+    "backlinks": {
+      "target_count": "50+ quality backlinks en 3 meses",
+      "current_count": "Iniciando estrategia"
+    },
+    "domain_authority": {
+      "target_da": "40+ en 6 meses",
+      "current_da": "Baselining"
+    }
+  },
+
+  "weekly_monitoring_tasks": [
+    {
+      "task": "Verificar indexación en Google Search Console",
+      "frequency": "Lunes",
+      "action": "Revisar 'Coverage' y 'Index Status'"
+    },
+    {
+      "task": "Monitorear rankings de keywords principales",
+      "frequency": "Martes",
+      "action": "Usar Google Search Console y herramientas externas"
+    },
+    {
+      "task": "Verificar nuevos backlinks",
+      "frequency": "Miércoles",
+      "action": "Ahrefs/Moz/SEMrush - nueva adquisición de enlaces"
+    },
+    {
+      "task": "Analizar tráfico orgánico",
+      "frequency": "Jueves",
+      "action": "Google Analytics - fuentes de tráfico"
+    },
+    {
+      "task": "Revisar Core Web Vitals",
+      "frequency": "Viernes",
+      "action": "PageSpeed Insights y Search Console"
+    },
+    {
+      "task": "Optimizar contenido basado en datos",
+      "frequency": "Sábado",
+      "action": "Ajustar páginas con bajo rendimiento"
+    },
+    {
+      "task": "Actualizar sitemap si hay cambios",
+      "frequency": "Domingo",
+      "action": "Regenerar sitemap si hay nuevas páginas"
+    }
+  ],
+
+  "monthly_analysis": {
+    "google_search_console": {
+      "metrics_to_track": [
+        "Impresiones",
+        "Clicks",
+        "CTR (Click-Through Rate)",
+        "Posición promedio",
+        "Coverage errors",
+        "Mobile usability"
+      ],
+      "focus_pages": [
+        "Homepage",
+        "Valle de Cocora",
+        "Estado Actual Salento",
+        "Categorías principales",
+        "Páginas de pautantes"
+      ]
+    },
+    "bing_webmaster": {
+      "metrics_to_track": [
+        "Impresiones",
+        "Clicks",
+        "CTR",
+        "Pages crawled",
+        "Crawl errors"
+      ]
+    },
+    "yandex_webmaster": {
+      "metrics_to_track": [
+        "Indexación",
+        "Trazado de enlaces",
+        "Posiciones en búsqueda",
+        "Errores de indexación"
+      ]
+    },
+    "backlink_analysis": {
+      "new_backlinks": "Documentar cada nuevo backlink",
+      "lost_backlinks": "Identificar y analizar pérdidas",
+      "anchor_text_distribution": "Mantener diversidad natural",
+      "domain_authority_trends": "Monitorear crecimiento"
+    }
+  },
+
+  "competitor_monitoring": {
+    "main_competitors": [
+      "VenXplor",
+      "Booking.com",
+      "Airbnb",
+      "TripAdvisor",
+      "KAYAK"
+    ],
+    "tracking_metrics": [
+      "Keywords compartidas",
+      "Backlinks compartidos",
+      "Content gaps",
+      "Technical SEO gaps"
+    ]
+  },
+
+  "international_markets": {
+    "china_baidu": {
+      "status": "Verificación configurada",
+      "next_steps": [
+        "Monitorear indexación en Baidu",
+        "Optimizar para mobile (prioridad en China)",
+        "Asegurar carga rápida en China",
+        "Considerar CDN para China"
+      ]
+    },
+    "russia_yandex": {
+      "status": "Verificación pendiente confirmación",
+      "next_steps": [
+        "Verificar que Yandex acepte el meta tag",
+        "Monitorear indexación en Yandex",
+        "Optimizar para mercado ruso"
+      ]
+    },
+    "europe_markets": {
+      "status": "Hreflang configurado",
+      "next_steps": [
+        "Monitorear tráfico europeo",
+        "Considerar contenido localizado",
+        "Optimizar para búsqueda europea"
+      ]
+    }
+  },
+
+  "content_optimization_pipeline": {
+    "priority_pages": [
+      {
+        "page": "Homepage",
+        "focus": "Conversión y autoridad",
+        "frequency": "Mensual"
+      },
+      {
+        "page": "Valle de Cocora",
+        "focus": "Keywords 'Valle de Cocora' y 'palmas de cera'",
+        "frequency": "Quincenal"
+      },
+      {
+        "page": "Coffee Tours",
+        "focus": "Keywords 'coffee tours' y 'finca cafetera'",
+        "frequency": "Quincenal"
+      },
+      {
+        "page": "Estado Actual Salento",
+        "focus": "Keywords de actualidad y confianza",
+        "frequency": "Semanal"
+      }
+    ],
+    "new_content_opportunities": [
+      "Guía completa de jeeps willys",
+      "Mejores miradores de Salento",
+      "Gastronomía salentina completa",
+      "Rutas de senderismo detalladas",
+      "Guía de fotografía en Salento"
+    ]
+  },
+
+  "technical_seo_maintenance": {
+    "monthly_checks": [
+      "Verificar velocidad de carga (PageSpeed Insights)",
+      "Auditar broken links",
+      "Verificar mobile usability",
+      "Revisar estructura de datos estructurados",
+      "Verificar canonical URLs",
+      "Auditir hreflang implementation",
+      "Revisar robots.txt y sitemap.xml"
+    ],
+    "quarterly_reviews": [
+      "Auditar contenido duplicado",
+      "Revisar estructura de URLs",
+      "Optimizar imágenes nuevas",
+      "Revisar configuración de caching",
+      "Auditar seguridad (HTTPS, headers)"
+    ]
+  },
+
+  "alert_system": {
+    "critical_alerts": [
+      "Caída significativa en rankings principales",
+      "Pérdida masiva de backlinks",
+      "Errores de indexación en Search Console",
+      "Caída en velocidad de carga",
+      "Penalidades manuales de Google"
+    ],
+    "warning_alerts": [
+      "Disminución gradual en tráfico orgánico",
+      "Pérdida de backlinks individuales",
+      "Core Web Vitals degradados",
+      "Aumento en bounce rate"
+    ]
+  },
+
+  "success_criteria": {
+    "3_months": [
+      "Top 10 rankings para keywords principales",
+      "20+ quality backlinks",
+      "25% aumento en tráfico orgánico",
+      "Domain Authority 30+"
+    ],
+    "6_months": [
+      "Top 5 rankings para keywords principales",
+      "50+ quality backlinks",
+      "50% aumento en tráfico orgánico",
+      "Domain Authority 40+",
+      "Tráfico internacional significativo"
+    ],
+    "12_months": [
+      "Top 3 rankings para keywords principales",
+      "100+ quality backlinks",
+      "100% aumento en tráfico orgánico",
+      "Domain Authority 50+",
+      "Dominio de mercado local"
+    ]
+  },
+
+  "reporting_schedule": {
+    "weekly": "Dashboard interno quick review",
+    "monthly": "Reporte completo SEO analysis",
+    "quarterly": "Strategic review y adjustments",
+    "annually": "Complete SEO audit y strategy refresh"
+  }
+}
