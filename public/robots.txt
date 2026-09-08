@@ -9,8 +9,9 @@ Crawl-delay: 1
 
 # Paginas prioritarias para turismo internacional
 Allow: /estado-actual-salento-hoteles-abiertos-vias-libres-valle-cocora-operando-100
-Allow: /salento-abierto-hoy-turismo-seguro-valle-cocora-accesible
-Allow: /paso-valle-cocora-abierto-acceso-total-jeeps-willys-operativos
+Allow: /valle-cocora-accesible-100
+Allow: /hoteles-abiertos-salento
+Allow: /vias-salento-libres-acceso
 
 # Permitir crawleo de estructura de datos local (places, mapMarkers, hotels)
 Allow: /data/
@@ -26,14 +27,14 @@ User-agent: Baiduspider
 Allow: /
 Crawl-delay: 1
 Allow: /estado-actual-salento-hoteles-abiertos-vias-libres-valle-cocora-operando-100
-Allow: /salento-abierto-hoy-turismo-seguro-valle-cocora-accesible
+Allow: /valle-cocora-accesible-100
 
 # Yandex (Rusia) - Prioridad Alta
 User-agent: Yandexbot
 Allow: /
 Crawl-delay: 1
 Allow: /estado-actual-salento-hoteles-abiertos-vias-libres-valle-cocora-operando-100
-Allow: /salento-abierto-hoy-turismo-seguro-valle-cocora-accesible
+Allow: /valle-cocora-accesible-100
 
 # Naver (Corea del Sur) - Prioridad Media
 User-agent: Yeti
