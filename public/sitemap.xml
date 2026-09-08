@@ -5,7 +5,7 @@
   <!-- Página Principal - salentoalamano.com -->
   <url>
     <loc>https://salentoalamano.com/</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-09-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
     <!-- Hreflang para SEO internacional -->
@@ -151,22 +151,22 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://salentoalamano.com/mapa-interactivo-salento" />
   </url>
 
-  <url><loc>https://salentoalamano.com/es/</loc><lastmod>2026-09-02</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://salentoalamano.com/es/guias/guia-valle-del-cocora.html</loc><lastmod>2026-09-02</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://salentoalamano.com/es/guias/10-tours-cafe-salento.html</loc><lastmod>2026-09-02</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://salentoalamano.com/es/guias/que-hacer-en-salento-3-dias.html</loc><lastmod>2026-09-02</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://salentoalamano.com/en/</loc><lastmod>2026-09-02</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://salentoalamano.com/en/guias/guia-valle-del-cocora.html</loc><lastmod>2026-09-02</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://salentoalamano.com/en/guias/10-tours-cafe-salento.html</loc><lastmod>2026-09-02</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://salentoalamano.com/en/guias/que-hacer-en-salento-3-dias.html</loc><lastmod>2026-09-02</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://salentoalamano.com/de/</loc><lastmod>2026-09-02</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://salentoalamano.com/de/guias/guia-valle-del-cocora.html</loc><lastmod>2026-09-02</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://salentoalamano.com/de/guias/10-tours-cafe-salento.html</loc><lastmod>2026-09-02</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://salentoalamano.com/de/guias/que-hacer-en-salento-3-dias.html</loc><lastmod>2026-09-02</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://salentoalamano.com/fr/</loc><lastmod>2026-09-02</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://salentoalamano.com/fr/guias/guia-valle-del-cocora.html</loc><lastmod>2026-09-02</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://salentoalamano.com/fr/guias/10-tours-cafe-salento.html</loc><lastmod>2026-09-02</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://salentoalamano.com/fr/guias/que-hacer-en-salento-3-dias.html</loc><lastmod>2026-09-02</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://salentoalamano.com/es/</loc><lastmod>2026-09-08</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://salentoalamano.com/es/guias/guia-valle-del-cocora.html</loc><lastmod>2026-09-08</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://salentoalamano.com/es/guias/10-tours-cafe-salento.html</loc><lastmod>2026-09-08</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://salentoalamano.com/es/guias/que-hacer-en-salento-3-dias.html</loc><lastmod>2026-09-08</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://salentoalamano.com/en/</loc><lastmod>2026-09-08</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://salentoalamano.com/en/guias/guia-valle-del-cocora.html</loc><lastmod>2026-09-08</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://salentoalamano.com/en/guias/10-tours-cafe-salento.html</loc><lastmod>2026-09-08</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://salentoalamano.com/en/guias/que-hacer-en-salento-3-dias.html</loc><lastmod>2026-09-08</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://salentoalamano.com/de/</loc><lastmod>2026-09-08</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://salentoalamano.com/de/guias/guia-valle-del-cocora.html</loc><lastmod>2026-09-08</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://salentoalamano.com/de/guias/10-tours-cafe-salento.html</loc><lastmod>2026-09-08</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://salentoalamano.com/de/guias/que-hacer-en-salento-3-dias.html</loc><lastmod>2026-09-08</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://salentoalamano.com/fr/</loc><lastmod>2026-09-08</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://salentoalamano.com/fr/guias/guia-valle-del-cocora.html</loc><lastmod>2026-09-08</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://salentoalamano.com/fr/guias/10-tours-cafe-salento.html</loc><lastmod>2026-09-08</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://salentoalamano.com/fr/guias/que-hacer-en-salento-3-dias.html</loc><lastmod>2026-09-08</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
 
   <!-- ============================ -->
   <!-- CATEGORÍAS DEL DIRECTORIO LOCAL -->

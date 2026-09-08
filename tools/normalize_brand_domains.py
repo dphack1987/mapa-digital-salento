@@ -4,9 +4,9 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 REPLACEMENTS = [
     ('https://mapa-salento.com', 'https://salentoalamano.com'),
-    ('https://mapa-digital-salento.vercel.app', 'https://salentoalamano.com'),
+    ('https://salentoalamano.com', 'https://salentoalamano.com'),
     ('mapa-salento.com', 'salentoalamano.com'),
-    ('mapa-digital-salento.vercel.app', 'salentoalamano.com'),
+    ('salentoalamano.com', 'salentoalamano.com'),
     ('Mapa Digital Oficial de Salento', 'Salento a la Mano'),
     ('Mapa Digital de Salento', 'Salento a la Mano'),
 ]

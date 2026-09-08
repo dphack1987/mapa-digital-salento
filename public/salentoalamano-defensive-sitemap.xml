@@ -7,81 +7,81 @@
 
   <!-- 1. Home (autoridad base) -->
   <url>
-    <loc>https://mapa-digital-salento.vercel.app/</loc>
+    <loc>https://salentoalamano.com/</loc>
     <lastmod>2026-09-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="es-CO" href="https://mapa-digital-salento.vercel.app/" />
-    <xhtml:link rel="alternate" hreflang="en-US" href="https://mapa-digital-salento.vercel.app/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://mapa-digital-salento.vercel.app/" />
+    <xhtml:link rel="alternate" hreflang="es-CO" href="https://salentoalamano.com/" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://salentoalamano.com/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://salentoalamano.com/" />
   </url>
 
   <!-- 2. Estado Actual Salento - PRINCIPAL DEFENSIVA -->
   <url>
-    <loc>https://mapa-digital-salento.vercel.app/estado-actual-salento-hoteles-abiertos-vias-libres-valle-cocora-operando-100</loc>
+    <loc>https://salentoalamano.com/estado-actual-salento-hoteles-abiertos-vias-libres-valle-cocora-operando-100</loc>
     <lastmod>2026-09-02</lastmod>
     <changefreq>hourly</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="es-CO" href="https://mapa-digital-salento.vercel.app/estado-actual-salento-hoteles-abiertos-vias-libres-valle-cocora-operando-100" />
-    <xhtml:link rel="alternate" hreflang="en-US" href="https://mapa-digital-salento.vercel.app/estado-actual-salento-hoteles-abiertos-vias-libres-valle-cocora-operando-100" />
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mapa-digital-salento.vercel.app/estado-actual-salento-hoteles-abiertos-vias-libres-valle-cocora-operando-100" />
-    <xhtml:link rel="alternate" hreflang="ru-RU" href="https://mapa-digital-salento.vercel.app/estado-actual-salento-hoteles-abiertos-vias-libres-valle-cocora-operando-100" />
+    <xhtml:link rel="alternate" hreflang="es-CO" href="https://salentoalamano.com/estado-actual-salento-hoteles-abiertos-vias-libres-valle-cocora-operando-100" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://salentoalamano.com/estado-actual-salento-hoteles-abiertos-vias-libres-valle-cocora-operando-100" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://salentoalamano.com/estado-actual-salento-hoteles-abiertos-vias-libres-valle-cocora-operando-100" />
+    <xhtml:link rel="alternate" hreflang="ru-RU" href="https://salentoalamano.com/estado-actual-salento-hoteles-abiertos-vias-libres-valle-cocora-operando-100" />
   </url>
 
   <!-- 3. Landing Estado Actual 2026 -->
   <url>
-    <loc>https://mapa-digital-salento.vercel.app/landing-estado-actual-salento-2026</loc>
+    <loc>https://salentoalamano.com/landing-estado-actual-salento-2026</loc>
     <lastmod>2026-09-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="es-CO" href="https://mapa-digital-salento.vercel.app/landing-estado-actual-salento-2026" />
-    <xhtml:link rel="alternate" hreflang="en-US" href="https://mapa-digital-salento.vercel.app/landing-estado-actual-salento-2026" />
+    <xhtml:link rel="alternate" hreflang="es-CO" href="https://salentoalamano.com/landing-estado-actual-salento-2026" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://salentoalamano.com/landing-estado-actual-salento-2026" />
   </url>
 
   <!-- 4. Valle Cocora Accesible 100% -->
   <url>
-    <loc>https://mapa-digital-salento.vercel.app/valle-cocora-accesible-100</loc>
+    <loc>https://salentoalamano.com/valle-cocora-accesible-100</loc>
     <lastmod>2026-09-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="es-CO" href="https://mapa-digital-salento.vercel.app/valle-cocora-accesible-100" />
-    <xhtml:link rel="alternate" hreflang="en-US" href="https://mapa-digital-salento.vercel.app/valle-cocora-accesible-100" />
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mapa-digital-salento.vercel.app/valle-cocora-accesible-100" />
+    <xhtml:link rel="alternate" hreflang="es-CO" href="https://salentoalamano.com/valle-cocora-accesible-100" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://salentoalamano.com/valle-cocora-accesible-100" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://salentoalamano.com/valle-cocora-accesible-100" />
   </url>
 
   <!-- 5. Salento Seguro Turismo -->
   <url>
-    <loc>https://mapa-digital-salento.vercel.app/salento-seguro-turismo</loc>
+    <loc>https://salentoalamano.com/salento-seguro-turismo</loc>
     <lastmod>2026-09-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="es-CO" href="https://mapa-digital-salento.vercel.app/salento-seguro-turismo" />
-    <xhtml:link rel="alternate" hreflang="en-US" href="https://mapa-digital-salento.vercel.app/salento-seguro-turismo" />
+    <xhtml:link rel="alternate" hreflang="es-CO" href="https://salentoalamano.com/salento-seguro-turismo" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://salentoalamano.com/salento-seguro-turismo" />
   </url>
 
   <!-- 6. Hoteles Abiertos Salento -->
   <url>
-    <loc>https://mapa-digital-salento.vercel.app/hoteles-abiertos-salento</loc>
+    <loc>https://salentoalamano.com/hoteles-abiertos-salento</loc>
     <lastmod>2026-09-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="es-CO" href="https://mapa-digital-salento.vercel.app/hoteles-abiertos-salento" />
-    <xhtml:link rel="alternate" hreflang="en-US" href="https://mapa-digital-salento.vercel.app/hoteles-abiertos-salento" />
+    <xhtml:link rel="alternate" hreflang="es-CO" href="https://salentoalamano.com/hoteles-abiertos-salento" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://salentoalamano.com/hoteles-abiertos-salento" />
   </url>
 
   <!-- 7. Vías Salento Libres Acceso -->
   <url>
-    <loc>https://mapa-digital-salento.vercel.app/vias-salento-libres-acceso</loc>
+    <loc>https://salentoalamano.com/vias-salento-libres-acceso</loc>
     <lastmod>2026-09-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="es-CO" href="https://mapa-digital-salento.vercel.app/vias-salento-libres-acceso" />
-    <xhtml:link rel="alternate" hreflang="en-US" href="https://mapa-digital-salento.vercel.app/vias-salento-libres-acceso" />
+    <xhtml:link rel="alternate" hreflang="es-CO" href="https://salentoalamano.com/vias-salento-libres-acceso" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://salentoalamano.com/vias-salento-libres-acceso" />
   </url>
 
   <!-- 8. Mapa Interactivo Salento -->
   <url>
-    <loc>https://mapa-digital-salento.vercel.app/mapa-interactivo-salento</loc>
+    <loc>https://salentoalamano.com/mapa-interactivo-salento</loc>
     <lastmod>2026-09-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
@@ -89,7 +89,7 @@
 
   <!-- 9. Registro Aliados -->
   <url>
-    <loc>https://mapa-digital-salento.vercel.app/registro-aliados</loc>
+    <loc>https://salentoalamano.com/registro-aliados</loc>
     <lastmod>2026-09-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
@@ -97,19 +97,19 @@
 
   <!-- 10. Don Chucho Asistente (fuente autoritativa) -->
   <url>
-    <loc>https://mapa-digital-salento.vercel.app/don-chucho-asistente</loc>
+    <loc>https://salentoalamano.com/don-chucho-asistente</loc>
     <lastmod>2026-09-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
 
   <!-- 11-14. SEO Internacional Top-level -->
-  <url><loc>https://mapa-digital-salento.vercel.app/es/</loc><lastmod>2026-09-02</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
-  <url><loc>https://mapa-digital-salento.vercel.app/en/</loc><lastmod>2026-09-02</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
-  <url><loc>https://mapa-digital-salento.vercel.app/de/</loc><lastmod>2026-09-02</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://mapa-digital-salento.vercel.app/fr/</loc><lastmod>2026-09-02</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://salentoalamano.com/es/</loc><lastmod>2026-09-02</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://salentoalamano.com/en/</loc><lastmod>2026-09-02</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://salentoalamano.com/de/</loc><lastmod>2026-09-02</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://salentoalamano.com/fr/</loc><lastmod>2026-09-02</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
 
   <!-- 15. Categoría Directorio Base -->
-  <url><loc>https://mapa-digital-salento.vercel.app/categorias/</loc><lastmod>2026-09-02</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://salentoalamano.com/categorias/</loc><lastmod>2026-09-02</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
 
 </urlset>

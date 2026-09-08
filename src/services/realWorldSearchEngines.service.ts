@@ -16,7 +16,7 @@ interface RealSearchEngine {
 }
 
 class RealWorldSearchEnginesService {
-  private readonly domain = 'https://mapa-digital-salento.vercel.app'
+  private readonly domain = 'https://salentoalamano.com'
   private readonly brandName = 'Salento a la Mano'
   private readonly targetDestination = 'Salento Quindío'
 

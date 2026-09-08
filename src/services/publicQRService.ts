@@ -2,7 +2,7 @@
 // Genera un QR permanente que redirige a la app web sin costo ni límites
 
 class PublicQRService {
-  private static readonly APP_URL = 'https://mapa-digital-salento.vercel.app/'
+  private static readonly APP_URL = 'https://salentoalamano.com/'
   private static readonly QR_VERSION = '1.0'
   
   /**

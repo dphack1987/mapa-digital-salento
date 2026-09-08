@@ -1,6 +1,6 @@
 // Componente Dashboard de SEO Defensivo
 // Muestra el estado del plan de contrataque contra desinformación
-// Optimizado para mapa-digital-salento.vercel.app y marca Salento a la Mano
+// Optimizado para salentoalamano.com y marca Salento a la Mano
 
 import { useState, useEffect } from 'react'
 import { Shield, AlertTriangle, CheckCircle, TrendingUp, Globe, FileText, Download, RefreshCw, ExternalLink, Search, BarChart, Chrome, SearchIcon, Target } from 'lucide-react'
@@ -39,7 +39,7 @@ const DefensiveSEODashboard: React.FC<DefensiveSEODashboardProps> = ({ onClose }
   const [showRealWorldEngines, setShowRealWorldEngines] = useState(false)
   const [showBaiduVerification, setShowBaiduVerification] = useState(false)
   const [showYandexVerification, setShowYandexVerification] = useState(false)
-  const targetDomain = 'https://mapa-digital-salento.vercel.app'
+  const targetDomain = 'https://salentoalamano.com'
   const brandName = 'Salento a la Mano'
 
   useEffect(() => {
