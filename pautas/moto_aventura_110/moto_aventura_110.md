@@ -45,9 +45,10 @@ Te recomendamos utilizar ropa cómoda que te permita moverse con facilidad duran
 - Modalidad: Experiencia en pista con tiempos predefinidos
 - Pago: directo con la operación según confirmación y disponibilidad
 
-## Contacto y datos faltantes
-Por confirmar:
-- contacto oficial (teléfono/WhatsApp)
+## Contacto
+- Teléfono/WhatsApp: +57 323 454 0949 (confirmado por el pautante) · https://wa.me/573234540949
+
+## Datos por confirmar
 - dirección exacta de la pista
 - horario de funcionamiento
 

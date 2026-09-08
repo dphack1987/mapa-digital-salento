@@ -266,12 +266,33 @@
         "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/rita1.jpg",
         "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/rita2.jpg",
         "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/rita3.jpg",
+        "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/WhatsApp Image 2026-09-07 at 08.36.46.jpeg",
+        "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/WhatsApp Image 2026-09-07 at 08.38.34.jpeg",
+        "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/f13.jpeg",
+        "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/f15.jpeg",
+        "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/f8.jpeg",
+        "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/WhatsApp Image 2026-09-07 at 08.38.35.jpeg",
+        "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/f14.jpeg",
+        "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/rita6.jpg",
+        "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/f18.jpeg",
+        "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/rita7.jpg",
+        "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/rita8.jpg",
         "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/rita4.jpg",
         "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/rita5.jpg",
-        "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/f10.jpeg",
-        "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/f11.jpeg",
+        "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/WhatsApp Image 2026-09-07 at 08.38.37.jpeg",
         "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/f12.jpeg",
-        "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/foto1.jpeg"
+        "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/WhatsApp Image 2026-09-07 at 08.38.39.jpeg",
+        "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/foto1.jpeg",
+        "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/f10.jpeg",
+        "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/WhatsApp Image 2026-09-07 at 08.37.29.jpeg",
+        "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/f7.jpeg",
+        "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/f11.jpeg",
+        "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/f5.jpeg",
+        "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/f3.jpeg",
+        "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/f2.jpeg",
+        "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/f6.jpeg",
+        "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/WhatsApp Image 2026-09-07 at 08.38.38.jpeg",
+        "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/f16.jpeg"
       ]
     },
     {
@@ -416,7 +437,10 @@
       "color": "sage",
       "icon": "Hotel",
       "contact": {
-        "phone": "Por confirmar"
+        "phone": "+57 313 425 3669",
+        "whatsapp": "573134253669",
+        "email": "contacto@fincaelocasosalento.com",
+        "website": "https://fincaelocasosalento.com"
       },
       "location": {
         "lat": 4.635,
@@ -502,7 +526,7 @@
       "id": 16,
       "name": "Hotel La Floresta Salento",
       "type": "Alojamientos",
-      "description": "Hospedaje cómodo en Salento con acceso fácil a las principales atracciones turísticas del municipio. Ambiente acogedor y atención personalizada para visitantes del Eje Cafetero.",
+      "description": "Hotel boutique con ambiente de finca a 400 metros de la plaza de Salento: café gratuito, Coffee Spa, coworking y suites con jacuzzi. Habitaciones inspiradas en aves de la región y base ideal para el Valle del Cocora.",
       "priceRange": "$$",
       "rating": "4.6",
       "timeInfo": "Reservas directas",
@@ -510,7 +534,10 @@
       "color": "sage",
       "icon": "Hotel",
       "contact": {
-        "phone": "Por confirmar"
+        "phone": "+57 312 868 1808",
+        "whatsapp": "573128681808",
+        "email": "comercial@laflorestahotel.com.co",
+        "website": "https://www.laflorestahotel.com.co/"
       },
       "location": {
         "lat": 4.6372,
@@ -563,7 +590,20 @@
         ],
         "capacity": "Por confirmar",
         "bookingNotes": "Confirmar directamente con el hotel para disponibilidad y precios exactos."
-      }
+      },
+      "photos": [
+        "/pautas/hotel_la_floresta_salento/imagenes/130208701_3371262966306173_4057154681103255449_n.jpg",
+        "/pautas/hotel_la_floresta_salento/imagenes/155485643_3588523844580083_787453884183827000_n.jpg",
+        "/pautas/hotel_la_floresta_salento/imagenes/156431281_3588469714585496_6132344030856318395_n.jpg",
+        "/pautas/hotel_la_floresta_salento/imagenes/156764949_3588587771240357_5952085908521323608_n.jpg",
+        "/pautas/hotel_la_floresta_salento/imagenes/173533298_3721289087970224_4834426518688403077_n.jpg",
+        "/pautas/hotel_la_floresta_salento/imagenes/677103583_1499504925521610_3699640483671006014_n.jpg",
+        "/pautas/hotel_la_floresta_salento/imagenes/678772541_1500811178724318_5798592024865510766_n.jpg",
+        "/pautas/hotel_la_floresta_salento/imagenes/678912639_1500811175390985_1612447456343208469_n.jpg",
+        "/pautas/hotel_la_floresta_salento/imagenes/696368562_1516691080469661_3181538792013277539_n.jpg",
+        "/pautas/hotel_la_floresta_salento/imagenes/696881403_1516691087136327_5269011990764933367_n.jpg",
+        "/pautas/hotel_la_floresta_salento/imagenes/743996060_1576195634519205_8585289849943535161_n.jpg"
+      ]
     },
     {
       "id": 17,
@@ -636,7 +676,8 @@
       "color": "yellow",
       "icon": "Bike",
       "contact": {
-        "phone": "Por confirmar"
+        "phone": "+57 323 454 0949",
+        "whatsapp": "573234540949"
       },
       "location": {
         "lat": 4.631,
