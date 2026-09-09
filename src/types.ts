@@ -1,5 +1,5 @@
 // Tipos base del sistema
-export type Category = 'Todo' | 'Alojamientos' | 'Restaurantes' | 'Restaurante Bar' | 'Cafés' | 'Coffee Tours' | 'Artesanías' | 'Tiendas' | 'Experiencias' | 'Eventos' | 'Atractivos Turísticos' | 'Servicios'
+export type Category = 'Todo' | 'Alojamientos' | 'Restaurantes' | 'Restaurante Bar' | 'Cafés' | 'Coffee Tours' | 'Artesanías' | 'Tiendas' | 'Experiencias' | 'Eventos' | 'Atractivos Turísticos' | 'Servicios' | 'Camping'
 
 // String literal type para idiomas (evita inconsistencias de tipos)
 export type Language = 'es' | 'en' | 'fr' | 'de' | 'pt' | 'it';
