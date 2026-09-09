@@ -86,7 +86,10 @@
         "/imagenes-salento/santa-rita-3.jpg",
         "/imagenes-salento/santa-rita-4.jpg",
         "/imagenes-salento/santa-rita-5.jpg"
-      ]
+      ],
+      "actionTarget": {
+        "viewUrl": "https://salentoalamano.com/paginas-pautantes/camping-cascadas-santa-rita/"
+      }
     },
     {
       "id": 13,

@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f5f1e8" />
+    <meta name="description" content="Camping Cascadas de Santa Rita con mapa offline interactivo. Navegación paso a paso, marcadores GPS y recomendaciones para turistas sin conexión." />
+    <title>Camping Cascadas de Santa Rita | Mapa Offline Interactivo</title>
+    <link rel="canonical" href="https://salentoalamano.com/paginas-pautantes/camping-cascadas-santa-rita/" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" />
+
+    <style>
+:root { --paper:#f5f1e8; --ink:#1f2d26; --muted:#59665f; --line:#d9d0bf; --coral:#dd7f5d; --yellow:#e7c77b; --white:#fff; --green:#7da88c; }
+      * { box-sizing:border-box; } body { margin:0; background:var(--paper); color:var(--ink); font-family:'DM Sans',sans-serif; }
+      a { color:inherit; text-decoration:none; } .container { max-width:1180px; margin:0 auto; padding:24px 20px 72px; }
+      .topbar { display:flex; justify-content:space-between; gap:16px; align-items:center; margin-bottom:28px; } .brand { display:inline-flex; align-items:center; gap:10px; font-weight:700; font-size:20px; } .brand-logo { width:42px; height:42px; object-fit:contain; border-radius:50%; }
+      .top-actions { display:flex; flex-wrap:wrap; gap:10px; } .button { display:inline-flex; align-items:center; justify-content:center; border:1px solid var(--line); border-radius:999px; padding:11px 15px; font-weight:700; font-size:13px; background:var(--white); }
+      .button.primary { background:#25d366; border-color:#25d366; color:#fff; } .button.dark { background:var(--ink); border-color:var(--ink); color:#fff; }
+      
+      .hero { text-align:center; margin-bottom:32px; } .hero h1 { font-family:'Fraunces',serif; font-size:clamp(32px,5vw,48px); line-height:1.1; margin:0 0 16px; }
+      .hero p { color:var(--muted); font-size:16px; line-height:1.6; margin:0 0 24px; max-width:600px; margin-left:auto; margin-right:auto; }
+      
+      .offline-badge { display:inline-flex; align-items:center; gap:6px; background:var(--yellow); color:var(--ink); padding:8px 16px; border-radius:20px; font-size:12px; font-weight:700; margin-bottom:16px; }
+      
+      .map-container { position:relative; width:100%; max-width:800px; margin:0 auto 32px; border-radius:12px; overflow:hidden; border:3px solid var(--line); background:var(--white); }
+      .map-image { width:100%; height:auto; display:block; }
+      
+      .map-overlay { position:absolute; top:0; left:0; right:0; bottom:0; pointer-events:none; }
+      .map-marker { position:absolute; width:32px; height:32px; border-radius:50%; display:grid; place-items:center; font-size:16px; pointer-events:auto; cursor:pointer; transition:transform 0.2s; box-shadow:0 2px 8px rgba(0,0,0,0.3); }
+      .map-marker:hover { transform:scale(1.2); }
+      .map-marker.completed { background:var(--green); color:var(--white); }
+      .map-marker.current { background:var(--coral); color:var(--white); animation:pulse 2s infinite; }
+      .map-marker.pending { background:var(--muted); color:var(--white); }
+      
+      @keyframes pulse { 0%, 100% { transform:scale(1); } 50% { transform:scale(1.1); } }
+      
+      .navigation-panel { background:var(--white); border:1px solid var(--line); border-radius:12px; padding:24px; margin-bottom:32px; }
+      .navigation-panel h2 { font-family:'Fraunces',serif; font-size:24px; margin:0 0 16px; }
+      
+      .progress-bar { width:100%; height:8px; background:var(--line); border-radius:4px; margin-bottom:16px; overflow:hidden; }
+      .progress-fill { height:100%; background:var(--green); transition:width 0.3s; }
+      
+      .current-step { background:var(--coral); color:var(--white); padding:16px; border-radius:8px; margin-bottom:16px; }
+      .current-step h3 { margin:0 0 8px; font-size:18px; }
+      .current-step p { margin:0; font-size:14px; line-height:1.4; opacity:0.9; }
+      
+      .step-list { display:grid; gap:12px; } .step-item { display:flex; gap:12px; align-items:flex-start; padding:12px; border-radius:8px; cursor:pointer; transition:background 0.2s; }
+      .step-item:hover { background:var(--line); } .step-item.active { background:var(--green); color:var(--white); }
+      .step-number { width:28px; height:28px; border-radius:50%; display:grid; place-items:center; font-weight:700; flex-shrink:0; background:var(--line); }
+      .step-item.active .step-number { background:var(--white); color:var(--green); }
+      .step-text { font-size:14px; line-height:1.4; }
+      
+      .recommendations { background:var(--green); color:var(--white); border-radius:12px; padding:24px; margin-bottom:32px; }
+      .recommendations h3 { font-family:'Fraunces',serif; font-size:24px; margin:0 0 16px; }
+      .rec-list { display:grid; gap:12px; } .rec-item { display:flex; gap:12px; align-items:flex-start; }
+      .rec-icon { font-size:20px; flex-shrink:0; } .rec-text { font-size:14px; line-height:1.4; }
+      
+      .emergency-contacts { background:var(--ink); color:var(--white); border-radius:12px; padding:24px; margin-bottom:32px; }
+      .emergency-contacts h3 { font-family:'Fraunces',serif; font-size:24px; margin:0 0 16px; }
+      .contact-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:16px; }
+      .contact-item { padding:12px; background:rgba(255,255,255,0.1); border-radius:8px; }
+      .contact-item strong { display:block; margin-bottom:4px; }
+      .contact-item a { color:var(--yellow); }
+      
+      .nav-buttons { display:flex; gap:12px; margin-top:16px; }
+      .nav-button { flex:1; padding:12px; border:1px solid var(--line); border-radius:8px; background:var(--white); font-weight:700; cursor:pointer; transition:all 0.2s; }
+      .nav-button:hover { background:var(--line); } .nav-button.primary { background:var(--coral); border-color:var(--coral); color:var(--white); }
+      .nav-button.primary:hover { background:var(--ink); border-color:var(--ink); }
+      
+      .marker-tooltip { position:absolute; background:var(--ink); color:var(--white); padding:8px 12px; border-radius:6px; font-size:12px; white-space:nowrap; opacity:0; pointer-events:none; transition:opacity 0.2s; z-index:10; }
+      .map-marker:hover .marker-tooltip { opacity:1; }
+      
+      @media (max-width:768px) { .container { padding:16px 12px 48px; } .map-marker { width:24px; height:24px; font-size:12px; } }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="topbar">
+        <div class="brand">
+          <img src="/logo.png" alt="Salento a la Mano" class="brand-logo" />
+          <span>Salento a la Mano</span>
+        </div>
+        <div class="top-actions">
+          <a href="/" class="button dark">Volver al inicio</a>
+        </div>
+      </div>
+
+      <div class="hero">
+        <div class="offline-badge">📡 Mapa Offline Interactivo</div>
+        <h1>Camping Cascadas de Santa Rita</h1>
+        <p>Navegación paso a paso sin conexión. Sigue los marcadores, revisa tu progreso y accede a recomendaciones específicas para cada punto del recorrido.</p>
+      </div>
+
+      <div class="map-container">
+        <img src="/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/mapaoffline.jpeg" alt="Mapa Offline Sendero Santa Rita" class="map-image" />
+        <div class="map-overlay" id="mapOverlay">
+          <!-- Marcadores interactivos -->
+          <div class="map-marker completed" style="top:15%; left:10%;" data-step="1">1</div>
+          <div class="map-marker completed" style="top:25%; left:30%;" data-step="2">2</div>
+          <div class="map-marker current" style="top:40%; left:50%;" data-step="3">3</div>
+          <div class="map-marker pending" style="top:55%; left:40%;" data-step="4">4</div>
+          <div class="map-marker pending" style="top:70%; left:60%;" data-step="5">5</div>
+          <div class="map-marker pending" style="top:85%; left:45%;" data-step="6">6</div>
+        </div>
+      </div>
+
+      <div class="navigation-panel">
+        <h2>📍 Navegación del Recorrido</h2>
+        <div class="progress-bar">
+          <div class="progress-fill" id="progressFill" style="width: 33%"></div>
+        </div>
+        <div class="current-step" id="currentStep">
+          <h3>Paso 3 de 6: Sendero Bosque</h3>
+          <p>Camina por el sendero principal hacia el bosque. Sigue las marcas rojas y blancas. Distancia: 1.2 km • Tiempo: 25 min</p>
+        </div>
+        
+        <div class="step-list" id="stepList">
+          <div class="step-item completed" data-step="1">
+            <div class="step-number">✓</div>
+            <div class="step-text"><strong>Puente Amarillo</strong> - Punto de partida. 200m hacia Hacienda Santa Rita</div>
+          </div>
+          <div class="step-item completed" data-step="2">
+            <div class="step-number">✓</div>
+            <div class="step-text"><strong>Caseta de Entrada</strong> - Registro y pago. Recibir información de seguridad</div>
+          </div>
+          <div class="step-item active" data-step="3">
+            <div class="step-number">3</div>
+            <div class="step-text"><strong>Sendero Bosque</strong> - Camino principal hacia las cascadas. Sigue marcas rojas</div>
+          </div>
+          <div class="step-item" data-step="4">
+            <div class="step-number">4</div>
+            <div class="step-text"><strong>Vía Tren Antigua</strong> - Camina por antigua vía férrea hacia túnel</div>
+          </div>
+          <div class="step-item" data-step="5">
+            <div class="step-number">5</div>
+            <div class="step-text"><strong>Túnel y Puente</strong> - Pasa por túnel histórico y puente colgante</div>
+          </div>
+          <div class="step-item" data-step="6">
+            <div class="step-number">6</div>
+            <div class="step-text"><strong>Cascada Principal</strong> - Llegada a cascada de 20m. Zona de camping</div>
+          </div>
+        </div>
+        
+        <div class="nav-buttons">
+          <button class="nav-button" onclick="previousStep()">← Anterior</button>
+          <button class="nav-button primary" onclick="nextStep()">Siguiente →</button>
+        </div>
+      </div>
+
+      <div class="recommendations" id="recommendations">
+        <h3>💡 Recomendaciones Actuales</h3>
+        <div class="rec-list">
+          <div class="rec-item">
+            <div class="rec-icon">🥾</div>
+            <div class="rec-text">Usa botas antideslizantes para el sendero bosque</div>
+          </div>
+          <div class="rec-item">
+            <div class="rec-icon">💧</div>
+            <div class="rec-text">Lleva suficiente agua (1L mínimo por persona)</div>
+          </div>
+          <div class="rec-item">
+            <div class="rec-icon">🧴</div>
+            <div class="rec-text">Aplica repelente durante el sendero</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="emergency-contacts">
+        <h3>🆘 Contactos de Emergencia</h3>
+        <div class="contact-grid">
+          <div class="contact-item">
+            <strong>Camping Santa Rita</strong>
+            <a href="tel:+573015038254">+57 301 503 8254</a>
+          </div>
+          <div class="contact-item">
+            <strong>Emergencias 123</strong>
+            <a href="tel:123">123</a>
+          </div>
+          <div class="contact-item">
+            <strong>Cruz Roja</strong>
+            <a href="tel:132">132</a>
+          </div>
+          <div class="contact-item">
+            <strong>Policía Turística</strong>
+            <a href="tel:123">123</a>
+          </div>
+        </div>
+      </div>
+
+      <div style="text-align:center; margin-top:32px;">
+        <a href="https://wa.me/573015038254" class="button primary">📱 Contactar por WhatsApp</a>
+      </div>
+    </div>
+
+    <script>
+      const steps = [
+        {
+          id: 1,
+          title: "Puente Amarillo",
+          description: "Punto de partida. Camina 200m hacia Hacienda Santa Rita siguiendo la carretera principal.",
+          recommendations: ["Inicia temprano (8am recomendado)", "Verifica que tengas reserva", "Paga entrada en caseta"],
+          time: "5 min",
+          distance: "200m"
+        },
+        {
+          id: 2,
+          title: "Caseta de Entrada",
+          description: "Registro y pago. Recibir información de seguridad y mapa físico.",
+          recommendations: ["Lleva identificación", "Pregunta por condiciones climáticas", "Conoce número de emergencia"],
+          time: "10 min",
+          distance: "200m"
+        },
+        {
+          id: 3,
+          title: "Sendero Bosque",
+          description: "Camina por el sendero principal hacia el bosque. Sigue las marcas rojas y blancas.",
+          recommendations: ["Usa botas antideslizantes", "Lleva agua suficiente", "Aplica repelente"],
+          time: "25 min",
+          distance: "1.2 km"
+        },
+        {
+          id: 4,
+          title: "Vía Tren Antigua",
+          description: "Camina por la antigua vía férrea hacia el túnel histórico.",
+          recommendations: ["Cuidado con rieles oxidados", "Mantente en el centro de la vía", "Fotos seguras desde costado"],
+          time: "15 min",
+          distance: "800m"
+        },
+        {
+          id: 5,
+          title: "Túnel y Puente",
+          description: "Pasa por el túnel histórico y cruza el puente colgante sobre la quebrada.",
+          recommendations: ["Usa linterna en túnel", "Sostén barandillas en puente", "Una persona a la vez en puente"],
+          time: "20 min",
+          distance: "600m"
+        },
+        {
+          id: 6,
+          title: "Cascada Principal",
+          description: "Llegada a la cascada principal de 20 metros. Zona de camping y piscina natural.",
+          recommendations: ["Zona designada para camping", "No nadar cerca de cascada", "Respetar silencio nocturno"],
+          time: "10 min",
+          distance: "400m"
+        }
+      ];
+
+      let currentStep = 3;
+
+      function updateUI() {
+        const progressFill = document.getElementById('progressFill');
+        const currentStepDiv = document.getElementById('currentStep');
+        const stepList = document.getElementById('stepList');
+        const recommendations = document.getElementById('recommendations');
+        const markers = document.querySelectorAll('.map-marker');
+
+        // Update progress
+        const progress = (currentStep / steps.length) * 100;
+        progressFill.style.width = `${progress}%`;
+
+        // Update current step display
+        const step = steps[currentStep - 1];
+        currentStepDiv.innerHTML = `
+          <h3>Paso ${currentStep} de ${steps.length}: ${step.title}</h3>
+          <p>${step.description} • Distancia: ${step.distance} • Tiempo: ${step.time}</p>
+        `;
+
+        // Update step list
+        stepList.innerHTML = steps.map((s, index) => {
+          const stepNumber = index + 1;
+          const statusClass = stepNumber < currentStep ? 'completed' : 
+                            stepNumber === currentStep ? 'active' : '';
+          const numberContent = stepNumber < currentStep ? '✓' : stepNumber;
+          
+          return `
+            <div class="step-item ${statusClass}" data-step="${stepNumber}" onclick="goToStep(${stepNumber})">
+              <div class="step-number">${numberContent}</div>
+              <div class="step-text"><strong>${s.title}</strong> - ${s.description}</div>
+            </div>
+          `;
+        }).join('');
+
+        // Update recommendations
+        recommendations.innerHTML = `
+          <h3>💡 Recomendaciones para ${step.title}</h3>
+          <div class="rec-list">
+            ${step.recommendations.map(rec => `
+              <div class="rec-item">
+                <div class="rec-icon">💡</div>
+                <div class="rec-text">${rec}</div>
+              </div>
+            `).join('')}
+          </div>
+        `;
+
+        // Update markers
+        markers.forEach((marker, index) => {
+          const stepNumber = index + 1;
+          marker.className = 'map-marker';
+          if (stepNumber < currentStep) {
+            marker.classList.add('completed');
+          } else if (stepNumber === currentStep) {
+            marker.classList.add('current');
+          } else {
+            marker.classList.add('pending');
+          }
+        });
+      }
+
+      function nextStep() {
+        if (currentStep < steps.length) {
+          currentStep++;
+          updateUI();
+        }
+      }
+
+      function previousStep() {
+        if (currentStep > 1) {
+          currentStep--;
+          updateUI();
+        }
+      }
+
+      function goToStep(stepNumber) {
+        currentStep = stepNumber;
+        updateUI();
+      }
+
+      // Initialize
+      updateUI();
+
+      // Auto-save progress to localStorage
+      function saveProgress() {
+        localStorage.setItem('santaRitaProgress', currentStep);
+      }
+
+      function loadProgress() {
+        const saved = localStorage.getItem('santaRitaProgress');
+        if (saved) {
+          currentStep = parseInt(saved);
+          updateUI();
+        }
+      }
+
+      // Save progress on step change
+      const originalNextStep = nextStep;
+      const originalPreviousStep = previousStep;
+      const originalGoToStep = goToStep;
+
+      nextStep = function() {
+        originalNextStep();
+        saveProgress();
+      };
+
+      previousStep = function() {
+        originalPreviousStep();
+        saveProgress();
+      };
+
+      goToStep = function(step) {
+        originalGoToStep(step);
+        saveProgress();
+      };
+
+      // Load saved progress on page load
+      loadProgress();
+    </script>
+  </body>
+</html>
