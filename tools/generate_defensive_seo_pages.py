@@ -493,7 +493,7 @@ PAGE_GALLERIES: dict[str, list[str]] = {
     "estado-vias-salento-hoy": [
         "/pautas/moto_aventura_110/imagenes/4.jpeg",
         "/pautas/moto_aventura_110/imagenes/5.jpeg",
-        "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/mapaoffline.jpeg",
+        "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/rita7.jpg",
     ],
     "hoteles-hostales-abiertos-salento": [
         "/pautas/hotel_camino_nacional/imagenes/1669032660.webp",

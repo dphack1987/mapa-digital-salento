@@ -1469,7 +1469,12 @@ function PlaceDetail({ place, currency, onBack, language, t }: { place: Place; c
         </div>
         <aside className="price-panel">
           <p className="eyebrow">Precios y servicios</p><h2>Opciones disponibles</h2>
-          <div className="price-line"><span>Servicio principal</span><strong>Consultar tarifa</strong></div>
+          {place.experienceDetails?.tariff && <div className="price-line"><span>Tarifas verificadas</span><strong>{place.experienceDetails.tariff}</strong></div>}
+          {place.foodServiceDetails?.averagePrice && <div className="price-line"><span>Precio promedio</span><strong>{place.foodServiceDetails.averagePrice}</strong></div>}
+          {place.accommodationDetails?.bookingNotes && <div className="price-line"><span>Tarifas</span><strong>{place.accommodationDetails.bookingNotes}</strong></div>}
+          {place.accommodationDetails && <div className="price-line"><span>Check-in / Check-out</span><strong>{place.accommodationDetails.checkIn} / {place.accommodationDetails.checkOut}</strong></div>}
+          {place.experienceDetails?.duration && <div className="price-line"><span>Duración</span><strong>{place.experienceDetails.duration}</strong></div>}
+          <div className="price-line"><span>Rango de precios</span><strong>{place.priceRange}</strong></div>
           <div className="price-line"><span>Moneda seleccionada</span><strong>{currency}</strong></div>
           <small>El pautante confirma disponibilidad y precio final directamente contigo.</small>
           <div className="detail-actions">
@@ -1480,10 +1485,20 @@ function PlaceDetail({ place, currency, onBack, language, t }: { place: Place; c
         </aside>
       </div>
       {place.accommodationDetails && <div className="detail-sections">
-        <InfoList title="Servicios y comodidades" items={place.accommodationDetails.services} />
-        <InfoList title="En la habitación" items={place.accommodationDetails.roomFeatures} />
-        <InfoList title="Lugares cercanos" items={place.accommodationDetails.nearby} />
-        <InfoList title="Horarios y políticas" items={place.accommodationDetails.policies} />
+        <InfoList title="Servicios y comodidades" items={place.accommodationDetails.services ?? []} />
+        <InfoList title="En la habitación" items={place.accommodationDetails.roomFeatures ?? []} />
+        <InfoList title="Lugares cercanos" items={place.accommodationDetails.nearby ?? []} />
+        <InfoList title="Horarios y políticas" items={place.accommodationDetails.policies ?? []} />
+      </div>}
+      {place.foodServiceDetails && <div className="detail-sections">
+        <InfoList title="Especialidades" items={place.foodServiceDetails.specialties ?? []} />
+        <InfoList title="En la carta" items={place.foodServiceDetails.menuHighlights ?? []} />
+        <InfoList title="Tipo de cocina" items={place.foodServiceDetails.cuisineType ?? []} />
+      </div>}
+      {place.experienceDetails && <div className="detail-sections">
+        <InfoList title="Incluye" items={place.experienceDetails.included ?? []} />
+        <InfoList title="Requisitos" items={place.experienceDetails.requirements ?? []} />
+        <InfoList title="Idiomas" items={place.experienceDetails.languages ?? []} />
       </div>}
     </section>
   )
