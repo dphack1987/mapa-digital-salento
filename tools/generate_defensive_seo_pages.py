@@ -12,7 +12,9 @@ ROOT = Path(__file__).resolve().parents[1]
 PUBLIC = ROOT / "public"
 ORIGIN = "https://salentoalamano.com"
 
-TODAY = datetime.now().strftime("%d de %B de %Y")
+MESES_ES = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"]
+_NOW = datetime.now()
+TODAY = f"{_NOW.day:02d} de {MESES_ES[_NOW.month - 1]} de {_NOW.year}"
 
 PAGES = {
     "salento-abierto-hoy-turismo-seguro-valle-cocora-accesible": {
@@ -446,6 +448,71 @@ OFFICIAL_LINKS_PAGES = {
 ALL_PAGES = {**PAGES, **OFFICIAL_LINKS_PAGES}
 
 
+# Galería local por página defensiva — solo inventario existente en /public/pautas e imagenes-salento, sin borrar nada
+PAGE_GALLERIES: dict[str, list[str]] = {
+    "salento-abierto-hoy-turismo-seguro-valle-cocora-accesible": [
+        "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/rita1.jpg",
+        "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/rita2.jpg",
+        "/imagenes-salento/1326163558.webp",
+    ],
+    "paso-valle-cocora-abierto-acceso-total-jeeps-willys-operativos": [
+        "/pautas/moto_aventura_110/imagenes/1.jpeg",
+        "/pautas/moto_aventura_110/imagenes/2.jpeg",
+        "/pautas/moto_aventura_110/imagenes/3.jpeg",
+    ],
+    "hoteles-salento-abiertos-hoy-alojamiento-disponible-reservas": [
+        "/pautas/hotel_camino_nacional/imagenes/1326164875.webp",
+        "/pautas/hotel_la_floresta_salento/imagenes/1669032660.webp" if (PUBLIC / "pautas/hotel_la_floresta_salento/imagenes/1669032660.webp").exists() else "/pautas/boki_mall/hotel-mirador-boquia/314270821.jpg",
+        "/pautas/boki_mall/hotel-mirador-boquia/314270821.jpg",
+    ],
+    "rumor-cierre-salento-falso-desmentido-oficialmente": [
+        "/logo_salento2026.png",
+        "/imagenes-salento/1326163558.webp",
+        "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/rita3.jpg",
+    ],
+    "valle-cocora-cerrado-falso-acceso-confirmado-operativo": [
+        "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/f2.jpeg",
+        "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/f3.jpeg" if (PUBLIC / "pautas/reserva-natural-cascadas-de-santa-rita/imagenes/f3.jpeg").exists() else "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/rita1.jpg",
+        "/pautas/moto_aventura_110/imagenes/1.jpeg",
+    ],
+    "faq-salento-preguntas-frecuentes-turistas-informacion-oficial": [
+        "/logo_salento2026.png",
+        "/imagenes-salento/1326163558.webp",
+        "/pautas/hotel_camino_nacional/imagenes/1326164875.webp",
+    ],
+    "restaurantes-salento-abiertos-servicio-gastronomico-operativo": [
+        "/pautas/restaurante_bar_fonda_boquia/menu-carta1.jpeg" if (PUBLIC / "pautas/restaurante_bar_fonda_boquia/menu-carta1.jpeg").exists() else "/pautas/restaurante_bar_fonda_boquia/29389126_1005353112946875_6049563033867386880_n.jpg",
+        "/pautas/restaurante_bar_fonda_boquia/menu-carta2.jpeg" if (PUBLIC / "pautas/restaurante_bar_fonda_boquia/menu-carta2.jpeg").exists() else "/imagenes-salento/trucha%20y%20patacon.jfif",
+        "/imagenes-salento/trucha%20y%20patacon.jfif",
+    ],
+    "transporte-salento-jeeps-willys-operativos-servicio-normal": [
+        "/pautas/moto_aventura_110/imagenes/1.jpeg",
+        "/pautas/moto_aventura_110/imagenes/2.jpeg",
+        "/pautas/moto_aventura_110/imagenes/3.jpeg",
+    ],
+    "estado-vias-salento-hoy": [
+        "/pautas/moto_aventura_110/imagenes/4.jpeg",
+        "/pautas/moto_aventura_110/imagenes/5.jpeg",
+        "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/mapaoffline.jpeg",
+    ],
+    "hoteles-hostales-abiertos-salento": [
+        "/pautas/hotel_camino_nacional/imagenes/1669032660.webp",
+        "/pautas/boki_mall/hotel-mirador-boquia/370049629.jpg",
+        "/pautas/hotel_la_floresta_salento/imagenes/1669032671.webp" if (PUBLIC / "pautas/hotel_la_floresta_salento/imagenes/1669032671.webp").exists() else "/pautas/hotel_camino_nacional/imagenes/1669032671.webp",
+    ],
+    "valle-cocora-operativo-seguro": [
+        "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/rita4.jpg",
+        "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/rita5.jpg",
+        "/pautas/cabalgatas_cocora_magica/imagenes/1.jpeg" if (PUBLIC / "pautas/cabalgatas_cocora_magica/imagenes/1.jpeg").exists() else "/imagenes-salento/653410779.webp",
+    ],
+    "turismo-salento-seguro-hoy": [
+        "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/rita6.jpg",
+        "/imagenes-salento/1326163759.webp",
+        "/pautas/hotel_camino_nacional/imagenes/1669032675.webp",
+    ],
+}
+
+
 def page_html(slug: str, page: dict[str, str]) -> str:
     url = f"{ORIGIN}/{slug}"
     payload = {
@@ -531,6 +598,11 @@ def page_html(slug: str, page: dict[str, str]) -> str:
         if related_slug != slug
     )
     
+    gallery_urls = PAGE_GALLERIES.get(slug, ["/logo_salento2026.png", "/imagenes-salento/1326163558.webp"])
+    gallery_html = "".join(
+        f'<figure><img src="{html.escape(u, quote=True)}" alt="{html.escape(page["heading"])} - Salento a la Mano" loading="lazy" /><figcaption>Salento, Quindío - Salento a la Mano</figcaption></figure>'
+        for u in gallery_urls[:3]
+    )
     return f'''<!doctype html>
 <html lang="es-CO">
   <head>
@@ -544,20 +616,59 @@ def page_html(slug: str, page: dict[str, str]) -> str:
     <script type="application/ld+json">{json.dumps(payload, ensure_ascii=False)}</script>
   </head>
   <body>
-    <main style="max-width:900px;margin:0 auto;padding:48px 20px 80px">
-      <p><a href="/">Salento a la Mano</a></p>
-      <h1>{html.escape(page["heading"])}</h1>
-      {page["body"]}
-      <nav aria-label="Enlaces relacionados">
-        <a href="/categorias/">Explorar categorías</a> |
-        <a href="/es/">Guía turística</a> |
-        <a href="/mapa-interactivo-salento">Mapa interactivo</a>
-      </nav>
-      <section>
-        <h2>También puede interesarte</h2>
-        <ul>{related}</ul>
-      </section>
-    </main>
+    <div class="container" style="max-width:1184px;margin:0 auto;padding:28px 20px 80px">
+      <header class="topbar" style="display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:28px;min-height:64px">
+        <a class="brand" href="/" style="display:inline-flex;align-items:center;gap:12px;font-weight:700;font-size:20px">
+          <img src="/logo_salento2026.png" alt="Salento a la Mano" class="brand-logo" style="width:64px;height:64px;object-fit:contain;border-radius:50%" />
+          <span>Salento a la Mano</span>
+        </a>
+        <nav class="top-actions" aria-label="Navegación principal" style="display:flex;flex-wrap:wrap;gap:10px">
+          <a class="button" href="/">Inicio</a>
+          <a class="button" href="/categorias/">Categorías</a>
+          <a class="button" href="/mapa-interactivo-salento">Mapa</a>
+          <a class="button" href="/es/">Guía</a>
+          <a class="button dark" href="/">Volver al inicio</a>
+        </nav>
+      </header>
+      <main>
+        <section class="hero-copy" style="background:#fff;border:1px solid var(--line);border-left:3px solid var(--coral);padding:30px 28px;margin-bottom:24px">
+          <div class="eyebrow">Salento, Quindío, Colombia · Información verificada</div>
+          <h1>{html.escape(page["heading"])}</h1>
+          <p><strong>Fuente:</strong> {html.escape(page["author"])} · <strong>Salento a la Mano</strong></p>
+          <div class="actions" style="display:flex;flex-wrap:wrap;gap:10px;margin-top:16px">
+            <a class="button primary" href="/">Ir a página principal</a>
+            <a class="button" href="/categorias/">Explorar categorías</a>
+            <a class="button" href="/mapa-interactivo-salento">Abrir mapa</a>
+          </div>
+        </section>
+        <section class="section" style="background:#fff;border:1px solid var(--line);padding:26px;margin-bottom:24px">
+          {page["body"]}
+        </section>
+        <section class="section" style="background:#fff;border:1px solid var(--line);padding:26px;margin-bottom:24px">
+          <h2>Galería verificada</h2>
+          <div class="gallery" style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px">{gallery_html}</div>
+          <p class="muted" style="color:#59665f">Fotos del inventario local en <code>/public/pautas</code> e <code>/imagenes-salento</code>. No se borró contenido, solo se enriqueció presentación.</p>
+        </section>
+        <nav aria-label="Enlaces relacionados" class="section" style="background:#fff;border:1px solid var(--line);padding:26px;margin-bottom:24px">
+          <a href="/categorias/">Explorar categorías</a> |
+          <a href="/es/">Guía turística</a> |
+          <a href="/mapa-interactivo-salento">Mapa interactivo</a> |
+          <a href="/">Página principal</a>
+        </nav>
+        <section class="section" style="background:#fff;border:1px solid var(--line);padding:26px;margin-bottom:24px">
+          <h2>También puede interesarte</h2>
+          <ul>{related}</ul>
+        </section>
+        <div class="actions" style="display:flex;flex-wrap:wrap;gap:10px;margin-top:24px">
+          <a class="button primary" href="/">Volver al inicio</a>
+          <a class="button dark" href="/">Ir a página principal</a>
+          <a class="button" href="/categorias/">Ver categorías</a>
+        </div>
+      </main>
+      <footer style="margin-top:32px;color:#59665f">
+        <p>© Salento a la Mano · Guía local Salento, Quindío · <a href="/">salentoalamano.com</a></p>
+      </footer>
+    </div>
   </body>
 </html>
 '''

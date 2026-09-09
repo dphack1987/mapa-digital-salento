@@ -47,8 +47,8 @@ function escapeHtml(value) {
 }
 
 function brandMark(link = true) {
-  const mark = `<img src="/logo_salento2026.png" alt="Salento a la Mano" class="brand-logo"/><span>Salento a la Mano</span>`;
-  return link ? `<a class="brand" href="/index.html">${mark}</a>` : `<div class="brand">${mark}</div>`;
+  const mark = `<img src="/logo_salento2026.png" alt="Salento a la Mano" class="brand-logo" style="width:64px;height:64px;object-fit:contain;border-radius:50%"/><span>Salento a la Mano</span>`;
+  return link ? `<a class="brand" href="/">${mark}</a>` : `<div class="brand">${mark}</div>`;
 }
 
 function whatsappUrl(value) {
@@ -84,7 +84,8 @@ function galleryFor(provider) {
 
   const gallery = [];
   for (let i = 0; i < 3; i += 1) {
-    const url = provider.images?.[i] || fallback[i] || fallback[0];
+    const raw = provider.images?.[i] || fallback[i] || fallback[0];
+    const url = raw.startsWith('http') ? raw : encodeURI(raw);
     gallery.push(`<img src="${url}" alt="${escapeHtml(provider.name)} foto ${i + 1}" loading="lazy"/>`);
   }
   return gallery.join('');

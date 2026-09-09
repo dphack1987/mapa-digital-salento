@@ -18,7 +18,11 @@ h1, h2, h3 { font-family: Fraunces, serif; font-weight: 500; letter-spacing: 0; 
 h1 { color: var(--ink); }
 button, select { font: inherit; }
 .brand { color: var(--ink); font-family: 'DM Sans', sans-serif; letter-spacing: 0; }
-.brand-logo { width: 42px; height: 42px; object-fit: contain; border-radius: 50%; }
+.brand-logo { width: 64px; height: 64px; object-fit: contain; border-radius: 50%; }
+/* Fix WhatsApp / acciones: no cortar en móvil, reparto flexible */
+.topbar { flex-wrap: wrap; }
+.top-actions, .actions, .card-actions { flex-wrap: wrap; }
+.top-actions .button, .actions .button, .actions .action-btn, .card-actions .btn { flex: 1 1 160px; min-width: 0; white-space: normal; text-align: center; }
 .button, .btn, .back-btn, .nav-link { border-radius: 4px; font-family: 'DM Sans', sans-serif; letter-spacing: .01em; }
 .button.primary, .btn.primary { background: var(--ink); border-color: var(--ink); color: var(--white); }
 .button:hover, .btn:hover, .back-btn:hover, .nav-link:hover { border-color: var(--coral); }
