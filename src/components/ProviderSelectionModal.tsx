@@ -42,16 +42,20 @@ const categoryToTypes: Record<Category, string[]> = {
   'Artesanías': ['artesanía', 'tienda', 'comercio'],
   'Tiendas': ['tienda', 'supermercado', 'comercio'],
   'Experiencias': ['tour', 'guía', 'actividad', 'experiencia'],
+  'Atractivos Turísticos': ['atractivo', 'mirador', 'cascada', 'sendero', 'parque', 'natural', 'reserva', 'turístico'],
   'Servicios': ['servicio', 'transporte', 'guía']
 }
 
 const categoryIcons: Record<Category, string> = {
+  'Todo': '🗺️',
   'Alojamientos': '🏨',
   'Restaurantes': '🍽️',
   'Cafés': '☕',
+  'Coffee Tours': '☕',
   'Artesanías': '🎨',
   'Tiendas': '🛒',
   'Experiencias': '🧭',
+  'Atractivos Turísticos': '🏔️',
   'Servicios': '🛠️'
 }
 
@@ -62,6 +66,7 @@ const categoryActions: Record<Category, 'reserve' | 'order' | 'contact'> = {
   'Artesanías': 'contact',
   'Tiendas': 'contact',
   'Experiencias': 'reserve',
+  'Atractivos Turísticos': 'contact',
   'Servicios': 'contact'
 }
 
