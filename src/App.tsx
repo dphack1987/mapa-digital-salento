@@ -8,6 +8,7 @@ import {
   ArrowUp,
   Bike,
   Bell,
+  Flame,
   ChevronDown,
   Clock3,
   Coffee,
@@ -78,7 +79,8 @@ const serviceCardImages = {
   accommodation: '/pautas/coffee-tour-alojamiento-finca-hotel-el-ocaso/imagenes/foto_casa_ocaso.png',
   artisan: '/imagenes-salento/calle.jfif',
   commerce: '/imagenes-salento/iglesia.jfif',
-  events: '/pautas/boki_mall/hotel-mirador-boquia/370049629.jpg'
+  events: '/pautas/boki_mall/hotel-mirador-boquia/370049629.jpg',
+  camping: '/imagenes-salento/653410779.webp'
 } as const
 
 function providerSlug(name: string) {
@@ -559,6 +561,7 @@ function App() {
       Eventos: ['evento', 'eventos', 'boda', 'celebracion', 'corporativo', 'matrimonio', 'fiesta', 'salon de eventos', 'reunion'],
       'Atractivos Turísticos': ['atractivo', 'mirador', 'cascada', 'sendero', 'parque', 'natural', 'reserva', 'turistico', 'vista', 'attraction'],
       Servicios: ['transporte', 'moto', 'jeep', 'taxi', 'movilidad', 'transfer', 'transport', 'vehicle', 'servicio'],
+      Camping: ['camping', 'campamento', 'carpa', 'tienda de campaña', 'glamping', 'al aire libre', 'outdoor', 'campsite', 'cabin']
     }
 
     return places.filter((place) => matchesKeywords(place, categoryKeywords[selectedCategoryPage]))
@@ -606,7 +609,8 @@ function App() {
       Tiendas: 'tiendas',
       Experiencias: 'experiencias',
       Eventos: 'eventos',
-      Servicios: 'servicios'
+      Servicios: 'servicios',
+      Camping: 'camping'
     }
     const categoryPath = categoryPaths[category]
     if (categoryPath) {
@@ -796,6 +800,18 @@ function App() {
           <>
         <section className="mobile-dashboard" id="servicios">
           <div className="services-grid">
+            <button className="service-card accommodation" style={{ backgroundImage: `url(${serviceCardImages.accommodation})` }} onClick={() => { setSelectedCategory('Alojamientos'); setShowProviderModal(true) }}>
+              <div className="service-icon">🏨</div>
+              <div className="service-content">
+                <h3>Alojamientos</h3>
+                <p>Hoteles y hostales</p>
+              </div>
+              <div className="service-info">
+                <span className="provider-count">{places.filter(p => p.type === 'Alojamientos').length} {language === 'es' ? 'alojamientos' : 'accommodations'}</span>
+                <ChevronRight size={16} />
+              </div>
+            </button>
+
             <button className="service-card gastronomy" style={{ backgroundImage: `url(${serviceCardImages.gastronomy})` }} onClick={() => { setSelectedCategory('Restaurantes'); setShowProviderModal(true) }}>
               <div className="service-icon">🍽️</div>
               <div className="service-content">
@@ -828,6 +844,79 @@ function App() {
               </div>
               <div className="service-info">
                 <span className="provider-count">{places.filter(p => p.type === 'Eventos').length} {language === 'es' ? 'eventos' : 'events'}</span>
+                <ChevronRight size={16} />
+              </div>
+            </button>
+
+            <button className="service-card horseback-riding featured" style={{ backgroundImage: `url(${serviceCardImages.horseback})` }} onClick={() => { setSelectedCategory('Experiencias'); setShowProviderModal(true) }}>
+              <div className="service-badge">⭐ {language === 'es' ? 'ESPECIAL' : 'FEATURED'}</div>
+              <div className="service-icon">🐎</div>
+              <div className="service-content">
+                <h3>Cabalgatas</h3>
+                <p>Valle de Cocora</p>
+              </div>
+              <div className="service-info">
+                <span className="provider-count">{places.filter(p => p.type === 'Experiencias').length} {language === 'es' ? 'experiencias' : 'experiences'}</span>
+                <ChevronRight size={16} />
+              </div>
+            </button>
+
+            <button className="service-card guides" style={{ backgroundImage: `url(${serviceCardImages.guides})` }} onClick={() => { setSelectedCategory('Atractivos Turísticos'); setShowProviderModal(true) }}>
+              <div className="service-icon">🧭</div>
+              <div className="service-content">
+                <h3>Atractivos Turísticos</h3>
+                <p>Naturaleza y miradores</p>
+              </div>
+              <div className="service-info">
+                <span className="provider-count">{places.filter(p => p.type === 'Atractivos Turísticos').length} {language === 'es' ? 'atractivos' : 'attractions'}</span>
+                <ChevronRight size={16} />
+              </div>
+            </button>
+
+            <button className="service-card artisan" style={{ backgroundImage: `url(${serviceCardImages.artisan})` }} onClick={() => { setSelectedCategory('Artesanías'); setShowProviderModal(true) }}>
+              <div className="service-icon">🎨</div>
+              <div className="service-content">
+                <h3>Artesanías</h3>
+                <p>Productos locales</p>
+              </div>
+              <div className="service-info">
+                <span className="provider-count">{places.filter(p => p.type === 'Artesanías').length} {language === 'es' ? 'artesanías' : 'crafts'}</span>
+                <ChevronRight size={16} />
+              </div>
+            </button>
+
+            <button className="service-card commerce" style={{ backgroundImage: `url(${serviceCardImages.commerce})` }} onClick={() => { setSelectedCategory('Tiendas'); setShowProviderModal(true) }}>
+              <div className="service-icon">🛒</div>
+              <div className="service-content">
+                <h3>Tiendas</h3>
+                <p>Comercios locales</p>
+              </div>
+              <div className="service-info">
+                <span className="provider-count">{places.filter(p => p.type === 'Tiendas').length} {language === 'es' ? 'tiendas' : 'shops'}</span>
+                <ChevronRight size={16} />
+              </div>
+            </button>
+
+            <button className="service-card transport" style={{ backgroundImage: `url(${serviceCardImages.transport})` }} onClick={() => { setSelectedCategory('Servicios'); setShowProviderModal(true) }}>
+              <div className="service-icon">🚖</div>
+              <div className="service-content">
+                <h3>Transporte</h3>
+                <p>Jeeps y movilidad</p>
+              </div>
+              <div className="service-info">
+                <span className="provider-count">{places.filter(p => p.type === 'Servicios').length} {language === 'es' ? 'servicios' : 'services'}</span>
+                <ChevronRight size={16} />
+              </div>
+            </button>
+
+            <button className="service-card camping" style={{ backgroundImage: `url(${serviceCardImages.camping})` }} onClick={() => { setSelectedCategory('Camping'); setShowProviderModal(true) }}>
+              <div className="service-icon">⛺</div>
+              <div className="service-content">
+                <h3>Camping</h3>
+                <p>Al aire libre y glamping</p>
+              </div>
+              <div className="service-info">
+                <span className="provider-count">{places.filter(p => p.type === 'Camping').length} {language === 'es' ? 'campings' : 'campsites'}</span>
                 <ChevronRight size={16} />
               </div>
             </button>
@@ -889,9 +978,9 @@ function App() {
         <section className="quick-section" id="pedidos">
           <div className="section-heading"><div><p className="eyebrow">{t('nearby')}</p><h2>{t('today')}</h2></div><button className="text-button" onClick={() => { setActiveCategory('Todo'); scrollToSection('pedidos') }}>Ver todo <ArrowRight size={16} /></button></div>
           <div className="category-row">
-            {(['Todo', 'Alojamientos', 'Restaurantes', 'Restaurante Bar', 'Cafés', 'Coffee Tours', 'Artesanías', 'Tiendas', 'Experiencias', 'Eventos', 'Atractivos Turísticos', 'Servicios'] as Category[]).map((category) => (
+            {(['Todo', 'Alojamientos', 'Restaurantes', 'Restaurante Bar', 'Cafés', 'Coffee Tours', 'Artesanías', 'Tiendas', 'Experiencias', 'Eventos', 'Atractivos Turísticos', 'Servicios', 'Camping'] as Category[]).map((category) => (
               <button key={category} className={activeCategory === category ? 'category active' : 'category'} onClick={() => setActiveCategory(category)}>
-                {category === 'Todo' && <Sparkles size={17} />}{category === 'Alojamientos' && <Hotel size={17} />}{category === 'Restaurantes' && <Utensils size={17} />}{category === 'Restaurante Bar' && <MessageSquare size={17} />}{category === 'Cafés' && <Coffee size={17} />}{category === 'Coffee Tours' && <Coffee size={17} />}{category === 'Artesanías' && <ShoppingBasket size={17} />}{category === 'Tiendas' && <Store size={17} />}{category === 'Experiencias' && <Compass size={17} />}{category === 'Eventos' && <Bell size={17} />}{category === 'Atractivos Turísticos' && <Mountain size={17} />}{category === 'Servicios' && <Bike size={17} />}
+                {category === 'Todo' && <Sparkles size={17} />}{category === 'Alojamientos' && <Hotel size={17} />}{category === 'Restaurantes' && <Utensils size={17} />}{category === 'Restaurante Bar' && <MessageSquare size={17} />}{category === 'Cafés' && <Coffee size={17} />}{category === 'Coffee Tours' && <Coffee size={17} />}{category === 'Artesanías' && <ShoppingBasket size={17} />}{category === 'Tiendas' && <Store size={17} />}{category === 'Experiencias' && <Compass size={17} />}{category === 'Eventos' && <Bell size={17} />}{category === 'Atractivos Turísticos' && <Mountain size={17} />}{category === 'Servicios' && <Bike size={17} />}{category === 'Camping' && <Flame size={17} />}
                 {t(`categories.${category}`)}
               </button>
             ))}
@@ -1270,7 +1359,7 @@ function DonChucho({ language, t, places, weather, todayEvents }: { language: La
 
 function categoryToMapType(category: Category) {
   if (category === 'Restaurantes' || category === 'Restaurante Bar' || category === 'Cafés') return 'Gastronómico'
-  if (category === 'Artesanías' || category === 'Tiendas' || category === 'Alojamientos') return 'Comercial'
+  if (category === 'Artesanías' || category === 'Tiendas' || category === 'Alojamientos' || category === 'Camping') return 'Comercial'
   return 'Turístico'
 }
 
