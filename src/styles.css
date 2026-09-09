@@ -2026,6 +2026,9 @@
 .service-card.gastronomy:hover { border-color: #e76c52; }
 .service-card.restaurant-bar:hover { border-color: #e8bb58; }
 .service-card.events:hover { border-color: #9b7bb5; }
+.service-card.accommodation:hover { border-color: #7da88c; }
+.service-card.artisan:hover { border-color: #e8bb58; }
+.service-card.commerce:hover { border-color: #7896a8; }
 .service-card.transport:hover { border-color: #56755b; }
 .service-card.rural-transport:hover { border-color: #7da88c; }
 .service-card.motorcycle-rental:hover { border-color: #e8bb58; }
