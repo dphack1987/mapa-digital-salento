@@ -71,12 +71,14 @@ const salentoImageGallery = [
 
 const serviceCardImages = {
   gastronomy: '/imagenes-salento/trucha%20y%20patacon.jfif',
+  restaurantBar: '/pautas/boki_mall/hotel-mirador-boquia/314270821.jpg',
   transport: '/imagenes-salento/destinos-75.png',
   horseback: '/imagenes-salento/1326163558.webp',
   guides: '/imagenes-salento/pueblo.jfif',
   accommodation: '/pautas/coffee-tour-alojamiento-finca-hotel-el-ocaso/imagenes/foto_casa_ocaso.png',
   artisan: '/imagenes-salento/calle.jfif',
-  commerce: '/imagenes-salento/iglesia.jfif'
+  commerce: '/imagenes-salento/iglesia.jfif',
+  events: '/pautas/boki_mall/hotel-mirador-boquia/370049629.jpg'
 } as const
 
 function providerSlug(name: string) {
@@ -802,6 +804,30 @@ function App() {
               </div>
               <div className="service-info">
                 <span className="provider-count">{places.filter(p => p.type === 'Restaurantes').length} {language === 'es' ? 'restaurantes' : 'restaurants'}</span>
+                <ChevronRight size={16} />
+              </div>
+            </button>
+
+            <button className="service-card restaurant-bar" style={{ backgroundImage: `url(${serviceCardImages.restaurantBar})` }} onClick={() => { setSelectedCategory('Restaurante Bar'); setShowProviderModal(true) }}>
+              <div className="service-icon">🍸</div>
+              <div className="service-content">
+                <h3>Restaurante Bar</h3>
+                <p>Café-bar y coctelería</p>
+              </div>
+              <div className="service-info">
+                <span className="provider-count">{places.filter(p => p.type === 'Restaurante Bar').length} {language === 'es' ? 'restaurantes bar' : 'restaurant bars'}</span>
+                <ChevronRight size={16} />
+              </div>
+            </button>
+
+            <button className="service-card events" style={{ backgroundImage: `url(${serviceCardImages.events})` }} onClick={() => { setSelectedCategory('Eventos'); setShowProviderModal(true) }}>
+              <div className="service-icon">🎉</div>
+              <div className="service-content">
+                <h3>Eventos</h3>
+                <p>Salones y celebraciones</p>
+              </div>
+              <div className="service-info">
+                <span className="provider-count">{places.filter(p => p.type === 'Eventos').length} {language === 'es' ? 'eventos' : 'events'}</span>
                 <ChevronRight size={16} />
               </div>
             </button>
