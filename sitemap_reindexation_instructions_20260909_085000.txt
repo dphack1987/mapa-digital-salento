@@ -1,0 +1,76 @@
+
+INSTRUCCIONES PARA REINDEXACIÓN DE SITEMAP
+==========================================
+Dominio: salentoalamano.com
+Sitemap: https://salentoalamano.com/sitemap.xml
+Fecha: 2026-09-09 08:50:00
+
+IMPORTANTE: Los pings automáticos de sitemap están deprecados.
+Ahora debes usar las herramientas de Webmaster de cada motor de búsqueda.
+
+INSTRUCCIONES POR MOTOR DE BÚSQUEDA:
+
+1. GOOGLE SEARCH CONSOLE
+   URL: https://search.google.com/search-console
+   Pasos:
+   - Inicia sesión en Google Search Console
+   - Selecciona tu propiedad: salentoalamano.com
+   - Ve a "Índice" > "Sitemaps"
+   - Ingresa tu URL de sitemap: https://salentoalamano.com/sitemap.xml
+   - Haz clic en "Enviar"
+   - Verifica el estado en "Sitemaps enviados"
+
+2. BING WEBMASTER TOOLS
+   URL: https://www.bing.com/webmasters
+   Pasos:
+   - Inicia sesión en Bing Webmaster Tools
+   - Selecciona tu sitio: salentoalamano.com
+   - Ve a "Configure My Site" > "Sitemaps"
+   - Ingresa tu URL de sitemap: https://salentoalamano.com/sitemap.xml
+   - Haz clic en "Submit"
+   - Verifica el estado en "Sitemaps"
+
+3. YANDEX WEBMASTER
+   URL: https://webmaster.yandex.com/
+   Pasos:
+   - Inicia sesión en Yandex Webmaster
+   - Selecciona tu sitio: salentoalamano.com
+   - Ve a "Índice" > "Mapas del sitio"
+   - Ingresa tu URL de sitemap: https://salentoalamano.com/sitemap.xml
+   - Haz clic en "Agregar"
+   - Verifica el estado en "Mapas del sitio"
+
+4. BAIDU WEBMASTER (Opcional para China)
+   URL: https://ziyuan.baidu.com/
+   Pasos:
+   - Inicia sesión en Baidu Webmaster Tools
+   - Selecciona tu sitio
+   - Ve a "Data submission" > "Sitemap"
+   - Ingresa tu URL de sitemap: https://salentoalamano.com/sitemap.xml
+   - Selecciona el tipo de actualización
+   - Haz clic en "Submit"
+
+VERIFICACIÓN DE SITEMAP:
+- Accede directamente: https://salentoalamano.com/sitemap.xml
+- Verifica que el XML sea válido
+- Confirma que todas las URLs importantes estén incluidas
+- Revisa las fechas de lastmod (deben estar actualizadas)
+
+MONITOREO POST-REINDEXACIÓN:
+1. Google Search Console: Monitorea "Cobertura del índice"
+2. Bing Webmaster Tools: Monitorea "Indexación"
+3. Yandex Webmaster: Monitorea "Índice" > "Páginas indexadas"
+4. Busca tu sitio en cada motor: "site:salentoalamano.com"
+
+TIEMPO ESPERADO:
+- Google: 24-48 horas para reindexación completa
+- Bing: 24-72 horas
+- Yandex: 24-48 horas
+- Baidu: 48-72 horas
+
+NOTAS IMPORTANTES:
+- Los crawlers visitarán el sitemap automáticamente después de la notificación
+- No envíes el sitemap múltiples veces en corto tiempo
+- Asegúrate de que el archivo robots.txt referencia el sitemap
+- Verifica que no haya errores de acceso en el sitemap
+- Actualiza el sitemap cada vez que agregues/elimines páginas importantes

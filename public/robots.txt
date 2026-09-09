@@ -13,6 +13,19 @@ Allow: /valle-cocora-accesible-100
 Allow: /hoteles-abiertos-salento
 Allow: /vias-salento-libres-acceso
 
+# Landing pages programaticas para SEO
+Allow: /salento/
+Allow: /salento-turismo/
+Allow: /hoteles-en-salento/
+Allow: /restaurantes-en-salento/
+Allow: /valle-de-cocora-salento/
+Allow: /que-hacer-en-salento/
+Allow: /como-llegar-a-salento/
+Allow: /mejor-epoca-salento/
+Allow: /cultura-salento/
+Allow: /naturaleza-salento/
+Allow: /gastronomia-salento/
+
 # Permitir crawleo de estructura de datos local (places, mapMarkers, hotels)
 Allow: /data/
 
