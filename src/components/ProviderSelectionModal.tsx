@@ -36,12 +36,14 @@ interface ProviderSelectionModalProps {
 }
 
 const categoryToTypes: Record<Category, string[]> = {
+  'Todo': ['hotel', 'hostel', 'cabaña', 'finca', 'restaurante', 'café', 'comida', 'coffee', 'cafetería', 'artesanía', 'tienda', 'supermercado', 'comercio', 'tour', 'guía', 'actividad', 'experiencia', 'atractivo', 'mirador', 'cascada', 'sendero', 'parque', 'natural', 'reserva', 'turístico', 'servicio', 'transporte'],
   'Alojamientos': ['hotel', 'hostel', 'cabaña', 'finca'],
   'Restaurantes': ['restaurante', 'café', 'comida'],
   'Cafés': ['café', 'coffee', 'cafetería'],
+  'Coffee Tours': ['coffee', 'tour', 'café', 'finca', 'cafetera'],
   'Artesanías': ['artesanía', 'tienda', 'comercio'],
   'Tiendas': ['tienda', 'supermercado', 'comercio'],
-  'Experiencias': ['tour', 'guía', 'actividad', 'experiencia'],
+  'Experiencias': ['tour', 'guía', 'actividad', 'experiencia', 'cabalgata', 'caballo'],
   'Atractivos Turísticos': ['atractivo', 'mirador', 'cascada', 'sendero', 'parque', 'natural', 'reserva', 'turístico'],
   'Servicios': ['servicio', 'transporte', 'guía']
 }
@@ -91,11 +93,15 @@ function ProviderSelectionModal({ isOpen, onClose, category, places, onDirectOrd
 
   if (!isOpen) return null
 
-  // Filtrar pautantes por categoría
+  // Filtrar pautantes por categoría - uso igualdad exacta primero, fallback a keywords
   const relevantTypes = categoryToTypes[category] || []
-  const categoryProviders = places.filter(place => 
-    relevantTypes.some(type => place.type.toLowerCase().includes(type.toLowerCase()))
-  )
+  const categoryProviders = places.filter(place => {
+    // Primero intentar igualdad exacta con el nombre de categoría
+    if (place.type === category) return true
+    
+    // Fallback a keywords para categorías compuestas
+    return relevantTypes.some(type => place.type.toLowerCase().includes(type.toLowerCase()))
+  })
 
   const handleProviderAction = (provider: Place, action: 'reserve' | 'order' | 'contact') => {
     onDirectOrder(provider.id, action)
@@ -203,11 +209,11 @@ function ProviderSelectionModal({ isOpen, onClose, category, places, onDirectOrd
             className="action-button secondary"
             onClick={(e) => {
               e.stopPropagation()
-              window.location.assign(`/paginas-pautantes/${providerSlug(provider.name)}/`)
+              handleProviderClick(provider)
             }}
           >
             <Phone size={16} />
-            {language === 'es' ? 'Ver Ficha' : 'View Profile'}
+            {language === 'es' ? 'Ver Detalles' : 'View Details'}
           </button>
         </div>
       </div>

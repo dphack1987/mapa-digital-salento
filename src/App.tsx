@@ -810,7 +810,7 @@ function App() {
                 <p>Restaurantes y cafés</p>
               </div>
               <div className="service-info">
-                <span className="provider-count">{countMatchingPlaces(places, ['restaurante', 'cafe', 'cafeteria', 'gastronomia', 'brunch', 'comida', 'coffee', 'bar'])} {language === 'es' ? 'pautantes' : 'providers'}</span>
+                <span className="provider-count">{places.filter(p => p.type === 'Restaurantes').length} {language === 'es' ? 'restaurantes' : 'restaurants'}</span>
                 <ChevronRight size={16} />
               </div>
             </button>
@@ -822,7 +822,7 @@ function App() {
                 <p>Jeeps y movilidad</p>
               </div>
               <div className="service-info">
-                <span className="provider-count">{countMatchingPlaces(places, ['transporte', 'moto', 'jeep', 'taxi', 'movilidad', 'transfer', 'transport', 'vehicle'])} {language === 'es' ? 'pautantes' : 'providers'}</span>
+                <span className="provider-count">{places.filter(p => p.type === 'Servicios').length} {language === 'es' ? 'servicios' : 'services'}</span>
                 <ChevronRight size={16} />
               </div>
             </button>
@@ -835,7 +835,7 @@ function App() {
                 <p>Valle de Cocora</p>
               </div>
               <div className="service-info">
-                <span className="provider-count">{countMatchingPlaces(places, ['cabalgata', 'caballo', 'equitacion', 'horse', 'ride'])} {language === 'es' ? 'pautantes' : 'providers'}</span>
+                <span className="provider-count">{places.filter(p => p.type === 'Experiencias').length} {language === 'es' ? 'experiencias' : 'experiences'}</span>
                 <ChevronRight size={16} />
               </div>
             </button>
@@ -847,7 +847,7 @@ function App() {
                 <p>Naturaleza y miradores</p>
               </div>
               <div className="service-info">
-                <span className="provider-count">{countMatchingPlaces(places, ['atractivo', 'mirador', 'cascada', 'sendero', 'parque', 'natural', 'reserva', 'turistico', 'vista', 'attraction'])} {language === 'es' ? 'pautantes' : 'providers'}</span>
+                <span className="provider-count">{places.filter(p => p.type === 'Atractivos Turísticos').length} {language === 'es' ? 'atractivos' : 'attractions'}</span>
                 <ChevronRight size={16} />
               </div>
             </button>
@@ -859,7 +859,7 @@ function App() {
                 <p>Hoteles y hostales</p>
               </div>
               <div className="service-info">
-                <span className="provider-count">{countMatchingPlaces(places, ['alojamiento', 'hotel', 'hostal', 'hospedaje', 'resort', 'lodging'])} {language === 'es' ? 'pautantes' : 'providers'}</span>
+                <span className="provider-count">{places.filter(p => p.type === 'Alojamientos').length} {language === 'es' ? 'alojamientos' : 'accommodations'}</span>
                 <ChevronRight size={16} />
               </div>
             </button>
@@ -871,7 +871,7 @@ function App() {
                 <p>Productos locales</p>
               </div>
               <div className="service-info">
-                <span className="provider-count">{countMatchingPlaces(places, ['artesania', 'artesanias', 'manualidades', 'tejido', 'fibras', 'craft', 'handmade'])} {language === 'es' ? 'pautantes' : 'providers'}</span>
+                <span className="provider-count">{places.filter(p => p.type === 'Artesanías').length} {language === 'es' ? 'artesanías' : 'crafts'}</span>
                 <ChevronRight size={16} />
               </div>
             </button>
@@ -883,7 +883,7 @@ function App() {
                 <p>Comercios locales</p>
               </div>
               <div className="service-info">
-                <span className="provider-count">{countMatchingPlaces(places, ['tienda', 'shop', 'comercio', 'mercado', 'venta', 'boutique', 'store'])} {language === 'es' ? 'pautantes' : 'providers'}</span>
+                <span className="provider-count">{places.filter(p => p.type === 'Tiendas').length} {language === 'es' ? 'tiendas' : 'stores'}</span>
                 <ChevronRight size={16} />
               </div>
             </button>
