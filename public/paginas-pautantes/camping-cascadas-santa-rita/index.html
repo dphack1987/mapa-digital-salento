@@ -62,6 +62,15 @@
       .contact-item strong { display:block; margin-bottom:4px; }
       .contact-item a { color:var(--yellow); }
       
+      .sensor-permissions { background:var(--yellow); color:var(--ink); border-radius:12px; padding:24px; margin-bottom:32px; }
+      .sensor-permissions h3 { font-family:'Fraunces',serif; font-size:24px; margin:0 0 16px; }
+      .sensor-status { display:grid; gap:12px; margin-top:16px; }
+      .sensor-item { display:flex; justify-content:space-between; align-items:center; padding:12px; background:rgba(255,255,255,0.5); border-radius:8px; }
+      .sensor-name { font-weight:700; } .sensor-status-text { font-size:14px; }
+      .sensor-status-text.active { color:var(--green); } .sensor-status-text.inactive { color:var(--coral); }
+      .request-sensors-btn { width:100%; padding:12px; background:var(--ink); color:var(--white); border:none; border-radius:8px; font-weight:700; cursor:pointer; margin-top:16px; }
+      .request-sensors-btn:hover { background:var(--coral); }
+      
       .nav-buttons { display:flex; gap:12px; margin-top:16px; }
       .nav-button { flex:1; padding:12px; border:1px solid var(--line); border-radius:8px; background:var(--white); font-weight:700; cursor:pointer; transition:all 0.2s; }
       .nav-button:hover { background:var(--line); } .nav-button.primary { background:var(--coral); border-color:var(--coral); color:var(--white); }
@@ -185,6 +194,32 @@
             <a href="tel:123">123</a>
           </div>
         </div>
+      </div>
+
+      <div class="sensor-permissions">
+        <h3>📱 Sensores del Dispositivo</h3>
+        <p>Activa los sensores de tu dispositivo para una mejor experiencia de navegación offline:</p>
+        <div class="sensor-status" id="sensorStatus">
+          <div class="sensor-item">
+            <div class="sensor-name">GPS/Geolocalización</div>
+            <div class="sensor-status-text inactive">Verificando...</div>
+          </div>
+          <div class="sensor-item">
+            <div class="sensor-name">Sensor de Movimiento</div>
+            <div class="sensor-status-text inactive">Verificando...</div>
+          </div>
+          <div class="sensor-item">
+            <div class="sensor-name">Orientación</div>
+            <div class="sensor-status-text inactive">Verificando...</div>
+          </div>
+          <div class="sensor-item">
+            <div class="sensor-name">Luz Ambiental</div>
+            <div class="sensor-status-text inactive">Verificando...</div>
+          </div>
+        </div>
+        <button class="request-sensors-btn" onclick="requestSensorPermissions()">
+          🔄 Solicitar Permisos de Sensores
+        </button>
       </div>
 
       <div style="text-align:center; margin-top:32px;">
@@ -363,6 +398,95 @@
 
       // Load saved progress on page load
       loadProgress();
+
+      // Sensor Permissions
+      const sensors = {
+        geolocation: { name: 'GPS/Geolocalización', available: 'geolocation' in navigator },
+        motion: { name: 'Sensor de Movimiento', available: 'DeviceMotionEvent' in window },
+        orientation: { name: 'Orientación', available: 'DeviceOrientationEvent' in window },
+        ambientLight: { name: 'Luz Ambiental', available: 'AmbientLightSensor' in window }
+      };
+
+      function checkSensorPermissions() {
+        const sensorStatusDiv = document.getElementById('sensorStatus');
+        if (!sensorStatusDiv) return;
+
+        sensorStatusDiv.innerHTML = Object.entries(sensors).map(([key, sensor]) => {
+          const isAvailable = sensor.available;
+          const statusClass = isAvailable ? 'active' : 'inactive';
+          const statusText = isAvailable ? '✓ Disponible' : '✗ No disponible';
+          
+          return `
+            <div class="sensor-item">
+              <div class="sensor-name">${sensor.name}</div>
+              <div class="sensor-status-text ${statusClass}">${statusText}</div>
+            </div>
+          `;
+        }).join('');
+      }
+
+      function requestSensorPermissions() {
+        // Request geolocation permission
+        if ('geolocation' in navigator) {
+          navigator.geolocation.getCurrentPosition(
+            (position) => {
+              console.log('Ubicación obtenida:', position.coords);
+              alert('✅ Permisos de GPS concedidos. Tu ubicación puede ayudar en la navegación.');
+            },
+            (error) => {
+              console.log('Error de GPS:', error);
+              alert('❌ Error de GPS: ' + error.message);
+            }
+          );
+        }
+
+        // Request device motion permission (iOS 13+)
+        if (typeof DeviceMotionEvent !== 'undefined' && typeof DeviceMotionEvent.requestPermission === 'function') {
+          DeviceMotionEvent.requestPermission()
+            .then(response => {
+              if (response === 'granted') {
+                alert('✅ Permisos de sensor de movimiento concedidos');
+              } else {
+                alert('❌ Permisos de sensor de movimiento denegados');
+              }
+            })
+            .catch(console.error);
+        }
+
+        // Request device orientation permission (iOS 13+)
+        if (typeof DeviceOrientationEvent !== 'undefined' && typeof DeviceOrientationEvent.requestPermission === 'function') {
+          DeviceOrientationEvent.requestPermission()
+            .then(response => {
+              if (response === 'granted') {
+                alert('✅ Permisos de orientación concedidos');
+              } else {
+                alert('❌ Permisos de orientación denegados');
+              }
+            })
+            .catch(console.error);
+        }
+
+        // Check ambient light sensor
+        if ('AmbientLightSensor' in window) {
+          try {
+            const sensor = new AmbientLightSensor();
+            sensor.start();
+            alert('✅ Sensor de luz ambiental disponible');
+            sensor.stop();
+          } catch (error) {
+            console.log('Sensor de luz no disponible:', error);
+          }
+        }
+
+        // Refresh sensor status
+        checkSensorPermissions();
+      }
+
+      // Initialize sensor check on page load
+      checkSensorPermissions();
+
+      // Make function available globally
+      window.requestSensorPermissions = requestSensorPermissions;
     </script>
   </body>
 </html>
