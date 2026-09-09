@@ -13,7 +13,7 @@
 :root { --paper:#f5f1e8; --ink:#1f2d26; --muted:#59665f; --line:#d9d0bf; --coral:#dd7f5d; --yellow:#e7c77b; --white:#fff; --green:#7da88c; }
       * { box-sizing:border-box; } body { margin:0; background:var(--paper); color:var(--ink); font-family:'DM Sans',sans-serif; }
       a { color:inherit; text-decoration:none; } .container { max-width:1180px; margin:0 auto; padding:24px 20px 72px; }
-      .topbar { display:flex; justify-content:space-between; gap:16px; align-items:center; margin-bottom:28px; } .brand { display:inline-flex; align-items:center; gap:10px; font-weight:700; font-size:20px; } .brand-logo { width:42px; height:42px; object-fit:contain; border-radius:50%; }
+      .topbar { display:flex; justify-content:space-between; gap:16px; align-items:center; margin-bottom:28px; } .brand { display:inline-flex; align-items:center; gap:10px; font-weight:700; font-size:20px; } .brand-logo { width:64px; height:64px; object-fit:contain; border-radius:50%; }
       .top-actions { display:flex; flex-wrap:wrap; gap:10px; } .button { display:inline-flex; align-items:center; justify-content:center; border:1px solid var(--line); border-radius:999px; padding:11px 15px; font-weight:700; font-size:13px; background:var(--white); }
       .button.primary { background:#25d366; border-color:#25d366; color:#fff; } .button.dark { background:var(--ink); border-color:var(--ink); color:#fff; }
       
@@ -81,7 +81,8 @@
       
       @media (max-width:768px) { .container { padding:16px 12px 48px; } .map-marker { width:24px; height:24px; font-size:12px; } }
     </style>
-  </head>
+  <style data-patch="whatsapp-wrap">.topbar{flex-wrap:wrap}.top-actions,.actions,.card-actions{flex-wrap:wrap}.top-actions .button,.actions .button,.actions .action-btn,.card-actions .btn{flex:1 1 160px;min-width:0;white-space:normal;text-align:center}.brand-logo{width:64px!important;height:64px!important}@media(max-width:800px){.actions{flex-direction:column}.actions .button,.actions .action-btn{width:100%}}</style>
+</head>
   <body>
     <div class="container">
       <div class="topbar">
