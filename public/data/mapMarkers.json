@@ -1,6 +1,18 @@
 {
   "markers": [
     {
+      "id": 31,
+      "label": "Camping Cascadas de Santa Rita",
+      "type": "Comercial",
+      "placeId": 31,
+      "coord": [
+        4.64,
+        -75.56
+      ],
+      "tone": "coral",
+      "note": "Camping natural con acceso a cascadas"
+    },
+    {
       "id": 13,
       "label": "Boki Mall - Hotel El Mirador de Boquía",
       "type": "Turístico",

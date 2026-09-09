@@ -1,6 +1,94 @@
 {
   "places": [
     {
+      "id": 31,
+      "name": "Camping Cascadas de Santa Rita",
+      "type": "Camping",
+      "description": "Zona de camping en la Reserva Natural Cascadas de Santa Rita. Áreas equipadas para acampar cerca de la cascada principal y segunda cascada por cavernas. Incluye baños, zonas de fogata y acceso a senderos naturales. Experiencia única de acampada en medio del bosque con sonido de agua natural.",
+      "priceRange": "$",
+      "rating": "4.6",
+      "timeInfo": "Pernoctada disponible",
+      "badge": "Naturaleza",
+      "color": "mustard",
+      "icon": "Flame",
+      "contact": {
+        "phone": "+57 301 503 8254",
+        "whatsapp": "573015038254"
+      },
+      "location": {
+        "lat": 4.64,
+        "lng": -75.56,
+        "address": "Vereda Boquía",
+        "landmark": "200 metros del puente amarillo de Boquía"
+      },
+      "operatingHours": {
+        "notes": "Check-in: 2:00 PM, Check-out: 12:00 PM. Reservar con anticipación"
+      },
+      "tags": [
+        "camping",
+        "naturaleza",
+        "cascada",
+        "senderismo",
+        "glamping",
+        "baño",
+        "boquía",
+        "al aire libre"
+      ],
+      "verified": true,
+      "active": true,
+      "accommodationDetails": {
+        "categoryLabel": "Camping natural · Sendero y cascadas",
+        "roomTypes": [
+          "Carpas propias",
+          "Glamping básico",
+          "Zonas de acampada"
+        ],
+        "services": [
+          "Baños comunitarios",
+          "Zonas de fogata",
+          "Mesas y bancos",
+          "Estacionamiento",
+          "Seguridad nocturna"
+        ],
+        "roomFeatures": [
+          "Vistas a cascada",
+          "Sonido natural",
+          "Acceso a senderos",
+          "Luz solar natural"
+        ],
+        "nearby": [
+          "Cascada principal",
+          "Segunda cascada",
+          "Puente colgante",
+          "Túnel histórico",
+          "Sendero bosque"
+        ],
+        "policies": [
+          "No música alta",
+          "Respetar horarios de silencio",
+          "No fogatas prohibidas",
+          "Llevar basura de vuelta"
+        ],
+        "checkIn": "2:00 PM",
+        "checkOut": "12:00 PM",
+        "amenities": [
+          "Baños",
+          "Zonas de fogata",
+          "Estacionamiento",
+          "Acceso a agua"
+        ],
+        "capacity": "Hasta 50 personas",
+        "bookingNotes": "Reservar por WhatsApp con 24 horas de anticipación"
+      },
+      "photos": [
+        "/imagenes-salento/santa-rita-1.jpg",
+        "/imagenes-salento/santa-rita-2.jpg",
+        "/imagenes-salento/santa-rita-3.jpg",
+        "/imagenes-salento/santa-rita-4.jpg",
+        "/imagenes-salento/santa-rita-5.jpg"
+      ]
+    },
+    {
       "id": 13,
       "name": "Boki Mall - Hotel El Mirador de Boquía",
       "type": "Alojamientos",
