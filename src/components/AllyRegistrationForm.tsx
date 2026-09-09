@@ -384,7 +384,7 @@ const AllyRegistrationForm: React.FC<AllyRegistrationFormProps> = ({ onClose, on
 
             <div className="form-group">
               <label>Servicios Ofrecidos *</label>
-              <div className="services-grid">
+              <div className="business-services-grid">
                 {commonServices[formData.businessType as keyof typeof commonServices]?.map(service => (
                   <button
                     key={service}
