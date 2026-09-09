@@ -3,7 +3,6 @@ import { createRoot } from 'react-dom/client'
 import { HelmetProvider } from 'react-helmet-async'
 import App from './App'
 import './styles.css'
-import './styles-programmatic-landing.css'
 
 const rootElement = document.getElementById('root')
 if (!rootElement) {

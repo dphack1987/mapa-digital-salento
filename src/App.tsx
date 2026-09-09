@@ -45,8 +45,6 @@ import {
 } from 'lucide-react'
 import { Category, Language, Currency, Place, MapMarker, Hotel as HotelType, LanguageConst } from './types'
 import dataService from './services/dataService'
-import ProgrammaticLandingPage from './components/ProgrammaticLandingPage'
-import programaticLandingService from './services/programaticLandingService'
 
 const salentoImageGallery = [
   ['1326163558.webp', 'Paisaje urbano de Salento'],
@@ -342,7 +340,6 @@ function App() {
   const [selectedCategory, setSelectedCategory] = useState<Category | null>(null)
   const [selectedCategoryPage, setSelectedCategoryPage] = useState<Category | null>(null)
   const [selectedAllyForVerification, setSelectedAllyForVerification] = useState<string | null>(null)
-  const [programmaticLandingSlug, setProgrammaticLandingSlug] = useState<string | null>(null)
 
   const isEnglish = language === 'EN'
 
@@ -504,14 +501,6 @@ function App() {
       const hash = window.location.hash.replace('#', '')
       if (hash && (hash.startsWith('estado-') || hash.startsWith('hoteles-') || hash.startsWith('valle-') || hash.startsWith('turismo-') || hash.startsWith('transporte-'))) {
         setShowLandingPage(hash)
-      }
-      
-      // Check for programmatic landing pages
-      const path = window.location.pathname
-      const allLandingPages = programaticLandingService.getAllLandingPages()
-      const matchingLanding = allLandingPages.find(page => path === `/${page.slug}/` || path === `/${page.slug}`)
-      if (matchingLanding) {
-        setProgrammaticLandingSlug(matchingLanding.slug)
       }
     } catch (e) { console.warn('[App] URL parse skip:', e) }
 
@@ -761,9 +750,7 @@ function App() {
       )}
 
       <main id="inicio">
-        {programmaticLandingSlug ? (
-          <ProgrammaticLandingPage slug={programmaticLandingSlug} language={language} />
-        ) : selectedCategoryPage ? (
+        {selectedCategoryPage ? (
           <section className="category-page-shell" id="category-page">
             <div className="category-page-header">
               <div>
