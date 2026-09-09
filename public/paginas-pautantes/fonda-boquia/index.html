@@ -3,14 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#f5f1e8" />
-    <meta name="description" content="Punto gastronómico tradicional en Boquía para viajeros que buscan comida local, descanso en la ruta y una experiencia más cercana a la vida rural del Quindío." />
-    <title>Fonda Boquía | Restaurante en Salento, Quindío</title>
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" />
+    <meta name="description" content="Restaurante tradicional en Boquía con especialidad en platos típicos del Quindío. Ambiente acogedor y comida casera con ingredientes locales." />
+    <title>Fonda Boquía | Vive Salento directamente</title>
+    <link rel="canonical" href="https://salentoalamano.com/paginas-pautantes/fonda-boquia/" />
     <style>
+      @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap');
       :root { --paper:#f5f1e8; --ink:#1f2d26; --muted:#59665f; --line:#d9d0bf; --coral:#dd7f5d; --yellow:#e7c77b; --white:#fff; }
       * { box-sizing:border-box; } body { margin:0; background:var(--paper); color:var(--ink); font-family:'DM Sans',sans-serif; }
       a { color:inherit; text-decoration:none; } .container { max-width:1180px; margin:0 auto; padding:24px 20px 72px; }
@@ -20,235 +17,34 @@
       .hero { display:grid; grid-template-columns:1.1fr .9fr; gap:24px; align-items:stretch; } .hero-copy,.hero-image,.section { background:var(--white); border:1px solid var(--line); border-radius:24px; }
       .hero-copy { padding:34px; } .eyebrow { color:var(--coral); text-transform:uppercase; letter-spacing:.12em; font-size:11px; font-weight:700; }
       h1 { font-size:clamp(2.3rem,5vw,4.8rem); line-height:1.02; margin:14px 0; } .lead { color:var(--muted); line-height:1.7; font-size:1.08rem; max-width:650px; }
-      .hero-image { display:grid; grid-template-columns:1.35fr .65fr; grid-template-rows:1fr 1fr; gap:6px; min-height:360px; overflow:hidden; background:#eee8dc; }
-      .hero-image img { width:100%; height:100%; min-height:0; object-fit:cover; }
-      .hero-image img:first-child { grid-row:1 / span 2; }
+      .hero-image { min-height:360px; background:linear-gradient(rgba(0,0,0,.08),rgba(0,0,0,.25)),url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80') center/cover; }
       .highlights { display:flex; flex-wrap:wrap; gap:8px; margin:22px 0; } .highlight,.tag { padding:8px 11px; border:1px solid var(--line); border-radius:999px; background:#f3ead6; font-size:12px; font-weight:700; }
       .section { padding:26px; margin-top:24px; } h2 { margin:0 0 16px; font-size:1.5rem; } .two-col { display:grid; grid-template-columns:1fr 1fr; gap:24px; }
-      .gallery { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; } .gallery img { width:100%; height:210px; object-fit:cover; border-radius:16px; border:1px solid var(--line); }
+      .gallery { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; } .gallery img { width:100%; height:190px; object-fit:cover; border-radius:16px; border:1px solid var(--line); }
       .facts { display:grid; gap:0; } .fact { padding:13px 0; border-bottom:1px solid var(--line); } .fact strong { display:block; color:var(--muted); font-size:11px; text-transform:uppercase; margin-bottom:5px; }
       .service-section strong { display:block; color:var(--muted); font-size:11px; text-transform:uppercase; margin:14px 0 6px; } .service-grid { display:grid; grid-template-columns:1fr 1fr; gap:28px; } .service-section ul { margin:6px 0 18px; padding-left:20px; color:var(--muted); line-height:1.8; } .service-section p { color:var(--muted); line-height:1.6; } .muted { color:var(--muted); }
-      .menu-intro { color:var(--muted); line-height:1.6; margin:0 0 18px; }
-      .specialty-banner { display:flex; align-items:center; justify-content:space-between; gap:14px; margin:0 0 16px; padding:14px 16px; background:#fff4d7; border:1px solid #e4c778; border-radius:14px; }
-      .specialty-banner strong { display:block; color:var(--ink); font-family:'Fraunces',serif; font-size:1.12rem; }
-      .specialty-banner span { display:block; color:var(--muted); font-size:13px; margin-top:3px; }
-      .specialty-mark { display:grid; place-items:center; width:42px; height:42px; flex:0 0 42px; border-radius:50%; background:var(--coral); color:#fff; font-size:22px; }
-      .menu-tools { display:grid; grid-template-columns:1fr; gap:16px; margin:20px 0; }
-      .menu-search { width:100%; box-sizing:border-box; border:1px solid #e5e7eb; border-radius:12px; padding:16px 20px; font:inherit; color:var(--ink); background:#f9fafb; font-size:16px; transition: all 0.2s; }
-      .menu-search:focus { outline:none; border-color:var(--coral); background:#fff; box-shadow: 0 0 0 3px rgba(221,127,93,0.1); }
-      .menu-filters { display:flex; gap:8px; overflow-x:auto; padding-bottom:4px; scrollbar-width:none; -ms-overflow-style:none; }
-      .menu-filters::-webkit-scrollbar { display:none; }
-      .filter-btn { border:1px solid #e5e7eb; border-radius:24px; padding:10px 20px; background:#fff; color:#374151; font:inherit; font-size:14px; font-weight:500; cursor:pointer; transition: all 0.2s; white-space:nowrap; flex-shrink:0; }
-      .filter-btn:hover { background:#f3f4f6; }
-      .filter-btn.active { background:var(--coral); color:#fff; border-color:var(--coral); font-weight:600; }
-      .order-menu { display:grid; grid-template-columns:repeat(auto-fill, minmax(280px, 1fr)); gap:16px; }
-      .order-category { border-top:3px solid var(--coral); padding-top:12px; }
-      .order-category h3 { margin:0 0 8px; font-family:'Fraunces',serif; font-size:1.35rem; }
-      .order-item { display:flex; align-items:center; justify-content:space-between; gap:12px; padding:9px 0; border-bottom:1px solid var(--line); }
-      .order-item-name { flex:1; line-height:1.3; }
-      .order-item-price { display:block; color:var(--muted); font-size:12px; margin-top:3px; }
-      .quantity-control { display:inline-flex; align-items:center; gap:7px; flex-shrink:0; }
-      .quantity-control button { width:36px; height:36px; border:1px solid var(--line); border-radius:50%; background:var(--white); color:var(--ink); font-size:20px; line-height:1; cursor:pointer; transition: all 0.2s; }
-      .quantity-control button:hover,.quantity-control button:focus-visible { background:var(--coral); color:#fff; border-color:var(--coral); transform: scale(1.1); }
-      .quantity-control output { min-width:20px; text-align:center; font-weight:700; font-size:16px; }
-      .order-panel { position:fixed; bottom:0; left:0; right:0; background:#fff; border-top:1px solid #e5e7eb; box-shadow: 0 -4px 24px rgba(0,0,0,0.15); padding:16px 20px; z-index:1000; }
-      .order-panel-content { max-width:1180px; margin:0 auto; display:grid; grid-template-columns:1fr auto; gap:20px; align-items:center; }
-      .order-info { display:flex; flex-direction:column; }
-      .order-panel h3 { margin:0 0 4px; font-size:14px; font-weight:600; color:#6b7280; display:flex; align-items:center; gap:6px; }
-      .order-panel h3::before { content:'🛒'; }
-      .order-summary { color:#374151; font-size:15px; line-height:1.4; max-height:44px; overflow-y:auto; font-weight:500; }
-      .order-summary::-webkit-scrollbar { width:4px; }
-      .order-summary::-webkit-scrollbar-thumb { background:#d1d5db; border-radius:2px; }
-      .order-total { font-weight:800; margin-top:6px; font-size:22px; color:var(--coral); display:flex; align-items:center; gap:6px; }
-      .order-total::before { content:'💰'; }
-      .order-panel .button[aria-disabled="true"] { opacity:.4; pointer-events:none; background:#f3f4f6; border-color:#e5e7eb; color:#9ca3af; }
-      .order-panel .button.primary { background:#25d366; border-color:#25d366; color:#fff; font-size:16px; padding:14px 28px; font-weight:700; border-radius:12px; display:flex; align-items:center; gap:10px; transition: all 0.2s; min-width:180px; justify-content:center; }
-      .order-panel .button.primary:hover { background:#1ebc57; transform: translateY(-1px); box-shadow: 0 4px 12px rgba(37,211,102,0.4); }
-      .order-panel .button.primary::before { content:'📱'; }
-      .order-count-badge { display:inline-flex; align-items:center; justify-content:center; width:24px; height:24px; background:#ef4444; color:#fff; border-radius:50%; font-size:12px; font-weight:700; margin-left:8px; }
-      .menu-photo-strip { display:none; }
-      .dish-card { position:relative; overflow:hidden; background:#fffdf8; border:1px solid var(--line); border-radius:16px; }
-      .dish-card img { display:block; width:100%; height:150px; object-fit:cover; }
-      .dish-photo-empty { height:0; }
-      .dish-card-content { padding:13px; }
-      .dish-card h4 { margin:0; font-family:'Fraunces',serif; font-size:1.05rem; }
-      .dish-price { display:block; color:var(--muted); font-size:13px; margin:5px 0 10px; }
-      .dish-card .quantity-control { justify-content:flex-end; }
-      .menu-count { color:var(--muted); font-size:13px; margin:0 0 12px; }
-      .dish-card { display:flex; flex-direction:column; background:#fff; border:1px solid #e5e7eb; border-radius:16px; overflow:hidden; transition: all 0.3s ease; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
-      .dish-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.12); border-color:var(--coral); }
-      .dish-card.category-especialidades { border-top:4px solid var(--coral); }
-      .dish-card.category-carnes { border-top:4px solid #a85c45; }
-      .dish-card.category-adicionales { border-top:4px solid var(--yellow); }
-      .dish-card.category-desayunos { border-top:4px solid var(--green); }
-      .dish-card-header { display:flex; flex-direction:column; padding:16px; gap:12px; }
-      .dish-card-image { width:100%; height:100px; border-radius:12px; background:linear-gradient(135deg, #f3ead6 0%, #e8d9c4 100%); display:flex; align-items:center; justify-content:center; font-size:40px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
-      .dish-card-content { display:flex; flex-direction:column; gap:8px; }
-      .dish-card h4 { font-family:'DM Sans',sans-serif; font-size:16px; font-weight:700; margin:0; line-height:1.3; color:#111827; }
-      .dish-meta { display:flex; gap:8px; flex-wrap:wrap; }
-      .dish-meta-item { display:flex; align-items:center; gap:3px; font-size:11px; color:#6b7280; }
-      .dish-price-quantity { display:flex; justify-content:space-between; align-items:center; margin-top:8px; }
-      .dish-price { font-size:18px; font-weight:800; color:var(--coral); }
-      .add-animation { animation: addToCart 0.3s ease-out; }
-      @keyframes addToCart {
-        0% { transform: scale(1); }
-        50% { transform: scale(1.1); }
-        100% { transform: scale(1); }
-      }
-      .shake-animation { animation: shake 0.5s ease-in-out; }
-      @keyframes shake {
-        0%, 100% { transform: translateX(0); }
-        25% { transform: translateX(-5px); }
-        75% { transform: translateX(5px); }
-      }
-      .quantity-zero { opacity: 0.5; }
-      .quantity-positive { opacity: 1; }
-      .dish-badge { display:inline-block; padding:6px 12px; background:var(--coral); color:#fff; font-size:12px; font-weight:700; border-radius:20px; margin-bottom:10px; text-transform:uppercase; letter-spacing:0.5px; }
-      .dish-card.category-carnes .dish-badge { background:#a85c45; }
-      .dish-card.category-adicionales .dish-badge { background:var(--yellow); color:var(--ink); }
-      .dish-card.category-desayunos .dish-badge { background:var(--green); }
-      .quantity-control { gap:8px; }
-      .quantity-control button { width:36px; height:36px; border:2px solid #e5e7eb; border-radius:50%; background:#fff; color:#374151; font-size:20px; line-height:1; cursor:pointer; transition: all 0.2s; display:flex; align-items:center; justify-content:center; font-weight:600; }
-      .quantity-control button:hover,.quantity-control button:focus-visible { background:var(--coral); color:#fff; border-color:var(--coral); transform: scale(1.05); }
-      .quantity-control button[data-action="decrease"] { background:#fff5f5; border-color:#fecaca; color:#ef4444; }
-      .quantity-control button[data-action="decrease"]:hover { background:#ef4444; color:#fff; border-color:#ef4444; }
-      .quantity-control output { min-width:24px; text-align:center; font-weight:700; font-size:16px; line-height:36px; color:#111827; }
       .tags { display:flex; flex-wrap:wrap; gap:8px; } .trust { color:var(--muted); line-height:1.6; } .verified { color:#39734b; font-weight:700; }
-      @media (max-width:800px) { .hero,.two-col,.menu-tools { grid-template-columns:1fr; } .order-menu { grid-template-columns:1fr; } .hero-image { min-height:260px; height:260px; order:-1; } .topbar { align-items:flex-start; flex-direction:column; } .gallery { grid-template-columns:1fr; } .menu-filters { overflow-x:auto; flex-wrap:nowrap; padding-bottom:4px; } .filter-btn { white-space:nowrap; } .order-panel-content { grid-template-columns:1fr; gap:12px; } .order-panel .button { width:100%; min-width:auto; } .dish-card-header { flex-direction:column; } .dish-card-image { width:100%; height:100px; } .dish-card-content { align-items:center; text-align:center; } .dish-card .quantity-control { align-self:center; } .container { padding-bottom:140px; } }
+      @media (max-width:800px) { .hero,.two-col { grid-template-columns:1fr; } .hero-image { min-height:260px; order:-1; } .topbar { align-items:flex-start; flex-direction:column; } .gallery { grid-template-columns:1fr; } }
     </style>
     <link rel="stylesheet" href="/page-theme.css" />
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://salentoalamano.com/"},{"@type":"ListItem","position":2,"name":"Restaurantes","item":"/categorias/restaurantes.html"},{"@type":"ListItem","position":3,"name":"Fonda Boquía"}]}</script>
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Restaurant","name":"Fonda Boquía","description":"Punto gastronómico tradicional en Boquía para viajeros que buscan comida local, descanso en la ruta y una experiencia más cercana a la vida rural del Quindío.","url":"/paginas-pautantes/fonda-boquia/","image":"https://salentoalamano.com/logo_salento2026.png","address":{"@type":"PostalAddress","addressLocality":"Salento","addressRegion":"Quindío","addressCountry":"CO","streetAddress":"Boquía, Salento, Quindío"},"geo":{"@type":"GeoCoordinates","latitude":4.644,"longitude":-75.563},"telephone":"Consultar","priceRange":"$$","areaServed":{"@type":"City","name":"Salento","containedIn":{"@type":"State","name":"Quindío"}},"aggregateRating":{"@type":"AggregateRating","ratingValue":4.7,"ratingCount":12,"bestRating":5,"worstRating":1},"servesCuisine":["Colombiana","Regional"],"acceptsReservations":false}</script>
-  
-    <link rel="canonical" href="https://salentoalamano.com/paginas-pautantes/fonda-boquia/" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Restaurant","name":"Fonda Boquía","description":"Restaurante tradicional en Boquía con especialidad en platos típicos del Quindío. Ambiente acogedor y comida casera con ingredientes locales.","url":"/paginas-pautantes/fonda-boquia/","image":"https://salentoalamano.com/logo_salento2026.png","address":{"@type":"PostalAddress","addressLocality":"Salento","addressRegion":"Quindío","addressCountry":"CO","streetAddress":"Boquía"},"geo":{"@type":"GeoCoordinates","latitude":4.644,"longitude":-75.563},"telephone":"Por confirmar","priceRange":"$$","areaServed":{"@type":"City","name":"Salento","containedIn":{"@type":"State","name":"Quindío"}},"aggregateRating":{"@type":"AggregateRating","ratingValue":4.7,"ratingCount":12,"bestRating":5,"worstRating":1},"openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]},"servesCuisine":["Colombiana","Típica del Quindío"],"acceptsReservations":false}</script>
   </head>
   <body>
     <main class="container">
-      <header class="topbar"><a class="brand" href="/index.html"><img src="/logo_salento2026.png" alt="Salento a la Mano" class="brand-logo"/><span>Salento a la Mano</span></a><nav class="top-actions"><a class="button" href="/">Inicio</a><a class="button" href="/categorias/restaurantes.html">Ver categoría</a></nav></header>
+      <header class="topbar"><a class="brand" href="/index.html"><img src="/logo_salento2026.png" alt="Salento a la Mano" class="brand-logo"/><span>Salento a la Mano</span></a><nav class="top-actions"><a class="button" href="/">Inicio</a><a class="button" href="/categorias/restaurantes.html">Ver categoría</a><a class="button" href="/pautantes/fonda-boquia.html">Ficha completa</a></nav></header>
       <section class="hero">
-        <div class="hero-copy"><div class="eyebrow">Restaurantes · contacto directo</div><h1>Fonda Boquía</h1><p class="lead">Punto gastronómico tradicional en Boquía para viajeros que buscan comida local, descanso en la ruta y una experiencia más cercana a la vida rural del Quindío.</p>
-          <div class="highlights"><span class="highlight">Rango: $$</span><span class="highlight">Horario diurno</span></div>
-          <div class="actions"><a class="button primary" href="https://wa.me/573137160977" target="_blank" rel="noreferrer">WhatsApp</a><a class="button dark" href="tel:+573137160977">Llamar</a><a class="button" href="https://www.google.com/maps/search/Boqu%C3%ADa%2C%20Salento%2C%20Quind%C3%ADo" target="_blank" rel="noreferrer">Cómo llegar</a></div>
-          </div><div class="hero-image" aria-label="Galería gastronómica de Fonda Boquía"><img src="/pautas/restaurante_bar_fonda_boquia/imagenes/29389126_1005353112946875_6049563033867386880_n.jpg" alt="Trucha con camarones" loading="eager"><img src="/pautas/restaurante_bar_fonda_boquia/imagenes/30411747_1017613001720886_1046791999434260480_n.jpg" alt="Trucha a la plancha" loading="eager"><img src="/pautas/restaurante_bar_fonda_boquia/imagenes/480508481_1169835038167384_4932382570318530100_n.jpg" alt="Trucha con patacón" loading="eager"></div>
+        <div class="hero-copy"><div class="eyebrow">Restaurantes · contacto directo</div><h1>Fonda Boquía</h1><p class="lead">Restaurante tradicional en Boquía con especialidad en platos típicos del Quindío. Ambiente acogedor y comida casera con ingredientes locales.</p>
+          <div class="highlights"><span class="highlight">Rango: $$</span><span class="highlight">Abierto hoy</span></div>
+          <div class="actions"><a class="button" href="https://www.google.com/maps/search/Boqu%C3%ADa" target="_blank" rel="noreferrer">Cómo llegar</a></div>
+        </div><div class="hero-image" aria-label="Fonda Boquía"></div>
       </section>
-      <section class="section"><h2>Conoce la experiencia</h2><div class="two-col"><div><p class="trust">Punto gastronómico tradicional en Boquía para viajeros que buscan comida local, descanso en la ruta y una experiencia más cercana a la vida rural del Quindío.</p><p class="verified">Información disponible para confirmar directamente con el local</p></div><div class="facts"><div class="fact"><strong>Ubicación</strong>Boquía, Salento, Quindío</div><div class="fact"><strong>Referencia</strong>Vereda Boquía</div><div class="fact"><strong>Horario</strong>Atención diurna. Ideal para almuerzos y descansos en la ruta a Santa Rita.</div></div></div></section>
-      <section class="section"><h2>Sabores de la casa</h2><p class="menu-intro">Las fotografías disponibles aparecen una sola vez dentro de los platos correspondientes. Las opciones sin fotografía conservan una presentación limpia hasta contar con una imagen propia.</p></section>
+      <section class="section"><h2>Conoce la experiencia</h2><div class="two-col"><div><p class="trust">Restaurante tradicional en Boquía con especialidad en platos típicos del Quindío. Ambiente acogedor y comida casera con ingredientes locales.</p><p class="verified">✓ Información verificada en el catálogo local</p></div><div class="facts"><div class="fact"><strong>Ubicación</strong>Boquía</div><div class="fact"><strong>Referencia</strong>Cerca del puente de Boquía</div><div class="fact"><strong>Horario</strong>Horario típico de restaurante</div></div></div></section>
+      <section class="section"><h2>Galería de imágenes</h2><div class="gallery"><img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80" alt="Fonda Boquía foto 1" loading="lazy"/><img src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=900&q=80" alt="Fonda Boquía foto 2" loading="lazy"/><img src="https://images.unsplash.com/photo-1527631746610-bca00a040d60?auto=format&fit=crop&w=900&q=80" alt="Fonda Boquía foto 3" loading="lazy"/></div></section>
       
-      <section class="section service-section" id="carta"><h2>Carta y pedidos</h2><div class="specialty-banner"><div><strong>Especialidad de la casa: truchas</strong><span>La pesca de la región es el sabor protagonista de Fonda Boquía.</span></div><div class="specialty-mark" aria-hidden="true">★</div></div><p class="menu-intro">👆 Toca el botón <strong>+</strong> para agregar platos a tu pedido. El total se calcula automáticamente y podrás enviar todo por WhatsApp.</p><div class="menu-tools"><input class="menu-search" type="search" placeholder="🔍 Buscar trucha, pollo, bebida..." aria-label="Buscar en la carta"><div class="menu-filters" aria-label="Filtrar por categoría"><button class="filter-btn active" type="button" data-category="Especialidades">🐟 Truchas</button><button class="filter-btn" type="button" data-category="Todas">📋 Todo</button><button class="filter-btn" type="button" data-category="Carnes">🥩 Carnes</button><button class="filter-btn" type="button" data-category="Adicionales">🍟 Adicionales</button><button class="filter-btn" type="button" data-category="Desayunos">☕ Desayunos y bebidas</button></div></div><p class="menu-count" data-menu-count></p><div class="order-menu" data-order-menu></div><div class="order-panel" aria-live="polite"><div class="order-panel-content"><div class="order-info"><h3>Tu pedido</h3><div class="order-summary" data-order-summary>Aún no has seleccionado platos.</div><div class="order-total" data-order-total>Total: $0</div></div><a class="button primary" data-order-button aria-disabled="true" href="https://wa.me/573137160977" target="_blank" rel="noreferrer">Enviar pedido por WhatsApp</a></div></div></section>
+      <section class="section service-section"><h2>Carta, precios y pedidos</h2><div class="service-grid"><div><strong>Especialidades</strong><ul><li>Trucha</li><li>Patacón</li><li>Platos típicos</li></ul><strong>En la carta</strong><ul><li>Platos del día</li><li>Comida casera</li></ul></div><div><strong>Precio promedio</strong><p>$$</p><strong>Tipo de cocina</strong><ul><li>Colombiana</li><li>Típica del Quindío</li></ul><p class="muted">Confirma si hay domicilio o recogida.</p></div></div><div class="actions"><a class="button primary" href="/pautantes/fonda-boquia.html">Consultar carta y reservar</a></div></section>
       
-      <section class="section"><h2>Lo que puedes encontrar</h2><div class="tags"><span class="tag">boquía</span><span class="tag">restaurante</span><span class="tag">bar</span><span class="tag">tradicional</span><span class="tag">ruta a santa rita</span><span class="tag">comida local</span></div></section>
+      <section class="section"><h2>Lo que puedes encontrar</h2><div class="tags"><span class="tag">restaurante</span><span class="tag">comida tradicional</span><span class="tag">boquía</span><span class="tag">platos típicos</span></div></section>
     </main>
-    <script>
-      const menuItems = [
-        ['Trucha frita', 28000, 'Especialidades'], ['Trucha a la plancha', 28000, 'Especialidades'], ['Trucha finas hierbas', 30000, 'Especialidades'], ['Trucha al ajillo', 32000, 'Especialidades'], ['Trucha hawaiana', 30000, 'Especialidades'], ['Trucha criolla', 30000, 'Especialidades'], ['Trucha con champiñones', 36000, 'Especialidades'], ['Trucha gratinada', 36000, 'Especialidades'], ['Trucha al ajillo más champiñones', 40000, 'Especialidades'], ['Trucha mixta', 46000, 'Especialidades'], ['Trucha marinera', 45000, 'Especialidades'], ['Mojarra', 38000, 'Especialidades'],
-        ['Chorizo', 15000, 'Carnes'], ['Carne de res', 45000, 'Carnes'], ['Filete de pollo', 35000, 'Carnes'], ['Lomo de cerdo', 36000, 'Carnes'], ['Filete de pollo BBQ', 37000, 'Carnes'], ['Lomo de cerdo BBQ', 38000, 'Carnes'], ['Lomo de cerdo hawaiano', 38000, 'Carnes'],
-        ['Porción de arroz', 4000, 'Adicionales'], ['Porción de ensalada', 5000, 'Adicionales'], ['Papas a la francesa', 8000, 'Adicionales'], ['Empanada', 3000, 'Adicionales'], ['Patacón', 8000, 'Adicionales'], ['Crema de trucha', 10000, 'Adicionales'], ['Salchipapa', 18000, 'Adicionales'], ['Patacón con hogao', 16000, 'Adicionales'], ['Patacón con queso', 18000, 'Adicionales'], ['Nuggets', 18000, 'Adicionales'], ['Porción de queso', 5000, 'Adicionales'],
-        ['Huevos al gusto', 14000, 'Desayunos'], ['Caldo', 16000, 'Desayunos'], ['Chorizo en desayuno', 18000, 'Desayunos'], ['Adición de calentado', 6000, 'Desayunos'], ['Limonada, vaso', 5000, 'Desayunos'], ['Jugo natural en agua', 8000, 'Desayunos'], ['Jugo natural en leche', 10000, 'Desayunos'], ['Milo frío', 12000, 'Desayunos'], ['Limonada de coco', 12000, 'Desayunos'], ['Media jarra de limonada', 8000, 'Desayunos'], ['Jarra de limonada', 15000, 'Desayunos']
-      ].map(([name, price, category]) => ({ name, price, category, image: '', quantity: 0 }));
-
-      const menu = document.querySelector('[data-order-menu]');
-      const search = document.querySelector('.menu-search');
-      const count = document.querySelector('[data-menu-count]');
-      const summary = document.querySelector('[data-order-summary]');
-      const total = document.querySelector('[data-order-total]');
-      const orderButton = document.querySelector('[data-order-button]');
-      let activeCategory = 'Especialidades';
-      const money = value => `$${value.toLocaleString('es-CO')}`;
-
-      function renderMenu() {
-        const term = search.value.trim().toLowerCase();
-        const visible = menuItems.filter(item => (activeCategory === 'Todas' || item.category === activeCategory) && item.name.toLowerCase().includes(term));
-        count.textContent = `${visible.length} opciones disponibles`;
-        
-        const categoryIcons = {
-          'Especialidades': '🐟',
-          'Carnes': '🥩', 
-          'Adicionales': '🍟',
-          'Desayunos': '☕'
-        };
-        
-        const categoryDescriptions = {
-          'Especialidades': 'Especialidad de la casa',
-          'Carnes': 'Carnes y parrilla',
-          'Adicionales': 'Acompañamientos',
-          'Desayunos': 'Desayunos y bebidas'
-        };
-        
-        menu.innerHTML = visible.map(item => `
-          <article class="dish-card category-${item.category.toLowerCase()}" data-category-label="${item.category}">
-            <div class="dish-card-header">
-              <div class="dish-card-image">${categoryIcons[item.category] || '🍽️'}</div>
-              <div class="dish-card-content">
-                <span class="dish-badge">${item.category}</span>
-                <h4>${item.name}</h4>
-                <div class="dish-meta">
-                  <span class="dish-meta-item">⭐ Popular</span>
-                  <span class="dish-meta-item">⏱️ 15-20 min</span>
-                </div>
-                <div class="dish-price-quantity">
-                  <span class="dish-price">${money(item.price)}</span>
-                  <div class="quantity-control">
-                    <button type="button" data-action="decrease" data-name="${item.name}" aria-label="Quitar ${item.name}">−</button>
-                    <output>${item.quantity}</output>
-                    <button type="button" data-action="increase" data-name="${item.name}" aria-label="Agregar ${item.name}">+</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </article>
-        `).join('');
-      }
-
-      function updateOrder() {
-        const selected = menuItems.filter(item => item.quantity > 0);
-        const orderTotal = selected.reduce((sum, item) => sum + item.price * item.quantity, 0);
-        
-        if (selected.length === 0) {
-          summary.textContent = '👆 Toca el botón + para agregar platos a tu pedido';
-          total.textContent = 'Total: $0';
-          orderButton.setAttribute('aria-disabled', 'true');
-          orderButton.textContent = 'Enviar pedido por WhatsApp';
-          orderButton.innerHTML = '📱 Enviar pedido por WhatsApp';
-        } else {
-          summary.textContent = selected.map(item => `${item.quantity} × ${item.name}`).join(' · ');
-          total.textContent = `Total: ${money(orderTotal)}`;
-          orderButton.setAttribute('aria-disabled', 'false');
-          orderButton.innerHTML = `📱 Enviar pedido <span class="order-count-badge">${selected.length}</span>`;
-        }
-        
-        const message = selected.length ? `🍽️ *PEDIDO FONDA BOQUÍA*\n\n${selected.map(item => `• ${item.quantity}x ${item.name} - ${money(item.price * item.quantity)}`).join('\n')}\n\n💰 *Total: ${money(orderTotal)}*\n\n📍 Por favor confirmen disponibilidad y hora de entrega o recogida.` : 'Hola Fonda Boquía, quiero consultar la carta.';
-        orderButton.href = `https://wa.me/573137160977?text=${encodeURIComponent(message)}`;
-        renderMenu();
-      }
-
-      menu.addEventListener('click', event => {
-        const button = event.target.closest('button[data-action]');
-        if (!button) return;
-        const item = menuItems.find(entry => entry.name === button.dataset.name);
-        if (!item) return;
-        
-        const card = button.closest('.dish-card');
-        const oldQuantity = item.quantity;
-        item.quantity = Math.max(0, item.quantity + (button.dataset.action === 'increase' ? 1 : -1));
-        
-        // Visual feedback
-        if (item.quantity > oldQuantity) {
-          card.style.background = 'rgba(34, 197, 94, 0.15)';
-          setTimeout(() => card.style.background = '', 300);
-        } else if (item.quantity < oldQuantity) {
-          card.style.background = 'rgba(239, 68, 68, 0.15)';
-          setTimeout(() => card.style.background = '', 300);
-        }
-        
-        updateOrder();
-      });
-      search.addEventListener('input', renderMenu);
-      document.querySelectorAll('.filter-btn').forEach(button => button.addEventListener('click', () => {
-        activeCategory = button.dataset.category;
-        document.querySelectorAll('.filter-btn').forEach(item => item.classList.toggle('active', item === button));
-        renderMenu();
-      }));
-      renderMenu();
-    </script>
   </body>
 </html>
