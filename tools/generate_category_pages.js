@@ -61,6 +61,7 @@ const PAUTANTE_LOGOS = {
   'camping-cascadas-de-santa-rita': '/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/logo_cascadas_de_santa_rita.jfif',
   'camping-cascadas-santa-rita': '/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/logo_cascadas_de_santa_rita.jfif',
   'finca-hotel-el-ocaso': '/pautas/coffee-tour-alojamiento-finca-hotel-el-ocaso/imagenes/logo_ocaso.png',
+  'finca-don-eduardo-coffee-tour': '/pautas/coffee-tour-finca-don-eduardo/logo-finca-don-eduardo.jpg',
 };
 
 function brandMarkFor(slug) {
@@ -97,18 +98,27 @@ function logoFor(provider) {
   `;
 }
 
-function galleryFor(provider) {
-  const fallback = [
-    'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80',
-    'https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=900&q=80',
-    'https://images.unsplash.com/photo-1527631746610-bca00a040d60?auto=format&fit=crop&w=900&q=80'
-  ];
+function photoPending(provider, index) {
+  return `<div class="photo-pending" aria-label="Foto verificada pendiente para ${escapeHtml(provider.name)}"><span>📷</span><strong>${escapeHtml(provider.name)}</strong><small>Foto verificada pendiente ${index + 1}/3</small></div>`;
+}
 
+function providerPhotos(provider) {
+  if (Array.isArray(provider.photos) && provider.photos.length > 0) return provider.photos;
+  if (Array.isArray(provider.images) && provider.images.length > 0) return provider.images;
+  return [];
+}
+
+function galleryFor(provider) {
+  const imgs = providerPhotos(provider);
   const gallery = [];
   for (let i = 0; i < 3; i += 1) {
-    const raw = provider.images?.[i] || fallback[i] || fallback[0];
-    const url = raw.startsWith('http') ? raw : encodeURI(raw);
-    gallery.push(`<img src="${url}" alt="${escapeHtml(provider.name)} foto ${i + 1}" loading="lazy"/>`);
+    const raw = imgs[i];
+    if (raw) {
+      const url = raw.startsWith('http') ? raw : encodeURI(raw);
+      gallery.push(`<img src="${url}" alt="${escapeHtml(provider.name)} foto ${i + 1}" loading="lazy"/>`);
+    } else {
+      gallery.push(photoPending(provider, i));
+    }
   }
   return gallery.join('');
 }
@@ -146,7 +156,8 @@ function buildSchemaJsonLd(provider) {
   const name = provider.name || 'Servicio local';
   const category = provider.type || 'Servicios';
   const description = provider.description || `Servicio local en Salento, Quindío.`;
-  const image = provider.images?.[0] || 'https://salentoalamano.com/logo_salento2026.png';
+  const rawImage = providerPhotos(provider)[0];
+  const image = rawImage ? (rawImage.startsWith('http') ? rawImage : encodeURI(rawImage)) : 'https://salentoalamano.com/logo_salento2026.png';
   const url = `/paginas-pautantes/${slugify(name)}/`;
   const telephone = provider.contact?.phone || undefined;
   const whatsapp = provider.contact?.whatsapp ? `+57${String(provider.contact.whatsapp).replace(/\D/g, '')}` : undefined;
@@ -264,8 +275,7 @@ function renderCategoryPage(category, items) {
             <span>${escapeHtml(item.timeInfo || 'Reservas directas')}</span>
           </div>
           <div class="card-actions" onclick="event.stopPropagation()">
-            <a class="btn primary" href="/pautantes/${itemSlug}.html">Ver ficha</a>
-            <a class="btn" href="/paginas-pautantes/${itemSlug}/">Conocer</a>
+            <a class="btn primary" href="/paginas-pautantes/${itemSlug}/">Ver página</a>
             <a class="btn" href="${mapUrl}" target="_blank" rel="noreferrer">Cómo llegar</a>
             ${whatsapp ? `<a class="btn whatsapp" href="${whatsapp}" target="_blank" rel="noreferrer">WhatsApp</a>` : ''}
           </div>
@@ -411,6 +421,42 @@ function renderCategoryPage(category, items) {
 </html>`;
 }
 
+function renderRedirectStub(provider) {
+  const slug = slugify(provider.name);
+  const target = `/paginas-pautantes/${slug}/`;
+  return `<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="${escapeHtml(provider.name)} en Salento, Quindío. Ver página oficial con fotos, precios y contacto directo." />
+    <title>${escapeHtml(provider.name)} | Salento a la Mano</title>
+    ${canonicalTag(target)}
+    <meta name="robots" content="noindex" />
+    <meta http-equiv="refresh" content="0; url=${target}" />
+    <script>window.location.replace(${JSON.stringify(target)});</script>
+    <link rel="stylesheet" href="/page-theme.css" />
+  </head>
+  <body>
+    <div class="container" style="max-width:1184px;margin:0 auto;padding:28px 20px 80px">
+      <header class="topbar">${brandMarkFor(slug)}<nav class="top-actions"><a class="button" href="/">Inicio</a><a class="button dark" href="/">Volver al inicio</a></nav></header>
+      <main>
+        <section class="hero-copy">
+          <div class="eyebrow">Página unificada</div>
+          <h1>${escapeHtml(provider.name)}</h1>
+          <p>Esta ficha ahora vive en la página oficial con toda la información, fotos, precios y contacto directo.</p>
+          <div class="actions">
+            <a class="button primary" href="${target}">Ir a la página oficial</a>
+            <a class="button dark" href="/">Volver al inicio</a>
+            <a class="button" href="/categorias/">Ver categorías</a>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>`;
+}
+
 function renderProviderPage(provider) {
   const category = provider.type || 'Servicios';
   const categorySlug = slugify(category);
@@ -550,10 +596,12 @@ function renderProviderLandingPage(provider) {
   const details = provider.experienceDetails || provider.accommodationDetails || provider.foodServiceDetails || {};
   const contactAction = whatsapp || phone || hrefFicha;
   const listItems = (items = []) => items.length ? `<ul>${items.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ul>` : '<p class="muted">Consultar directamente con el pautante.</p>';
+  const tariffLine = details.tariff ? `<strong>Tarifas verificadas</strong><p>${escapeHtml(details.tariff)}</p>` : '';
+  const bookingLine = provider.accommodationDetails?.bookingNotes ? `<strong>Tarifas verificadas</strong><p>${escapeHtml(provider.accommodationDetails.bookingNotes)}</p>` : '';
   const serviceSection = provider.accommodationDetails ? `
-      <section class="section service-section"><h2>Hospedaje y reservas</h2><div class="service-grid"><div><strong>Tipos de habitación</strong>${listItems(provider.accommodationDetails.roomTypes)}<strong>Comodidades</strong>${listItems(provider.accommodationDetails.amenities || provider.accommodationDetails.roomFeatures)}</div><div><strong>Check-in</strong><p>${escapeHtml(provider.accommodationDetails.checkIn || 'Por confirmar')}</p><strong>Check-out</strong><p>${escapeHtml(provider.accommodationDetails.checkOut || 'Por confirmar')}</p><strong>Servicios incluidos</strong>${listItems(provider.accommodationDetails.services)}</div></div><div class="actions"><a class="button primary" href="${contactAction}">${whatsapp ? 'Consultar disponibilidad' : 'Contactar para reservar'}</a></div></section>` : provider.foodServiceDetails ? `
+      <section class="section service-section"><h2>Hospedaje y reservas</h2><div class="service-grid"><div><strong>Tipos de habitación</strong>${listItems(provider.accommodationDetails.roomTypes)}<strong>Comodidades</strong>${listItems(provider.accommodationDetails.amenities || provider.accommodationDetails.roomFeatures)}</div><div><strong>Check-in</strong><p>${escapeHtml(provider.accommodationDetails.checkIn || 'Por confirmar')}</p><strong>Check-out</strong><p>${escapeHtml(provider.accommodationDetails.checkOut || 'Por confirmar')}</p><strong>Servicios incluidos</strong>${listItems(provider.accommodationDetails.services)}${bookingLine}</div></div><div class="actions"><a class="button primary" href="${contactAction}">${whatsapp ? 'Consultar disponibilidad' : 'Contactar para reservar'}</a></div></section>` : provider.foodServiceDetails ? `
       <section class="section service-section"><h2>Carta, precios y pedidos</h2><div class="service-grid"><div><strong>Especialidades</strong>${listItems(provider.foodServiceDetails.specialties)}<strong>En la carta</strong>${listItems(provider.foodServiceDetails.menuHighlights)}</div><div><strong>Precio promedio</strong><p>${escapeHtml(provider.foodServiceDetails.averagePrice || provider.priceRange || 'Consultar')}</p><strong>Tipo de cocina</strong>${listItems(provider.foodServiceDetails.cuisineType)}${provider.foodServiceDetails.deliveryInfo?.available ? `<strong>Domicilio</strong><p>Disponible en ${escapeHtml(provider.foodServiceDetails.deliveryInfo.areas.join(', '))}. ${escapeHtml(provider.foodServiceDetails.deliveryInfo.deliveryTime || '')}</p>` : '<p class="muted">Confirma si hay domicilio o recogida.</p>'}</div></div><div class="actions"><a class="button primary" href="${whatsapp || `tel:${escapeHtml(phone)}`}">${provider.foodServiceDetails.deliveryInfo?.available ? 'Ordenar por WhatsApp' : 'Consultar carta y reservar'}</a></div></section>` : (provider.experienceDetails || provider.horsebackRidingDetails || provider.tourismDetails) ? `
-      <section class="section service-section"><h2>Plan de la experiencia</h2><div class="service-grid"><div><strong>Incluye</strong>${listItems(details.included)}<strong>Qué llevar</strong>${listItems(details.requirements)}</div><div><strong>Duración</strong><p>${escapeHtml(details.duration || 'Por confirmar')}</p><strong>Dificultad</strong><p>${escapeHtml(details.difficulty || 'Por confirmar')}</p><strong>Punto de encuentro</strong><p>${escapeHtml(details.meetingPoint || provider.location?.address || 'Por confirmar')}</p><strong>Idiomas</strong><p>${escapeHtml((details.languages || []).join(', ') || 'Español')}</p></div></div><div class="actions"><a class="button primary" href="${contactAction}">Reservar experiencia</a></div></section>` : provider.commerceDetails ? `
+      <section class="section service-section"><h2>Plan de la experiencia</h2><div class="service-grid"><div><strong>Incluye</strong>${listItems(details.included)}<strong>Qué llevar</strong>${listItems(details.requirements)}</div><div><strong>Duración</strong><p>${escapeHtml(details.duration || 'Por confirmar')}</p><strong>Dificultad</strong><p>${escapeHtml(details.difficulty || 'Por confirmar')}</p><strong>Punto de encuentro</strong><p>${escapeHtml(details.meetingPoint || provider.location?.address || 'Por confirmar')}</p><strong>Idiomas</strong><p>${escapeHtml((details.languages || []).join(', ') || 'Español')}</p>${tariffLine}</div></div><div class="actions"><a class="button primary" href="${contactAction}">Reservar experiencia</a></div></section>` : provider.commerceDetails ? `
       <section class="section service-section"><h2>Productos y compra local</h2><div class="service-grid"><div><strong>Productos principales</strong>${listItems(provider.commerceDetails.mainProducts)}<strong>Tipos de producto</strong>${listItems(provider.commerceDetails.productTypes)}</div><div><strong>Medios de pago</strong>${listItems(provider.commerceDetails.paymentMethods)}${provider.commerceDetails.deliveryInfo?.available ? `<strong>Entrega</strong><p>Disponible en ${escapeHtml(provider.commerceDetails.deliveryInfo.areas.join(', '))}. ${escapeHtml(provider.commerceDetails.deliveryInfo.deliveryTime || '')}</p>` : '<p class="muted">Compra directa en el establecimiento.</p>'}</div></div><div class="actions"><a class="button primary" href="${whatsapp || `tel:${escapeHtml(phone)}`}">Consultar productos y comprar</a></div></section>` : '';
   const transportSection = provider.transportDetails ? `
       <section class="section service-section"><h2>Transporte y rutas</h2><div class="service-grid"><div><strong>Vehículos</strong>${listItems(provider.transportDetails.vehicles)}<strong>Rutas</strong>${listItems(provider.transportDetails.routes)}</div><div><strong>Capacidad</strong><p>${escapeHtml(provider.transportDetails.capacity || 'Por confirmar')}</p><strong>Tarifa</strong><p>${escapeHtml(provider.transportDetails.tariff || provider.priceRange || 'Consultar')}</p><strong>Reserva</strong><p>${provider.transportDetails.reservationRequired ? 'Requerida' : 'No requerida, confirma disponibilidad'}</p></div></div><div class="actions"><a class="button primary" href="${whatsapp || `tel:${escapeHtml(phone)}`}">Coordinar transporte</a></div></section>` : '';
@@ -583,7 +631,9 @@ function renderProviderLandingPage(provider) {
       .hero { display:grid; grid-template-columns:1.1fr .9fr; gap:24px; align-items:stretch; } .hero-copy,.hero-image,.section { background:var(--white); border:1px solid var(--line); border-radius:24px; }
       .hero-copy { padding:34px; } .eyebrow { color:var(--coral); text-transform:uppercase; letter-spacing:.12em; font-size:11px; font-weight:700; }
       h1 { font-size:clamp(2.3rem,5vw,4.8rem); line-height:1.02; margin:14px 0; } .lead { color:var(--muted); line-height:1.7; font-size:1.08rem; max-width:650px; }
-      .hero-image { min-height:360px; background:linear-gradient(rgba(0,0,0,.08),rgba(0,0,0,.25)),url('${provider.images?.[0] || 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80'}') center/cover; }
+      .hero-image { min-height:360px; background:${providerPhotos(provider)[0] ?
+           `linear-gradient(rgba(0,0,0,.08),rgba(0,0,0,.25)),url('${encodeURI(providerPhotos(provider)[0])}') center/cover` :
+           'linear-gradient(135deg,var(--coral),var(--yellow))'}; }
       .highlights { display:flex; flex-wrap:wrap; gap:8px; margin:22px 0; } .highlight,.tag { padding:8px 11px; border:1px solid var(--line); border-radius:999px; background:#f3ead6; font-size:12px; font-weight:700; }
       .section { padding:26px; margin-top:24px; } h2 { margin:0 0 16px; font-size:1.5rem; } .two-col { display:grid; grid-template-columns:1fr 1fr; gap:24px; }
       .gallery { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; } .gallery img { width:100%; height:190px; object-fit:cover; border-radius:16px; border:1px solid var(--line); }
@@ -602,7 +652,7 @@ function renderProviderLandingPage(provider) {
   </head>
   <body>
     <main class="container">
-      <header class="topbar">${brandMarkFor(slug)}<nav class="top-actions"><a class="button" href="/">Inicio</a><a class="button" href="${hrefBack}">Ver categoría</a><a class="button" href="${hrefFicha}">Ficha completa</a></nav></header>
+      <header class="topbar">${brandMarkFor(slug)}<nav class="top-actions"><a class="button" href="/">Inicio</a><a class="button" href="${hrefBack}">Ver categoría</a></nav></header>
       <section class="hero">
         <div class="hero-copy"><div class="eyebrow">${escapeHtml(category)} · contacto directo</div><h1>${escapeHtml(provider.name)}</h1><p class="lead">${escapeHtml(provider.description || 'Una experiencia local para descubrir Salento con información clara y contacto directo.')}</p>
           <div class="highlights">${highlights.map((item) => `<span class="highlight">${escapeHtml(item)}</span>`).join('')}</div>
@@ -632,10 +682,14 @@ for (const category of categoryNames) {
   fs.writeFileSync(categoryPath, renderCategoryPage(category, items));
 }
 
+// Páginas artesanales que el generador nunca debe sobrescribir (mapa offline a medida)
+const PROTECT = new Set(['camping-cascadas-de-santa-rita']);
+
 for (const provider of providers) {
+  if (PROTECT.has(slugify(provider.name))) continue;
   if (onlyFilter.size > 0 && !onlyFilter.has(slugify(provider.name))) continue;
   const providerPath = path.join(providerDir, `${slugify(provider.name)}.html`);
-  fs.writeFileSync(providerPath, renderProviderPage(provider));
+  fs.writeFileSync(providerPath, renderRedirectStub(provider));
   const landingPath = path.join(providerLandingDir, slugify(provider.name), 'index.html');
   fs.mkdirSync(path.dirname(landingPath), { recursive: true });
   fs.writeFileSync(landingPath, renderProviderLandingPage(provider));

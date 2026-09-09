@@ -29,7 +29,7 @@ const SupportCenter: React.FC<SupportCenterProps> = ({ onClose, language }) => {
   const [ticketForm, setTicketForm] = useState({
     name: '',
     email: '',
-    category: 'information' as const,
+    category: 'information' as 'information' | 'complaint' | 'emergency',
     subject: '',
     message: '',
     location: ''
@@ -377,7 +377,7 @@ const SupportCenter: React.FC<SupportCenterProps> = ({ onClose, language }) => {
                     <label>{t.ticket.category}</label>
                     <select
                       value={ticketForm.category}
-                      onChange={(e) => setTicketForm({...ticketForm, category: e.target.value as any})}
+                      onChange={(e) => setTicketForm({...ticketForm, category: e.target.value as 'information' | 'complaint' | 'emergency'})}
                     >
                       {Object.entries(t.ticket.categories).map(([key, label]) => (
                         <option key={key} value={key}>{label}</option>

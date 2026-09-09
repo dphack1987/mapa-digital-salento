@@ -36,7 +36,10 @@ interface ProviderSelectionModalProps {
 }
 
 const categoryToTypes: Record<Category, string[]> = {
-  'Todo': ['hotel', 'hostel', 'cabaña', 'finca', 'restaurante', 'café', 'comida', 'coffee', 'cafetería', 'artesanía', 'tienda', 'supermercado', 'comercio', 'tour', 'guía', 'actividad', 'experiencia', 'atractivo', 'mirador', 'cascada', 'sendero', 'parque', 'natural', 'reserva', 'turístico', 'servicio', 'transporte'],
+  'Todo': ['hotel', 'hostel', 'cabaña', 'finca', 'restaurante', 'café', 'comida', 'coffee', 'cafetería', 'artesanía', 'tienda', 'supermercado', 'comercio', 'tour', 'guía', 'actividad', 'experiencia', 'atractivo', 'mirador', 'cascada', 'sendero', 'parque', 'natural', 'reserva', 'turístico', 'servicio', 'transporte', 'bar', 'evento', 'camping', 'glamping'],
+  'Restaurante Bar': ['restaurante', 'bar', 'café', 'coctel'],
+  'Eventos': ['evento', 'boda', 'celebración', 'salon'],
+  'Camping': ['camping', 'glamping', 'carpa', 'acampada'],
   'Alojamientos': ['hotel', 'hostel', 'cabaña', 'finca'],
   'Restaurantes': ['restaurante', 'café', 'comida'],
   'Cafés': ['café', 'coffee', 'cafetería'],
@@ -50,6 +53,9 @@ const categoryToTypes: Record<Category, string[]> = {
 
 const categoryIcons: Record<Category, string> = {
   'Todo': '🗺️',
+  'Restaurante Bar': '🍸',
+  'Eventos': '🎉',
+  'Camping': '⛺',
   'Alojamientos': '🏨',
   'Restaurantes': '🍽️',
   'Cafés': '☕',
@@ -62,7 +68,12 @@ const categoryIcons: Record<Category, string> = {
 }
 
 const categoryActions: Record<Category, 'reserve' | 'order' | 'contact'> = {
+  'Todo': 'contact',
   'Alojamientos': 'reserve',
+  'Restaurante Bar': 'order',
+  'Coffee Tours': 'reserve',
+  'Eventos': 'contact',
+  'Camping': 'reserve',
   'Restaurantes': 'order',
   'Cafés': 'order',
   'Artesanías': 'contact',
@@ -122,16 +133,16 @@ function ProviderSelectionModal({ isOpen, onClose, category, places, onDirectOrd
     const services: string[] = []
     
     if (provider.accommodationDetails) {
-      services.push(...provider.accommodationDetails.services)
+      services.push(...(provider.accommodationDetails.services ?? []))
     }
     if (provider.foodServiceDetails) {
-      services.push(...provider.foodServiceDetails.cuisineType)
+      services.push(...(provider.foodServiceDetails.cuisineType ?? []))
     }
     if (provider.experienceDetails) {
-      services.push(provider.experienceDetails.activityType)
+      services.push(...(provider.experienceDetails.included ?? []).slice(0, 2))
     }
     if (provider.commerceDetails) {
-      services.push(...provider.commerceDetails.productCategories)
+      services.push(...(provider.commerceDetails.mainProducts ?? []).slice(0, 2), ...(provider.commerceDetails.productTypes ?? []).slice(0, 2))
     }
     
     return services.slice(0, 4)
@@ -142,8 +153,9 @@ function ProviderSelectionModal({ isOpen, onClose, category, places, onDirectOrd
   }
 
   const getProviderHours = (provider: Place) => {
-    if (provider.operatingHours) {
-      return `${provider.operatingHours.open} - ${provider.operatingHours.close}`
+    const notes = provider.operatingHours?.notes || provider.operatingHours?.monday
+    if (notes) {
+      return notes
     }
     return language === 'es' ? 'Horario no disponible' : 'Hours not available'
   }
@@ -152,7 +164,7 @@ function ProviderSelectionModal({ isOpen, onClose, category, places, onDirectOrd
     const contact = getProviderContact(provider)
     const services = getProviderServices(provider)
     const hours = getProviderHours(provider)
-    const action = categoryActions[category]
+    const action = categoryActions[category] ?? 'contact'
     const actionLabel = categoryActionLabels[action][language]
 
     return (
@@ -224,7 +236,7 @@ function ProviderSelectionModal({ isOpen, onClose, category, places, onDirectOrd
     const contact = getProviderContact(provider)
     const services = getProviderServices(provider)
     const hours = getProviderHours(provider)
-    const action = categoryActions[category]
+    const action = categoryActions[category] ?? 'contact'
     const actionLabel = categoryActionLabels[action][language]
 
     return (
@@ -259,8 +271,8 @@ function ProviderSelectionModal({ isOpen, onClose, category, places, onDirectOrd
           <div className="detail-section">
             <h3>{language === 'es' ? '📍 Ubicación' : '📍 Location'}</h3>
             <p>{provider.location?.address || language === 'es' ? 'Ubicación no disponible' : 'Location not available'}</p>
-            {provider.location?.phone && (
-              <p className="phone">{provider.location.phone}</p>
+            {provider.location?.landmark && (
+              <p className="phone">{provider.location.landmark}</p>
             )}
           </div>
 
@@ -335,7 +347,7 @@ function ProviderSelectionModal({ isOpen, onClose, category, places, onDirectOrd
               </div>
               <div className="detail-row">
                 <span className="detail-label">{language === 'es' ? 'Precio promedio:' : 'Average price:'}</span>
-                <span>{provider.foodServiceDetails.priceRange || language === 'es' ? 'No disponible' : 'Not available'}</span>
+                <span>{provider.foodServiceDetails.averagePrice || language === 'es' ? 'No disponible' : 'Not available'}</span>
               </div>
               <div className="detail-row">
                 <span className="detail-label">{language === 'es' ? 'Especialidades:' : 'Specialties:'}</span>
@@ -343,7 +355,7 @@ function ProviderSelectionModal({ isOpen, onClose, category, places, onDirectOrd
               </div>
               <div className="detail-row">
                 <span className="detail-label">{language === 'es' ? 'Servicios:' : 'Services:'}</span>
-                <span>{provider.foodServiceDetails.services?.join(', ') || language === 'es' ? 'No disponible' : 'Not available'}</span>
+                <span>{provider.foodServiceDetails.menuHighlights?.join(', ') || language === 'es' ? 'No disponible' : 'Not available'}</span>
               </div>
             </div>
           </div>
@@ -354,8 +366,8 @@ function ProviderSelectionModal({ isOpen, onClose, category, places, onDirectOrd
             <h3>{language === 'es' ? '🧭 Información de Experiencia' : '🧭 Experience Info'}</h3>
             <div className="experience-details">
               <div className="detail-row">
-                <span className="detail-label">{language === 'es' ? 'Tipo de actividad:' : 'Activity type:'}</span>
-                <span>{provider.experienceDetails.activityType}</span>
+                <span className="detail-label">{language === 'es' ? 'Punto de encuentro:' : 'Meeting point:'}</span>
+                <span>{provider.experienceDetails.meetingPoint || language === 'es' ? 'No disponible' : 'Not available'}</span>
               </div>
               <div className="detail-row">
                 <span className="detail-label">{language === 'es' ? 'Duración:' : 'Duration:'}</span>
@@ -367,7 +379,7 @@ function ProviderSelectionModal({ isOpen, onClose, category, places, onDirectOrd
               </div>
               <div className="detail-row">
                 <span className="detail-label">{language === 'es' ? 'Incluye:' : 'Includes:'}</span>
-                <span>{provider.experienceDetails.includes?.join(', ') || language === 'es' ? 'No disponible' : 'Not available'}</span>
+                <span>{provider.experienceDetails.included?.join(', ') || language === 'es' ? 'No disponible' : 'Not available'}</span>
               </div>
             </div>
           </div>
@@ -379,19 +391,19 @@ function ProviderSelectionModal({ isOpen, onClose, category, places, onDirectOrd
             <div className="commerce-details">
               <div className="detail-row">
                 <span className="detail-label">{language === 'es' ? 'Tipo de comercio:' : 'Commerce type:'}</span>
-                <span>{provider.commerceDetails.commerceType}</span>
+                <span>{provider.type}</span>
               </div>
               <div className="detail-row">
                 <span className="detail-label">{language === 'es' ? 'Categorías de productos:' : 'Product categories:'}</span>
-                <span>{provider.commerceDetails.productCategories?.join(', ') || language === 'es' ? 'No disponible' : 'Not available'}</span>
+                <span>{provider.commerceDetails.mainProducts?.join(', ') || language === 'es' ? 'No disponible' : 'Not available'}</span>
               </div>
               <div className="detail-row">
-                <span className="detail-label">{language === 'es' ? 'Servicios:' : 'Services:'}</span>
-                <span>{provider.commerceDetails.services?.join(', ') || language === 'es' ? 'No disponible' : 'Not available'}</span>
+                <span className="detail-label">{language === 'es' ? 'Medios de pago:' : 'Payment methods:'}</span>
+                <span>{provider.commerceDetails.paymentMethods?.join(', ') || language === 'es' ? 'No disponible' : 'Not available'}</span>
               </div>
               <div className="detail-row">
                 <span className="detail-label">{language === 'es' ? 'Entrega a domicilio:' : 'Delivery:'}</span>
-                <span>{provider.commerceDetails.deliveryAvailable ? language === 'es' ? 'Sí' : 'Yes' : language === 'es' ? 'No' : 'No'}</span>
+                <span>{provider.commerceDetails.deliveryInfo?.available ? language === 'es' ? 'Sí' : 'Yes' : language === 'es' ? 'No' : 'No'}</span>
               </div>
             </div>
           </div>
