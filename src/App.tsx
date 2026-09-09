@@ -547,12 +547,14 @@ function App() {
     const categoryKeywords: Record<Category, string[]> = {
       Todo: [],
       Alojamientos: ['alojamiento', 'hotel', 'hostal', 'hospedaje', 'resort', 'lodging', 'cabin', 'cabaña'],
-      Restaurantes: ['restaurante', 'cafe', 'cafeteria', 'gastronomia', 'brunch', 'comida', 'coffee', 'bar', 'pizza', 'burger'],
+      Restaurantes: ['restaurante', 'gastronomia', 'brunch', 'comida', 'pizza', 'burger'],
+      'Restaurante Bar': ['restaurante bar', 'bar', 'cafe bar', 'cocktails', 'bebidas', 'lounge', 'bar-cafe'],
       'Cafés': ['cafe', 'cafeteria', 'coffee', 'espresso', 'brunch'],
       'Coffee Tours': ['coffee tour', 'tour cafe', 'finca cafetera', 'cafeteria tour', 'coffee farm', 'tour de cafe'],
       Artesanías: ['artesania', 'artesanias', 'manualidades', 'tejido', 'fibras', 'craft', 'handmade', 'regalo'],
       Tiendas: ['tienda', 'shop', 'comercio', 'mercado', 'venta', 'boutique', 'store', 'souvenir'],
       Experiencias: ['cabalgata', 'caballo', 'equitacion', 'horse', 'ride', 'guia', 'tour', 'ruta', 'senderismo', 'adventure', 'guide', 'experiencia'],
+      Eventos: ['evento', 'eventos', 'boda', 'celebracion', 'corporativo', 'matrimonio', 'fiesta', 'salon de eventos', 'reunion'],
       'Atractivos Turísticos': ['atractivo', 'mirador', 'cascada', 'sendero', 'parque', 'natural', 'reserva', 'turistico', 'vista', 'attraction'],
       Servicios: ['transporte', 'moto', 'jeep', 'taxi', 'movilidad', 'transfer', 'transport', 'vehicle', 'servicio'],
     }
@@ -596,10 +598,12 @@ function App() {
     const categoryPaths: Partial<Record<Category, string>> = {
       Alojamientos: 'alojamientos',
       Restaurantes: 'restaurantes',
+      'Restaurante Bar': 'restaurante-bar',
       Cafés: 'cafes',
       Artesanías: 'artesanias',
       Tiendas: 'tiendas',
       Experiencias: 'experiencias',
+      Eventos: 'eventos',
       Servicios: 'servicios'
     }
     const categoryPath = categoryPaths[category]
@@ -932,9 +936,9 @@ function App() {
         <section className="quick-section" id="pedidos">
           <div className="section-heading"><div><p className="eyebrow">{t('nearby')}</p><h2>{t('today')}</h2></div><button className="text-button" onClick={() => { setActiveCategory('Todo'); scrollToSection('pedidos') }}>Ver todo <ArrowRight size={16} /></button></div>
           <div className="category-row">
-            {(['Todo', 'Alojamientos', 'Restaurantes', 'Cafés', 'Coffee Tours', 'Artesanías', 'Tiendas', 'Experiencias', 'Atractivos Turísticos', 'Servicios'] as Category[]).map((category) => (
+            {(['Todo', 'Alojamientos', 'Restaurantes', 'Restaurante Bar', 'Cafés', 'Coffee Tours', 'Artesanías', 'Tiendas', 'Experiencias', 'Eventos', 'Atractivos Turísticos', 'Servicios'] as Category[]).map((category) => (
               <button key={category} className={activeCategory === category ? 'category active' : 'category'} onClick={() => setActiveCategory(category)}>
-                {category === 'Todo' && <Sparkles size={17} />}{category === 'Alojamientos' && <Hotel size={17} />}{category === 'Restaurantes' && <Utensils size={17} />}{category === 'Cafés' && <Coffee size={17} />}{category === 'Coffee Tours' && <Coffee size={17} />}{category === 'Artesanías' && <ShoppingBasket size={17} />}{category === 'Tiendas' && <Store size={17} />}{category === 'Experiencias' && <Compass size={17} />}{category === 'Atractivos Turísticos' && <Mountain size={17} />}{category === 'Servicios' && <Bike size={17} />}
+                {category === 'Todo' && <Sparkles size={17} />}{category === 'Alojamientos' && <Hotel size={17} />}{category === 'Restaurantes' && <Utensils size={17} />}{category === 'Restaurante Bar' && <MessageSquare size={17} />}{category === 'Cafés' && <Coffee size={17} />}{category === 'Coffee Tours' && <Coffee size={17} />}{category === 'Artesanías' && <ShoppingBasket size={17} />}{category === 'Tiendas' && <Store size={17} />}{category === 'Experiencias' && <Compass size={17} />}{category === 'Eventos' && <Bell size={17} />}{category === 'Atractivos Turísticos' && <Mountain size={17} />}{category === 'Servicios' && <Bike size={17} />}
                 {t(`categories.${category}`)}
               </button>
             ))}
@@ -1312,7 +1316,7 @@ function DonChucho({ language, t, places, weather, todayEvents }: { language: La
 }
 
 function categoryToMapType(category: Category) {
-  if (category === 'Restaurantes' || category === 'Cafés') return 'Gastronómico'
+  if (category === 'Restaurantes' || category === 'Restaurante Bar' || category === 'Cafés') return 'Gastronómico'
   if (category === 'Artesanías' || category === 'Tiendas' || category === 'Alojamientos') return 'Comercial'
   return 'Turístico'
 }
