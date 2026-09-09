@@ -96,6 +96,217 @@
       ]
     },
     {
+      "id": 28,
+      "name": "Boki Mall - Terra Restaurante",
+      "type": "Restaurantes",
+      "description": "Restaurante principal de Boki Mall especializado en gastronomía colombiana tradicional y platos gourmet del Quindío. Cocina de autor con ingredientes locales, ambiente elegante y vistas al paisaje cafetero. Experiencia gastronómica que destaca los sabores locales.",
+      "priceRange": "$$",
+      "rating": "4.8",
+      "timeInfo": "7:00 a.m. - 9:00 p.m.",
+      "badge": "Gourmet",
+      "color": "coral",
+      "icon": "Utensils",
+      "contact": {
+        "phone": "+57 311 222 5312",
+        "whatsapp": "573112225312",
+        "email": "restaurante@bokimall.com",
+        "website": "https://bokimall.com/terra-restaurante-en-salento/"
+      },
+      "location": {
+        "lat": 4.642,
+        "lng": -75.565,
+        "address": "Km 5, vía principal a Salento, Vereda Boquía",
+        "landmark": "Dentro de Boki Mall"
+      },
+      "operatingHours": {
+        "notes": "Desayuno: 7:00 a.m. - 10:00 a.m. Almuerzo: 12:00 p.m. - 3:00 p.m. Cena: 6:00 p.m. - 9:00 p.m."
+      },
+      "tags": [
+        "restaurante",
+        "gourmet",
+        "trucha",
+        "platillos",
+        "colombiana",
+        "boki mall",
+        "boquía",
+        "salento",
+        "terra"
+      ],
+      "verified": true,
+      "active": true,
+      "parentBrand": "Boki Mall",
+      "foodServiceDetails": {
+        "cuisineType": [
+          "Colombiana tradicional",
+          "Platos gourmet",
+          "Trucha arcoíris",
+          "Fusion cafetera"
+        ],
+        "specialties": [
+          "Trucha arcoíris en diferentes preparaciones",
+          "Platos típicos del Quindío",
+          "Cafés de especialidad",
+          "Postres tradicionales"
+        ],
+        "ambience": "Elegante con vistas panorámicas",
+        "seating": "80 personas",
+        "reservations": "Recomendadas para grupos y cenas",
+        "paymentMethods": ["Efectivo", "Tarjeta", "Transferencia"]
+      },
+      "photos": [
+        "/pautas/boki_mall/hotel-mirador-boquia/Hotel_Mirador_de_Boquia_1747081077351.jpeg"
+      ]
+    },
+    {
+      "id": 29,
+      "name": "Boki Mall - Barcinales Café-Bar",
+      "type": "Restaurantes",
+      "description": "Café-bar y lounge dentro de Boki Mall, ideal para disfrutar de cafés de especialidad, cócteles artesanales y ambiente relajado. Horario variable según programación de eventos y entretenimiento. Espacio vanguardista para socializar después de recorridos turísticos.",
+      "priceRange": "$",
+      "rating": "4.7",
+      "timeInfo": "Horario variable",
+      "badge": "Café-Bar",
+      "color": "yellow",
+      "icon": "Coffee",
+      "contact": {
+        "phone": "+57 311 222 5312",
+        "whatsapp": "573112225312",
+        "email": "bar@bokimall.com",
+        "website": "https://bokimall.com/barcinales-cafe-bar-en-salento/"
+      },
+      "location": {
+        "lat": 4.642,
+        "lng": -75.565,
+        "address": "Km 5, vía principal a Salento, Vereda Boquía",
+        "landmark": "Dentro de Boki Mall"
+      },
+      "operatingHours": {
+        "notes": "Horario variable según programación de eventos y entretenimiento. Generalmente 4:00 p.m. - 11:00 p.m."
+      },
+      "tags": [
+        "café",
+        "bar",
+        "cócteles",
+        "lounge",
+        "cafetería",
+        "boki mall",
+        "boquía",
+        "salento",
+        "barcinales"
+      ],
+      "verified": true,
+      "active": true,
+      "parentBrand": "Boki Mall",
+      "foodServiceDetails": {
+        "cuisineType": [
+          "Cafés de especialidad",
+          "Cócteles artesanales",
+          "Snacks y tapas"
+        ],
+        "specialties": [
+          "Cafés de origen local",
+          "Cócteles con ingredientes colombianos",
+          "Tapas gourmet",
+          "Postres caseros"
+        ],
+        "ambience": "Relajado y elegante vanguardista",
+        "seating": "40 personas",
+        "reservations": "No requeridas",
+        "paymentMethods": ["Efectivo", "Tarjeta"]
+      },
+      "photos": [
+        "/pautas/boki_mall/hotel-mirador-boquia/314270821.jpg"
+      ]
+    },
+    {
+      "id": 30,
+      "name": "Boki Mall - Eventos y Boki Travel",
+      "type": "Experiencias",
+      "description": "Servicio de eventos y operador logístico turístico de Boki Mall. Organización de bodas, eventos corporativos, cumpleaños y celebraciones especiales. Boki Travel ofrece paquetes turísticos completos, transporte en jeeps Willys, guías locales y experiencias personalizadas en Salento y el Valle de Cocora.",
+      "priceRange": "$$",
+      "rating": "4.8",
+      "timeInfo": "Con cita previa",
+      "badge": "Servicios Premium",
+      "color": "purple",
+      "icon": "Sparkles",
+      "contact": {
+        "phone": "+57 311 222 5312",
+        "whatsapp": "573112225312",
+        "email": "eventos@bokimall.com",
+        "website": "https://bokimall.com/salon-de-eventos-eje-cafetero/"
+      },
+      "location": {
+        "lat": 4.642,
+        "lng": -75.565,
+        "address": "Km 5, vía principal a Salento, Vereda Boquía",
+        "landmark": "Dentro de Boki Mall"
+      },
+      "operatingHours": {
+        "notes": "Atención con cita previa. Horario flexible según eventos."
+      },
+      "tags": [
+        "eventos",
+        "bodas",
+        "corporativos",
+        "paquetes",
+        "transporte",
+        "guías",
+        "operador",
+        "boki mall",
+        "boquía",
+        "salento",
+        "boki travel"
+      ],
+      "verified": true,
+      "active": true,
+      "parentBrand": "Boki Mall",
+      "experienceDetails": {
+        "duration": "Variable según evento",
+        "difficulty": "N/A",
+        "groupSize": "10-200 personas según evento",
+        "included": [
+          "Organización completa del evento",
+          "Decoración básica",
+          "Catering según paquete",
+          "Música y entretenimiento",
+          "Coordinación logística"
+        ],
+        "notIncluded": [
+          "Decoración adicional personalizada",
+          "Fotografía profesional",
+          "Transporte de invitados"
+        ],
+        "requirements": [
+          "Reserva con anticipación mínima",
+          "Depósito para confirmación",
+          "Lista de invitados",
+          "Preferencias específicas"
+        ],
+        "languages": ["Español", "Inglés básico"],
+        "meetingPoint": "Boki Mall, Boquía",
+        "cancellationPolicy": "Política de cancelación según tipo de evento",
+        "tariff": "Cotización personalizada según requerimientos",
+        "attractions": [
+          "Espacios múltiples dentro del complejo",
+          "Vistas panorámicas",
+          "Ambiente cafetero",
+          "Cercanía a Salento y Valle de Cocora"
+        ],
+        "services": [
+          "Organización de bodas",
+          "Eventos corporativos",
+          "Cumpleaños y celebraciones",
+          "Paquetes turísticos Boki Travel",
+          "Transporte en jeeps Willys",
+          "Guías locales",
+          "Experiencias personalizadas"
+        ]
+      },
+      "photos": [
+        "/pautas/boki_mall/hotel-mirador-boquia/370049629.jpg"
+      ]
+    },
+    {
       "id": 14,
       "name": "Mirador Las Manos de Dios",
       "type": "Atractivos Turísticos",
