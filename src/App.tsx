@@ -800,7 +800,7 @@ function App() {
           <>
         <section className="mobile-dashboard" id="servicios">
           <div className="services-grid">
-            <button className="service-card accommodation" style={{ backgroundImage: `url(${serviceCardImages.accommodation})` }} onClick={() => { setSelectedCategory('Alojamientos'); setShowProviderModal(true) }}>
+            <button className="service-card accommodation" style={{ backgroundImage: `url(${serviceCardImages.accommodation})` }} onClick={() => goToCategory('Alojamientos')}>
               <div className="service-icon">🏨</div>
               <div className="service-content">
                 <h3>Alojamientos</h3>
@@ -812,7 +812,7 @@ function App() {
               </div>
             </button>
 
-            <button className="service-card gastronomy" style={{ backgroundImage: `url(${serviceCardImages.gastronomy})` }} onClick={() => { setSelectedCategory('Restaurantes'); setShowProviderModal(true) }}>
+            <button className="service-card gastronomy" style={{ backgroundImage: `url(${serviceCardImages.gastronomy})` }} onClick={() => goToCategory('Restaurantes')}>
               <div className="service-icon">🍽️</div>
               <div className="service-content">
                 <h3>Gastronomía</h3>
@@ -824,7 +824,7 @@ function App() {
               </div>
             </button>
 
-            <button className="service-card restaurant-bar" style={{ backgroundImage: `url(${serviceCardImages.restaurantBar})` }} onClick={() => { setSelectedCategory('Restaurante Bar'); setShowProviderModal(true) }}>
+            <button className="service-card restaurant-bar" style={{ backgroundImage: `url(${serviceCardImages.restaurantBar})` }} onClick={() => goToCategory('Restaurante Bar')}>
               <div className="service-icon">🍸</div>
               <div className="service-content">
                 <h3>Restaurante Bar</h3>
@@ -836,7 +836,7 @@ function App() {
               </div>
             </button>
 
-            <button className="service-card events" style={{ backgroundImage: `url(${serviceCardImages.events})` }} onClick={() => { setSelectedCategory('Eventos'); setShowProviderModal(true) }}>
+            <button className="service-card events" style={{ backgroundImage: `url(${serviceCardImages.events})` }} onClick={() => goToCategory('Eventos')}>
               <div className="service-icon">🎉</div>
               <div className="service-content">
                 <h3>Eventos</h3>
@@ -848,7 +848,7 @@ function App() {
               </div>
             </button>
 
-            <button className="service-card horseback-riding featured" style={{ backgroundImage: `url(${serviceCardImages.horseback})` }} onClick={() => { setSelectedCategory('Experiencias'); setShowProviderModal(true) }}>
+            <button className="service-card horseback-riding featured" style={{ backgroundImage: `url(${serviceCardImages.horseback})` }} onClick={() => goToCategory('Experiencias')}>
               <div className="service-badge">⭐ {language === 'es' ? 'ESPECIAL' : 'FEATURED'}</div>
               <div className="service-icon">🐎</div>
               <div className="service-content">
@@ -861,7 +861,7 @@ function App() {
               </div>
             </button>
 
-            <button className="service-card guides" style={{ backgroundImage: `url(${serviceCardImages.guides})` }} onClick={() => { setSelectedCategory('Atractivos Turísticos'); setShowProviderModal(true) }}>
+            <button className="service-card guides" style={{ backgroundImage: `url(${serviceCardImages.guides})` }} onClick={() => goToCategory('Atractivos Turísticos')}>
               <div className="service-icon">🧭</div>
               <div className="service-content">
                 <h3>Atractivos Turísticos</h3>
@@ -873,7 +873,7 @@ function App() {
               </div>
             </button>
 
-            <button className="service-card artisan" style={{ backgroundImage: `url(${serviceCardImages.artisan})` }} onClick={() => { setSelectedCategory('Artesanías'); setShowProviderModal(true) }}>
+            <button className="service-card artisan" style={{ backgroundImage: `url(${serviceCardImages.artisan})` }} onClick={() => goToCategory('Artesanías')}>
               <div className="service-icon">🎨</div>
               <div className="service-content">
                 <h3>Artesanías</h3>
@@ -885,7 +885,7 @@ function App() {
               </div>
             </button>
 
-            <button className="service-card commerce" style={{ backgroundImage: `url(${serviceCardImages.commerce})` }} onClick={() => { setSelectedCategory('Tiendas'); setShowProviderModal(true) }}>
+            <button className="service-card commerce" style={{ backgroundImage: `url(${serviceCardImages.commerce})` }} onClick={() => goToCategory('Tiendas')}>
               <div className="service-icon">🛒</div>
               <div className="service-content">
                 <h3>Tiendas</h3>
@@ -897,7 +897,7 @@ function App() {
               </div>
             </button>
 
-            <button className="service-card transport" style={{ backgroundImage: `url(${serviceCardImages.transport})` }} onClick={() => { setSelectedCategory('Servicios'); setShowProviderModal(true) }}>
+            <button className="service-card transport" style={{ backgroundImage: `url(${serviceCardImages.transport})` }} onClick={() => goToCategory('Servicios')}>
               <div className="service-icon">🚖</div>
               <div className="service-content">
                 <h3>Transporte</h3>
@@ -909,7 +909,7 @@ function App() {
               </div>
             </button>
 
-            <button className="service-card camping" style={{ backgroundImage: `url(${serviceCardImages.camping})` }} onClick={() => { setSelectedCategory('Camping'); setShowProviderModal(true) }}>
+            <button className="service-card camping" style={{ backgroundImage: `url(${serviceCardImages.camping})` }} onClick={() => goToCategory('Camping')}>
               <div className="service-icon">⛺</div>
               <div className="service-content">
                 <h3>Camping</h3>
