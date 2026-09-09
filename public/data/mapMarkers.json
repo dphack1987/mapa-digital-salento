@@ -74,7 +74,7 @@
     },
     {
       "id": 28,
-      "label": "Boki Mall - Terra Restaurante",
+      "label": "Boki Mall - Restaurante Terra",
       "type": "Gastronómico",
       "placeId": 28,
       "coord": [
@@ -86,7 +86,7 @@
     },
     {
       "id": 29,
-      "label": "Boki Mall - Barcinales Café-Bar",
+      "label": "Boki Mall - Barcinales Café - Bar",
       "type": "Gastronómico",
       "placeId": 29,
       "coord": [
@@ -98,7 +98,7 @@
     },
     {
       "id": 30,
-      "label": "Boki Mall - Eventos y Boki Travel",
+      "label": "Boki Mall - Eventos",
       "type": "Turístico",
       "placeId": 30,
       "coord": [

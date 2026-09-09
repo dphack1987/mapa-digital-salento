@@ -97,9 +97,9 @@
     },
     {
       "id": 28,
-      "name": "Boki Mall - Terra Restaurante",
+      "name": "Boki Mall - Restaurante Terra",
       "type": "Restaurantes",
-      "description": "Restaurante principal de Boki Mall especializado en gastronomía colombiana tradicional y platos gourmet del Quindío. Cocina de autor con ingredientes locales, ambiente elegante y vistas al paisaje cafetero. Experiencia gastronómica que destaca los sabores locales.",
+      "description": "Restaurante Terra - Experiencia gastronómica que destaca los sabores locales. Restaurante principal de Boki Mall especializado en gastronomía colombiana tradicional y platos gourmet del Quindío. Cocina de autor con ingredientes locales, ambiente elegante y vistas al paisaje cafetero.",
       "priceRange": "$$",
       "rating": "4.8",
       "timeInfo": "7:00 a.m. - 9:00 p.m.",
@@ -109,7 +109,7 @@
       "contact": {
         "phone": "+57 311 222 5312",
         "whatsapp": "573112225312",
-        "email": "restaurante@bokimall.com",
+        "email": "reservas@bokimall.com",
         "website": "https://bokimall.com/terra-restaurante-en-salento/"
       },
       "location": {
@@ -159,19 +159,19 @@
     },
     {
       "id": 29,
-      "name": "Boki Mall - Barcinales Café-Bar",
-      "type": "Restaurantes",
-      "description": "Café-bar y lounge dentro de Boki Mall, ideal para disfrutar de cafés de especialidad, cócteles artesanales y ambiente relajado. Horario variable según programación de eventos y entretenimiento. Espacio vanguardista para socializar después de recorridos turísticos.",
+      "name": "Boki Mall - Barcinales Café - Bar",
+      "type": "Restaurante Bar",
+      "description": "Barcinales Café - Bar - Disfruta de café y coctelería en un espacio vanguardista. Café-bar y lounge dentro de Boki Mall, ideal para disfrutar de cafés de especialidad, cócteles artesanales y ambiente relajado. Horario variable según programación de eventos y entretenimiento.",
       "priceRange": "$",
       "rating": "4.7",
       "timeInfo": "Horario variable",
       "badge": "Café-Bar",
       "color": "yellow",
-      "icon": "Coffee",
+      "icon": "Utensils",
       "contact": {
         "phone": "+57 311 222 5312",
         "whatsapp": "573112225312",
-        "email": "bar@bokimall.com",
+        "email": "reservas@bokimall.com",
         "website": "https://bokimall.com/barcinales-cafe-bar-en-salento/"
       },
       "location": {
@@ -220,19 +220,19 @@
     },
     {
       "id": 30,
-      "name": "Boki Mall - Eventos y Boki Travel",
-      "type": "Experiencias",
-      "description": "Servicio de eventos y operador logístico turístico de Boki Mall. Organización de bodas, eventos corporativos, cumpleaños y celebraciones especiales. Boki Travel ofrece paquetes turísticos completos, transporte en jeeps Willys, guías locales y experiencias personalizadas en Salento y el Valle de Cocora.",
+      "name": "Boki Mall - Eventos",
+      "type": "Eventos",
+      "description": "Salón de eventos ideal para celebraciones en el Eje Cafetero. Organización de bodas, eventos corporativos, cumpleaños y celebraciones especiales. Espacio completo para todo tipo de eventos en Boki Mall.",
       "priceRange": "$$",
       "rating": "4.8",
       "timeInfo": "Con cita previa",
       "badge": "Servicios Premium",
       "color": "purple",
-      "icon": "Sparkles",
+      "icon": "Bell",
       "contact": {
         "phone": "+57 311 222 5312",
         "whatsapp": "573112225312",
-        "email": "eventos@bokimall.com",
+        "email": "reservas@bokimall.com",
         "website": "https://bokimall.com/salon-de-eventos-eje-cafetero/"
       },
       "location": {
@@ -248,14 +248,12 @@
         "eventos",
         "bodas",
         "corporativos",
-        "paquetes",
-        "transporte",
-        "guías",
-        "operador",
+        "celebraciones",
+        "salon de eventos",
         "boki mall",
         "boquía",
         "salento",
-        "boki travel"
+        "eje cafetero"
       ],
       "verified": true,
       "active": true,
@@ -266,8 +264,8 @@
         "groupSize": "10-200 personas según evento",
         "included": [
           "Organización completa del evento",
-          "Decoración básica",
-          "Catering según paquete",
+          "Decoración básica del espacio",
+          "Catering según paquete seleccionado",
           "Música y entretenimiento",
           "Coordinación logística"
         ],
@@ -296,10 +294,8 @@
           "Organización de bodas",
           "Eventos corporativos",
           "Cumpleaños y celebraciones",
-          "Paquetes turísticos Boki Travel",
-          "Transporte en jeeps Willys",
-          "Guías locales",
-          "Experiencias personalizadas"
+          "Catering personalizado",
+          "Coordinación completa"
         ]
       },
       "photos": [

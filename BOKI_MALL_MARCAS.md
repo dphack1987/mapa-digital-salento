@@ -75,7 +75,7 @@ Hotel campestre con ambiente cafetero, rodeado de naturaleza, senderos y un gran
 
 ---
 
-## 🍽️ MARCA 2: TERRA RESTAURANTE
+## 🍽️ MARCA 2: RESTAURANTE TERRA
 
 ### DESCRIPCIÓN
 Experiencia gastronómica que destaca los sabores locales. Restaurant principal de Boki Mall especializado en gastronomía colombiana tradicional y platos gourmet del Quindío.
@@ -108,14 +108,14 @@ Experiencia gastronómica que destaca los sabores locales. Restaurant principal 
 - Atención personalizada
 
 ### CONTACTO ESPECÍFICO RESTAURANTE
-- **Email:** restaurante@bokimall.com
+- **Email:** reservas@bokimall.com
 - **Teléfono:** +57 311 222 5312
 - **WhatsApp:** 573112225312
 - **Website:** https://bokimall.com/terra-restaurante-en-salento/
 
 ---
 
-## ☕ MARCA 3: BARCINALES CAFÉ-BAR
+## ☕ MARCA 3: BARCINALES CAFÉ - BAR
 
 ### DESCRIPCIÓN
 Café-bar y lounge dentro de Boki Mall, ideal para disfrutar de cafés de especialidad, cócteles artesanales y ambiente relajado. Espacio vanguardista para socializar después de recorridos turísticos.
@@ -146,30 +146,23 @@ Café-bar y lounge dentro de Boki Mall, ideal para disfrutar de cafés de especi
 - Wi-Fi gratuito
 
 ### CONTACTO ESPECÍFICO BAR
-- **Email:** bar@bokimall.com
+- **Email:** reservas@bokimall.com
 - **Teléfono:** +57 311 222 5312
 - **WhatsApp:** 573112225312
 - **Website:** https://bokimall.com/barcinales-cafe-bar-en-salento/
 
 ---
 
-## 🎉 MARCA 4: EVENTOS Y BOKI TRAVEL
+## 🎉 MARCA 4: EVENTOS / SALÓN DE EVENTOS
 
 ### DESCRIPCIÓN
-Servicio de eventos y operador logístico turístico de Boki Mall. Organización de bodas, eventos corporativos, cumpleaños y celebraciones especiales. Boki Travel ofrece paquetes turísticos completos.
+Salón de eventos ideal para celebraciones en el Eje Cafetero. Organización de bodas, eventos corporativos, cumpleaños y celebraciones especiales. Espacio completo para todo tipo de eventos.
 
 ### SERVICIOS DE EVENTOS
 - **Bodas:** Organización completa de bodas rurales
 - **Eventos Corporativos:** Reuniones de empresas en entorno cafetero
-- **Cumpleaños:** Celebraciones especiales en spaces naturales
+- **Cumpleaños:** Celebraciones especiales en espacios naturales
 - **Celebraciones Especiales:** Aniversarios, graduaciones, etc.
-
-### SERVICIOS BOKI TRAVEL
-- **Paquetes Turísticos:** Experiencias completas en Salento
-- **Transporte:** Jeeps Willys y movilidad local
-- **Guías Locales:** Expertos en la región
-- **Experiencias Personalizadas:** Tours según preferencias
-- **Logística Completa:** Coordinación de todo el viaje
 
 ### INSTALACIONES PARA EVENTOS
 - **Espacios Múltiples:** Dentro del complejo Boki Mall
@@ -191,7 +184,7 @@ Servicio de eventos y operador logístico turístico de Boki Mall. Organización
 - **Coordinación:** Personalizada con cada cliente
 
 ### CONTACTO ESPECÍFICO EVENTOS
-- **Email:** eventos@bokimall.com
+- **Email:** reservas@bokimall.com
 - **Teléfono:** +57 311 222 5312
 - **WhatsApp:** 573112225312
 - **Website:** https://bokimall.com/salon-de-eventos-eje-cafetero/
@@ -231,14 +224,15 @@ Servicio de eventos y operador logístico turístico de Boki Mall. Organización
 
 ### ESTRUCTURA DE CATEGORÍAS
 1. **Alojamientos:** Hotel El Mirador de Boquía
-2. **Restaurantes:** Terra Restaurante + Barcinales Café-Bar
-3. **Experiencias:** Eventos + Boki Travel (operador logístico)
+2. **Restaurantes:** Restaurante Terra
+3. **Restaurante Bar:** Barcinales Café - Bar
+4. **Eventos:** Eventos / Salón de Eventos
 
 ### PLACE IDs PARA JSON
 - **Hotel:** ID 13 (ya existe en places.json)
 - **Restaurante Terra:** ID 28 (nuevo a crear)
-- **Barcinales Café-Bar:** ID 29 (nuevo a crear)
-- **Eventos/Boki Travel:** ID 30 (nuevo a crear)
+- **Barcinales Café - Bar:** ID 29 (nuevo a crear)
+- **Eventos:** ID 30 (nuevo a crear)
 
 ### CONTACTO UNIFICADO
 - **Teléfono:** +57 311 222 5312 (todas las marcas)
