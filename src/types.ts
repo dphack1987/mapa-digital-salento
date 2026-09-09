@@ -92,6 +92,7 @@ export type ExperienceDetails = {
   languages: string[]
   meetingPoint: string
   cancellationPolicy: string
+  tariff?: string // Tarifas verificadas en texto (ej: "10 min: $15.000 · 15 min: $20.000")
 }
 
 // Información específica para comercios
