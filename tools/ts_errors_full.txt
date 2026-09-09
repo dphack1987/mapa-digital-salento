@@ -1,0 +1,273 @@
+src/App.tsx(99,1): error TS6133: 'PublicQRGenerator' is declared but its value is never read.
+src/App.tsx(104,1): error TS6133: 'publicQRService' is declared but its value is never read.
+src/App.tsx(119,1): error TS6133: 'SEODashboard' is declared but its value is never read.
+src/App.tsx(260,10): error TS6133: 'countMatchingPlaces' is declared but its value is never read.
+src/App.tsx(325,10): error TS6133: 'showDirectOrder' is declared but its value is never read.
+src/App.tsx(325,27): error TS6133: 'setShowDirectOrder' is declared but its value is never read.
+src/App.tsx(327,10): error TS6133: 'pendingOrderCategory' is declared but its value is never read.
+src/App.tsx(327,32): error TS6133: 'setPendingOrderCategory' is declared but its value is never read.
+src/App.tsx(343,10): error TS6133: 'showPublicQR' is declared but its value is never read.
+src/App.tsx(343,24): error TS6133: 'setShowPublicQR' is declared but its value is never read.
+src/App.tsx(344,28): error TS6133: 'setSelectedCategory' is declared but its value is never read.
+src/App.tsx(348,21): error TS2367: This comparison appears to be unintentional because the types 'Language' and '"EN"' have no overlap.
+src/App.tsx(486,47): error TS2339: Property 'generateWeatherAlert' does not exist on type 'NotificationsService'.
+src/App.tsx(487,74): error TS2339: Property 'generateEventAlert' does not exist on type 'NotificationsService'.
+src/App.tsx(786,53): error TS2345: Argument of type 'number' is not assignable to parameter of type 'SetStateAction<string | null>'.
+src/App.tsx(786,93): error TS2322: Type 'number' is not assignable to type 'string'.
+src/App.tsx(990,273): error TS2345: Argument of type 'number' is not assignable to parameter of type 'SetStateAction<string | null>'.
+src/App.tsx(990,313): error TS2322: Type 'number' is not assignable to type 'string'.
+src/App.tsx(1052,21): error TS2304: Cannot find name 'handleHotelInfoSubmit'.
+src/App.tsx(1293,34): error TS2339: Property 'whatsapp' does not exist on type 'Place'.
+src/App.tsx(1306,7): error TS2304: Cannot find name 'setPendingOrderCategory'.
+src/App.tsx(1307,7): error TS2304: Cannot find name 'setShowHotelModal'.
+src/App.tsx(1349,9): error TS6133: 'handleHotelInfoSubmit' is declared but its value is never read.
+src/App.tsx(1350,9): error TS2304: Cannot find name 'pendingOrderCategory'.
+src/App.tsx(1351,25): error TS2304: Cannot find name 'pendingOrderCategory'.
+src/App.tsx(1352,7): error TS2304: Cannot find name 'setPendingOrderCategory'.
+src/App.tsx(1354,5): error TS2304: Cannot find name 'setShowHotelModal'.
+src/App.tsx(1368,46): error TS2345: Argument of type 'number' is not assignable to parameter of type 'string'.
+src/App.tsx(1394,28): error TS2339: Property 'price' does not exist on type 'Place'.
+src/App.tsx(1394,74): error TS2339: Property 'time' does not exist on type 'Place'.
+src/App.tsx(1412,18): error TS2339: Property 'whatsapp' does not exist on type 'Place'.
+src/App.tsx(1414,44): error TS2339: Property 'whatsapp' does not exist on type 'Place'.
+src/App.tsx(1419,58): error TS2345: Argument of type 'number' is not assignable to parameter of type 'string'.
+src/App.tsx(1424,18): error TS2339: Property 'phone' does not exist on type 'Place'.
+src/App.tsx(1426,34): error TS2339: Property 'phone' does not exist on type 'Place'.
+src/App.tsx(1429,58): error TS2345: Argument of type 'number' is not assignable to parameter of type 'string'.
+src/App.tsx(1434,18): error TS2339: Property 'email' does not exist on type 'Place'.
+src/App.tsx(1436,37): error TS2339: Property 'email' does not exist on type 'Place'.
+src/App.tsx(1439,58): error TS2345: Argument of type 'number' is not assignable to parameter of type 'string'.
+src/App.tsx(1450,49): error TS6133: 'language' is declared but its value is never read.
+src/App.tsx(1450,59): error TS6133: 't' is declared but its value is never read.
+src/App.tsx(1451,9): error TS6133: 'adaptedPlace' is declared but its value is never read.
+src/App.tsx(1467,74): error TS2339: Property 'description' does not exist on type 'AccommodationDetails'.
+src/App.tsx(1511,10): error TS6133: 'showDonation' is declared but its value is never read.
+src/App.tsx(1511,24): error TS6133: 'setShowDonation' is declared but its value is never read.
+src/App.tsx(1512,10): error TS6133: 'selectedDonation' is declared but its value is never read.
+src/App.tsx(1512,28): error TS6133: 'setSelectedDonation' is declared but its value is never read.
+src/App.tsx(1513,10): error TS6133: 'donationCause' is declared but its value is never read.
+src/App.tsx(1513,25): error TS6133: 'setDonationCause' is declared but its value is never read.
+src/components/AllyPersonalDashboard.tsx(5,74): error TS6133: 'Bell' is declared but its value is never read.
+src/components/AllyRegistrationForm.tsx(4,20): error TS6133: 'useEffect' is declared but its value is never read.
+src/components/AllyRegistrationForm.tsx(5,70): error TS6133: 'Clock' is declared but its value is never read.
+src/components/AllyRegistrationForm.tsx(5,103): error TS6133: 'Upload' is declared but its value is never read.
+src/components/AllyRegistrationForm.tsx(85,9): error TS2698: Spread types may only be created from object types.
+src/components/AllyVerification.tsx(5,72): error TS6133: 'Download' is declared but its value is never read.
+src/components/AllyVerification.tsx(5,82): error TS6133: 'Eye' is declared but its value is never read.
+src/components/AllyVerification.tsx(6,35): error TS2614: Module '"../services/allyRegistration.service"' has no exported member 'VerificationDocument'. Did you mean to use 'import VerificationDocument from "../services/allyRegistration.service"' instead?
+src/components/AllyVerification.tsx(50,24): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+src/components/AnalyticsDashboard.tsx(2,90): error TS6133: 'ArrowDown' is declared but its value is never read.
+src/components/AnalyticsDashboard.tsx(2,101): error TS6133: 'Calendar' is declared but its value is never read.
+src/components/AnalyticsDashboard.tsx(100,62): error TS2769: No overload matches this call.
+src/components/AnalyticsDashboard.tsx(101,23): error TS18046: 'totalClicks' is of type 'unknown'.
+src/components/BusinessAdmin.tsx(17,3): error TS6133: 'Bell' is declared but its value is never read.
+src/components/BusinessAdmin.tsx(24,1): error TS6133: 'analyticsService' is declared but its value is never read.
+src/components/BusinessAdmin.tsx(42,10): error TS6133: 'showBacklinks' is declared but its value is never read.
+src/components/BusinessAdmin.tsx(185,60): error TS6133: 'businessId' is declared but its value is never read.
+src/components/BusinessAdmin.tsx(240,48): error TS2322: Type 'unknown' is not assignable to type 'ReactNode'.
+src/components/BusinessAdmin.tsx(252,49): error TS2322: Type 'unknown' is not assignable to type 'ReactNode'.
+src/components/BusinessAdmin.tsx(452,24): error TS6133: 'businessId' is declared but its value is never read.
+src/components/BusinessAdmin.tsx(472,64): error TS2345: Argument of type '{ orderId: string; customerName: string; hotel: string; roomNumber: string; items: { name: string; quantity: number; price: number; notes: string; }[]; totalAmount: number; paymentMethod: string; timestamp: Date; }' is not assignable to parameter of type 'OrderDetails'.
+src/components/BusinessAdmin.tsx(494,66): error TS2345: Argument of type '{ customerName: string; businessName: any; inquiryType: string; message: string; language: string; }' is not assignable to parameter of type '{ customerName: string; businessName: string; inquiryType: "general" | "servicio" | "producto"; message: string; language: "es" | "en"; }'.
+src/components/BusinessAdmin.tsx(562,24): error TS6133: 'businessId' is declared but its value is never read.
+src/components/DefensiveSEODashboard.tsx(32,10): error TS6133: 'internationalKeywords' is declared but its value is never read.
+src/components/DefensiveSEODashboard.tsx(33,10): error TS6133: 'keywordStats' is declared but its value is never read.
+src/components/DefensiveSEODashboard.tsx(692,25): error TS2339: Property 'h7' does not exist on type 'JSX.IntrinsicElements'.
+src/components/DefensiveSEODashboard.tsx(692,54): error TS2339: Property 'h7' does not exist on type 'JSX.IntrinsicElements'.
+src/components/DefensiveSEODashboard.tsx(700,25): error TS2339: Property 'h7' does not exist on type 'JSX.IntrinsicElements'.
+src/components/DefensiveSEODashboard.tsx(700,53): error TS2339: Property 'h7' does not exist on type 'JSX.IntrinsicElements'.
+src/components/DynamicLandingPage.tsx(3,46): error TS6133: 'Calendar' is declared but its value is never read.
+src/components/DynamicLandingPage.tsx(52,26): error TS2339: Property 'title' does not exist on type 'object'.
+src/components/DynamicLandingPage.tsx(53,52): error TS2339: Property 'description' does not exist on type 'object'.
+src/components/DynamicLandingPage.tsx(54,49): error TS2339: Property 'keywords' does not exist on type 'object'.
+src/components/DynamicLandingPage.tsx(57,44): error TS7053: Element implicitly has an 'any' type because expression of type '"og:title"' can't be used to index type '{}'.
+src/components/DynamicLandingPage.tsx(58,50): error TS7053: Element implicitly has an 'any' type because expression of type '"og:description"' can't be used to index type '{}'.
+src/components/DynamicLandingPage.tsx(59,42): error TS7053: Element implicitly has an 'any' type because expression of type '"og:url"' can't be used to index type '{}'.
+src/components/DynamicLandingPage.tsx(60,43): error TS7053: Element implicitly has an 'any' type because expression of type '"og:type"' can't be used to index type '{}'.
+src/components/DynamicLandingPage.tsx(61,44): error TS7053: Element implicitly has an 'any' type because expression of type '"og:image"' can't be used to index type '{}'.
+src/components/DynamicLandingPage.tsx(64,44): error TS7053: Element implicitly has an 'any' type because expression of type '"twitter:card"' can't be used to index type '{}'.
+src/components/DynamicLandingPage.tsx(65,45): error TS7053: Element implicitly has an 'any' type because expression of type '"twitter:title"' can't be used to index type '{}'.
+src/components/DynamicLandingPage.tsx(66,51): error TS7053: Element implicitly has an 'any' type because expression of type '"twitter:description"' can't be used to index type '{}'.
+src/components/DynamicLandingPage.tsx(67,45): error TS7053: Element implicitly has an 'any' type because expression of type '"twitter:image"' can't be used to index type '{}'.
+src/components/GoogleVerificationModal.tsx(28,10): error TS6133: 'copiedInstruction' is declared but its value is never read.
+src/components/HorsebackRiding.tsx(10,3): error TS6133: 'Calendar' is declared but its value is never read.
+src/components/InternationalLandingPage.tsx(14,42): error TS2339: Property 'getPageByLang' does not exist on type 'InternationalSEOService'.
+src/components/InternationalLandingPage.tsx(66,40): error TS2339: Property 'getPageByLang' does not exist on type 'InternationalSEOService'.
+src/components/LandingPageEstadoActual.tsx(15,22): error TS6133: 'setActualData' is declared but its value is never read.
+src/components/LandingPageHoteles.tsx(15,23): error TS6133: 'setHotelesData' is declared but its value is never read.
+src/components/LandingPageSalentoSeguro.tsx(7,81): error TS6133: 'AlertCircle' is declared but its value is never read.
+src/components/LandingPageSalentoSeguro.tsx(15,25): error TS6133: 'setSeguridadData' is declared but its value is never read.
+src/components/LandingPageValleCocora.tsx(7,66): error TS6133: 'AlertTriangle' is declared but its value is never read.
+src/components/LandingPageValleCocora.tsx(15,21): error TS6133: 'setValleData' is declared but its value is never read.
+src/components/LandingPageVias.tsx(15,20): error TS6133: 'setViasData' is declared but its value is never read.
+src/components/NotificationsPanel.tsx(5,66): error TS6133: 'Settings' is declared but its value is never read.
+src/components/ProgrammaticLandingPage.tsx(8,22): error TS6133: 'Star' is declared but its value is never read.
+src/components/ProgrammaticLandingPage.tsx(8,28): error TS6133: 'MapPin' is declared but its value is never read.
+src/components/ProgrammaticLandingPage.tsx(8,36): error TS6133: 'Clock' is declared but its value is never read.
+src/components/ProgrammaticLandingPage.tsx(8,43): error TS6133: 'Phone' is declared but its value is never read.
+src/components/ProgrammaticLandingPage.tsx(8,79): error TS6133: 'Heart' is declared but its value is never read.
+src/components/ProgrammaticLandingPage.tsx(8,86): error TS6133: 'Search' is declared but its value is never read.
+src/components/ProgrammaticLandingPage.tsx(8,94): error TS6133: 'Utensils' is declared but its value is never read.
+src/components/ProgrammaticLandingPage.tsx(8,104): error TS6133: 'Mountain' is declared but its value is never read.
+src/components/ProgrammaticLandingPage.tsx(8,114): error TS6133: 'Coffee' is declared but its value is never read.
+src/components/ProgrammaticLandingPage.tsx(8,122): error TS6133: 'Hotel' is declared but its value is never read.
+src/components/ProgrammaticLandingPage.tsx(16,42): error TS6133: 'language' is declared but its value is never read.
+src/components/ProgrammaticLandingPage.tsx(76,34): error TS7006: Parameter 'section' implicitly has an 'any' type.
+src/components/ProgrammaticLandingPage.tsx(76,43): error TS7006: Parameter 'index' implicitly has an 'any' type.
+src/components/ProgrammaticLandingPage.tsx(83,45): error TS7006: Parameter 'subsection' implicitly has an 'any' type.
+src/components/ProgrammaticLandingPage.tsx(83,57): error TS7006: Parameter 'subIndex' implicitly has an 'any' type.
+src/components/ProgrammaticLandingPage.tsx(123,41): error TS7006: Parameter 'item' implicitly has an 'any' type.
+src/components/ProgrammaticLandingPage.tsx(123,47): error TS7006: Parameter 'index' implicitly has an 'any' type.
+src/components/ProgrammaticLandingPage.tsx(138,45): error TS7006: Parameter 'page' implicitly has an 'any' type.
+src/components/ProgrammaticLandingPage.tsx(138,51): error TS7006: Parameter 'index' implicitly has an 'any' type.
+src/components/ProviderSelectionModal.tsx(12,3): error TS6133: 'Utensils' is declared but its value is never read.
+src/components/ProviderSelectionModal.tsx(13,3): error TS6133: 'Bed' is declared but its value is never read.
+src/components/ProviderSelectionModal.tsx(14,3): error TS6133: 'Store' is declared but its value is never read.
+src/components/ProviderSelectionModal.tsx(18,3): error TS6133: 'CreditCard' is declared but its value is never read.
+src/components/ProviderSelectionModal.tsx(24,10): error TS6133: 'providerSlug' is declared but its value is never read.
+src/components/ProviderSelectionModal.tsx(38,7): error TS2739: Type '{ Todo: string[]; Alojamientos: string[]; Restaurantes: string[]; Caf├®s: string[]; 'Coffee Tours': string[]; Artesan├¡as: string[]; Tiendas: string[]; Experiencias: string[]; 'Atractivos Tur\u00EDsticos': string[]; Servicios: string[]; }' is missing the following properties from type 'Record<Category, string[]>': "Restaurante Bar", Eventos, Camping
+src/components/ProviderSelectionModal.tsx(51,7): error TS2739: Type '{ Todo: string; Alojamientos: string; Restaurantes: string; Caf├®s: string; 'Coffee Tours': string; Artesan├¡as: string; Tiendas: string; Experiencias: string; 'Atractivos Tur\u00EDsticos': string; Servicios: string; }' is missing the following properties from type 'Record<Category, string>': "Restaurante Bar", Eventos, Camping
+src/components/ProviderSelectionModal.tsx(64,7): error TS2739: Type '{ Alojamientos: "reserve"; Restaurantes: "order"; Caf├®s: "order"; Artesan├¡as: "contact"; Tiendas: "contact"; Experiencias: "reserve"; 'Atractivos Tur\u00EDsticos': "contact"; Servicios: "contact"; }' is missing the following properties from type 'Record<Category, "order" | "reserve" | "contact">': Todo, "Restaurante Bar", "Coffee Tours", Eventos, Camping
+src/components/ProviderSelectionModal.tsx(131,48): error TS2339: Property 'activityType' does not exist on type 'ExperienceDetails'.
+src/components/ProviderSelectionModal.tsx(134,49): error TS2339: Property 'productCategories' does not exist on type 'CommerceDetails'.
+src/components/ProviderSelectionModal.tsx(146,41): error TS2339: Property 'open' does not exist on type 'OperatingHours'.
+src/components/ProviderSelectionModal.tsx(146,75): error TS2339: Property 'close' does not exist on type 'OperatingHours'.
+src/components/ProviderSelectionModal.tsx(262,33): error TS2339: Property 'phone' does not exist on type 'Location'.
+src/components/ProviderSelectionModal.tsx(263,55): error TS2339: Property 'phone' does not exist on type 'Location'.
+src/components/ProviderSelectionModal.tsx(338,52): error TS2339: Property 'priceRange' does not exist on type 'FoodServiceDetails'.
+src/components/ProviderSelectionModal.tsx(346,52): error TS2339: Property 'services' does not exist on type 'FoodServiceDetails'.
+src/components/ProviderSelectionModal.tsx(358,51): error TS2339: Property 'activityType' does not exist on type 'ExperienceDetails'.
+src/components/ProviderSelectionModal.tsx(370,51): error TS2551: Property 'includes' does not exist on type 'ExperienceDetails'. Did you mean 'included'?
+src/components/ProviderSelectionModal.tsx(382,49): error TS2339: Property 'commerceType' does not exist on type 'CommerceDetails'.
+src/components/ProviderSelectionModal.tsx(386,49): error TS2339: Property 'productCategories' does not exist on type 'CommerceDetails'.
+src/components/ProviderSelectionModal.tsx(390,49): error TS2339: Property 'services' does not exist on type 'CommerceDetails'.
+src/components/ProviderSelectionModal.tsx(394,49): error TS2339: Property 'deliveryAvailable' does not exist on type 'CommerceDetails'.
+src/components/PublicQRGenerator.tsx(18,9): error TS6133: 'qrInfo' is declared but its value is never read.
+src/components/QRShare.tsx(159,18): error TS2774: This condition will always return true since this function is always defined. Did you mean to call it instead?
+src/components/RealWorldSearchEnginesModal.tsx(3,29): error TS6133: 'AlertTriangle' is declared but its value is never read.
+src/components/RealWorldSearchEnginesModal.tsx(19,9): error TS6133: 'getPriorityColor' is declared but its value is never read.
+src/components/SearchEngineIndexingModal.tsx(16,10): error TS6133: 'selectedEngine' is declared but its value is never read.
+src/components/SEODashboard.tsx(15,3): error TS6133: 'ArrowUpRight' is declared but its value is never read.
+src/components/SEODashboard.tsx(16,3): error TS6133: 'ArrowDownRight' is declared but its value is never read.
+src/components/SupportCenter.tsx(6,3): error TS6133: 'MessageSquare' is declared but its value is never read.
+src/components/SupportCenter.tsx(13,3): error TS6133: 'ExternalLink' is declared but its value is never read.
+src/components/SupportCenter.tsx(146,22): error TS2367: This comparison appears to be unintentional because the types '"information"' and '"emergency"' have no overlap.
+src/components/SupportCenter.tsx(147,22): error TS2367: This comparison appears to be unintentional because the types '"information"' and '"complaint"' have no overlap.
+src/components/SupportCenter.tsx(327,41): error TS2345: Argument of type '(prev: { name: string; email: string; category: "information"; subject: string; message: string; location: string; }) => { category: "information" | "complaint"; subject: string; name: string; email: string; message: string; location: string; }' is not assignable to parameter of type 'SetStateAction<{ name: string; email: string; category: "information"; subject: string; message: string; location: string; }>'.
+src/components/TouristSearchEngine.tsx(5,20): error TS6133: 'useEffect' is declared but its value is never read.
+src/components/TouristSearchEngine.tsx(11,3): error TS6133: 'Utensils' is declared but its value is never read.
+src/components/TouristSearchEngine.tsx(13,3): error TS6133: 'ShoppingBag' is declared but its value is never read.
+src/components/TouristSearchEngine.tsx(32,3): error TS6133: 'ProactiveRecommendation' is declared but its value is never read.
+src/components/TouristSearchEngine.tsx(33,3): error TS6133: 'SafetyInfo' is declared but its value is never read.
+src/components/TouristSearchEngine.tsx(34,3): error TS6133: 'CulturalInfo' is declared but its value is never read.
+src/components/TouristSearchEngine.tsx(77,9): error TS6133: 'getTabIcon' is declared but its value is never read.
+src/components/TouristSearchEngine.tsx(378,26): error TS2304: Cannot find name 'Phone'.
+src/main.tsx(16,25): error TS2345: Argument of type 'HTMLElement | null' is not assignable to parameter of type 'Container'.
+src/services/allyRegistration.service.ts(168,11): error TS6133: 'hasRequiredDocuments' is declared but its value is never read.
+src/services/analyticsService.ts(131,11): error TS7034: Variable 'trends' implicitly has type 'any[]' in some locations where its type cannot be determined.
+src/services/analyticsService.ts(134,26): error TS6133: 'index' is declared but its value is never read.
+src/services/analyticsService.ts(142,12): error TS7005: Variable 'trends' implicitly has an 'any[]' type.
+src/services/analyticsService.ts(146,11): error TS7034: Variable 'trends' implicitly has type 'any[]' in some locations where its type cannot be determined.
+src/services/analyticsService.ts(158,12): error TS7005: Variable 'trends' implicitly has an 'any[]' type.
+src/services/analyticsService.ts(208,24): error TS6133: 'category' is declared but its value is never read.
+src/services/analyticsService.ts(210,15): error TS6133: 'data' is declared but its value is never read.
+src/services/backlinkGeneratorService.ts(133,11): error TS6133: 'pageName' is declared but its value is never read.
+src/services/backlinkGeneratorService.ts(192,49): error TS6133: 'tone' is declared but its value is never read.
+src/services/defensiveSEOG.service.ts(719,9): error TS6133: 'answerMatch' is declared but its value is never read.
+src/services/donationService.ts(345,24): error TS6133: 'amount' is declared but its value is never read.
+src/services/donationService.ts(345,40): error TS6133: 'causeId' is declared but its value is never read.
+src/services/donChuchoKnowledge.ts(469,34): error TS6133: 'language' is declared but its value is never read.
+src/services/foreignTouristSearchEngine.ts(5,31): error TS2307: Cannot find module './placesService' or its corresponding type declarations.
+src/services/foreignTouristSearchEngine.ts(8,10): error TS2614: Module '"./analyticsService"' has no exported member 'analyticsService'. Did you mean to use 'import analyticsService from "./analyticsService"' instead?
+src/services/foreignTouristSearchEngine.ts(108,42): error TS2339: Property 'getKnowledge' does not exist on type 'DonChuchoKnowledge'.
+src/services/foreignTouristSearchEngine.ts(111,47): error TS7006: Parameter 'p' implicitly has an 'any' type.
+src/services/foreignTouristSearchEngine.ts(112,38): error TS7006: Parameter 'p' implicitly has an 'any' type.
+src/services/foreignTouristSearchEngine.ts(113,44): error TS7006: Parameter 'p' implicitly has an 'any' type.
+src/services/foreignTouristSearchEngine.ts(118,9): error TS2322: Type 'RegExp' is not assignable to type 'string'.
+src/services/foreignTouristSearchEngine.ts(130,58): error TS7006: Parameter 'place' implicitly has an 'any' type.
+src/services/foreignTouristSearchEngine.ts(149,9): error TS2322: Type 'RegExp' is not assignable to type 'string'.
+src/services/foreignTouristSearchEngine.ts(153,11): error TS2322: Type '"during_trip"' is not assignable to type '"immediate" | "planning" | "exploratory"'.
+src/services/foreignTouristSearchEngine.ts(161,49): error TS7006: Parameter 'place' implicitly has an 'any' type.
+src/services/foreignTouristSearchEngine.ts(180,9): error TS2322: Type 'RegExp' is not assignable to type 'string'.
+src/services/foreignTouristSearchEngine.ts(192,55): error TS7006: Parameter 'place' implicitly has an 'any' type.
+src/services/foreignTouristSearchEngine.ts(209,46): error TS7006: Parameter 'k' implicitly has an 'any' type.
+src/services/foreignTouristSearchEngine.ts(212,9): error TS2322: Type 'RegExp' is not assignable to type 'string'.
+src/services/foreignTouristSearchEngine.ts(224,54): error TS7006: Parameter 'k' implicitly has an 'any' type.
+src/services/foreignTouristSearchEngine.ts(290,27): error TS2339: Property 'test' does not exist on type 'string'.
+src/services/foreignTouristSearchEngine.ts(341,9): error TS2322: Type '"during_trip"' is not assignable to type '"immediate" | "planning" | "exploratory"'.
+src/services/foreignTouristSearchEngine.ts(563,81): error TS2554: Expected 1-2 arguments, but got 3.
+src/services/foreignTouristSearchEngine.ts(573,70): error TS2554: Expected 1-2 arguments, but got 3.
+src/services/foreignTouristSearchEngine.ts(590,44): error TS2339: Property 'getKnowledge' does not exist on type 'DonChuchoKnowledge'.
+src/services/foreignTouristSearchEngine.ts(591,13): error TS6133: 'safetyKnowledge' is declared but its value is never read.
+src/services/foreignTouristSearchEngine.ts(591,48): error TS7006: Parameter 'k' implicitly has an 'any' type.
+src/services/foreignTouristSearchEngine.ts(638,44): error TS2339: Property 'getKnowledge' does not exist on type 'DonChuchoKnowledge'.
+src/services/foreignTouristSearchEngine.ts(639,13): error TS6133: 'culturalKnowledge' is declared but its value is never read.
+src/services/foreignTouristSearchEngine.ts(639,50): error TS7006: Parameter 'k' implicitly has an 'any' type.
+src/services/foreignTouristSearchEngine.ts(673,38): error TS6133: 'intent' is declared but its value is never read.
+src/services/foreignTouristSearchEngine.ts(676,15): error TS7006: Parameter 'p' implicitly has an 'any' type.
+src/services/foreignTouristSearchEngine.ts(677,12): error TS7006: Parameter 'p' implicitly has an 'any' type.
+src/services/foreignTouristSearchEngine.ts(678,16): error TS7006: Parameter 'city' implicitly has an 'any' type.
+src/services/foreignTouristSearchEngine.ts(708,67): error TS2554: Expected 1-2 arguments, but got 3.
+src/services/gamificationService.ts(304,11): error TS6133: 'uniquePlaces' is declared but its value is never read.
+src/services/gamificationService.ts(420,11): error TS6133: 'passport' is declared but its value is never read.
+src/services/gamificationService.ts(508,21): error TS6133: 'code' is declared but its value is never read.
+src/services/gamificationService.ts(508,35): error TS6133: 'placeId' is declared but its value is never read.
+src/services/internationalKeywords.service.ts(28,11): error TS6133: 'brandName' is declared but its value is never read.
+src/services/internationalKeywords.service.ts(29,11): error TS6133: 'primaryLocation' is declared but its value is never read.
+src/services/internationalSEO.service.ts(99,13): error TS2322: Type '{ country: string; language: string; searchEngine: string; priority: string; population: string; tourismPotential: string; verificationCode: null; status: string; } | { country: string; language: string; ... 5 more ...; status: string; }' is not assignable to type 'InternationalMarket'.
+src/services/internationalSEO.service.ts(260,8): error TS2322: Type '{ country: string; language: string; searchEngine: string; priority: string; population: string; tourismPotential: string; verificationCode: string; status: string; }' is not assignable to type 'InternationalMarket'.
+src/services/keywordMonitorService.ts(123,17): error TS6133: 'simulateSocialMonitoring' is declared but its value is never read.
+src/services/keywordMonitorService.ts(191,36): error TS6133: 'keyword' is declared but its value is never read.
+src/services/keywordMonitorService.ts(256,7): error TS2322: Type '"manual"' is not assignable to type '"search" | "community" | "social" | "news"'.
+src/services/offlineStorage.ts(186,36): error TS2345: Argument of type 'true' is not assignable to parameter of type 'IDBValidKey | IDBKeyRange | null | undefined'.
+src/services/orderSyncService.ts(4,26): error TS2614: Module '"./offlineStorage"' has no exported member 'OfflineOrder'. Did you mean to use 'import OfflineOrder from "./offlineStorage"' instead?
+src/services/orderSyncService.ts(17,11): error TS6133: 'retryDelay' is declared but its value is never read.
+src/services/orderSyncService.ts(31,11): error TS6133: 'cleanupConnectionListener' is declared but its value is never read.
+src/services/orderSyncService.ts(172,36): error TS6133: 'orderData' is declared but its value is never read.
+src/services/pageSyncAnalyzer.ts(5,31): error TS2307: Cannot find module './placesService' or its corresponding type declarations.
+src/services/pageSyncAnalyzer.ts(6,10): error TS2614: Module '"./seoMonitoringService"' has no exported member 'seoMonitoringService'. Did you mean to use 'import seoMonitoringService from "./seoMonitoringService"' instead?
+src/services/pageSyncAnalyzer.ts(7,1): error TS6133: 'seoLandingService' is declared but its value is never read.
+src/services/pageSyncAnalyzer.ts(7,10): error TS2614: Module '"./seoLandingService"' has no exported member 'seoLandingService'. Did you mean to use 'import seoLandingService from "./seoLandingService"' instead?
+src/services/pageSyncAnalyzer.ts(8,10): error TS2614: Module '"./internationalSEO.service"' has no exported member 'internationalSEOService'. Did you mean to use 'import internationalSEOService from "./internationalSEO.service"' instead?
+src/services/pageSyncAnalyzer.ts(11,1): error TS6133: 'analyticsService' is declared but its value is never read.
+src/services/pageSyncAnalyzer.ts(11,10): error TS2614: Module '"./analyticsService"' has no exported member 'analyticsService'. Did you mean to use 'import analyticsService from "./analyticsService"' instead?
+src/services/pageSyncAnalyzer.ts(167,11): error TS6133: 'languages' is declared but its value is never read.
+src/services/pageSyncAnalyzer.ts(339,11): error TS6133: 'technicalMetrics' is declared but its value is never read.
+src/services/pageSyncAnalyzer.ts(528,55): error TS2551: Property 'getMonitoredKeywords' does not exist on type 'KeywordMonitorService'. Did you mean 'addMonitoredKeyword'?
+src/services/pageSyncAnalyzer.ts(577,50): error TS2339: Property 'getBacklinkMetrics' does not exist on type 'LocalBacklinksService'.
+src/services/pageSyncAnalyzer.ts(599,48): error TS6133: 'keyword' is declared but its value is never read.
+src/services/pageSyncAnalyzer.ts(626,50): error TS2339: Property 'getBacklinkMetrics' does not exist on type 'LocalBacklinksService'.
+src/services/pageSyncAnalyzer.ts(731,30): error TS6133: 'keyword' is declared but its value is never read.
+src/services/pageSyncAnalyzer.ts(785,9): error TS2322: Type '"mobile"' is not assignable to type '"technical" | "content" | "schema" | "backlinks" | "localization"'.
+src/services/pageSyncAnalyzer.ts(818,50): error TS2339: Property 'getBacklinkMetrics' does not exist on type 'LocalBacklinksService'.
+src/services/programaticLandingService.ts(74,7): error TS6196: 'ProgrammaticLandingService' is declared but never used.
+src/services/programaticLandingService.ts(75,18): error TS6133: 'instance' is declared but its value is never read.
+src/services/programaticLandingService.ts(75,28): error TS2552: Cannot find name 'ProgramaticLandingService'. Did you mean 'ProgrammaticLandingService'?
+src/services/programaticLandingService.ts(83,10): error TS2552: Cannot find name 'ProgramaticLandingService'. Did you mean 'ProgrammaticLandingService'?
+src/services/programaticLandingService.ts(84,7): error TS2552: Cannot find name 'ProgramaticLandingService'. Did you mean 'ProgrammaticLandingService'?
+src/services/programaticLandingService.ts(84,48): error TS2304: Cannot find name 'ProgramaticLandingService'.
+src/services/programaticLandingService.ts(86,12): error TS2304: Cannot find name 'ProgramaticLandingService'.
+src/services/programaticLandingService.ts(619,16): error TS2304: Cannot find name 'ProgramaticLandingService'.
+src/services/programmaticSEOLandingService.ts(167,65): error TS6133: 'template' is declared but its value is never read.
+src/services/programmaticSEOLandingService.ts(168,11): error TS6133: 'normalizedTopic' is declared but its value is never read.
+src/services/programmaticSEOLandingService.ts(220,32): error TS6133: 'topic' is declared but its value is never read.
+src/services/qrCodeGenerator.ts(56,25): error TS2339: Property 'toSVG' does not exist on type 'typeof import("C:/Users/user/Documents/mapa-salento-2026/salento-mapa-turistico/node_modules/@types/qrcode/index")'.
+src/services/qrCodeGenerator.ts(76,11): error TS6133: 'generatePlaceholderQR' is declared but its value is never read.
+src/services/qrCodeGenerator.ts(144,11): error TS6133: 'generatePlaceholderSVG' is declared but its value is never read.
+src/services/qrCodeGenerator.ts(201,46): error TS6133: 'logoUrl' is declared but its value is never read.
+src/services/qrHotelService.ts(67,24): error TS2339: Property 'metadata' does not exist on type 'HotelQRConfig'.
+src/services/qrHotelService.ts(303,17): error TS6133: 'id' is declared but its value is never read.
+src/services/qrHotelService.ts(394,9): error TS2353: Object literal may only specify known properties, and 'metadata' does not exist in type 'HotelQRConfig'.
+src/services/qrTrackingService.ts(26,31): error TS7008: Member ''reservation'' implicitly has an 'any' type.
+src/services/qrTrackingService.ts(26,46): error TS7008: Member ''inquiry'' implicitly has an 'any' type.
+src/services/qrTrackingService.ts(26,57): error TS7008: Member ''view'' implicitly has an 'any' type.
+src/services/qrTrackingService.ts(97,11): error TS2739: Type '{ scanId: string; qrId: string; timestamp: Date; deviceType: "mobile" | "desktop" | "tablet" | undefined; userAgent: string | undefined; location: { lat?: number | undefined; lng?: number | undefined; } | undefined; }' is missing the following properties from type 'ScanEvent': 'reservation', 'inquiry', 'view'
+src/services/qrTrackingService.ts(122,9): error TS2322: Type '"order" | "view" | "reservation" | "inquiry"' is not assignable to type '"order" | undefined'.
+src/services/qrTrackingService.ts(254,17): error TS6133: 'qrId' is declared but its value is never read.
+src/services/realWorldSearchEngines.service.ts(19,20): error TS6133: 'domain' is declared but its value is never read.
+src/services/realWorldSearchEngines.service.ts(20,20): error TS6133: 'brandName' is declared but its value is never read.
+src/services/reviewsService.ts(263,42): error TS6133: 'placeName' is declared but its value is never read.
+src/services/reviewsService.ts(358,27): error TS2345: Argument of type '{ placeId: string; placeName: string; placeType: string; userId: string; userName: string; rating: number; title: string; comment: string; verified: boolean; language: string; }' is not assignable to parameter of type '{ placeId: string; placeName: string; placeType: string; userId: string; userName: string; rating: number; title: string; comment: string; photos?: string[] | undefined; verified?: boolean | undefined; language?: "es" | ... 1 more ... | undefined; }'.
+src/services/seoMonitoringService.ts(74,11): error TS6133: 'generateSampleData' is declared but its value is never read.
+src/services/weatherService.ts(40,47): error TS6133: 'lng' is declared but its value is never read.
+src/utils/logger.ts(2,35): error TS2339: Property 'env' does not exist on type 'ImportMeta'.

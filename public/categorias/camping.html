@@ -14,16 +14,31 @@
     <link rel="alternate" hreflang="it" href="https://salentoalamano.com/categorias/camping.html?lang=it">
     <link rel="alternate" hreflang="x-default" href="https://salentoalamano.com/categorias/camping.html">
     <link rel="stylesheet" href="/page-theme.css">
+    <style>
+      .provider-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; margin-top: 24px; }
+      .provider-card { background: var(--white); border: 1px solid var(--line); border-radius: 20px; overflow: hidden; }
+      .card-body { padding: 18px; }
+      .card-header-row, .meta-row, .card-actions { display: flex; justify-content: space-between; gap: 10px; align-items: center; }
+      .card-header-row { margin-bottom: 10px; }
+      .pill { background: #f3ead6; border-radius: 999px; padding: 6px 10px; font-size: 10px; font-weight: 700; text-transform: uppercase; }
+      .rating { font-size: 12px; font-weight: 700; }
+      .provider-card h3 { margin: 8px 0 10px; font-size: 1.35rem; }
+      .card-body p { margin: 0 0 14px; color: #59665f; line-height: 1.5; font-size: 0.96rem; }
+      .meta-row { color: #4d5a51; font-size: 12px; margin-bottom: 16px; }
+      .btn { display: inline-flex; align-items: center; justify-content: center; padding: 10px 12px; border-radius: 10px; border: 1px solid var(--line); font-weight: 700; font-size: 12px; background: var(--white); }
+      .btn.primary { background: var(--ink); color: var(--white); border-color: var(--ink); }
+      .btn.whatsapp { background: #25d366; border-color: #25d366; color: #fff; }
+    </style>
 </head>
 <body>
     <header class="topbar">
-        <a class="brand" href="/index.html">
+        <a class="brand" href="/">
             <img src="/logo_salento2026.png" alt="Salento a la Mano" class="brand-logo">
             <span>Salento a la Mano</span>
         </a>
         <nav class="top-actions">
             <a class="nav-link" href="/">Inicio</a>
-            <a class="nav-link" href="/index.html">Volver al inicio</a>
+            <a class="nav-link" href="/">Volver al inicio</a>
         </nav>
     </header>
 
@@ -61,11 +76,53 @@
             </ul>
         </div>
 
+        <div class="provider-grid">
+            <article class="provider-card" onclick="window.location.href='/paginas-pautantes/camping-cascadas-de-santa-rita/'" role="link" tabindex="0" onkeydown="if(event.key==='Enter'){window.location.href='/paginas-pautantes/camping-cascadas-de-santa-rita/'}" style="cursor:pointer" aria-label="Abrir página de Camping Cascadas de Santa Rita">
+                <div class="card-body">
+                    <div class="card-header-row">
+                        <span class="pill">Camping</span>
+                        <span class="rating">⭐ 4.6</span>
+                    </div>
+                    <h3>Camping Cascadas de Santa Rita</h3>
+                    <p>Zona de camping en la Reserva Natural: carpas propias y glamping básico cerca de la cascada principal. Baños, fogata y senderos. $28.000 por persona por noche.</p>
+                    <div class="meta-row">
+                        <span>$28.000 / noche</span>
+                        <span>Vereda Boquía</span>
+                    </div>
+                    <div class="card-actions" onclick="event.stopPropagation()">
+                        <a class="btn primary" href="/pautantes/camping-cascadas-de-santa-rita.html">Ver ficha</a>
+                        <a class="btn" href="/paginas-pautantes/camping-cascadas-de-santa-rita/">Conocer</a>
+                        <a class="btn whatsapp" href="https://wa.me/573015038254" target="_blank" rel="noreferrer">WhatsApp</a>
+                    </div>
+                </div>
+            </article>
+            <article class="provider-card" onclick="window.location.href='/paginas-pautantes/reserva-natural-cascadas-de-santa-rita/'" role="link" tabindex="0" onkeydown="if(event.key==='Enter'){window.location.href='/paginas-pautantes/reserva-natural-cascadas-de-santa-rita/'}" style="cursor:pointer" aria-label="Abrir página de Reserva Natural Cascadas de Santa Rita">
+                <div class="card-body">
+                    <div class="card-header-row">
+                        <span class="pill">Atractivo + Camping</span>
+                        <span class="rating">⭐ 4.7</span>
+                    </div>
+                    <h3>Reserva Natural Cascadas de Santa Rita</h3>
+                    <p>Cascada de 20 m con piscina natural y sendero de 4.8 km. Pasadía $11.000, camping $28.000 por noche y habitación $140.000 por pareja. Contacto directo.</p>
+                    <div class="meta-row">
+                        <span>Pasadía $11.000</span>
+                        <span>3-4 horas caminata</span>
+                    </div>
+                    <div class="card-actions" onclick="event.stopPropagation()">
+                        <a class="btn primary" href="/pautantes/reserva-natural-cascadas-de-santa-rita.html">Ver ficha</a>
+                        <a class="btn" href="/paginas-pautantes/reserva-natural-cascadas-de-santa-rita/">Conocer</a>
+                        <a class="btn whatsapp" href="https://wa.me/573015038254" target="_blank" rel="noreferrer">WhatsApp</a>
+                    </div>
+                </div>
+            </article>
+        </div>
+
         <div class="cta-section">
             <h2>Encuentra tu lugar de camping</h2>
             <p>Explora las opciones disponibles en el mapa y contacta directamente con los operadores.</p>
             <a href="/" class="cta-button">Ver en el mapa</a>
         </div>
+        <nav class="bottom-nav" aria-label="Volver" style="display:flex;flex-wrap:wrap;gap:10px;margin-top:28px"><a class="button primary" href="/">Volver al inicio</a><a class="button dark" href="/">Ir a página principal</a><a class="button" href="/categorias/">Ver categorías</a></nav>
     </main>
 
     <footer class="footer">

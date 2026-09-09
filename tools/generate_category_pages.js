@@ -51,6 +51,28 @@ function brandMark(link = true) {
   return link ? `<a class="brand" href="/">${mark}</a>` : `<div class="brand">${mark}</div>`;
 }
 
+const PAUTANTE_LOGOS = {
+  'boki-mall-hotel-el-mirador-de-boquia': '/pautas/boki_mall/hotel-mirador-boquia/logo-hotel-mirador-de-boquia.png',
+  'boki-mall-restaurante-terra': '/pautas/boki_mall/boki_mall_logo.jpg',
+  'boki-mall-barcinales-cafe-bar': '/pautas/boki_mall/boki_mall_logo.jpg',
+  'boki-mall-eventos': '/pautas/boki_mall/boki_mall_logo.jpg',
+  'moto-aventura-110': '/pautas/moto_aventura_110/imagenes/logo-moto-aventura-110.jpg',
+  'reserva-natural-cascadas-de-santa-rita': '/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/logo_cascadas_de_santa_rita.jfif',
+  'camping-cascadas-de-santa-rita': '/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/logo_cascadas_de_santa_rita.jfif',
+  'camping-cascadas-santa-rita': '/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/logo_cascadas_de_santa_rita.jfif',
+  'finca-hotel-el-ocaso': '/pautas/coffee-tour-alojamiento-finca-hotel-el-ocaso/imagenes/logo_ocaso.png',
+};
+
+function brandMarkFor(slug) {
+  const logo = PAUTANTE_LOGOS[slug];
+  if (!logo) return brandMark(true);
+  return `<a class="brand" href="/"><img src="/logo_salento2026.png" alt="Salento a la Mano" class="brand-logo" style="width:64px;height:64px;object-fit:contain;border-radius:50%"/><span>Salento a la Mano</span><span aria-hidden="true" style="opacity:.4">×</span><img src="${logo}" alt="Logo pautante" class="brand-logo" style="width:64px;height:64px;object-fit:contain;border-radius:50%;border:1px solid var(--line)" /></a>`;
+}
+
+function bottomNav() {
+  return `<nav class="bottom-nav" aria-label="Volver" style="display:flex;flex-wrap:wrap;gap:10px;margin-top:28px"><a class="button primary" href="/">Volver al inicio</a><a class="button dark" href="/">Ir a página principal</a><a class="button" href="/categorias/">Ver categorías</a></nav>`;
+}
+
 function whatsappUrl(value) {
   const number = String(value ?? '').replace(/\D/g, '');
   return /^\d{8,15}$/.test(number) ? `https://wa.me/${number}` : '';
@@ -228,7 +250,7 @@ function renderCategoryPage(category, items) {
     const whatsapp = whatsappUrl(item.contact?.whatsapp);
     const mapUrl = `https://www.google.com/maps/search/${encodeURIComponent(item.location?.address || `${item.name} Salento`)}`;
     return `
-      <article class="provider-card">
+      <article class="provider-card" onclick="window.location.href='/paginas-pautantes/${itemSlug}/'" role="link" tabindex="0" onkeydown="if(event.key==='Enter'){window.location.href='/paginas-pautantes/${itemSlug}/'}" style="cursor:pointer" aria-label="Abrir página de ${escapeHtml(item.name)}">
         <div class="card-image" style="background-image:url('${categoryMeta[category]?.image || 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee'}')"></div>
         <div class="card-body">
           <div class="card-header-row">
@@ -241,7 +263,7 @@ function renderCategoryPage(category, items) {
             <span>${escapeHtml(item.priceRange || '$$')}</span>
             <span>${escapeHtml(item.timeInfo || 'Reservas directas')}</span>
           </div>
-          <div class="card-actions">
+          <div class="card-actions" onclick="event.stopPropagation()">
             <a class="btn primary" href="/pautantes/${itemSlug}.html">Ver ficha</a>
             <a class="btn" href="/paginas-pautantes/${itemSlug}/">Conocer</a>
             <a class="btn" href="${mapUrl}" target="_blank" rel="noreferrer">Cómo llegar</a>
@@ -363,7 +385,7 @@ function renderCategoryPage(category, items) {
     <div class="container">
       <div class="topbar">
         ${brandMark()}
-        <nav class="top-actions"><a class="nav-link" href="/">Inicio</a><a class="nav-link" href="/index.html">Volver al inicio</a></nav>
+        <nav class="top-actions"><a class="nav-link" href="/">Inicio</a><a class="nav-link" href="/">Volver al inicio</a></nav>
       </div>
 
       <section class="hero">
@@ -446,9 +468,9 @@ function renderProviderPage(provider) {
   </head>
   <body>
     <div class="container">
-      <div class="breadcrumb"><a href="/index.html">Inicio</a> / <a href="${hrefBack}">${escapeHtml(categoryLabelFor(category))}</a> / ${escapeHtml(provider.name)}</div>
+      <div class="breadcrumb"><a href="/">Inicio</a> / <a href="${hrefBack}">${escapeHtml(categoryLabelFor(category))}</a> / ${escapeHtml(provider.name)}</div>
       <div class="topbar">
-        ${brandMark()}
+        ${brandMarkFor(slugify(provider.name))}
         <div class="topbar-actions">
           <a class="back-btn" href="/">Inicio</a>
           <a class="back-btn" href="/paginas-pautantes/${slugify(provider.name)}/">Página del pautante</a>
@@ -509,6 +531,7 @@ function renderProviderPage(provider) {
           <div class="info-item"><strong>Cómo llegar</strong><span><a href="https://www.google.com/maps/search/${encodeURIComponent(provider.location?.address || provider.name + ' Salento')}" target="_blank" rel="noreferrer">Abrir en Google Maps</a></span></div>
         </div>
       </section>
+      ${bottomNav()}
     </div>
   </body>
 </html>`;
@@ -579,7 +602,7 @@ function renderProviderLandingPage(provider) {
   </head>
   <body>
     <main class="container">
-      <header class="topbar">${brandMark()}<nav class="top-actions"><a class="button" href="/">Inicio</a><a class="button" href="${hrefBack}">Ver categoría</a><a class="button" href="${hrefFicha}">Ficha completa</a></nav></header>
+      <header class="topbar">${brandMarkFor(slug)}<nav class="top-actions"><a class="button" href="/">Inicio</a><a class="button" href="${hrefBack}">Ver categoría</a><a class="button" href="${hrefFicha}">Ficha completa</a></nav></header>
       <section class="hero">
         <div class="hero-copy"><div class="eyebrow">${escapeHtml(category)} · contacto directo</div><h1>${escapeHtml(provider.name)}</h1><p class="lead">${escapeHtml(provider.description || 'Una experiencia local para descubrir Salento con información clara y contacto directo.')}</p>
           <div class="highlights">${highlights.map((item) => `<span class="highlight">${escapeHtml(item)}</span>`).join('')}</div>
@@ -591,19 +614,26 @@ function renderProviderLandingPage(provider) {
       ${serviceSection}
       ${transportSection}
       <section class="section"><h2>Lo que puedes encontrar</h2><div class="tags">${(provider.tags || []).map((tag) => `<span class="tag">${escapeHtml(tag)}</span>`).join('') || '<span class="tag">Servicio local</span>'}</div></section>
+      ${bottomNav()}
     </main>
   </body>
 </html>`;
   return html.replaceAll('href="tel:"', `href="${hrefFicha}"`).replaceAll('href="tel:tel:', 'href="tel:');
 }
 
+const onlyFilter = new Set(
+  (process.env.ONLY || '').split(',').map((s) => s.trim()).filter(Boolean)
+);
+
 for (const category of categoryNames) {
+  if (onlyFilter.size > 0 && ![...onlyFilter].some((f) => f === slugify(category) || f === `cat:${slugify(category)}`)) continue;
   const items = providers.filter((item) => item.type === category);
   const categoryPath = path.join(categoryDir, `${slugify(category)}.html`);
   fs.writeFileSync(categoryPath, renderCategoryPage(category, items));
 }
 
 for (const provider of providers) {
+  if (onlyFilter.size > 0 && !onlyFilter.has(slugify(provider.name))) continue;
   const providerPath = path.join(providerDir, `${slugify(provider.name)}.html`);
   fs.writeFileSync(providerPath, renderProviderPage(provider));
   const landingPath = path.join(providerLandingDir, slugify(provider.name), 'index.html');
@@ -611,6 +641,7 @@ for (const provider of providers) {
   fs.writeFileSync(landingPath, renderProviderLandingPage(provider));
 }
 
+if (onlyFilter.size === 0) {
 const indexPath = path.join(publicDir, 'categorias', 'index.html');
 const indexHtml = `<!DOCTYPE html>
 <html lang="es">
@@ -639,7 +670,7 @@ const indexHtml = `<!DOCTYPE html>
   </head>
   <body>
     <div class="container">
-          <header class="topbar"><a class="brand" href="/index.html"><img src="/logo_salento2026.png" alt="Salento a la Mano" class="brand-logo"/><span>Salento a la Mano</span></a><a href="/index.html">Volver al inicio</a></header>
+          <header class="topbar"><a class="brand" href="/"><img src="/logo_salento2026.png" alt="Salento a la Mano" class="brand-logo"/><span>Salento a la Mano</span></a><a href="/">Volver al inicio</a></header>
           <h1>Categorías de Salento</h1>
       <div class="grid">
         ${categoryNames.map((category) => `
@@ -657,5 +688,6 @@ const indexHtml = `<!DOCTYPE html>
   </body>
 </html>`;
 fs.writeFileSync(indexPath, indexHtml);
+} // end if onlyFilter empty (categorias index solo en regeneración completa)
 
-console.log(`Se generaron ${categoryNames.length} páginas de categoría y ${providers.length} fichas de pautantes.`);
+console.log(`Se generaron páginas de categoría y fichas de pautantes${onlyFilter.size > 0 ? ` (filtro: ${[...onlyFilter].join(', ')})` : ''}.`);

@@ -39,7 +39,7 @@ BRAND HITS:
   - public\paginas-pautantes\cafe-de-altura\index.html
 
 DETAILED FINDINGS:
-mapa-salento.com: 0 hits
+salentoalamano.com: 0 hits
 salentoalamano.com: 0 hits
 salentoalamano.com: 29 hits
   - ACTIVACION_INDEXACION.md
