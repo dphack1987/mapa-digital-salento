@@ -17,6 +17,7 @@ DUAL_LOGO = {
     "camping-cascadas-de-santa-rita": "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/logo_cascadas_de_santa_rita.jfif",
     "camping-cascadas-santa-rita": "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/logo_cascadas_de_santa_rita.jfif",
     "finca-hotel-el-ocaso": "/pautas/coffee-tour-alojamiento-finca-hotel-el-ocaso/imagenes/logo_ocaso.png",
+    "finca-don-eduardo-coffee-tour": "/pautas/coffee-tour-finca-don-eduardo/logo-finca-don-eduardo.jpg",
 }
 
 # relleno de marca para galerías con fallback Unsplash restante

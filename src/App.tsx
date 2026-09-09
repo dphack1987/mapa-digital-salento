@@ -345,7 +345,7 @@ function App() {
   const [selectedCategoryPage, setSelectedCategoryPage] = useState<Category | null>(null)
   const [selectedAllyForVerification, setSelectedAllyForVerification] = useState<string | null>(null)
 
-  const isEnglish = language === 'EN'
+  const isEnglish = language === 'en'
 
   const helmetTitle = useMemo(() => {
     try {
@@ -430,6 +430,63 @@ function App() {
     if (provider) {
       setSelectedPlace(provider)
     }
+  }
+
+  // Pedidos directos por WhatsApp con datos de hotel (flujo de domicilios a hotel)
+  function handleDirectOrder(category: string, hotelInfo?: { name: string; room: string }) {
+    const deliveryCategories = ['restaurantes', 'supermercados']
+
+    // Si es una categoría que requiere entrega a hotel y no hay info de hotel, mostrar modal
+    if (deliveryCategories.includes(category) && !hotelInfo) {
+      setPendingOrderCategory(category)
+      setShowHotelModal(true)
+      return
+    }
+
+    const categoryMessages = {
+      'restaurantes': isEnglish
+        ? `Hello! I want to order food delivery to my hotel. Hotel: ${hotelInfo?.name || 'Not specified'}, Room: ${hotelInfo?.room || 'Not specified'}. What's available?`
+        : `¡Hola! Quiero hacer un pedido de comida a mi hotel. Hotel: ${hotelInfo?.name || 'No especificado'}, Habitación: ${hotelInfo?.room || 'No especificada'}. ¿Qué tienen disponible?`,
+      'supermercados': isEnglish
+        ? `Hello! I need groceries/supplies delivered to my hotel. Hotel: ${hotelInfo?.name || 'Not specified'}, Room: ${hotelInfo?.room || 'Not specified'}. What can you deliver?`
+        : `¡Hola! Necesito que me lleven víveres/tiendas a mi hotel. Hotel: ${hotelInfo?.name || 'No especificado'}, Habitación: ${hotelInfo?.room || 'No especificada'}. ¿Qué pueden llevarme?`,
+      'transporte': isEnglish
+        ? `Hello! I need transportation. Where are you located and what are your rates?`
+        : `¡Hola! Necesito transporte. ¿Dónde están ubicados y cuáles son sus tarifas?`,
+      'caballos': isEnglish
+        ? `Hello! I'm interested in horseback riding tours in Cocora Valley. What are your options and prices?`
+        : `¡Hola! Me interesa hacer cabalgatas en el Valle de Cocora. ¿Qué opciones tienen y cuáles son los precios?`,
+      'guias': isEnglish
+        ? `Hello! I need a tour guide for Salento. What tours do you offer?`
+        : `¡Hola! Necesito un guía turístico para Salento. ¿Qué tours ofrecen?`,
+      'operadoras': isEnglish
+        ? `Hello! I'm interested in tourism activities in Salento. What packages do you have?`
+        : `¡Hola! Me interesa hacer actividades turísticas en Salento. ¿Qué paquetes tienen?`
+    }
+
+    const message = categoryMessages[category as keyof typeof categoryMessages] || categoryMessages['restaurantes']
+
+    // Buscar el primer contacto disponible de esa categoría
+    const categoryPlaces = places.filter(p => p.type.toLowerCase().includes(category.toLowerCase()))
+    const contactPlace = categoryPlaces[0]
+
+    if (contactPlace?.contact.whatsapp) {
+      const whatsappUrl = `https://wa.me/${contactPlace.contact.whatsapp}?text=${encodeURIComponent(message)}`
+      window.open(whatsappUrl, '_blank')
+    } else {
+      // Fallback a número genérico si no hay contacto específico
+      const whatsappUrl = `https://wa.me/573000000000?text=${encodeURIComponent(message)}`
+      window.open(whatsappUrl, '_blank')
+    }
+  }
+
+  // Manejar el envío del modal de hotel
+  const handleHotelInfoSubmit = (hotelInfo: { name: string; room: string; phone?: string }) => {
+    if (pendingOrderCategory) {
+      handleDirectOrder(pendingOrderCategory, hotelInfo)
+      setPendingOrderCategory(null)
+    }
+    setShowHotelModal(false)
   }
   
   // Función helper para obtener traducciones
@@ -783,7 +840,7 @@ function App() {
                   currency={currency}
                   onAdd={addToCart}
                   onOpen={() => window.location.assign(`/paginas-pautantes/${providerSlug(place.name)}/`)}
-                  onReviews={() => { setShowReviews(place.id); setSelectedPlaceForReviews({ id: place.id, name: place.name, type: place.type }) }}
+                  onReviews={() => { setShowReviews(String(place.id)); setSelectedPlaceForReviews({ id: String(place.id), name: place.name, type: place.type }) }}
                 />
               ))}
             </div>
@@ -987,7 +1044,7 @@ function App() {
           </div>
           <div className="directory-intro"><span><MapPin size={16} /> Directorio local</span><small>{filteredPlaces.length} lugares para descubrir</small></div>
           <div className="place-grid">
-            {filteredPlaces.map((place) => <PlaceCard key={place.id} place={adaptPlaceForCompatibility(place)} currency={currency} onAdd={addToCart} onOpen={() => window.location.assign(`/paginas-pautantes/${providerSlug(place.name)}/`)} onReviews={() => { setShowReviews(place.id); setSelectedPlaceForReviews({ id: place.id, name: place.name, type: place.type }) }} />)}
+            {filteredPlaces.map((place) => <PlaceCard key={place.id} place={adaptPlaceForCompatibility(place)} currency={currency} onAdd={addToCart} onOpen={() => window.location.assign(`/paginas-pautantes/${providerSlug(place.name)}/`)} onReviews={() => { setShowReviews(String(place.id)); setSelectedPlaceForReviews({ id: String(place.id), name: place.name, type: place.type }) }} />)}
             {filteredPlaces.length === 0 && <div className="empty-state">No encontramos ese plan todavía. Prueba con “café”, “artesanía” o “trucha”.</div>}
           </div>
         </section>
@@ -1297,63 +1354,6 @@ function DonChucho({ language, t, places, weather, todayEvents }: { language: La
     }
   }
 
-  // Función mejorada para pedidos directos por WhatsApp
-  function handleDirectOrder(category: string, hotelInfo?: { name: string; room: string }) {
-    const deliveryCategories = ['restaurantes', 'supermercados']
-    
-    // Si es una categoría que requiere entrega a hotel y no hay info de hotel, mostrar modal
-    if (deliveryCategories.includes(category) && !hotelInfo) {
-      setPendingOrderCategory(category)
-      setShowHotelModal(true)
-      return
-    }
-
-    const categoryMessages = {
-      'restaurantes': isEnglish 
-        ? `Hello! I want to order food delivery to my hotel. Hotel: ${hotelInfo?.name || 'Not specified'}, Room: ${hotelInfo?.room || 'Not specified'}. What's available?`
-        : `¡Hola! Quiero hacer un pedido de comida a mi hotel. Hotel: ${hotelInfo?.name || 'No especificado'}, Habitación: ${hotelInfo?.room || 'No especificada'}. ¿Qué tienen disponible?`,
-      'supermercados': isEnglish
-        ? `Hello! I need groceries/supplies delivered to my hotel. Hotel: ${hotelInfo?.name || 'Not specified'}, Room: ${hotelInfo?.room || 'Not specified'}. What can you deliver?`
-        : `¡Hola! Necesito que me lleven víveres/tiendas a mi hotel. Hotel: ${hotelInfo?.name || 'No especificado'}, Habitación: ${hotelInfo?.room || 'No especificada'}. ¿Qué pueden llevarme?`,
-      'transporte': isEnglish
-        ? `Hello! I need transportation. Where are you located and what are your rates?`
-        : `¡Hola! Necesito transporte. ¿Dónde están ubicados y cuáles son sus tarifas?`,
-      'caballos': isEnglish
-        ? `Hello! I'm interested in horseback riding tours in Cocora Valley. What are your options and prices?`
-        : `¡Hola! Me interesa hacer cabalgatas en el Valle de Cocora. ¿Qué opciones tienen y cuáles son los precios?`,
-      'guias': isEnglish
-        ? `Hello! I need a tour guide for Salento. What tours do you offer?`
-        : `¡Hola! Necesito un guía turístico para Salento. ¿Qué tours ofrecen?`,
-      'operadoras': isEnglish
-        ? `Hello! I'm interested in tourism activities in Salento. What packages do you have?`
-        : `¡Hola! Me interesa hacer actividades turísticas en Salento. ¿Qué paquetes tienen?`
-    }
-
-    const message = categoryMessages[category as keyof typeof categoryMessages] || categoryMessages['restaurantes']
-    
-    // Buscar el primer contacto disponible de esa categoría
-    const categoryPlaces = places.filter(p => p.type.toLowerCase().includes(category.toLowerCase()))
-    const contactPlace = categoryPlaces[0]
-    
-    if (contactPlace?.contact.whatsapp) {
-      const whatsappUrl = `https://wa.me/${contactPlace.contact.whatsapp}?text=${encodeURIComponent(message)}`
-      window.open(whatsappUrl, '_blank')
-    } else {
-      // Fallback a número genérico si no hay contacto específico
-      const whatsappUrl = `https://wa.me/573000000000?text=${encodeURIComponent(message)}`
-      window.open(whatsappUrl, '_blank')
-    }
-  }
-
-  // Manejar el envío del modal de hotel
-  const handleHotelInfoSubmit = (hotelInfo: { name: string; room: string; phone?: string }) => {
-    if (pendingOrderCategory) {
-      handleDirectOrder(pendingOrderCategory, hotelInfo)
-      setPendingOrderCategory(null)
-    }
-    setShowHotelModal(false)
-  }
-
   return <div className={open ? 'chucho-widget open' : 'chucho-widget'}>{open && <div className="chucho-panel"><div className="chucho-head"><img src="/avatar-don-chucho.png" alt="Don Chucho" className="chucho-avatar-image" /><div><strong>{t('donChucho.title')}</strong><span>{t('donChucho.subtitle')}</span></div><button className="icon-button" onClick={() => setOpen(false)} aria-label="Cerrar asistente"><X size={16} /></button></div><div className="chucho-answer"><MessageCircle size={16} />{answer}</div>{relatedPlace && relatedPlace.contact.whatsapp && <div className="chucho-whatsapp"><button className="whatsapp-button" onClick={() => handleWhatsAppClick(relatedPlace)}><Phone size={16} />{isEnglish ? `Contact ${relatedPlace.name}` : `Contactar a ${relatedPlace.name}`}</button></div>}{suggestions.length > 0 && <div className="chucho-suggestions">{suggestions.map((suggestion, index) => <button key={index} onClick={() => ask(suggestion)}>{suggestion}</button>)}</div>}<form onSubmit={(event) => { event.preventDefault(); if (question.trim()) ask(question) }}><input value={question} onChange={(event) => setQuestion(event.target.value)} placeholder={t('donChucho.placeholder')} /><button aria-label="Enviar pregunta"><Send size={15} /></button></form></div>}<button className="chucho-trigger" onClick={() => setOpen(!open)} aria-label="Abrir asistente Don Chucho"><img src="/don-chucho-boton.png" alt="Don Chucho" className="chucho-button-image" />{showGreeting && <span className="chucho-greeting">¡Hola, pues!</span>}</button></div>
 }
 
@@ -1365,7 +1365,7 @@ function categoryToMapType(category: Category) {
 
 function PlaceCard({ place, currency, onAdd, onOpen, onReviews }: { place: Place; currency: Currency; onAdd: () => void; onOpen: () => void; onReviews?: () => void }) {
   const Icon = place.icon
-  const stats = reviewsService.getPlaceStats(place.id)
+  const stats = reviewsService.getPlaceStats(String(place.id))
   const mapUrl = `https://www.google.com/maps/search/${encodeURIComponent(place.location?.address || `${place.name} Salento`)}`
   
   return (
