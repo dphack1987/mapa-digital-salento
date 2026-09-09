@@ -95,7 +95,7 @@
       "id": 13,
       "name": "Boki Mall - Hotel El Mirador de Boquía",
       "type": "Alojamientos",
-      "description": "Complejo turístico y hotelero en Boquía que combina hospedaje, restaurante, bar, eventos y experiencias locales en un entorno rural cercano a Salento. Es una opción reconocida por su propuesta premium y su acceso rápido al centro del pueblo. Registro Nacional de Turismo #91079.",
+      "description": "Complejo turístico y hotelero en Boquía que combina hospedaje, restaurante, bar, eventos y experiencias locales en un entorno rural cercano a Salento. Es una opción reconocida por su propuesta premium y su acceso rápido al centro del pueblo.",
       "priceRange": "$$$",
       "rating": "4.9",
       "timeInfo": "Reservas directas",
@@ -242,11 +242,7 @@
         "ambience": "Elegante con vistas panorámicas",
         "seating": "80 personas",
         "reservations": "Recomendadas para grupos y cenas",
-        "paymentMethods": [
-          "Efectivo",
-          "Tarjeta",
-          "Transferencia"
-        ]
+        "paymentMethods": ["Efectivo", "Tarjeta", "Transferencia"]
       },
       "photos": [
         "/pautas/boki_mall/hotel-mirador-boquia/Hotel_Mirador_de_Boquia_1747081077351.jpeg"
@@ -307,10 +303,7 @@
         "ambience": "Relajado y elegante vanguardista",
         "seating": "40 personas",
         "reservations": "No requeridas",
-        "paymentMethods": [
-          "Efectivo",
-          "Tarjeta"
-        ]
+        "paymentMethods": ["Efectivo", "Tarjeta"]
       },
       "photos": [
         "/pautas/boki_mall/hotel-mirador-boquia/314270821.jpg"
@@ -378,10 +371,7 @@
           "Lista de invitados",
           "Preferencias específicas"
         ],
-        "languages": [
-          "Español",
-          "Inglés básico"
-        ],
+        "languages": ["Español", "Inglés básico"],
         "meetingPoint": "Boki Mall, Boquía",
         "cancellationPolicy": "Política de cancelación según tipo de evento",
         "tariff": "Cotización personalizada según requerimientos",
@@ -834,7 +824,7 @@
       "id": 16,
       "name": "Hotel La Floresta Salento",
       "type": "Alojamientos",
-      "description": "Hotel boutique con ambiente de finca a 400 metros de la plaza de Salento: café gratuito, Coffee Spa, coworking y suites con jacuzzi. Habitaciones inspiradas en aves de la región y base ideal para el Valle del Cocora. Tarifas desde $124.000 COP por noche.",
+      "description": "Hotel boutique con ambiente de finca a 400 metros de la plaza de Salento: café gratuito, Coffee Spa, coworking y suites con jacuzzi. Habitaciones inspiradas en aves de la región y base ideal para el Valle del Cocora.",
       "priceRange": "$$",
       "rating": "4.6",
       "timeInfo": "Reservas directas",
@@ -850,8 +840,8 @@
       "location": {
         "lat": 4.6372,
         "lng": -75.5705,
-        "address": "Cra. 5 #10-11, Barrio La Floresta",
-        "landmark": "A 400 m de la plaza principal (10 min a pie)"
+        "address": "Salento, Quindío",
+        "landmark": "Cerca del centro histórico"
       },
       "operatingHours": {
         "notes": "Recepción 24 horas"
@@ -868,22 +858,12 @@
         "categoryLabel": "Hotel · hospedaje cómodo en Salento",
         "roomTypes": [
           "Doble",
-          "Triple",
-          "Estándar",
-          "Cuádruple",
-          "Familiar",
-          "Suite con jacuzzi"
+          "Triple"
         ],
         "services": [
           "Wi-Fi",
           "Desayuno",
-          "Parqueadero",
-          "Coffee Spa",
-          "Gimnasio",
-          "Coworking",
-          "Desayuno 7:00-10:00",
-          "Recepción 24 horas",
-          "Información turística"
+          "Parqueadero"
         ],
         "roomFeatures": [
           "Baño privado",
@@ -900,21 +880,14 @@
           "Check-in: 14:00",
           "Check-out: 12:00"
         ],
-        "checkIn": "15:00",
+        "checkIn": "14:00",
         "checkOut": "12:00",
         "amenities": [
           "Desayuno incluido",
-          "Wi-Fi gratis",
-          "Wi-Fi alta velocidad",
-          "Café gratuito",
-          "Zona de hamacas",
-          "Talleres de cocina",
-          "Avistamiento de aves",
-          "Mascotas permitidas"
+          "Wi-Fi gratis"
         ],
         "capacity": "Por confirmar",
-        "bookingNotes": "Desde $124.000 COP/noche según web oficial. Confirmar tarifa y disponibilidad por WhatsApp.",
-        "stars": 3
+        "bookingNotes": "Confirmar directamente con el hotel para disponibilidad y precios exactos."
       },
       "photos": [
         "/pautas/hotel_la_floresta_salento/imagenes/130208701_3371262966306173_4057154681103255449_n.jpg",
@@ -992,12 +965,12 @@
     {
       "id": 19,
       "name": "Moto Aventura 110",
-      "type": "Experiencias",
-      "description": "Pista de minimotocross en Salento para niños y adultos. Minimotos 110 cc semiautomáticas (también en modo automático). Turnos de 10, 15 y 20 minutos con casco, protecciones y póliza incluidos.",
+      "type": "Servicios",
+      "description": "Transporte en moto para turistas que buscan movilidad rápida y flexible por Salento y alrededores. Servicio especializado para visitantes.",
       "priceRange": "$",
       "rating": "4.6",
-      "timeInfo": "10 min $15.000 · 15 min $20.000 · 20 min $25.000",
-      "badge": "Aventura",
+      "timeInfo": "Reserva previa",
+      "badge": "Transporte",
       "color": "yellow",
       "icon": "Bike",
       "contact": {
@@ -1007,58 +980,59 @@
       "location": {
         "lat": 4.631,
         "lng": -75.5735,
-        "address": "Salento, Quindío",
-        "landmark": "Pista en Salento (confirmar ubicación por WhatsApp)"
+        "address": "Salento",
+        "landmark": "Cerca del centro"
       },
       "operatingHours": {
-        "notes": "Horario por confirmar. Reserva previa por WhatsApp"
+        "notes": "Horario flexible con reserva"
       },
       "tags": [
         "moto",
-        "minimotocross",
-        "aventura",
-        "adrenalina",
-        "pista",
-        "familia",
-        "niños"
+        "transporte",
+        "turismo",
+        "movilidad"
       ],
       "verified": true,
       "active": true,
+      "transportDetails": {
+        "transportType": "Moto Aventura",
+        "routes": [
+          "Salento - Valle de Cocora",
+          "Salento - Boquía",
+          "Rutas locales"
+        ],
+        "capacity": "1-2 pasajeros",
+        "languages": [
+          "Español"
+        ],
+        "meetingPoint": "Punto acordado en Salento",
+        "pricingNotes": "Consultar tarifas según ruta",
+        "included": [
+          "Transporte",
+          "Casco de seguridad"
+        ],
+        "notIncluded": [
+          "Propinas",
+          "Entradas a atracciones"
+        ],
+        "operatingDays": [
+          "Lunes",
+          "Martes",
+          "Miércoles",
+          "Jueves",
+          "Viernes",
+          "Sábado",
+          "Domingo"
+        ],
+        "advanceBookingRequired": true
+      },
       "photos": [
         "/pautas/moto_aventura_110/imagenes/1.jpeg",
         "/pautas/moto_aventura_110/imagenes/2.jpeg",
         "/pautas/moto_aventura_110/imagenes/3.jpeg",
         "/pautas/moto_aventura_110/imagenes/4.jpeg",
         "/pautas/moto_aventura_110/imagenes/5.jpeg"
-      ],
-      "experienceDetails": {
-        "duration": "10, 15 o 20 minutos por turno",
-        "difficulty": "Fácil",
-        "groupSize": "Individual por moto",
-        "included": [
-          "Casco",
-          "Protecciones",
-          "Póliza de seguro"
-        ],
-        "notIncluded": [
-          "Transporte a la pista",
-          "Comida",
-          "Bebidas"
-        ],
-        "requirements": [
-          "Estatura mínima 130 cm",
-          "Saber manejar bicicleta",
-          "Pantalón largo",
-          "Zapato cerrado",
-          "Ropa cómoda"
-        ],
-        "languages": [
-          "Español"
-        ],
-        "meetingPoint": "Pista Moto Aventura 110, Salento (confirmar ubicación por WhatsApp)",
-        "cancellationPolicy": "Confirmar directamente con el operador",
-        "tariff": "10 min: $15.000 · 15 min: $20.000 · 20 min: $25.000"
-      }
+      ]
     },
     {
       "id": 20,
@@ -1140,16 +1114,15 @@
       "id": 21,
       "name": "Fonda Boquía",
       "type": "Restaurantes",
-      "description": "Restaurante tradicional en Boquía con especialidad en platos típicos del Quindío. Ambiente acogedor y comida casera con ingredientes locales. Carta verificada con precios: truchas en 11 preparaciones ($28.000-$46.000), carnes, adicionales y desayunos. Pedido directo por WhatsApp.",
+      "description": "Restaurante tradicional en Boquía con especialidad en platos típicos del Quindío. Ambiente acogedor y comida casera con ingredientes locales.",
       "priceRange": "$$",
       "rating": "4.7",
-      "timeInfo": "Carta con precios verificados",
-      "badge": "Carta verificada",
+      "timeInfo": "Abierto hoy",
+      "badge": "Comida tradicional",
       "color": "terracotta",
       "icon": "Utensils",
       "contact": {
-        "phone": "+57 313 7160977",
-        "whatsapp": "573137160977"
+        "phone": "Por confirmar"
       },
       "location": {
         "lat": 4.644,
@@ -1161,63 +1134,37 @@
         "notes": "Horario típico de restaurante"
       },
       "tags": [
-        "bar",
-        "boquía",
-        "carta",
-        "comida tradicional",
-        "mojarra",
-        "platos típicos",
         "restaurante",
-        "trucha"
+        "comida tradicional",
+        "boquía",
+        "platos típicos"
       ],
       "verified": true,
       "active": true,
       "foodServiceDetails": {
         "cuisineType": [
           "Colombiana",
-          "Trucha",
-          "Comida local"
+          "Típica del Quindío"
         ],
         "specialties": [
-          "Trucha frita",
-          "Trucha a la plancha",
-          "Trucha al ajillo",
-          "Trucha gratinada",
-          "Trucha marinera",
-          "Mojarra"
+          "Trucha",
+          "Patacón",
+          "Platos típicos"
         ],
         "menuHighlights": [
-          "Trucha frita $28.000",
-          "Trucha a la plancha $28.000",
-          "Trucha finas hierbas $30.000",
-          "Trucha al ajillo $32.000",
-          "Trucha hawaiana $30.000",
-          "Trucha criolla $30.000",
-          "Trucha con champiñones $36.000",
-          "Trucha gratinada $36.000",
-          "Trucha al ajillo más champiñones $40.000",
-          "Trucha mixta $46.000",
-          "Trucha marinera $45.000",
-          "Mojarra $38.000",
-          "Carne de res $45.000",
-          "Filete de pollo $35.000",
-          "Lomo de cerdo $36.000",
-          "Patacón $8.000",
-          "Empanada $3.000",
-          "Crema de trucha $10.000",
-          "Salchipapa $18.000",
-          "Huevos al gusto $14.000",
-          "Jugo natural en agua $8.000",
-          "Jugo natural en leche $10.000",
-          "Limonada de coco $12.000"
+          "Platos del día",
+          "Comida casera"
         ],
-        "averagePrice": "Truchas $28.000-$46.000 · Carnes $35.000-$45.000",
+        "averagePrice": "$$",
         "reservationRequired": false
       },
       "photos": [
-        "/pautas/restaurante_bar_fonda_boquia/menu-carta1.jpeg",
-        "/pautas/restaurante_bar_fonda_boquia/menu-carta2.jpeg",
-        "/pautas/restaurante_bar_fonda_boquia/29389126_1005353112946875_6049563033867386880_n.jpg"
+        "/pautas/restaurante_bar_fonda_boquia/imagenes/29389126_1005353112946875_6049563033867386880_n.jpg",
+        "/pautas/restaurante_bar_fonda_boquia/imagenes/30411747_1017613001720886_1046791999434260480_n.jpg",
+        "/pautas/restaurante_bar_fonda_boquia/imagenes/480508481_1169835038167384_4932382570318530100_n.jpg",
+        "/pautas/restaurante_bar_fonda_boquia/imagenes/481917729_1182180286932859_1362131829553801165_n.jpg",
+        "/pautas/restaurante_bar_fonda_boquia/imagenes/481961056_1182180233599531_8927232009685756092_n.jpg",
+        "/pautas/restaurante_bar_fonda_boquia/imagenes/65375183_1331615080320675_8125305373516103680_n.jpg"
       ]
     },
     {

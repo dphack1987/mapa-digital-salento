@@ -1,30 +1,30 @@
 {
-  "generated_at": "2026-09-04T17:11:29.790155+00:00",
+  "generated_at": "2026-09-09T20:54:57.051692+00:00",
   "origin": "https://salentoalamano.com",
   "read_only": true,
-  "pages_scanned": 71,
+  "pages_scanned": 118,
   "summary": {
-    "error": 55,
-    "warning": 65,
+    "error": 3,
+    "warning": 86,
     "info": 1
   },
   "pages": [
     {
       "url": "https://salentoalamano.com/",
-      "title": "Salento a la Mano | Mapa turístico de Salento, Quindío",
-      "description_length": 255,
+      "title": "Salento, Quindío: Guía turística oficial 2026 | Salento a la Mano",
+      "description_length": 429,
       "canonical": "https://salentoalamano.com/",
       "language": "es",
       "h1_count": 0,
-      "json_ld_blocks": 2,
-      "valid_json_ld_blocks": 2,
+      "json_ld_blocks": 4,
+      "valid_json_ld_blocks": 4,
       "indexable": true
     },
     {
       "url": "https://salentoalamano.com/categorias/alojamientos",
       "title": "Alojamientos | Salento a la Mano",
       "description_length": 54,
-      "canonical": "",
+      "canonical": "https://salentoalamano.com/categorias/alojamientos.html",
       "language": "es",
       "h1_count": 1,
       "json_ld_blocks": 2,
@@ -35,7 +35,18 @@
       "url": "https://salentoalamano.com/categorias/artesanias",
       "title": "Artesanías | Salento a la Mano",
       "description_length": 49,
-      "canonical": "",
+      "canonical": "https://salentoalamano.com/categorias/artesanias.html",
+      "language": "es",
+      "h1_count": 1,
+      "json_ld_blocks": 2,
+      "valid_json_ld_blocks": 2,
+      "indexable": true
+    },
+    {
+      "url": "https://salentoalamano.com/categorias/atractivos-turisticos",
+      "title": "Qué Ver en Salento: Miradores, Cascadas y Senderos | Salento a la Mano",
+      "description_length": 169,
+      "canonical": "https://salentoalamano.com/categorias/atractivos-turisticos.html",
       "language": "es",
       "h1_count": 1,
       "json_ld_blocks": 2,
@@ -46,7 +57,7 @@
       "url": "https://salentoalamano.com/categorias/cafes",
       "title": "Cafés | Salento a la Mano",
       "description_length": 54,
-      "canonical": "",
+      "canonical": "https://salentoalamano.com/categorias/cafes.html",
       "language": "es",
       "h1_count": 1,
       "json_ld_blocks": 2,
@@ -54,10 +65,43 @@
       "indexable": true
     },
     {
+      "url": "https://salentoalamano.com/categorias/camping",
+      "title": "Camping y Glamping en Salento | Salento a la Mano",
+      "description_length": 156,
+      "canonical": "https://salentoalamano.com/categorias/camping.html",
+      "language": "es",
+      "h1_count": 1,
+      "json_ld_blocks": 0,
+      "valid_json_ld_blocks": 0,
+      "indexable": true
+    },
+    {
+      "url": "https://salentoalamano.com/categorias/coffee-tours",
+      "title": "Coffee Tours en Salento, Quindío | Salento a la Mano",
+      "description_length": 190,
+      "canonical": "https://salentoalamano.com/categorias/coffee-tours.html",
+      "language": "es",
+      "h1_count": 1,
+      "json_ld_blocks": 2,
+      "valid_json_ld_blocks": 1,
+      "indexable": true
+    },
+    {
+      "url": "https://salentoalamano.com/categorias/eventos",
+      "title": "Eventos en Salento, Quindío | Salento a la Mano",
+      "description_length": 176,
+      "canonical": "",
+      "language": "es",
+      "h1_count": 1,
+      "json_ld_blocks": 0,
+      "valid_json_ld_blocks": 0,
+      "indexable": true
+    },
+    {
       "url": "https://salentoalamano.com/categorias/experiencias",
       "title": "Experiencias | Salento a la Mano",
       "description_length": 60,
-      "canonical": "",
+      "canonical": "https://salentoalamano.com/categorias/experiencias.html",
       "language": "es",
       "h1_count": 1,
       "json_ld_blocks": 2,
@@ -67,7 +111,18 @@
     {
       "url": "https://salentoalamano.com/categorias/",
       "title": "Categorías | Salento a la Mano",
-      "description_length": 0,
+      "description_length": 102,
+      "canonical": "https://salentoalamano.com/categorias/",
+      "language": "es",
+      "h1_count": 1,
+      "json_ld_blocks": 0,
+      "valid_json_ld_blocks": 0,
+      "indexable": true
+    },
+    {
+      "url": "https://salentoalamano.com/categorias/restaurante-bar",
+      "title": "Restaurantes Bar en Salento, Quindío | Salento a la Mano",
+      "description_length": 176,
       "canonical": "",
       "language": "es",
       "h1_count": 1,
@@ -79,7 +134,7 @@
       "url": "https://salentoalamano.com/categorias/restaurantes",
       "title": "Restaurantes | Salento a la Mano",
       "description_length": 56,
-      "canonical": "",
+      "canonical": "https://salentoalamano.com/categorias/restaurantes.html",
       "language": "es",
       "h1_count": 1,
       "json_ld_blocks": 2,
@@ -90,7 +145,7 @@
       "url": "https://salentoalamano.com/categorias/servicios",
       "title": "Servicios | Salento a la Mano",
       "description_length": 51,
-      "canonical": "",
+      "canonical": "https://salentoalamano.com/categorias/servicios.html",
       "language": "es",
       "h1_count": 1,
       "json_ld_blocks": 2,
@@ -101,7 +156,7 @@
       "url": "https://salentoalamano.com/categorias/tiendas",
       "title": "Tiendas | Salento a la Mano",
       "description_length": 47,
-      "canonical": "",
+      "canonical": "https://salentoalamano.com/categorias/tiendas.html",
       "language": "es",
       "h1_count": 1,
       "json_ld_blocks": 2,
@@ -110,7 +165,7 @@
     },
     {
       "url": "https://salentoalamano.com/de/guias/10-tours-cafe-salento",
-      "title": "Coffee Tours in Salento: How to Choose",
+      "title": "Coffee Tours in Salento: How to Choose | DE",
       "description_length": 95,
       "canonical": "https://salentoalamano.com/de/guias/10-tours-cafe-salento.html",
       "language": "de",
@@ -121,7 +176,7 @@
     },
     {
       "url": "https://salentoalamano.com/de/guias/guia-valle-del-cocora",
-      "title": "A Practical Guide to Visiting Cocora Valley",
+      "title": "A Practical Guide to Visiting Cocora Valley | DE",
       "description_length": 124,
       "canonical": "https://salentoalamano.com/de/guias/guia-valle-del-cocora.html",
       "language": "de",
@@ -132,7 +187,7 @@
     },
     {
       "url": "https://salentoalamano.com/de/guias/que-hacer-en-salento-3-dias",
-      "title": "What to Do in Salento: A 3-Day Itinerary",
+      "title": "What to Do in Salento: A 3-Day Itinerary | DE",
       "description_length": 76,
       "canonical": "https://salentoalamano.com/de/guias/que-hacer-en-salento-3-dias.html",
       "language": "de",
@@ -153,8 +208,19 @@
       "indexable": true
     },
     {
+      "url": "https://salentoalamano.com/don-chucho-asistente",
+      "title": "Don Chucho: asistente turístico de Salento | Salento a la Mano",
+      "description_length": 129,
+      "canonical": "https://salentoalamano.com/don-chucho-asistente",
+      "language": "es-CO",
+      "h1_count": 1,
+      "json_ld_blocks": 1,
+      "valid_json_ld_blocks": 1,
+      "indexable": true
+    },
+    {
       "url": "https://salentoalamano.com/en/guias/10-tours-cafe-salento",
-      "title": "Coffee Tours in Salento: How to Choose",
+      "title": "Coffee Tours in Salento: How to Choose | EN",
       "description_length": 95,
       "canonical": "https://salentoalamano.com/en/guias/10-tours-cafe-salento.html",
       "language": "en",
@@ -165,7 +231,7 @@
     },
     {
       "url": "https://salentoalamano.com/en/guias/guia-valle-del-cocora",
-      "title": "A Practical Guide to Visiting Cocora Valley",
+      "title": "A Practical Guide to Visiting Cocora Valley | EN",
       "description_length": 124,
       "canonical": "https://salentoalamano.com/en/guias/guia-valle-del-cocora.html",
       "language": "en",
@@ -176,7 +242,7 @@
     },
     {
       "url": "https://salentoalamano.com/en/guias/que-hacer-en-salento-3-dias",
-      "title": "What to Do in Salento: A 3-Day Itinerary",
+      "title": "What to Do in Salento: A 3-Day Itinerary | EN",
       "description_length": 76,
       "canonical": "https://salentoalamano.com/en/guias/que-hacer-en-salento-3-dias.html",
       "language": "en",
@@ -198,7 +264,7 @@
     },
     {
       "url": "https://salentoalamano.com/es/guias/10-tours-cafe-salento",
-      "title": "Tours de café en Salento: cómo elegir",
+      "title": "Tours de café en Salento: cómo elegir | ES",
       "description_length": 106,
       "canonical": "https://salentoalamano.com/es/guias/10-tours-cafe-salento.html",
       "language": "es",
@@ -209,7 +275,7 @@
     },
     {
       "url": "https://salentoalamano.com/es/guias/guia-valle-del-cocora",
-      "title": "Guía para visitar el Valle del Cocora",
+      "title": "Guía para visitar el Valle del Cocora | ES",
       "description_length": 121,
       "canonical": "https://salentoalamano.com/es/guias/guia-valle-del-cocora.html",
       "language": "es",
@@ -220,7 +286,7 @@
     },
     {
       "url": "https://salentoalamano.com/es/guias/que-hacer-en-salento-3-dias",
-      "title": "Qué hacer en Salento: itinerario de 3 días",
+      "title": "Qué hacer en Salento: itinerario de 3 días | ES",
       "description_length": 88,
       "canonical": "https://salentoalamano.com/es/guias/que-hacer-en-salento-3-dias.html",
       "language": "es",
@@ -241,8 +307,41 @@
       "indexable": true
     },
     {
+      "url": "https://salentoalamano.com/estado-actual-salento-hoteles-abiertos-vias-libres-valle-cocora-operando-100",
+      "title": "Estado actual de Salento: información turística verificada",
+      "description_length": 140,
+      "canonical": "https://salentoalamano.com/estado-actual-salento-hoteles-abiertos-vias-libres-valle-cocora-operando-100",
+      "language": "es-CO",
+      "h1_count": 1,
+      "json_ld_blocks": 1,
+      "valid_json_ld_blocks": 1,
+      "indexable": true
+    },
+    {
+      "url": "https://salentoalamano.com/estado-vias-salento-hoy",
+      "title": "Estado de las Vías a Salento Hoy - Reporte Oficial",
+      "description_length": 134,
+      "canonical": "https://salentoalamano.com/estado-vias-salento-hoy",
+      "language": "es-CO",
+      "h1_count": 1,
+      "json_ld_blocks": 1,
+      "valid_json_ld_blocks": 1,
+      "indexable": true
+    },
+    {
+      "url": "https://salentoalamano.com/faq-salento-preguntas-frecuentes-turistas-informacion-oficial",
+      "title": "FAQ Salento: Preguntas Frecuentes de Turistas - Información Oficial Actualizada",
+      "description_length": 165,
+      "canonical": "https://salentoalamano.com/faq-salento-preguntas-frecuentes-turistas-informacion-oficial",
+      "language": "es-CO",
+      "h1_count": 1,
+      "json_ld_blocks": 1,
+      "valid_json_ld_blocks": 1,
+      "indexable": true
+    },
+    {
       "url": "https://salentoalamano.com/fr/guias/10-tours-cafe-salento",
-      "title": "Coffee Tours in Salento: How to Choose",
+      "title": "Coffee Tours in Salento: How to Choose | FR",
       "description_length": 95,
       "canonical": "https://salentoalamano.com/fr/guias/10-tours-cafe-salento.html",
       "language": "fr",
@@ -253,7 +352,7 @@
     },
     {
       "url": "https://salentoalamano.com/fr/guias/guia-valle-del-cocora",
-      "title": "A Practical Guide to Visiting Cocora Valley",
+      "title": "A Practical Guide to Visiting Cocora Valley | FR",
       "description_length": 124,
       "canonical": "https://salentoalamano.com/fr/guias/guia-valle-del-cocora.html",
       "language": "fr",
@@ -264,7 +363,7 @@
     },
     {
       "url": "https://salentoalamano.com/fr/guias/que-hacer-en-salento-3-dias",
-      "title": "What to Do in Salento: A 3-Day Itinerary",
+      "title": "What to Do in Salento: A 3-Day Itinerary | FR",
       "description_length": 76,
       "canonical": "https://salentoalamano.com/fr/guias/que-hacer-en-salento-3-dias.html",
       "language": "fr",
@@ -285,21 +384,87 @@
       "indexable": true
     },
     {
-      "url": "https://salentoalamano.com/googleac76b27847921d06",
-      "title": "",
-      "description_length": 0,
-      "canonical": "",
-      "language": "",
-      "h1_count": 0,
-      "json_ld_blocks": 0,
-      "valid_json_ld_blocks": 0,
+      "url": "https://salentoalamano.com/hoteles-abiertos-salento",
+      "title": "Hoteles abiertos en Salento: alojamientos y contacto directo",
+      "description_length": 124,
+      "canonical": "https://salentoalamano.com/hoteles-abiertos-salento",
+      "language": "es-CO",
+      "h1_count": 1,
+      "json_ld_blocks": 1,
+      "valid_json_ld_blocks": 1,
       "indexable": true
     },
     {
-      "url": "https://salentoalamano.com/paginas-pautantes/boki-mall-hotel-el-mirador-de-boquia/",
-      "title": "Boki Mall - Hotel El Mirador de Boquía | Vive Salento directamente",
-      "description_length": 241,
-      "canonical": "",
+      "url": "https://salentoalamano.com/hoteles-hostales-abiertos-salento",
+      "title": "Hoteles y Hostales Abiertos en Salento - Guía Actualizada",
+      "description_length": 138,
+      "canonical": "https://salentoalamano.com/hoteles-hostales-abiertos-salento",
+      "language": "es-CO",
+      "h1_count": 1,
+      "json_ld_blocks": 1,
+      "valid_json_ld_blocks": 1,
+      "indexable": true
+    },
+    {
+      "url": "https://salentoalamano.com/hoteles-salento-abiertos-hoy-alojamiento-disponible-reservas",
+      "title": "Hoteles en Salento Abiertos Hoy: Alojamiento Disponible y Reservas Activas",
+      "description_length": 147,
+      "canonical": "https://salentoalamano.com/hoteles-salento-abiertos-hoy-alojamiento-disponible-reservas",
+      "language": "es-CO",
+      "h1_count": 1,
+      "json_ld_blocks": 1,
+      "valid_json_ld_blocks": 1,
+      "indexable": true
+    },
+    {
+      "url": "https://salentoalamano.com/",
+      "title": "Salento, Quindío: Guía turística oficial 2026 | Salento a la Mano",
+      "description_length": 429,
+      "canonical": "https://salentoalamano.com/",
+      "language": "es",
+      "h1_count": 0,
+      "json_ld_blocks": 4,
+      "valid_json_ld_blocks": 4,
+      "indexable": true
+    },
+    {
+      "url": "https://salentoalamano.com/landing-estado-actual-salento-2026",
+      "title": "Salento 2026: guía de estado actual y planificación turística",
+      "description_length": 128,
+      "canonical": "https://salentoalamano.com/landing-estado-actual-salento-2026",
+      "language": "es-CO",
+      "h1_count": 1,
+      "json_ld_blocks": 1,
+      "valid_json_ld_blocks": 1,
+      "indexable": true
+    },
+    {
+      "url": "https://salentoalamano.com/mapa-interactivo-salento",
+      "title": "Mapa interactivo de Salento, Quindío | Salento a la Mano",
+      "description_length": 142,
+      "canonical": "https://salentoalamano.com/mapa-interactivo-salento",
+      "language": "es-CO",
+      "h1_count": 1,
+      "json_ld_blocks": 1,
+      "valid_json_ld_blocks": 1,
+      "indexable": true
+    },
+    {
+      "url": "https://salentoalamano.com/moto-aventura-110",
+      "title": "Moto Aventura 110 - Pista de minimotocross en Salento",
+      "description_length": 158,
+      "canonical": "https://salentoalamano.com/moto-aventura-110",
+      "language": "es-CO",
+      "h1_count": 1,
+      "json_ld_blocks": 1,
+      "valid_json_ld_blocks": 1,
+      "indexable": true
+    },
+    {
+      "url": "https://salentoalamano.com/paginas-pautantes/boki-mall-barcinales-cafe-bar/",
+      "title": "Boki Mall - Barcinales Café - Bar | Vive Salento directamente",
+      "description_length": 275,
+      "canonical": "https://salentoalamano.com/paginas-pautantes/boki-mall-barcinales-cafe-bar/",
       "language": "es",
       "h1_count": 1,
       "json_ld_blocks": 2,
@@ -307,10 +472,32 @@
       "indexable": true
     },
     {
-      "url": "https://salentoalamano.com/paginas-pautantes/brunch-de-la-plaza/",
-      "title": "Brunch de la Plaza | Vive Salento directamente",
-      "description_length": 55,
-      "canonical": "",
+      "url": "https://salentoalamano.com/paginas-pautantes/boki-mall-eventos/",
+      "title": "Boki Mall - Eventos | Vive Salento directamente",
+      "description_length": 202,
+      "canonical": "https://salentoalamano.com/paginas-pautantes/boki-mall-eventos/",
+      "language": "es",
+      "h1_count": 1,
+      "json_ld_blocks": 2,
+      "valid_json_ld_blocks": 2,
+      "indexable": true
+    },
+    {
+      "url": "https://salentoalamano.com/paginas-pautantes/boki-mall-hotel-el-mirador-de-boquia/",
+      "title": "Boki Mall - Hotel El Mirador de Boquía | Vive Salento directamente",
+      "description_length": 241,
+      "canonical": "https://salentoalamano.com/paginas-pautantes/boki-mall-hotel-el-mirador-de-boquia/",
+      "language": "es",
+      "h1_count": 1,
+      "json_ld_blocks": 2,
+      "valid_json_ld_blocks": 2,
+      "indexable": true
+    },
+    {
+      "url": "https://salentoalamano.com/paginas-pautantes/boki-mall-restaurante-terra/",
+      "title": "Boki Mall - Restaurante Terra | Vive Salento directamente",
+      "description_length": 284,
+      "canonical": "https://salentoalamano.com/paginas-pautantes/boki-mall-restaurante-terra/",
       "language": "es",
       "h1_count": 1,
       "json_ld_blocks": 2,
@@ -321,7 +508,7 @@
       "url": "https://salentoalamano.com/paginas-pautantes/cabalgatas-cocora-magica/",
       "title": "Cabalgatas Cocora Mágica | Vive Salento directamente",
       "description_length": 177,
-      "canonical": "",
+      "canonical": "https://salentoalamano.com/paginas-pautantes/cabalgatas-cocora-magica/",
       "language": "es",
       "h1_count": 1,
       "json_ld_blocks": 2,
@@ -329,10 +516,10 @@
       "indexable": true
     },
     {
-      "url": "https://salentoalamano.com/paginas-pautantes/cabalgatas-valle-de-cocora/",
-      "title": "Cabalgatas Valle de Cocora | Vive Salento directamente",
-      "description_length": 92,
-      "canonical": "",
+      "url": "https://salentoalamano.com/paginas-pautantes/calle-real-de-salento/",
+      "title": "Calle Real de Salento | Vive Salento directamente",
+      "description_length": 184,
+      "canonical": "https://salentoalamano.com/paginas-pautantes/calle-real-de-salento/",
       "language": "es",
       "h1_count": 1,
       "json_ld_blocks": 2,
@@ -340,10 +527,10 @@
       "indexable": true
     },
     {
-      "url": "https://salentoalamano.com/paginas-pautantes/cafe-de-altura/",
-      "title": "Café de Altura | Vive Salento directamente",
-      "description_length": 58,
-      "canonical": "",
+      "url": "https://salentoalamano.com/paginas-pautantes/caminata-ecologica-calle-real-alto-de-la-cruz/",
+      "title": "Caminata Ecológica Calle Real — Alto de la Cruz | Vive Salento directamente",
+      "description_length": 179,
+      "canonical": "https://salentoalamano.com/paginas-pautantes/caminata-ecologica-calle-real-alto-de-la-cruz/",
       "language": "es",
       "h1_count": 1,
       "json_ld_blocks": 2,
@@ -351,10 +538,10 @@
       "indexable": true
     },
     {
-      "url": "https://salentoalamano.com/paginas-pautantes/canasto-quindiano/",
-      "title": "Canasto Quindiano | Vive Salento directamente",
-      "description_length": 53,
-      "canonical": "",
+      "url": "https://salentoalamano.com/paginas-pautantes/camping-cascadas-de-santa-rita/",
+      "title": "Camping Cascadas de Santa Rita | Vive Salento directamente",
+      "description_length": 292,
+      "canonical": "https://salentoalamano.com/paginas-pautantes/camping-cascadas-de-santa-rita/",
       "language": "es",
       "h1_count": 1,
       "json_ld_blocks": 2,
@@ -362,10 +549,43 @@
       "indexable": true
     },
     {
-      "url": "https://salentoalamano.com/paginas-pautantes/coffee-farm-el-recuerdo/",
-      "title": "Coffee Farm El Recuerdo | Vive Salento directamente",
-      "description_length": 142,
-      "canonical": "",
+      "url": "https://salentoalamano.com/paginas-pautantes/camping-cascadas-santa-rita/",
+      "title": "Camping Cascadas de Santa Rita | Mapa Offline Interactivo",
+      "description_length": 145,
+      "canonical": "https://salentoalamano.com/paginas-pautantes/camping-cascadas-santa-rita/",
+      "language": "es",
+      "h1_count": 1,
+      "json_ld_blocks": 0,
+      "valid_json_ld_blocks": 0,
+      "indexable": true
+    },
+    {
+      "url": "https://salentoalamano.com/paginas-pautantes/coffee-tour-alojamiento-finca-hotel-el-ocaso/",
+      "title": "Finca Hotel El Ocaso | Hotel y Café en Salento, Quindío",
+      "description_length": 156,
+      "canonical": "https://salentoalamano.com/paginas-pautantes/finca-hotel-el-ocaso/",
+      "language": "es",
+      "h1_count": 1,
+      "json_ld_blocks": 2,
+      "valid_json_ld_blocks": 2,
+      "indexable": true
+    },
+    {
+      "url": "https://salentoalamano.com/paginas-pautantes/coffee-tour-finca-cafetera-don-elias/",
+      "title": "Finca Cafetera Don Elías | Coffee Tour en Salento, Quindío",
+      "description_length": 155,
+      "canonical": "https://salentoalamano.com/paginas-pautantes/finca-cafetera-don-elias/",
+      "language": "es",
+      "h1_count": 1,
+      "json_ld_blocks": 2,
+      "valid_json_ld_blocks": 2,
+      "indexable": true
+    },
+    {
+      "url": "https://salentoalamano.com/paginas-pautantes/coffee-tour-finca-don-eduardo/",
+      "title": "Finca Don Eduardo Coffee Tour | Coffee Tour en Salento, Quindío",
+      "description_length": 141,
+      "canonical": "https://salentoalamano.com/paginas-pautantes/finca-don-eduardo-coffee-tour/",
       "language": "es",
       "h1_count": 1,
       "json_ld_blocks": 2,
@@ -375,8 +595,19 @@
     {
       "url": "https://salentoalamano.com/paginas-pautantes/finca-cafetera-don-elias/",
       "title": "Finca Cafetera Don Elías | Vive Salento directamente",
-      "description_length": 203,
-      "canonical": "",
+      "description_length": 167,
+      "canonical": "https://salentoalamano.com/paginas-pautantes/finca-cafetera-don-elias/",
+      "language": "es",
+      "h1_count": 1,
+      "json_ld_blocks": 2,
+      "valid_json_ld_blocks": 2,
+      "indexable": true
+    },
+    {
+      "url": "https://salentoalamano.com/paginas-pautantes/finca-don-eduardo-coffee-tour/",
+      "title": "Finca Don Eduardo Coffee Tour | Vive Salento directamente",
+      "description_length": 199,
+      "canonical": "https://salentoalamano.com/paginas-pautantes/finca-don-eduardo-coffee-tour/",
       "language": "es",
       "h1_count": 1,
       "json_ld_blocks": 2,
@@ -387,7 +618,7 @@
       "url": "https://salentoalamano.com/paginas-pautantes/finca-hotel-el-ocaso/",
       "title": "Finca Hotel El Ocaso | Vive Salento directamente",
       "description_length": 207,
-      "canonical": "",
+      "canonical": "https://salentoalamano.com/paginas-pautantes/finca-hotel-el-ocaso/",
       "language": "es",
       "h1_count": 1,
       "json_ld_blocks": 2,
@@ -397,19 +628,8 @@
     {
       "url": "https://salentoalamano.com/paginas-pautantes/fonda-boquia/",
       "title": "Fonda Boquía | Vive Salento directamente",
-      "description_length": 158,
-      "canonical": "",
-      "language": "es",
-      "h1_count": 1,
-      "json_ld_blocks": 2,
-      "valid_json_ld_blocks": 2,
-      "indexable": true
-    },
-    {
-      "url": "https://salentoalamano.com/paginas-pautantes/guias-del-cocora/",
-      "title": "Guías del Cocora | Vive Salento directamente",
-      "description_length": 57,
-      "canonical": "",
+      "description_length": 141,
+      "canonical": "https://salentoalamano.com/paginas-pautantes/fonda-boquia/",
       "language": "es",
       "h1_count": 1,
       "json_ld_blocks": 2,
@@ -420,7 +640,7 @@
       "url": "https://salentoalamano.com/paginas-pautantes/hotel-camino-nacional-salento/",
       "title": "Hotel Camino Nacional Salento | Vive Salento directamente",
       "description_length": 303,
-      "canonical": "",
+      "canonical": "https://salentoalamano.com/paginas-pautantes/hotel-camino-nacional-salento/",
       "language": "es",
       "h1_count": 1,
       "json_ld_blocks": 2,
@@ -430,8 +650,8 @@
     {
       "url": "https://salentoalamano.com/paginas-pautantes/hotel-la-floresta-salento/",
       "title": "Hotel La Floresta Salento | Vive Salento directamente",
-      "description_length": 209,
-      "canonical": "",
+      "description_length": 216,
+      "canonical": "https://salentoalamano.com/paginas-pautantes/hotel-la-floresta-salento/",
       "language": "es",
       "h1_count": 1,
       "json_ld_blocks": 2,
@@ -439,10 +659,10 @@
       "indexable": true
     },
     {
-      "url": "https://salentoalamano.com/paginas-pautantes/jeeps-willys-salento/",
-      "title": "Jeeps Willys Salento | Vive Salento directamente",
-      "description_length": 100,
-      "canonical": "",
+      "url": "https://salentoalamano.com/paginas-pautantes/iglesia-de-nuestra-senora-del-carmen-de-salento/",
+      "title": "Iglesia de Nuestra Señora del Carmen de Salento | Vive Salento directamente",
+      "description_length": 218,
+      "canonical": "https://salentoalamano.com/paginas-pautantes/iglesia-de-nuestra-senora-del-carmen-de-salento/",
       "language": "es",
       "h1_count": 1,
       "json_ld_blocks": 2,
@@ -450,10 +670,21 @@
       "indexable": true
     },
     {
-      "url": "https://salentoalamano.com/paginas-pautantes/la-fogata-salentina/",
-      "title": "La Fogata Salentina | Vive Salento directamente",
-      "description_length": 52,
-      "canonical": "",
+      "url": "https://salentoalamano.com/paginas-pautantes/mirador-alto-de-la-cruz/",
+      "title": "Mirador Alto de la Cruz | Vive Salento directamente",
+      "description_length": 172,
+      "canonical": "https://salentoalamano.com/paginas-pautantes/mirador-alto-de-la-cruz/",
+      "language": "es",
+      "h1_count": 1,
+      "json_ld_blocks": 2,
+      "valid_json_ld_blocks": 2,
+      "indexable": true
+    },
+    {
+      "url": "https://salentoalamano.com/paginas-pautantes/mirador-del-condor-salento/",
+      "title": "Mirador del Cóndor (Salento) | Vive Salento directamente",
+      "description_length": 162,
+      "canonical": "https://salentoalamano.com/paginas-pautantes/mirador-del-condor-salento/",
       "language": "es",
       "h1_count": 1,
       "json_ld_blocks": 2,
@@ -464,7 +695,7 @@
       "url": "https://salentoalamano.com/paginas-pautantes/mirador-las-manos-de-dios/",
       "title": "Mirador Las Manos de Dios | Vive Salento directamente",
       "description_length": 234,
-      "canonical": "",
+      "canonical": "https://salentoalamano.com/paginas-pautantes/mirador-las-manos-de-dios/",
       "language": "es",
       "h1_count": 1,
       "json_ld_blocks": 2,
@@ -474,8 +705,74 @@
     {
       "url": "https://salentoalamano.com/paginas-pautantes/moto-aventura-110/",
       "title": "Moto Aventura 110 | Vive Salento directamente",
-      "description_length": 199,
-      "canonical": "",
+      "description_length": 138,
+      "canonical": "https://salentoalamano.com/paginas-pautantes/moto-aventura-110/",
+      "language": "es",
+      "h1_count": 1,
+      "json_ld_blocks": 2,
+      "valid_json_ld_blocks": 2,
+      "indexable": true
+    },
+    {
+      "url": "https://salentoalamano.com/paginas-pautantes/oficina-de-informacion-turistica-de-salento/",
+      "title": "Oficina de Información Turística de Salento | Vive Salento directamente",
+      "description_length": 163,
+      "canonical": "https://salentoalamano.com/paginas-pautantes/oficina-de-informacion-turistica-de-salento/",
+      "language": "es",
+      "h1_count": 1,
+      "json_ld_blocks": 2,
+      "valid_json_ld_blocks": 2,
+      "indexable": true
+    },
+    {
+      "url": "https://salentoalamano.com/paginas-pautantes/parque-principal-de-salento/",
+      "title": "Parque Principal de Salento | Vive Salento directamente",
+      "description_length": 164,
+      "canonical": "https://salentoalamano.com/paginas-pautantes/parque-principal-de-salento/",
+      "language": "es",
+      "h1_count": 1,
+      "json_ld_blocks": 2,
+      "valid_json_ld_blocks": 2,
+      "indexable": true
+    },
+    {
+      "url": "https://salentoalamano.com/paginas-pautantes/plaza-de-bolivar-de-salento/",
+      "title": "Plaza de Bolívar de Salento | Vive Salento directamente",
+      "description_length": 183,
+      "canonical": "https://salentoalamano.com/paginas-pautantes/plaza-de-bolivar-de-salento/",
+      "language": "es",
+      "h1_count": 1,
+      "json_ld_blocks": 2,
+      "valid_json_ld_blocks": 2,
+      "indexable": true
+    },
+    {
+      "url": "https://salentoalamano.com/paginas-pautantes/puente-de-boquia-sendero-cercano/",
+      "title": "Puente de Boquía (Sendero Cercano) | Vive Salento directamente",
+      "description_length": 171,
+      "canonical": "https://salentoalamano.com/paginas-pautantes/puente-de-boquia-sendero-cercano/",
+      "language": "es",
+      "h1_count": 1,
+      "json_ld_blocks": 2,
+      "valid_json_ld_blocks": 2,
+      "indexable": true
+    },
+    {
+      "url": "https://salentoalamano.com/paginas-pautantes/punto-de-encuentro-jeeps-willys-plaza/",
+      "title": "Punto de Encuentro Jeeps Willys Plaza | Vive Salento directamente",
+      "description_length": 195,
+      "canonical": "https://salentoalamano.com/paginas-pautantes/punto-de-encuentro-jeeps-willys-plaza/",
+      "language": "es",
+      "h1_count": 1,
+      "json_ld_blocks": 2,
+      "valid_json_ld_blocks": 2,
+      "indexable": true
+    },
+    {
+      "url": "https://salentoalamano.com/paginas-pautantes/recorrido-cultural-casco-historico/",
+      "title": "Recorrido Cultural Casco Histórico | Vive Salento directamente",
+      "description_length": 192,
+      "canonical": "https://salentoalamano.com/paginas-pautantes/recorrido-cultural-casco-historico/",
       "language": "es",
       "h1_count": 1,
       "json_ld_blocks": 2,
@@ -486,7 +783,7 @@
       "url": "https://salentoalamano.com/paginas-pautantes/reserva-natural-cascadas-de-santa-rita/",
       "title": "Reserva Natural Cascadas de Santa Rita | Vive Salento directamente",
       "description_length": 216,
-      "canonical": "",
+      "canonical": "https://salentoalamano.com/paginas-pautantes/reserva-natural-cascadas-de-santa-rita/",
       "language": "es",
       "h1_count": 1,
       "json_ld_blocks": 2,
@@ -496,8 +793,8 @@
     {
       "url": "https://salentoalamano.com/paginas-pautantes/restaurante-don-elias/",
       "title": "Restaurante Don Elías | Vive Salento directamente",
-      "description_length": 203,
-      "canonical": "",
+      "description_length": 147,
+      "canonical": "https://salentoalamano.com/paginas-pautantes/restaurante-don-elias/",
       "language": "es",
       "h1_count": 1,
       "json_ld_blocks": 2,
@@ -505,10 +802,10 @@
       "indexable": true
     },
     {
-      "url": "https://salentoalamano.com/paginas-pautantes/salento-tour-operadora/",
-      "title": "Salento Tour Operadora | Vive Salento directamente",
-      "description_length": 83,
-      "canonical": "",
+      "url": "https://salentoalamano.com/paginas-pautantes/sendero-de-las-palmas-entrada-libre-valle/",
+      "title": "Sendero de las Palmas (Entrada Libre Valle) | Vive Salento directamente",
+      "description_length": 168,
+      "canonical": "https://salentoalamano.com/paginas-pautantes/sendero-de-las-palmas-entrada-libre-valle/",
       "language": "es",
       "h1_count": 1,
       "json_ld_blocks": 2,
@@ -516,10 +813,10 @@
       "indexable": true
     },
     {
-      "url": "https://salentoalamano.com/paginas-pautantes/tienda-la-montana/",
-      "title": "Tienda La Montaña | Vive Salento directamente",
-      "description_length": 52,
-      "canonical": "",
+      "url": "https://salentoalamano.com/paginas-pautantes/terminal-de-transporte-de-salento-acceso-peatonal/",
+      "title": "Terminal de Transporte de Salento (Acceso Peatonal) | Vive Salento directamente",
+      "description_length": 175,
+      "canonical": "https://salentoalamano.com/paginas-pautantes/terminal-de-transporte-de-salento-acceso-peatonal/",
       "language": "es",
       "h1_count": 1,
       "json_ld_blocks": 2,
@@ -527,10 +824,10 @@
       "indexable": true
     },
     {
-      "url": "https://salentoalamano.com/paginas-pautantes/valle-en-bicicleta/",
-      "title": "Valle en Bicicleta | Vive Salento directamente",
-      "description_length": 58,
-      "canonical": "",
+      "url": "https://salentoalamano.com/paginas-pautantes/valle-de-cocora-sendero-de-entrada-libre/",
+      "title": "Valle de Cocora — Sendero de Entrada Libre | Vive Salento directamente",
+      "description_length": 179,
+      "canonical": "https://salentoalamano.com/paginas-pautantes/valle-de-cocora-sendero-de-entrada-libre/",
       "language": "es",
       "h1_count": 1,
       "json_ld_blocks": 2,
@@ -538,10 +835,21 @@
       "indexable": true
     },
     {
-      "url": "https://salentoalamano.com/pautantes/boki-mall-hotel-el-mirador-de-boquia",
-      "title": "Boki Mall - Hotel El Mirador de Boquía | Salento a la Mano",
-      "description_length": 0,
-      "canonical": "",
+      "url": "https://salentoalamano.com/paso-valle-cocora-abierto-acceso-total-jeeps-willys-operativos",
+      "title": "Paso al Valle de Cocora: Abierto y Acceso Total - Jeeps Willys Operativos",
+      "description_length": 154,
+      "canonical": "https://salentoalamano.com/paso-valle-cocora-abierto-acceso-total-jeeps-willys-operativos",
+      "language": "es-CO",
+      "h1_count": 1,
+      "json_ld_blocks": 1,
+      "valid_json_ld_blocks": 1,
+      "indexable": true
+    },
+    {
+      "url": "https://salentoalamano.com/pautantes/boki-mall-barcinales-cafe-bar",
+      "title": "Boki Mall - Barcinales Café - Bar | Salento a la Mano",
+      "description_length": 275,
+      "canonical": "https://salentoalamano.com/pautantes/boki-mall-barcinales-cafe-bar.html",
       "language": "es",
       "h1_count": 1,
       "json_ld_blocks": 0,
@@ -549,10 +857,32 @@
       "indexable": true
     },
     {
-      "url": "https://salentoalamano.com/pautantes/brunch-de-la-plaza",
-      "title": "Brunch de la Plaza | Salento a la Mano",
-      "description_length": 0,
-      "canonical": "",
+      "url": "https://salentoalamano.com/pautantes/boki-mall-eventos",
+      "title": "Boki Mall - Eventos | Salento a la Mano",
+      "description_length": 202,
+      "canonical": "https://salentoalamano.com/pautantes/boki-mall-eventos.html",
+      "language": "es",
+      "h1_count": 1,
+      "json_ld_blocks": 0,
+      "valid_json_ld_blocks": 0,
+      "indexable": true
+    },
+    {
+      "url": "https://salentoalamano.com/pautantes/boki-mall-hotel-el-mirador-de-boquia",
+      "title": "Boki Mall - Hotel El Mirador de Boquía | Salento a la Mano",
+      "description_length": 241,
+      "canonical": "https://salentoalamano.com/pautantes/boki-mall-hotel-el-mirador-de-boquia.html",
+      "language": "es",
+      "h1_count": 1,
+      "json_ld_blocks": 0,
+      "valid_json_ld_blocks": 0,
+      "indexable": true
+    },
+    {
+      "url": "https://salentoalamano.com/pautantes/boki-mall-restaurante-terra",
+      "title": "Boki Mall - Restaurante Terra | Salento a la Mano",
+      "description_length": 284,
+      "canonical": "https://salentoalamano.com/pautantes/boki-mall-restaurante-terra.html",
       "language": "es",
       "h1_count": 1,
       "json_ld_blocks": 0,
@@ -562,8 +892,8 @@
     {
       "url": "https://salentoalamano.com/pautantes/cabalgatas-cocora-magica",
       "title": "Cabalgatas Cocora Mágica | Salento a la Mano",
-      "description_length": 0,
-      "canonical": "",
+      "description_length": 177,
+      "canonical": "https://salentoalamano.com/pautantes/cabalgatas-cocora-magica.html",
       "language": "es",
       "h1_count": 1,
       "json_ld_blocks": 0,
@@ -571,10 +901,10 @@
       "indexable": true
     },
     {
-      "url": "https://salentoalamano.com/pautantes/cabalgatas-valle-de-cocora",
-      "title": "Cabalgatas Valle de Cocora | Salento a la Mano",
-      "description_length": 0,
-      "canonical": "",
+      "url": "https://salentoalamano.com/pautantes/calle-real-de-salento",
+      "title": "Calle Real de Salento | Salento a la Mano",
+      "description_length": 184,
+      "canonical": "https://salentoalamano.com/pautantes/calle-real-de-salento.html",
       "language": "es",
       "h1_count": 1,
       "json_ld_blocks": 0,
@@ -582,10 +912,10 @@
       "indexable": true
     },
     {
-      "url": "https://salentoalamano.com/pautantes/cafe-de-altura",
-      "title": "Café de Altura | Salento a la Mano",
-      "description_length": 0,
-      "canonical": "",
+      "url": "https://salentoalamano.com/pautantes/caminata-ecologica-calle-real-alto-de-la-cruz",
+      "title": "Caminata Ecológica Calle Real — Alto de la Cruz | Salento a la Mano",
+      "description_length": 179,
+      "canonical": "https://salentoalamano.com/pautantes/caminata-ecologica-calle-real-alto-de-la-cruz.html",
       "language": "es",
       "h1_count": 1,
       "json_ld_blocks": 0,
@@ -593,21 +923,10 @@
       "indexable": true
     },
     {
-      "url": "https://salentoalamano.com/pautantes/canasto-quindiano",
-      "title": "Canasto Quindiano | Salento a la Mano",
-      "description_length": 0,
-      "canonical": "",
-      "language": "es",
-      "h1_count": 1,
-      "json_ld_blocks": 0,
-      "valid_json_ld_blocks": 0,
-      "indexable": true
-    },
-    {
-      "url": "https://salentoalamano.com/pautantes/coffee-farm-el-recuerdo",
-      "title": "Coffee Farm El Recuerdo | Salento a la Mano",
-      "description_length": 0,
-      "canonical": "",
+      "url": "https://salentoalamano.com/pautantes/camping-cascadas-de-santa-rita",
+      "title": "Camping Cascadas de Santa Rita | Salento a la Mano",
+      "description_length": 292,
+      "canonical": "https://salentoalamano.com/pautantes/camping-cascadas-de-santa-rita.html",
       "language": "es",
       "h1_count": 1,
       "json_ld_blocks": 0,
@@ -617,8 +936,19 @@
     {
       "url": "https://salentoalamano.com/pautantes/finca-cafetera-don-elias",
       "title": "Finca Cafetera Don Elías | Salento a la Mano",
-      "description_length": 0,
-      "canonical": "",
+      "description_length": 167,
+      "canonical": "https://salentoalamano.com/pautantes/finca-cafetera-don-elias.html",
+      "language": "es",
+      "h1_count": 1,
+      "json_ld_blocks": 0,
+      "valid_json_ld_blocks": 0,
+      "indexable": true
+    },
+    {
+      "url": "https://salentoalamano.com/pautantes/finca-don-eduardo-coffee-tour",
+      "title": "Finca Don Eduardo Coffee Tour | Salento a la Mano",
+      "description_length": 199,
+      "canonical": "https://salentoalamano.com/pautantes/finca-don-eduardo-coffee-tour.html",
       "language": "es",
       "h1_count": 1,
       "json_ld_blocks": 0,
@@ -628,8 +958,8 @@
     {
       "url": "https://salentoalamano.com/pautantes/finca-hotel-el-ocaso",
       "title": "Finca Hotel El Ocaso | Salento a la Mano",
-      "description_length": 0,
-      "canonical": "",
+      "description_length": 207,
+      "canonical": "https://salentoalamano.com/pautantes/finca-hotel-el-ocaso.html",
       "language": "es",
       "h1_count": 1,
       "json_ld_blocks": 0,
@@ -637,10 +967,10 @@
       "indexable": true
     },
     {
-      "url": "https://salentoalamano.com/pautantes/guias-del-cocora",
-      "title": "Guías del Cocora | Salento a la Mano",
-      "description_length": 0,
-      "canonical": "",
+      "url": "https://salentoalamano.com/pautantes/fonda-boquia",
+      "title": "Fonda Boquía | Salento a la Mano",
+      "description_length": 141,
+      "canonical": "https://salentoalamano.com/pautantes/fonda-boquia.html",
       "language": "es",
       "h1_count": 1,
       "json_ld_blocks": 0,
@@ -650,8 +980,8 @@
     {
       "url": "https://salentoalamano.com/pautantes/hotel-camino-nacional-salento",
       "title": "Hotel Camino Nacional Salento | Salento a la Mano",
-      "description_length": 0,
-      "canonical": "",
+      "description_length": 303,
+      "canonical": "https://salentoalamano.com/pautantes/hotel-camino-nacional-salento.html",
       "language": "es",
       "h1_count": 1,
       "json_ld_blocks": 0,
@@ -661,8 +991,8 @@
     {
       "url": "https://salentoalamano.com/pautantes/hotel-la-floresta-salento",
       "title": "Hotel La Floresta Salento | Salento a la Mano",
-      "description_length": 0,
-      "canonical": "",
+      "description_length": 216,
+      "canonical": "https://salentoalamano.com/pautantes/hotel-la-floresta-salento.html",
       "language": "es",
       "h1_count": 1,
       "json_ld_blocks": 0,
@@ -670,10 +1000,10 @@
       "indexable": true
     },
     {
-      "url": "https://salentoalamano.com/pautantes/jeeps-willys-salento",
-      "title": "Jeeps Willys Salento | Salento a la Mano",
-      "description_length": 0,
-      "canonical": "",
+      "url": "https://salentoalamano.com/pautantes/iglesia-de-nuestra-senora-del-carmen-de-salento",
+      "title": "Iglesia de Nuestra Señora del Carmen de Salento | Salento a la Mano",
+      "description_length": 218,
+      "canonical": "https://salentoalamano.com/pautantes/iglesia-de-nuestra-senora-del-carmen-de-salento.html",
       "language": "es",
       "h1_count": 1,
       "json_ld_blocks": 0,
@@ -681,10 +1011,21 @@
       "indexable": true
     },
     {
-      "url": "https://salentoalamano.com/pautantes/la-fogata-salentina",
-      "title": "La Fogata Salentina | Salento a la Mano",
-      "description_length": 0,
-      "canonical": "",
+      "url": "https://salentoalamano.com/pautantes/mirador-alto-de-la-cruz",
+      "title": "Mirador Alto de la Cruz | Salento a la Mano",
+      "description_length": 172,
+      "canonical": "https://salentoalamano.com/pautantes/mirador-alto-de-la-cruz.html",
+      "language": "es",
+      "h1_count": 1,
+      "json_ld_blocks": 0,
+      "valid_json_ld_blocks": 0,
+      "indexable": true
+    },
+    {
+      "url": "https://salentoalamano.com/pautantes/mirador-del-condor-salento",
+      "title": "Mirador del Cóndor (Salento) | Salento a la Mano",
+      "description_length": 162,
+      "canonical": "https://salentoalamano.com/pautantes/mirador-del-condor-salento.html",
       "language": "es",
       "h1_count": 1,
       "json_ld_blocks": 0,
@@ -694,8 +1035,8 @@
     {
       "url": "https://salentoalamano.com/pautantes/mirador-las-manos-de-dios",
       "title": "Mirador Las Manos de Dios | Salento a la Mano",
-      "description_length": 0,
-      "canonical": "",
+      "description_length": 234,
+      "canonical": "https://salentoalamano.com/pautantes/mirador-las-manos-de-dios.html",
       "language": "es",
       "h1_count": 1,
       "json_ld_blocks": 0,
@@ -705,8 +1046,30 @@
     {
       "url": "https://salentoalamano.com/pautantes/moto-aventura-110",
       "title": "Moto Aventura 110 | Salento a la Mano",
-      "description_length": 0,
-      "canonical": "",
+      "description_length": 138,
+      "canonical": "https://salentoalamano.com/pautantes/moto-aventura-110.html",
+      "language": "es",
+      "h1_count": 1,
+      "json_ld_blocks": 0,
+      "valid_json_ld_blocks": 0,
+      "indexable": true
+    },
+    {
+      "url": "https://salentoalamano.com/pautantes/oficina-de-informacion-turistica-de-salento",
+      "title": "Oficina de Información Turística de Salento | Salento a la Mano",
+      "description_length": 163,
+      "canonical": "https://salentoalamano.com/pautantes/oficina-de-informacion-turistica-de-salento.html",
+      "language": "es",
+      "h1_count": 1,
+      "json_ld_blocks": 0,
+      "valid_json_ld_blocks": 0,
+      "indexable": true
+    },
+    {
+      "url": "https://salentoalamano.com/pautantes/parque-principal-de-salento",
+      "title": "Parque Principal de Salento | Salento a la Mano",
+      "description_length": 164,
+      "canonical": "https://salentoalamano.com/pautantes/parque-principal-de-salento.html",
       "language": "es",
       "h1_count": 1,
       "json_ld_blocks": 0,
@@ -716,8 +1079,52 @@
     {
       "url": "https://salentoalamano.com/pautantes/pautante",
       "title": "Pautante | Salento a la Mano",
-      "description_length": 0,
-      "canonical": "",
+      "description_length": 87,
+      "canonical": "https://salentoalamano.com/pautantes/pautante.html",
+      "language": "es",
+      "h1_count": 1,
+      "json_ld_blocks": 1,
+      "valid_json_ld_blocks": 1,
+      "indexable": true
+    },
+    {
+      "url": "https://salentoalamano.com/pautantes/plaza-de-bolivar-de-salento",
+      "title": "Plaza de Bolívar de Salento | Salento a la Mano",
+      "description_length": 183,
+      "canonical": "https://salentoalamano.com/pautantes/plaza-de-bolivar-de-salento.html",
+      "language": "es",
+      "h1_count": 1,
+      "json_ld_blocks": 0,
+      "valid_json_ld_blocks": 0,
+      "indexable": true
+    },
+    {
+      "url": "https://salentoalamano.com/pautantes/puente-de-boquia-sendero-cercano",
+      "title": "Puente de Boquía (Sendero Cercano) | Salento a la Mano",
+      "description_length": 171,
+      "canonical": "https://salentoalamano.com/pautantes/puente-de-boquia-sendero-cercano.html",
+      "language": "es",
+      "h1_count": 1,
+      "json_ld_blocks": 0,
+      "valid_json_ld_blocks": 0,
+      "indexable": true
+    },
+    {
+      "url": "https://salentoalamano.com/pautantes/punto-de-encuentro-jeeps-willys-plaza",
+      "title": "Punto de Encuentro Jeeps Willys Plaza | Salento a la Mano",
+      "description_length": 195,
+      "canonical": "https://salentoalamano.com/pautantes/punto-de-encuentro-jeeps-willys-plaza.html",
+      "language": "es",
+      "h1_count": 1,
+      "json_ld_blocks": 0,
+      "valid_json_ld_blocks": 0,
+      "indexable": true
+    },
+    {
+      "url": "https://salentoalamano.com/pautantes/recorrido-cultural-casco-historico",
+      "title": "Recorrido Cultural Casco Histórico | Salento a la Mano",
+      "description_length": 192,
+      "canonical": "https://salentoalamano.com/pautantes/recorrido-cultural-casco-historico.html",
       "language": "es",
       "h1_count": 1,
       "json_ld_blocks": 0,
@@ -727,8 +1134,8 @@
     {
       "url": "https://salentoalamano.com/pautantes/reserva-natural-cascadas-de-santa-rita",
       "title": "Reserva Natural Cascadas de Santa Rita | Salento a la Mano",
-      "description_length": 0,
-      "canonical": "",
+      "description_length": 216,
+      "canonical": "https://salentoalamano.com/pautantes/reserva-natural-cascadas-de-santa-rita.html",
       "language": "es",
       "h1_count": 1,
       "json_ld_blocks": 0,
@@ -738,8 +1145,8 @@
     {
       "url": "https://salentoalamano.com/pautantes/restaurante-don-elias",
       "title": "Restaurante Don Elías | Salento a la Mano",
-      "description_length": 0,
-      "canonical": "",
+      "description_length": 147,
+      "canonical": "https://salentoalamano.com/pautantes/restaurante-don-elias.html",
       "language": "es",
       "h1_count": 1,
       "json_ld_blocks": 0,
@@ -747,10 +1154,10 @@
       "indexable": true
     },
     {
-      "url": "https://salentoalamano.com/pautantes/salento-tour-operadora",
-      "title": "Salento Tour Operadora | Salento a la Mano",
-      "description_length": 0,
-      "canonical": "",
+      "url": "https://salentoalamano.com/pautantes/sendero-de-las-palmas-entrada-libre-valle",
+      "title": "Sendero de las Palmas (Entrada Libre Valle) | Salento a la Mano",
+      "description_length": 168,
+      "canonical": "https://salentoalamano.com/pautantes/sendero-de-las-palmas-entrada-libre-valle.html",
       "language": "es",
       "h1_count": 1,
       "json_ld_blocks": 0,
@@ -758,10 +1165,10 @@
       "indexable": true
     },
     {
-      "url": "https://salentoalamano.com/pautantes/tienda-la-montana",
-      "title": "Tienda La Montaña | Salento a la Mano",
-      "description_length": 0,
-      "canonical": "",
+      "url": "https://salentoalamano.com/pautantes/terminal-de-transporte-de-salento-acceso-peatonal",
+      "title": "Terminal de Transporte de Salento (Acceso Peatonal) | Salento a la Mano",
+      "description_length": 175,
+      "canonical": "https://salentoalamano.com/pautantes/terminal-de-transporte-de-salento-acceso-peatonal.html",
       "language": "es",
       "h1_count": 1,
       "json_ld_blocks": 0,
@@ -769,45 +1176,158 @@
       "indexable": true
     },
     {
-      "url": "https://salentoalamano.com/pautantes/valle-en-bicicleta",
-      "title": "Valle en Bicicleta | Salento a la Mano",
-      "description_length": 0,
-      "canonical": "",
+      "url": "https://salentoalamano.com/pautantes/valle-de-cocora-sendero-de-entrada-libre",
+      "title": "Valle de Cocora — Sendero de Entrada Libre | Salento a la Mano",
+      "description_length": 179,
+      "canonical": "https://salentoalamano.com/pautantes/valle-de-cocora-sendero-de-entrada-libre.html",
       "language": "es",
       "h1_count": 1,
       "json_ld_blocks": 0,
       "valid_json_ld_blocks": 0,
+      "indexable": true
+    },
+    {
+      "url": "https://salentoalamano.com/registro-aliados",
+      "title": "Registro de aliados turísticos de Salento | Salento a la Mano",
+      "description_length": 138,
+      "canonical": "https://salentoalamano.com/registro-aliados",
+      "language": "es-CO",
+      "h1_count": 1,
+      "json_ld_blocks": 1,
+      "valid_json_ld_blocks": 1,
+      "indexable": true
+    },
+    {
+      "url": "https://salentoalamano.com/restaurantes-salento-abiertos-servicio-gastronomico-operativo",
+      "title": "Restaurantes en Salento Abiertos: Servicio Gastronómico Operativo y Menús Disponibles",
+      "description_length": 159,
+      "canonical": "https://salentoalamano.com/restaurantes-salento-abiertos-servicio-gastronomico-operativo",
+      "language": "es-CO",
+      "h1_count": 1,
+      "json_ld_blocks": 1,
+      "valid_json_ld_blocks": 1,
+      "indexable": true
+    },
+    {
+      "url": "https://salentoalamano.com/rumor-cierre-salento-falso-desmentido-oficialmente",
+      "title": "RUMOR CIERRE DE SALENTO: FALSO - Desmentido Oficialmente por Autoridades Locales",
+      "description_length": 156,
+      "canonical": "https://salentoalamano.com/rumor-cierre-salento-falso-desmentido-oficialmente",
+      "language": "es-CO",
+      "h1_count": 1,
+      "json_ld_blocks": 1,
+      "valid_json_ld_blocks": 1,
+      "indexable": true
+    },
+    {
+      "url": "https://salentoalamano.com/salento-abierto-hoy-turismo-seguro-valle-cocora-accesible",
+      "title": "Salento Abierto Hoy: Turismo Seguro y Valle de Cocora 100% Accesible - Salento a la Mano",
+      "description_length": 142,
+      "canonical": "https://salentoalamano.com/salento-abierto-hoy-turismo-seguro-valle-cocora-accesible",
+      "language": "es-CO",
+      "h1_count": 1,
+      "json_ld_blocks": 1,
+      "valid_json_ld_blocks": 1,
+      "indexable": true
+    },
+    {
+      "url": "https://salentoalamano.com/salento-seguro-turismo",
+      "title": "Turismo en Salento: recomendaciones y planificación segura",
+      "description_length": 132,
+      "canonical": "https://salentoalamano.com/salento-seguro-turismo",
+      "language": "es-CO",
+      "h1_count": 1,
+      "json_ld_blocks": 1,
+      "valid_json_ld_blocks": 1,
+      "indexable": true
+    },
+    {
+      "url": "https://salentoalamano.com/transporte-salento-jeeps-willys-operativos-servicio-normal",
+      "title": "Transporte en Salento: Jeeps Willys Operativos y Servicio Normal",
+      "description_length": 161,
+      "canonical": "https://salentoalamano.com/transporte-salento-jeeps-willys-operativos-servicio-normal",
+      "language": "es-CO",
+      "h1_count": 1,
+      "json_ld_blocks": 1,
+      "valid_json_ld_blocks": 1,
+      "indexable": true
+    },
+    {
+      "url": "https://salentoalamano.com/turismo-salento-seguro-hoy",
+      "title": "Turismo en Salento Hoy - Situación Actual y Seguridad",
+      "description_length": 134,
+      "canonical": "https://salentoalamano.com/turismo-salento-seguro-hoy",
+      "language": "es-CO",
+      "h1_count": 1,
+      "json_ld_blocks": 1,
+      "valid_json_ld_blocks": 1,
+      "indexable": true
+    },
+    {
+      "url": "https://salentoalamano.com/valle-cocora-accesible-100",
+      "title": "Valle de Cocora: acceso, rutas y planificación de visita",
+      "description_length": 129,
+      "canonical": "https://salentoalamano.com/valle-cocora-accesible-100",
+      "language": "es-CO",
+      "h1_count": 1,
+      "json_ld_blocks": 1,
+      "valid_json_ld_blocks": 1,
+      "indexable": true
+    },
+    {
+      "url": "https://salentoalamano.com/valle-cocora-cerrado-falso-acceso-confirmado-operativo",
+      "title": "Valle de Cocora Cerrado: FALSO - Acceso Confirmado y Operativo al 100%",
+      "description_length": 153,
+      "canonical": "https://salentoalamano.com/valle-cocora-cerrado-falso-acceso-confirmado-operativo",
+      "language": "es-CO",
+      "h1_count": 1,
+      "json_ld_blocks": 1,
+      "valid_json_ld_blocks": 1,
+      "indexable": true
+    },
+    {
+      "url": "https://salentoalamano.com/valle-cocora-operativo-seguro",
+      "title": "Valle de Cocora Operativo y Seguro - Información Oficial",
+      "description_length": 133,
+      "canonical": "https://salentoalamano.com/valle-cocora-operativo-seguro",
+      "language": "es-CO",
+      "h1_count": 1,
+      "json_ld_blocks": 1,
+      "valid_json_ld_blocks": 1,
+      "indexable": true
+    },
+    {
+      "url": "https://salentoalamano.com/vias-salento-libres-acceso",
+      "title": "Vías de acceso a Salento: consulta antes de viajar",
+      "description_length": 135,
+      "canonical": "https://salentoalamano.com/vias-salento-libres-acceso",
+      "language": "es-CO",
+      "h1_count": 1,
+      "json_ld_blocks": 1,
+      "valid_json_ld_blocks": 1,
       "indexable": true
     }
   ],
   "sitemap": {
-    "url_count": 78,
+    "url_count": 79,
     "missing_local_pages": [
-      "https://salentoalamano.com/de/guias/10-tours-cafe-salento.html",
-      "https://salentoalamano.com/de/guias/guia-valle-del-cocora.html",
-      "https://salentoalamano.com/de/guias/que-hacer-en-salento-3-dias.html",
-      "https://salentoalamano.com/don-chucho-asistente",
-      "https://salentoalamano.com/en/guias/10-tours-cafe-salento.html",
-      "https://salentoalamano.com/en/guias/guia-valle-del-cocora.html",
-      "https://salentoalamano.com/en/guias/que-hacer-en-salento-3-dias.html",
-      "https://salentoalamano.com/es/guias/10-tours-cafe-salento.html",
-      "https://salentoalamano.com/es/guias/guia-valle-del-cocora.html",
-      "https://salentoalamano.com/es/guias/que-hacer-en-salento-3-dias.html",
-      "https://salentoalamano.com/estado-actual-salento-hoteles-abiertos-vias-libres-valle-cocora-operando-100",
-      "https://salentoalamano.com/fr/guias/10-tours-cafe-salento.html",
-      "https://salentoalamano.com/fr/guias/guia-valle-del-cocora.html",
-      "https://salentoalamano.com/fr/guias/que-hacer-en-salento-3-dias.html",
-      "https://salentoalamano.com/hoteles-abiertos-salento",
-      "https://salentoalamano.com/landing-estado-actual-salento-2026",
-      "https://salentoalamano.com/mapa-interactivo-salento",
-      "https://salentoalamano.com/registro-aliados",
-      "https://salentoalamano.com/salento-seguro-turismo",
-      "https://salentoalamano.com/valle-cocora-accesible-100",
-      "https://salentoalamano.com/vias-salento-libres-acceso"
+      "https://salentoalamano.com/categorias/index.html",
+      "https://salentoalamano.com/como-llegar-a-salento/",
+      "https://salentoalamano.com/cultura-salento/",
+      "https://salentoalamano.com/gastronomia-salento/",
+      "https://salentoalamano.com/hoteles-en-salento/",
+      "https://salentoalamano.com/mejor-epoca-salento/",
+      "https://salentoalamano.com/naturaleza-salento/",
+      "https://salentoalamano.com/que-hacer-en-salento/",
+      "https://salentoalamano.com/restaurantes-en-salento/",
+      "https://salentoalamano.com/salento-turismo/",
+      "https://salentoalamano.com/salento/",
+      "https://salentoalamano.com/valle-de-cocora-salento/"
     ]
   },
   "robots": {
     "sitemaps": [
+      "https://www.salentoalamano.com/sitemap.xml",
       "https://salentoalamano.com/sitemap.xml"
     ],
     "crawl_delay": true
@@ -817,97 +1337,85 @@
       "severity": "warning",
       "code": "long-description",
       "path": "index.html",
-      "message": "La descripción tiene 255 caracteres."
+      "message": "La descripción tiene 429 caracteres."
+    },
+    {
+      "severity": "warning",
+      "code": "long-title",
+      "path": "public/categorias/atractivos-turisticos.html",
+      "message": "El título tiene 70 caracteres."
+    },
+    {
+      "severity": "error",
+      "code": "invalid-json-ld",
+      "path": "public/categorias/coffee-tours.html",
+      "message": "Hay un bloque JSON-LD que no es JSON válido."
+    },
+    {
+      "severity": "warning",
+      "code": "long-description",
+      "path": "public/categorias/coffee-tours.html",
+      "message": "La descripción tiene 190 caracteres."
+    },
+    {
+      "severity": "warning",
+      "code": "long-description",
+      "path": "public/categorias/eventos.html",
+      "message": "La descripción tiene 176 caracteres."
+    },
+    {
+      "severity": "error",
+      "code": "missing-canonical",
+      "path": "public/categorias/eventos.html",
+      "message": "Falta canonical."
+    },
+    {
+      "severity": "warning",
+      "code": "long-description",
+      "path": "public/categorias/restaurante-bar.html",
+      "message": "La descripción tiene 176 caracteres."
+    },
+    {
+      "severity": "error",
+      "code": "missing-canonical",
+      "path": "public/categorias/restaurante-bar.html",
+      "message": "Falta canonical."
+    },
+    {
+      "severity": "warning",
+      "code": "long-title",
+      "path": "public/faq-salento-preguntas-frecuentes-turistas-informacion-oficial.html",
+      "message": "El título tiene 79 caracteres."
+    },
+    {
+      "severity": "warning",
+      "code": "long-title",
+      "path": "public/hoteles-salento-abiertos-hoy-alojamiento-disponible-reservas.html",
+      "message": "El título tiene 74 caracteres."
+    },
+    {
+      "severity": "warning",
+      "code": "long-description",
+      "path": "public/index.html",
+      "message": "La descripción tiene 429 caracteres."
     },
     {
       "severity": "warning",
       "code": "h1-count",
-      "path": "index.html",
+      "path": "public/index.html",
       "message": "La página contiene 0 elementos H1; se espera uno."
     },
     {
-      "severity": "error",
-      "code": "missing-canonical",
-      "path": "public/categorias/alojamientos.html",
-      "message": "Falta canonical."
-    },
-    {
-      "severity": "error",
-      "code": "missing-canonical",
-      "path": "public/categorias/artesanias.html",
-      "message": "Falta canonical."
-    },
-    {
-      "severity": "error",
-      "code": "missing-canonical",
-      "path": "public/categorias/cafes.html",
-      "message": "Falta canonical."
-    },
-    {
-      "severity": "error",
-      "code": "missing-canonical",
-      "path": "public/categorias/experiencias.html",
-      "message": "Falta canonical."
+      "severity": "warning",
+      "code": "long-description",
+      "path": "public/paginas-pautantes/boki-mall-barcinales-cafe-bar/index.html",
+      "message": "La descripción tiene 275 caracteres."
     },
     {
       "severity": "warning",
-      "code": "missing-description",
-      "path": "public/categorias/index.html",
-      "message": "Falta meta description."
-    },
-    {
-      "severity": "error",
-      "code": "missing-canonical",
-      "path": "public/categorias/index.html",
-      "message": "Falta canonical."
-    },
-    {
-      "severity": "error",
-      "code": "missing-canonical",
-      "path": "public/categorias/restaurantes.html",
-      "message": "Falta canonical."
-    },
-    {
-      "severity": "error",
-      "code": "missing-canonical",
-      "path": "public/categorias/servicios.html",
-      "message": "Falta canonical."
-    },
-    {
-      "severity": "error",
-      "code": "missing-canonical",
-      "path": "public/categorias/tiendas.html",
-      "message": "Falta canonical."
-    },
-    {
-      "severity": "error",
-      "code": "missing-title",
-      "path": "public/googleac76b27847921d06.html",
-      "message": "Falta <title>."
-    },
-    {
-      "severity": "warning",
-      "code": "missing-description",
-      "path": "public/googleac76b27847921d06.html",
-      "message": "Falta meta description."
-    },
-    {
-      "severity": "error",
-      "code": "missing-canonical",
-      "path": "public/googleac76b27847921d06.html",
-      "message": "Falta canonical."
-    },
-    {
-      "severity": "warning",
-      "code": "missing-language",
-      "path": "public/googleac76b27847921d06.html",
-      "message": "Falta lang en <html>."
-    },
-    {
-      "severity": "warning",
-      "code": "h1-count",
-      "path": "public/googleac76b27847921d06.html",
-      "message": "La página contiene 0 elementos H1; se espera uno."
+      "code": "long-description",
+      "path": "public/paginas-pautantes/boki-mall-eventos/index.html",
+      "message": "La descripción tiene 202 caracteres."
     },
     {
       "severity": "warning",
@@ -922,16 +1430,10 @@
       "message": "La descripción tiene 241 caracteres."
     },
     {
-      "severity": "error",
-      "code": "missing-canonical",
-      "path": "public/paginas-pautantes/boki-mall-hotel-el-mirador-de-boquia/index.html",
-      "message": "Falta canonical."
-    },
-    {
-      "severity": "error",
-      "code": "missing-canonical",
-      "path": "public/paginas-pautantes/brunch-de-la-plaza/index.html",
-      "message": "Falta canonical."
+      "severity": "warning",
+      "code": "long-description",
+      "path": "public/paginas-pautantes/boki-mall-restaurante-terra/index.html",
+      "message": "La descripción tiene 284 caracteres."
     },
     {
       "severity": "warning",
@@ -940,46 +1442,34 @@
       "message": "La descripción tiene 177 caracteres."
     },
     {
-      "severity": "error",
-      "code": "missing-canonical",
-      "path": "public/paginas-pautantes/cabalgatas-cocora-magica/index.html",
-      "message": "Falta canonical."
+      "severity": "warning",
+      "code": "long-description",
+      "path": "public/paginas-pautantes/calle-real-de-salento/index.html",
+      "message": "La descripción tiene 184 caracteres."
     },
     {
-      "severity": "error",
-      "code": "missing-canonical",
-      "path": "public/paginas-pautantes/cabalgatas-valle-de-cocora/index.html",
-      "message": "Falta canonical."
-    },
-    {
-      "severity": "error",
-      "code": "missing-canonical",
-      "path": "public/paginas-pautantes/cafe-de-altura/index.html",
-      "message": "Falta canonical."
-    },
-    {
-      "severity": "error",
-      "code": "missing-canonical",
-      "path": "public/paginas-pautantes/canasto-quindiano/index.html",
-      "message": "Falta canonical."
-    },
-    {
-      "severity": "error",
-      "code": "missing-canonical",
-      "path": "public/paginas-pautantes/coffee-farm-el-recuerdo/index.html",
-      "message": "Falta canonical."
+      "severity": "warning",
+      "code": "long-title",
+      "path": "public/paginas-pautantes/caminata-ecologica-calle-real-alto-de-la-cruz/index.html",
+      "message": "El título tiene 75 caracteres."
     },
     {
       "severity": "warning",
       "code": "long-description",
-      "path": "public/paginas-pautantes/finca-cafetera-don-elias/index.html",
-      "message": "La descripción tiene 203 caracteres."
+      "path": "public/paginas-pautantes/caminata-ecologica-calle-real-alto-de-la-cruz/index.html",
+      "message": "La descripción tiene 179 caracteres."
     },
     {
-      "severity": "error",
-      "code": "missing-canonical",
-      "path": "public/paginas-pautantes/finca-cafetera-don-elias/index.html",
-      "message": "Falta canonical."
+      "severity": "warning",
+      "code": "long-description",
+      "path": "public/paginas-pautantes/camping-cascadas-de-santa-rita/index.html",
+      "message": "La descripción tiene 292 caracteres."
+    },
+    {
+      "severity": "warning",
+      "code": "long-description",
+      "path": "public/paginas-pautantes/finca-don-eduardo-coffee-tour/index.html",
+      "message": "La descripción tiene 199 caracteres."
     },
     {
       "severity": "warning",
@@ -988,58 +1478,34 @@
       "message": "La descripción tiene 207 caracteres."
     },
     {
-      "severity": "error",
-      "code": "missing-canonical",
-      "path": "public/paginas-pautantes/finca-hotel-el-ocaso/index.html",
-      "message": "Falta canonical."
-    },
-    {
-      "severity": "error",
-      "code": "missing-canonical",
-      "path": "public/paginas-pautantes/fonda-boquia/index.html",
-      "message": "Falta canonical."
-    },
-    {
-      "severity": "error",
-      "code": "missing-canonical",
-      "path": "public/paginas-pautantes/guias-del-cocora/index.html",
-      "message": "Falta canonical."
-    },
-    {
       "severity": "warning",
       "code": "long-description",
       "path": "public/paginas-pautantes/hotel-camino-nacional-salento/index.html",
       "message": "La descripción tiene 303 caracteres."
     },
     {
-      "severity": "error",
-      "code": "missing-canonical",
-      "path": "public/paginas-pautantes/hotel-camino-nacional-salento/index.html",
-      "message": "Falta canonical."
+      "severity": "warning",
+      "code": "long-description",
+      "path": "public/paginas-pautantes/hotel-la-floresta-salento/index.html",
+      "message": "La descripción tiene 216 caracteres."
+    },
+    {
+      "severity": "warning",
+      "code": "long-title",
+      "path": "public/paginas-pautantes/iglesia-de-nuestra-senora-del-carmen-de-salento/index.html",
+      "message": "El título tiene 75 caracteres."
     },
     {
       "severity": "warning",
       "code": "long-description",
-      "path": "public/paginas-pautantes/hotel-la-floresta-salento/index.html",
-      "message": "La descripción tiene 209 caracteres."
+      "path": "public/paginas-pautantes/iglesia-de-nuestra-senora-del-carmen-de-salento/index.html",
+      "message": "La descripción tiene 218 caracteres."
     },
     {
-      "severity": "error",
-      "code": "missing-canonical",
-      "path": "public/paginas-pautantes/hotel-la-floresta-salento/index.html",
-      "message": "Falta canonical."
-    },
-    {
-      "severity": "error",
-      "code": "missing-canonical",
-      "path": "public/paginas-pautantes/jeeps-willys-salento/index.html",
-      "message": "Falta canonical."
-    },
-    {
-      "severity": "error",
-      "code": "missing-canonical",
-      "path": "public/paginas-pautantes/la-fogata-salentina/index.html",
-      "message": "Falta canonical."
+      "severity": "warning",
+      "code": "long-description",
+      "path": "public/paginas-pautantes/mirador-alto-de-la-cruz/index.html",
+      "message": "La descripción tiene 172 caracteres."
     },
     {
       "severity": "warning",
@@ -1048,22 +1514,34 @@
       "message": "La descripción tiene 234 caracteres."
     },
     {
-      "severity": "error",
-      "code": "missing-canonical",
-      "path": "public/paginas-pautantes/mirador-las-manos-de-dios/index.html",
-      "message": "Falta canonical."
+      "severity": "warning",
+      "code": "long-title",
+      "path": "public/paginas-pautantes/oficina-de-informacion-turistica-de-salento/index.html",
+      "message": "El título tiene 71 caracteres."
     },
     {
       "severity": "warning",
       "code": "long-description",
-      "path": "public/paginas-pautantes/moto-aventura-110/index.html",
-      "message": "La descripción tiene 199 caracteres."
+      "path": "public/paginas-pautantes/plaza-de-bolivar-de-salento/index.html",
+      "message": "La descripción tiene 183 caracteres."
     },
     {
-      "severity": "error",
-      "code": "missing-canonical",
-      "path": "public/paginas-pautantes/moto-aventura-110/index.html",
-      "message": "Falta canonical."
+      "severity": "warning",
+      "code": "long-description",
+      "path": "public/paginas-pautantes/puente-de-boquia-sendero-cercano/index.html",
+      "message": "La descripción tiene 171 caracteres."
+    },
+    {
+      "severity": "warning",
+      "code": "long-description",
+      "path": "public/paginas-pautantes/punto-de-encuentro-jeeps-willys-plaza/index.html",
+      "message": "La descripción tiene 195 caracteres."
+    },
+    {
+      "severity": "warning",
+      "code": "long-description",
+      "path": "public/paginas-pautantes/recorrido-cultural-casco-historico/index.html",
+      "message": "La descripción tiene 192 caracteres."
     },
     {
       "severity": "warning",
@@ -1078,448 +1556,316 @@
       "message": "La descripción tiene 216 caracteres."
     },
     {
-      "severity": "error",
-      "code": "missing-canonical",
-      "path": "public/paginas-pautantes/reserva-natural-cascadas-de-santa-rita/index.html",
-      "message": "Falta canonical."
+      "severity": "warning",
+      "code": "long-title",
+      "path": "public/paginas-pautantes/sendero-de-las-palmas-entrada-libre-valle/index.html",
+      "message": "El título tiene 71 caracteres."
+    },
+    {
+      "severity": "warning",
+      "code": "long-title",
+      "path": "public/paginas-pautantes/terminal-de-transporte-de-salento-acceso-peatonal/index.html",
+      "message": "El título tiene 79 caracteres."
     },
     {
       "severity": "warning",
       "code": "long-description",
-      "path": "public/paginas-pautantes/restaurante-don-elias/index.html",
-      "message": "La descripción tiene 203 caracteres."
-    },
-    {
-      "severity": "error",
-      "code": "missing-canonical",
-      "path": "public/paginas-pautantes/restaurante-don-elias/index.html",
-      "message": "Falta canonical."
-    },
-    {
-      "severity": "error",
-      "code": "missing-canonical",
-      "path": "public/paginas-pautantes/salento-tour-operadora/index.html",
-      "message": "Falta canonical."
-    },
-    {
-      "severity": "error",
-      "code": "missing-canonical",
-      "path": "public/paginas-pautantes/tienda-la-montana/index.html",
-      "message": "Falta canonical."
-    },
-    {
-      "severity": "error",
-      "code": "missing-canonical",
-      "path": "public/paginas-pautantes/valle-en-bicicleta/index.html",
-      "message": "Falta canonical."
+      "path": "public/paginas-pautantes/terminal-de-transporte-de-salento-acceso-peatonal/index.html",
+      "message": "La descripción tiene 175 caracteres."
     },
     {
       "severity": "warning",
-      "code": "missing-description",
+      "code": "long-title",
+      "path": "public/paginas-pautantes/valle-de-cocora-sendero-de-entrada-libre/index.html",
+      "message": "El título tiene 70 caracteres."
+    },
+    {
+      "severity": "warning",
+      "code": "long-description",
+      "path": "public/paginas-pautantes/valle-de-cocora-sendero-de-entrada-libre/index.html",
+      "message": "La descripción tiene 179 caracteres."
+    },
+    {
+      "severity": "warning",
+      "code": "long-title",
+      "path": "public/paso-valle-cocora-abierto-acceso-total-jeeps-willys-operativos.html",
+      "message": "El título tiene 73 caracteres."
+    },
+    {
+      "severity": "warning",
+      "code": "long-description",
+      "path": "public/pautantes/boki-mall-barcinales-cafe-bar.html",
+      "message": "La descripción tiene 275 caracteres."
+    },
+    {
+      "severity": "warning",
+      "code": "long-description",
+      "path": "public/pautantes/boki-mall-eventos.html",
+      "message": "La descripción tiene 202 caracteres."
+    },
+    {
+      "severity": "warning",
+      "code": "long-description",
       "path": "public/pautantes/boki-mall-hotel-el-mirador-de-boquia.html",
-      "message": "Falta meta description."
-    },
-    {
-      "severity": "error",
-      "code": "missing-canonical",
-      "path": "public/pautantes/boki-mall-hotel-el-mirador-de-boquia.html",
-      "message": "Falta canonical."
+      "message": "La descripción tiene 241 caracteres."
     },
     {
       "severity": "warning",
-      "code": "missing-description",
-      "path": "public/pautantes/brunch-de-la-plaza.html",
-      "message": "Falta meta description."
-    },
-    {
-      "severity": "error",
-      "code": "missing-canonical",
-      "path": "public/pautantes/brunch-de-la-plaza.html",
-      "message": "Falta canonical."
+      "code": "long-description",
+      "path": "public/pautantes/boki-mall-restaurante-terra.html",
+      "message": "La descripción tiene 284 caracteres."
     },
     {
       "severity": "warning",
-      "code": "missing-description",
+      "code": "long-description",
       "path": "public/pautantes/cabalgatas-cocora-magica.html",
-      "message": "Falta meta description."
-    },
-    {
-      "severity": "error",
-      "code": "missing-canonical",
-      "path": "public/pautantes/cabalgatas-cocora-magica.html",
-      "message": "Falta canonical."
+      "message": "La descripción tiene 177 caracteres."
     },
     {
       "severity": "warning",
-      "code": "missing-description",
-      "path": "public/pautantes/cabalgatas-valle-de-cocora.html",
-      "message": "Falta meta description."
-    },
-    {
-      "severity": "error",
-      "code": "missing-canonical",
-      "path": "public/pautantes/cabalgatas-valle-de-cocora.html",
-      "message": "Falta canonical."
+      "code": "long-description",
+      "path": "public/pautantes/calle-real-de-salento.html",
+      "message": "La descripción tiene 184 caracteres."
     },
     {
       "severity": "warning",
-      "code": "missing-description",
-      "path": "public/pautantes/cafe-de-altura.html",
-      "message": "Falta meta description."
-    },
-    {
-      "severity": "error",
-      "code": "missing-canonical",
-      "path": "public/pautantes/cafe-de-altura.html",
-      "message": "Falta canonical."
+      "code": "long-title",
+      "path": "public/pautantes/caminata-ecologica-calle-real-alto-de-la-cruz.html",
+      "message": "El título tiene 67 caracteres."
     },
     {
       "severity": "warning",
-      "code": "missing-description",
-      "path": "public/pautantes/canasto-quindiano.html",
-      "message": "Falta meta description."
-    },
-    {
-      "severity": "error",
-      "code": "missing-canonical",
-      "path": "public/pautantes/canasto-quindiano.html",
-      "message": "Falta canonical."
+      "code": "long-description",
+      "path": "public/pautantes/caminata-ecologica-calle-real-alto-de-la-cruz.html",
+      "message": "La descripción tiene 179 caracteres."
     },
     {
       "severity": "warning",
-      "code": "missing-description",
-      "path": "public/pautantes/coffee-farm-el-recuerdo.html",
-      "message": "Falta meta description."
-    },
-    {
-      "severity": "error",
-      "code": "missing-canonical",
-      "path": "public/pautantes/coffee-farm-el-recuerdo.html",
-      "message": "Falta canonical."
+      "code": "long-description",
+      "path": "public/pautantes/camping-cascadas-de-santa-rita.html",
+      "message": "La descripción tiene 292 caracteres."
     },
     {
       "severity": "warning",
-      "code": "missing-description",
-      "path": "public/pautantes/finca-cafetera-don-elias.html",
-      "message": "Falta meta description."
-    },
-    {
-      "severity": "error",
-      "code": "missing-canonical",
-      "path": "public/pautantes/finca-cafetera-don-elias.html",
-      "message": "Falta canonical."
+      "code": "long-description",
+      "path": "public/pautantes/finca-don-eduardo-coffee-tour.html",
+      "message": "La descripción tiene 199 caracteres."
     },
     {
       "severity": "warning",
-      "code": "missing-description",
+      "code": "long-description",
       "path": "public/pautantes/finca-hotel-el-ocaso.html",
-      "message": "Falta meta description."
-    },
-    {
-      "severity": "error",
-      "code": "missing-canonical",
-      "path": "public/pautantes/finca-hotel-el-ocaso.html",
-      "message": "Falta canonical."
+      "message": "La descripción tiene 207 caracteres."
     },
     {
       "severity": "warning",
-      "code": "missing-description",
-      "path": "public/pautantes/guias-del-cocora.html",
-      "message": "Falta meta description."
-    },
-    {
-      "severity": "error",
-      "code": "missing-canonical",
-      "path": "public/pautantes/guias-del-cocora.html",
-      "message": "Falta canonical."
-    },
-    {
-      "severity": "warning",
-      "code": "missing-description",
+      "code": "long-description",
       "path": "public/pautantes/hotel-camino-nacional-salento.html",
-      "message": "Falta meta description."
-    },
-    {
-      "severity": "error",
-      "code": "missing-canonical",
-      "path": "public/pautantes/hotel-camino-nacional-salento.html",
-      "message": "Falta canonical."
+      "message": "La descripción tiene 303 caracteres."
     },
     {
       "severity": "warning",
-      "code": "missing-description",
+      "code": "long-description",
       "path": "public/pautantes/hotel-la-floresta-salento.html",
-      "message": "Falta meta description."
-    },
-    {
-      "severity": "error",
-      "code": "missing-canonical",
-      "path": "public/pautantes/hotel-la-floresta-salento.html",
-      "message": "Falta canonical."
+      "message": "La descripción tiene 216 caracteres."
     },
     {
       "severity": "warning",
-      "code": "missing-description",
-      "path": "public/pautantes/jeeps-willys-salento.html",
-      "message": "Falta meta description."
-    },
-    {
-      "severity": "error",
-      "code": "missing-canonical",
-      "path": "public/pautantes/jeeps-willys-salento.html",
-      "message": "Falta canonical."
+      "code": "long-title",
+      "path": "public/pautantes/iglesia-de-nuestra-senora-del-carmen-de-salento.html",
+      "message": "El título tiene 67 caracteres."
     },
     {
       "severity": "warning",
-      "code": "missing-description",
-      "path": "public/pautantes/la-fogata-salentina.html",
-      "message": "Falta meta description."
-    },
-    {
-      "severity": "error",
-      "code": "missing-canonical",
-      "path": "public/pautantes/la-fogata-salentina.html",
-      "message": "Falta canonical."
+      "code": "long-description",
+      "path": "public/pautantes/iglesia-de-nuestra-senora-del-carmen-de-salento.html",
+      "message": "La descripción tiene 218 caracteres."
     },
     {
       "severity": "warning",
-      "code": "missing-description",
+      "code": "long-description",
+      "path": "public/pautantes/mirador-alto-de-la-cruz.html",
+      "message": "La descripción tiene 172 caracteres."
+    },
+    {
+      "severity": "warning",
+      "code": "long-description",
       "path": "public/pautantes/mirador-las-manos-de-dios.html",
-      "message": "Falta meta description."
-    },
-    {
-      "severity": "error",
-      "code": "missing-canonical",
-      "path": "public/pautantes/mirador-las-manos-de-dios.html",
-      "message": "Falta canonical."
+      "message": "La descripción tiene 234 caracteres."
     },
     {
       "severity": "warning",
-      "code": "missing-description",
-      "path": "public/pautantes/moto-aventura-110.html",
-      "message": "Falta meta description."
-    },
-    {
-      "severity": "error",
-      "code": "missing-canonical",
-      "path": "public/pautantes/moto-aventura-110.html",
-      "message": "Falta canonical."
+      "code": "long-description",
+      "path": "public/pautantes/plaza-de-bolivar-de-salento.html",
+      "message": "La descripción tiene 183 caracteres."
     },
     {
       "severity": "warning",
-      "code": "missing-description",
-      "path": "public/pautantes/pautante.html",
-      "message": "Falta meta description."
-    },
-    {
-      "severity": "error",
-      "code": "missing-canonical",
-      "path": "public/pautantes/pautante.html",
-      "message": "Falta canonical."
+      "code": "long-description",
+      "path": "public/pautantes/puente-de-boquia-sendero-cercano.html",
+      "message": "La descripción tiene 171 caracteres."
     },
     {
       "severity": "warning",
-      "code": "missing-description",
+      "code": "long-description",
+      "path": "public/pautantes/punto-de-encuentro-jeeps-willys-plaza.html",
+      "message": "La descripción tiene 195 caracteres."
+    },
+    {
+      "severity": "warning",
+      "code": "long-description",
+      "path": "public/pautantes/recorrido-cultural-casco-historico.html",
+      "message": "La descripción tiene 192 caracteres."
+    },
+    {
+      "severity": "warning",
+      "code": "long-description",
       "path": "public/pautantes/reserva-natural-cascadas-de-santa-rita.html",
-      "message": "Falta meta description."
-    },
-    {
-      "severity": "error",
-      "code": "missing-canonical",
-      "path": "public/pautantes/reserva-natural-cascadas-de-santa-rita.html",
-      "message": "Falta canonical."
+      "message": "La descripción tiene 216 caracteres."
     },
     {
       "severity": "warning",
-      "code": "missing-description",
-      "path": "public/pautantes/restaurante-don-elias.html",
-      "message": "Falta meta description."
-    },
-    {
-      "severity": "error",
-      "code": "missing-canonical",
-      "path": "public/pautantes/restaurante-don-elias.html",
-      "message": "Falta canonical."
+      "code": "long-title",
+      "path": "public/pautantes/terminal-de-transporte-de-salento-acceso-peatonal.html",
+      "message": "El título tiene 71 caracteres."
     },
     {
       "severity": "warning",
-      "code": "missing-description",
-      "path": "public/pautantes/salento-tour-operadora.html",
-      "message": "Falta meta description."
-    },
-    {
-      "severity": "error",
-      "code": "missing-canonical",
-      "path": "public/pautantes/salento-tour-operadora.html",
-      "message": "Falta canonical."
+      "code": "long-description",
+      "path": "public/pautantes/terminal-de-transporte-de-salento-acceso-peatonal.html",
+      "message": "La descripción tiene 175 caracteres."
     },
     {
       "severity": "warning",
-      "code": "missing-description",
-      "path": "public/pautantes/tienda-la-montana.html",
-      "message": "Falta meta description."
-    },
-    {
-      "severity": "error",
-      "code": "missing-canonical",
-      "path": "public/pautantes/tienda-la-montana.html",
-      "message": "Falta canonical."
+      "code": "long-description",
+      "path": "public/pautantes/valle-de-cocora-sendero-de-entrada-libre.html",
+      "message": "La descripción tiene 179 caracteres."
     },
     {
       "severity": "warning",
-      "code": "missing-description",
-      "path": "public/pautantes/valle-en-bicicleta.html",
-      "message": "Falta meta description."
+      "code": "long-title",
+      "path": "public/restaurantes-salento-abiertos-servicio-gastronomico-operativo.html",
+      "message": "El título tiene 85 caracteres."
     },
     {
-      "severity": "error",
-      "code": "missing-canonical",
-      "path": "public/pautantes/valle-en-bicicleta.html",
-      "message": "Falta canonical."
+      "severity": "warning",
+      "code": "long-title",
+      "path": "public/rumor-cierre-salento-falso-desmentido-oficialmente.html",
+      "message": "El título tiene 80 caracteres."
+    },
+    {
+      "severity": "warning",
+      "code": "long-title",
+      "path": "public/salento-abierto-hoy-turismo-seguro-valle-cocora-accesible.html",
+      "message": "El título tiene 88 caracteres."
+    },
+    {
+      "severity": "warning",
+      "code": "long-title",
+      "path": "public/valle-cocora-cerrado-falso-acceso-confirmado-operativo.html",
+      "message": "El título tiene 70 caracteres."
     },
     {
       "severity": "warning",
       "code": "duplicate-title",
-      "path": "https://salentoalamano.com/de/guias/10-tours-cafe-salento, https://salentoalamano.com/en/guias/10-tours-cafe-salento, https://salentoalamano.com/fr/guias/10-tours-cafe-salento",
-      "message": "Título duplicado en 3 URLs: coffee tours in salento: how to choose"
+      "path": "https://salentoalamano.com/, https://salentoalamano.com/",
+      "message": "Título duplicado en 2 URLs: salento, quindío: guía turística oficial 2026 | salento a la mano"
     },
     {
       "severity": "warning",
-      "code": "duplicate-title",
-      "path": "https://salentoalamano.com/de/guias/guia-valle-del-cocora, https://salentoalamano.com/en/guias/guia-valle-del-cocora, https://salentoalamano.com/fr/guias/guia-valle-del-cocora",
-      "message": "Título duplicado en 3 URLs: a practical guide to visiting cocora valley"
+      "code": "duplicate-canonical",
+      "path": "https://salentoalamano.com/, https://salentoalamano.com/",
+      "message": "Canonical compartido por 2 URLs: https://salentoalamano.com/"
     },
     {
       "severity": "warning",
-      "code": "duplicate-title",
-      "path": "https://salentoalamano.com/de/guias/que-hacer-en-salento-3-dias, https://salentoalamano.com/en/guias/que-hacer-en-salento-3-dias, https://salentoalamano.com/fr/guias/que-hacer-en-salento-3-dias",
-      "message": "Título duplicado en 3 URLs: what to do in salento: a 3-day itinerary"
+      "code": "duplicate-canonical",
+      "path": "https://salentoalamano.com/paginas-pautantes/coffee-tour-alojamiento-finca-hotel-el-ocaso/, https://salentoalamano.com/paginas-pautantes/finca-hotel-el-ocaso/",
+      "message": "Canonical compartido por 2 URLs: https://salentoalamano.com/paginas-pautantes/finca-hotel-el-ocaso/"
     },
     {
       "severity": "warning",
-      "code": "sitemap-orphan",
-      "path": "public/sitemap.xml",
-      "message": "URL del sitemap sin HTML estático equivalente: https://salentoalamano.com/de/guias/10-tours-cafe-salento.html"
+      "code": "duplicate-canonical",
+      "path": "https://salentoalamano.com/paginas-pautantes/coffee-tour-finca-cafetera-don-elias/, https://salentoalamano.com/paginas-pautantes/finca-cafetera-don-elias/",
+      "message": "Canonical compartido por 2 URLs: https://salentoalamano.com/paginas-pautantes/finca-cafetera-don-elias/"
     },
     {
       "severity": "warning",
-      "code": "sitemap-orphan",
-      "path": "public/sitemap.xml",
-      "message": "URL del sitemap sin HTML estático equivalente: https://salentoalamano.com/de/guias/guia-valle-del-cocora.html"
-    },
-    {
-      "severity": "warning",
-      "code": "sitemap-orphan",
-      "path": "public/sitemap.xml",
-      "message": "URL del sitemap sin HTML estático equivalente: https://salentoalamano.com/de/guias/que-hacer-en-salento-3-dias.html"
+      "code": "duplicate-canonical",
+      "path": "https://salentoalamano.com/paginas-pautantes/coffee-tour-finca-don-eduardo/, https://salentoalamano.com/paginas-pautantes/finca-don-eduardo-coffee-tour/",
+      "message": "Canonical compartido por 2 URLs: https://salentoalamano.com/paginas-pautantes/finca-don-eduardo-coffee-tour/"
     },
     {
       "severity": "warning",
       "code": "sitemap-orphan",
       "path": "public/sitemap.xml",
-      "message": "URL del sitemap sin HTML estático equivalente: https://salentoalamano.com/don-chucho-asistente"
+      "message": "URL del sitemap sin HTML estático equivalente: https://salentoalamano.com/categorias/index.html"
     },
     {
       "severity": "warning",
       "code": "sitemap-orphan",
       "path": "public/sitemap.xml",
-      "message": "URL del sitemap sin HTML estático equivalente: https://salentoalamano.com/en/guias/10-tours-cafe-salento.html"
+      "message": "URL del sitemap sin HTML estático equivalente: https://salentoalamano.com/como-llegar-a-salento/"
     },
     {
       "severity": "warning",
       "code": "sitemap-orphan",
       "path": "public/sitemap.xml",
-      "message": "URL del sitemap sin HTML estático equivalente: https://salentoalamano.com/en/guias/guia-valle-del-cocora.html"
+      "message": "URL del sitemap sin HTML estático equivalente: https://salentoalamano.com/cultura-salento/"
     },
     {
       "severity": "warning",
       "code": "sitemap-orphan",
       "path": "public/sitemap.xml",
-      "message": "URL del sitemap sin HTML estático equivalente: https://salentoalamano.com/en/guias/que-hacer-en-salento-3-dias.html"
+      "message": "URL del sitemap sin HTML estático equivalente: https://salentoalamano.com/gastronomia-salento/"
     },
     {
       "severity": "warning",
       "code": "sitemap-orphan",
       "path": "public/sitemap.xml",
-      "message": "URL del sitemap sin HTML estático equivalente: https://salentoalamano.com/es/guias/10-tours-cafe-salento.html"
+      "message": "URL del sitemap sin HTML estático equivalente: https://salentoalamano.com/hoteles-en-salento/"
     },
     {
       "severity": "warning",
       "code": "sitemap-orphan",
       "path": "public/sitemap.xml",
-      "message": "URL del sitemap sin HTML estático equivalente: https://salentoalamano.com/es/guias/guia-valle-del-cocora.html"
+      "message": "URL del sitemap sin HTML estático equivalente: https://salentoalamano.com/mejor-epoca-salento/"
     },
     {
       "severity": "warning",
       "code": "sitemap-orphan",
       "path": "public/sitemap.xml",
-      "message": "URL del sitemap sin HTML estático equivalente: https://salentoalamano.com/es/guias/que-hacer-en-salento-3-dias.html"
+      "message": "URL del sitemap sin HTML estático equivalente: https://salentoalamano.com/naturaleza-salento/"
     },
     {
       "severity": "warning",
       "code": "sitemap-orphan",
       "path": "public/sitemap.xml",
-      "message": "URL del sitemap sin HTML estático equivalente: https://salentoalamano.com/estado-actual-salento-hoteles-abiertos-vias-libres-valle-cocora-operando-100"
+      "message": "URL del sitemap sin HTML estático equivalente: https://salentoalamano.com/que-hacer-en-salento/"
     },
     {
       "severity": "warning",
       "code": "sitemap-orphan",
       "path": "public/sitemap.xml",
-      "message": "URL del sitemap sin HTML estático equivalente: https://salentoalamano.com/fr/guias/10-tours-cafe-salento.html"
+      "message": "URL del sitemap sin HTML estático equivalente: https://salentoalamano.com/restaurantes-en-salento/"
     },
     {
       "severity": "warning",
       "code": "sitemap-orphan",
       "path": "public/sitemap.xml",
-      "message": "URL del sitemap sin HTML estático equivalente: https://salentoalamano.com/fr/guias/guia-valle-del-cocora.html"
+      "message": "URL del sitemap sin HTML estático equivalente: https://salentoalamano.com/salento-turismo/"
     },
     {
       "severity": "warning",
       "code": "sitemap-orphan",
       "path": "public/sitemap.xml",
-      "message": "URL del sitemap sin HTML estático equivalente: https://salentoalamano.com/fr/guias/que-hacer-en-salento-3-dias.html"
+      "message": "URL del sitemap sin HTML estático equivalente: https://salentoalamano.com/salento/"
     },
     {
       "severity": "warning",
       "code": "sitemap-orphan",
       "path": "public/sitemap.xml",
-      "message": "URL del sitemap sin HTML estático equivalente: https://salentoalamano.com/hoteles-abiertos-salento"
-    },
-    {
-      "severity": "warning",
-      "code": "sitemap-orphan",
-      "path": "public/sitemap.xml",
-      "message": "URL del sitemap sin HTML estático equivalente: https://salentoalamano.com/landing-estado-actual-salento-2026"
-    },
-    {
-      "severity": "warning",
-      "code": "sitemap-orphan",
-      "path": "public/sitemap.xml",
-      "message": "URL del sitemap sin HTML estático equivalente: https://salentoalamano.com/mapa-interactivo-salento"
-    },
-    {
-      "severity": "warning",
-      "code": "sitemap-orphan",
-      "path": "public/sitemap.xml",
-      "message": "URL del sitemap sin HTML estático equivalente: https://salentoalamano.com/registro-aliados"
-    },
-    {
-      "severity": "warning",
-      "code": "sitemap-orphan",
-      "path": "public/sitemap.xml",
-      "message": "URL del sitemap sin HTML estático equivalente: https://salentoalamano.com/salento-seguro-turismo"
-    },
-    {
-      "severity": "warning",
-      "code": "sitemap-orphan",
-      "path": "public/sitemap.xml",
-      "message": "URL del sitemap sin HTML estático equivalente: https://salentoalamano.com/valle-cocora-accesible-100"
-    },
-    {
-      "severity": "warning",
-      "code": "sitemap-orphan",
-      "path": "public/sitemap.xml",
-      "message": "URL del sitemap sin HTML estático equivalente: https://salentoalamano.com/vias-salento-libres-acceso"
+      "message": "URL del sitemap sin HTML estático equivalente: https://salentoalamano.com/valle-de-cocora-salento/"
     },
     {
       "severity": "info",
