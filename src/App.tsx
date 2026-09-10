@@ -300,8 +300,12 @@ function formatPrice(cop: number, currency: Currency) {
   return currencyService.formatAmount(currencyService.convertFromCOP(cop, currency), currency)
 }
 
-// Hint de precio por pautante con datos verificados (nunca un valor global).
-// Orden: tarifa textual verificada > entrada libre > rango + confirmación.
+// Validador de WhatsApp Colombia (57 + 9-10 dígitos). Solo observa: avisa en
+// consola sin romper el flujo, para detectar datos de contacto corruptos.
+function isValidWhatsAppCO(value?: string): boolean {
+  return /^57\d{9,10}$/.test((value ?? '').replace(/\D/g, ''))
+}
+
 function priceHintFor(place: Place): string {
   const tr = (key: string, fallback?: string) => translationService.translate(key, fallback)
   const verifiedTariff =
@@ -408,6 +412,9 @@ function App() {
   const handleProviderAction = (providerId: number, action: 'reserve' | 'order' | 'contact') => {
     const provider = places.find(p => p.id === providerId)
     if (!provider) return
+    if (!isValidWhatsAppCO(provider.contact.whatsapp)) {
+      console.warn(`[App][whatsapp] número inválido para ${provider.name}:`, provider.contact.whatsapp)
+    }
 
     switch (action) {
       case 'reserve':
@@ -483,6 +490,9 @@ function App() {
     const contactPlace = categoryPlaces[0]
 
     if (contactPlace?.contact.whatsapp) {
+      if (!isValidWhatsAppCO(contactPlace.contact.whatsapp)) {
+        console.warn(`[App][whatsapp] número inválido para ${contactPlace.name}:`, contactPlace.contact.whatsapp)
+      }
       const whatsappUrl = `https://wa.me/${contactPlace.contact.whatsapp}?text=${encodeURIComponent(message)}`
       window.open(whatsappUrl, '_blank')
     } else {
@@ -865,7 +875,7 @@ function App() {
           <div className="loading-container">
             <div className="loading-spinner">{t('loading')}</div>
           </div>
-        ) : selectedPlace ? <PlaceDetail place={selectedPlace} currency={currency} onBack={() => setSelectedPlace(null)} language={language} t={t} /> : (
+        ) : selectedPlace ? <PlaceDetail place={selectedPlace} currency={currency} onBack={() => setSelectedPlace(null)} language={language} t={t} onReserveHorseback={() => setShowHorsebackRiding(true)} /> : (
           <>
         <section className="mobile-dashboard" id="servicios">
           <div className="services-grid">
@@ -1477,7 +1487,7 @@ function PlaceCard({ place, currency, onAdd, onOpen, onReviews }: { place: Place
   )
 }
 
-function PlaceDetail({ place, currency, onBack, language, t }: { place: Place; currency: Currency; onBack: () => void; language: Language; t: (key: string, fallback?: string) => string }) {
+function PlaceDetail({ place, currency, onBack, language, t, onReserveHorseback }: { place: Place; currency: Currency; onBack: () => void; language: Language; t: (key: string, fallback?: string) => string; onReserveHorseback?: () => void }) {
   const adaptedPlace = adaptPlaceForCompatibility(place)
   const photos = place.photos ?? []
   return (
@@ -1534,6 +1544,9 @@ function PlaceDetail({ place, currency, onBack, language, t }: { place: Place; c
         <InfoList title="Tipo de cocina" items={place.foodServiceDetails.cuisineType ?? []} />
       </div>}
       {place.experienceDetails && <div className="detail-sections">
+        {place.type === 'Experiencias' && onReserveHorseback && (
+          <button className="dark-button" onClick={onReserveHorseback}>Reservar experiencia <ArrowRight size={14} /></button>
+        )}
         <InfoList title="Incluye" items={place.experienceDetails.included ?? []} />
         <InfoList title="Requisitos" items={place.experienceDetails.requirements ?? []} />
         <InfoList title="Idiomas" items={place.experienceDetails.languages ?? []} />
