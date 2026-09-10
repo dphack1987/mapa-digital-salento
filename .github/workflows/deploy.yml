@@ -50,7 +50,7 @@ jobs:
       - name: Copy CNAME to dist (dominio personalizado desde raíz)
         run: cp CNAME dist/
 
-      - name: SPA fallback para GitHub Pages (sin rewrites: deep links sirven la app)
+      - name: "SPA fallback para GitHub Pages"
         run: cp dist/index.html dist/404.html
       
       - name: Setup Pages
