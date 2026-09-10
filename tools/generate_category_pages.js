@@ -17,13 +17,13 @@ const catalog = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
 const providers = Array.isArray(catalog.places) ? catalog.places : [];
 
 const categoryMeta = {
-  Alojamientos: { title: 'Alojamientos', description: 'Hoteles, fincas y hospedajes para descansar en Salento', image: 'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80' },
-  Restaurantes: { title: 'Restaurantes', description: 'Sabor local, cafés y rincones para comer bien en Salento', image: 'https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=1200&q=80' },
+  Alojamientos: { title: 'Alojamientos', description: 'Hoteles, fincas y hospedajes para descansar en Salento', image: '/imagenes-salento/pueblo.jfif' },
+  Restaurantes: { title: 'Restaurantes', description: 'Sabor local, cafés y rincones para comer bien en Salento', image: '/imagenes-salento/Trucha-con-camarones-Salento-Quindio-1024x768.jpeg.webp' },
   'Cafés': { title: 'Cafés', description: 'Espacios para tomar café, brunch y momentos tranquilos', image: 'https://images.unsplash.com/photo-1497636577773-f1231844b336?auto=format&fit=crop&w=1200&q=80' },
   Artesanías: { title: 'Artesanías', description: 'Productos locales, regalos y cultura hecha a mano', image: 'https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1200&q=80' },
-  Tiendas: { title: 'Tiendas', description: 'Comercios locales, souvenirs y compras directas', image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1200&q=80' },
-  Experiencias: { title: 'Experiencias', description: 'Tour, miradores, senderismo y actividades para vivir Salento', image: 'https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1200&q=80' },
-  Servicios: { title: 'Servicios', description: 'Transporte, movilidad y ayuda rápida para tu visita', image: 'https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&w=1200&q=80' },
+  Tiendas: { title: 'Tiendas', description: 'Comercios locales, souvenirs y compras directas', image: '/imagenes-salento/calle.jfif' },
+  Experiencias: { title: 'Experiencias', description: 'Tour, miradores, senderismo y actividades para vivir Salento', image: '/imagenes-salento/653410779.webp' },
+  Servicios: { title: 'Servicios', description: 'Transporte, movilidad y ayuda rápida para tu visita', image: '/pautas/cootracocora_ltda/willys.jpg' },
 };
 
 const categoryNames = Object.keys(categoryMeta);
@@ -105,9 +105,20 @@ function photoPending(provider, index) {
 }
 
 function providerPhotos(provider) {
-  if (Array.isArray(provider.photos) && provider.photos.length > 0) return provider.photos;
-  if (Array.isArray(provider.images) && provider.images.length > 0) return provider.images;
-  return [];
+  const raw = Array.isArray(provider.photos) && provider.photos.length > 0
+    ? provider.photos
+    : (Array.isArray(provider.images) && provider.images.length > 0 ? provider.images : []);
+  // Política editorial: las fotos de carta/menú son material de extracción, no se publican
+  return raw.filter((src) => !/menu-carta/i.test(String(src || '')));
+}
+
+// Imagen destacada por pautante en tarjetas de categoría (logo oficial del aliado)
+const CARD_IMAGE_OVERRIDES = {
+  'cootracocora-ltda': '/pautas/cootracocora_ltda/logo-cootracocora.jpg',
+};
+
+function cardImageFor(item, category) {
+  return CARD_IMAGE_OVERRIDES[slugify(item.name)] || categoryMeta[category]?.image || 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee';
 }
 
 function galleryFor(provider) {
@@ -264,7 +275,7 @@ function renderCategoryPage(category, items) {
     const mapUrl = `https://www.google.com/maps/search/${encodeURIComponent(item.location?.address || `${item.name} Salento`)}`;
     return `
       <article class="provider-card" onclick="window.location.href='/paginas-pautantes/${itemSlug}/'" role="link" tabindex="0" onkeydown="if(event.key==='Enter'){window.location.href='/paginas-pautantes/${itemSlug}/'}" style="cursor:pointer" aria-label="Abrir página de ${escapeHtml(item.name)}">
-        <div class="card-image" style="background-image:url('${categoryMeta[category]?.image || 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee'}')"></div>
+        <div class="card-image" style="background-image:url('${cardImageFor(item, category)}')"></div>
         <div class="card-body">
           <div class="card-header-row">
             <span class="pill">${escapeHtml(item.type || category)}</span>
@@ -585,6 +596,21 @@ function renderProviderPage(provider) {
 </html>`;
 }
 
+function renderConfirmBlock(provider, mapUrl) {
+  const hours = provider.operatingHours?.notes || provider.operatingHours?.monday || provider.timeInfo || 'Horario por confirmar con el local';
+  const tariff = provider.experienceDetails?.tariff
+    || provider.foodServiceDetails?.averagePrice
+    || provider.accommodationDetails?.bookingNotes
+    || provider.transportDetails?.pricingNotes
+    || null;
+  const meeting = provider.experienceDetails?.meetingPoint
+    || provider.transportDetails?.meetingPoint
+    || provider.location?.landmark
+    || provider.location?.address
+    || 'Por confirmar con el local';
+  return `<section class="section"><h2>Antes de confirmar tu visita</h2><div class="two-col"><div><p class="trust">¿Cuál es el horario de ${escapeHtml(provider.name)}? ${escapeHtml(hours)}</p><p class="trust">¿Cuánto cuesta? ${tariff ? escapeHtml(tariff) : `Rango ${escapeHtml(provider.priceRange || '$$')}. Confirma la tarifa final con el local.`}</p><p class="trust">¿Cómo reservo? Contacto directo por WhatsApp, sin intermediarios ni comisiones.</p></div><div class="facts"><div class="fact"><strong>Punto de encuentro</strong>${escapeHtml(meeting)}</div><div class="fact"><strong>Cómo llegar</strong><a href="${mapUrl}" target="_blank" rel="noreferrer">Abrir en Google Maps</a></div><div class="fact"><strong>Reseñas</strong>Las reseñas se publican en la ficha interactiva del directorio</div></div></div></section>`;
+}
+
 function renderProviderLandingPage(provider) {
   const category = provider.type || 'Servicios';
   const slug = slugify(provider.name);
@@ -601,7 +627,7 @@ function renderProviderLandingPage(provider) {
   const tariffLine = details.tariff ? `<strong>Tarifas verificadas</strong><p>${escapeHtml(details.tariff)}</p>` : '';
   const bookingLine = provider.accommodationDetails?.bookingNotes ? `<strong>Tarifas verificadas</strong><p>${escapeHtml(provider.accommodationDetails.bookingNotes)}</p>` : '';
   const serviceSection = provider.accommodationDetails ? `
-      <section class="section service-section"><h2>Hospedaje y reservas</h2><div class="service-grid"><div><strong>Tipos de habitación</strong>${listItems(provider.accommodationDetails.roomTypes)}<strong>Comodidades</strong>${listItems(provider.accommodationDetails.amenities || provider.accommodationDetails.roomFeatures)}</div><div><strong>Check-in</strong><p>${escapeHtml(provider.accommodationDetails.checkIn || 'Por confirmar')}</p><strong>Check-out</strong><p>${escapeHtml(provider.accommodationDetails.checkOut || 'Por confirmar')}</p><strong>Servicios incluidos</strong>${listItems(provider.accommodationDetails.services)}${bookingLine}</div></div><div class="actions"><a class="button primary" href="${contactAction}">${whatsapp ? 'Consultar disponibilidad' : 'Contactar para reservar'}</a></div></section>` : provider.foodServiceDetails ? `
+      <section class="section service-section"><h2>Hospedaje y reservas</h2><div class="service-grid"><div><strong>Tipos de habitación</strong>${listItems(provider.accommodationDetails.roomTypes)}<strong>Comodidades</strong>${listItems(provider.accommodationDetails.amenities || provider.accommodationDetails.roomFeatures)}</div><div><strong>Check-in</strong><p>${escapeHtml(provider.accommodationDetails.checkIn || 'Por confirmar')}</p><strong>Check-out</strong><p>${escapeHtml(provider.accommodationDetails.checkOut || 'Por confirmar')}</p><strong>Servicios incluidos</strong>${listItems(provider.accommodationDetails.services)}${bookingLine}${provider.sustainability && provider.sustainability.length ? `<strong>Sostenibilidad verificada</strong>${listItems(provider.sustainability)}` : ''}</div></div><div class="actions"><a class="button primary" href="${contactAction}">${whatsapp ? 'Consultar disponibilidad' : 'Contactar para reservar'}</a></div></section>` : provider.foodServiceDetails ? `
       <section class="section service-section"><h2>Carta, precios y pedidos</h2><div class="service-grid"><div><strong>Especialidades</strong>${listItems(provider.foodServiceDetails.specialties)}<strong>En la carta</strong>${listItems(provider.foodServiceDetails.menuHighlights)}</div><div><strong>Precio promedio</strong><p>${escapeHtml(provider.foodServiceDetails.averagePrice || provider.priceRange || 'Consultar')}</p><strong>Tipo de cocina</strong>${listItems(provider.foodServiceDetails.cuisineType)}${provider.foodServiceDetails.deliveryInfo?.available ? `<strong>Domicilio</strong><p>Disponible en ${escapeHtml(provider.foodServiceDetails.deliveryInfo.areas.join(', '))}. ${escapeHtml(provider.foodServiceDetails.deliveryInfo.deliveryTime || '')}</p>` : '<p class="muted">Confirma si hay domicilio o recogida.</p>'}</div></div><div class="actions"><a class="button primary" href="${whatsapp || `tel:${escapeHtml(phone)}`}">${provider.foodServiceDetails.deliveryInfo?.available ? 'Ordenar por WhatsApp' : 'Consultar carta y reservar'}</a></div></section>` : (provider.experienceDetails || provider.horsebackRidingDetails || provider.tourismDetails) ? `
       <section class="section service-section"><h2>Plan de la experiencia</h2><div class="service-grid"><div><strong>Incluye</strong>${listItems(details.included)}<strong>Qué llevar</strong>${listItems(details.requirements)}</div><div><strong>Duración</strong><p>${escapeHtml(details.duration || 'Por confirmar')}</p><strong>Dificultad</strong><p>${escapeHtml(details.difficulty || 'Por confirmar')}</p><strong>Punto de encuentro</strong><p>${escapeHtml(details.meetingPoint || provider.location?.address || 'Por confirmar')}</p><strong>Idiomas</strong><p>${escapeHtml((details.languages || []).join(', ') || 'Español')}</p>${tariffLine}</div></div><div class="actions"><a class="button primary" href="${contactAction}">Reservar experiencia</a></div></section>` : provider.commerceDetails ? `
       <section class="section service-section"><h2>Productos y compra local</h2><div class="service-grid"><div><strong>Productos principales</strong>${listItems(provider.commerceDetails.mainProducts)}<strong>Tipos de producto</strong>${listItems(provider.commerceDetails.productTypes)}</div><div><strong>Medios de pago</strong>${listItems(provider.commerceDetails.paymentMethods)}${provider.commerceDetails.deliveryInfo?.available ? `<strong>Entrega</strong><p>Disponible en ${escapeHtml(provider.commerceDetails.deliveryInfo.areas.join(', '))}. ${escapeHtml(provider.commerceDetails.deliveryInfo.deliveryTime || '')}</p>` : '<p class="muted">Compra directa en el establecimiento.</p>'}</div></div><div class="actions"><a class="button primary" href="${whatsapp || `tel:${escapeHtml(phone)}`}">Consultar productos y comprar</a></div></section>` : '';
@@ -661,10 +687,11 @@ function renderProviderLandingPage(provider) {
           <div class="actions">${whatsapp ? `<a class="button primary" href="${whatsapp}" target="_blank" rel="noreferrer">Reservar por WhatsApp</a>` : ''}${phone ? `<a class="button dark" href="tel:${escapeHtml(phone)}">Llamar ahora</a>` : ''}<a class="button" href="${mapUrl}" target="_blank" rel="noreferrer">Cómo llegar</a>${website ? `<a class="button" href="${escapeHtml(website)}" target="_blank" rel="noreferrer">Sitio oficial</a>` : ''}</div>
         </div><div class="hero-image" aria-label="${escapeHtml(provider.name)}"></div>
       </section>
-      <section class="section"><h2>Conoce la experiencia</h2><div class="two-col"><div><p class="trust">${escapeHtml(provider.description || 'Información del servicio local.')}</p><p class="verified">${provider.verified ? '✓ Información verificada en el catálogo local' : 'Información disponible para confirmar directamente con el local'}</p></div><div class="facts"><div class="fact"><strong>Ubicación</strong>${escapeHtml(provider.location?.address || 'Salento, Quindío')}</div><div class="fact"><strong>Referencia</strong>${escapeHtml(provider.location?.landmark || 'Consulta la ruta con el local')}</div><div class="fact"><strong>Horario</strong>${escapeHtml(provider.operatingHours?.notes || provider.operatingHours?.monday || provider.timeInfo || 'Horario por confirmar')}</div></div></div></section>
-      <section class="section"><h2>Galería de imágenes</h2><div class="gallery">${gallery}</div></section>
       ${serviceSection}
       ${transportSection}
+      <section class="section"><h2>Conoce la experiencia</h2><div class="two-col"><div><p class="trust">${escapeHtml(provider.description || 'Información del servicio local.')}</p><p class="verified">${provider.verified ? '✓ Información verificada en el catálogo local' : 'Información disponible para confirmar directamente con el local'}</p></div><div class="facts"><div class="fact"><strong>Ubicación</strong>${escapeHtml(provider.location?.address || 'Salento, Quindío')}</div><div class="fact"><strong>Referencia</strong>${escapeHtml(provider.location?.landmark || 'Consulta la ruta con el local')}</div><div class="fact"><strong>Horario</strong>${escapeHtml(provider.operatingHours?.notes || provider.operatingHours?.monday || provider.timeInfo || 'Horario por confirmar')}</div></div></div></section>
+      <section class="section"><h2>Galería de imágenes</h2><div class="gallery">${gallery}</div></section>
+      ${renderConfirmBlock(provider, mapUrl)}
       <section class="section"><h2>Lo que puedes encontrar</h2><div class="tags">${(provider.tags || []).map((tag) => `<span class="tag">${escapeHtml(tag)}</span>`).join('') || '<span class="tag">Servicio local</span>'}</div></section>
       ${bottomNav()}
     </main>

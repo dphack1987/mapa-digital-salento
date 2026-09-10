@@ -244,7 +244,9 @@ class DataService {
    */
   async getMapMarkers(): Promise<MapMarker[]> {
     const data = await this.loadSystemData()
-    return data.mapMarkers
+    // Compatible con esquema JSON real ("markers") y el esperado ("mapMarkers")
+    const rawMarkers = data.markers ?? data.mapMarkers ?? []
+    return Array.isArray(rawMarkers) ? rawMarkers : []
   }
 
   /**

@@ -302,64 +302,13 @@ class ReviewsService {
    * Generar datos de ejemplo para desarrollo
    */
   generateSampleReviews(): void {
-    const sampleReviews = [
-      {
-        placeId: '1',
-        placeName: 'Café Quindío',
-        placeType: 'Cafés',
-        userId: 'user-001',
-        userName: 'María García',
-        rating: 5,
-        title: '¡El mejor café de Salento!',
-        comment: 'El café es increíble, el ambiente es muy acogedor y el personal súper amable. Vengo cada vez que visito Salento.',
-        verified: true,
-        language: 'es'
-      },
-      {
-        placeId: '1',
-        placeName: 'Café Quindío',
-        placeType: 'Cafés',
-        userId: 'user-002',
-        userName: 'John Smith',
-        rating: 4,
-        title: 'Great coffee with a view',
-        comment: 'Excellent specialty coffee and beautiful view of the main square. Highly recommended for coffee lovers.',
-        verified: true,
-        language: 'en'
-      },
-      {
-        placeId: '4',
-        placeName: 'La Fogata',
-        placeType: 'Restaurantes',
-        userId: 'user-003',
-        userName: 'Carlos Rodríguez',
-        rating: 5,
-        title: 'Trucha espectacular',
-        comment: 'La mejor trucha que he probado en Salento. Porciones generosas y el patacón está crujiente. Muy recomendado.',
-        verified: true,
-        language: 'es'
-      },
-      {
-        placeId: '5',
-        placeName: 'Hotel Camino Nacional',
-        placeType: 'Alojamientos',
-        userId: 'user-004',
-        userName: 'Ana Martínez',
-        rating: 4,
-        title: 'Ubicación perfecta',
-        comment: 'Hotel muy bien ubicado en el centro del pueblo. Habitaciones limpias y personal servicial. Desayuno incluido muy completo.',
-        verified: true,
-        language: 'es'
-      }
-    ]
-
-    sampleReviews.forEach(reviewData => {
-      try {
-        this.createReview(reviewData)
-      } catch (error) {
-        console.error('Error creating sample review:', error)
-      }
-    })
+    // Intencionalmente vacío: las muestras anteriores referenciaban negocios
+    // inexistentes ('Café Quindío', 'La Fogata') y nunca coincidían con el
+    // catálogo real, por lo que todos los lugares mostraban 0 reseñas igual.
+    // Publicar testimonios ficticios como verificados violaría la fuente de
+    // la verdad. Las reseñas reales se crean con createReview() desde el
+    // formulario del componente Reviews. Se conserva el método para no romper
+    // la llamada existente en la inicialización de la app.
   }
 }
 
