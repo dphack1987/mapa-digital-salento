@@ -118,6 +118,8 @@ import seoLandingService from './services/seoLandingService'
 import DynamicLandingPage from './components/DynamicLandingPage'
 import SEODashboard from './components/SEODashboard'
 import HotelInfoModal from './components/HotelInfoModal'
+import InteractiveMenu from './components/InteractiveMenu'
+import PhotoGallery from './components/PhotoGallery'
 import QRShare from './components/QRShare'
 import performanceOptimizer from './services/performanceOptimizer'
 import defensiveSEOGService from './services/defensiveSEOG.service'
@@ -298,6 +300,20 @@ function formatPrice(cop: number, currency: Currency) {
   return currencyService.formatAmount(currencyService.convertFromCOP(cop, currency), currency)
 }
 
+// Hint de precio por pautante con datos verificados (nunca un valor global).
+// Orden: tarifa textual verificada > entrada libre > rango + confirmación.
+function priceHintFor(place: Place): string {
+  const tr = (key: string, fallback?: string) => translationService.translate(key, fallback)
+  const verifiedTariff =
+    place.foodServiceDetails?.averagePrice ||
+    place.experienceDetails?.tariff ||
+    place.accommodationDetails?.bookingNotes ||
+    place.transportDetails?.pricingNotes
+  if (verifiedTariff) return verifiedTariff
+  if (place.priceRange === 'Gratis') return tr('price.free', 'Entrada libre')
+  return `${place.priceRange} · ${tr('price.confirm', 'Precio a confirmar por WhatsApp')}`
+}
+
 function App() {
   const [activeCategory, setActiveCategory] = useState<Category>('Todo')
   const [cartCount, setCartCount] = useState(2)
@@ -361,13 +377,11 @@ function App() {
           ? `${effectiveCategory} in Salento, Quindío 2026 | Salento a la Mano`
           : `${effectiveCategory} en Salento, Quindío 2026 | Salento a la Mano`
       }
-      return isEnglish
-        ? 'Salento a la Mano | Tourist Map of Salento, Quindío 2026 - Direct, no intermediaries'
-        : 'Salento a la Mano | Mapa turístico de Salento, Quindío 2026 - Directo, sin intermediarios'
+      return translationService.translate('meta.homeTitle')
     } catch (e) {
       return 'Salento a la Mano | Mapa turístico de Salento, Quindío'
     }
-  }, [selectedPlace, selectedCategoryPage, selectedCategory, isEnglish])
+  }, [selectedPlace, selectedCategoryPage, selectedCategory, isEnglish, language])
 
   const helmetDescription = useMemo(() => {
     try {
@@ -384,13 +398,11 @@ function App() {
           ? `Find and book the best ${effectiveCategory.toLowerCase()} in Salento, Quindío 2026. Verified local providers, direct contact, Valle de Cocora, coffee tours, horseback riding and jeeps Willys.`
           : `Encuentra y reserva los mejores ${effectiveCategory.toLowerCase()} en Salento, Quindío 2026. Aliados locales verificados, contacto directo, Valle de Cocora, tours de café, cabalgatas y jeeps Willys.`
       }
-      return isEnglish
-        ? 'Interactive tourist map of Salento, Quindío 2026. Hotels, restaurants, cafes, experiences, crafts, Valle de Cocora jeeps and horseback riding. Direct contact with verified locals, no intermediaries. Safe travel and open roads.'
-        : 'Mapa turístico interactivo de Salento, Quindío 2026. Hoteles, restaurantes, cafés, experiencias, artesanías, jeeps Valle de Cocora y cabalgatas. Contacto directo con locales verificados, sin intermediarios. Viaje seguro y vías abiertas.'
+      return translationService.translate('meta.homeDesc')
     } catch (e) {
       return 'Mapa turístico interactivo de Salento, Quindío. Alojamientos, gastronomía, experiencias y comercio local verificados.'
     }
-  }, [selectedPlace, selectedCategoryPage, selectedCategory, isEnglish])
+  }, [selectedPlace, selectedCategoryPage, selectedCategory, isEnglish, language])
 
   // Función para manejar acciones del modal de pautantes
   const handleProviderAction = (providerId: number, action: 'reserve' | 'order' | 'contact') => {
@@ -750,28 +762,28 @@ function App() {
 
         {mobileNav && (
           <nav className="mobile-nav-panel" aria-label="Navegación móvil">
-            <button onClick={() => scrollToSection('inicio')}>Inicio</button>
-            <button onClick={() => scrollToSection('servicios')}>Servicios</button>
-            <button onClick={() => goToCategory('Alojamientos')}>Alojamientos</button>
-            <button onClick={() => scrollToSection('pedidos')}>Directorio</button>
-            <button onClick={() => scrollToSection('mapa')}>Mapa</button>
+            <button onClick={() => scrollToSection('inicio')}>{t('nav.home')}</button>
+            <button onClick={() => scrollToSection('servicios')}>{t('nav.services')}</button>
+            <button onClick={() => goToCategory('Alojamientos')}>{t('nav.lodging')}</button>
+            <button onClick={() => scrollToSection('pedidos')}>{t('nav.directory')}</button>
+            <button onClick={() => scrollToSection('mapa')}>{t('nav.map')}</button>
             <button onClick={() => scrollToSection('pautas')}>Pautas</button>
-            <button onClick={() => scrollToSection('guia-offline')}>Guía offline</button>
-            <button onClick={() => searchService('cabalgata')}>Cabalgatas</button>
-            <button onClick={() => searchService('willys')}>Transporte Willys</button>
-            <button onClick={() => searchService('jeep')}>Transporte rural</button>
-            <button onClick={() => searchService('moto')}>Alquiler de motos</button>
-            <button onClick={() => searchService('cocora')}>Valle de Cocora</button>
+            <button onClick={() => scrollToSection('guia-offline')}>{t('nav.guideOffline')}</button>
+            <button onClick={() => searchService('cabalgata')}>{t('nav.horseback')}</button>
+            <button onClick={() => searchService('willys')}>{t('nav.willys')}</button>
+            <button onClick={() => searchService('jeep')}>{t('nav.ruralTransport')}</button>
+            <button onClick={() => searchService('moto')}>{t('nav.motoRental')}</button>
+            <button onClick={() => searchService('cocora')}>{t('nav.cocora')}</button>
           </nav>
         )}
       </header>
 
       <nav className="tourist-nav sticky-nav" aria-label="Navegación para turistas">
-        <button onClick={() => goToCategory('Alojamientos')}>Alojamientos</button>
-        <button onClick={() => goToCategory('Restaurantes')}>Comer</button>
-        <button onClick={() => goToCategory('Experiencias')}>Ver</button>
-        <button onClick={() => scrollToSection('mapa')}>Mapa</button>
-        <button onClick={() => goToCategory('Alojamientos')}>Reservar</button>
+        <button onClick={() => goToCategory('Alojamientos')}>{t('nav.lodging')}</button>
+        <button onClick={() => goToCategory('Restaurantes')}>{t('nav.eat')}</button>
+        <button onClick={() => goToCategory('Experiencias')}>{t('nav.see')}</button>
+        <button onClick={() => scrollToSection('mapa')}>{t('nav.map')}</button>
+        <button onClick={() => goToCategory('Alojamientos')}>{t('nav.book')}</button>
       </nav>
 
       <div className="international-presence-banner" aria-label="Mercados internacionales">
@@ -989,6 +1001,14 @@ function App() {
               <button className="dark-button" onClick={() => scrollToSection('pedidos')}><ShoppingBag size={17} /> {language === 'es' ? 'Explorar pedidos' : 'Explore orders'}</button>
               <button className="outline-button" onClick={() => setShowProviderModal(true)}><MessageCircle size={17} /> {language === 'es' ? 'Buscar un servicio' : 'Find a service'}</button>
             </div>
+            <small className="cta-microcopy">{t('banner.microcopy')}</small>
+            <div className="trust-strip" aria-label={t('trust.aria')}>
+              <div className="trust-item"><span className="trust-icon"><Shield size={16} /></span><div><strong>{t('trust.t1t')}</strong><small>{t('trust.t1s')}</small></div></div>
+              <div className="trust-item"><span className="trust-icon"><Zap size={16} /></span><div><strong>{t('trust.t2t')}</strong><small>{t('trust.t2s')}</small></div></div>
+              <div className="trust-item"><span className="trust-icon"><Star size={16} /></span><div><strong>{t('trust.t3t')}</strong><small>{t('trust.t3s')}</small></div></div>
+              <div className="trust-item"><span className="trust-icon"><MessageCircle size={16} /></span><div><strong>{t('trust.t4t')}</strong><small>{t('trust.t4s')}</small></div></div>
+            </div>
+            <p className="money-promise"><Heart size={13} /> {t('money.promise')}</p>
           </div>
           <div className="direct-orders-points" aria-label={language === 'es' ? 'Beneficios del servicio directo' : 'Direct service benefits'}>
             <div><span className="direct-orders-icon"><ShoppingBag size={18} /></span><strong>{language === 'es' ? 'Pedidos' : 'Orders'}</strong><small>{language === 'es' ? 'Comida y productos' : 'Food and products'}</small></div>
@@ -1030,6 +1050,7 @@ function App() {
                 Seguridad
               </button>
             </div>
+            <p className="authority-note"><Shield size={13} /> {t('authority.note')}</p>
           </div>
 
         <section className="quick-section" id="pedidos">
@@ -1058,20 +1079,24 @@ function App() {
 
         <section className="salento-photo-strip" aria-label="Paisajes de Salento">
           <div className="photo-strip-intro"><p className="eyebrow">Postales del territorio</p><h2>Salento se<br /><i>camina despacio.</i></h2></div>
-          <div className="salento-photo-grid">
-            <img src="/salento/1326163558.webp" alt="Tejados tradicionales de Salento" />
-            <img src="/salento/1326163759.webp" alt="Monumento entre palmas en Salento" />
-            <img src="/salento/631026720.webp" alt="Calle colorida de Salento" />
-            <img src="/salento/631032744.webp" alt="Iglesia y plaza de Salento" />
-            <img src="/salento/653410779.webp" alt="Palmas de cera en el Valle de Cocora" />
-          </div>
+          <PhotoGallery
+            label="Paisajes de Salento"
+            photos={[
+              { src: '/salento/1326163558.webp', alt: 'Tejados tradicionales de Salento' },
+              { src: '/salento/1326163759.webp', alt: 'Monumento entre palmas en Salento' },
+              { src: '/salento/631026720.webp', alt: 'Calle colorida de Salento' },
+              { src: '/salento/631032744.webp', alt: 'Iglesia y plaza de Salento' },
+              { src: '/salento/653410779.webp', alt: 'Palmas de cera en el Valle de Cocora' },
+            ]}
+          />
         </section>
 
         <section className="image-inventory-section" aria-label="Galería de imágenes de Salento">
           <div className="section-heading"><div><p className="eyebrow">Imágenes del territorio</p><h2>Salento en<br /><i>cada detalle.</i></h2></div><small>Destino, cultura y sabores locales</small></div>
-          <div className="image-inventory-grid">
-            {salentoImageGallery.map(([file, alt]) => <figure key={file}><img src={`/imagenes-salento/${encodeURIComponent(file)}`} alt={alt} loading="lazy" /><figcaption>{alt}</figcaption></figure>)}
-          </div>
+          <PhotoGallery
+            label="Galería de imágenes de Salento"
+            photos={salentoImageGallery.map(([file, alt]) => ({ src: `/imagenes-salento/${encodeURIComponent(file)}`, alt }))}
+          />
         </section>
 
         <section className="map-section" id="mapa">
@@ -1401,14 +1426,16 @@ function PlaceCard({ place, currency, onAdd, onOpen, onReviews }: { place: Place
           </button>
         </div>
         <small className="currency-hint">
-          Desde {formatPrice(35000, currency)} · tasa de referencia
+          {priceHintFor(place)}
         </small>
         <button className="detail-button" onClick={onOpen}>Ampliar información <ArrowRight size={14} /></button>
         <a className="map-link-button" href={mapUrl} target="_blank" rel="noopener noreferrer">Cómo llegar <MapPin size={14} /></a>
         {onReviews && (
           <button className="reviews-button" onClick={onReviews} aria-label={`Ver reseñas de ${place.name}`}>
             <Star size={14} />
-            {stats.totalReviews} {stats.totalReviews === 1 ? 'reseña' : 'reseñas'}
+            {stats.totalReviews === 0
+              ? translationService.translate('reviews.first', '¡Sé el primero en opinar!')
+              : `${stats.totalReviews} ${stats.totalReviews === 1 ? 'reseña' : 'reseñas'}`}
           </button>
         )}
         <div className="contact-actions">
@@ -1456,17 +1483,17 @@ function PlaceDetail({ place, currency, onBack, language, t }: { place: Place; c
   return (
     <section className="place-detail" id={`pautante-${place.id}`}>
       <div className="detail-topbar">
-        <button className="back-button detail-back" onClick={() => { window.history.pushState({}, '', '#pedidos'); onBack() }}><ArrowRight size={16} /> Volver al directorio</button>
+        <button className="back-button detail-back" onClick={() => { window.history.pushState({}, '', '#pedidos'); onBack() }}><ArrowRight size={16} /> {t('detail.back')}</button>
         <span>{place.type}</span>
       </div>
       <div className="detail-heading">
-        <div><p className="eyebrow"><span /> {place.verified ? 'Ficha del pautante verificado' : 'Ficha del lugar'}</p><h1>{place.name}</h1><p>{place.accommodationDetails?.categoryLabel ?? place.foodServiceDetails?.cuisineType?.join(', ') ?? place.type}</p></div>
+        <div><p className="eyebrow"><span /> {place.verified ? t('detail.verifiedFile') : 'Ficha del lugar'}</p><h1>{place.name}</h1><p>{place.accommodationDetails?.categoryLabel ?? place.foodServiceDetails?.cuisineType?.join(', ') ?? place.type}</p></div>
         <span className="detail-rating"><Star size={15} fill="currentColor" /> {place.rating}</span>
       </div>
-      {photos.length > 0 && <div className="detail-gallery">{photos.map((photo, index) => <img key={photo} src={photo} alt={`${place.name}, foto ${index + 1}`} />)}</div>}
+      {photos.length > 0 && <PhotoGallery label={`Fotos de ${place.name}`} photos={photos.map((photo, index) => ({ src: photo, alt: `${place.name}, foto ${index + 1}` }))} />}
       <div className="detail-content">
         <div>
-          <p className="eyebrow">Información</p><h2>Conoce este lugar</h2>
+          <p className="eyebrow">Información</p><h2>{t('detail.knowPlace')}</h2>
           <p className="detail-description">{place.accommodationDetails?.description ?? place.description}</p>
           <div className="detail-meta"><span><Clock3 size={16} /> {place.timeInfo}</span><span><MapPin size={16} /> Salento, Quindío</span></div>
         </div>
@@ -1494,14 +1521,25 @@ function PlaceDetail({ place, currency, onBack, language, t }: { place: Place; c
         <InfoList title="Horarios y políticas" items={place.accommodationDetails.policies ?? []} />
       </div>}
       {place.foodServiceDetails && <div className="detail-sections">
+        {place.foodServiceDetails.menuHighlights && place.foodServiceDetails.menuHighlights.length > 0 && (
+          <InteractiveMenu
+            placeName={place.name}
+            whatsapp={place.contact.whatsapp}
+            menuHighlights={place.foodServiceDetails.menuHighlights}
+            specialties={place.foodServiceDetails.specialties}
+            currency={currency}
+          />
+        )}
         <InfoList title="Especialidades" items={place.foodServiceDetails.specialties ?? []} />
-        <InfoList title="En la carta" items={place.foodServiceDetails.menuHighlights ?? []} />
         <InfoList title="Tipo de cocina" items={place.foodServiceDetails.cuisineType ?? []} />
       </div>}
       {place.experienceDetails && <div className="detail-sections">
         <InfoList title="Incluye" items={place.experienceDetails.included ?? []} />
         <InfoList title="Requisitos" items={place.experienceDetails.requirements ?? []} />
         <InfoList title="Idiomas" items={place.experienceDetails.languages ?? []} />
+      </div>}
+      {place.sustainability && place.sustainability.length > 0 && <div className="detail-sections">
+        <InfoList title="Sostenibilidad verificada" items={place.sustainability} />
       </div>}
     </section>
   )

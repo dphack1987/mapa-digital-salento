@@ -15,7 +15,7 @@ export const LanguageConst = {
 } as const;
 
 export type Currency = 'COP' | 'USD' | 'EUR'
-export type PriceRange = '$' | '$$' | '$$$' | '$$$$'
+export type PriceRange = '$' | '$$' | '$$$' | '$$$$' | 'Gratis'
 export type DeliveryAvailability = 'Disponible' | 'Solo_pickup' | 'No_disponible' | 'Consultar'
 
 // Información de contacto
@@ -289,6 +289,9 @@ export type Place = {
   transportDetails?: TransportDetails
   horsebackRidingDetails?: HorsebackRidingDetails
   tourismDetails?: TourismDetails
+  // Prácticas de sostenibilidad auto-declaradas y verificadas con la fuente del pautante.
+  // Solo se publica cuando existe evidencia en la ficha oficial; nunca se inventa.
+  sustainability?: string[]
 
   // Campos extendidos Fase2 — SEO voz/IA y SERP features
   aggregateRating?: { ratingValue: number | string; reviewCount?: number }
@@ -311,6 +314,8 @@ export type MapMarker = {
 export type SystemData = {
   places: Place[]
   mapMarkers: MapMarker[]
+  // Clave real usada en public/data/mapMarkers.json (fuente de la verdad)
+  markers?: MapMarker[]
   hotels: Hotel[]
   productCatalogs: ProductCatalog[]
   lastUpdated: string
