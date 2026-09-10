@@ -934,7 +934,7 @@
       "id": 17,
       "name": "Finca Cafetera Don Elías",
       "type": "Coffee Tours",
-      "description": "Tour auténtico de café en finca tradicional del Eje Cafetero. Experiencia educativa sobre el proceso del café desde la semilla hasta la taza, con degustación incluida.",
+      "description": "Tour auténtico de café en finca tradicional del Eje Cafetero. Experiencia educativa sobre el proceso del café desde la semilla hasta la taza, con degustación incluida. Café 100% orgánico en la vereda Palestina Km 4. Tour de ~2 horas con guías en español, inglés y francés.",
       "priceRange": "$$",
       "rating": "4.9",
       "timeInfo": "Tours programados",
@@ -942,22 +942,28 @@
       "color": "coral",
       "icon": "Coffee",
       "contact": {
-        "phone": "Por confirmar"
+        "phone": "+57 315 606 1113",
+        "whatsapp": "573156061113",
+        "email": "fincafeteradonelias@gmail.com",
+        "website": "https://fincafeteradonelias.com.co"
       },
       "location": {
         "lat": 4.647,
         "lng": -75.577,
-        "address": "Valle de Cocora",
-        "landmark": "Entrada Valle de Cocora"
+        "address": "Vereda Palestina Km 4",
+        "landmark": "Vía rural de Salento"
       },
       "operatingHours": {
-        "notes": "Tours con reserva previa"
+        "notes": "Contacto Lun–Vie 9am–5pm. Tour ~2 horas, confirmar horarios."
       },
       "tags": [
+        "bilingue",
         "coffee tour",
-        "finca cafetera",
-        "tour de café",
         "experiencia",
+        "finca cafetera",
+        "organico",
+        "palestina",
+        "tour de café",
         "valle cocora"
       ],
       "verified": true,
@@ -1215,9 +1221,9 @@
         "reservationRequired": false
       },
       "photos": [
-        "/pautas/restaurante_bar_fonda_boquia/menu-carta1.jpeg",
-        "/pautas/restaurante_bar_fonda_boquia/menu-carta2.jpeg",
-        "/pautas/restaurante_bar_fonda_boquia/29389126_1005353112946875_6049563033867386880_n.jpg"
+        "/pautas/restaurante_bar_fonda_boquia/imagenes/menu-carta1.jpeg",
+        "/pautas/restaurante_bar_fonda_boquia/imagenes/menu-carta2.jpeg",
+        "/pautas/restaurante_bar_fonda_boquia/imagenes/29389126_1005353112946875_6049563033867386880_n.jpg"
       ]
     },
     {
@@ -1802,6 +1808,207 @@
       "verified": true,
       "active": true,
       "isFree": true
+    },
+    {
+      "id": 114,
+      "name": "Cootracocora LTDA",
+      "type": "Servicios",
+      "description": "Cootracocora LTDA – Cooperativa de Transportadores del Valle de Cocora. Empresa de transporte público del municipio de Salento. Jeeps Willys tradicionales Salento – Valle de Cocora con salidas diarias 6:00 AM – 9:00 PM desde la plaza principal. Coordinación directa por WhatsApp, sin intermediarios.",
+      "priceRange": "$",
+      "rating": "Nuevo",
+      "timeInfo": "Salidas diarias 6:00 AM – 9:00 PM",
+      "badge": "Transporte oficial",
+      "color": "yellow",
+      "icon": "Bike",
+      "contact": {
+        "phone": "+57 310 4372944",
+        "whatsapp": "573104372944",
+        "email": "cootracocoraltda@hotmail.com"
+      },
+      "location": {
+        "lat": 4.6385,
+        "lng": -75.5642,
+        "address": "Plaza de Bolívar, Salento, Quindío",
+        "landmark": "Terminal de Transporte Público Jeep Willys"
+      },
+      "operatingHours": {
+        "notes": "Lunes a domingo 6:00 AM – 9:00 PM. Salidas al completar cupo."
+      },
+      "tags": [
+        "transporte",
+        "jeep",
+        "willys",
+        "cocora",
+        "cootracocora",
+        "cooperativa",
+        "plaza",
+        "valle"
+      ],
+      "verified": true,
+      "active": true,
+      "transportDetails": {
+        "transportType": "Jeep Willys",
+        "routes": [
+          "Salento – Valle de Cocora",
+          "Valle de Cocora – Salento"
+        ],
+        "languages": [
+          "Español"
+        ],
+        "capacity": "Salidas al completar cupo",
+        "meetingPoint": "Plaza principal de Salento – Terminal de Transporte Público Jeep Willys",
+        "pricingNotes": "Tarifa de referencia desde $3.600 COP por trayecto. Confirmar tarifa vigente por WhatsApp.",
+        "tariff": "Desde $3.600 COP por trayecto (confirmar)",
+        "included": [
+          "Transporte compartido en Jeep Willys"
+        ],
+        "notIncluded": [
+          "Entradas a senderos",
+          "Guía",
+          "Alimentación"
+        ],
+        "operatingDays": [
+          "Lunes",
+          "Martes",
+          "Miércoles",
+          "Jueves",
+          "Viernes",
+          "Sábado",
+          "Domingo"
+        ],
+        "advanceBookingRequired": false
+      },
+      "photos": [
+        "/pautas/cootracocora_ltda/willys.jpg"
+      ]
+    },
+    {
+      "id": 115,
+      "name": "Hotel La Tía Emiss",
+      "type": "Alojamientos",
+      "description": "Hotel familiar de arquitectura de colonización antioqueña a dos cuadras del parque de Salento. Habitaciones dobles, twin, triples y dúplex familiar con Wi-Fi gratis. Contacto directo por WhatsApp, sin intermediarios.",
+      "priceRange": "$$",
+      "rating": "4.4",
+      "timeInfo": "Reserva directa",
+      "badge": "Familiar",
+      "color": "green",
+      "icon": "Hotel",
+      "contact": {
+        "phone": "+57 316 4162726",
+        "whatsapp": "573164162726",
+        "email": "tiaemiss@gmail.com",
+        "facebook": "https://www.facebook.com/latiaemiss"
+      },
+      "location": {
+        "lat": 4.6375,
+        "lng": -75.5715,
+        "address": "Carrera 4 #5-38",
+        "landmark": "A dos cuadras del parque principal"
+      },
+      "operatingHours": {
+        "notes": "Horarios de recepción por confirmar con el hotel"
+      },
+      "tags": [
+        "hotel",
+        "tia emis",
+        "familiar",
+        "centro",
+        "wifi",
+        "alojamiento"
+      ],
+      "verified": true,
+      "active": true,
+      "accommodationDetails": {
+        "categoryLabel": "Hotel urbano familiar 2 estrellas",
+        "roomTypes": [
+          "Doble matrimonial (2 pax)",
+          "Twin (4 pax)",
+          "Triple (6 pax)",
+          "Dúplex familiar (8 pax)"
+        ],
+        "services": [
+          "Wi-Fi gratis"
+        ],
+        "roomFeatures": [
+          "TV",
+          "Baño privado"
+        ],
+        "nearby": [
+          "Parque principal",
+          "Calle Real",
+          "Bares y restaurantes"
+        ],
+        "policies": [
+          "Tarifas y condiciones por confirmar directo"
+        ],
+        "checkIn": "Por confirmar",
+        "checkOut": "Por confirmar",
+        "amenities": [
+          "Wi-Fi gratis"
+        ],
+        "bookingNotes": "Tarifas por confirmar directamente por WhatsApp."
+      },
+      "photos": []
+    },
+    {
+      "id": 116,
+      "name": "El Recuerdo Coffee Tour",
+      "type": "Coffee Tours",
+      "description": "Tienda de café y finca en medio de la naturaleza en donde se respira café. Coffee tour con reserva directa por WhatsApp, sin intermediarios.",
+      "priceRange": "$$",
+      "rating": "Nuevo",
+      "timeInfo": "Reserva directa",
+      "badge": "Café de origen",
+      "color": "green",
+      "icon": "Coffee",
+      "contact": {
+        "phone": "+57 310 3764672",
+        "whatsapp": "573103764672",
+        "email": "cazal16@yahoo.es"
+      },
+      "location": {
+        "lat": 4.6371,
+        "lng": -75.5706,
+        "address": "Zona rural, Salento",
+        "landmark": "Finca rural (confirmar ubicación por WhatsApp)"
+      },
+      "operatingHours": {
+        "notes": "Horarios y duración por confirmar con la finca"
+      },
+      "tags": [
+        "coffee tour",
+        "café",
+        "finca",
+        "recuerdo",
+        "naturaleza",
+        "reserva"
+      ],
+      "verified": true,
+      "active": true,
+      "experienceDetails": {
+        "duration": "Por confirmar",
+        "difficulty": "Fácil",
+        "groupSize": "Por confirmar",
+        "included": [
+          "Recorrido cafetero"
+        ],
+        "notIncluded": [
+          "Transporte"
+        ],
+        "requirements": [
+          "Reserva previa por WhatsApp"
+        ],
+        "languages": [
+          "Español"
+        ],
+        "meetingPoint": "Por confirmar con la finca",
+        "cancellationPolicy": "Confirmar directamente con el operador"
+      },
+      "photos": [
+        "/pautas/el_recuerdo_coffee_tour/recuerdo1casa.jpg",
+        "/pautas/el_recuerdo_coffee_tour/recuerdocafetal1.jpg",
+        "/pautas/el_recuerdo_coffee_tour/recuerdopaisaje1.jpg"
+      ]
     }
   ],
   "lastUpdated": "2026-09-07T00:00:00.000Z",

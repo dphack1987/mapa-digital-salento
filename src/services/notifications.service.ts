@@ -79,6 +79,35 @@ class NotificationsService {
   }
 
   /**
+   * Notificar alerta de clima (invocado por App al cargar clima)
+   */
+  generateWeatherAlert(weatherData: any): Notification {
+    const place = weatherData?.location || weatherData?.place || 'Salento'
+    const condition = weatherData?.condition || weatherData?.description || 'condiciones variables'
+    const temp = weatherData?.temperature ?? weatherData?.temp
+    return this.createNotification({
+      type: 'system',
+      title: '🌤️ Actualización de clima',
+      message: `${place}: ${condition}${temp !== undefined && temp !== null ? `, ${temp}°C` : ''}.`,
+      priority: 'low'
+    })
+  }
+
+  /**
+   * Notificar evento local (invocado por App al cargar eventos)
+   */
+  generateEventAlert(eventData: any): Notification {
+    const title = eventData?.title || eventData?.name || 'Evento local'
+    const when = eventData?.date || eventData?.startDate || eventData?.day || ''
+    return this.createNotification({
+      type: 'system',
+      title: '🎭 Evento en Salento',
+      message: `${title}${when ? ` — ${when}` : ''}.`,
+      priority: 'low'
+    })
+  }
+
+  /**
    * Notificar nuevo registro de aliado
    */
   notifyNewRegistration(allyId: string, businessName: string, businessType: string): Notification {

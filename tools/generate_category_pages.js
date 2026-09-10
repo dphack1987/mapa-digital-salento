@@ -62,6 +62,8 @@ const PAUTANTE_LOGOS = {
   'camping-cascadas-santa-rita': '/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/logo_cascadas_de_santa_rita.jfif',
   'finca-hotel-el-ocaso': '/pautas/coffee-tour-alojamiento-finca-hotel-el-ocaso/imagenes/logo_ocaso.png',
   'finca-don-eduardo-coffee-tour': '/pautas/coffee-tour-finca-don-eduardo/logo-finca-don-eduardo.jpg',
+  'cootracocora-ltda': '/pautas/cootracocora_ltda/logo-cootracocora.jpg',
+  'el-recuerdo-coffee-tour': '/pautas/el_recuerdo_coffee_tour/logo-recuerdo-tour.jpg',
 };
 
 function brandMarkFor(slug) {

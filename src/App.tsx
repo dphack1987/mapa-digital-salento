@@ -595,7 +595,7 @@ function App() {
   }, [activeCategory, search, places])
 
   const internationalMarketsPreview = useMemo(() => {
-    return internationalSEOService.getInternationalMarkets()
+    return internationalSEOService.getInternationalMarkets().slice(0, 8)
   }, [])
 
   const visibleMarkers = useMemo(() => mapMarkers.filter((marker) => activeCategory === 'Todo' || marker.type === categoryToMapType(activeCategory)), [activeCategory, mapMarkers])
@@ -758,10 +758,10 @@ function App() {
             <button onClick={() => scrollToSection('pautas')}>Pautas</button>
             <button onClick={() => scrollToSection('guia-offline')}>Guía offline</button>
             <button onClick={() => searchService('cabalgata')}>Cabalgatas</button>
-            <button onClick={() => searchService('taxi')}>Transporte urbano</button>
+            <button onClick={() => searchService('willys')}>Transporte Willys</button>
             <button onClick={() => searchService('jeep')}>Transporte rural</button>
             <button onClick={() => searchService('moto')}>Alquiler de motos</button>
-            <button onClick={() => searchService('bicicleta')}>Alquiler de bicicletas</button>
+            <button onClick={() => searchService('cocora')}>Valle de Cocora</button>
           </nav>
         )}
       </header>
@@ -1075,8 +1075,14 @@ function App() {
         </section>
 
         <section className="map-section" id="mapa">
-          <div className="map-copy"><p className="eyebrow">Orienta tu paseo</p><h2>{t('map')}</h2><p>Descubre rutas a pie, lugares favoritos y recomendaciones de quienes hacen de Salento su casa.</p><button className="dark-button" onClick={() => scrollToSection('mapa')}><span>Abrir mapa completo</span> <ArrowRight size={17} /></button><div className="map-legend"><span><i className="legend-dot coral" />Favoritos locales</span><span><i className="legend-dot green" />Para descubrir</span></div></div>
-          <div className="map-visual" aria-label="Mapa interactivo de Salento con lugares destacados"><MapContainer center={[4.6371, -75.5706]} zoom={16} scrollWheelZoom={false} className="leaflet-map"><TileLayer attribution="&copy; OpenStreetMap" url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />{visibleMarkers.map((marker) => <CircleMarker key={marker.label} center={marker.coord} radius={10} pathOptions={{ color: marker.tone === 'green' ? '#56755b' : marker.tone === 'yellow' ? '#ba8a25' : '#e76c52', fillColor: marker.tone === 'green' ? '#56755b' : marker.tone === 'yellow' ? '#e8bb58' : '#e76c52', fillOpacity: 0.9 }}><Popup><strong>{marker.label}</strong><br /><span>{marker.type} · Salento</span><br /><button className="popup-action">Ver ficha <ArrowRight size={13} /></button></Popup></CircleMarker>)}<MapControls /></MapContainer></div>
+          <div className="map-copy"><p className="eyebrow">Orienta tu paseo</p><h2>{t('map')}</h2><p>Descubre rutas a pie, lugares favoritos y recomendaciones de quienes hacen de Salento su casa.</p><button className="dark-button" onClick={() => window.location.assign('/mapa-interactivo-salento.html')}><span>Abrir mapa completo</span> <ArrowRight size={17} /></button><div className="map-legend"><span><i className="legend-dot coral" />Favoritos locales</span><span><i className="legend-dot green" />Para descubrir</span></div></div>
+          <div className="map-visual" aria-label="Mapa interactivo de Salento con lugares destacados"><MapContainer center={[4.6371, -75.5706]} zoom={16} scrollWheelZoom={false} className="leaflet-map"><TileLayer attribution="&copy; OpenStreetMap" url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />{visibleMarkers.map((marker) => <CircleMarker key={marker.label} center={marker.coord} radius={10} pathOptions={{ color: marker.tone === 'green' ? '#56755b' : marker.tone === 'yellow' ? '#ba8a25' : '#e76c52', fillColor: marker.tone === 'green' ? '#56755b' : marker.tone === 'yellow' ? '#e8bb58' : '#e76c52', fillOpacity: 0.9 }}><Popup><strong>{marker.label}</strong><br /><span>{marker.type} · Salento</span><br /><button className="popup-action" onClick={() => {
+              const found = marker.placeId != null ? places.find((p) => p.id === marker.placeId) : undefined
+              if (found) {
+                setSelectedPlace(found)
+                window.scrollTo({ top: 0, behavior: 'smooth' })
+              }
+            }}>Ver ficha <ArrowRight size={13} /></button></Popup></CircleMarker>)}<MapControls /></MapContainer></div>
         </section>
 
             <section className="advertising-section" id="pautas"><div><p className="eyebrow">Hazte visible en Salento</p><h2>Pautas que llegan<br /><i>al lugar correcto.</i></h2><p>Tu negocio aparece en el mapa digital, en las búsquedas y frente a turistas listos para comprar o reservar.</p></div><div className="advertising-cards"><article><span className="ad-tag">Gastronomía</span><strong>Tu sabor, en el mapa.</strong><small>Ficha + ubicación + pedidos</small></article><article><span className="ad-tag green-tag">Comercio local</span><strong>Lo local se encuentra.</strong><small>Ficha + ubicación + contacto</small></article><article><span className="ad-tag yellow-tag">Experiencias</span><strong>El plan empieza aquí.</strong><small>Ficha + reservas + rutas</small></article></div><button className="dark-button ad-button" onClick={() => setShowProviderModal(true)}>Conoce las pautas <ArrowRight size={17} /></button></section>
@@ -1144,9 +1150,6 @@ function App() {
             console.log('Aliado verificado:', allyId)
           }}
         />
-      )}
-      {showNotifications && (
-        <NotificationsPanel onClose={() => setShowNotifications(false)} />
       )}
       <div className="floating-nav-toolbar" aria-label="Navegación rápida">
         <button className="floating-nav-button" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} aria-label="Subir arriba">
