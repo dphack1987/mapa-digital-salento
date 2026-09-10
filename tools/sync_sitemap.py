@@ -10,6 +10,21 @@ SM = PUB / "sitemap.xml"
 ORIGIN = "https://salentoalamano.com"
 
 SKIP = {"googleac76b27847921d06.html"}
+# Nunca indexar: stubs de redirección ni duplicados .html con canónica limpia
+SKIP_PREFIXES = ("pautantes/", "paginas-pautantes/camping-cascadas-santa-rita/")
+SKIP_ROOT_HTML = {
+    "don-chucho-asistente.html", "estado-actual-salento-hoteles-abiertos-vias-libres-valle-cocora-operando-100.html",
+    "estado-vias-salento-hoy.html", "faq-salento-preguntas-frecuentes-turistas-informacion-oficial.html",
+    "hoteles-abiertos-salento.html", "hoteles-hostales-abiertos-salento.html",
+    "hoteles-salento-abiertos-hoy-alojamiento-disponible-reservas.html", "landing-estado-actual-salento-2026.html",
+    "mapa-interactivo-salento.html", "paso-valle-cocora-abierto-acceso-total-jeeps-willys-operativos.html",
+    "restaurantes-salento-abiertos-servicio-gastronomico-operativo.html",
+    "rumor-cierre-salento-falso-desmentido-oficialmente.html",
+    "salento-abierto-hoy-turismo-seguro-valle-cocora-accesible.html", "salento-seguro-turismo.html",
+    "transporte-salento-jeeps-willys-operativos-servicio-normal.html", "turismo-salento-seguro-hoy.html",
+    "valle-cocora-accesible-100.html", "valle-cocora-cerrado-falso-acceso-confirmado-operativo.html",
+    "valle-cocora-operativo-seguro.html", "vias-salento-libres-acceso.html", "registro-aliados.html",
+}
 
 def prio(rel: str) -> tuple[str, str]:
     if rel.startswith("paginas-pautantes/"):
@@ -30,6 +45,10 @@ def main() -> None:
     for f in sorted(PUB.rglob("*.html")):
         rel = f.relative_to(PUB).as_posix()
         if f.name in SKIP:
+            continue
+        if rel in SKIP_ROOT_HTML:
+            continue
+        if rel.startswith(SKIP_PREFIXES):
             continue
         if rel == "index.html":
             continue

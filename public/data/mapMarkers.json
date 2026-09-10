@@ -371,6 +371,42 @@
       ],
       "tone": "success",
       "note": "Punto de Encuentro Jeeps Willys Plaza"
+    },
+    {
+      "id": 114,
+      "label": "Cootracocora LTDA",
+      "type": "Comercial",
+      "placeId": 114,
+      "coord": [
+        4.6385,
+        -75.5642
+      ],
+      "tone": "primary",
+      "note": "Jeeps Willys Salento – Cocora"
+    },
+    {
+      "id": 115,
+      "label": "Hotel La Tía Emiss",
+      "type": "Comercial",
+      "placeId": 115,
+      "coord": [
+        4.6375,
+        -75.5715
+      ],
+      "tone": "primary",
+      "note": "Hotel familiar cerca del parque"
+    },
+    {
+      "id": 116,
+      "label": "El Recuerdo Coffee Tour",
+      "type": "Turístico",
+      "placeId": 116,
+      "coord": [
+        4.6371,
+        -75.5706
+      ],
+      "tone": "primary",
+      "note": "Coffee tour con reserva directa"
     }
   ],
   "lastUpdated": "2026-09-07T00:00:00.000Z",
