@@ -689,7 +689,7 @@ const DefensiveSEODashboard: React.FC<DefensiveSEODashboardProps> = ({ onClose }
                     <div className="localization-content">
                       <p className="content-type">{localization.contentType}</p>
                       <div className="content-needs">
-                        <h7>Necesidades de Contenido:</h7>
+                        <h6>Necesidades de Contenido:</h6>
                         <ul>
                           {localization.contentNeeds.map((need: string, i: number) => (
                             <li key={i}>{need}</li>
@@ -697,7 +697,7 @@ const DefensiveSEODashboard: React.FC<DefensiveSEODashboardProps> = ({ onClose }
                         </ul>
                       </div>
                       <div className="cultural-adaptations">
-                        <h7>Adaptaciones Culturales:</h7>
+                        <h6>Adaptaciones Culturales:</h6>
                         <ul>
                           {localization.culturalAdaptations.map((adaptation: string, i: number) => (
                             <li key={i}>{adaptation}</li>

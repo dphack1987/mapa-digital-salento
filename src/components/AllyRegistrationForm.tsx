@@ -82,7 +82,7 @@ const AllyRegistrationForm: React.FC<AllyRegistrationFormProps> = ({ onClose, on
     setFormData(prev => ({
       ...prev,
       [parent]: {
-        ...prev[parent as keyof typeof prev],
+        ...(prev[parent as keyof typeof prev] as any),
         [field]: value
       }
     }))

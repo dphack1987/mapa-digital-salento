@@ -52,7 +52,7 @@ interface AllyRegistration {
   }
 }
 
-interface VerificationDocument {
+export interface VerificationDocument {
   type: 'business_license' | 'tax_id' | 'chamber_of_commerce' | 'identity'
   documentNumber: string
   issuingAuthority: string

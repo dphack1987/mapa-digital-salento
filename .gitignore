@@ -1,4 +1,4 @@
-﻿node_modules/
+node_modules/
 dist/
 .env
 .env.*
@@ -12,4 +12,6 @@ test2026/
 ts_errors_current.txt
 pautas_dirs.txt
 pautas_list.txt
-tools/dbg.cjs
+tools/dbg.cjserror.log
+
+error.log

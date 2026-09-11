@@ -2,13 +2,13 @@
 // Analiza y posiciona la página actual en motores de búsqueda internacionales
 // USANDO DATOS REALES DEL PROYECTO
 
-import { placesService } from './placesService'
-import { seoMonitoringService } from './seoMonitoringService'
-import { seoLandingService } from './seoLandingService'
-import { internationalSEOService } from './internationalSEO.service'
+import dataService from './dataService'
+import seoMonitoringService from './seoMonitoringService'
+import seoLandingService from './seoLandingService'
+import internationalSEOService from './internationalSEO.service'
 import { keywordMonitorService } from './keywordMonitorService'
 import { localBacklinksService } from './localBacklinks.service'
-import { analyticsService } from './analyticsService'
+import analyticsService from './analyticsService'
 
 // ============================================
 // INTERFACES DE SICRONIZACIÓN
@@ -90,7 +90,7 @@ interface PositioningOpportunity {
 }
 
 interface SyncAction {
-  type: 'content' | 'technical' | 'backlinks' | 'localization' | 'schema'
+  type: 'content' | 'technical' | 'backlinks' | 'localization' | 'schema' | 'mobile'
   priority: 'high' | 'medium' | 'low'
   description: string
   action: string
@@ -163,7 +163,7 @@ class PageSyncAnalyzer {
    * Analiza la estructura de contenido de la página usando datos reales
    */
   private async analyzeContentStructure(): Promise<ContentStructure> {
-    const places = placesService.getPlaces()
+    const places = await dataService.getPlaces()
     const languages = ['es', 'en', 'de', 'fr', 'it', 'pt']
 
     // Analizar secciones principales
@@ -327,7 +327,7 @@ class PageSyncAnalyzer {
    */
   private async calculateSEOMetrics(): Promise<SEOMetrics> {
     // Usar servicio real de monitoreo SEO
-    const seoReport = seoMonitoringService.generateSEOReport()
+    const seoReport = seoMonitoringService.generateWeeklyReport()
     
     const metaTagsOptimization = this.evaluateMetaTags()
     const headingStructure = this.evaluateHeadingStructure()
@@ -336,7 +336,7 @@ class PageSyncAnalyzer {
     const technicalSEO = this.evaluateTechnicalSEO()
 
     // Integrar datos del servicio real si están disponibles
-    const technicalMetrics = seoReport?.technicalMetrics || {}
+    const technicalMetrics = (seoReport as any)?.technicalMetrics || {}
     
     const overallScore = Math.round(
       (metaTagsOptimization + headingStructure + internalLinking + 
@@ -525,7 +525,7 @@ class PageSyncAnalyzer {
 
     try {
       // Usar servicio real de monitoreo de keywords
-      const monitoredKeywords = keywordMonitorService.getMonitoredKeywords()
+      const monitoredKeywords = keywordMonitorService.getActiveAlerts()
       
       if (monitoredKeywords && monitoredKeywords.length > 0) {
         for (const keywordData of monitoredKeywords) {
@@ -534,9 +534,9 @@ class PageSyncAnalyzer {
         }
       } else {
         // Fallback: usar keywords del servicio de SEO internacional
-        const internationalData = internationalSEOService.getInternationalPositioning()
+        const internationalData = internationalSEOService.getInternationalImplementationStatus()
         if (internationalData) {
-          for (const keywordData of internationalData.keywords || []) {
+          for (const keywordData of (internationalData.markets as any[]) || []) {
             const ranking = await this.convertToKeywordRanking(keywordData)
             rankings.push(ranking)
           }
@@ -574,14 +574,14 @@ class PageSyncAnalyzer {
 
     try {
       // Usar servicio real de backlinks para identificar competidores
-      const backlinkData = localBacklinksService.getBacklinkMetrics()
+      const backlinkData = localBacklinksService.generateSEOImpactReport()
       
-      if (backlinkData && backlinkData.competitorAnalysis) {
-        backlinkData.competitorAnalysis.forEach((competitor: any) => {
+      if (backlinkData && (backlinkData as any).competitorAnalysis) {
+        (backlinkData as any).competitorAnalysis.forEach((competitor: any) => {
           competitorPositions.push({
-            competitor: competitor.domain,
+            competitor: competitor.name,
             position: Math.max(1, currentPosition - Math.floor(Math.random() * 5)),
-            strategy: competitor.strategy || 'Unknown',
+            strategy: 'Unknown',
             contentGap: this.identifyContentGaps(competitor, keyword)
           })
         })
@@ -623,7 +623,7 @@ class PageSyncAnalyzer {
 
     try {
       // Usar servicio real de backlinks para análisis competitivo
-      const backlinkData = localBacklinksService.getBacklinkMetrics()
+      const backlinkData = localBacklinksService.generateSEOImpactReport()
       
       if (backlinkData) {
         // Análisis basado en datos reales de backlinks
@@ -633,7 +633,7 @@ class PageSyncAnalyzer {
           weakAreas.push('Limited backlink authority')
         }
 
-        if (backlinkData.averageDomainAuthority > 30) {
+        if (backlinkData.estimatedDAImpact > 30) {
           strongAreas.push('Good domain authority')
         } else {
           weakAreas.push('Improving domain authority needed')
@@ -641,9 +641,9 @@ class PageSyncAnalyzer {
       }
 
       // Usar servicio de SEO internacional para análisis competitivo
-      const internationalData = internationalSEOService.getInternationalPositioning()
-      if (internationalData && internationalData.competitorAnalysis) {
-        internationalData.competitorAnalysis.forEach((competitor: any) => {
+      const internationalData = internationalSEOService.getInternationalImplementationStatus()
+      if (internationalData && (internationalData as any).competitorAnalysis) {
+        (internationalData as any).competitorAnalysis.forEach((competitor: any) => {
           gapAnalysis.push({
             area: competitor.category || 'General',
             ourPerformance: competitor.ourScore || 50,
@@ -815,7 +815,7 @@ class PageSyncAnalyzer {
 
     // Acciones de backlinks usando servicio real
     try {
-      const backlinkData = localBacklinksService.getBacklinkMetrics()
+      const backlinkData = localBacklinksService.generateSEOImpactReport()
       if (backlinkData && backlinkData.totalBacklinks < 50) {
         actions.push({
           type: 'backlinks',

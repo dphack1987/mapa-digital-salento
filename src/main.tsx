@@ -13,7 +13,7 @@ if (!rootElement) {
   document.body.appendChild(rootDiv)
 }
 
-const root = createRoot(rootElement)
+const root = createRoot(rootElement!)
 root.render(
   <StrictMode>
     <HelmetProvider>

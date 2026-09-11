@@ -156,7 +156,7 @@ const QRShare: React.FC<QRShareProps> = ({
                   Descargar QR
                 </button>
                 
-                {navigator.share && (
+                {typeof navigator.share === "function" && (
                   <button 
                     className="share-action-button"
                     onClick={handleShare}

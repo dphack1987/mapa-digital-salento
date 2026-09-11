@@ -97,7 +97,7 @@ const AnalyticsDashboard: React.FC<AnalyticsDashboardProps> = ({ placeId, placeN
   }
 
   const conversionRate = ((analytics.orders / analytics.views) * 100).toFixed(1)
-  const totalClicks = Object.values(analytics.clicks).reduce((a: number, b: number) => a + b, 0)
+  const totalClicks = Object.values(analytics.clicks as Record<string, number>).reduce((a: number, b: number) => a + b, 0)
   const clickRate = ((totalClicks / analytics.views) * 100).toFixed(1)
   const insights = analyticsService.getInsights(placeId)
   const topPerformers = analyticsService.getTopPerformers(5)

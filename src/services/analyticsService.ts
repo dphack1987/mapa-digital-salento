@@ -109,7 +109,7 @@ class AnalyticsService {
   }
 
   private generateDailyTrends(baseViews: number, baseOrders: number): Array<{ date: string; views: number; orders: number }> {
-    const trends = []
+    const trends: any[] = []
     const today = new Date()
 
     for (let i = 6; i >= 0; i--) {
@@ -128,7 +128,7 @@ class AnalyticsService {
   }
 
   private generateWeeklyTrends(baseViews: number, baseOrders: number): Array<{ week: string; views: number; orders: number }> {
-    const trends = []
+    const trends: any[] = []
     const weeks = ['Semana 1', 'Semana 2', 'Semana 3', 'Semana 4']
 
     weeks.forEach((week, index) => {
@@ -143,7 +143,7 @@ class AnalyticsService {
   }
 
   private generateMonthlyTrends(baseViews: number, baseOrders: number): Array<{ month: string; views: number; orders: number }> {
-    const trends = []
+    const trends: any[] = []
     const months = ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun']
 
     months.forEach((month, index) => {
