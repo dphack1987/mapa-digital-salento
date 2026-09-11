@@ -3,307 +3,300 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#f5f1e8" />
-    <meta name="description" content="Finca Don Eduardo Coffee Tour - Experiencia cafetera tradicional en Salento con tours guiados, recorridos por cultivos y degustación de café." />
-    <title>Finca Don Eduardo Coffee Tour | Coffee Tour en Salento, Quindío</title>
-    
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" />
+    <meta name="description" content="Finca Don Eduardo Coffee Tour - Experiencia cafetera tradicional en Salento con tours guiados, recorridos por cultivos y degustación de café. Tours en inglés y español de 3 horas." />
+    <title>Finca Don Eduardo Coffee Tour | Vive Salento directamente</title>
+    <link rel="canonical" href="https://salentoalamano.com/paginas-pautantes/coffee-tour-finca-don-eduardo/" />
     <style>
-      :root {
-        --paper: #f5f1e8;
-        --ink: #1f2d26;
-        --line: #d9d0bf;
-        --coral: #dd7f5d;
-        --green: #5a7d63;
-        --yellow: #e7c77b;
-        --white: #fff;
-      }
-      * { box-sizing: border-box; }
-      body { margin: 0; font-family: 'DM Sans', sans-serif; background: var(--paper); color: var(--ink); }
-      a { color: inherit; text-decoration: none; }
-      .container { max-width: 1100px; margin: 0 auto; padding: 32px 20px 80px; }
-      .topbar { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-bottom: 24px; }
-      .brand { font-size: 20px; font-weight: 700; }
-      .brand { display: inline-flex; align-items: center; gap: 10px; }
-      .brand-logo { width: 42px; height: 42px; object-fit: contain; border-radius: 50%; }
-      .nav-link { background: var(--white); border: 1px solid var(--line); padding: 10px 14px; border-radius: 999px; }
-      .hero {
-        display: grid; grid-template-columns: 1.3fr .7fr; gap: 20px; align-items: stretch; margin-bottom: 28px;
-      }
-      .hero-copy, .hero-visual {
-        background: var(--white); border: 1px solid var(--line); border-radius: 22px; overflow: hidden;
-      }
-      .hero-copy { padding: 30px 28px; }
-      .eyebrow { text-transform: uppercase; letter-spacing: .12em; font-size: 11px; color: var(--coral); font-weight: 700; }
-      h1 { font-size: clamp(2rem, 4vw, 4rem); margin: 12px 0 12px; }
-      .lead { color: #536057; line-height: 1.6; font-size: 1.05rem; }
-      .highlights { display: flex; flex-wrap: wrap; gap: 8px; margin: 22px 0; }
-      .highlight, .tag { padding: 8px 11px; border: 1px solid var(--line); border-radius: 999px; background: #f3ead6; font-size: 12px; font-weight: 700; }
-      .section { padding: 26px; margin-top: 24px; }
-      h2 { margin: 0 0 16px; font-size: 1.5rem; }
-      .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-      .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
-      .gallery img { width: 100%; height: 200px; object-fit: cover; border-radius: 16px; border: 1px solid var(--line); transition: transform 0.3s; }
-      .gallery img:hover { transform: scale(1.03); }
-      .facts { display: grid; gap: 0; }
-      .fact { padding: 13px 0; border-bottom: 1px solid var(--line); }
-      .fact strong { display: block; color: var(--muted); font-size: 11px; text-transform: uppercase; margin-bottom: 5px; }
-      .service-section strong { display: block; color: var(--muted); font-size: 11px; text-transform: uppercase; margin: 14px 0 6px; }
-      .service-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
-      .service-section ul { margin: 6px 0 18px; padding-left: 20px; color: var(--muted); line-height: 1.8; }
-      .service-section p { color: var(--muted); line-height: 1.6; }
-      .muted { color: var(--muted); }
-      .tags { display: flex; flex-wrap: wrap; gap: 8px; }
-      .trust { color: var(--muted); line-height: 1.6; }
-      .verified { color: #39734b; font-weight: 700; }
-.prices-table { width: 100%; table-layout: fixed; border-collapse: collapse; margin-top: 16px; }
-.prices-table th, .prices-table td { padding: 12px; text-align: left; border-bottom: 1px solid var(--line); overflow-wrap: break-word; }
-      .prices-table th { background: #f3ead6; font-weight: 700; }
-      .prices-table tr:hover { background: rgba(221, 127, 93, 0.05); }
-      .btn { display: inline-flex; align-items: center; justify-content: center; padding: 10px 12px; border-radius: 10px; border: 1px solid var(--line); font-weight: 700; font-size: 12px; }
-      .btn.primary { background: var(--ink); color: var(--white); border-color: var(--ink); }
-      .btn.whatsapp { background: #25d366; border-color: #25d366; color: #fff; }
-      .actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 16px; }
-      @media (max-width: 800px) {
-        .hero, .two-col { grid-template-columns: 1fr; }
-        .hero-image { min-height: 260px; order: -1; }
-        .topbar { align-items: flex-start; flex-direction: column; }
-        .gallery { grid-template-columns: 1fr; }
-        .service-grid { grid-template-columns: 1fr; }
+      @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap');
+      :root { --paper:#f5f1e8; --ink:#1f2d26; --muted:#59665f; --line:#d9d0bf; --coral:#dd7f5d; --yellow:#e7c77b; --white:#fff; }
+      * { box-sizing:border-box; } body { margin:0; background:var(--paper); color:var(--ink); font-family:'DM Sans',sans-serif; }
+      a { color:inherit; text-decoration:none; } .container { max-width:1180px; margin:0 auto; padding:24px 20px 72px; }
+      .topbar { display:flex; justify-content:space-between; gap:16px; align-items:center; margin-bottom:28px; } .brand { display:inline-flex; align-items:center; gap:10px; font-weight:700; font-size:20px; } .brand-logo { width:42px; height:42px; object-fit:contain; border-radius:50%; }
+      .top-actions,.actions { display:flex; flex-wrap:wrap; gap:10px; } .button { display:inline-flex; align-items:center; justify-content:center; border:1px solid var(--line); border-radius:999px; padding:11px 15px; font-weight:700; font-size:13px; background:var(--white); }
+      .button.primary { background:#25d366; border-color:#25d366; color:#fff; } .button.dark { background:var(--ink); border-color:var(--ink); color:#fff; }
+      .hero { display:grid; grid-template-columns:1.1fr .9fr; gap:24px; align-items:stretch; } .hero-copy,.hero-image,.section { background:var(--white); border:1px solid var(--line); border-radius:24px; }
+      .hero-copy { padding:34px; } .eyebrow { color:var(--coral); text-transform:uppercase; letter-spacing:.12em; font-size:11px; font-weight:700; }
+      h1 { font-size:clamp(2.3rem,5vw,4.8rem); line-height:1.02; margin:14px 0; } .lead { color:var(--muted); line-height:1.7; font-size:1.08rem; max-width:650px; }
+      .hero-image { min-height:360px; background:linear-gradient(rgba(0,0,0,.08),rgba(0,0,0,.25)),url('/pautas/coffee-tour-finca-don-eduardo/logo-finca-don-eduardo.jpg') center/cover; }
+      .highlights { display:flex; flex-wrap:wrap; gap:8px; margin:22px 0; } .highlight,.tag { padding:8px 11px; border:1px solid var(--line); border-radius:999px; background:#f3ead6; font-size:12px; font-weight:700; }
+      .section { padding:26px; margin-top:24px; } h2 { margin:0 0 16px; font-size:1.5rem; } .two-col { display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+      .gallery { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; } .gallery img { width:100%; height:190px; object-fit:cover; border-radius:16px; border:1px solid var(--line); }
+      .facts { display:grid; gap:0; } .fact { padding:13px 0; border-bottom:1px solid var(--line); } .fact strong { display:block; color:var(--muted); font-size:11px; text-transform:uppercase; margin-bottom:5px; }
+      .muted { color:var(--muted); }
+      .tags { display:flex; flex-wrap:wrap; gap:8px; } .trust { color:var(--muted); line-height:1.6; } .verified { color:#39734b; font-weight:700; }
+      @media (max-width:800px) { .hero,.two-col { grid-template-columns:1fr; } .hero-image { min-height:260px; order:-1; } .topbar { align-items:flex-start; flex-direction:column; } .gallery { grid-template-columns:1fr; } }
+
+      /* ===== CATALOGO INTERACTIVO ===== */
+      .menu-header { display:flex; flex-wrap:wrap; gap:12px; align-items:center; justify-content:space-between; margin-bottom:20px; }
+      .menu-search { flex:1; min-width:200px; position:relative; }
+      .menu-search input { width:100%; padding:12px 16px 12px 42px; border:1px solid var(--line); border-radius:999px; font-size:14px; font-family:inherit; background:var(--white); color:var(--ink); }
+      .menu-search input:focus { outline:none; border-color:var(--coral); box-shadow:0 0 0 3px rgba(221,127,93,.15); }
+      .menu-search::before { content:'🔍'; position:absolute; left:16px; top:50%; transform:translateY(-50%); font-size:14px; opacity:.5; }
+      .currency-switch { display:flex; gap:4px; background:#f3ead6; padding:4px; border-radius:999px; }
+      .currency-switch button { border:none; background:transparent; padding:8px 14px; border-radius:999px; font-weight:700; font-size:12px; cursor:pointer; color:var(--muted); font-family:inherit; transition:all .2s; }
+      .currency-switch button.active { background:var(--white); color:var(--ink); box-shadow:0 2px 6px rgba(0,0,0,.08); }
+      .menu-tabs { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:20px; }
+      .menu-tab { padding:10px 16px; border:1px solid var(--line); border-radius:999px; background:var(--white); font-weight:700; font-size:13px; cursor:pointer; font-family:inherit; color:var(--muted); transition:all .2s; }
+      .menu-tab:hover { border-color:var(--coral); color:var(--ink); }
+      .menu-tab.active { background:var(--ink); border-color:var(--ink); color:#fff; }
+      .menu-tab .count { display:inline-block; margin-left:6px; opacity:.6; font-size:11px; }
+      .menu-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:18px; }
+      .menu-card { background:var(--white); border:1px solid var(--line); border-radius:16px; overflow:hidden; display:flex; flex-direction:column; transition:all .25s; }
+      .menu-card:hover { border-color:var(--coral); transform:translateY(-3px); box-shadow:0 8px 24px rgba(0,0,0,.08); }
+      .menu-card-img { width:100%; height:180px; object-fit:cover; display:block; }
+      .menu-card-emoji { width:100%; height:140px; display:flex; align-items:center; justify-content:center; background:linear-gradient(135deg,#f3ead6,#e8dfc8); font-size:56px; }
+      .menu-card-body { padding:14px 16px; display:flex; flex-direction:column; gap:6px; flex:1; }
+      .menu-card .cat-tag { display:inline-block; padding:4px 10px; border-radius:999px; background:#f3ead6; font-size:10px; font-weight:700; text-transform:uppercase; color:var(--coral); letter-spacing:.05em; align-self:flex-start; }
+      .menu-card h3 { margin:2px 0 0; font-size:1.05rem; line-height:1.3; }
+      .menu-card .desc { color:var(--muted); font-size:13px; line-height:1.5; flex:1; }
+      .menu-card .footer { display:flex; justify-content:space-between; align-items:center; margin-top:8px; }
+      .menu-card .price { font-weight:700; font-size:1.15rem; color:var(--ink); }
+      .menu-card .price small { display:block; font-size:11px; font-weight:500; color:var(--muted); }
+      .menu-card .add-btn { width:40px; height:40px; border-radius:50%; border:none; background:var(--coral); color:#fff; font-size:20px; font-weight:700; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:all .2s; flex-shrink:0; }
+      .menu-card .add-btn:hover { background:var(--ink); transform:scale(1.1); }
+      .menu-card .qty-ctrl { display:flex; align-items:center; gap:10px; }
+      .menu-card .qty-ctrl button { width:32px; height:32px; border-radius:50%; border:1.5px solid var(--line); background:var(--white); cursor:pointer; font-weight:700; font-size:16px; color:var(--ink); display:flex; align-items:center; justify-content:center; transition:all .15s; }
+      .menu-card .qty-ctrl button:hover { border-color:var(--coral); color:var(--coral); }
+      .menu-card .qty-ctrl span { font-weight:700; font-size:15px; min-width:24px; text-align:center; }
+      .menu-empty { text-align:center; padding:40px 20px; color:var(--muted); }
+      .menu-empty span { font-size:48px; display:block; margin-bottom:12px; }
+      .cart-float { position:fixed; bottom:24px; right:24px; background:var(--ink); color:#fff; border-radius:999px; padding:14px 22px; display:flex; align-items:center; gap:12px; cursor:pointer; box-shadow:0 8px 30px rgba(0,0,0,.25); z-index:1000; transition:all .3s; transform:translateY(120px); opacity:0; }
+      .cart-float.visible { transform:translateY(0); opacity:1; }
+      .cart-float:hover { transform:translateY(-2px); box-shadow:0 10px 40px rgba(0,0,0,.3); }
+      .cart-float .badge { background:var(--coral); width:28px; height:28px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:13px; }
+      .cart-float .total { font-weight:700; font-size:15px; }
+      .cart-modal { position:fixed; inset:0; background:rgba(31,45,38,.6); display:none; align-items:center; justify-content:center; z-index:1001; padding:20px; }
+      .cart-modal.open { display:flex; }
+      .cart-panel { background:var(--white); border-radius:24px; max-width:520px; width:100%; max-height:85vh; overflow-y:auto; padding:28px; }
+      .cart-panel h2 { margin:0 0 20px; }
+      .cart-item { display:flex; justify-content:space-between; align-items:center; padding:14px 0; border-bottom:1px solid var(--line); gap:12px; }
+      .cart-item .info { flex:1; }
+      .cart-item .info strong { display:block; font-size:14px; }
+      .cart-item .info small { color:var(--muted); font-size:12px; }
+      .cart-item .qty { display:flex; align-items:center; gap:8px; }
+      .cart-item .qty button { width:28px; height:28px; border-radius:50%; border:1px solid var(--line); background:var(--white); cursor:pointer; font-weight:700; color:var(--ink); }
+      .cart-item .qty span { min-width:20px; text-align:center; font-weight:700; }
+      .cart-item .item-total { font-weight:700; min-width:90px; text-align:right; }
+      .cart-total { display:flex; justify-content:space-between; padding:18px 0; font-size:1.2rem; font-weight:700; border-top:2px solid var(--ink); margin-top:8px; }
+      .cart-actions { display:flex; flex-direction:column; gap:10px; margin-top:12px; }
+      .cart-actions button, .cart-actions a { padding:14px; border-radius:999px; border:none; font-weight:700; font-size:14px; cursor:pointer; font-family:inherit; text-align:center; }
+      .cart-actions .send { background:#25d366; color:#fff; }
+      .cart-actions .clear { background:transparent; border:1px solid var(--line); color:var(--muted); }
+      .cart-actions .close { background:var(--ink); color:#fff; }
+      @media (max-width:600px) {
+        .menu-header { flex-direction:column; align-items:stretch; }
+        .menu-grid { grid-template-columns:1fr; }
+        .cart-float { bottom:16px; right:16px; padding:12px 18px; }
       }
     </style>
     <link rel="stylesheet" href="/page-theme.css" />
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://salentoalamano.com/"},{"@type":"ListItem","position":2,"name":"Coffee Tours","item":"https://salentoalamano.com/categorias/coffee-tours.html"},{"@type":"ListItem","position":3,"name":"Finca Don Eduardo Coffee Tour"}]}</script>
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"TouristAttraction","name":"Finca Don Eduardo Coffee Tour","description":"Experiencia cafetera tradicional en Salento con tours guiados, recorridos por cultivos y degustación de café. Tours en inglés y español de 3 horas.","url":"/paginas-pautantes/finca-don-eduardo-coffee-tour/","image":"https://salentoalamano.com/pautas/coffee-tour-finca-don-eduardo/logo-finca-don-eduardo.jpg","address":{"@type":"PostalAddress","addressLocality":"Salento","addressRegion":"Quindío","addressCountry":"CO","streetAddress":"Calle 7 # 1 - 04, Salento"},"geo":{"@type":"GeoCoordinates","latitude":4.64,"longitude":-75.56},"telephone":"+57 315 409 7039","priceRange":"$$$","areaServed":{"@type":"City","name":"Salento","containedIn":{"@type":"State","name":"Quindío"}},"aggregateRating":{"@type":"AggregateRating","ratingValue":4.9,"ratingCount":150,"bestRating":5,"worstRating":1},"openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"09:30","closes":"17:30"},"touristType":["Local","Internacional"],"duration":"3 horas","availableLanguage":["Español","Inglés"],"sameAs":"https://fincadoneduardocoffeetour.com","price":"$100.000 COP"}</script>
-    <link rel="canonical" href="https://salentoalamano.com/paginas-pautantes/finca-don-eduardo-coffee-tour/" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://salentoalamano.com/"},{"@type":"ListItem","position":2,"name":"Coffee Tours","item":"/categorias/coffee-tours.html"},{"@type":"ListItem","position":3,"name":"Finca Don Eduardo Coffee Tour"}]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"TouristAttraction","name":"Finca Don Eduardo Coffee Tour","description":"Experiencia cafetera tradicional en Salento con tours guiados, recorridos por cultivos y degustación de café. Tours en inglés y español de 3 horas.","url":"/paginas-pautantes/coffee-tour-finca-don-eduardo/","image":"/pautas/coffee-tour-finca-don-eduardo/logo-finca-don-eduardo.jpg","address":{"@type":"PostalAddress","addressLocality":"Salento","addressRegion":"Quindío","addressCountry":"CO","streetAddress":"Calle 7 # 1 - 04, Salento"},"geo":{"@type":"GeoCoordinates","latitude":4.638,"longitude":-75.569},"telephone":"+57 315 409 7039","priceRange":"$$$","aggregateRating":{"@type":"AggregateRating","ratingValue":4.9,"ratingCount":150,"bestRating":5,"worstRating":1},"duration":"3 horas","availableLanguage":["Español","Inglés"],"price":"$100.000 COP"}</script>
   </head>
   <body>
     <main class="container">
-      <header class="topbar">
-        <a class="brand" href="/index.html"><img src="/logo_salento2026.png" alt="Salento a la Mano" class="brand-logo"/><span>Salento a la Mano</span></a>
-        <nav class="top-actions">
-          <a class="nav-link" href="/">Inicio</a>
-          <a class="nav-link" href="/categorias/coffee-tours.html">Ver categoría</a>
-        </nav>
-      </header>
-      
-      <section class="section">
-        <h2>Tabla de Precios y Servicios</h2>
-        <table class="prices-table">
-          <thead>
-            <tr>
-              <th>Servicio</th>
-              <th>Precio (COP)</th>
-              <th>Horario</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>English Coffee Tour</td>
-              <td>$100.000</td>
-              <td>Lunes a sábado 9:30 AM y 2:30 PM</td>
-            </tr>
-            <tr>
-              <td>Recorrido en Español</td>
-              <td>$100.000</td>
-              <td>Lunes a sábado 10:40 AM (reserva mín. 2 personas)</td>
-            </tr>
-            <tr>
-              <td>Private Tour</td>
-              <td>Personalizado</td>
-              <td>Contactar para cotización</td>
-            </tr>
-          </tbody>
-        </table>
-      </section><section class="section">
-        <h2>Conoce la experiencia</h2>
-        <div class="two-col">
-          <div>
-            <p class="trust">La Finca Don Eduardo ofrece una experiencia auténtica del mundo del café en Salento. Los tours incluyen recorridos guiados por los cafetales, explicación detallada del proceso del café desde la semilla hasta la taza, y degustación de diferentes tipos de café de la región.</p>
-            <p class="verified">✓ Información verificada con precios actualizados</p>
-          </div>
-          <div class="facts">
-            <div class="fact"><strong>Ubicación</strong>Calle 7 # 1 - 04, Salento, Quindío (8 min caminando de la plaza)</div>
-            <div class="fact"><strong>Horario Inglés</strong>Lunes a sábado 9:30 AM y 2:30 PM</div>
-            <div class="fact"><strong>Horario Español</strong>Lunes a sábado 10:40 AM (reserva mín. 2 personas)</div>
-            <div class="fact"><strong>Duración</strong>3 horas</div>
-            <div class="fact"><strong>Contacto</strong>+57 315 409 7039, +57 316 285 2603</div>
-          </div>
-        </div>
-      </section><section class="section">
-        <h2>Galería de imágenes</h2>
-        <div class="gallery">
-          <img src="/pautas/coffee-tour-finca-don-eduardo/logo-finca-don-eduardo.jpg" alt="Finca Don Eduardo cafetales" loading="lazy"/>
-          <img src="/pautas/coffee-tour-finca-don-eduardo/IMG_0224.jpg" alt="Tour de café" loading="lazy"/>
-          <img src="/pautas/coffee-tour-finca-don-eduardo/IMG_0366.jpg" alt="Degustación de café" loading="lazy"/>
-          <img src="/pautas/coffee-tour-finca-don-eduardo/IMG_0372.jpg" alt="Proceso del café" loading="lazy"/>
-          <img src="/pautas/coffee-tour-finca-don-eduardo/IMG_0736.jpg" alt="Cultivos de café" loading="lazy"/>
-          <img src="/pautas/coffee-tour-finca-don-eduardo/IMG_3229.jpg" alt="Instalaciones de la finca" loading="lazy"/>
-          <img src="/pautas/coffee-tour-finca-don-eduardo/IMG_8454.jpg" alt="Finca Don Eduardo paisajes" loading="lazy"/>
-          <img src="/pautas/coffee-tour-finca-don-eduardo/IMG_9079.jpg" alt="Experiencia cafetera" loading="lazy"/>
-          <img src="/pautas/coffee-tour-finca-don-eduardo/IMG_9320.jpg" alt="Plantación de café" loading="lazy"/>
-          <img src="/pautas/coffee-tour-finca-don-eduardo/IMG_9326.jpg" alt="Tostión de café" loading="lazy"/>
-          <img src="/pautas/coffee-tour-finca-don-eduardo/IMG_9360_1.jpg" alt="Degustación completa" loading="lazy"/>
-          <img src="/pautas/coffee-tour-finca-don-eduardo/IMG_9629.jpg" alt="Recorrido guiado" loading="lazy"/>
-          <img src="/pautas/coffee-tour-finca-don-eduardo/IMG_9770.jpg" alt="Cafetales tradicionales" loading="lazy"/>
-          <img src="/pautas/coffee-tour-finca-don-eduardo/Plantation.jpg" alt="Biodiversidad" loading="lazy"/>
-          <img src="/pautas/coffee-tour-finca-don-eduardo/logo-finca-don-eduardo.jpg" alt="Vistas panorámicas" loading="lazy"/>
-          <img src="/pautas/coffee-tour-finca-don-eduardo/IMG_0224.jpg" alt="Experiencia completa" loading="lazy"/>
-        </div>
-      </section><section class="section">
-        <h2>Lo que puedes encontrar</h2>
-        <div class="tags">
-          <span class="tag">café</span>
-          <span class="tag">finca cafetera</span>
-          <span class="tag">tour guiado</span>
-          <span class="tag">degustación</span>
-          <span class="tag">experiencia rural</span>
-          <span class="tag">cultura cafetera</span>
-          <span class="tag">Salento</span>
-        </div>
-      </section><section class="hero">
-        <div class="hero-copy">
-          <div class="eyebrow">Coffee Tours · experiencia tradicional</div>
-          <h1>Finca Don Eduardo Coffee Tour</h1>
-          <p class="lead">Experiencia cafetera tradicional en Salento con tours guiados, recorridos por cultivos, explicación del proceso del café y degustación de diferentes tipos de café. Descubre la cultura cafetera colombiana de primera mano.</p>
-          <div class="highlights">
-            <span class="highlight">Tour en inglés 9:30 AM y 2:30 PM</span>
-            <span class="highlight">Tour en español 10:40 AM</span>
-            <span class="highlight">3 horas de duración</span>
-            <span class="highlight">⭐ Top-rated</span>
-          </div>
-          <div class="actions">
-            <a class="btn primary" href="https://wa.me/573154097039" target="_blank" rel="noreferrer">Contactar por WhatsApp</a>
-            <a class="btn" href="https://fincadoneduardocoffeetour.com" target="_blank" rel="noreferrer">Sitio web</a>
-            <a class="btn" href="https://www.google.com/maps/search/Calle%207%20%23%201%20-%2004%20Salento" target="_blank" rel="noreferrer">Cómo llegar</a>
-          </div>
-        </div>
-        <div class="hero-visual" style="background: linear-gradient(rgba(0,0,0,.08),rgba(0,0,0,.25)), url('/pautas/coffee-tour-finca-don-eduardo/logo-finca-don-eduardo.jpg') center/cover" aria-label="Finca Don Eduardo Coffee Tour"></div>
+      <header class="topbar"><a class="brand" href="/"><img src="/logo_salento2026.png" alt="Salento a la Mano" class="brand-logo" style="width:64px;height:64px;object-fit:contain;border-radius:50%"/><span>Salento a la Mano</span></a><nav class="top-actions"><a class="button" href="/">Inicio</a><a class="button" href="/categorias/coffee-tours.html">Ver categoría</a></nav></header>
+      <section class="hero">
+        <div class="hero-copy"><div class="eyebrow">Coffee Tours · experiencia tradicional</div><h1>Finca Don Eduardo Coffee Tour</h1><p class="lead">Experiencia cafetera tradicional en Salento con tours guiados, recorridos por cultivos, explicación del proceso del café y degustación. Descubre la cultura cafetera colombiana de primera mano.</p>
+          <div class="highlights"><span class="highlight">Tour en inglés 9:30 AM y 2:30 PM</span><span class="highlight">Tour en español 10:40 AM</span><span class="highlight">3 horas de duración</span><span class="highlight">⭐ Top-rated</span></div>
+          <div class="actions"><a class="button primary" href="https://wa.me/573154097039" target="_blank" rel="noreferrer">Reservar por WhatsApp</a><a class="button dark" href="tel:+573154097039">Llamar ahora</a><a class="button" href="https://www.google.com/maps/search/Calle%207%20%23%201%20-%2004%20Salento" target="_blank" rel="noreferrer">Cómo llegar</a><a class="button" href="https://fincadoneduardocoffeetour.com" target="_blank" rel="noreferrer">Sitio oficial</a></div>
+        </div><div class="hero-image" aria-label="Finca Don Eduardo Coffee Tour"></div>
       </section>
-      
-      <section class="section">
-        <h2>Conoce la experiencia</h2>
-        <div class="two-col">
-          <div>
-            <p class="trust">La Finca Don Eduardo ofrece una experiencia auténtica del mundo del café en Salento. Los tours incluyen recorridos guiados por los cafetales, explicación detallada del proceso del café desde la semilla hasta la taza, y degustación de diferentes tipos de café de la región.</p>
-            <p class="verified">✓ Información verificada con precios actualizados</p>
-          </div>
-          <div class="facts">
-            <div class="fact"><strong>Ubicación</strong>Calle 7 # 1 - 04, Salento, Quindío (8 min caminando de la plaza)</div>
-            <div class="fact"><strong>Horario Inglés</strong>Lunes a sábado 9:30 AM y 2:30 PM</div>
-            <div class="fact"><strong>Horario Español</strong>Lunes a sábado 10:40 AM (reserva mín. 2 personas)</div>
-            <div class="fact"><strong>Duración</strong>3 horas</div>
-            <div class="fact"><strong>Contacto</strong>+57 315 409 7039, +57 316 285 2603</div>
+
+      <section class="section" id="menu-interactivo">
+        <h2>Nuestros Tours y Servicios</h2>
+        <p class="muted" style="margin-top:-8px;margin-bottom:20px">Selecciona los tours que deseas. Al final, envía tu reserva por WhatsApp.</p>
+        <div class="menu-header">
+          <div class="menu-search"><input type="text" id="menuSearch" placeholder="Buscar tour o servicio..." /></div>
+          <div class="currency-switch" role="group" aria-label="Moneda">
+            <button data-cur="COP" class="active">COP</button>
+            <button data-cur="USD">USD</button>
+            <button data-cur="EUR">EUR</button>
           </div>
         </div>
+        <div class="menu-tabs" id="menuTabs"></div>
+        <div class="menu-grid" id="menuGrid"></div>
+        <div class="menu-empty" id="menuEmpty" style="display:none"><span>🔍</span>No encontramos tours con ese nombre.</div>
       </section>
-      
-      <section class="section">
-        <h2>Tabla de Precios y Servicios</h2>
-        <table class="prices-table">
-          <thead>
-            <tr>
-              <th>Servicio</th>
-              <th>Precio (COP)</th>
-              <th>Horario</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>English Coffee Tour</td>
-              <td>$100.000</td>
-              <td>Lunes a sábado 9:30 AM y 2:30 PM</td>
-            </tr>
-            <tr>
-              <td>Recorrido en Español</td>
-              <td>$100.000</td>
-              <td>Lunes a sábado 10:40 AM (reserva mín. 2 personas)</td>
-            </tr>
-            <tr>
-              <td>Private Tour</td>
-              <td>Personalizado</td>
-              <td>Contactar para cotización</td>
-            </tr>
-          </tbody>
-        </table>
-      </section>
-      
-      <section class="section">
-        <h2>Galería de imágenes</h2>
-        <div class="gallery">
-          <img src="/pautas/coffee-tour-finca-don-eduardo/logo-finca-don-eduardo.jpg" alt="Finca Don Eduardo cafetales" loading="lazy"/>
-          <img src="/pautas/coffee-tour-finca-don-eduardo/IMG_0224.jpg" alt="Tour de café" loading="lazy"/>
-          <img src="/pautas/coffee-tour-finca-don-eduardo/IMG_0366.jpg" alt="Degustación de café" loading="lazy"/>
-          <img src="/pautas/coffee-tour-finca-don-eduardo/IMG_0372.jpg" alt="Proceso del café" loading="lazy"/>
-          <img src="/pautas/coffee-tour-finca-don-eduardo/IMG_0736.jpg" alt="Cultivos de café" loading="lazy"/>
-          <img src="/pautas/coffee-tour-finca-don-eduardo/IMG_3229.jpg" alt="Instalaciones de la finca" loading="lazy"/>
-          <img src="/pautas/coffee-tour-finca-don-eduardo/IMG_8454.jpg" alt="Finca Don Eduardo paisajes" loading="lazy"/>
-          <img src="/pautas/coffee-tour-finca-don-eduardo/IMG_9079.jpg" alt="Experiencia cafetera" loading="lazy"/>
-          <img src="/pautas/coffee-tour-finca-don-eduardo/IMG_9320.jpg" alt="Plantación de café" loading="lazy"/>
-          <img src="/pautas/coffee-tour-finca-don-eduardo/IMG_9326.jpg" alt="Tostión de café" loading="lazy"/>
-          <img src="/pautas/coffee-tour-finca-don-eduardo/IMG_9360_1.jpg" alt="Degustación completa" loading="lazy"/>
-          <img src="/pautas/coffee-tour-finca-don-eduardo/IMG_9629.jpg" alt="Recorrido guiado" loading="lazy"/>
-          <img src="/pautas/coffee-tour-finca-don-eduardo/IMG_9770.jpg" alt="Cafetales tradicionales" loading="lazy"/>
-          <img src="/pautas/coffee-tour-finca-don-eduardo/Plantation.jpg" alt="Biodiversidad" loading="lazy"/>
-          <img src="/pautas/coffee-tour-finca-don-eduardo/logo-finca-don-eduardo.jpg" alt="Vistas panorámicas" loading="lazy"/>
-          <img src="/pautas/coffee-tour-finca-don-eduardo/IMG_0224.jpg" alt="Experiencia completa" loading="lazy"/>
-        </div>
-      </section>
-      
-      <section class="section service-section">
-        <h2>Plan de la experiencia</h2>
-        <div class="service-grid">
-          <div>
-            <strong>Incluye</strong>
-            <ul>
-              <li>Historia y teoría del café</li>
-              <li>Proceso completo de producción del café</li>
-              <li>Visita a finca auténtica y plantación</li>
-              <li>Métodos tradicionales y permacultura</li>
-              <li>Tostión y molienda de tu propio café</li>
-              <li>Degustación de café especial fresco</li>
-            </ul>
-            <strong>Qué llevar</strong>
-            <ul>
-              <li>Ropa cómoda y calzado para caminar</li>
-              <li>Protector solar y sombrero</li>
-              <li>Cámara para fotos</li>
-              <li>Dinero en efectivo (tarjeta +6%)</li>
-            </ul>
-          </div>
-          <div>
-            <strong>Duración</strong>
-            <p>3 horas completas</p>
-            <strong>Dificultad</strong>
-            <p>Fácil - caminata corta (8 min desde plaza)</p>
-            <strong>Punto de encuentro</strong>
-            <p>Calle 7 # 1 - 04, Salento (8 min caminando de la plaza)</p>
-            <strong>Idiomas</strong>
-            <p>Inglés y Español</p>
-            <strong>Capacidad</strong>
-            <p>Capacidad limitada, reserva recomendada</p>
+
+      <div class="cart-float" id="cartFloat" role="button" tabindex="0" aria-label="Ver reserva">
+        <span class="badge" id="cartBadge">0</span>
+        <span class="total" id="cartTotal">$0</span>
+        <span>Ver reserva →</span>
+      </div>
+
+      <div class="cart-modal" id="cartModal" role="dialog" aria-modal="true">
+        <div class="cart-panel">
+          <h2>Tu reserva</h2>
+          <div id="cartItems"></div>
+          <div class="cart-total"><span>Total</span><span id="cartModalTotal">$0</span></div>
+          <div class="cart-actions">
+            <button class="send" id="sendWhatsApp">Enviar reserva por WhatsApp</button>
+            <button class="clear" id="clearCart">Vaciar reserva</button>
+            <button class="close" id="closeCart">Seguir explorando</button>
           </div>
         </div>
-      </section>
-      
-      <section class="section">
-        <h2>Lo que puedes encontrar</h2>
-        <div class="tags">
-          <span class="tag">café</span>
-          <span class="tag">finca cafetera</span>
-          <span class="tag">tour guiado</span>
-          <span class="tag">degustación</span>
-          <span class="tag">experiencia rural</span>
-          <span class="tag">cultura cafetera</span>
-          <span class="tag">Salento</span>
-        </div>
-      </section>
+      </div>
+
+      <section class="section"><h2>Conoce la experiencia</h2><div class="two-col"><div><p class="trust">La Finca Don Eduardo ofrece una experiencia auténtica del mundo del café en Salento. Los tours incluyen recorridos guiados por los cafetales, explicación detallada del proceso del café desde la semilla hasta la taza, y degustación de diferentes tipos de café de la región.</p><p class="verified">✓ Información verificada con precios actualizados</p></div><div class="facts"><div class="fact"><strong>Ubicación</strong>Calle 7 # 1 - 04, Salento, Quindío (8 min caminando de la plaza)</div><div class="fact"><strong>Horario Inglés</strong>Lunes a sábado 9:30 AM y 2:30 PM</div><div class="fact"><strong>Horario Español</strong>Lunes a sábado 10:40 AM (reserva mín. 2 personas)</div><div class="fact"><strong>Duración</strong>3 horas</div><div class="fact"><strong>Contacto</strong>+57 315 409 7039</div></div></div></section>
+      <section class="section"><h2>Galería de imágenes</h2><div class="gallery"><img src="/pautas/coffee-tour-finca-don-eduardo/logo-finca-don-eduardo.jpg" alt="Finca Don Eduardo" loading="lazy"/><img src="/pautas/coffee-tour-finca-don-eduardo/IMG_0224.jpg" alt="Tour de café" loading="lazy"/><img src="/pautas/coffee-tour-finca-don-eduardo/IMG_0366.jpg" alt="Degustación" loading="lazy"/><img src="/pautas/coffee-tour-finca-don-eduardo/IMG_0372.jpg" alt="Proceso del café" loading="lazy"/><img src="/pautas/coffee-tour-finca-don-eduardo/IMG_0736.jpg" alt="Cultivos" loading="lazy"/><img src="/pautas/coffee-tour-finca-don-eduardo/IMG_3229.jpg" alt="Instalaciones" loading="lazy"/></div></section>
+      <section class="section"><h2>Lo que puedes encontrar</h2><div class="tags"><span class="tag">café</span><span class="tag">finca cafetera</span><span class="tag">tour guiado</span><span class="tag">degustación</span><span class="tag">experiencia rural</span><span class="tag">cultura cafetera</span><span class="tag">Salento</span></div></section>
+      <nav class="bottom-nav" aria-label="Volver" style="display:flex;flex-wrap:wrap;gap:10px;margin-top:28px"><a class="button primary" href="/">Volver al inicio</a><a class="button dark" href="/">Ir a página principal</a><a class="button" href="/categorias/">Ver categorías</a></nav>
     </main>
-  
-<style>@media print{.wa-float{display:none!important}}</style>
-<a class="wa-float" href="https://wa.me/573154097039?text=Hola%2C%20vengo%20de%20Salento%20a%20la%20Mano%20y%20quiero%20reserva%20del%20tour%20de%20caf%C3%A9%20en%20Finca%20Don%20Eduardo%20Coffee%20Tour." target="_blank" rel="noreferrer" aria-label="Escríbenos por WhatsApp" role="link" style="position:fixed;right:18px;bottom:18px;z-index:2147483000;display:inline-flex;align-items:center;gap:9px;background:#25d366;color:#fff;padding:12px 18px;border-radius:999px;box-shadow:0 4px 16px rgba(0,0,0,.25);text-decoration:none;font-family:'DM Sans',sans-serif;font-weight:700;font-size:14px;line-height:1;transition:transform .15s ease,box-shadow .15s ease;"><svg viewBox="0 0 32 32" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M16.004 3.2c-7.06 0-12.8 5.74-12.8 12.8 0 2.26.59 4.47 1.72 6.42L3.2 28.8l6.53-1.71a12.74 12.74 0 0 0 6.27 1.63h.01c7.06 0 12.8-5.74 12.8-12.8 0-3.42-1.33-6.63-3.75-9.05a12.72 12.72 0 0 0-9.06-3.67zm0 23.36h-.01c-1.85 0-3.66-.5-5.25-1.43l-.38-.22-3.87 1.01 1.03-3.78-.24-.39a10.56 10.56 0 0 1-1.62-5.55c0-5.85 4.76-10.61 10.61-10.61 2.83 0 5.49 1.1 7.49 3.1a10.54 10.54 0 0 1 3.1 7.5c0 5.85-4.76 10.6-10.61 10.6zm5.82-7.94c-.32-.16-1.89-.93-2.18-1.04-.29-.11-.5-.16-.72.16-.21.32-.82 1.04-1.01 1.25-.19.21-.37.24-.69.08-.32-.16-1.35-.5-2.57-1.59-.95-.85-1.59-1.9-1.78-2.22-.19-.32-.02-.49.14-.65.14-.14.32-.37.48-.56.16-.19.21-.32.32-.53.11-.21.05-.4-.03-.56-.08-.16-.72-1.73-.98-2.37-.26-.62-.52-.54-.72-.55h-.61c-.21 0-.56.08-.85.4-.29.32-1.12 1.09-1.12 2.66 0 1.57 1.14 3.08 1.3 3.3.16.21 2.25 3.44 5.45 4.82.76.33 1.36.53 1.82.67.77.25 1.46.21 2.01.13.61-.09 1.89-.77 2.16-1.52.27-.75.27-1.39.19-1.52-.08-.13-.29-.21-.61-.37z"/></svg><span>WhatsApp</span></a>
-</body>
+  <script>
+(function() {
+  var WHATSAPP = '573154097039';
+  var TASAS = { COP: 1, USD: 4000, EUR: 4300 };
+  var SIMBOLOS = { COP: '$', USD: 'US$', EUR: '\u20AC' };
+  var moneda = 'COP';
+  var categoria = 'todas';
+  var busqueda = '';
+  var carrito = {};
+
+  var PLATOS = [
+    {id:1,cat:'tours',nombre:'English Coffee Tour',precio:100000,desc:'3 horas. Incluye recorrido por cafetales, proceso completo y degustación. Lunes a sábado 9:30 AM y 2:30 PM.',img:'/pautas/coffee-tour-finca-don-eduardo/IMG_0224.jpg'},
+    {id:2,cat:'tours',nombre:'Coffee Tour en Español',precio:100000,desc:'3 horas. Recorrido guiado completo en español. Lunes a sábado 10:40 AM. Reserva mínima 2 personas.',img:'/pautas/coffee-tour-finca-don-eduardo/IMG_0366.jpg'},
+    {id:3,cat:'tours',nombre:'Private Tour',precio:0,desc:'Tour privado personalizado. Consultar precio según grupo y horario.',img:'/pautas/coffee-tour-finca-don-eduardo/IMG_0372.jpg'},
+    {id:4,cat:'experiencias',nombre:'Recorrido por cafetales',precio:0,desc:'Caminata guiada por las plantaciones de café de la finca.'},
+    {id:5,cat:'experiencias',nombre:'Tostión artesanal',precio:0,desc:'Aprende el proceso de tostión y molición del café.'},
+    {id:6,cat:'experiencias',nombre:'Degustación de café especial',precio:0,desc:'Cata de diferentes variedades y métodos de preparación.'},
+    {id:7,cat:'servicios',nombre:'Guía bilingüe',precio:0,desc:'Guias certificados en inglés y español.'},
+    {id:8,cat:'servicios',nombre:'Photography spot',precio:0,desc:'Vistas panorámicas para fotos de los cafetales.'},
+    {id:9,cat:'servicios',nombre:'Café para llevar',precio:0,desc:'Compra café de la finca al finalizar el tour.'}
+  ];
+
+  var cats = [
+    {id:'todas',label:'Todos'},
+    {id:'tours',label:'Tours'},
+    {id:'experiencias',label:'Experiencias'},
+    {id:'servicios',label:'Servicios incluidos'}
+  ];
+
+  var $ = function(id) { return document.getElementById(id); };
+  var fmt = function(precio) {
+    if (precio === 0) return 'Consultar';
+    if (moneda === 'COP') return '$' + precio.toLocaleString('es-CO');
+    var convertido = (precio / TASAS[moneda]).toFixed(2);
+    return SIMBOLOS[moneda] + convertido;
+  };
+
+  var catsConConteo = cats.map(function(c) {
+    return Object.assign({}, c, { count: c.id === 'todas' ? PLATOS.length : PLATOS.filter(function(p) { return p.cat === c.id; }).length });
+  });
+  $('menuTabs').innerHTML = catsConConteo.map(function(c) {
+    return '<button class="menu-tab' + (c.id === categoria ? ' active' : '') + '" data-cat="' + c.id + '">' + c.label + '<span class="count">' + c.count + '</span></button>';
+  }).join('');
+
+  function render() {
+    var filtrados = PLATOS.filter(function(p) {
+      var okCat = categoria === 'todas' || p.cat === categoria;
+      var okBusq = !busqueda || p.nombre.toLowerCase().indexOf(busqueda) !== -1 || (p.desc || '').toLowerCase().indexOf(busqueda) !== -1;
+      return okCat && okBusq;
+    });
+    if (filtrados.length === 0) {
+      $('menuGrid').innerHTML = '';
+      $('menuEmpty').style.display = 'block';
+      return;
+    }
+    $('menuEmpty').style.display = 'none';
+    $('menuGrid').innerHTML = filtrados.map(function(p) {
+      var qty = carrito[p.id] || 0;
+      var catEmoji = {tours:'🚶',experiencias:'🌱',servicios:'☕'};
+      var img = p.img
+        ? '<img class="menu-card-img" src="' + p.img + '" alt="' + p.nombre + '" loading="lazy"/>'
+        : '<div class="menu-card-emoji">' + (catEmoji[p.cat] || '🎒') + '</div>';
+      var controls = qty > 0
+        ? '<div class="qty-ctrl"><button data-action="dec" data-id="' + p.id + '">\u2212</button><span>' + qty + '</span><button data-action="inc" data-id="' + p.id + '">+</button></div>'
+        : '<button class="add-btn" data-action="inc" data-id="' + p.id + '" aria-label="Agregar ' + p.nombre + '">+</button>';
+      var priceHtml = p.precio > 0
+        ? '<span class="price">' + fmt(p.precio) + '<small>por persona</small></span>'
+        : '<span class="price" style="color:var(--muted);font-size:.9rem">Consultar</span>';
+      return '<article class="menu-card">' + img + '<div class="menu-card-body"><span class="cat-tag">' + p.cat + '</span><h3>' + p.nombre + '</h3><p class="desc">' + (p.desc || '') + '</p><div class="footer">' + priceHtml + controls + '</div></div></article>';
+    }).join('');
+  }
+
+  function totalCarrito() {
+    return Object.keys(carrito).reduce(function(sum, id) {
+      var p = PLATOS.find(function(x) { return x.id === Number(id); });
+      return sum + (p ? p.precio * carrito[id] : 0);
+    }, 0);
+  }
+
+  function countCarrito() {
+    return Object.values(carrito).reduce(function(sum, qty) { return sum + qty; }, 0);
+  }
+
+  function actualizarCarritoFlotante() {
+    var count = countCarrito();
+    var total = totalCarrito();
+    $('cartBadge').textContent = count;
+    $('cartTotal').textContent = total > 0 ? fmt(total) : '$0';
+    $('cartFloat').classList.toggle('visible', count > 0);
+  }
+
+  function renderCarritoModal() {
+    var items = Object.keys(carrito).filter(function(id) { return carrito[id] > 0; });
+    if (items.length === 0) {
+      $('cartItems').innerHTML = '<p class="muted" style="text-align:center;padding:20px">Tu reserva est\u00e1 vac\u00eda.</p>';
+    } else {
+      $('cartItems').innerHTML = items.map(function(id) {
+        var qty = carrito[id];
+        var p = PLATOS.find(function(x) { return x.id === Number(id); });
+        var priceText = p.precio > 0 ? fmt(p.precio * qty) : 'Consultar';
+        return '<div class="cart-item"><div class="info"><strong>' + p.nombre + '</strong><small>' + (p.precio > 0 ? fmt(p.precio) + ' c/u' : 'Consultar precio') + '</small></div><div class="qty"><button data-action="dec" data-id="' + p.id + '">\u2212</button><span>' + qty + '</span><button data-action="inc" data-id="' + p.id + '">+</button></div><div class="item-total">' + priceText + '</div></div>';
+      }).join('');
+    }
+    $('cartModalTotal').textContent = totalCarrito() > 0 ? fmt(totalCarrito()) : 'Consultar total';
+  }
+
+  function enviarWhatsApp() {
+    var items = Object.keys(carrito).filter(function(id) { return carrito[id] > 0; });
+    if (items.length === 0) return;
+    var msg = '\u2615 *RESERVA \u2014 Finca Don Eduardo*\n\n';
+    items.forEach(function(id) {
+      var qty = carrito[id];
+      var p = PLATOS.find(function(x) { return x.id === Number(id); });
+      msg += '\u2022 ' + p.nombre + ' x' + qty + (p.precio > 0 ? ' \u2014 ' + fmt(p.precio * qty) : ' \u2014 Consultar') + '\n';
+    });
+    if (totalCarrito() > 0) msg += '\n*Total: ' + fmt(totalCarrito()) + ' COP*\n';
+    msg += '\n\u00BFMe confirman disponibilidad?';
+    window.open('https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(msg), '_blank');
+  }
+
+  document.addEventListener('click', function(e) {
+    var t = e.target.closest('[data-action]');
+    if (t) {
+      var id = Number(t.dataset.id);
+      if (t.dataset.action === 'inc') carrito[id] = (carrito[id] || 0) + 1;
+      if (t.dataset.action === 'dec') { carrito[id] = (carrito[id] || 0) - 1; if (carrito[id] <= 0) delete carrito[id]; }
+      render(); actualizarCarritoFlotante(); renderCarritoModal(); return;
+    }
+    var tab = e.target.closest('.menu-tab[data-cat]');
+    if (tab) {
+      categoria = tab.dataset.cat;
+      document.querySelectorAll('.menu-tab[data-cat]').forEach(function(b) { b.classList.remove('active'); });
+      tab.classList.add('active');
+      render(); return;
+    }
+    var cur = e.target.closest('.currency-switch button');
+    if (cur) {
+      moneda = cur.dataset.cur;
+      document.querySelectorAll('.currency-switch button').forEach(function(b) { b.classList.remove('active'); });
+      cur.classList.add('active');
+      render(); actualizarCarritoFlotante(); renderCarritoModal(); return;
+    }
+  });
+
+  $('menuSearch').addEventListener('input', function(e) { busqueda = e.target.value.toLowerCase().trim(); render(); });
+  $('cartFloat').addEventListener('click', function() { renderCarritoModal(); $('cartModal').classList.add('open'); });
+  $('closeCart').addEventListener('click', function() { $('cartModal').classList.remove('open'); });
+  $('clearCart').addEventListener('click', function() { carrito = {}; render(); actualizarCarritoFlotante(); renderCarritoModal(); });
+  $('sendWhatsApp').addEventListener('click', enviarWhatsApp);
+  $('cartModal').addEventListener('click', function(e) { if (e.target.id === 'cartModal') $('cartModal').classList.remove('open'); });
+
+  render();
+  actualizarCarritoFlotante();
+})();
+</script>
+  </body>
 </html>
