@@ -166,7 +166,7 @@
     {id:2,cat:'especialidades',nombre:'Trucha a la plancha',precio:28000,desc:'Trucha a la plancha con especias',img:PH.plancha},
     {id:3,cat:'especialidades',nombre:'Trucha finas hierbas',precio:30000,desc:'Trucha con mezcla de finas hierbas',img:PH.crema},
     {id:4,cat:'especialidades',nombre:'Trucha al ajillo',precio:32000,desc:'Trucha salteada en ajillo',img:PH.crema},
-    {id:5,cat:'especialidades',nombre:'Trucha hawaiana',precio:30000,desc:'Trucha con pi\u00f1a y queso',img:PH.gratinada},
+    {id:5,cat:'especialidades',nombre:'Trucha hawaiana',precio:30000,desc:'Trucha con piña y queso',img:PH.gratinada},
     {id:6,cat:'especialidades',nombre:'Trucha criolla',precio:30000,desc:'Trucha con hogao criollo',img:PH.plancha},
     {id:7,cat:'especialidades',nombre:'Trucha con champi\u00f1ones',precio:36000,desc:'Trucha con champi\u00f1ones salteados',img:PH.crema},
     {id:8,cat:'especialidades',nombre:'Trucha gratinada',precio:36000,desc:'Trucha gratinada con queso',img:PH.gratinada},
@@ -206,7 +206,7 @@
   ];
   const WHATSAPP = '573137160977';
   const TASAS = { COP: 1, USD: 4000, EUR: 4300 };
-  const SIMBOLOS = { COP: '\u0024', USD: 'US\u0024', EUR: '\u20AC' };
+  const SIMBOLOS = { COP: '$', USD: 'US$', EUR: '€' };
   let moneda = 'COP';
   let categoria = 'todas';
   let busqueda = '';
@@ -214,7 +214,7 @@
 
   const $ = id => document.getElementById(id);
   const fmt = (precio) => {
-    if (moneda === 'COP') return '\u0024' + precio.toLocaleString('es-CO');
+    if (moneda === 'COP') return '$' + precio.toLocaleString('es-CO');
     const convertido = (precio / TASAS[moneda]).toFixed(2);
     return SIMBOLOS[moneda] + convertido;
   };
@@ -245,12 +245,12 @@
     $('menuEmpty').style.display = 'none';
     $('menuGrid').innerHTML = filtrados.map(p => {
       const qty = carrito[p.id] || 0;
-      var catEmoji = {especialidades:'\u{1F41F}',carnes:'\u{1F969}',adicionales:'\u{1F958}',desayunos:'\u{1F373}'};
+      var catEmoji = {especialidades:'🐟',carnes:'🥩',adicionales:'🍘',desayunos:'🍳'};
       var img = p.img
         ? '<img class="menu-card-img" src="' + p.img + '" alt="' + p.nombre + '" loading="lazy"/>'
-        : '<div class="menu-card-emoji">' + (catEmoji[p.cat] || '\u{1F37D}\uFE0F') + '</div>';
+        : '<div class="menu-card-emoji">' + (catEmoji[p.cat] || '🍽️') + '</div>';
       var controls = qty > 0
-        ? '<div class="qty-ctrl"><button data-action="dec" data-id="' + p.id + '">\u2212</button><span>' + qty + '</span><button data-action="inc" data-id="' + p.id + '">+</button></div>'
+        ? '<div class="qty-ctrl"><button data-action="dec" data-id="' + p.id + '">−</button><span>' + qty + '</span><button data-action="inc" data-id="' + p.id + '">+</button></div>'
         : '<button class="add-btn" data-action="inc" data-id="' + p.id + '" aria-label="Agregar ' + p.nombre + '">+</button>';
       return '<article class="menu-card">' + img + '<div class="menu-card-body"><span class="cat-tag">' + p.cat + '</span><h3>' + p.nombre + '</h3><p class="desc">' + (p.desc || '') + '</p><div class="footer"><span class="price">' + fmt(p.precio) + '</span>' + controls + '</div></div></article>';
     }).join('');
@@ -298,7 +298,7 @@
       var p = PLATOS.find(function(x) { return x.id === Number(id); });
       msg += '\u2022 ' + p.nombre + ' x' + qty + ' \u2014 ' + fmt(p.precio * qty) + '\n';
     });
-    msg += '\n*Total: ' + fmt(totalCarrito()) + ' COP*\n\n\u00BMe confirman disponibilidad?';
+    msg += '\n*Total: ' + fmt(totalCarrito()) + ' COP*\n\n\u00BFMe confirman disponibilidad?';
     window.open('https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(msg), '_blank');
   }
 
