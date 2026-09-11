@@ -25,6 +25,64 @@
       .service-section strong { display:block; color:var(--muted); font-size:11px; text-transform:uppercase; margin:14px 0 6px; } .service-grid { display:grid; grid-template-columns:1fr 1fr; gap:28px; } .service-section ul { margin:6px 0 18px; padding-left:20px; color:var(--muted); line-height:1.8; } .service-section p { color:var(--muted); line-height:1.6; } .muted { color:var(--muted); }
       .tags { display:flex; flex-wrap:wrap; gap:8px; } .trust { color:var(--muted); line-height:1.6; } .verified { color:#39734b; font-weight:700; }
       @media (max-width:800px) { .hero,.two-col { grid-template-columns:1fr; } .hero-image { min-height:260px; order:-1; } .topbar { align-items:flex-start; flex-direction:column; } .gallery { grid-template-columns:1fr; } }
+
+      /* ===== MENÚ INTERACTIVO ===== */
+      .menu-header { display:flex; flex-wrap:wrap; gap:12px; align-items:center; justify-content:space-between; margin-bottom:20px; }
+      .menu-search { flex:1; min-width:200px; position:relative; }
+      .menu-search input { width:100%; padding:12px 16px 12px 42px; border:1px solid var(--line); border-radius:999px; font-size:14px; font-family:inherit; background:var(--white); color:var(--ink); }
+      .menu-search input:focus { outline:none; border-color:var(--coral); box-shadow:0 0 0 3px rgba(221,127,93,.15); }
+      .menu-search::before { content:'🔍'; position:absolute; left:16px; top:50%; transform:translateY(-50%); font-size:14px; opacity:.5; }
+      .currency-switch { display:flex; gap:4px; background:#f3ead6; padding:4px; border-radius:999px; }
+      .currency-switch button { border:none; background:transparent; padding:8px 14px; border-radius:999px; font-weight:700; font-size:12px; cursor:pointer; color:var(--muted); font-family:inherit; transition:all .2s; }
+      .currency-switch button.active { background:var(--white); color:var(--ink); box-shadow:0 2px 6px rgba(0,0,0,.08); }
+      .menu-tabs { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:20px; }
+      .menu-tab { padding:10px 16px; border:1px solid var(--line); border-radius:999px; background:var(--white); font-weight:700; font-size:13px; cursor:pointer; font-family:inherit; color:var(--muted); transition:all .2s; }
+      .menu-tab:hover { border-color:var(--coral); color:var(--ink); }
+      .menu-tab.active { background:var(--ink); border-color:var(--ink); color:#fff; }
+      .menu-tab .count { display:inline-block; margin-left:6px; opacity:.6; font-size:11px; }
+      .menu-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:16px; }
+      .menu-card { background:var(--white); border:1px solid var(--line); border-radius:16px; padding:18px; display:flex; flex-direction:column; gap:8px; transition:all .2s; }
+      .menu-card:hover { border-color:var(--coral); transform:translateY(-2px); box-shadow:0 6px 20px rgba(0,0,0,.06); }
+      .menu-card .cat-tag { display:inline-block; padding:4px 10px; border-radius:999px; background:#f3ead6; font-size:10px; font-weight:700; text-transform:uppercase; color:var(--coral); letter-spacing:.05em; align-self:flex-start; }
+      .menu-card h3 { margin:4px 0 0; font-size:1.05rem; line-height:1.3; }
+      .menu-card .desc { color:var(--muted); font-size:13px; line-height:1.5; flex:1; }
+      .menu-card .footer { display:flex; justify-content:space-between; align-items:center; margin-top:8px; }
+      .menu-card .price { font-weight:700; font-size:1.15rem; color:var(--ink); }
+      .menu-card .price small { display:block; font-size:11px; font-weight:500; color:var(--muted); }
+      .menu-card .add-btn { width:40px; height:40px; border-radius:50%; border:none; background:var(--coral); color:#fff; font-size:20px; font-weight:700; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:all .2s; }
+      .menu-card .add-btn:hover { background:var(--ink); transform:scale(1.1); }
+      .menu-empty { text-align:center; padding:40px 20px; color:var(--muted); }
+      .menu-empty span { font-size:48px; display:block; margin-bottom:12px; }
+      /* Carrito flotante */
+      .cart-float { position:fixed; bottom:24px; right:24px; background:var(--ink); color:#fff; border-radius:999px; padding:14px 22px; display:flex; align-items:center; gap:12px; cursor:pointer; box-shadow:0 8px 30px rgba(0,0,0,.25); z-index:1000; transition:all .3s; transform:translateY(120px); opacity:0; }
+      .cart-float.visible { transform:translateY(0); opacity:1; }
+      .cart-float:hover { transform:translateY(-2px); box-shadow:0 10px 40px rgba(0,0,0,.3); }
+      .cart-float .badge { background:var(--coral); width:28px; height:28px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:13px; }
+      .cart-float .total { font-weight:700; font-size:15px; }
+      /* Modal del carrito */
+      .cart-modal { position:fixed; inset:0; background:rgba(31,45,38,.6); display:none; align-items:center; justify-content:center; z-index:1001; padding:20px; }
+      .cart-modal.open { display:flex; }
+      .cart-panel { background:var(--white); border-radius:24px; max-width:520px; width:100%; max-height:85vh; overflow-y:auto; padding:28px; }
+      .cart-panel h2 { margin:0 0 20px; }
+      .cart-item { display:flex; justify-content:space-between; align-items:center; padding:14px 0; border-bottom:1px solid var(--line); gap:12px; }
+      .cart-item .info { flex:1; }
+      .cart-item .info strong { display:block; font-size:14px; }
+      .cart-item .info small { color:var(--muted); font-size:12px; }
+      .cart-item .qty { display:flex; align-items:center; gap:8px; }
+      .cart-item .qty button { width:28px; height:28px; border-radius:50%; border:1px solid var(--line); background:var(--white); cursor:pointer; font-weight:700; color:var(--ink); }
+      .cart-item .qty span { min-width:20px; text-align:center; font-weight:700; }
+      .cart-item .item-total { font-weight:700; min-width:90px; text-align:right; }
+      .cart-total { display:flex; justify-content:space-between; padding:18px 0; font-size:1.2rem; font-weight:700; border-top:2px solid var(--ink); margin-top:8px; }
+      .cart-actions { display:flex; flex-direction:column; gap:10px; margin-top:12px; }
+      .cart-actions button, .cart-actions a { padding:14px; border-radius:999px; border:none; font-weight:700; font-size:14px; cursor:pointer; font-family:inherit; text-align:center; }
+      .cart-actions .send { background:#25d366; color:#fff; }
+      .cart-actions .clear { background:transparent; border:1px solid var(--line); color:var(--muted); }
+      .cart-actions .close { background:var(--ink); color:#fff; }
+      @media (max-width:600px) {
+        .menu-header { flex-direction:column; align-items:stretch; }
+        .menu-grid { grid-template-columns:1fr; }
+        .cart-float { bottom:16px; right:16px; padding:12px 18px; }
+      }
     </style>
     <link rel="stylesheet" href="/page-theme.css" />
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://salentoalamano.com/"},{"@type":"ListItem","position":2,"name":"Restaurantes","item":"/categorias/restaurantes.html"},{"@type":"ListItem","position":3,"name":"Fonda Boquía"}]}</script>
@@ -40,7 +98,41 @@
         </div><div class="hero-image" aria-label="Fonda Boquía"></div>
       </section>
       
-      <section class="section service-section"><h2>Carta, precios y pedidos</h2><div class="service-grid"><div><strong>Especialidades</strong><ul><li>Trucha frita</li><li>Trucha a la plancha</li><li>Trucha al ajillo</li><li>Trucha gratinada</li><li>Trucha marinera</li><li>Mojarra</li></ul><strong>En la carta</strong><ul><li>Trucha frita $28.000</li><li>Trucha a la plancha $28.000</li><li>Trucha finas hierbas $30.000</li><li>Trucha al ajillo $32.000</li><li>Trucha hawaiana $30.000</li><li>Trucha criolla $30.000</li><li>Trucha con champiñones $36.000</li><li>Trucha gratinada $36.000</li><li>Trucha al ajillo más champiñones $40.000</li><li>Trucha mixta $46.000</li><li>Trucha marinera $45.000</li><li>Mojarra $38.000</li><li>Carne de res $45.000</li><li>Filete de pollo $35.000</li><li>Lomo de cerdo $36.000</li><li>Patacón $8.000</li><li>Empanada $3.000</li><li>Crema de trucha $10.000</li><li>Salchipapa $18.000</li><li>Huevos al gusto $14.000</li><li>Jugo natural en agua $8.000</li><li>Jugo natural en leche $10.000</li><li>Limonada de coco $12.000</li></ul></div><div><strong>Precio promedio</strong><p>Truchas $28.000-$46.000 · Carnes $35.000-$45.000</p><strong>Tipo de cocina</strong><ul><li>Colombiana</li><li>Trucha</li><li>Comida local</li></ul><p class="muted">Confirma si hay domicilio o recogida.</p></div></div><div class="actions"><a class="button primary" href="https://wa.me/573137160977">Consultar carta y reservar</a></div></section>
+            <section class="section" id="menu-interactivo">
+        <h2>Nuestra Carta</h2>
+        <p class="muted" style="margin-top:-8px;margin-bottom:20px">Toca los platos para agregarlos a tu pedido. Al final, envía todo por WhatsApp.</p>
+        <div class="menu-header">
+          <div class="menu-search"><input type="text" id="menuSearch" placeholder="Buscar plato..." /></div>
+          <div class="currency-switch" role="group" aria-label="Moneda">
+            <button data-cur="COP" class="active">COP</button>
+            <button data-cur="USD">USD</button>
+            <button data-cur="EUR">EUR</button>
+          </div>
+        </div>
+        <div class="menu-tabs" id="menuTabs"></div>
+        <div class="menu-grid" id="menuGrid"></div>
+        <div class="menu-empty" id="menuEmpty" style="display:none"><span>🔍</span>No encontramos platos con ese nombre.</div>
+      </section>
+
+      <div class="cart-float" id="cartFloat" role="button" tabindex="0" aria-label="Ver pedido">
+        <span class="badge" id="cartBadge">0</span>
+        <span class="total" id="cartTotal">$0</span>
+        <span>Ver pedido →</span>
+      </div>
+
+      <div class="cart-modal" id="cartModal" role="dialog" aria-modal="true">
+        <div class="cart-panel">
+          <h2>Tu pedido</h2>
+          <div id="cartItems"></div>
+          <div class="cart-total"><span>Total</span><span id="cartModalTotal">$0</span></div>
+          <div class="cart-actions">
+            <button class="send" id="sendWhatsApp">Enviar pedido por WhatsApp</button>
+            <button class="clear" id="clearCart">Vaciar pedido</button>
+            <button class="close" id="closeCart">Seguir explorando</button>
+          </div>
+        </div>
+      </div>
+
       
       <section class="section"><h2>Conoce la experiencia</h2><div class="two-col"><div><p class="trust">Restaurante tradicional en Boquía con especialidad en platos típicos del Quindío. Ambiente acogedor y comida casera con ingredientes locales. Carta verificada con precios: truchas en 11 preparaciones ($28.000-$46.000), carnes, adicionales y desayunos. Pedido directo por WhatsApp.</p><p class="verified">✓ Información verificada en el catálogo local</p></div><div class="facts"><div class="fact"><strong>Ubicación</strong>Boquía</div><div class="fact"><strong>Referencia</strong>Cerca del puente de Boquía</div><div class="fact"><strong>Horario</strong>Horario típico de restaurante</div></div></div></section>
       <section class="section"><h2>Galería de imágenes</h2><div class="gallery"><img src="/pautas/restaurante_bar_fonda_boquia/imagenes/29389126_1005353112946875_6049563033867386880_n.jpg" alt="Fonda Boquía foto 1" loading="lazy"/><div class="photo-pending" aria-label="Foto verificada pendiente para Fonda Boquía"><span>📷</span><strong>Fonda Boquía</strong><small>Foto verificada pendiente 2/3</small></div><div class="photo-pending" aria-label="Foto verificada pendiente para Fonda Boquía"><span>📷</span><strong>Fonda Boquía</strong><small>Foto verificada pendiente 3/3</small></div></div></section>
@@ -48,5 +140,165 @@
       <section class="section"><h2>Lo que puedes encontrar</h2><div class="tags"><span class="tag">bar</span><span class="tag">boquía</span><span class="tag">carta</span><span class="tag">comida tradicional</span><span class="tag">mojarra</span><span class="tag">platos típicos</span><span class="tag">restaurante</span><span class="tag">trucha</span></div></section>
       <nav class="bottom-nav" aria-label="Volver" style="display:flex;flex-wrap:wrap;gap:10px;margin-top:28px"><a class="button primary" href="/">Volver al inicio</a><a class="button dark" href="/">Ir a página principal</a><a class="button" href="/categorias/">Ver categorías</a></nav>
     </main>
+  <script>
+(function() {
+  const PLATOS = [{"id":1,"cat":"especialidades","nombre":"Trucha frita","precio":28000,"desc":"Trucha fresca frita, crujiente por fuera"},{"id":2,"cat":"especialidades","nombre":"Trucha a la plancha","precio":28000,"desc":"Trucha a la plancha con especias"},{"id":3,"cat":"especialidades","nombre":"Trucha finas hierbas","precio":30000,"desc":"Trucha con mezcla de finas hierbas"},{"id":4,"cat":"especialidades","nombre":"Trucha al ajillo","precio":32000,"desc":"Trucha salteada en ajillo"},{"id":5,"cat":"especialidades","nombre":"Trucha hawaiana","precio":30000,"desc":"Trucha con piña y queso"},{"id":6,"cat":"especialidades","nombre":"Trucha criolla","precio":30000,"desc":"Trucha con hogao criollo"},{"id":7,"cat":"especialidades","nombre":"Trucha con champiñones","precio":36000,"desc":"Trucha con champiñones salteados"},{"id":8,"cat":"especialidades","nombre":"Trucha gratinada","precio":36000,"desc":"Trucha gratinada con queso"},{"id":9,"cat":"especialidades","nombre":"Trucha al ajillo más champiñones","precio":40000,"desc":"Trucha con ajillo y champiñones"},{"id":10,"cat":"especialidades","nombre":"Trucha mixta","precio":46000,"desc":"Trucha con mariscos y vegetales"},{"id":11,"cat":"especialidades","nombre":"Trucha marinera","precio":45000,"desc":"Trucha con salsa marinera"},{"id":12,"cat":"especialidades","nombre":"Mojarra","precio":38000,"desc":"Mojarra frita o a la plancha"},{"id":13,"cat":"carnes","nombre":"Chorizo","precio":15000,"desc":"Chorizo artesanal a la parrilla"},{"id":14,"cat":"carnes","nombre":"Carne de res","precio":45000,"desc":"Corte de res a la parrilla"},{"id":15,"cat":"carnes","nombre":"Filete de pollo","precio":35000,"desc":"Filete de pollo a la plancha"},{"id":16,"cat":"carnes","nombre":"Lomo de cerdo","precio":36000,"desc":"Lomo de cerdo a la plancha"},{"id":17,"cat":"carnes","nombre":"Filete de pollo BBQ","precio":37000,"desc":"Pollo con salsa BBQ"},{"id":18,"cat":"carnes","nombre":"Lomo de cerdo BBQ","precio":38000,"desc":"Cerdo con salsa BBQ"},{"id":19,"cat":"carnes","nombre":"Lomo de cerdo hawaiano","precio":38000,"desc":"Cerdo con piña y queso"},{"id":20,"cat":"adicionales","nombre":"Porción de arroz","precio":4000,"desc":"Arroz blanco"},{"id":21,"cat":"adicionales","nombre":"Porción de ensalada","precio":5000,"desc":"Ensalada fresca"},{"id":22,"cat":"adicionales","nombre":"Papas a la francesa","precio":8000,"desc":"Papas fritas crujientes"},{"id":23,"cat":"adicionales","nombre":"Empanada","precio":3000,"desc":"Empanada de carne o pollo"},{"id":24,"cat":"adicionales","nombre":"Patacón","precio":8000,"desc":"Patacón crujiente"},{"id":25,"cat":"adicionales","nombre":"Crema de trucha","precio":10000,"desc":"Crema suave de trucha"},{"id":26,"cat":"adicionales","nombre":"Salchipapa","precio":18000,"desc":"Salchicha con papas"},{"id":27,"cat":"adicionales","nombre":"Patacón con hogao","precio":16000,"desc":"Patacón con hogao criollo"},{"id":28,"cat":"adicionales","nombre":"Patacón con queso","precio":18000,"desc":"Patacón con queso fundido"},{"id":29,"cat":"adicionales","nombre":"Nuggets","precio":18000,"desc":"Nuggets de pollo"},{"id":30,"cat":"adicionales","nombre":"Porción de queso","precio":5000,"desc":"Queso fresco"},{"id":31,"cat":"desayunos","nombre":"Huevos al gusto","precio":14000,"desc":"Huevos preparados a tu gusto"},{"id":32,"cat":"desayunos","nombre":"Caldo","precio":16000,"desc":"Caldo de costilla o pollo"},{"id":33,"cat":"desayunos","nombre":"Chorizo en desayuno","precio":18000,"desc":"Chorizo con arepa y huevos"},{"id":34,"cat":"desayunos","nombre":"Adición de calentado","precio":6000,"desc":"Calentado paisa"},{"id":35,"cat":"desayunos","nombre":"Limonada, vaso","precio":5000,"desc":"Limonada natural"},{"id":36,"cat":"desayunos","nombre":"Jugo natural en agua","precio":8000,"desc":"Jugo de fruta en agua"},{"id":37,"cat":"desayunos","nombre":"Jugo natural en leche","precio":10000,"desc":"Jugo de fruta en leche"},{"id":38,"cat":"desayunos","nombre":"Milo frío","precio":12000,"desc":"Milo frío con leche"},{"id":39,"cat":"desayunos","nombre":"Limonada de coco","precio":12000,"desc":"Limonada con crema de coco"},{"id":40,"cat":"desayunos","nombre":"Media jarra de limonada","precio":8000,"desc":"Media jarra de limonada"},{"id":41,"cat":"desayunos","nombre":"Jarra de limonada","precio":15000,"desc":"Jarra completa de limonada"}];
+  const WHATSAPP = '573137160977';
+  const TASAS = { COP: 1, USD: 4000, EUR: 4300 };
+  const SIMBOLOS = { COP: '
+</html>, USD: 'US
+</html>, EUR: '€' };
+  let moneda = 'COP';
+  let categoria = 'todas';
+  let busqueda = '';
+  let carrito = {};
+
+  const $ = id => document.getElementById(id);
+  const fmt = (precio) => {
+    if (moneda === 'COP') return '
+</html> + precio.toLocaleString('es-CO');
+    const convertido = (precio / TASAS[moneda]).toFixed(2);
+    return SIMBOLOS[moneda] + convertido;
+  };
+
+  // Render tabs
+  const cats = [
+    { id: 'todas', label: 'Todas' },
+    { id: 'especialidades', label: 'Especialidades' },
+    { id: 'carnes', label: 'Carnes' },
+    { id: 'adicionales', label: 'Adicionales' },
+    { id: 'desayunos', label: 'Desayunos y bebidas' }
+  ];
+  const catsConConteo = cats.map(c => ({ ...c, count: c.id === 'todas' ? PLATOS.length : PLATOS.filter(p => p.cat === c.id).length }));
+  $('menuTabs').innerHTML = catsConConteo.map(c =>
+    '<button class="menu-tab' + (c.id === categoria ? ' active' : '') + '" data-cat="' + c.id + '">' + c.label + '<span class="count">' + c.count + '</span></button>'
+  ).join('');
+
+  // Render platos
+  function render() {
+    const filtrados = PLATOS.filter(p => {
+      const okCat = categoria === 'todas' || p.cat === categoria;
+      const okBusq = !busqueda || p.nombre.toLowerCase().includes(busqueda) || (p.desc || '').toLowerCase().includes(busqueda);
+      return okCat && okBusq;
+    });
+    if (filtrados.length === 0) {
+      $('menuGrid').innerHTML = '';
+      $('menuEmpty').style.display = 'block';
+      return;
+    }
+    $('menuEmpty').style.display = 'none';
+    $('menuGrid').innerHTML = filtrados.map(p => {
+      const qty = carrito[p.id] || 0;
+      return '<article class="menu-card"><span class="cat-tag">' + p.cat + '</span><h3>' + p.nombre + '</h3><p class="desc">' + (p.desc || '') + '</p><div class="footer"><span class="price">' + fmt(p.precio) + '</span>' + (qty > 0 ? '<div class="qty" style="display:flex;align-items:center;gap:8px"><button class="menu-tab" data-action="dec" data-id="' + p.id + '" style="padding:4px 12px">−</button><span>' + qty + '</span><button class="menu-tab" data-action="inc" data-id="' + p.id + '" style="padding:4px 12px">+</button></div>' : '<button class="add-btn" data-action="inc" data-id="' + p.id + '" aria-label="Agregar ' + p.nombre + '">+</button>') + '</div></article>';
+    }).join('');
+  }
+
+  // Total del carrito
+  function totalCarrito() {
+    return Object.entries(carrito).reduce((sum, [id, qty]) => {
+      const p = PLATOS.find(x => x.id === Number(id));
+      return sum + (p ? p.precio * qty : 0);
+    }, 0);
+  }
+
+  function countCarrito() {
+    return Object.values(carrito).reduce((sum, qty) => sum + qty, 0);
+  }
+
+  function actualizarCarritoFlotante() {
+    const count = countCarrito();
+    const total = totalCarrito();
+    $('cartBadge').textContent = count;
+    $('cartTotal').textContent = fmt(total);
+    $('cartFloat').classList.toggle('visible', count > 0);
+  }
+
+  function renderCarritoModal() {
+    const items = Object.entries(carrito).filter(([_, qty]) => qty > 0);
+    if (items.length === 0) {
+      $('cartItems').innerHTML = '<p class="muted" style="text-align:center;padding:20px">Tu pedido está vacío.</p>';
+    } else {
+      $('cartItems').innerHTML = items.map(([id, qty]) => {
+        const p = PLATOS.find(x => x.id === Number(id));
+        return '<div class="cart-item"><div class="info"><strong>' + p.nombre + '</strong><small>' + fmt(p.precio) + ' c/u</small></div><div class="qty"><button data-action="dec" data-id="' + p.id + '">−</button><span>' + qty + '</span><button data-action="inc" data-id="' + p.id + '">+</button></div><div class="item-total">' + fmt(p.precio * qty) + '</div></div>';
+      }).join('');
+    }
+    $('cartModalTotal').textContent = fmt(totalCarrito());
+  }
+
+  function enviarWhatsApp() {
+    const items = Object.entries(carrito).filter(([_, qty]) => qty > 0);
+    if (items.length === 0) return;
+    let msg = '¡Hola! Quiero hacer un pedido en Fonda Boquía:\n\n';
+    items.forEach(([id, qty]) => {
+      const p = PLATOS.find(x => x.id === Number(id));
+      msg += '• ' + p.nombre + ' x' + qty + ' — ' + fmt(p.precio * qty) + '\n';
+    });
+    msg += '\nTotal: ' + fmt(totalCarrito()) + '\n\n¿Me confirman disponibilidad?';
+    window.open('https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(msg), '_blank');
+  }
+
+  // Eventos
+  document.addEventListener('click', e => {
+    const t = e.target.closest('[data-action]');
+    if (t) {
+      const id = Number(t.dataset.id);
+      const action = t.dataset.action;
+      if (action === 'inc') carrito[id] = (carrito[id] || 0) + 1;
+      if (action === 'dec') {
+        carrito[id] = (carrito[id] || 0) - 1;
+        if (carrito[id] <= 0) delete carrito[id];
+      }
+      render();
+      actualizarCarritoFlotante();
+      renderCarritoModal();
+      return;
+    }
+    const tab = e.target.closest('.menu-tab[data-cat]');
+    if (tab) {
+      categoria = tab.dataset.cat;
+      document.querySelectorAll('.menu-tab').forEach(b => b.classList.remove('active'));
+      tab.classList.add('active');
+      render();
+      return;
+    }
+    const cur = e.target.closest('.currency-switch button');
+    if (cur) {
+      moneda = cur.dataset.cur;
+      document.querySelectorAll('.currency-switch button').forEach(b => b.classList.remove('active'));
+      cur.classList.add('active');
+      render();
+      actualizarCarritoFlotante();
+      renderCarritoModal();
+      return;
+    }
+  });
+
+  $('menuSearch').addEventListener('input', e => {
+    busqueda = e.target.value.toLowerCase().trim();
+    render();
+  });
+
+  $('cartFloat').addEventListener('click', () => {
+    renderCarritoModal();
+    $('cartModal').classList.add('open');
+  });
+
+  $('closeCart').addEventListener('click', () => $('cartModal').classList.remove('open'));
+  $('clearCart').addEventListener('click', () => {
+    carrito = {};
+    render(); actualizarCarritoFlotante(); renderCarritoModal();
+  });
+  $('sendWhatsApp').addEventListener('click', enviarWhatsApp);
+
+  $('cartModal').addEventListener('click', e => {
+    if (e.target.id === 'cartModal') $('cartModal').classList.remove('open');
+  });
+
+  // Init
+  render();
+  actualizarCarritoFlotante();
+})();
+</script>
   </body>
 </html>
