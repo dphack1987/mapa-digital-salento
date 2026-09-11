@@ -43,7 +43,7 @@ const DynamicLandingPage: React.FC<DynamicLandingPageProps> = ({ slug, onClose }
     )
   }
 
-  const metaTags = seoLandingService.generateMetaTags(page)
+  const metaTags = seoLandingService.generateMetaTags(page) as Record<string, string>
   const schema = page.schema
 
   return (

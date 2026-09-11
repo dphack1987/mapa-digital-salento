@@ -23,7 +23,7 @@ interface ScanEvent {
     lat?: number
     lng?: number
   }
-  conversionAction?: 'order', 'reservation', 'inquiry', 'view'
+  conversionAction?: 'order' | 'reservation' | 'inquiry' | 'view'
 }
 
 class QRTrackingService {

@@ -38,11 +38,11 @@ const EUROPEAN_MARKETS: InternationalMarket[] = [
   country,
   language,
   searchEngine: 'Google',
-  priority: 'medium',
+  priority: 'medium' as const,
   population,
   tourismPotential: 'Turismo europeo interesado en naturaleza y experiencias auténticas',
   verificationCode: null,
-  status: 'pending',
+  status: 'pending' as const,
 }))
 
 class InternationalSEOService {
@@ -95,167 +95,195 @@ class InternationalSEOService {
   /**
    * Obtener todos los mercados internacionales prioritarios
    */
+  getPageByLang(lang: string): {
+    title: string
+    description: string
+    keywords: string[]
+    ogTitle: string
+    ogDescription: string
+    twitterTitle: string
+    twitterDescription: string
+    schema: object
+    content: string
+  } | null {
+    const markets = this.getInternationalMarkets()
+    const market = markets.find(m => m.language === lang)
+    if (!market) return null
+
+    return {
+      title: 'Salento a la Mano | ' + market.country,
+      description: 'Mapa turístico de Salento, Quindío. Información en ' + market.language.toUpperCase() + '.',
+      keywords: ['Salento', 'Quindío', 'turismo', market.country],
+      ogTitle: 'Salento a la Mano | ' + market.country,
+      ogDescription: 'Mapa turístico de Salento, Quindío.',
+      twitterTitle: 'Salento a la Mano | ' + market.country,
+      twitterDescription: 'Mapa turístico de Salento, Quindío.',
+      schema: {},
+      content: '<h1>Salento a la Mano</h1><p>Mapa turístico de Salento, Quindío.</p>'
+    }
+  }
+
   getInternationalMarkets(): InternationalMarket[] {
     return [...[
       {
         country: 'China',
         language: 'zh-CN',
         searchEngine: 'Baidu',
-        priority: 'high',
+        priority: 'high' as const,
         population: '1.4+ mil millones',
         tourismPotential: 'Turismo de lujo creciente hacia América Latina',
         verificationCode: null,
-        status: 'pending'
+        status: 'pending' as const
       },
       {
         country: 'Rusia',
         language: 'ru-RU',
         searchEngine: 'Yandex',
-        priority: 'high',
+        priority: 'high' as const,
         population: '146+ millones',
         tourismPotential: 'Turismo de lujo importante para Sudamérica',
         verificationCode: '3d2630a804c93168',
-        status: 'completed'
+        status: 'completed' as const
       },
       {
         country: 'Japón',
         language: 'ja-JP',
         searchEngine: 'Yahoo Japan',
-        priority: 'medium',
+        priority: 'medium' as const,
         population: '126+ millones',
         tourismPotential: 'Turismo de calidad alta interesado en Colombia',
         verificationCode: null,
-        status: 'pending'
+        status: 'pending' as const
       },
       {
         country: 'Corea del Sur',
         language: 'ko-KR',
         searchEngine: 'Naver',
-        priority: 'medium',
+        priority: 'medium' as const,
         population: '51+ millones',
         tourismPotential: 'Turismo de negocios y experiencias auténticas',
         verificationCode: null,
-        status: 'pending'
+        status: 'pending' as const
       },
       {
         country: 'Taiwán',
         language: 'zh-TW',
         searchEngine: 'Google',
-        priority: 'medium',
+        priority: 'medium' as const,
         population: '23+ millones',
         tourismPotential: 'Turismo de calidad alta interesado en Colombia',
         verificationCode: null,
-        status: 'pending'
+        status: 'pending' as const
       },
       {
         country: 'Hong Kong',
         language: 'zh-HK',
         searchEngine: 'Google',
-        priority: 'medium',
+        priority: 'medium' as const,
         population: '7.5+ millones',
         tourismPotential: 'Turismo de negocios y experiencias premium',
         verificationCode: null,
-        status: 'pending'
+        status: 'pending' as const
       },
       {
         country: 'Tailandia',
         language: 'th-TH',
         searchEngine: 'Google',
-        priority: 'medium',
+        priority: 'medium' as const,
         population: '70+ millones',
         tourismPotential: 'Turismo asiático interesado en destinos latinoamericanos',
         verificationCode: null,
-        status: 'pending'
+        status: 'pending' as const
       },
       {
         country: 'Vietnam',
         language: 'vi-VN',
         searchEngine: 'Google',
-        priority: 'medium',
+        priority: 'medium' as const,
         population: '98+ millones',
         tourismPotential: 'Turismo de crecimiento rápido hacia nuevos destinos',
         verificationCode: null,
-        status: 'pending'
+        status: 'pending' as const
       },
       {
         country: 'Indonesia',
         language: 'id-ID',
         searchEngine: 'Google',
-        priority: 'medium',
+        priority: 'medium' as const,
         population: '273+ millones',
         tourismPotential: 'Turismo masivo interesado en experiencias naturales',
         verificationCode: null,
-        status: 'pending'
+        status: 'pending' as const
       },
       {
         country: 'Malasia',
         language: 'ms-MY',
         searchEngine: 'Google',
-        priority: 'medium',
+        priority: 'medium' as const,
         population: '33+ millones',
         tourismPotential: 'Turismo multicultural interesado en destinos diversos',
         verificationCode: null,
-        status: 'pending'
+        status: 'pending' as const
       },
       {
         country: 'Alemania',
         language: 'de-DE',
         searchEngine: 'Google',
-        priority: 'medium',
+        priority: 'medium' as const,
         population: '83+ millones',
         tourismPotential: 'Turismo ecológico y experiencias sostenibles',
         verificationCode: null,
-        status: 'pending'
+        status: 'pending' as const
       },
       {
         country: 'Francia',
         language: 'fr-FR',
         searchEngine: 'Google',
-        priority: 'medium',
+        priority: 'medium' as const,
         population: '67+ millones',
         tourismPotential: 'Turismo cultural y gastronómico',
         verificationCode: null,
-        status: 'pending'
+        status: 'pending' as const
       },
       {
         country: 'Reino Unido',
         language: 'en-GB',
         searchEngine: 'Google',
-        priority: 'medium',
+        priority: 'medium' as const,
         population: '67+ millones',
         tourismPotential: 'Turismo de aventura y naturaleza',
         verificationCode: null,
-        status: 'pending'
+        status: 'pending' as const
       },
       {
         country: 'Estados Unidos',
         language: 'en-US',
         searchEngine: 'Google',
-        priority: 'medium',
+        priority: 'medium' as const,
         population: '331+ millones',
         tourismPotential: 'Turismo de lujo y experiencias únicas',
         verificationCode: null,
-        status: 'pending'
+        status: 'pending' as const
       },
       {
         country: 'Brasil',
         language: 'pt-BR',
         searchEngine: 'Google',
-        priority: 'medium',
+        priority: 'medium' as const,
         population: '213+ millones',
         tourismPotential: 'Turismo regional y experiencias compartidas',
         verificationCode: null,
-        status: 'pending'
+        status: 'pending' as const
       },
       {
         country: 'México',
         language: 'es-MX',
         searchEngine: 'Google',
-        priority: 'medium',
+        priority: 'medium' as const,
         population: '128+ millones',
         tourismPotential: 'Turismo cultural y gastronómico',
         verificationCode: null,
-        status: 'pending'
+        status: 'pending' as const
       }
     ], ...EUROPEAN_MARKETS]
   }

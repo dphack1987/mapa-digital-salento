@@ -44,7 +44,7 @@ import {
   Building2,
   ChevronRight
 } from 'lucide-react'
-import { Category, Language, Currency, Place, MapMarker, Hotel as HotelType, LanguageConst } from './types'
+import { Category, Language, Place, MapMarker, Hotel as HotelType, LanguageConst } from './types'
 import dataService from './services/dataService'
 
 const salentoImageGallery = [
@@ -1628,5 +1628,135 @@ function Cart({ count, currency, onClose, onAdd, hotels }: { count: number; curr
 
   return <div className="cart-overlay" onClick={onClose}><aside className="cart-drawer" onClick={(event) => event.stopPropagation()}>{submitted ? <div className="order-success"><div className="success-mark"><Bike size={28} /></div><p className="eyebrow">Pedido recibido</p><h2>Ya vamos en camino.</h2><p>{isOffline ? 'Pedido guardado en modo offline. Se sincronizará cuando haya conexión.' : 'Se abrió WhatsApp con el pedido listo para enviar al comercio.'}</p>{isOffline && syncStatus.pending > 0 && <p className="cart-footnote">{syncStatus.pending} pedidos pendientes de sincronización</p>}<strong className="order-code">PEDIDO #SAL-024</strong><button className="checkout-button" onClick={onClose}>Volver a explorar <ArrowRight size={18} /></button></div> : <><div className="drawer-head"><div><p className="eyebrow">Tu selección</p><h2>{checkout ? '¿Dónde te lo llevamos?' : 'Mi pedido'}</h2></div><button className="icon-button" onClick={onClose} aria-label="Cerrar pedido"><X size={20} /></button></div>{isOffline && <div className="offline-warning"><span>⚠️</span>Modo offline activo. El pedido se guardará y sincronizará cuando haya conexión.</div>}{checkout ? <form className="checkout-form" onSubmit={submitOrder}><label>Hotel aliado<select name="hotel" required defaultValue=""><option value="" disabled>Selecciona tu hospedaje</option>{hotels.map(hotel => <option key={hotel.id} value={hotel.name}>{hotel.name}</option>)}</select></label><label>Habitación<input name="room" required placeholder="Ej. 204" /></label><label>Celular de contacto<input name="phone" required type="tel" placeholder="300 000 0000" /></label><label>Indicaciones para llegar<textarea name="directions" placeholder="Recepción, cabaña o punto de encuentro" rows={3} /></label><div className="delivery-note"><Bike size={19} /><span><strong>Pago al recibir</strong><br />El domicilio se confirma contigo antes de salir.</span></div><button className="checkout-button" type="submit">{isOffline ? 'Guardar pedido (offline)' : 'Enviar pedido por WhatsApp'} <MessageSquare size={18} /></button><button className="back-button" type="button" onClick={() => setCheckout(false)}>Volver al resumen</button></form> : <><div className="cart-place"><div className="mini-thumb terracotta"><Coffee size={24} /></div><div><strong>Brunch de la Plaza</strong><span>Arepa de chocolo · Café filtrado</span></div><div className="quantity"><button aria-label="Restar"><Minus size={13} /></button><span>1</span><button onClick={onAdd} aria-label="Sumar"><Plus size={13} /></button></div></div><div className="cart-place"><div className="mini-thumb sage"><ShoppingBasket size={24} /></div><div><strong>Canasto Quindiano</strong><span>Selección de café local</span></div><div className="quantity"><button aria-label="Restar"><Minus size={13} /></button><span>1</span><button onClick={onAdd} aria-label="Sumar"><Plus size={13} /></button></div></div><div className="delivery-note"><Bike size={19} /><span><strong>Entrega en tu hospedaje</strong><br />Calcularemos la tarifa al confirmar tu dirección.</span></div><div className="cart-total"><span>Total estimado</span><strong>{formatPrice(48000, currency)}</strong></div><button className="checkout-button" onClick={() => setCheckout(true)}>Continuar con el pedido <ArrowRight size={18} /></button><p className="cart-footnote">{count} productos seleccionados · Pago al recibir</p></>}</>}</aside></div>
 }
+
+
+// ---------- TIPOS PARA PEDIDO DIRECTO POR WHATSAPP ----------
+export type PaymentMethod = 'efectivo' | 'transferencia' | 'tarjeta'
+
+export type Currency = 'COP' | 'USD' | 'EUR'
+
+export interface OrderItem {
+  name: string
+  quantity: number
+  priceCop: number
+  currency: Currency
+}
+
+export interface OrderDetails {
+  items: OrderItem[]
+  totalCop: number
+  totalUsd: number
+  totalEur: number
+  currency: Currency
+  address?: string
+  paymentMethod?: PaymentMethod
+  recipientName?: string
+}
+
+// Tipo para el selector de moneda
+const currencyLabels: Record<Currency, string> = {
+  COP: 'Pesos Colombianos (COP)',
+  USD: 'Dólares (USD)',
+  EUR: 'Euros (EUR)',
+}
+
+// ---------- GENERADOR DE MENSAJE WHATSAPP ----------
+function generateWhatsAppMessage(details: OrderDetails): string {
+  const { items, totalCop, totalUsd, totalEur, currency, address, paymentMethod, recipientName } = details
+
+  // Buscar el tipo de cambio correspondiente
+  let totalDisplay = totalCop
+  let currencySymbol = 'COP'
+
+  if (currency === 'USD') {
+    totalDisplay = totalUsd
+    currencySymbol = 'USD'
+  } else if (currency === 'EUR') {
+    totalDisplay = totalEur
+    currencySymbol = 'EUR'
+  }
+
+  // Construir lista de items (solo precio en COP, pero nota sobre moneda)
+  const itemsList = items
+    .map(
+      (item) =>
+        `- ${item.name} x${item.quantity} (${item.priceCop} ${currencyLabels[item.currency]})`
+    )
+    .join('\n')
+
+  // Formato del mensaje
+  let message = `¡Hola! Quiero hacer un pedido:\n\n`
+
+  message += `🍽️ PEDIDO:\n${itemsList}\n\n`
+
+  message += `💰 TOTAL: ${totalDisplay} ${currencySymbol}\n\n`
+
+  // Dirección
+  if (address) {
+    message += `📍 DIRECCIÓN: ${address}\n\n`
+  }
+
+  // Método de pago
+  if (paymentMethod) {
+    const methodLabels: Record<PaymentMethod, string> = {
+      efectivo: 'Efectivo',
+      transferencia: 'Transferencia',
+      tarjeta: 'Tarjeta',
+    }
+    message += `💳 METODO PAGO: ${methodLabels[paymentMethod]}\n\n`
+  }
+
+  // A nombre de
+  if (recipientName) {
+    message += `👤 A NOMBRE DE: ${recipientName}\n`
+  }
+
+  return message
+}
+
+// ---------- ABRIR WHATSAPP CON MENSAJE PRE-LLENADO ----------
+function openWhatsAppWithOrder(place: Place, details: OrderDetails): void {
+  const whatsappNumber = place.contact?.whatsapp
+  if (!whatsappNumber) {
+    console.warn('No hay número de WhatsApp configurado para este lugar')
+    return
+  }
+
+  const message = generateWhatsAppMessage(details)
+  const encodedMessage = encodeURIComponent(message)
+  const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`
+
+  window.open(whatsappUrl, '_blank', 'noopener,noreferrer')
+}
+
+// ---------- ORDENES PARA RESTAURANTES (MENÚ SIMPLE EN COP) ----------
+// Definir items de menú por tipo de lugar - precio en COP solo
+const getMenuItems = (placeType: string): OrderItem[] => {
+  if (placeType.includes('Restaurante') || placeType.includes('Bar')) {
+    return [
+      { name: 'Trucha frita', priceCop: 28000, currency: 'COP', quantity: 1 },
+      { name: 'Trucha a la plancha', priceCop: 28000, currency: 'COP', quantity: 1 },
+      { name: 'Mojarra', priceCop: 38000, currency: 'COP', quantity: 1 },
+      { name: 'Porción de arroz', priceCop: 4000, currency: 'COP', quantity: 1 },
+      { name: 'Porción de ensalada', priceCop: 5000, currency: 'COP', quantity: 1 },
+    ]
+  } else if (placeType.includes('Café') || placeType.includes('Coffee')) {
+    return [
+      { name: 'Café negro', priceCop: 3000, currency: 'COP', quantity: 1 },
+      { name: 'Café con leche', priceCop: 4000, currency: 'COP', quantity: 1 },
+      { name: 'Torta de guayaba', priceCop: 8000, currency: 'COP', quantity: 1 },
+      { name: 'Pastel de queso', priceCop: 10000, currency: 'COP', quantity: 1 },
+    ]
+  } else if (placeType.includes('Alojamiento') || placeType.includes('Hotel')) {
+    return [
+      { name: 'Habitación doble', priceCop: 50000, currency: 'COP', quantity: 1 },
+      { name: 'Desayuno incluido', priceCop: 15000, currency: 'COP', quantity: 1 },
+    ]
+  }
+  return []
+}
+
+// ---------- EXPORTAR PARA USO EN COMPONENTES ----------
+export { generateWhatsAppMessage, openWhatsAppWithOrder, getMenuItems, currencyLabels }
 
 export default App

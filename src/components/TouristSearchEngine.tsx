@@ -24,7 +24,8 @@ import {
   Languages,
   DollarSign,
   Calendar,
-  Sparkles
+  Sparkles,
+  Phone
 } from 'lucide-react'
 import foreignTouristSearchEngine, { 
   ComprehensiveSearchResult, 
@@ -53,13 +54,13 @@ const TouristSearchEngine: React.FC<TouristSearchEngineProps> = ({ onClose, init
   })
   const [activeTab, setActiveTab] = useState<'suggestions' | 'recommendations' | 'safety' | 'cultural' | 'alternatives'>('suggestions')
 
-  const handleSearch = () => {
+  const handleSearch = async () => {
     if (query.trim().length < 2) return
 
     setIsSearching(true)
     
     // Usar motor de búsqueda con datos reales del proyecto
-    const result = foreignTouristSearchEngine.processSearch(query, userContext)
+    const result = await foreignTouristSearchEngine.processSearch(query, userContext)
     setSearchResult(result)
     setIsSearching(false)
   }

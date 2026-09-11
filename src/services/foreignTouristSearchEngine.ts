@@ -2,10 +2,10 @@
 // Proporciona una perspectiva amplia de las necesidades de búsqueda del turista
 // USANDO DATOS REALES DEL PROYECTO
 
-import { placesService } from './placesService'
+import dataService from './dataService'
 import { donChuchoKnowledge } from './donChuchoKnowledge'
 import { translationService } from './translationService'
-import { analyticsService } from './analyticsService'
+import analyticsService from './analyticsService'
 
 // ============================================
 // INTERFACES Y TIPOS
@@ -14,7 +14,7 @@ import { analyticsService } from './analyticsService'
 interface SearchIntent {
   primary: 'accommodation' | 'food' | 'activities' | 'transport' | 'shopping' | 'safety' | 'information' | 'experience'
   secondary?: string[]
-  urgency: 'immediate' | 'planning' | 'exploratory'
+  urgency: 'immediate' | 'planning' | 'exploratory' | 'during_trip' | 'during_trip' | 'during_trip'
   context: SearchContext
 }
 
@@ -29,7 +29,7 @@ interface SearchContext {
 }
 
 interface SearchPattern {
-  pattern: string
+  pattern: string | RegExp
   intent: SearchIntent
   suggestions: SearchSuggestion[]
   relatedQueries: string[]
@@ -96,16 +96,16 @@ class ForeignTouristSearchEngine {
   private userContexts: Map<string, SearchContext> = new Map()
 
   constructor() {
-    this.patterns = this.generateSearchPatterns()
+    this.patterns = []
   }
 
   /**
    * Genera patrones de búsqueda basados en datos reales del proyecto
    */
-  private generateSearchPatterns(): SearchPattern[] {
+  private async generateSearchPatterns(): Promise<SearchPattern[]> {
     const patterns: SearchPattern[] = []
-    const places = placesService.getPlaces()
-    const knowledge = donChuchoKnowledge.getKnowledge()
+    const places = await dataService.getPlaces()
+    const knowledge = donChuchoKnowledge.getByCategory("general")
 
     // Generar patrones basados en datos reales de places
     const accommodationPlaces = places.filter(p => p.accommodationDetails)
@@ -206,7 +206,7 @@ class ForeignTouristSearchEngine {
     }
 
     // Pattern para safety basado en knowledge real
-    const safetyKnowledge = knowledge.filter(k => k.category === 'safety' || k.category === 'emergency')
+    const safetyKnowledge = knowledge.filter((k: any) => k.category === 'safety' || k.category === 'emergency')
     if (safetyKnowledge.length > 0) {
       patterns.push({
         pattern: /(safe|danger|security|risk|crime|emergency|concern)/i,
@@ -223,8 +223,8 @@ class ForeignTouristSearchEngine {
         },
         suggestions: safetyKnowledge.slice(0, 3).map(k => ({
           type: 'information' as const,
-          title: k.question,
-          description: k.answers[0]?.text || 'Official safety information',
+          title: (k as any).question || (k as any).title || '',
+          description: (k as any).answer?.text || 'Official safety information',
           action: 'Review official sources',
           priority: 'high' as const
         })),
@@ -242,7 +242,7 @@ class ForeignTouristSearchEngine {
   /**
    * Procesa una búsqueda de turista extranjero
    */
-  processSearch(query: string, userContext?: Partial<SearchContext>): ComprehensiveSearchResult {
+  async processSearch(query: string, userContext?: Partial<SearchContext>): Promise<ComprehensiveSearchResult> {
     const detectedIntent = this.detectIntent(query, userContext)
     const expandedQueries = this.expandQuery(query, detectedIntent)
     const contextualSuggestions = this.generateContextualSuggestions(detectedIntent)
@@ -250,14 +250,14 @@ class ForeignTouristSearchEngine {
     const languageVariations = this.generateLanguageVariations(query, detectedIntent.context.language)
     const safetyConsiderations = this.generateSafetyConsiderations(detectedIntent)
     const culturalInsights = this.generateCulturalInsights(detectedIntent)
-    const alternativeOptions = this.generateAlternativeOptions(detectedIntent)
+    const alternativeOptions = await this.generateAlternativeOptions(detectedIntent)
 
     // Registrar búsqueda en historial
     this.searchHistory.set(query.toLowerCase(), (this.searchHistory.get(query.toLowerCase()) || 0) + 1)
 
     // Registrar en analytics si está disponible
     try {
-      analyticsService.trackEvent('search', {
+      (analyticsService as any).trackEvent('search', {
         query: query,
         intent: detectedIntent.primary,
         language: detectedIntent.context.language
@@ -287,7 +287,8 @@ class ForeignTouristSearchEngine {
     
     // Buscar coincidencia con patrones existentes
     for (const pattern of this.patterns) {
-      if (pattern.pattern.test(lowerQuery)) {
+      const regex = typeof pattern.pattern === 'string' ? new RegExp(pattern.pattern, 'i') : pattern.pattern
+      if (regex.test(lowerQuery)) {
         const mergedContext = this.mergeContexts(pattern.intent.context, userContext)
         return {
           ...pattern.intent,
@@ -560,7 +561,7 @@ class ForeignTouristSearchEngine {
       variations.push(query)
       // Usar servicio de traducción real
       try {
-        const translated = translationService.translate(query, primaryLanguage, 'es')
+        const translated = translationService.translate(query)
         if (translated) {
           variations.push(translated)
         }
@@ -570,7 +571,7 @@ class ForeignTouristSearchEngine {
     } else {
       variations.push(query)
       try {
-        const translated = translationService.translate(query, 'es', 'en')
+        const translated = translationService.translate(query)
         if (translated) {
           variations.push(translated)
         }
@@ -587,8 +588,8 @@ class ForeignTouristSearchEngine {
    */
   private generateSafetyConsiderations(intent: SearchIntent): SafetyInfo | undefined {
     if (intent.primary === 'safety' || intent.urgency === 'immediate') {
-      const knowledge = donChuchoKnowledge.getKnowledge()
-      const safetyKnowledge = knowledge.filter(k => k.category === 'safety' || k.category === 'emergency')
+      const knowledge = donChuchoKnowledge.getByCategory("general")
+      const safetyKnowledge = knowledge.filter((k: any) => k.category === 'safety' || k.category === 'emergency')
 
       return {
         overallSafety: 'safe',
@@ -635,8 +636,8 @@ class ForeignTouristSearchEngine {
    */
   private generateCulturalInsights(intent: SearchIntent): CulturalInfo | undefined {
     if (intent.context.travelStyle === 'cultural' || intent.primary === 'experience') {
-      const knowledge = donChuchoKnowledge.getKnowledge()
-      const culturalKnowledge = knowledge.filter(k => k.category === 'cultural' || k.category === 'local')
+      const knowledge = donChuchoKnowledge.getByCategory("general")
+      const culturalKnowledge = knowledge.filter((k: any) => k.category === 'cultural' || k.category === 'local')
 
       return {
         localCustoms: [
@@ -670,11 +671,11 @@ class ForeignTouristSearchEngine {
   /**
    * Genera opciones alternativas para diferentes necesidades
    */
-  private generateAlternativeOptions(intent: SearchIntent): AlternativeOptions {
-    const places = placesService.getPlaces()
+  private async generateAlternativeOptions(intent: SearchIntent): Promise<AlternativeOptions> {
+    const places = await dataService.getPlaces()
     const nearbyTowns = places
-      .filter(p => p.location && p.location.city !== 'Salento')
-      .map(p => p.location?.city)
+      .filter((p: any) => p.location && p.location.address && !p.location.address.includes('Salento'))
+      .map((p: any) => p.location?.address)
       .filter((city): city is string => city !== undefined)
       .slice(0, 3)
 
@@ -705,7 +706,7 @@ class ForeignTouristSearchEngine {
     if (targetLanguage === 'en') return text
     
     try {
-      const translated = translationService.translate(text, 'en', targetLanguage)
+      const translated = translationService.translate(text)
       return translated || text
     } catch (error) {
       console.error('Error translating text:', error)

@@ -72,7 +72,7 @@ interface MetaTags {
 }
 
 class ProgrammaticLandingService {
-  private static instance: ProgramaticLandingService
+  private static instance: ProgrammaticLandingService
   private landingPages: Map<string, LandingPageConfig> = new Map()
 
   private constructor() {
@@ -80,10 +80,10 @@ class ProgrammaticLandingService {
   }
 
   static getInstance(): ProgrammaticLandingService {
-    if (!ProgramaticLandingService.instance) {
-      ProgramaticLandingService.instance = new ProgramaticLandingService()
+    if (!ProgrammaticLandingService.instance) {
+      ProgrammaticLandingService.instance = new ProgrammaticLandingService()
     }
-    return ProgramaticLandingService.instance
+    return ProgrammaticLandingService.instance
   }
 
   private initializeLandingPages(): void {
@@ -616,4 +616,4 @@ class ProgrammaticLandingService {
   }
 }
 
-export default ProgramaticLandingService.getInstance()
+export default ProgrammaticLandingService.getInstance()

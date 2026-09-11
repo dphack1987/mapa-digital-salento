@@ -1,7 +1,8 @@
 // Servicio de sincronización de pedidos offline
 // Gestiona la cola de pedidos y los sincroniza cuando hay conexión
 
-import offlineStorage, { OfflineOrder } from './offlineStorage'
+import offlineStorage from './offlineStorage'
+import type { OfflineOrder } from './offlineStorage'
 
 interface SyncResult {
   success: boolean

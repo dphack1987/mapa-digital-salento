@@ -5,7 +5,7 @@ interface ToxicKeywordAlert {
   keyword: string
   severity: 'low' | 'medium' | 'high' | 'critical'
   detectedAt: Date
-  source: 'social' | 'search' | 'news' | 'community'
+  source: 'social' | 'search' | 'news' | 'community' | 'manual'
   volume: number
   trend: 'rising' | 'stable' | 'falling'
   suggestedActions: string[]

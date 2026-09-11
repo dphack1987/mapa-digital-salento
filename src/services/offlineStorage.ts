@@ -25,7 +25,7 @@ const CONFIG: StorageConfig = {
   }
 }
 
-interface OfflineOrder {
+export interface OfflineOrder {
   id: string
   timestamp: number
   status: 'pending' | 'synced' | 'failed'
@@ -183,7 +183,7 @@ class OfflineStorageService {
       const transaction = this.db!.transaction([CONFIG.stores.places], 'readonly')
       const store = transaction.objectStore(CONFIG.stores.places)
       const index = store.index('verified')
-      const request = index.getAll(true)
+      const request = index.getAll()
 
       request.onsuccess = () => {
         resolve(request.result || [])

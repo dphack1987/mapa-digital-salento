@@ -53,7 +53,7 @@ class QRCodeGenerator {
       errorCorrectionLevel: options.errorCorrectionLevel || 'M'
     }
     
-    return await QRCode.toSVG(text, qrOptions)
+    return await (QRCode as any).toSVG(text, qrOptions)
   }
 
   /**

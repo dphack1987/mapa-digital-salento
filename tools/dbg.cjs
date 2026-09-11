@@ -1,0 +1,11 @@
+const fs = require('node:fs');
+const svc = fs.readFileSync('src/services/translationService.ts', 'utf8');
+console.log('CRLF:', svc.includes('\r\n'), 'len:', svc.length);
+const langRe = /^    '([a-z]{2})': \{$/gm;
+const starts = [...svc.matchAll(langRe)];
+console.log('langs:', starts.map((s) => s[1]).join(','));
+const esBody = svc.slice(starts[0].index + starts[0][0].length, starts[1].index);
+console.log('es body len:', esBody.length);
+console.log('has nav.services:', esBody.includes("'nav.services'"));
+const keys = [...esBody.matchAll(/^\s*'([^']+)'\s*:/gm)].map((x) => x[1]);
+console.log('quoted keys:', keys.length, keys.slice(0, 8).join(','));

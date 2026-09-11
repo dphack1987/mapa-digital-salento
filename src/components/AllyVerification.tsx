@@ -47,7 +47,7 @@ const AllyVerification: React.FC<AllyVerificationProps> = ({ allyId, onClose, on
   }
 
   const handleDocumentChange = (field: string, value: string) => {
-    setCurrentDocument(prev => ({
+    setCurrentDocument((prev: any) => ({
       ...prev,
       [field]: value
     }))

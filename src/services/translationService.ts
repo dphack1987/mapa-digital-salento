@@ -278,7 +278,7 @@ class TranslationService {
       'menu.total': 'Total', 'menu.orderBtn': 'Pedir por WhatsApp', 'menu.noWhatsapp': 'O estabelecimento confirma seu pedido por WhatsApp na ficha.', 'menu.consultPrice': 'Preço a confirmar',
       'menu.cat.truchas': 'Trutas', 'menu.cat.carnes': 'Carnes e outros', 'menu.cat.acompanamientos': 'Acompanhamentos', 'menu.cat.entradas': 'Entradas', 'menu.cat.desayuno': 'Café da manhã', 'menu.cat.bebidas': 'Bebidas', 'menu.cat.carta': 'Cardápio',
       'price.free': 'Entrada gratuita', 'price.confirm': 'Preço a confirmar por WhatsApp', 'reviews.first': 'Seja o primeiro a opinar!', 'menu.specialty': 'Especialidade da casa',
-      'gallery.expand': 'Ampliar foto', 'gallery.close': 'Fechar visualizador', 'gallery.prev': 'Foto anterior', 'gallery.next': 'Próxima foto', 'menu.cat.carta': 'Cardápio',
+      'gallery.expand': 'Ampliar foto', 'gallery.close': 'Fechar visualizador', 'gallery.prev': 'Foto anterior', 'gallery.next': 'Próxima foto',
       'detail.back': 'Voltar ao diretório', 'detail.verifiedFile': 'Ficha de parceiro verificado', 'detail.knowPlace': 'Conheça este lugar',
       'meta.homeTitle': 'Salento a la Mano | Mapa turístico de Salento, Quindío — Direto, sem intermediários',
       'meta.homeDesc': 'Mapa turístico interativo de Salento, Quindío. Contato direto com locais verificados, sem intermediários.'

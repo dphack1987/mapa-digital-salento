@@ -30,6 +30,7 @@ interface QRSession {
 }
 
 interface HotelQRConfig {
+  metadata?: { location: string; [key: string]: any }
   id: string
   hotelId: string
   hotelName: string

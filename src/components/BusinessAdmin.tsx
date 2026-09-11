@@ -237,7 +237,7 @@ function DashboardTab({ orderStats, qrStats, businessName, businessId, onOpenAna
             {Object.entries(orderStats.statusBreakdown).map(([status, count]) => (
               <div key={status} className="status-item">
                 <span className="status-label">{status}</span>
-                <span className="status-count">{count}</span>
+                <span className="status-count">{String(count)}</span>
               </div>
             ))}
           </div>
@@ -249,7 +249,7 @@ function DashboardTab({ orderStats, qrStats, businessName, businessId, onOpenAna
             {Object.entries(orderStats.paymentMethodBreakdown).map(([method, count]) => (
               <div key={method} className="payment-item">
                 <span className="payment-label">{method}</span>
-                <span className="payment-count">{count}</span>
+                <span className="payment-count">{String(count)}</span>
               </div>
             ))}
           </div>
@@ -466,7 +466,7 @@ function WhatsAppTab({ businessId, businessName }: any) {
             { name: 'Trucha con patacón', quantity: 2, price: 35000, notes: 'Sin cebolla' }
           ],
           totalAmount: 70000,
-          paymentMethod: 'efectivo',
+          paymentMethod: 'efectivo' as const,
           timestamp: new Date()
         }
         preview = whatsappTemplateService.generateOrderMessage(sampleOrder, 'es')
@@ -486,10 +486,10 @@ function WhatsAppTab({ businessId, businessName }: any) {
       case 'inquiry':
         const sampleInquiry = {
           customerName: 'Carlos López',
-          businessName: businessName,
-          inquiryType: 'producto',
+          businessName: String(businessName),
+          inquiryType: 'producto' as const,
           message: '¿Tienen disponibilidad para mañana?',
-          language: 'es'
+          language: 'es' as const
         }
         preview = whatsappTemplateService.generateInquiryMessage(sampleInquiry)
         break
