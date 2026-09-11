@@ -4,7 +4,7 @@
       "id": 31,
       "name": "Camping Cascadas de Santa Rita",
       "type": "Camping",
-      "description": "Zona de camping en la Reserva Natural Cascadas de Santa Rita. Ãreas equipadas para acampar cerca de la cascada principal y segunda cascada por cavernas. Incluye baños, zonas de fogata y acceso a senderos naturales. Experiencia única de acampada en medio del bosque con sonido de agua natural. - Desde $35.000 COP por persona",
+      "description": "Zona de camping en la Reserva Natural Cascadas de Santa Rita. Íreas equipadas para acampar cerca de la cascada principal y segunda cascada por cavernas. Incluye baños, zonas de fogata y acceso a senderos naturales. Experiencia única de acampada en medio del bosque con sonido de agua natural. - Desde $35.000 COP por persona",
       "priceRange": "$",
       "rating": "4.6",
       "timeInfo": "Pernoctada disponible",
@@ -531,7 +531,7 @@
           "Cascada principal",
           "Piscina natural",
           "Segunda cascada",
-          "Ãreas de camping"
+          "Íreas de camping"
         ],
         "notIncluded": [
           "Transporte a Boquía",
@@ -788,7 +788,7 @@
           "Jardines y zonas verdes",
           "Chimenea",
           "Terraza con vistas",
-          "Ãrea de descanso",
+          "Írea de descanso",
           "Información turística",
           "Zona de BBQ",
           "Tour de café disponible"
@@ -958,7 +958,7 @@
         "landmark": "Vía rural de Salento"
       },
       "operatingHours": {
-        "notes": "Contacto Lunâ€“Vie 9amâ€“5pm. Tour ~2 horas, confirmar horarios."
+        "notes": "Contacto Lun"“Vie 9am"“5pm. Tour ~2 horas, confirmar horarios."
       },
       "tags": [
         "bilingue",
@@ -1347,7 +1347,7 @@
         "highlights": [
           "Altitud: 1.800 metros",
           "Tour certificado",
-          "Guías bilingÃ¼es",
+          "Guías bilingÍ¼es",
           "Cerca del centro de Salento"
         ]
       },
@@ -1815,10 +1815,10 @@
       "id": 114,
       "name": "Cootracocora LTDA",
       "type": "Servicios",
-      "description": "Cootracocora LTDA â€“ Cooperativa de Transportadores del Valle de Cocora. Empresa de transporte público del municipio de Salento. Jeeps Willys tradicionales Salento â€“ Valle de Cocora con salidas diarias 6:00 AM â€“ 9:00 PM desde la plaza principal. Coordinación directa por WhatsApp, sin intermediarios.",
+      "description": "Cootracocora LTDA "“ Cooperativa de Transportadores del Valle de Cocora. Empresa de transporte público del municipio de Salento. Jeeps Willys tradicionales Salento "“ Valle de Cocora con salidas diarias 6:00 AM "“ 9:00 PM desde la plaza principal. Coordinación directa por WhatsApp, sin intermediarios.",
       "priceRange": "$",
       "rating": "Nuevo",
-      "timeInfo": "Salidas diarias 6:00 AM â€“ 9:00 PM",
+      "timeInfo": "Salidas diarias 6:00 AM "“ 9:00 PM",
       "badge": "Transporte oficial",
       "color": "yellow",
       "icon": "Bike",
@@ -1834,7 +1834,7 @@
         "landmark": "Terminal de Transporte Público Jeep Willys"
       },
       "operatingHours": {
-        "notes": "Lunes a domingo 6:00 AM â€“ 9:00 PM. Salidas al completar cupo."
+        "notes": "Lunes a domingo 6:00 AM "“ 9:00 PM. Salidas al completar cupo."
       },
       "tags": [
         "transporte",
@@ -1851,14 +1851,14 @@
       "transportDetails": {
         "transportType": "Jeep Willys",
         "routes": [
-          "Salento â€“ Valle de Cocora",
-          "Valle de Cocora â€“ Salento"
+          "Salento "“ Valle de Cocora",
+          "Valle de Cocora "“ Salento"
         ],
         "languages": [
           "Español"
         ],
         "capacity": "Salidas al completar cupo",
-        "meetingPoint": "Plaza principal de Salento â€“ Terminal de Transporte Público Jeep Willys",
+        "meetingPoint": "Plaza principal de Salento "“ Terminal de Transporte Público Jeep Willys",
         "pricingNotes": "Tarifa de referencia desde $3.600 COP por trayecto. Confirmar tarifa vigente por WhatsApp.",
         "tariff": "Desde $3.600 COP por trayecto (confirmar)",
         "included": [
