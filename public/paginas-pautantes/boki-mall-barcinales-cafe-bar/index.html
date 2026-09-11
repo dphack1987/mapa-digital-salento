@@ -22,9 +22,71 @@
       .section { padding:26px; margin-top:24px; } h2 { margin:0 0 16px; font-size:1.5rem; } .two-col { display:grid; grid-template-columns:1fr 1fr; gap:24px; }
       .gallery { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; } .gallery img { width:100%; height:190px; object-fit:cover; border-radius:16px; border:1px solid var(--line); }
       .facts { display:grid; gap:0; } .fact { padding:13px 0; border-bottom:1px solid var(--line); } .fact strong { display:block; color:var(--muted); font-size:11px; text-transform:uppercase; margin-bottom:5px; }
-      .service-section strong { display:block; color:var(--muted); font-size:11px; text-transform:uppercase; margin:14px 0 6px; } .service-grid { display:grid; grid-template-columns:1fr 1fr; gap:28px; } .service-section ul { margin:6px 0 18px; padding-left:20px; color:var(--muted); line-height:1.8; } .service-section p { color:var(--muted); line-height:1.6; } .muted { color:var(--muted); }
+      .muted { color:var(--muted); }
       .tags { display:flex; flex-wrap:wrap; gap:8px; } .trust { color:var(--muted); line-height:1.6; } .verified { color:#39734b; font-weight:700; }
       @media (max-width:800px) { .hero,.two-col { grid-template-columns:1fr; } .hero-image { min-height:260px; order:-1; } .topbar { align-items:flex-start; flex-direction:column; } .gallery { grid-template-columns:1fr; } }
+
+      /* ===== MENU INTERACTIVO ===== */
+      .menu-header { display:flex; flex-wrap:wrap; gap:12px; align-items:center; justify-content:space-between; margin-bottom:20px; }
+      .menu-search { flex:1; min-width:200px; position:relative; }
+      .menu-search input { width:100%; padding:12px 16px 12px 42px; border:1px solid var(--line); border-radius:999px; font-size:14px; font-family:inherit; background:var(--white); color:var(--ink); }
+      .menu-search input:focus { outline:none; border-color:var(--coral); box-shadow:0 0 0 3px rgba(221,127,93,.15); }
+      .menu-search::before { content:'🔍'; position:absolute; left:16px; top:50%; transform:translateY(-50%); font-size:14px; opacity:.5; }
+      .currency-switch { display:flex; gap:4px; background:#f3ead6; padding:4px; border-radius:999px; }
+      .currency-switch button { border:none; background:transparent; padding:8px 14px; border-radius:999px; font-weight:700; font-size:12px; cursor:pointer; color:var(--muted); font-family:inherit; transition:all .2s; }
+      .currency-switch button.active { background:var(--white); color:var(--ink); box-shadow:0 2px 6px rgba(0,0,0,.08); }
+      .menu-tabs { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:20px; }
+      .menu-tab { padding:10px 16px; border:1px solid var(--line); border-radius:999px; background:var(--white); font-weight:700; font-size:13px; cursor:pointer; font-family:inherit; color:var(--muted); transition:all .2s; }
+      .menu-tab:hover { border-color:var(--coral); color:var(--ink); }
+      .menu-tab.active { background:var(--ink); border-color:var(--ink); color:#fff; }
+      .menu-tab .count { display:inline-block; margin-left:6px; opacity:.6; font-size:11px; }
+      .menu-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:18px; }
+      .menu-card { background:var(--white); border:1px solid var(--line); border-radius:16px; overflow:hidden; display:flex; flex-direction:column; transition:all .25s; }
+      .menu-card:hover { border-color:var(--coral); transform:translateY(-3px); box-shadow:0 8px 24px rgba(0,0,0,.08); }
+      .menu-card-emoji { width:100%; height:140px; display:flex; align-items:center; justify-content:center; background:linear-gradient(135deg,#f3ead6,#e8dfc8); font-size:56px; }
+      .menu-card-body { padding:14px 16px; display:flex; flex-direction:column; gap:6px; flex:1; }
+      .menu-card .cat-tag { display:inline-block; padding:4px 10px; border-radius:999px; background:#f3ead6; font-size:10px; font-weight:700; text-transform:uppercase; color:var(--coral); letter-spacing:.05em; align-self:flex-start; }
+      .menu-card h3 { margin:2px 0 0; font-size:1.05rem; line-height:1.3; }
+      .menu-card .desc { color:var(--muted); font-size:13px; line-height:1.5; flex:1; }
+      .menu-card .footer { display:flex; justify-content:space-between; align-items:center; margin-top:8px; }
+      .menu-card .price { font-weight:700; font-size:1.15rem; color:var(--ink); }
+      .menu-card .price small { display:block; font-size:11px; font-weight:500; color:var(--muted); }
+      .menu-card .add-btn { width:40px; height:40px; border-radius:50%; border:none; background:var(--coral); color:#fff; font-size:20px; font-weight:700; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:all .2s; flex-shrink:0; }
+      .menu-card .add-btn:hover { background:var(--ink); transform:scale(1.1); }
+      .menu-card .qty-ctrl { display:flex; align-items:center; gap:10px; }
+      .menu-card .qty-ctrl button { width:32px; height:32px; border-radius:50%; border:1.5px solid var(--line); background:var(--white); cursor:pointer; font-weight:700; font-size:16px; color:var(--ink); display:flex; align-items:center; justify-content:center; transition:all .15s; }
+      .menu-card .qty-ctrl button:hover { border-color:var(--coral); color:var(--coral); }
+      .menu-card .qty-ctrl span { font-weight:700; font-size:15px; min-width:24px; text-align:center; }
+      .menu-empty { text-align:center; padding:40px 20px; color:var(--muted); }
+      .menu-empty span { font-size:48px; display:block; margin-bottom:12px; }
+      .cart-float { position:fixed; bottom:24px; right:24px; background:var(--ink); color:#fff; border-radius:999px; padding:14px 22px; display:flex; align-items:center; gap:12px; cursor:pointer; box-shadow:0 8px 30px rgba(0,0,0,.25); z-index:1000; transition:all .3s; transform:translateY(120px); opacity:0; }
+      .cart-float.visible { transform:translateY(0); opacity:1; }
+      .cart-float:hover { transform:translateY(-2px); box-shadow:0 10px 40px rgba(0,0,0,.3); }
+      .cart-float .badge { background:var(--coral); width:28px; height:28px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:13px; }
+      .cart-float .total { font-weight:700; font-size:15px; }
+      .cart-modal { position:fixed; inset:0; background:rgba(31,45,38,.6); display:none; align-items:center; justify-content:center; z-index:1001; padding:20px; }
+      .cart-modal.open { display:flex; }
+      .cart-panel { background:var(--white); border-radius:24px; max-width:520px; width:100%; max-height:85vh; overflow-y:auto; padding:28px; }
+      .cart-panel h2 { margin:0 0 20px; }
+      .cart-item { display:flex; justify-content:space-between; align-items:center; padding:14px 0; border-bottom:1px solid var(--line); gap:12px; }
+      .cart-item .info { flex:1; }
+      .cart-item .info strong { display:block; font-size:14px; }
+      .cart-item .info small { color:var(--muted); font-size:12px; }
+      .cart-item .qty { display:flex; align-items:center; gap:8px; }
+      .cart-item .qty button { width:28px; height:28px; border-radius:50%; border:1px solid var(--line); background:var(--white); cursor:pointer; font-weight:700; color:var(--ink); }
+      .cart-item .qty span { min-width:20px; text-align:center; font-weight:700; }
+      .cart-item .item-total { font-weight:700; min-width:90px; text-align:right; }
+      .cart-total { display:flex; justify-content:space-between; padding:18px 0; font-size:1.2rem; font-weight:700; border-top:2px solid var(--ink); margin-top:8px; }
+      .cart-actions { display:flex; flex-direction:column; gap:10px; margin-top:12px; }
+      .cart-actions button, .cart-actions a { padding:14px; border-radius:999px; border:none; font-weight:700; font-size:14px; cursor:pointer; font-family:inherit; text-align:center; }
+      .cart-actions .send { background:#25d366; color:#fff; }
+      .cart-actions .clear { background:transparent; border:1px solid var(--line); color:var(--muted); }
+      .cart-actions .close { background:var(--ink); color:#fff; }
+      @media (max-width:600px) {
+        .menu-header { flex-direction:column; align-items:stretch; }
+        .menu-grid { grid-template-columns:1fr; }
+        .cart-float { bottom:16px; right:16px; padding:12px 18px; }
+      }
     </style>
     <link rel="stylesheet" href="/page-theme.css" />
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://salentoalamano.com/"},{"@type":"ListItem","position":2,"name":"Restaurante Bar","item":"/categorias/restaurante-bar.html"},{"@type":"ListItem","position":3,"name":"Boki Mall - Barcinales Café - Bar"}]}</script>
@@ -39,14 +101,214 @@
           <div class="actions"><a class="button primary" href="https://wa.me/573112225312" target="_blank" rel="noreferrer">Reservar por WhatsApp</a><a class="button dark" href="tel:+573112225312">Llamar ahora</a><a class="button" href="https://www.google.com/maps/search/Km%205%2C%20v%C3%ADa%20principal%20a%20Salento%2C%20Vereda%20Boqu%C3%ADa" target="_blank" rel="noreferrer">Cómo llegar</a><a class="button" href="https://bokimall.com/barcinales-cafe-bar-en-salento/" target="_blank" rel="noreferrer">Sitio oficial</a></div>
         </div><div class="hero-image" aria-label="Boki Mall - Barcinales Café - Bar"></div>
       </section>
-      
-      <section class="section service-section"><h2>Carta, precios y pedidos</h2><div class="service-grid"><div><strong>Especialidades</strong><ul><li>Cafés de origen local</li><li>Cócteles con ingredientes colombianos</li><li>Tapas gourmet</li><li>Postres caseros</li></ul><strong>En la carta</strong><p class="muted">Consultar directamente con el pautante.</p></div><div><strong>Precio promedio</strong><p>$</p><strong>Tipo de cocina</strong><ul><li>Cafés de especialidad</li><li>Cócteles artesanales</li><li>Snacks y tapas</li></ul><p class="muted">Confirma si hay domicilio o recogida.</p></div></div><div class="actions"><a class="button primary" href="https://wa.me/573112225312">Consultar carta y reservar</a></div></section>
-      
+
+      <section class="section" id="menu-interactivo">
+        <h2>Nuestra Carta</h2>
+        <p class="muted" style="margin-top:-8px;margin-bottom:20px">Toca los productos para agregarlos a tu pedido. Al final, envía todo por WhatsApp.</p>
+        <div class="menu-header">
+          <div class="menu-search"><input type="text" id="menuSearch" placeholder="Buscar producto..." /></div>
+          <div class="currency-switch" role="group" aria-label="Moneda">
+            <button data-cur="COP" class="active">COP</button>
+            <button data-cur="USD">USD</button>
+            <button data-cur="EUR">EUR</button>
+          </div>
+        </div>
+        <div class="menu-tabs" id="menuTabs"></div>
+        <div class="menu-grid" id="menuGrid"></div>
+        <div class="menu-empty" id="menuEmpty" style="display:none"><span>🔍</span>No encontramos productos con ese nombre.</div>
+      </section>
+
+      <div class="cart-float" id="cartFloat" role="button" tabindex="0" aria-label="Ver pedido">
+        <span class="badge" id="cartBadge">0</span>
+        <span class="total" id="cartTotal">$0</span>
+        <span>Ver pedido →</span>
+      </div>
+
+      <div class="cart-modal" id="cartModal" role="dialog" aria-modal="true">
+        <div class="cart-panel">
+          <h2>Tu pedido</h2>
+          <div id="cartItems"></div>
+          <div class="cart-total"><span>Total</span><span id="cartModalTotal">$0</span></div>
+          <div class="cart-actions">
+            <button class="send" id="sendWhatsApp">Enviar pedido por WhatsApp</button>
+            <button class="clear" id="clearCart">Vaciar pedido</button>
+            <button class="close" id="closeCart">Seguir explorando</button>
+          </div>
+        </div>
+      </div>
+
       <section class="section"><h2>Conoce la experiencia</h2><div class="two-col"><div><p class="trust">Barcinales Café - Bar - Disfruta de café y coctelería en un espacio vanguardista. Café-bar y lounge dentro de Boki Mall, ideal para disfrutar de cafés de especialidad, cócteles artesanales y ambiente relajado. Horario variable según programación de eventos y entretenimiento.</p><p class="verified">✓ Información verificada en el catálogo local</p></div><div class="facts"><div class="fact"><strong>Ubicación</strong>Km 5, vía principal a Salento, Vereda Boquía</div><div class="fact"><strong>Referencia</strong>Dentro de Boki Mall</div><div class="fact"><strong>Horario</strong>Horario variable según programación de eventos y entretenimiento. Generalmente 4:00 p.m. - 11:00 p.m.</div></div></div></section>
-      <section class="section"><h2>Galería de imágenes</h2><div class="gallery"><img src="/pautas/boki_mall/hotel-mirador-boquia/images%20(2).jfif" alt="Boki Mall - Barcinales Café - Bar foto 1" loading="lazy"/><div class="photo-pending" aria-label="Foto verificada pendiente para Boki Mall - Barcinales Café - Bar"><span>📷</span><strong>Boki Mall - Barcinales Café - Bar</strong><small>Foto verificada pendiente 2/3</small></div><div class="photo-pending" aria-label="Foto verificada pendiente para Boki Mall - Barcinales Café - Bar"><span>📷</span><strong>Boki Mall - Barcinales Café - Bar</strong><small>Foto verificada pendiente 3/3</small></div></div></section>
+      <section class="section"><h2>Galería de imágenes</h2><div class="gallery"><img src="/pautas/boki_mall/hotel-mirador-boquia/images%20(2).jfif" alt="Barcinales Café-Bar foto 1" loading="lazy"/><img src="/pautas/boki_mall/hotel-mirador-boquia/images.jfif" alt="Barcinales Café-Bar foto 2" loading="lazy"/><img src="/pautas/boki_mall/hotel-mirador-boquia/images%20(1).jfif" alt="Barcinales Café-Bar foto 3" loading="lazy"/></div></section>
       <section class="section"><h2>Antes de confirmar tu visita</h2><div class="two-col"><div><p class="trust">¿Cuál es el horario de Boki Mall - Barcinales Café - Bar? Horario variable según programación de eventos y entretenimiento. Generalmente 4:00 p.m. - 11:00 p.m.</p><p class="trust">¿Cuánto cuesta? Rango $. Confirma la tarifa final con el local.</p><p class="trust">¿Cómo reservo? Contacto directo por WhatsApp, sin intermediarios ni comisiones.</p></div><div class="facts"><div class="fact"><strong>Punto de encuentro</strong>Dentro de Boki Mall</div><div class="fact"><strong>Cómo llegar</strong><a href="https://www.google.com/maps/search/Km%205%2C%20v%C3%ADa%20principal%20a%20Salento%2C%20Vereda%20Boqu%C3%ADa" target="_blank" rel="noreferrer">Abrir en Google Maps</a></div><div class="fact"><strong>Reseñas</strong>Las reseñas se publican en la ficha interactiva del directorio</div></div></div></section>
       <section class="section"><h2>Lo que puedes encontrar</h2><div class="tags"><span class="tag">café</span><span class="tag">bar</span><span class="tag">cócteles</span><span class="tag">lounge</span><span class="tag">cafetería</span><span class="tag">boki mall</span><span class="tag">boquía</span><span class="tag">salento</span><span class="tag">barcinales</span></div></section>
       <nav class="bottom-nav" aria-label="Volver" style="display:flex;flex-wrap:wrap;gap:10px;margin-top:28px"><a class="button primary" href="/">Volver al inicio</a><a class="button dark" href="/">Ir a página principal</a><a class="button" href="/categorias/">Ver categorías</a></nav>
     </main>
+  <script>
+(function() {
+  var WHATSAPP = '573112225312';
+  var TASAS = { COP: 1, USD: 4000, EUR: 4300 };
+  var SIMBOLOS = { COP: '$', USD: 'US$', EUR: '\u20AC' };
+  var moneda = 'COP';
+  var categoria = 'todas';
+  var busqueda = '';
+  var carrito = {};
+
+  var PLATOS = [
+    {id:1,cat:'cafes',nombre:'Espresso',precio:5000,desc:'Café espresso intenso de origen local'},
+    {id:2,cat:'cafes',nombre:'Capuchino',precio:8000,desc:'Espresso con espuma de leche cremosa'},
+    {id:3,cat:'cafes',nombre:'Latte',precio:8000,desc:'Café suave con abundante leche vaporizada'},
+    {id:4,cat:'cafes',nombre:'Americano',precio:6000,desc:'Café americano suave y aromático'},
+    {id:5,cat:'cafes',nombre:'Tinto',precio:3000,desc:'Tinto tradicional colombiano'},
+    {id:6,cat:'cafes',nombre:'Espresso doble',precio:7000,desc:'Doble dosis de espresso puro'},
+    {id:7,cat:'cafes',nombre:'Cappuccino especial',precio:9000,desc:'Cappuccino con chocolate o canela'},
+    {id:8,cat:'cafes',nombre:'Cold brew',precio:9000,desc:'Café frío de extracción lenta'},
+    {id:9,cat:'cocteles',nombre:'Cóctel de café',precio:22000,desc:'Cóctel de autor con café de especialidad y licor'},
+    {id:10,cat:'cocteles',nombre:'Mojito de café',precio:20000,desc:'Mojito infusionado con café tinto'},
+    {id:11,cat:'cocteles',nombre:'Negroni de café',precio:24000,desc:'Negroni con infusión de café y amargo'},
+    {id:12,cat:'cocteles',nombre:'Manhattan creativo',precio:25000,desc:'Manhattan de autor con toque cafetero'},
+    {id:13,cat:'cocteles',nombre:'Old Fashioned de autor',precio:26000,desc:'Old Fashioned con mezcla de café y especias'},
+    {id:14,cat:'cocteles',nombre:'Gin tonic de café',precio:24000,desc:'Gin tonic infusionado con café'},
+    {id:15,cat:'cocteles',nombre:'Sangría tropical',precio:18000,desc:'Sangría con frutas tropicales de la región'},
+    {id:16,cat:'mocktails',nombre:'Limonada de coco',precio:12000,desc:'Limonada fresca con crema de coco'},
+    {id:17,cat:'mocktails',nombre:'Jugo de lulo',precio:8000,desc:'Jugo natural de lulo fresco'},
+    {id:18,cat:'mocktails',nombre:'Limonada natural',precio:7000,desc:'Limonada natural refrescante'},
+    {id:19,cat:'mocktails',nombre:'Agua de panela con limón',precio:6000,desc:'Panela artesanal con un toque de limón'},
+    {id:20,cat:'mocktails',nombre:'Smoothie de frutas',precio:14000,desc:'Batido de frutas tropicales frescas'},
+    {id:21,cat:'tapas',nombre:'Bruschetta',precio:16000,desc:'Pan tostado con tomate fresco y albahaca'},
+    {id:22,cat:'tapas',nombre:'Croquetas',precio:18000,desc:'Croquetas cremosas de jamón o queso'},
+    {id:23,cat:'tapas',nombre:'Nachos con guacamole',precio:20000,desc:'Nachos crujientes con guacamole fresco'},
+    {id:24,cat:'tapas',nombre:'Empanadas',precio:12000,desc:'Empanadas colombianas rellenas'},
+    {id:25,cat:'tapas',nombre:'Tostadas',precio:14000,desc:'Tostadas con diferentes toppings gourmet'},
+    {id:26,cat:'tapas',nombre:'Tabla de quesos',precio:28000,desc:'Selección de quesos artesanales con frutas'},
+    {id:27,cat:'tapas',nombre:'Bocados gourmet',precio:16000,desc:'Bocados variados de autor'}
+  ];
+
+  var cats = [
+    {id:'todas',label:'Todas'},
+    {id:'cafes',label:'Cafés'},
+    {id:'cocteles',label:'Cócteles'},
+    {id:'mocktails',label:'Mocktails'},
+    {id:'tapas',label:'Tapas'}
+  ];
+
+  var $ = function(id) { return document.getElementById(id); };
+  var fmt = function(precio) {
+    if (moneda === 'COP') return '$' + precio.toLocaleString('es-CO');
+    var convertido = (precio / TASAS[moneda]).toFixed(2);
+    return SIMBOLOS[moneda] + convertido;
+  };
+
+  var catsConConteo = cats.map(function(c) {
+    return Object.assign({}, c, { count: c.id === 'todas' ? PLATOS.length : PLATOS.filter(function(p) { return p.cat === c.id; }).length });
+  });
+  $('menuTabs').innerHTML = catsConConteo.map(function(c) {
+    return '<button class="menu-tab' + (c.id === categoria ? ' active' : '') + '" data-cat="' + c.id + '">' + c.label + '<span class="count">' + c.count + '</span></button>';
+  }).join('');
+
+  function render() {
+    var filtrados = PLATOS.filter(function(p) {
+      var okCat = categoria === 'todas' || p.cat === categoria;
+      var okBusq = !busqueda || p.nombre.toLowerCase().indexOf(busqueda) !== -1 || (p.desc || '').toLowerCase().indexOf(busqueda) !== -1;
+      return okCat && okBusq;
+    });
+    if (filtrados.length === 0) {
+      $('menuGrid').innerHTML = '';
+      $('menuEmpty').style.display = 'block';
+      return;
+    }
+    $('menuEmpty').style.display = 'none';
+    $('menuGrid').innerHTML = filtrados.map(function(p) {
+      var qty = carrito[p.id] || 0;
+      var catEmoji = {cafes:'☕',cocteles:'🍸',mocktails:'🍹',tapas:'🍤'};
+      var emoji = catEmoji[p.cat] || '🍽️';
+      var img = '<div class="menu-card-emoji">' + emoji + '</div>';
+      var controls = qty > 0
+        ? '<div class="qty-ctrl"><button data-action="dec" data-id="' + p.id + '">\u2212</button><span>' + qty + '</span><button data-action="inc" data-id="' + p.id + '">+</button></div>'
+        : '<button class="add-btn" data-action="inc" data-id="' + p.id + '" aria-label="Agregar ' + p.nombre + '">+</button>';
+      return '<article class="menu-card">' + img + '<div class="menu-card-body"><span class="cat-tag">' + p.cat + '</span><h3>' + p.nombre + '</h3><p class="desc">' + (p.desc || '') + '</p><div class="footer"><span class="price">' + fmt(p.precio) + '</span>' + controls + '</div></div></article>';
+    }).join('');
+  }
+
+  function totalCarrito() {
+    return Object.keys(carrito).reduce(function(sum, id) {
+      var p = PLATOS.find(function(x) { return x.id === Number(id); });
+      return sum + (p ? p.precio * carrito[id] : 0);
+    }, 0);
+  }
+
+  function countCarrito() {
+    return Object.values(carrito).reduce(function(sum, qty) { return sum + qty; }, 0);
+  }
+
+  function actualizarCarritoFlotante() {
+    var count = countCarrito();
+    var total = totalCarrito();
+    $('cartBadge').textContent = count;
+    $('cartTotal').textContent = fmt(total);
+    $('cartFloat').classList.toggle('visible', count > 0);
+  }
+
+  function renderCarritoModal() {
+    var items = Object.keys(carrito).filter(function(id) { return carrito[id] > 0; });
+    if (items.length === 0) {
+      $('cartItems').innerHTML = '<p class="muted" style="text-align:center;padding:20px">Tu pedido est\u00e1 vac\u00edo.</p>';
+    } else {
+      $('cartItems').innerHTML = items.map(function(id) {
+        var qty = carrito[id];
+        var p = PLATOS.find(function(x) { return x.id === Number(id); });
+        return '<div class="cart-item"><div class="info"><strong>' + p.nombre + '</strong><small>' + fmt(p.precio) + ' c/u</small></div><div class="qty"><button data-action="dec" data-id="' + p.id + '">\u2212</button><span>' + qty + '</span><button data-action="inc" data-id="' + p.id + '">+</button></div><div class="item-total">' + fmt(p.precio * qty) + '</div></div>';
+      }).join('');
+    }
+    $('cartModalTotal').textContent = fmt(totalCarrito());
+  }
+
+  function enviarWhatsApp() {
+    var items = Object.keys(carrito).filter(function(id) { return carrito[id] > 0; });
+    if (items.length === 0) return;
+    var msg = '\u2615 *PEDIDO \u2014 Barcinales Caf\u00e9-Bar*\n\n';
+    items.forEach(function(id) {
+      var qty = carrito[id];
+      var p = PLATOS.find(function(x) { return x.id === Number(id); });
+      msg += '\u2022 ' + p.nombre + ' x' + qty + ' \u2014 ' + fmt(p.precio * qty) + '\n';
+    });
+    msg += '\n*Total: ' + fmt(totalCarrito()) + ' COP*\n\n\u00BFMe confirman disponibilidad?';
+    window.open('https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(msg), '_blank');
+  }
+
+  document.addEventListener('click', function(e) {
+    var t = e.target.closest('[data-action]');
+    if (t) {
+      var id = Number(t.dataset.id);
+      if (t.dataset.action === 'inc') carrito[id] = (carrito[id] || 0) + 1;
+      if (t.dataset.action === 'dec') { carrito[id] = (carrito[id] || 0) - 1; if (carrito[id] <= 0) delete carrito[id]; }
+      render(); actualizarCarritoFlotante(); renderCarritoModal(); return;
+    }
+    var tab = e.target.closest('.menu-tab[data-cat]');
+    if (tab) {
+      categoria = tab.dataset.cat;
+      document.querySelectorAll('.menu-tab[data-cat]').forEach(function(b) { b.classList.remove('active'); });
+      tab.classList.add('active');
+      render(); return;
+    }
+    var cur = e.target.closest('.currency-switch button');
+    if (cur) {
+      moneda = cur.dataset.cur;
+      document.querySelectorAll('.currency-switch button').forEach(function(b) { b.classList.remove('active'); });
+      cur.classList.add('active');
+      render(); actualizarCarritoFlotante(); renderCarritoModal(); return;
+    }
+  });
+
+  $('menuSearch').addEventListener('input', function(e) { busqueda = e.target.value.toLowerCase().trim(); render(); });
+  $('cartFloat').addEventListener('click', function() { renderCarritoModal(); $('cartModal').classList.add('open'); });
+  $('closeCart').addEventListener('click', function() { $('cartModal').classList.remove('open'); });
+  $('clearCart').addEventListener('click', function() { carrito = {}; render(); actualizarCarritoFlotante(); renderCarritoModal(); });
+  $('sendWhatsApp').addEventListener('click', enviarWhatsApp);
+  $('cartModal').addEventListener('click', function(e) { if (e.target.id === 'cartModal') $('cartModal').classList.remove('open'); });
+
+  render();
+  actualizarCarritoFlotante();
+})();
+</script>
   </body>
 </html>
