@@ -1,4 +1,4 @@
-node_modules/
+﻿node_modules/
 dist/
 .env
 .env.*
@@ -6,3 +6,10 @@ dist/
 .DS_Store
 
 test2026/
+
+# Archivos temporales
+*.txt
+ts_errors_current.txt
+pautas_dirs.txt
+pautas_list.txt
+tools/dbg.cjs
