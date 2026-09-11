@@ -1524,6 +1524,7 @@ function PlaceDetail({ place, currency, onBack, t, onReserveHorseback }: { place
             placeName={place.name}
             whatsapp={place.contact.whatsapp}
             menuHighlights={place.foodServiceDetails.menuHighlights}
+            menuItems={place.foodServiceDetails.menuItems}
             specialties={place.foodServiceDetails.specialties}
             currency={currency}
           />
