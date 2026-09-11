@@ -51,6 +51,7 @@ export type OperatingHours = {
 // Información específica para alojamientos
 export type AccommodationDetails = {
   categoryLabel: string
+  description?: string
   stars?: number
   roomTypes: string[]
   services: string[]
@@ -269,6 +270,8 @@ export type Place = {
   priceRange: PriceRange
   rating: string
   timeInfo: string
+  price: PriceRange // Alias para compatibilidad con código existente
+  time: string // Alias para compatibilidad con código existente
   badge: string
   color: string
   icon: any // Se mantendrá como any por compatibilidad con Lucide React

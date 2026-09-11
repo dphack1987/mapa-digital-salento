@@ -96,12 +96,10 @@ import LandingPageValleCocora from './components/LandingPageValleCocora'
 import LandingPageSalentoSeguro from './components/LandingPageSalentoSeguro'
 import LandingPageHoteles from './components/LandingPageHoteles'
 import LandingPageVias from './components/LandingPageVias'
-import PublicQRGenerator from './components/PublicQRGenerator'
 import currencyService from './services/currencyService'
 import weatherService from './services/weatherService'
 import eventsService from './services/eventsService'
 import hotelQRService from './services/qrHotelService'
-import publicQRService from './services/publicQRService'
 import donationService from './services/donationService'
 import gamificationService from './services/gamificationService'
 
@@ -116,7 +114,6 @@ import supportService from './services/supportService'
 import SupportCenter from './components/SupportCenter'
 import seoLandingService from './services/seoLandingService'
 import DynamicLandingPage from './components/DynamicLandingPage'
-import SEODashboard from './components/SEODashboard'
 import HotelInfoModal from './components/HotelInfoModal'
 import InteractiveMenu from './components/InteractiveMenu'
 import PhotoGallery from './components/PhotoGallery'
@@ -259,10 +256,6 @@ function matchesKeywords(place: Place, keywords: string[]): boolean {
   return keywords.some(keyword => normalized.includes(normalizePlaceText(keyword)))
 }
 
-function countMatchingPlaces(list: Place[], keywords: string[]): number {
-  return list.filter((place) => matchesKeywords(place, keywords)).length
-}
-
 function initializeAllServicesSafely() {
   try { currencyService.initialize() } catch (e: any) { console.warn('[init] currencyService:', e?.message || e) }
   try { weatherService.initialize() } catch (e: any) { console.warn('[init] weatherService:', e?.message || e) }
@@ -342,7 +335,6 @@ function App() {
   const [selectedPlaceForReviews, setSelectedPlaceForReviews] = useState<{ id: string; name: string; type: string } | null>(null)
   const [showSupport, setShowSupport] = useState(false)
   const [showLandingPage, setShowLandingPage] = useState<string | null>(null)
-  const [showDirectOrder, setShowDirectOrder] = useState<string | null>(null)
   const [showHotelModal, setShowHotelModal] = useState(false)
   const [pendingOrderCategory, setPendingOrderCategory] = useState<string | null>(null)
   const [isOffline, setIsOffline] = useState<boolean>(() => {
@@ -360,8 +352,6 @@ function App() {
   const [showLandingPageVias, setShowLandingPageVias] = useState(false)
   const [showAllyVerification, setShowAllyVerification] = useState(false)
   const [showProviderModal, setShowProviderModal] = useState(false)
-  const [showPublicQR, setShowPublicQR] = useState(false)
-  const [selectedCategory, setSelectedCategory] = useState<Category | null>(null)
   const [selectedCategoryPage, setSelectedCategoryPage] = useState<Category | null>(null)
   const [selectedAllyForVerification, setSelectedAllyForVerification] = useState<string | null>(null)
 
@@ -375,7 +365,7 @@ function App() {
           ? `${selectedPlace.name} | Salento a la Mano 2026 - ${cat} direct in Salento, Quindío`
           : `${selectedPlace.name} | Salento a la Mano 2026 - ${cat} directo en Salento, Quindío`
       }
-      const effectiveCategory = selectedCategoryPage || selectedCategory
+      const effectiveCategory = selectedCategoryPage
       if (effectiveCategory && effectiveCategory !== 'Todo') {
         return isEnglish
           ? `${effectiveCategory} in Salento, Quindío 2026 | Salento a la Mano`
@@ -385,7 +375,7 @@ function App() {
     } catch (e) {
       return 'Salento a la Mano | Mapa turístico de Salento, Quindío'
     }
-  }, [selectedPlace, selectedCategoryPage, selectedCategory, isEnglish, language])
+  }, [selectedPlace, selectedCategoryPage, isEnglish, language])
 
   const helmetDescription = useMemo(() => {
     try {
@@ -396,7 +386,7 @@ function App() {
           ? `${desc || selectedPlace.name} in Salento, Quindío. ${extras}. Book direct, no intermediaries.`
           : `${desc || selectedPlace.name} en Salento, Quindío. ${extras}. Reserva directa, sin intermediarios.`
       }
-      const effectiveCategory = selectedCategoryPage || selectedCategory
+      const effectiveCategory = selectedCategoryPage
       if (effectiveCategory && effectiveCategory !== 'Todo') {
         return isEnglish
           ? `Find and book the best ${effectiveCategory.toLowerCase()} in Salento, Quindío 2026. Verified local providers, direct contact, Valle de Cocora, coffee tours, horseback riding and jeeps Willys.`
@@ -406,13 +396,13 @@ function App() {
     } catch (e) {
       return 'Mapa turístico interactivo de Salento, Quindío. Alojamientos, gastronomía, experiencias y comercio local verificados.'
     }
-  }, [selectedPlace, selectedCategoryPage, selectedCategory, isEnglish, language])
+  }, [selectedPlace, selectedCategoryPage, isEnglish, language])
 
   // Función para manejar acciones del modal de pautantes
   const handleProviderAction = (providerId: number, action: 'reserve' | 'order' | 'contact') => {
     const provider = places.find(p => p.id === providerId)
     if (!provider) return
-    if (!isValidWhatsAppCO(provider.contact.whatsapp)) {
+    if (!isValidWhatsAppCO(provider?.contact?.whatsapp)) {
       console.warn(`[App][whatsapp] número inválido para ${provider.name}:`, provider.contact.whatsapp)
     }
 
@@ -859,7 +849,6 @@ function App() {
                 <PlaceCard
                   key={place.id}
                   place={adaptPlaceForCompatibility(place)}
-                  currency={currency}
                   onAdd={addToCart}
                   onOpen={() => window.location.assign(`/paginas-pautantes/${providerSlug(place.name)}/`)}
                   onReviews={() => { setShowReviews(String(place.id)); setSelectedPlaceForReviews({ id: String(place.id), name: place.name, type: place.type }) }}
@@ -875,7 +864,7 @@ function App() {
           <div className="loading-container">
             <div className="loading-spinner">{t('loading')}</div>
           </div>
-        ) : selectedPlace ? <PlaceDetail place={selectedPlace} currency={currency} onBack={() => setSelectedPlace(null)} language={language} t={t} onReserveHorseback={() => setShowHorsebackRiding(true)} /> : (
+        ) : selectedPlace ? <PlaceDetail place={selectedPlace} currency={currency} onBack={() => setSelectedPlace(null)} t={t} onReserveHorseback={() => setShowHorsebackRiding(true)} /> : (
           <>
         <section className="mobile-dashboard" id="servicios">
           <div className="services-grid">
@@ -1075,7 +1064,7 @@ function App() {
           </div>
           <div className="directory-intro"><span><MapPin size={16} /> Directorio local</span><small>{filteredPlaces.length} lugares para descubrir</small></div>
           <div className="place-grid">
-            {filteredPlaces.map((place) => <PlaceCard key={place.id} place={adaptPlaceForCompatibility(place)} currency={currency} onAdd={addToCart} onOpen={() => window.location.assign(`/paginas-pautantes/${providerSlug(place.name)}/`)} onReviews={() => { setShowReviews(String(place.id)); setSelectedPlaceForReviews({ id: String(place.id), name: place.name, type: place.type }) }} />)}
+            {filteredPlaces.map((place) => <PlaceCard key={place.id} place={adaptPlaceForCompatibility(place)} onAdd={addToCart} onOpen={() => window.location.assign(`/paginas-pautantes/${providerSlug(place.name)}/`)} onReviews={() => { setShowReviews(String(place.id)); setSelectedPlaceForReviews({ id: String(place.id), name: place.name, type: place.type }) }} />)}
             {filteredPlaces.length === 0 && <div className="empty-state">No encontramos ese plan todavía. Prueba con “café”, “artesanía” o “trucha”.</div>}
           </div>
         </section>
@@ -1162,11 +1151,11 @@ function App() {
       {showLandingPageSalentoSeguro && <LandingPageSalentoSeguro onClose={() => setShowLandingPageSalentoSeguro(false)} />}
       {showLandingPageHoteles && <LandingPageHoteles onClose={() => setShowLandingPageHoteles(false)} />}
       {showLandingPageVias && <LandingPageVias onClose={() => setShowLandingPageVias(false)} />}
-      {showProviderModal && selectedCategory && (
+      {showProviderModal && selectedCategoryPage && (
         <ProviderSelectionModal
           isOpen={showProviderModal}
           onClose={() => setShowProviderModal(false)}
-          category={selectedCategory}
+          category={selectedCategoryPage}
           places={places}
           onDirectOrder={handleProviderAction}
           onProviderSelect={handleProviderSelect}
@@ -1385,7 +1374,7 @@ function DonChucho({ language, t, places, weather, todayEvents }: { language: La
     const message = isEnglish
       ? `Hello! I'm interested in ${place.name}. Can you help me?`
       : `¡Hola! Estoy interesado en ${place.name}. ¿Me pueden ayudar?`
-    const whatsappNumber = place.whatsapp || place.contact?.whatsapp
+    const whatsappNumber = place.contact?.whatsapp
     if (whatsappNumber) {
       const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`
       window.open(whatsappUrl, '_blank')
@@ -1401,7 +1390,7 @@ function categoryToMapType(category: Category) {
   return 'Turístico'
 }
 
-function PlaceCard({ place, currency, onAdd, onOpen, onReviews }: { place: Place; currency: Currency; onAdd: () => void; onOpen: () => void; onReviews?: () => void }) {
+function PlaceCard({ place, onAdd, onOpen, onReviews }: { place: Place; onAdd: () => void; onOpen: () => void; onReviews?: () => void }) {
   const Icon = place.icon
   const stats = reviewsService.getPlaceStats(String(place.id))
   const mapUrl = `https://www.google.com/maps/search/${encodeURIComponent(place.location?.address || `${place.name} Salento`)}`
@@ -1449,34 +1438,34 @@ function PlaceCard({ place, currency, onAdd, onOpen, onReviews }: { place: Place
           </button>
         )}
         <div className="contact-actions">
-          {place.whatsapp && (
+          {place.contact.whatsapp && (
             <a
-              href={`https://wa.me/${place.whatsapp}?text=Hola%20${encodeURIComponent(place.name)}`}
+              href={`https://wa.me/${place.contact.whatsapp}?text=Hola%20${encodeURIComponent(place.name)}`}
               target="_blank"
               rel="noopener noreferrer"
               className="contact-btn whatsapp"
               aria-label={`Contactar ${place.name} por WhatsApp`}
-              onClick={() => analyticsService.trackClick(place.id, 'whatsapp')}
+              onClick={() => analyticsService.trackClick(String(place.id), 'whatsapp')}
             >
               <MessageSquare size={15} />
             </a>
           )}
-          {place.phone && (
+          {place.contact.phone && (
             <a
-              href={`tel:${place.phone}`}
+              href={`tel:${place.contact.phone}`}
               className="contact-btn phone"
               aria-label={`Llamar a ${place.name}`}
-              onClick={() => analyticsService.trackClick(place.id, 'phone')}
+              onClick={() => analyticsService.trackClick(String(place.id), 'phone')}
             >
               <Phone size={15} />
             </a>
           )}
-          {place.email && (
+          {place.contact.email && (
             <a
-              href={`mailto:${place.email}`}
+              href={`mailto:${place.contact.email}`}
               className="contact-btn email"
               aria-label={`Enviar correo a ${place.name}`}
-              onClick={() => analyticsService.trackClick(place.id, 'email')}
+              onClick={() => analyticsService.trackClick(String(place.id), 'email')}
             >
               <Mail size={15} />
             </a>
@@ -1487,8 +1476,7 @@ function PlaceCard({ place, currency, onAdd, onOpen, onReviews }: { place: Place
   )
 }
 
-function PlaceDetail({ place, currency, onBack, language, t, onReserveHorseback }: { place: Place; currency: Currency; onBack: () => void; language: Language; t: (key: string, fallback?: string) => string; onReserveHorseback?: () => void }) {
-  const adaptedPlace = adaptPlaceForCompatibility(place)
+function PlaceDetail({ place, currency, onBack, t, onReserveHorseback }: { place: Place; currency: Currency; onBack: () => void; t: (key: string, fallback?: string) => string; onReserveHorseback?: () => void }) {
   const photos = place.photos ?? []
   return (
     <section className="place-detail" id={`pautante-${place.id}`}>
@@ -1577,9 +1565,6 @@ function Cart({ count, currency, onClose, onAdd, hotels }: { count: number; curr
   const [submitted, setSubmitted] = useState(false)
   const [isOffline, setIsOffline] = useState(!navigator.onLine)
   const [syncStatus, setSyncStatus] = useState<{ pending: number }>({ pending: 0 })
-  const [showDonation, setShowDonation] = useState(false)
-  const [selectedDonation, setSelectedDonation] = useState<number | null>(null)
-  const [donationCause, setDonationCause] = useState<string | null>(null)
 
   // Escuchar cambios de conexión
   useEffect(() => {
