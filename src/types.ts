@@ -65,11 +65,23 @@ export type AccommodationDetails = {
   bookingNotes?: string
 }
 
+// Ítem estructurado del menú (para menú interactivo visual)
+export type MenuItemData = {
+  id: string
+  name: string
+  price: number
+  category: string
+  description?: string
+  isSpecialty?: boolean
+  image?: string
+}
+
 // Información específica para restaurantes/cafés
 export type FoodServiceDetails = {
   cuisineType: string[]
   specialties: string[]
   menuHighlights: string[]
+  menuItems?: MenuItemData[]
   dietaryOptions?: string[]
   averagePrice: string
   reservationRequired?: boolean
