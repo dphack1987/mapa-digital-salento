@@ -129,6 +129,7 @@ import AllyRegistrationForm from './components/AllyRegistrationForm'
 import AllyVerification from './components/AllyVerification'
 import notificationsService from './services/notifications.service'
 import ProviderSelectionModal from './components/ProviderSelectionModal'
+import FeatureCards from './components/FeatureCards'
 
 // Mapeo de iconos para compatibilidad con estructura JSON
 const iconMap: Record<string, any> = {
@@ -1016,6 +1017,8 @@ function App() {
           </div>
         </section>
 
+          <FeatureCards />
+
           <div className="official-info-section">
             <h3>🛡️ Información Oficial</h3>
             <p>Reportes actualizados del estado de Salento</p>
@@ -1519,6 +1522,7 @@ function PlaceDetail({ place, currency, onBack, t, onReserveHorseback }: { place
         <InfoList title="Horarios y políticas" items={place.accommodationDetails.policies ?? []} />
       </div>}
       {place.foodServiceDetails && <div className="detail-sections">
+        <FeatureCards compact />
         {place.foodServiceDetails.menuHighlights && place.foodServiceDetails.menuHighlights.length > 0 && (
           <InteractiveMenu
             placeName={place.name}
