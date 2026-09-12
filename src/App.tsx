@@ -110,7 +110,7 @@ import localBacklinksService from './services/localBacklinks.service'
 import allyRegistrationService from './services/allyRegistration.service'
 import notificationsService from './services/notifications.service'
 
-// Lazy loading de componentes pesados para optimizar bundle inicial
+// Lazy loaded components - optimización de bundle
 const InternationalMarketsDisplay = lazy(() => import('./components/InternationalMarketsDisplay'))
 const LandingPageEstadoActual = lazy(() => import('./components/LandingPageEstadoActual'))
 const LandingPageValleCocora = lazy(() => import('./components/LandingPageValleCocora'))
@@ -133,7 +133,6 @@ const AllyVerification = lazy(() => import('./components/AllyVerification'))
 const ProviderSelectionModal = lazy(() => import('./components/ProviderSelectionModal'))
 const FeatureCards = lazy(() => import('./components/FeatureCards'))
 
-// Componente de carga para Suspense
 function LoadingFallback() {
   return (
     <div className="loading-fallback">
@@ -1028,7 +1027,9 @@ function App() {
           </div>
         </section>
 
-          <FeatureCards />
+          <Suspense fallback={<LoadingFallback />}>
+            <FeatureCards />
+          </Suspense>
 
           <div className="official-info-section">
             <h3>🛡️ Información Oficial</h3>
@@ -1094,23 +1095,26 @@ function App() {
           <div className="photo-strip-intro"><p className="eyebrow">Postales del territorio</p><h2>Salento se<br /><i>camina despacio.</i></h2></div>
           <Suspense fallback={<LoadingFallback />}>
             <PhotoGallery
-            label="Paisajes de Salento"
-            photos={[
-              { src: '/salento/1326163558.webp', alt: 'Tejados tradicionales de Salento' },
-              { src: '/salento/1326163759.webp', alt: 'Monumento entre palmas en Salento' },
-              { src: '/salento/631026720.webp', alt: 'Calle colorida de Salento' },
-              { src: '/salento/631032744.webp', alt: 'Iglesia y plaza de Salento' },
-              { src: '/salento/653410779.webp', alt: 'Palmas de cera en el Valle de Cocora' },
-            ]}
-          />
+              label="Paisajes de Salento"
+              photos={[
+                { src: '/salento/1326163558.webp', alt: 'Tejados tradicionales de Salento' },
+                { src: '/salento/1326163759.webp', alt: 'Monumento entre palmas en Salento' },
+                { src: '/salento/631026720.webp', alt: 'Calle colorida de Salento' },
+                { src: '/salento/631032744.webp', alt: 'Iglesia y plaza de Salento' },
+                { src: '/salento/653410779.webp', alt: 'Palmas de cera en el Valle de Cocora' },
+              ]}
+            />
+          </Suspense>
         </section>
 
         <section className="image-inventory-section" aria-label="Galería de imágenes de Salento">
           <div className="section-heading"><div><p className="eyebrow">Imágenes del territorio</p><h2>Salento en<br /><i>cada detalle.</i></h2></div><small>Destino, cultura y sabores locales</small></div>
-          <PhotoGallery
-            label="Galería de imágenes de Salento"
-            photos={salentoImageGallery.map(([file, alt]) => ({ src: `/imagenes-salento/${encodeURIComponent(file)}`, alt }))}
-          />
+          <Suspense fallback={<LoadingFallback />}>
+            <PhotoGallery
+              label="Galería de imágenes de Salento"
+              photos={salentoImageGallery.map(([file, alt]) => ({ src: `/imagenes-salento/${encodeURIComponent(file)}`, alt }))}
+            />
+          </Suspense>
         </section>
 
         <section className="map-section" id="mapa">
@@ -1142,75 +1146,55 @@ function App() {
         </div>
       </footer>
       {showCart && <Cart count={cartCount} currency={currency} onClose={() => setShowCart(false)} onAdd={addToCart} hotels={hotels} />}
-      {showNotifications && (
-        <Suspense fallback={<LoadingFallback />}>
-          <NotificationsPanel onClose={() => setShowNotifications(false)} />
-        </Suspense>
-      )}
-      {showHorsebackRiding && (
-        <Suspense fallback={<LoadingFallback />}>
-          <HorsebackRiding onClose={() => setShowHorsebackRiding(false)} language={language as 'es' | 'en'} />
-        </Suspense>
-      )}
-      {showReviews && selectedPlaceForReviews && (
-        <Suspense fallback={<LoadingFallback />}>
-          <Reviews placeId={showReviews} placeName={selectedPlaceForReviews.name} placeType={selectedPlaceForReviews.type} onClose={() => setShowReviews(null)} language={language as 'es' | 'en'} />
-        </Suspense>
-      )}
-      {showSupport && (
-        <Suspense fallback={<LoadingFallback />}>
-          <SupportCenter onClose={() => setShowSupport(false)} language={language as 'es' | 'en'} />
-        </Suspense>
-      )}
-      {showLandingPage && (
-        <Suspense fallback={<LoadingFallback />}>
-          <DynamicLandingPage slug={showLandingPage} onClose={() => setShowLandingPage(null)} />
-        </Suspense>
-      )}
-      {showHotelModal && (
-        <Suspense fallback={<LoadingFallback />}>
+      <Suspense fallback={<LoadingFallback />}>
+        {showNotifications && <NotificationsPanel onClose={() => setShowNotifications(false)} />}
+        {showHorsebackRiding && <HorsebackRiding onClose={() => setShowHorsebackRiding(false)} language={language as 'es' | 'en'} />}
+        {showReviews && selectedPlaceForReviews && <Reviews placeId={showReviews} placeName={selectedPlaceForReviews.name} placeType={selectedPlaceForReviews.type} onClose={() => setShowReviews(null)} language={language as 'es' | 'en'} />}
+        {showSupport && <SupportCenter onClose={() => setShowSupport(false)} language={language as 'es' | 'en'} />}
+        {showLandingPage && <DynamicLandingPage slug={showLandingPage} onClose={() => setShowLandingPage(null)} />}
+        {showHotelModal && (
           <HotelInfoModal 
-          isOpen={showHotelModal}
-          onClose={() => setShowHotelModal(false)}
-          onSubmit={handleHotelInfoSubmit}
-          hotels={hotels}
-          language={language as 'es' | 'en'}
+            isOpen={showHotelModal}
+            onClose={() => setShowHotelModal(false)}
+            onSubmit={handleHotelInfoSubmit}
+            hotels={hotels}
+            language={language as 'es' | 'en'}
+          />
+        )}
+        {showQRShare && <QRShare onClose={() => setShowQRShare(false)} />}
+        {showDefensiveSEODashboard && <DefensiveSEODashboard onClose={() => setShowDefensiveSEODashboard(false)} />}
+        {showAllyBacklinksDashboard && <AllyBacklinksDashboard onClose={() => setShowAllyBacklinksDashboard(false)} />}
+        {showAllyRegistrationForm && <AllyRegistrationForm onClose={() => setShowAllyRegistrationForm(false)} />}
+        {showInternationalMarkets && <InternationalMarketsDisplay onClose={() => setShowInternationalMarkets(false)} />}
+        {showLandingPageEstadoActual && <LandingPageEstadoActual onClose={() => setShowLandingPageEstadoActual(false)} />}
+        {showLandingPageValleCocora && <LandingPageValleCocora onClose={() => setShowLandingPageValleCocora(false)} />}
+        {showLandingPageSalentoSeguro && <LandingPageSalentoSeguro onClose={() => setShowLandingPageSalentoSeguro(false)} />}
+        {showLandingPageHoteles && <LandingPageHoteles onClose={() => setShowLandingPageHoteles(false)} />}
+        {showLandingPageVias && <LandingPageVias onClose={() => setShowLandingPageVias(false)} />}
+        {showProviderModal && selectedCategoryPage && (
+          <ProviderSelectionModal
+            isOpen={showProviderModal}
+            onClose={() => setShowProviderModal(false)}
+            category={selectedCategoryPage}
+            places={places}
+            onDirectOrder={handleProviderAction}
+            onProviderSelect={handleProviderSelect}
+            language={language as 'es' | 'en'}
+          />
+        )}
+        {showAllyVerification && selectedAllyForVerification && (
+          <AllyVerification 
+            allyId={selectedAllyForVerification} 
+            onClose={() => {
+              setShowAllyVerification(false)
+              setSelectedAllyForVerification(null)
+            }}
+            onVerified={(allyId) => {
+              console.log('Aliado verificado:', allyId)
+            }}
         />
       )}
-      {showQRShare && <QRShare onClose={() => setShowQRShare(false)} />}
-      {showDefensiveSEODashboard && <DefensiveSEODashboard onClose={() => setShowDefensiveSEODashboard(false)} />}
-      {showAllyBacklinksDashboard && <AllyBacklinksDashboard onClose={() => setShowAllyBacklinksDashboard(false)} />}
-      {showAllyRegistrationForm && <AllyRegistrationForm onClose={() => setShowAllyRegistrationForm(false)} />}
-      {showInternationalMarkets && <InternationalMarketsDisplay onClose={() => setShowInternationalMarkets(false)} />}
-      {showLandingPageEstadoActual && <LandingPageEstadoActual onClose={() => setShowLandingPageEstadoActual(false)} />}
-      {showLandingPageValleCocora && <LandingPageValleCocora onClose={() => setShowLandingPageValleCocora(false)} />}
-      {showLandingPageSalentoSeguro && <LandingPageSalentoSeguro onClose={() => setShowLandingPageSalentoSeguro(false)} />}
-      {showLandingPageHoteles && <LandingPageHoteles onClose={() => setShowLandingPageHoteles(false)} />}
-      {showLandingPageVias && <LandingPageVias onClose={() => setShowLandingPageVias(false)} />}
-      {showProviderModal && selectedCategoryPage && (
-        <ProviderSelectionModal
-          isOpen={showProviderModal}
-          onClose={() => setShowProviderModal(false)}
-          category={selectedCategoryPage}
-          places={places}
-          onDirectOrder={handleProviderAction}
-          onProviderSelect={handleProviderSelect}
-          language={language as 'es' | 'en'}
-        />
-      )}
-      {showAllyVerification && selectedAllyForVerification && (
-        <AllyVerification 
-          allyId={selectedAllyForVerification} 
-          onClose={() => {
-            setShowAllyVerification(false)
-            setSelectedAllyForVerification(null)
-          }}
-          onVerified={(allyId) => {
-            // Actualizar el dashboard de backlinks después de verificación
-            console.log('Aliado verificado:', allyId)
-          }}
-        />
-      )}
+      </Suspense>
       <div className="floating-nav-toolbar" aria-label="Navegación rápida">
         <button className="floating-nav-button" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} aria-label="Subir arriba">
           <ArrowUp size={14} />
@@ -1524,7 +1508,7 @@ function PlaceDetail({ place, currency, onBack, t, onReserveHorseback }: { place
         <div><p className="eyebrow"><span /> {place.verified ? t('detail.verifiedFile') : 'Ficha del lugar'}</p><h1>{place.name}</h1><p>{place.accommodationDetails?.categoryLabel ?? place.foodServiceDetails?.cuisineType?.join(', ') ?? place.type}</p></div>
         <span className="detail-rating"><Star size={15} fill="currentColor" /> {place.rating}</span>
       </div>
-      {photos.length > 0 && <PhotoGallery label={`Fotos de ${place.name}`} photos={photos.map((photo, index) => ({ src: photo, alt: `${place.name}, foto ${index + 1}` }))} />}
+      {photos.length > 0 && <Suspense fallback={<LoadingFallback />}><PhotoGallery label={`Fotos de ${place.name}`} photos={photos.map((photo, index) => ({ src: photo, alt: `${place.name}, foto ${index + 1}` }))} /></Suspense>}
       <div className="detail-content">
         <div>
           <p className="eyebrow">Información</p><h2>{t('detail.knowPlace')}</h2>
@@ -1555,17 +1539,19 @@ function PlaceDetail({ place, currency, onBack, t, onReserveHorseback }: { place
         <InfoList title="Horarios y políticas" items={place.accommodationDetails.policies ?? []} />
       </div>}
       {place.foodServiceDetails && <div className="detail-sections">
-        <FeatureCards compact />
-        {place.foodServiceDetails.menuHighlights && place.foodServiceDetails.menuHighlights.length > 0 && (
-          <InteractiveMenu
-            placeName={place.name}
-            whatsapp={place.contact.whatsapp}
-            menuHighlights={place.foodServiceDetails.menuHighlights}
-            menuItems={place.foodServiceDetails.menuItems}
-            specialties={place.foodServiceDetails.specialties}
-            currency={currency}
-          />
-        )}
+        <Suspense fallback={<LoadingFallback />}>
+          <FeatureCards compact />
+          {place.foodServiceDetails.menuHighlights && place.foodServiceDetails.menuHighlights.length > 0 && (
+            <InteractiveMenu
+              placeName={place.name}
+              whatsapp={place.contact.whatsapp}
+              menuHighlights={place.foodServiceDetails.menuHighlights}
+              menuItems={place.foodServiceDetails.menuItems}
+              specialties={place.foodServiceDetails.specialties}
+              currency={currency}
+            />
+          )}
+        </Suspense>
         <InfoList title="Especialidades" items={place.foodServiceDetails.specialties ?? []} />
         <InfoList title="Tipo de cocina" items={place.foodServiceDetails.cuisineType ?? []} />
       </div>}

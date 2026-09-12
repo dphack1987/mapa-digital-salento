@@ -3,52 +3,56 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  base: '/', // Rutas absolutas para GitHub Pages con dominio personalizado
+  base: '/',
   build: {
     outDir: 'dist',
-    copyPublicDir: true, // Asegurar que public se copie
-    chunkSizeWarningLimit: 500, // Optimizado para Core Web Vitals
-    minify: 'terser', // Minificación más agresiva
-    sourcemap: false, // Desactivar sourcemaps en producción
+    copyPublicDir: true,
+    chunkSizeWarningLimit: 400,
+    minify: 'terser',
+    sourcemap: false,
     rollupOptions: {
       output: {
         manualChunks(id) {
-          // Chunking simplificado para evitar circular dependencies
           if (id.includes('node_modules')) {
-            if (id.includes('leaflet')) {
+            if (id.includes('react-dom') || id.includes('react/')) {
+              return 'react-core'
+            }
+            if (id.includes('react-helmet')) {
+              return 'seo-vendor'
+            }
+            if (id.includes('leaflet') || id.includes('react-leaflet')) {
               return 'leaflet-vendor'
             }
-            if (id.includes('react') || id.includes('react-dom')) {
-              return 'react-vendor'
+            if (id.includes('lucide-react')) {
+              return 'icons-vendor'
             }
-            if (id.includes('lucide')) {
-              return 'ui-vendor'
+            if (id.includes('qrcode')) {
+              return 'qr-vendor'
             }
-            // Todo lo demás va a un solo vendor chunk
             return 'vendor'
           }
+          if (id.includes('/services/')) {
+            return 'services'
+          }
+          if (id.includes('/components/')) {
+            return 'components'
+          }
         },
-        // Optimizar nombres de chunks para caching
         chunkFileNames: 'assets/[name]-[hash].js',
         entryFileNames: 'assets/[name]-[hash].js',
         assetFileNames: 'assets/[name]-[hash].[ext]'
       }
     },
-    // Optimización de target para navegadores modernos
     target: 'esnext',
-    // Habilitar CSS code splitting
     cssCodeSplit: true,
-    // Compresión adicional
     reportCompressedSize: true,
-    // Optimización de assets
-    assetsInlineLimit: 4096 // Inline assets pequeños
+    assetsInlineLimit: 4096
   },
   publicDir: 'public',
   server: {
     port: 3000,
     host: true
   },
-  // Optimizaciones de dependencias
   optimizeDeps: {
     include: ['react', 'react-dom', 'leaflet', 'lucide-react', 'qrcode'],
     force: false
