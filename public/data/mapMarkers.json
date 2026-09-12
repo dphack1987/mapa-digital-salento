@@ -277,30 +277,6 @@
       "note": "Mirador del Cóndor (Salento)"
     },
     {
-      "id": 106,
-      "label": "Parque Principal de Salento",
-      "type": "Turístico",
-      "placeId": 106,
-      "coord": [
-        4.6382,
-        -75.566
-      ],
-      "tone": "success",
-      "note": "Parque Principal de Salento"
-    },
-    {
-      "id": 107,
-      "label": "Caminata Ecológica Calle Real — Alto de la Cruz",
-      "type": "Turístico",
-      "placeId": 107,
-      "coord": [
-        4.638,
-        -75.568
-      ],
-      "tone": "success",
-      "note": "Caminata Ecológica Calle Real — Alto de la Cruz"
-    },
-    {
       "id": 108,
       "label": "Puente de Boquía (Sendero Cercano)",
       "type": "Turístico",
