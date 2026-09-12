@@ -8,9 +8,6 @@ import defensiveSEOGService from '../services/defensiveSEOG.service'
 import internationalSEOService from '../services/internationalSEO.service'
 import internationalKeywordsService from '../services/internationalKeywords.service'
 import backlinkStrategyService from '../services/backlinkStrategy.service'
-import GoogleVerificationModal from './GoogleVerificationModal'
-import SearchEngineIndexingModal from './SearchEngineIndexingModal'
-import RealWorldSearchEnginesModal from './RealWorldSearchEnginesModal'
 import BaiduVerificationModal from './BaiduVerificationModal'
 import YandexVerificationModal from './YandexVerificationModal'
 
@@ -34,9 +31,9 @@ const DefensiveSEODashboard: React.FC<DefensiveSEODashboardProps> = ({ onClose }
   const [backlinkSources, setBacklinkSources] = useState<any[]>([])
   const [backlinkStats, setBacklinkStats] = useState<any>(null)
   const [contentLocalization, setContentLocalization] = useState<any[]>([])
-  const [showGoogleVerification, setShowGoogleVerification] = useState(false)
-  const [showSearchEngineIndexing, setShowSearchEngineIndexing] = useState(false)
-  const [showRealWorldEngines, setShowRealWorldEngines] = useState(false)
+  
+  
+  
   const [showBaiduVerification, setShowBaiduVerification] = useState(false)
   const [showYandexVerification, setShowYandexVerification] = useState(false)
   const targetDomain = 'https://salentoalamano.com'
@@ -216,7 +213,7 @@ const DefensiveSEODashboard: React.FC<DefensiveSEODashboardProps> = ({ onClose }
           </div>
         </div>
         <div className="header-actions">
-          <button className="google-verification-button" onClick={() => setShowGoogleVerification(true)}>
+          <button className="google-verification-button" onClick={() => {}}>
             <Chrome size={18} />
             Verificar en Google
           </button>
@@ -774,7 +771,7 @@ const DefensiveSEODashboard: React.FC<DefensiveSEODashboardProps> = ({ onClose }
                   <h4>Indexación Múltiple</h4>
                 </div>
                 <p className="card-description">Configurar indexación en Google, Bing, DuckDuckGo, Yahoo, Baidu y Yandex.</p>
-                <button className="download-button" onClick={() => setShowSearchEngineIndexing(true)}>
+                <button className="download-button" onClick={() => {}}>
                   <Globe size={16} />
                   Configurar Motores de Búsqueda
                 </button>
@@ -852,27 +849,6 @@ const DefensiveSEODashboard: React.FC<DefensiveSEODashboardProps> = ({ onClose }
           Este plan neutraliza desinformación mediante autoridad técnica y datos oficiales verificables.
         </p>
       </div>
-
-      {showGoogleVerification && (
-        <GoogleVerificationModal
-          isOpen={showGoogleVerification}
-          onClose={() => setShowGoogleVerification(false)}
-        />
-      )}
-
-      {showSearchEngineIndexing && (
-        <SearchEngineIndexingModal
-          isOpen={showSearchEngineIndexing}
-          onClose={() => setShowSearchEngineIndexing(false)}
-        />
-      )}
-
-      {showRealWorldEngines && (
-        <RealWorldSearchEnginesModal
-          isOpen={showRealWorldEngines}
-          onClose={() => setShowRealWorldEngines(false)}
-        />
-      )}
 
       {showBaiduVerification && (
         <BaiduVerificationModal
