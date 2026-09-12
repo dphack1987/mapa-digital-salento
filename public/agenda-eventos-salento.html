@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Agenda de eventos, festivales y actividades culturales en Salento, Quindío. Festivales de trucha, ferias de café, música en vivo, cabalgatas y más. Eventos verificados 2026." />
+    <title>Agenda de Eventos en Salento 2026 | Salento a la Mano</title>
+    <link rel="canonical" href="https://www.salentoalamano.com/agenda-eventos-salento" />
+    <link rel="stylesheet" href="/pautante-theme.css" />
+    <link rel="stylesheet" href="/page-theme.css" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://www.salentoalamano.com/"},{"@type":"ListItem","position":2,"name":"Agenda de Eventos","item":"https://www.salentoalamano.com/agenda-eventos-salento"}]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Agenda de Eventos en Salento 2026","description":"Calendario completo de eventos, festivales y actividades culturales en Salento, Quindío.","url":"https://www.salentoalamano.com/agenda-eventos-salento","inLanguage":"es-CO","isPartOf":{"@type":"WebSite","name":"Salento a la Mano","url":"https://www.salentoalamano.com/"}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"ItemList","name":"Eventos en Salento 2026","itemListElement":[{"@type":"Event","name":"Festival de la Trucha 2026","startDate":"2026-09-10","endDate":"2026-09-20","location":{"@type":"Place","name":"Plaza Bolívar, Salento","address":{"@type":"PostalAddress","addressLocality":"Salento","addressRegion":"Quindío","addressCountry":"CO"}},"description":"40 restaurantes presentan preparaciones de trucha","organizer":{"@type":"Organization","name":"Cámara de Comercio del Quindío"}},{"@type":"Event","name":"Feria del Café Especial","startDate":"2026-10-03","location":{"@type":"Place","name":"Plaza de Bolívar, Salento"},"description":"Productores locales presentan cafés de origen único del Quindío"},{"@type":"Event","name":"Festival de Artesanías del Quindío","startDate":"2026-10-11","location":{"@type":"Place","name":"Calle Real, Salento"},"description":"80 artesanos con tapetes de palma de cera, sombreros vueltiao y cerámica"},{"@type":"Event","name":"Mercado Navideño Artesanal","startDate":"2026-12-12","location":{"@type":"Place","name":"Parque Municipal, Salento"},"description":"60 artesanos locales con decoraciones, dulces típicos y villancicos"}]}</script>
+    <style>
+      .agenda-hero { background: linear-gradient(135deg, rgba(61,122,71,.88), rgba(30,70,38,.92)), url('/imagenes-salento/01_paisaje_salento.jpg') center/cover; min-height: 320px; display: flex; align-items: flex-end; padding: 40px 34px; border-radius: 24px; margin-bottom: 24px; color: #fff; }
+      .agenda-hero .eyebrow { color: #e8bb58; }
+      .agenda-hero h1 { color: #fff; font-size: clamp(2rem, 4vw, 3.2rem); margin: 8px 0 12px; }
+      .agenda-hero p { color: rgba(255,255,255,.85); max-width: 600px; line-height: 1.6; }
+
+      .month-tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+      .month-tab { padding: 10px 18px; border: 1px solid var(--line); border-radius: 999px; background: var(--white); font-weight: 700; font-size: 13px; cursor: pointer; font-family: inherit; color: var(--muted); transition: all .2s; }
+      .month-tab:hover { border-color: var(--coral); color: var(--ink); }
+      .month-tab.active { background: var(--ink); border-color: var(--ink); color: #fff; }
+      .month-tab .count { display: inline-block; margin-left: 6px; opacity: .6; font-size: 11px; }
+
+      .cat-tabs { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 24px; }
+      .cat-tab { padding: 7px 14px; border: 1px solid var(--line); border-radius: 999px; background: var(--white); font-weight: 600; font-size: 12px; cursor: pointer; font-family: inherit; color: var(--muted); transition: all .2s; }
+      .cat-tab:hover { border-color: var(--coral); }
+      .cat-tab.active { background: var(--coral); border-color: var(--coral); color: #fff; }
+
+      .agenda-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 18px; margin-bottom: 32px; }
+
+      .agenda-card { background: var(--white); border: 1px solid var(--line); border-radius: 16px; overflow: hidden; display: flex; flex-direction: column; transition: all .25s; }
+      .agenda-card:hover { border-color: var(--coral); transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,.08); }
+      .agenda-card-header { padding: 20px 20px 14px; display: flex; align-items: flex-start; gap: 14px; }
+      .agenda-card-emoji { width: 52px; height: 52px; border-radius: 14px; display: grid; place-items: center; font-size: 26px; flex-shrink: 0; }
+      .agenda-card-emoji.food { background: linear-gradient(135deg, #fde8d8, #f5c9a8); }
+      .agenda-card-emoji.music { background: linear-gradient(135deg, #e0d4f5, #c5b3e8); }
+      .agenda-card-emoji.culture { background: linear-gradient(135deg, #d8ecf5, #a8cfe8); }
+      .agenda-card-emoji.nature { background: linear-gradient(135deg, #d8f5e0, #a8e8bc); }
+      .agenda-card-emoji.crafts { background: linear-gradient(135deg, #f5ecd8, #e8d8a8); }
+      .agenda-card-emoji.community { background: linear-gradient(135deg, #f5d8ec, #e8a8c5); }
+      .agenda-card-title-group { flex: 1; }
+      .agenda-card .cat-label { display: inline-block; padding: 3px 8px; border-radius: 999px; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; margin-bottom: 4px; }
+      .agenda-card .cat-label.food { background: #fde8d8; color: #b8652e; }
+      .agenda-card .cat-label.music { background: #e0d4f5; color: #6b4fa0; }
+      .agenda-card .cat-label.culture { background: #d8ecf5; color: #3a7ca5; }
+      .agenda-card .cat-label.nature { background: #d8f5e0; color: #3a8a5c; }
+      .agenda-card .cat-label.crafts { background: #f5ecd8; color: #8a7a3a; }
+      .agenda-card .cat-label.community { background: #f5d8ec; color: #8a3a6b; }
+      .agenda-card h3 { margin: 0; font: 600 1.05rem/1.3 Fraunces; color: var(--ink); }
+      .agenda-card-body { padding: 0 20px 16px; flex: 1; display: flex; flex-direction: column; }
+      .agenda-card .desc { color: var(--muted); font-size: 13px; line-height: 1.5; margin: 8px 0 12px; flex: 1; }
+      .agenda-card-meta { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
+      .agenda-card-meta span { display: inline-flex; align-items: center; gap: 4px; padding: 4px 10px; border-radius: 6px; background: #f3ead6; font: 11px 'DM Mono'; color: var(--ink); }
+      .agenda-card-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 12px; }
+      .agenda-card-tags span { padding: 4px 10px; border-radius: 999px; background: rgba(61,122,71,.08); font: 10px 'DM Mono'; color: #3d7a47; }
+      .agenda-card-footer { border-top: 1px solid var(--line); padding: 12px 20px; display: flex; justify-content: space-between; align-items: center; }
+      .agenda-card-footer .organizer { font: 11px 'DM Mono'; color: var(--muted); }
+      .agenda-card-footer .price { font-weight: 700; font-size: 13px; color: var(--coral); }
+      .agenda-card-footer .price.free { color: #3d7a47; }
+
+      .agenda-empty { text-align: center; padding: 48px 20px; color: var(--muted); }
+      .agenda-empty span { font-size: 48px; display: block; margin-bottom: 12px; }
+
+      .agenda-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; margin-bottom: 28px; }
+      .agenda-stat { padding: 16px; background: var(--white); border: 1px solid var(--line); border-radius: 12px; text-align: center; }
+      .agenda-stat .number { font: 700 2rem Fraunces; color: var(--coral); }
+      .agenda-stat .label { font-size: 12px; color: var(--muted); margin-top: 4px; }
+
+      @media (max-width: 800px) {
+        .agenda-hero { min-height: 240px; padding: 24px 20px; border-radius: 16px; }
+        .agenda-grid { grid-template-columns: 1fr; }
+        .agenda-stats { grid-template-columns: repeat(2, 1fr); }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="container">
+      <header class="topbar">
+        <a class="brand" href="/">
+          <img src="/logo_salento2026.png" alt="Salento a la Mano" class="brand-logo" />
+          <span>Salento a la Mano</span>
+        </a>
+        <nav class="top-actions">
+          <a class="button" href="/">Inicio</a>
+          <a class="button" href="/categorias/">Categorías</a>
+        </nav>
+      </header>
+
+      <section class="agenda-hero">
+        <div>
+          <div class="eyebrow">Agenda cultural · Salento 2026</div>
+          <h1>Eventos en Salento</h1>
+          <p>Festivales, ferias, música en vivo, cabalgatas y celebraciones tradicionales. Calendario actualizado de todo lo que pasa en el municipio más bonito del Eje Cafetero.</p>
+        </div>
+      </section>
+
+      <div class="agenda-stats" id="agendaStats"></div>
+
+      <div class="section" style="margin-top:0">
+        <h2>Calendario de eventos</h2>
+        <p class="muted" style="margin-top:-8px;margin-bottom:16px">Filtra por mes o categoría para encontrar tu próximo plan en Salento.</p>
+
+        <div class="month-tabs" id="monthTabs"></div>
+        <div class="cat-tabs" id="catTabs"></div>
+        <div class="agenda-grid" id="agendaGrid"></div>
+        <div class="agenda-empty" id="agendaEmpty" style="display:none">
+          <span>📅</span>
+          No hay eventos programados para esta selección.
+        </div>
+      </div>
+
+      <section class="section">
+        <h2>Preguntas frecuentes sobre eventos en Salento</h2>
+        <details class="faq-item">
+          <summary>¿Cuándo es el Festival de la Trucha?</summary>
+          <p>El Festival de la Trucha se realiza típicamente en septiembre. En 2026 es del 10 al 20 de septiembre, con 40 restaurantes participantes y platos desde $28.000 COP.</p>
+        </details>
+        <details class="faq-item">
+          <summary>¿Hay eventos gratuitos en Salento?</summary>
+          <p>Sí, la mayoría de eventos culturales son gratuitos: Coroteo Campesino, Rajaleña, Festival de Artesanías, Mercado Navideño y más. Solo algunos conciertos y ferias especializadas tienen costo.</p>
+        </details>
+        <details class="faq-item">
+          <summary>¿Cómo me entero de los eventos actuales?</summary>
+          <p>Consulta esta agenda regularmente o sigue a Salento a la Mano en redes sociales. También puedes preguntarle a Don Chucho, nuestro asistente turístico virtual.</p>
+        </details>
+        <details class="faq-item">
+          <summary>¿Puedo asistir a los eventos con niños?</summary>
+          <p>Sí, la mayoría de eventos en Salento son familiares. Festivales gastronómicos, ferias artesanales y celebraciones comunitarias son ideales para toda la familia.</p>
+        </details>
+        <details class="faq-item">
+          <summary>¿Hay eventos en inglés?</summary>
+          <p>Algunos eventos incluyen información en inglés, especialmente los de mayor afluencia turística como el Festival de la Trucha y las cabalgatas al Valle de Cocora.</p>
+        </details>
+      </section>
+
+      <section class="section">
+        <h2>Qué hacer cerca de los eventos</h2>
+        <div class="nearby-grid">
+          <div class="nearby-item"><strong>Plaza de Bolívar</strong><span>Centro de la mayoría de eventos. Rodeada de restaurantes y tiendas.</span></div>
+          <div class="nearby-item"><strong>Calle Real</strong><span>Artesanías, cafés y restaurantes a pasos de los eventos.</span></div>
+          <div class="nearby-item"><strong>Valle de Cocora</strong><span>A 20 min en jeep. Cabalgatas y senderismo entre palmas de cera.</span></div>
+          <div class="nearby-item"><strong>Parque Nacional del Café</strong><span>A 30 min en carro. Festivales musicales y atracciones.</span></div>
+        </div>
+      </section>
+
+      <section class="section" style="background:#f3ead6;border:none">
+        <h2>¿Organizas un evento en Salento?</h2>
+        <p class="trust">Registra tu evento en Salento a la Mano para que miles de turistas lo descubran. Aparece en nuestra agenda, en búsquedas de Google y en el mapa interactivo.</p>
+        <div class="actions" style="margin-top:16px">
+          <a class="button primary" href="https://wa.me/573001234567?text=%C2%A1Hola!%20Quiero%20registrar%20un%20evento%20en%20Salento" target="_blank" rel="noreferrer">Registrar mi evento por WhatsApp</a>
+          <a class="button" href="/">Volver al directorio</a>
+        </div>
+      </section>
+
+      <footer style="text-align:center;padding:32px 0;color:var(--muted);font-size:13px;border-top:1px solid var(--line);margin-top:24px">
+        <p><strong>Salento a la Mano</strong> · Agenda cultural y turística</p>
+        <p>Información verificada · Salento, Quindío · 2026</p>
+      </footer>
+    </main>
+
+    <script>
+    (function(){
+      const events = [
+        {id:'e001',title:'Festival de la Trucha 2026',emoji:'🐟',cat:'food',catLabel:'Gastronomía',date:'2026-09-10',time:'10:00 - 22:00',location:'Plaza Bolívar, Calle Real y Valle de Cocora',price:'Desde $28.000',priceFree:false,org:'Cámara de Comercio del Quindío',desc:'40 restaurantes presentan sus mejores preparaciones de trucha. Platos especiales con café, naranja y preparaciones tradicionales del Quindío.',highlights:['40 restaurantes','Trucha en 15 preparaciones','10 días']},
+        {id:'e002',title:'Media Maratón Entre Montañas',emoji:'🏃',cat:'culture',catLabel:'Deporte',date:'2026-09-13',time:'06:00 - 14:00',location:'Plaza de Bolívar, Salento',price:'Inscripción previa',priceFree:false,org:'Media Maratón Entre Montañas',desc:'1.700 corredores en recorridos de 10K y 22K con vistas de la Cordillera Central y palmas de cera.',highlights:['1.700 corredores','10K y 22K','Vistas espectaculares']},
+        {id:'e003',title:'Festival Latinoamérica Fest',emoji:'🎵',cat:'music',catLabel:'Música',date:'2026-09-12',time:'15:00 - 22:00',location:'Plaza de Bolívar, Salento',price:'Gratis',priceFree:true,org:'Alcaldía de Salento',desc:'Festival de música latinoamericana con presentaciones artísticas en vivo. Música, danza y cultura para toda la familia.',highlights:['Música en vivo','Ambiente familiar','Toda la noche']},
+        {id:'e004',title:'Coroteo Campesino',emoji:'💃',cat:'culture',catLabel:'Folclore',date:'2026-09-14',time:'18:00 - 21:00',location:'Plaza de Bolívar, Salento',price:'Gratis',priceFree:true,org:'Secretaría de Cultura',desc:'Música y danzas típicas del Quindío. Experiencia auténtica de la cultura cafetera con tradición ancestral.',highlights:['Tradición quindiana','Música típica','Al aire libre']},
+        {id:'e005',title:'Rajaleña Folclórica',emoji:'🎭',cat:'culture',catLabel:'Folclore',date:'2026-09-15',time:'19:00 - 22:00',location:'Calle Real, Salento',price:'Gratis',priceFree:true,org:'Secretaría de Cultura',desc:'Actividad folclórica tradicional con música, bailes de negros y blancos y participación comunitaria.',highlights:['Folclore tradicional','Calle Real','Comunidad']},
+        {id:'e006',title:'Familia Castañeda en Vivo',emoji:'🎶',cat:'music',catLabel:'Música',date:'2026-09-16',time:'20:00 - 22:00',location:'Teatro Municipal, Salento',price:'$15.000',priceFree:false,org:'Secretaría de Cultura',desc:'Música tradicional con la reconocida Familia Castañeda. Guitarra, tiple y bandola del Eje Cafetero.',highlights:['Música andina','Instrumentos típicos','Grupo reconocido']},
+        {id:'e007',title:'Recicla por el Río',emoji:'🌱',cat:'nature',catLabel:'Ambiente',date:'2026-09-17',time:'10:00 - 18:00',location:'Río Barbas, cercanías de Salento',price:'Gratis',priceFree:true,org:'Alcaldía de Salento',desc:'Jornada ambiental con conciertos. Lleva elementos reciclables para contribuir con la rehabilitación del río.',highlights:['Actividad ambiental','Conciertos','Río Barbas']},
+        {id:'e008',title:'Danzas y Teatro Municipal',emoji:'🎨',cat:'culture',catLabel:'Arte',date:'2026-09-18',time:'16:00 - 21:00',location:'Plaza de Bolívar, Salento',price:'Gratis',priceFree:true,org:'Secretaría de Cultura',desc:'Presentaciones de grupos locales de danza y teatro. Arte comunitario que refleja la identidad cultural.',highlights:['Arte local','Danzas tradicionales','Teatro']},
+        {id:'e009',title:'Celebración del Municipio',emoji:'🎂',cat:'community',catLabel:'Comunidad',date:'2026-09-19',time:'09:00 - 20:00',location:'Varios puntos del municipio',price:'Gratis',priceFree:true,org:'Alcaldía de Salento',desc:'Aniversario de Salento y la palma de cera como árbol nacional. Feria artesanal, actividades ambientales y más.',highlights:['Aniversario','Palma de cera','Feria artesanal']},
+        {id:'e010',title:'Gastronomía del Festival - Cierre',emoji:'🍽️',cat:'food',catLabel:'Gastronomía',date:'2026-09-20',time:'10:00 - 22:00',location:'Plaza Bolívar y Calle Real',price:'Desde $28.000',priceFree:false,org:'Cámara de Comercio del Quindío',desc:'Último día del Festival de la Trucha. Degustación de platos especiales de los 40 restaurantes participantes.',highlights:['Cierre del festival','40 restaurantes','Último día']},
+        {id:'e011',title:'Feria del Café Especial',emoji:'☕',cat:'food',catLabel:'Gastronomía',date:'2026-10-03',time:'09:00 - 18:00',location:'Plaza de Bolívar, Salento',price:'Gratis',priceFree:true,org:'Asoc. de Cafeteros de Salento',desc:'Productores locales presentan cafés de origen único del Quindío. Catings, degustación y charlas.',highlights:['Café de especialidad','Catas guiadas','Productores locales']},
+        {id:'e012',title:'Cabalgata por el Valle de Cocora',emoji:'🐎',cat:'nature',catLabel:'Naturaleza',date:'2026-10-04',time:'07:00 - 15:00',location:'Valle de Cocora, Salento',price:'$85.000',priceFree:false,org:'Asoc. de Guías de Salento',desc:'Recorrido a caballo por los senderos del Valle de Cocora entre palmas de cera. Guía, hatos y almuerzo incluido.',highlights:['A caballo','Valle de Cocora','Almuerzo incluido']},
+        {id:'e013',title:'Noche de Música Andina',emoji:'🎵',cat:'music',catLabel:'Música',date:'2026-10-10',time:'19:00 - 22:30',location:'Parque Nacional del Café',price:'$20.000',priceFree:false,org:'Sec. de Turismo del Quindío',desc:'Concierto de música andina colombiana con bandas locales del Eje Cafetero. Guitarra, tiple y bandola.',highlights:['Música andina','Bandas locales','Eje Cafetero']},
+        {id:'e014',title:'Festival de Artesanías del Quindío',emoji:'🧶',cat:'crafts',catLabel:'Artesanías',date:'2026-10-11',time:'09:00 - 19:00',location:'Calle Real y Plaza de Bolívar',price:'Gratis',priceFree:true,org:'Federación de Artesanos',desc:'80 artesanos con tapetes de palma de cera, sombreros vueltiao, cerámica y tejidos tradicionales.',highlights:['80 artesanos','Palma de cera','Sombreros vueltiao']},
+        {id:'e015',title:'Festival de la Achira y el Borojó',emoji:'🎃',cat:'food',catLabel:'Gastronomía',date:'2026-10-17',time:'09:00 - 18:00',location:'Vereda La Samaria, Salento',price:'Gratis',priceFree:true,org:'Corregimiento de La Samaria',desc:'Degustación de achira, borojó, lulo y frutas tropicales. Música y danzas tradicionales.',highlights:['Frutas tropicales','Degustación','Cultivos locales']},
+        {id:'e016',title:'Circuito de Trail Salento',emoji:'🏃',cat:'nature',catLabel:'Deporte',date:'2026-10-25',time:'06:00 - 13:00',location:'Salento, Quindío',price:'$45.000',priceFree:false,org:'Club de Trail Salento',desc:'Trail running por senderos naturales. Recorridos de 8K, 15K y 25K con vistas del Eje Cafetero.',highlights:['Trail running','3 distancias','Senderos']},
+        {id:'e017',title:'Festival Nacional de Música',emoji:'🎶',cat:'music',catLabel:'Música',date:'2026-11-07',time:'14:00 - 23:00',location:'Parque Nacional del Café',price:'$60.000',priceFree:false,org:'Parque Nacional del Café',desc:'Bandas nacionales e internacionales. 3 días de música en vivo en el escenario más importante del Quindío.',highlights:['Bandas nacionales','3 días','Música en vivo']},
+        {id:'e018',title:'Festival de la Palma de Cera',emoji:'🌳',cat:'nature',catLabel:'Naturaleza',date:'2026-11-08',time:'08:00 - 16:00',location:'Centro de Salento',price:'Gratis',priceFree:true,org:'Corp. Ambiental de Salento',desc:'Árbol nacional colombiano. Caminatas ecológicas, feria artesanal y actividades ambientales.',highlights:['Árbol nacional','Caminata ecológica','Feria artesanal']},
+        {id:'e019',title:'Feria del Café de Especialidad',emoji:'☕',cat:'food',catLabel:'Gastronomía',date:'2026-11-14',time:'09:00 - 17:00',location:'Centro Cultural, Salento',price:'Gratis',priceFree:true,org:'Asoc. de Cafeteros del Quindío',desc:'25 productores de café premium. Catings, talleres y charlas sobre café de especialidad.',highlights:['25 productores','Catas guiadas','Café premium']},
+        {id:'e020',title:'Feria Taurina del Quindío',emoji:'🐂',cat:'culture',catLabel:'Tradiciones',date:'2026-11-21',time:'15:00 - 22:00',location:'Plaza de Toros, Salento',price:'$30.000',priceFree:false,org:'Junta de Festividades',desc:'Novilladas y corridas de toros. Evento cultural con tradición en el Eje Cafetero.',highlights:['Novilladas','Tradición cafetera','Cultura local']},
+        {id:'e021',title:'Encendido de Luces Navideñas',emoji:'🎄',cat:'community',catLabel:'Comunidad',date:'2026-11-30',time:'18:00 - 22:00',location:'Plaza de Bolívar, Salento',price:'Gratis',priceFree:true,org:'Alcaldía de Salento',desc:'Ceremonia de encendido del árbol navideño. Villancicos, música y actividades para toda la familia.',highlights:['Árbol navideño','Villancicos','Familiar']},
+        {id:'e022',title:'Festival de Teatro Callejero',emoji:'🎭',cat:'culture',catLabel:'Arte',date:'2026-12-05',time:'10:00 - 22:00',location:'Calle Real y Plaza de Bolívar',price:'Gratis',priceFree:true,org:'Sec. de Cultura de Salento',desc:'12 grupos nacionales e internacionales. Obras de comedia, drama y teatro experimental al aire libre.',highlights:['12 grupos','Teatro al aire libre','Internacional']},
+        {id:'e023',title:'Mercado Navideño Artesanal',emoji:'🎄',cat:'crafts',catLabel:'Artesanías',date:'2026-12-12',time:'10:00 - 20:00',location:'Parque Municipal, Salento',price:'Gratis',priceFree:true,org:'Corp. de Artesanos de Salento',desc:'60 artesanos locales. Decoraciones, regalos, dulces típicos, chocolate caliente y villancicos.',highlights:['60 artesanos','Regalos navideños','Dulces típicos']},
+        {id:'e024',title:'Año Nuevo en Salento',emoji:'🎊',cat:'community',catLabel:'Comunidad',date:'2026-12-31',time:'20:00 - 02:00',location:'Plaza de Bolívar, Salento',price:'Gratis',priceFree:true,org:'Alcaldía de Salento',desc:'Celebración de fin de año con música en vivo, fuegos artificiales y brindis comunitario.',highlights:['Fuegos artificiales','Brindis comunitario','Música en vivo']}
+      ];
+
+      const catIcons = {food:'🍽️',music:'🎵',culture:'🎭',nature:'🌿',crafts:'🧶',community:'👥'};
+      const catNames = {food:'Gastronomía',music:'Música',culture:'Cultura',nature:'Naturaleza',crafts:'Artesanías',community:'Comunidad'};
+      const monthNames = {9:'Septiembre',10:'Octubre',11:'Noviembre',12:'Diciembre'};
+
+      let activeMonth = 'all';
+      let activeCat = 'all';
+
+      function getMonth(dateStr) { return new Date(dateStr).getMonth() + 1; }
+      function formatDate(dateStr) {
+        const d = new Date(dateStr + 'T12:00:00');
+        return d.toLocaleDateString('es-CO', { weekday: 'short', day: 'numeric', month: 'short' });
+      }
+
+      function getMonthCounts() {
+        const counts = {};
+        events.forEach(e => { const m = getMonth(e.date); counts[m] = (counts[m] || 0) + 1; });
+        return counts;
+      }
+
+      function getCatCounts() {
+        const counts = {};
+        events.forEach(e => { counts[e.cat] = (counts[e.cat] || 0) + 1; });
+        return counts;
+      }
+
+      function renderStats() {
+        const freeCount = events.filter(e => e.priceFree).length;
+        const catCount = Object.keys(getCatCounts()).length;
+        document.getElementById('agendaStats').innerHTML =
+          '<div class="agenda-stat"><div class="number">' + events.length + '</div><div class="label">Eventos programados</div></div>' +
+          '<div class="agenda-stat"><div class="number">' + freeCount + '</div><div class="label">Eventos gratuitos</div></div>' +
+          '<div class="agenda-stat"><div class="number">' + catCount + '</div><div class="label">Categorías</div></div>' +
+          '<div class="agenda-stat"><div class="number">' + Object.keys(getMonthCounts()).length + '</div><div class="label">Meses con eventos</div></div>';
+      }
+
+      function renderMonthTabs() {
+        const counts = getMonthCounts();
+        let html = '<button class="month-tab' + (activeMonth === 'all' ? ' active' : '') + '" data-month="all">Todos<span class="count">' + events.length + '</span></button>';
+        Object.keys(counts).sort((a,b) => a-b).forEach(m => {
+          html += '<button class="month-tab' + (activeMonth === m ? ' active' : '') + '" data-month="' + m + '">' + monthNames[m] + '<span class="count">' + counts[m] + '</span></button>';
+        });
+        document.getElementById('monthTabs').innerHTML = html;
+      }
+
+      function renderCatTabs() {
+        const counts = getCatCounts();
+        let html = '<button class="cat-tab' + (activeCat === 'all' ? ' active' : '') + '" data-cat="all">Todas</button>';
+        Object.keys(counts).forEach(c => {
+          html += '<button class="cat-tab' + (activeCat === c ? ' active' : '') + '" data-cat="' + c + '">' + catIcons[c] + ' ' + catNames[c] + '</button>';
+        });
+        document.getElementById('catTabs').innerHTML = html;
+      }
+
+      function renderGrid() {
+        let filtered = events;
+        if (activeMonth !== 'all') filtered = filtered.filter(e => getMonth(e.date) === activeMonth);
+        if (activeCat !== 'all') filtered = filtered.filter(e => e.cat === activeCat);
+        filtered.sort((a,b) => new Date(a.date) - new Date(b.date));
+
+        if (filtered.length === 0) {
+          document.getElementById('agendaGrid').innerHTML = '';
+          document.getElementById('agendaEmpty').style.display = 'block';
+          return;
+        }
+        document.getElementById('agendaEmpty').style.display = 'none';
+
+        let html = '';
+        filtered.forEach(e => {
+          html += '<div class="agenda-card">' +
+            '<div class="agenda-card-header">' +
+              '<div class="agenda-card-emoji ' + e.cat + '">' + e.emoji + '</div>' +
+              '<div class="agenda-card-title-group">' +
+                '<span class="cat-label ' + e.cat + '">' + catIcons[e.cat] + ' ' + e.catLabel + '</span>' +
+                '<h3>' + e.title + '</h3>' +
+              '</div>' +
+            '</div>' +
+            '<div class="agenda-card-body">' +
+              '<p class="desc">' + e.desc + '</p>' +
+              '<div class="agenda-card-meta">' +
+                '<span>📅 ' + formatDate(e.date) + '</span>' +
+                '<span>⏰ ' + e.time + '</span>' +
+                '<span>📍 ' + e.location + '</span>' +
+              '</div>' +
+              '<div class="agenda-card-tags">' +
+                e.highlights.map(h => '<span>' + h + '</span>').join('') +
+              '</div>' +
+            '</div>' +
+            '<div class="agenda-card-footer">' +
+              '<span class="organizer">🏢 ' + e.org + '</span>' +
+              '<span class="price' + (e.priceFree ? ' free' : '') + '">' + (e.priceFree ? '✓ Gratis' : e.price) + '</span>' +
+            '</div>' +
+          '</div>';
+        });
+        document.getElementById('agendaGrid').innerHTML = html;
+      }
+
+      document.getElementById('monthTabs').addEventListener('click', function(ev) {
+        const btn = ev.target.closest('[data-month]');
+        if (!btn) return;
+        activeMonth = btn.dataset.month;
+        renderMonthTabs();
+        renderGrid();
+      });
+
+      document.getElementById('catTabs').addEventListener('click', function(ev) {
+        const btn = ev.target.closest('[data-cat]');
+        if (!btn) return;
+        activeCat = btn.dataset.cat;
+        renderCatTabs();
+        renderGrid();
+      });
+
+      renderStats();
+      renderMonthTabs();
+      renderCatTabs();
+      renderGrid();
+    })();
+    </script>
+  </body>
+</html>

@@ -1046,6 +1046,52 @@ function App() {
           </div>
         </section>
 
+        {todayEvents.length > 0 && (
+          <section className="events-showcase" id="eventos-showcase">
+            <div className="events-showcase-inner">
+              <div className="events-showcase-header">
+                <div>
+                  <p className="eyebrow">{language === 'es' ? 'Qué hacer en Salento' : 'What to do in Salento'}</p>
+                  <h2>{language === 'es' ? 'Eventos en Salento' : 'Events in Salento'}</h2>
+                  <p className="events-showcase-subtitle">{todayEvents.length} {language === 'es' ? 'eventos próximos' : 'upcoming events'} · {language === 'es' ? 'Septiembre - Diciembre 2026' : 'September - December 2026'}</p>
+                </div>
+                <a className="dark-button" href="/agenda-eventos-salento.html">{language === 'es' ? 'Ver agenda completa' : 'View full agenda'} <ArrowRight size={17} /></a>
+              </div>
+              <div className="events-showcase-grid">
+                {todayEvents.slice(0, 4).map((event) => (
+                  <div key={event.id} className="events-showcase-card">
+                    <div className={`events-showcase-emoji ${event.category}`}>
+                      {event.category === 'food' ? '🍽️' : event.category === 'music' ? '🎵' : event.category === 'culture' ? '🎭' : event.category === 'crafts' ? '🧶' : event.category === 'nature' ? '🌿' : '👥'}
+                    </div>
+                    <div className="events-showcase-card-body">
+                      <span className={`events-showcase-tag ${event.category}`}>
+                        {event.category === 'food' ? 'Gastronomía' : event.category === 'music' ? 'Música' : event.category === 'culture' ? 'Cultura' : event.category === 'crafts' ? 'Artesanías' : event.category === 'nature' ? 'Naturaleza' : 'Comunidad'}
+                      </span>
+                      <h3>{event.title}</h3>
+                      <p>{event.description.length > 100 ? event.description.substring(0, 100) + '...' : event.description}</p>
+                      <div className="events-showcase-meta">
+                        <span>📅 {event.date.toLocaleDateString('es-CO', { weekday: 'short', month: 'short', day: 'numeric' })}</span>
+                        <span>⏰ {event.time}</span>
+                        <span>📍 {event.location.split(',')[0]}</span>
+                      </div>
+                      <div className="events-showcase-highlights">
+                        {event.highlights.slice(0, 2).map((h, i) => <span key={i}>{h}</span>)}
+                      </div>
+                    </div>
+                    <div className="events-showcase-footer">
+                      <span className="organizer-info">🏢 {event.organizer}</span>
+                      <span className={`events-showcase-price ${event.isFree ? 'free' : ''}`}>{event.isFree ? '✓ Gratis' : event.price}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <div className="events-showcase-cta">
+                <a className="outline-button" href="/agenda-eventos-salento.html">{language === 'es' ? 'Explorar todos los eventos →' : 'Explore all events →'}</a>
+              </div>
+            </div>
+          </section>
+        )}
+
         <section className="direct-orders-banner" id="pedidos-directos" aria-labelledby="direct-orders-title">
           <div className="direct-orders-copy">
             <p className="eyebrow">{language === 'es' ? 'Compra local, directo' : 'Buy local, direct'}</p>
