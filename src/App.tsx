@@ -1127,7 +1127,7 @@ function App() {
             <div className="official-links">
               <a 
                 className="official-link" 
-                href="/estado-vias-salento-hoy.html"
+                href="/vias-salento-libres-acceso.html"
               >
                 <MapPin size={16} />
                 Estado de Vías
@@ -1141,7 +1141,7 @@ function App() {
               </a>
               <a 
                 className="official-link" 
-                href="/valle-cocora-operativo-seguro.html"
+                href="/valle-cocora-accesible-100.html"
               >
                 <Mountain size={16} />
                 Valle de Cocora
