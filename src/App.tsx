@@ -686,8 +686,10 @@ function App() {
       Cafés: 'cafes',
       Artesanías: 'artesanias',
       Tiendas: 'tiendas',
+      'Coffee Tours': 'coffee-tours',
       Experiencias: 'experiencias',
       Eventos: 'eventos',
+      'Atractivos Turísticos': 'atractivos-turisticos',
       Servicios: 'servicios',
       Camping: 'camping'
     }
