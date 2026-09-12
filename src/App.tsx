@@ -1,4 +1,4 @@
-import { useMemo, useState, useEffect, useCallback } from 'react'
+import { useMemo, useState, useEffect, useCallback, lazy, Suspense } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { CircleMarker, MapContainer, Popup, TileLayer, useMap } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css'
@@ -90,12 +90,6 @@ import translationService from './services/translationService'
 import orderSyncService from './services/orderSyncService'
 import donChuchoKnowledge from './services/donChuchoKnowledge'
 import internationalSEOService from './services/internationalSEO.service'
-import InternationalMarketsDisplay from './components/InternationalMarketsDisplay'
-import LandingPageEstadoActual from './components/LandingPageEstadoActual'
-import LandingPageValleCocora from './components/LandingPageValleCocora'
-import LandingPageSalentoSeguro from './components/LandingPageSalentoSeguro'
-import LandingPageHoteles from './components/LandingPageHoteles'
-import LandingPageVias from './components/LandingPageVias'
 import currencyService from './services/currencyService'
 import weatherService from './services/weatherService'
 import eventsService from './services/eventsService'
@@ -104,32 +98,49 @@ import donationService from './services/donationService'
 import gamificationService from './services/gamificationService'
 
 import offlineStorage from './services/offlineStorage'
-import NotificationsPanel from './components/NotificationsPanel'
 import horsebackRidingService from './services/horsebackRidingService'
-import HorsebackRiding from './components/HorsebackRiding'
 import reviewsService from './services/reviewsService'
-import Reviews from './components/Reviews'
 import analyticsService from './services/analyticsService'
 import supportService from './services/supportService'
-import SupportCenter from './components/SupportCenter'
 import seoLandingService from './services/seoLandingService'
-import DynamicLandingPage from './components/DynamicLandingPage'
-import HotelInfoModal from './components/HotelInfoModal'
-import InteractiveMenu from './components/InteractiveMenu'
-import PhotoGallery from './components/PhotoGallery'
-import QRShare from './components/QRShare'
 import performanceOptimizer from './services/performanceOptimizer'
 import defensiveSEOGService from './services/defensiveSEOG.service'
-import DefensiveSEODashboard from './components/DefensiveSEODashboard'
 import urgencySchemaService from './services/urgencySchema.service'
 import localBacklinksService from './services/localBacklinks.service'
-import AllyBacklinksDashboard from './components/AllyBacklinksDashboard'
 import allyRegistrationService from './services/allyRegistration.service'
-import AllyRegistrationForm from './components/AllyRegistrationForm'
-import AllyVerification from './components/AllyVerification'
 import notificationsService from './services/notifications.service'
-import ProviderSelectionModal from './components/ProviderSelectionModal'
-import FeatureCards from './components/FeatureCards'
+
+// Lazy loading de componentes pesados para optimizar bundle inicial
+const InternationalMarketsDisplay = lazy(() => import('./components/InternationalMarketsDisplay'))
+const LandingPageEstadoActual = lazy(() => import('./components/LandingPageEstadoActual'))
+const LandingPageValleCocora = lazy(() => import('./components/LandingPageValleCocora'))
+const LandingPageSalentoSeguro = lazy(() => import('./components/LandingPageSalentoSeguro'))
+const LandingPageHoteles = lazy(() => import('./components/LandingPageHoteles'))
+const LandingPageVias = lazy(() => import('./components/LandingPageVias'))
+const NotificationsPanel = lazy(() => import('./components/NotificationsPanel'))
+const HorsebackRiding = lazy(() => import('./components/HorsebackRiding'))
+const Reviews = lazy(() => import('./components/Reviews'))
+const SupportCenter = lazy(() => import('./components/SupportCenter'))
+const DynamicLandingPage = lazy(() => import('./components/DynamicLandingPage'))
+const HotelInfoModal = lazy(() => import('./components/HotelInfoModal'))
+const InteractiveMenu = lazy(() => import('./components/InteractiveMenu'))
+const PhotoGallery = lazy(() => import('./components/PhotoGallery'))
+const QRShare = lazy(() => import('./components/QRShare'))
+const DefensiveSEODashboard = lazy(() => import('./components/DefensiveSEODashboard'))
+const AllyBacklinksDashboard = lazy(() => import('./components/AllyBacklinksDashboard'))
+const AllyRegistrationForm = lazy(() => import('./components/AllyRegistrationForm'))
+const AllyVerification = lazy(() => import('./components/AllyVerification'))
+const ProviderSelectionModal = lazy(() => import('./components/ProviderSelectionModal'))
+const FeatureCards = lazy(() => import('./components/FeatureCards'))
+
+// Componente de carga para Suspense
+function LoadingFallback() {
+  return (
+    <div className="loading-fallback">
+      <div className="loading-spinner">Cargando...</div>
+    </div>
+  )
+}
 
 // Mapeo de iconos para compatibilidad con estructura JSON
 const iconMap: Record<string, any> = {
@@ -1081,7 +1092,8 @@ function App() {
 
         <section className="salento-photo-strip" aria-label="Paisajes de Salento">
           <div className="photo-strip-intro"><p className="eyebrow">Postales del territorio</p><h2>Salento se<br /><i>camina despacio.</i></h2></div>
-          <PhotoGallery
+          <Suspense fallback={<LoadingFallback />}>
+            <PhotoGallery
             label="Paisajes de Salento"
             photos={[
               { src: '/salento/1326163558.webp', alt: 'Tejados tradicionales de Salento' },
@@ -1130,13 +1142,34 @@ function App() {
         </div>
       </footer>
       {showCart && <Cart count={cartCount} currency={currency} onClose={() => setShowCart(false)} onAdd={addToCart} hotels={hotels} />}
-      {showNotifications && <NotificationsPanel onClose={() => setShowNotifications(false)} />}
-      {showHorsebackRiding && <HorsebackRiding onClose={() => setShowHorsebackRiding(false)} language={language as 'es' | 'en'} />}
-      {showReviews && selectedPlaceForReviews && <Reviews placeId={showReviews} placeName={selectedPlaceForReviews.name} placeType={selectedPlaceForReviews.type} onClose={() => setShowReviews(null)} language={language as 'es' | 'en'} />}
-      {showSupport && <SupportCenter onClose={() => setShowSupport(false)} language={language as 'es' | 'en'} />}
-      {showLandingPage && <DynamicLandingPage slug={showLandingPage} onClose={() => setShowLandingPage(null)} />}
+      {showNotifications && (
+        <Suspense fallback={<LoadingFallback />}>
+          <NotificationsPanel onClose={() => setShowNotifications(false)} />
+        </Suspense>
+      )}
+      {showHorsebackRiding && (
+        <Suspense fallback={<LoadingFallback />}>
+          <HorsebackRiding onClose={() => setShowHorsebackRiding(false)} language={language as 'es' | 'en'} />
+        </Suspense>
+      )}
+      {showReviews && selectedPlaceForReviews && (
+        <Suspense fallback={<LoadingFallback />}>
+          <Reviews placeId={showReviews} placeName={selectedPlaceForReviews.name} placeType={selectedPlaceForReviews.type} onClose={() => setShowReviews(null)} language={language as 'es' | 'en'} />
+        </Suspense>
+      )}
+      {showSupport && (
+        <Suspense fallback={<LoadingFallback />}>
+          <SupportCenter onClose={() => setShowSupport(false)} language={language as 'es' | 'en'} />
+        </Suspense>
+      )}
+      {showLandingPage && (
+        <Suspense fallback={<LoadingFallback />}>
+          <DynamicLandingPage slug={showLandingPage} onClose={() => setShowLandingPage(null)} />
+        </Suspense>
+      )}
       {showHotelModal && (
-        <HotelInfoModal 
+        <Suspense fallback={<LoadingFallback />}>
+          <HotelInfoModal 
           isOpen={showHotelModal}
           onClose={() => setShowHotelModal(false)}
           onSubmit={handleHotelInfoSubmit}
