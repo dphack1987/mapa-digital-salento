@@ -24,7 +24,14 @@
 
       <section class="section" id="menu-interactivo">
         <h2>Habitaciones y Servicios</h2>
-        <p class="muted" style="margin-top:-8px;margin-bottom:20px">Selecciona habitación o servicios. Al final, envía tu consulta por WhatsApp.</p>
+        <p class="muted" style="margin-top:-8px;margin-bottom:20px">Selecciona tu habitación. Los servicios incluidos se listan abajo.</p>
+        <style>
+          .services-info-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 10px; margin: 16px 0 24px; background: #f9f6ef; border: 1px solid var(--line); border-radius: 16px; padding: 18px; }
+          .service-info-item { display: flex; align-items: flex-start; gap: 10px; padding: 10px 12px; background: var(--white); border-radius: 10px; border: 1px solid var(--line); }
+          .service-info-icon { display: grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; background: rgba(61,122,71,.1); color: #3d7a47; font-weight: 700; font-size: 14px; flex-shrink: 0; }
+          .service-info-item strong { display: block; font-size: 13px; color: var(--ink); margin-bottom: 2px; }
+          .service-info-item p { margin: 0; font-size: 12px; color: var(--muted); line-height: 1.4; }
+        </style>
         <div class="menu-header">
           <div class="menu-search"><input type="text" id="menuSearch" placeholder="Buscar habitación o servicio..." /></div>
           <div class="currency-switch" role="group" aria-label="Moneda">
@@ -157,17 +164,36 @@
       return;
     }
     $('menuEmpty').style.display = 'none';
-    $('menuGrid').innerHTML = filtrados.map(function(p) {
-      var qty = carrito[p.id] || 0;
-      var catEmoji = {habitaciones:'\uD83D\uDECF\uFE0F',servicios:'\u2728',extras:'\uD83C\uDF85'};
-      var img = p.img
-        ? '<img class="menu-card-img" src="' + p.img + '" alt="' + p.nombre + '" loading="lazy"/>'
-        : '<div class="menu-card-emoji">' + (catEmoji[p.cat] || '\uD83C\uDFE8') + '</div>';
-      var controls = qty > 0
-        ? '<div class="qty-ctrl"><button data-action="dec" data-id="' + p.id + '">\u2212</button><span>' + qty + '</span><button data-action="inc" data-id="' + p.id + '">+</button></div>'
-        : '<button class="add-btn" data-action="inc" data-id="' + p.id + '" aria-label="Agregar ' + p.nombre + '">+</button>';
-      return '<article class="menu-card">' + img + '<div class="menu-card-body"><span class="cat-tag">' + p.cat + '</span><h3>' + p.nombre + '</h3><p class="desc">' + (p.desc || '') + '</p><div class="footer"><span class="price" style="color:var(--muted);font-size:.9rem">Consultar tarifa</span>' + controls + '</div></div></article>';
-    }).join('');
+
+    var servicios = filtrados.filter(function(p) { return p.cat === 'servicios'; });
+    var otros = filtrados.filter(function(p) { return p.cat !== 'servicios'; });
+
+    var html = '';
+
+    if (servicios.length > 0 && (categoria === 'todas' || categoria === 'servicios')) {
+      html += '<div class="services-info-list">';
+      html += '<h3 style="grid-column:1/-1;font:600 1.1rem Fraunces;margin:8px 0 4px">Servicios incluidos en todas las habitaciones</h3>';
+      servicios.forEach(function(p) {
+        html += '<div class="service-info-item"><span class="service-info-icon">✓</span><div><strong>' + p.nombre + '</strong><p>' + (p.desc || '') + '</p></div></div>';
+      });
+      html += '</div>';
+    }
+
+    if (otros.length > 0) {
+      html += otros.map(function(p) {
+        var qty = carrito[p.id] || 0;
+        var catEmoji = {habitaciones:'\uD83D\uDECF\uFE0F',extras:'\uD83C\uDF85'};
+        var img = p.img
+          ? '<img class="menu-card-img" src="' + p.img + '" alt="' + p.nombre + '" loading="lazy"/>'
+          : '<div class="menu-card-emoji">' + (catEmoji[p.cat] || '\uD83C\uDFE8') + '</div>';
+        var controls = qty > 0
+          ? '<div class="qty-ctrl"><button data-action="dec" data-id="' + p.id + '">\u2212</button><span>' + qty + '</span><button data-action="inc" data-id="' + p.id + '">+</button></div>'
+          : '<button class="add-btn" data-action="inc" data-id="' + p.id + '" aria-label="Agregar ' + p.nombre + '">+</button>';
+        return '<article class="menu-card">' + img + '<div class="menu-card-body"><span class="cat-tag">' + p.cat + '</span><h3>' + p.nombre + '</h3><p class="desc">' + (p.desc || '') + '</p><div class="footer"><span class="price" style="color:var(--muted);font-size:.9rem">Consultar tarifa</span>' + controls + '</div></div></article>';
+      }).join('');
+    }
+
+    $('menuGrid').innerHTML = html;
   }
 
   function countCarrito() {
