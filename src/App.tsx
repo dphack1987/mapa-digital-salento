@@ -547,7 +547,7 @@ function App() {
           dataService.getMapMarkers(),
           dataService.getHotels(),
           Promise.resolve().then(() => weatherService.getWeatherComparison()).catch(() => null),
-          Promise.resolve().then(() => eventsService.getTodayEvents()).catch(() => [] as any[])
+          Promise.resolve().then(() => eventsService.getActiveEvents()).catch(() => [] as any[])
         ])
       } catch (e) { console.warn('[App] data fetch partial fail:', e) }
 
@@ -832,7 +832,7 @@ function App() {
           </div>
           <div className="events-info">
             {todayEvents.length > 0 && (
-              <span className="events-count">🎭 {todayEvents.length} eventos hoy</span>
+              <span className="events-count">🎭 {todayEvents.length} eventos esta semana</span>
             )}
             <button className="close-banner" onClick={() => setShowWeatherBanner(false)}><X size={16} /></button>
           </div>
@@ -840,7 +840,51 @@ function App() {
       )}
 
       <main id="inicio">
-        {selectedCategoryPage ? (
+        {selectedCategoryPage === 'Eventos' ? (
+          <section className="category-page-shell" id="category-page">
+            <div className="category-page-header">
+              <div>
+                <p className="eyebrow">Agenda Cultural</p>
+                <h2>Eventos en Salento</h2>
+              </div>
+              <button className="text-button" onClick={() => setSelectedCategoryPage(null)}>Volver al directorio</button>
+            </div>
+
+            <div className="category-page-summary">
+              <span>{todayEvents.length} eventos programados</span>
+              <strong>Septiembre 2026</strong>
+            </div>
+
+            <div className="place-grid category-page-grid">
+              {todayEvents.map((event) => (
+                <div key={event.id} className="place-card event-card">
+                  <div className="place-image">
+                    <div className="place-badge">{event.category === 'food' ? '🍽️' : event.category === 'music' ? '🎵' : event.category === 'culture' ? '🎭' : event.category === 'community' ? '👥' : '🌿'}</div>
+                    <div className="image-pattern"></div>
+                  </div>
+                  <div className="place-info">
+                    <h3>{event.title}</h3>
+                    <p className="place-description">{event.description}</p>
+                    <div className="place-details">
+                      <span className="place-meta">📅 {event.date.toLocaleDateString('es-CO', { weekday: 'long', month: 'short', day: 'numeric' })}</span>
+                      <span className="place-meta">⏰ {event.time}</span>
+                      <span className="place-meta">📍 {event.location}</span>
+                      <span className="place-meta">💰 {event.price}</span>
+                    </div>
+                    <div className="place-highlights">
+                      {event.highlights.map((highlight, idx) => (
+                        <span key={idx} className="highlight-tag">{highlight}</span>
+                      ))}
+                    </div>
+                    <div className="place-actions">
+                      <span className="organizer-info">🏢 {event.organizer}</span>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+        ) : selectedCategoryPage ? (
           <section className="category-page-shell" id="category-page">
             <div className="category-page-header">
               <div>
@@ -1225,8 +1269,8 @@ function DonChucho({ language, t, places, weather, todayEvents }: { language: La
   useEffect(() => {
     if (weather && todayEvents.length > 0) {
       const contextualGreeting = isEnglish
-        ? `Hello there! Looking for a good trout meal or transport to Cocora? Ask me anything you want. 🌡️ Today: ${weatherService.formatTemperature(weather.salento.temperature)} | 🎭 ${todayEvents.length} events today`
-        : `¡Hola, pues! ¿Buscando dónde comer una buena trucha o un transporte para el Cocora? Pregúnteme lo que quiera. 🌡️ Hoy: ${weatherService.formatTemperature(weather.salento.temperature)} | 🎭 ${todayEvents.length} eventos hoy`
+        ? `Hello there! Looking for a good trout meal or transport to Cocora? Ask me anything you want. 🌡️ Today: ${weatherService.formatTemperature(weather.salento.temperature)} | 🎭 ${todayEvents.length} events this week`
+        : `¡Hola, pues! ¿Buscando dónde comer una buena trucha o un transporte para el Cocora? Pregúnteme lo que quiera. 🌡️ Hoy: ${weatherService.formatTemperature(weather.salento.temperature)} | 🎭 ${todayEvents.length} eventos esta semana`
       setAnswer(contextualGreeting)
     }
   }, [weather, todayEvents, isEnglish])
@@ -1343,7 +1387,7 @@ function DonChucho({ language, t, places, weather, todayEvents }: { language: La
     const isEventQuestion = eventKeywords.some(keyword => text.toLowerCase().includes(keyword))
     
     if (isEventQuestion && todayEvents.length > 0) {
-      const eventsList = todayEvents.map(event => event.name).join(', ')
+      const eventsList = todayEvents.map(event => event.title).join(', ')
       const eventAnswer = isEnglish
         ? `Today there are ${todayEvents.length} events: ${eventsList}. I recommend checking them out!`
         : `Hoy hay ${todayEvents.length} eventos: ${eventsList}. ¡Te recomiendo revisarlos!`
