@@ -86,7 +86,7 @@ Allow: /
 
 # Sitemap unificado para indexacion: contiene todas las URLs
 # (home, landings, categorias, pautantes, SEO internacional)
-Sitemap: https://salentoalamano.com/sitemap.xml
+Sitemap: https://www.salentoalamano.com/sitemap.xml
 
 # Host para Yandex
 Host: salentoalamano.com
