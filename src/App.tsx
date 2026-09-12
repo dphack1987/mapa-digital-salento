@@ -1125,34 +1125,34 @@ function App() {
             <h3>🛡️ Información Oficial</h3>
             <p>Reportes actualizados del estado de Salento</p>
             <div className="official-links">
-              <button 
+              <a 
                 className="official-link" 
-                onClick={() => setShowLandingPage('estado-vias-salento-hoy')}
+                href="/estado-vias-salento-hoy.html"
               >
                 <MapPin size={16} />
                 Estado de Vías
-              </button>
-              <button 
+              </a>
+              <a 
                 className="official-link" 
-                onClick={() => setShowLandingPage('hoteles-hostales-abiertos-salento')}
+                href="/hoteles-abiertos-salento.html"
               >
                 <Hotel size={16} />
                 Alojamientos
-              </button>
-              <button 
+              </a>
+              <a 
                 className="official-link" 
-                onClick={() => setShowLandingPage('valle-cocora-operativo-seguro')}
+                href="/valle-cocora-operativo-seguro.html"
               >
                 <Mountain size={16} />
                 Valle de Cocora
-              </button>
-              <button 
+              </a>
+              <a 
                 className="official-link" 
-                onClick={() => setShowLandingPage('turismo-salento-seguro-hoy')}
+                href="/seguridad-salento-emergencias.html"
               >
                 <Shield size={16} />
                 Seguridad
-              </button>
+              </a>
             </div>
             <p className="authority-note"><Shield size={13} /> {t('authority.note')}</p>
           </div>
