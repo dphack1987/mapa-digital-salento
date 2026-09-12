@@ -1214,7 +1214,7 @@ function App() {
                 setSelectedPlace(found)
                 window.scrollTo({ top: 0, behavior: 'smooth' })
               }
-            }}>Ver ficha <ArrowRight size={13} /></button></Popup></CircleMarker>)}<MapControls /></MapContainer></div>
+            }}>{/Restaurant|Gastrono|Restaurante/.test(marker.type) ? 'Ver menú' : 'Ver información'} <ArrowRight size={13} /></button></Popup></CircleMarker>)}<MapControls /></MapContainer></div>
         </section>
 
             <section className="advertising-section" id="pautas"><div><p className="eyebrow">Hazte visible en Salento</p><h2>Pautas que llegan<br /><i>al lugar correcto.</i></h2><p>Tu negocio aparece en el mapa digital, en las búsquedas y frente a turistas listos para comprar o reservar.</p></div><div className="advertising-cards"><article><span className="ad-tag">Gastronomía</span><strong>Tu sabor, en el mapa.</strong><small>Ficha + ubicación + pedidos</small></article><article><span className="ad-tag green-tag">Comercio local</span><strong>Lo local se encuentra.</strong><small>Ficha + ubicación + contacto</small></article><article><span className="ad-tag yellow-tag">Experiencias</span><strong>El plan empieza aquí.</strong><small>Ficha + reservas + rutas</small></article></div><button className="dark-button ad-button" onClick={() => alert('Para registrar tu negocio, escríbenos por WhatsApp al +57 313 716 0977')}>Registra tu negocio <ArrowRight size={17} /></button></section>
@@ -1536,7 +1536,7 @@ function PlaceCard({ place, onAdd, onOpen, onReviews }: { place: Place; onAdd: (
         <small className="currency-hint">
           {priceHintFor(place)}
         </small>
-        <button className="detail-button" onClick={onOpen}>Ampliar información <ArrowRight size={14} /></button>
+        <button className="detail-button" onClick={onOpen}>{/Restaurant|Gastrono|Restaurante/.test(place.type) ? 'Ver menú' : 'Ver información'} <ArrowRight size={14} /></button>
         <a className="map-link-button" href={mapUrl} target="_blank" rel="noopener noreferrer">Cómo llegar <MapPin size={14} /></a>
         {onReviews && (
           <button className="reviews-button" onClick={onReviews} aria-label={`Ver reseñas de ${place.name}`}>

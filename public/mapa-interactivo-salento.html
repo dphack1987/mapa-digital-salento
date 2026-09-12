@@ -117,7 +117,7 @@
               + '<span class="popup-type">' + place.type + '</span>'
               + '<br>' + (place.description ? place.description.substring(0, 100) + '...' : '')
               + (place.location.address ? '<br><small>' + place.location.address + '</small>' : '')
-              + '<br><a class="popup-btn" href="' + slugPath + '">Ver ficha</a>';
+              + '<br><a class="popup-btn" href="' + slugPath + '">Ver información</a>';
 
             marker.bindPopup(popupHtml, { maxWidth: 260 });
             markers.push({ marker, type: place.type });
