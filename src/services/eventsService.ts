@@ -45,125 +45,160 @@ class EventsService {
     const today = new Date()
     const todayDate = today.toISOString().split('T')[0]
     
+    // Fechas para eventos específicos de septiembre 2026
+    const festivalStartDate = new Date('2026-09-10')
+    const festivalEndDate = new Date('2026-09-20')
+    const marathonDate = new Date('2026-09-13')
+    
     this.events = [
       {
         id: 'event-1',
-        title: 'Música en la Plaza',
-        description: 'Grupos de música tradicional de la región presentan canciones típicas del Quindío. Venta de snacks y bebidas locales.',
-        category: 'music',
-        date: new Date(todayDate + 'T19:00:00'),
-        time: '19:00 - 21:00',
-        location: 'Plaza de Bolívar, Salento',
-        price: 'Gratis',
-        organizer: 'Secretaría de Cultura Salento',
-        contact: '+57 300 123 4567',
-        isFree: true,
-        highlights: ['Música vallenata', 'Jazz latino', 'Rinde r'],
+        title: '🐟 Festival de la Trucha 2026',
+        description: '40 restaurantes participantes presentan sus mejores preparaciones de trucha por $28.000. Platos especiales con café, naranja y otras preparaciones tradicionales. Ubicaciones: Plaza Bolívar, Calle Real y Valle de Cocora.',
+        category: 'food',
+        date: festivalStartDate,
+        time: '10:00 - 22:00',
+        location: 'Plaza Bolívar, Calle Real y Valle de Cocora, Salento',
+        price: 'Platos $28.000 COP',
+        organizer: 'Cámara de Comercio de Armenia y del Quindío',
+        contact: 'www.festivaldelatrucha.com',
+        isFree: false,
+        highlights: ['40 restaurantes', 'Platos especiales de trucha', 'Reactivación económica'],
         language: 'both'
       },
       {
         id: 'event-2',
-        title: 'Feria Artesanal del Fin de Semana',
-        description: 'Exposición y venta de artesanías locales: ruanas, carrielas, textiles y cerámica de artesanos del municipio.',
-        category: 'crafts',
-        date: new Date(todayDate + 'T10:00:00'),
-        time: '10:00 - 18:00',
-        location: 'Calle Real, Salento',
-        price: 'Entrada gratuita',
-        organizer: 'Asociación de Artesanos de Salento',
-        contact: '+57 300 234 5678',
-        isFree: true,
-        highlights: ['Artesanos locales', 'Textiles tradicionales', 'Cerámica'],
+        title: '🏃 Media Maratón Entre Montañas',
+        description: '1.700 corredores inscritos participan en recorridos de 10K y 22K sobre asfalto con vistas espectaculares de la Cordillera Central. Ruta: Plaza Bolívar → Calle Real → Vía Valle de Cocora → Retorno.',
+        category: 'culture',
+        date: marathonDate,
+        time: '06:00 - 14:00',
+        location: 'Plaza de Bolívar, Salento',
+        price: 'Inscripciones variadas',
+        organizer: 'Media Maratón Entre Montañas',
+        contact: 'www.mediamaratonentremontanas.com.co',
+        isFree: false,
+        highlights: ['1.700 corredores', 'Recorridos 10K y 22K', 'Vistas de palmas de cera'],
         language: 'both'
       },
       {
         id: 'event-3',
-        title: 'Tour Nocturno del Casco Histórico',
-        description: 'Recorrido guiado por las calles históricas de Salento con historias y leyendas del pueblo. Incluye café caliente.',
-        category: 'culture',
-        date: new Date(todayDate + 'T20:00:00'),
-        time: '20:00 - 21:30',
-        location: 'Salida desde Plaza de Bolívar',
-        price: '$15.000 COP',
-        organizer: 'Guías de Turismo Certificados',
-        contact: '+57 300 345 6789',
-        isFree: false,
-        highlights: ['Historia local', 'Leyendas', 'Café incluido'],
+        title: '🎵 Latinoamérica Fest',
+        description: 'Festival latinoamericano de música con diferentes presentaciones artísticas. Música en vivo y cultural para todos los visitantes.',
+        category: 'music',
+        date: new Date('2026-09-12'),
+        time: '15:00 - 22:00',
+        location: 'Plaza de Bolívar, Salento',
+        price: 'Gratis',
+        organizer: 'Alcaldía de Salento',
+        contact: '+57 300 123 4567',
+        isFree: true,
+        highlights: ['Música latinoamericana', 'Presentaciones artísticas', 'Ambiente familiar'],
         language: 'both'
       },
       {
         id: 'event-4',
-        title: 'Festival de la Trucha y la Trucha',
-        description: 'Competencia de cocina con trucha como ingrediente principal. Restaurantes locales presentan sus mejores platos.',
-        category: 'food',
-        date: new Date(todayDate + 'T12:00:00'),
-        time: '12:00 - 16:00',
-        location: 'Parque Principal, Salento',
-        price: 'Entrada $5.000 COP',
-        organizer: 'Asociación de Restaurantes de Salento',
-        contact: '+57 300 456 7890',
-        isFree: false,
-        highlights: ['Cocina tradicional', 'Degustación', 'Concurso'],
+        title: '💃 Coroteo Campesino',
+        description: 'Actividad cultural tradicional con música y danzas típicas del Quindío. Experiencia auténtica de la cultura cafetera.',
+        category: 'culture',
+        date: new Date('2026-09-14'),
+        time: '18:00 - 21:00',
+        location: 'Plaza de Bolívar, Salento',
+        price: 'Gratis',
+        organizer: 'Secretaría de Cultura Salento',
+        contact: '+57 300 234 5678',
+        isFree: true,
+        highlights: ['Tradición quindiana', 'Música típica', 'Cultura local'],
         language: 'both'
       },
       {
         id: 'event-5',
-        title: 'Taller de Tejido Tradicional',
-        description: 'Aprende las técnicas de tejido utilizadas por los artesanos locales. Materiales incluidos. Cupos limitados.',
-        category: 'crafts',
-        date: new Date(todayDate + 'T14:00:00'),
-        time: '14:00 - 17:00',
-        location: 'Casa de la Cultura, Salento',
-        price: '$25.000 COP',
-        organizer: 'Casa de la Cultura Salento',
-        contact: '+57 300 567 8901',
-        isFree: false,
-        highlights: ['Técnicas tradicionales', 'Materiales incluidos', 'Cupos limitados'],
+        title: '🎭 Rajaleña',
+        description: 'Actividad folclórica tradicional con música, bailes y participación comunitaria. Celebración de las raíces culturales de Salento.',
+        category: 'culture',
+        date: new Date('2026-09-15'),
+        time: '19:00 - 22:00',
+        location: 'Calle Real, Salento',
+        price: 'Gratis',
+        organizer: 'Secretaría de Cultura Salento',
+        contact: '+57 300 345 6789',
+        isFree: true,
+        highlights: ['Folclore tradicional', 'Participación comunitaria', 'Música local'],
         language: 'both'
       },
       {
         id: 'event-6',
-        title: 'Caminata Ecológica a Cascada Santa Rita',
-        description: 'Recorrido guiado a la cascada más cercana a Salento. Incluye información sobre flora y fauna local.',
-        category: 'nature',
-        date: new Date(todayDate + 'T08:00:00'),
-        time: '08:00 - 10:00',
-        location: 'Salida desde mirador Alto de la Cruz',
-        price: '$10.000 COP',
-        organizer: 'Guías del Cocora',
-        contact: '+57 300 678 9012',
+        title: '🎪 Presentaciones Familia Castañeda',
+        description: 'Espectáculo de música tradicional con la reconocida Familia Castañeda. Música andina colombiana e instrumentos típicos.',
+        category: 'music',
+        date: new Date('2026-09-16'),
+        time: '20:00 - 22:00',
+        location: 'Teatro Municipal, Salento',
+        price: '$15.000 COP',
+        organizer: 'Secretaría de Cultura Salento',
+        contact: '+57 300 456 7890',
         isFree: false,
-        highlights: ['Senderismo fácil', 'Flora y fauna', 'Fotografía'],
+        highlights: ['Música andina', 'Instrumentos típicos', 'Grupo reconocido'],
         language: 'both'
       },
       {
         id: 'event-7',
-        title: 'Ronda de Cafés de Origen',
-        description: 'Degustación comparativa de cafés de diferentes fincas del Quindío. Explicación del proceso de beneficio.',
-        category: 'food',
-        date: new Date(todayDate + 'T16:00:00'),
-        time: '16:00 - 18:00',
-        location: 'Café Quindío, Calle Real',
-        price: '$20.000 COP',
-        organizer: 'Café Quindío',
-        contact: '+57 300 789 0123',
-        isFree: false,
-        highlights: ['Degustación', 'Café de origen', 'Explicación'],
+        title: '🌱 Recicla por el Río',
+        description: 'Jornada ambiental con conciertos donde los asistentes pueden llevar elementos reciclables para contribuir con los damnificados del municipio post-terremoto.',
+        category: 'community',
+        date: new Date('2026-09-17'),
+        time: '10:00 - 18:00',
+        location: 'Río Barbas, cercanías de Salento',
+        price: 'Gratis (llevar reciclables)',
+        organizer: 'Alcaldía de Salento',
+        contact: '+57 300 567 8901',
+        isFree: true,
+        highlights: ['Actividad ambiental', 'Conciertos', 'Apoyo a damnificados'],
         language: 'both'
       },
       {
         id: 'event-8',
-        title: 'Noche de Cine al Aire Libre',
-        description: 'Proyección de películas colombianas en la plaza principal. Venta de snacks y bebidas.',
+        title: '🎨 Danzas y Teatro',
+        description: 'Presentaciones de grupos de danza y teatro local. Espectáculos culturales que muestran el talento artístico de la comunidad.',
         category: 'culture',
-        date: new Date(todayDate + 'T19:30:00'),
-        time: '19:30 - 22:00',
+        date: new Date('2026-09-18'),
+        time: '16:00 - 21:00',
         location: 'Plaza de Bolívar, Salento',
         price: 'Gratis',
         organizer: 'Secretaría de Cultura Salento',
-        contact: '+57 300 890 1234',
+        contact: '+57 300 678 9012',
         isFree: true,
-        highlights: ['Cine colombiano', 'Ambiente familiar', 'Snacks disponibles'],
+        highlights: ['Arte local', 'Danzas tradicionales', 'Teatro comunitario'],
+        language: 'both'
+      },
+      {
+        id: 'event-9',
+        title: '🎂 Celebraciones del Municipio',
+        description: 'Actividades especiales conmemorando el cumpleaños del municipio de Salento y la palma de cera como árbol nacional. Encuentros con estudiantes y actividades ambientales.',
+        category: 'community',
+        date: new Date('2026-09-19'),
+        time: '09:00 - 20:00',
+        location: 'Varios puntos, Salento',
+        price: 'Gratis',
+        organizer: 'Alcaldía de Salento',
+        contact: '+57 300 789 0123',
+        isFree: true,
+        highlights: ['Cumpleaños del municipio', 'Palma de cera', 'Actividades ambientales'],
+        language: 'both'
+      },
+      {
+        id: 'event-10',
+        title: '🍽️ Gastronomía del Festival',
+        description: 'Degustación de platos especiales de trucha preparados por los 40 restaurantes participantes del Festival de la Trucha. Último día del festival.',
+        category: 'food',
+        date: festivalEndDate,
+        time: '10:00 - 22:00',
+        location: 'Plaza Bolívar, Calle Real y Valle de Cocora, Salento',
+        price: 'Platos $28.000 COP',
+        organizer: 'Cámara de Comercio de Armenia y del Quindío',
+        contact: 'www.festivaldelatrucha.com',
+        isFree: false,
+        highlights: ['Cierre del festival', '40 restaurantes', 'Platos especiales'],
         language: 'both'
       }
     ]
@@ -190,6 +225,20 @@ class EventsService {
       const eventDate = new Date(event.date)
       eventDate.setHours(0, 0, 0, 0)
       return eventDate.getTime() === today.getTime()
+    })
+  }
+
+  /**
+   * Obtener eventos activos (hoy y esta semana)
+   */
+  getActiveEvents(): Event[] {
+    const today = new Date()
+    const endOfWeek = new Date(today)
+    endOfWeek.setDate(today.getDate() + 7)
+    
+    return this.events.filter(event => {
+      const eventDate = new Date(event.date)
+      return eventDate >= today && eventDate <= endOfWeek
     })
   }
 
