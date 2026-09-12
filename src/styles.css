@@ -2015,7 +2015,7 @@
 .notification-trigger { position: relative; }
 .notification-dot { position: absolute; top: 4px; right: 4px; width: 8px; height: 8px; background: var(--coral); border-radius: 50%; border: 2px solid var(--paper); }
 .mobile-dashboard { padding: 10px; max-width: 1400px; margin: 0 auto; }
-.services-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
+.services-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px; }
 @media (min-width: 768px) {
   .services-grid { grid-template-columns: repeat(3, 1fr); }
 }
@@ -2025,7 +2025,7 @@
 @media (min-width: 1280px) {
   .services-grid { grid-template-columns: repeat(5, 1fr); }
 }
-.service-card { display: flex; flex-direction: column; min-height: 110px; padding: 10px; background: rgba(255,255,255,.92); border: 2px solid var(--line); border-radius: 10px; text-align: left; transition: all 0.3s ease; position: relative; overflow: hidden; }
+.service-card { display: flex; flex-direction: column; min-height: 82px; padding: 8px; background: rgba(255,255,255,.92); border: 2px solid var(--line); border-radius: 10px; text-align: left; transition: all 0.3s ease; position: relative; overflow: hidden; }
 .service-card:hover { transform: translateY(-2px); box-shadow: 0 4px 10px rgba(39,54,43,0.08); }
 .service-card.featured { border-color: var(--coral); background: linear-gradient(135deg, #fff 0%, rgba(231,108,82,0.05) 100%); }
 .service-card.gastronomy:hover { border-color: #e76c52; }
@@ -2043,9 +2043,9 @@
 .service-card.supermarkets:hover { border-color: #7da88c; }
 .service-card.operators:hover { border-color: #9b7bb5; }
 .service-badge { position: absolute; top: 6px; right: 6px; background: var(--coral); color: white; font-size: 8px; font-weight: 700; padding: 2px 6px; border-radius: 10px; }
-.service-icon { display: grid; place-items: center; width: 34px; height: 34px; margin-bottom: 8px; border-radius: 8px; background: rgba(39,54,43,.06); font-size: 20px; }
-.service-content h3 { font: 600 13px Fraunces; color: var(--ink); margin: 0 0 3px; }
-.service-content p { font-size: 10px; color: #70796e; margin: 0 0 6px; line-height: 1.3; }
+.service-icon { display: grid; place-items: center; width: 30px; height: 30px; margin-bottom: 5px; border-radius: 8px; background: rgba(39,54,43,.06); font-size: 17px; }
+.service-content h3 { font: 600 12px Fraunces; color: var(--ink); margin: 0 0 2px; }
+.service-content p { font-size: 9px; color: #70796e; margin: 0 0 4px; line-height: 1.2; }
 .service-subcategories { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 6px; }
 .service-subcategories span { font-size: 8px; padding: 3px 6px; background: rgba(39,54,43,0.05); border-radius: 10px; color: #70796e; }
 .service-whatsapp { display: flex; align-items: center; justify-content: center; gap: 6px; margin-top: 8px; padding: 6px 8px; background: #25D366; color: white; border-radius: 6px; font-size: 9px; font-weight: 600; transition: all 0.2s; }
@@ -4558,9 +4558,11 @@ footer { max-width: 1184px; margin: auto; border-top: 1px solid var(--line); dis
 .service-info {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 8px;
-  font-size: 11px;
+  font-size: 10px;
   color: #72796d;
+  margin-top: auto;
 }
 
 .provider-count {
