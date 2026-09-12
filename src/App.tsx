@@ -72,15 +72,15 @@ const salentoImageGallery = [
 
 const serviceCardImages = {
   gastronomy: '/imagenes-salento/trucha%20y%20patacon.jfif',
-  restaurantBar: '/pautas/boki_mall/hotel-mirador-boquia/314270821.jpg',
+  restaurantBar: '/imagenes-salento/pueblo.jfif',
   transport: '/imagenes-salento/destinos-75.png',
-  horseback: '/imagenes-salento/1326163558.webp',
+  horseback: '/imagenes-salento/653410779.webp',
   guides: '/imagenes-salento/pueblo.jfif',
   accommodation: '/pautas/coffee-tour-alojamiento-finca-hotel-el-ocaso/imagenes/foto_casa_ocaso.png',
-  artisan: '/imagenes-salento/calle.jfif',
-  commerce: '/imagenes-salento/iglesia.jfif',
-  events: '/pautas/boki_mall/hotel-mirador-boquia/370049629.jpg',
-  camping: '/imagenes-salento/653410779.webp'
+  artisan: '/imagenes-salento/callereal.jfif',
+  commerce: '/imagenes-salento/pueblo.jfif',
+  events: '/imagenes-salento/pueblo.jfif',
+  camping: '/imagenes-salento/631032744.webp'
 } as const
 
 function providerSlug(name: string) {
@@ -324,7 +324,7 @@ function priceHintFor(place: Place): string {
 
 function App() {
   const [activeCategory, setActiveCategory] = useState<Category>('Todo')
-  const [cartCount, setCartCount] = useState(2)
+  const [cartCount, setCartCount] = useState(0)
   const [showCart, setShowCart] = useState(false)
   const [search, setSearch] = useState('')
   const [mobileNav, setMobileNav] = useState(false)
@@ -497,9 +497,8 @@ function App() {
       const whatsappUrl = `https://wa.me/${contactPlace.contact.whatsapp}?text=${encodeURIComponent(message)}`
       window.open(whatsappUrl, '_blank')
     } else {
-      // Fallback a número genérico si no hay contacto específico
-      const whatsappUrl = `https://wa.me/573000000000?text=${encodeURIComponent(message)}`
-      window.open(whatsappUrl, '_blank')
+      // Sin número válido — no enviar
+      alert('No hay número de contacto disponible para este negocio. Por favor contacta directamente.')
     }
   }
 
@@ -804,7 +803,7 @@ function App() {
         </div>
         <div className="presence-flags-viewport" aria-label="Banderas de mercados internacionales">
           <div className="presence-flags-track">
-            {[...internationalMarketsPreview, ...internationalMarketsPreview].map((market, index) => (
+            {internationalMarketsPreview.map((market, index) => (
               <div key={`${market.country}-${index}`} className="flag-pill" title={`${market.country} · ${market.language}`} aria-label={market.country}>
                 <img
                   className="flag-emoji"
@@ -832,7 +831,7 @@ function App() {
           </div>
           <div className="events-info">
             {todayEvents.length > 0 && (
-              <span className="events-count">🎭 {todayEvents.length} eventos esta semana</span>
+              <span className="events-count">🎭 {todayEvents.length} eventos disponibles</span>
             )}
             <button className="close-banner" onClick={() => setShowWeatherBanner(false)}><X size={16} /></button>
           </div>
@@ -852,7 +851,7 @@ function App() {
 
             <div className="category-page-summary">
               <span>{todayEvents.length} eventos programados</span>
-              <strong>Septiembre 2026</strong>
+              <strong>Próximos eventos</strong>
             </div>
 
             <div className="place-grid category-page-grid">
@@ -1218,7 +1217,7 @@ function App() {
             }}>Ver ficha <ArrowRight size={13} /></button></Popup></CircleMarker>)}<MapControls /></MapContainer></div>
         </section>
 
-            <section className="advertising-section" id="pautas"><div><p className="eyebrow">Hazte visible en Salento</p><h2>Pautas que llegan<br /><i>al lugar correcto.</i></h2><p>Tu negocio aparece en el mapa digital, en las búsquedas y frente a turistas listos para comprar o reservar.</p></div><div className="advertising-cards"><article><span className="ad-tag">Gastronomía</span><strong>Tu sabor, en el mapa.</strong><small>Ficha + ubicación + pedidos</small></article><article><span className="ad-tag green-tag">Comercio local</span><strong>Lo local se encuentra.</strong><small>Ficha + ubicación + contacto</small></article><article><span className="ad-tag yellow-tag">Experiencias</span><strong>El plan empieza aquí.</strong><small>Ficha + reservas + rutas</small></article></div><a className="dark-button ad-button" href="https://wa.me/573001234567?text=%C2%A1Hola!%20Quiero%20mi%20ficha%20en%20Salento%20a%20la%20Mano" target="_blank" rel="noreferrer">Registra tu negocio <ArrowRight size={17} /></a></section>
+            <section className="advertising-section" id="pautas"><div><p className="eyebrow">Hazte visible en Salento</p><h2>Pautas que llegan<br /><i>al lugar correcto.</i></h2><p>Tu negocio aparece en el mapa digital, en las búsquedas y frente a turistas listos para comprar o reservar.</p></div><div className="advertising-cards"><article><span className="ad-tag">Gastronomía</span><strong>Tu sabor, en el mapa.</strong><small>Ficha + ubicación + pedidos</small></article><article><span className="ad-tag green-tag">Comercio local</span><strong>Lo local se encuentra.</strong><small>Ficha + ubicación + contacto</small></article><article><span className="ad-tag yellow-tag">Experiencias</span><strong>El plan empieza aquí.</strong><small>Ficha + reservas + rutas</small></article></div><button className="dark-button ad-button" onClick={() => alert('Para registrar tu negocio, escríbenos por WhatsApp al +57 313 716 0977')}>Registra tu negocio <ArrowRight size={17} /></button></section>
 
         <section className="stay-banner" id="experiencias"><div><p className="eyebrow">Para tu estadía</p><h2>Que no te cuenten<br /><i>el plan completo.</i></h2></div><div className="stay-actions"><p>Recibe recomendaciones según tu hospedaje, tus gustos y el tiempo que tienes.</p><button className="outline-button" onClick={() => { setActiveCategory('Todo'); scrollToSection('pedidos') }}>Personalizar mi visita <ArrowRight size={16} /></button></div></section>
           </>
@@ -1294,10 +1293,10 @@ function App() {
         </button>
       </div>
       <DonChucho language={language} t={t} places={places} weather={weather} todayEvents={todayEvents} />
-      <div className="offline-status">
-        <span className={isOffline ? 'offline-indicator' : 'online-indicator'} />
-        {isOffline ? t('offline', 'Modo Offline - Valle de Cocora') : t('online', 'Conectado')}
-      </div>
+      {isOffline && <div className="offline-status">
+        <span className="offline-indicator" />
+        {t('offline', 'Modo Offline - Valle de Cocora')}
+      </div>}
     </div>
   )
 }
@@ -1508,7 +1507,7 @@ function PlaceCard({ place, onAdd, onOpen, onReviews }: { place: Place; onAdd: (
   return (
     <article className="place-card">
       <div className={`place-image ${place.color}`}>
-        {place.photos?.[0] && <img className="place-photo" src={place.photos[0]} alt={`Hotel ${place.name}`} />}
+        {place.photos?.[0] && <img className="place-photo" src={place.photos[0]} alt={`${place.name}`} />}
         <div className="image-pattern" />
         <span className="place-badge">{place.badge}</span>
         <button className="heart-button" aria-label={`Guardar ${place.name}`}>
@@ -1735,7 +1734,7 @@ function Cart({ count, currency, onClose, onAdd, hotels }: { count: number; curr
         directions ? `Indicaciones: ${directions}` : '',
         `Total estimado: ${formatPrice(48000, currency)}`,
       ].filter(Boolean).join('\n')
-      window.open(`https://wa.me/573164567890?text=${encodeURIComponent(message)}`, '_blank', 'noopener,noreferrer')
+      alert('Pedido guardado. Próximamente podrás enviar tu pedido directamente por WhatsApp.')
       setSubmitted(true)
     }
   }

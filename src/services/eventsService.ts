@@ -169,7 +169,7 @@ class EventsService {
       {
         id: 'event-009',
         title: '🎂 Celebración del Municipio',
-        description: 'Conmemoración del aniversario de Salento y la palma de cera como árbol nacional. Actividades con estudiantes, feria artesanal yambiental.',
+        description: 'Conmemoración del aniversario de Salento y la palma de cera como árbol nacional. Actividades con estudiantes, feria artesanal y ambiental.',
         category: 'community',
         date: new Date('2026-09-19'),
         time: '09:00 - 20:00',
@@ -288,7 +288,7 @@ class EventsService {
       },
       {
         id: 'event-017',
-        title: '🎶 Festival Nacional de Música depjaramillo',
+        title: '🎶 Festival Nacional de Música de P. Jaramillo',
         description: 'Festival de música colombiana con bandas nacionales e internacionales. 3 días de música en vivo en el Parque Nacional del Café.',
         category: 'music',
         date: new Date('2026-11-07'),
