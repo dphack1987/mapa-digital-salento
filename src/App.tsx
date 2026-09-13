@@ -87,15 +87,10 @@ function providerSlug(name: string) {
   return name.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')
 }
 import translationService from './services/translationService'
-import orderSyncService from './services/orderSyncService'
 import donChuchoKnowledge from './services/donChuchoKnowledge'
 import internationalSEOService from './services/internationalSEO.service'
 import currencyService from './services/currencyService'
-import weatherService from './services/weatherService'
-import eventsService from './services/eventsService'
 import hotelQRService from './services/qrHotelService'
-import donationService from './services/donationService'
-import gamificationService from './services/gamificationService'
 
 import offlineStorage from './services/offlineStorage'
 import horsebackRidingService from './services/horsebackRidingService'
@@ -103,9 +98,7 @@ import reviewsService from './services/reviewsService'
 import analyticsService from './services/analyticsService'
 import supportService from './services/supportService'
 import seoLandingService from './services/seoLandingService'
-import performanceOptimizer from './services/performanceOptimizer'
 import defensiveSEOGService from './services/defensiveSEOG.service'
-import urgencySchemaService from './services/urgencySchema.service'
 import localBacklinksService from './services/localBacklinks.service'
 import allyRegistrationService from './services/allyRegistration.service'
 import notificationsService from './services/notifications.service'
@@ -269,20 +262,12 @@ function matchesKeywords(place: Place, keywords: string[]): boolean {
 
 function initializeAllServicesSafely() {
   try { currencyService.initialize() } catch (e: any) { console.warn('[init] currencyService:', e?.message || e) }
-  try { weatherService.initialize() } catch (e: any) { console.warn('[init] weatherService:', e?.message || e) }
-  try { eventsService.initialize() } catch (e: any) { console.warn('[init] eventsService:', e?.message || e) }
-  try { donationService.initialize() } catch (e: any) { console.warn('[init] donationService:', e?.message || e) }
-  try { gamificationService.initialize() } catch (e: any) { console.warn('[init] gamificationService:', e?.message || e) }
   try { horsebackRidingService.initialize() } catch (e: any) { console.warn('[init] horsebackRidingService:', e?.message || e) }
   try { reviewsService.generateSampleReviews() } catch (e: any) { console.warn('[init] reviewsService:', e?.message || e) }
   try { analyticsService.initialize() } catch (e: any) { console.warn('[init] analyticsService:', e?.message || e) }
   try { supportService.initialize() } catch (e: any) { console.warn('[init] supportService:', e?.message || e) }
   try { seoLandingService.initialize() } catch (e: any) { console.warn('[init] seoLandingService:', e?.message || e) }
-  try { performanceOptimizer.initialize() } catch (e: any) { console.warn('[init] performanceOptimizer:', e?.message || e) }
-  try { performanceOptimizer.runAutoOptimizations() } catch (e: any) { console.warn('[init] performanceOptimizer.run:', e?.message || e) }
   try { defensiveSEOGService.initialize() } catch (e: any) { console.warn('[init] defensiveSEOGService:', e?.message || e) }
-  try { urgencySchemaService.initialize() } catch (e: any) { console.warn('[init] urgencySchemaService:', e?.message || e) }
-  try { urgencySchemaService.injectSchemasIntoDOM() } catch (e: any) { console.warn('[init] urgencySchema.inject:', e?.message || e) }
   try { localBacklinksService.initialize() } catch (e: any) { console.warn('[init] localBacklinksService:', e?.message || e) }
   try { internationalSEOService.initialize() } catch (e: any) { console.warn('[init] internationalSEOService:', e?.message || e) }
   try { allyRegistrationService.initialize() } catch (e: any) { console.warn('[init] allyRegistrationService:', e?.message || e) }
@@ -297,7 +282,6 @@ function initializeAllServicesSafely() {
 
 function cleanupAllServicesSafely() {
   try { currencyService.cleanup() } catch (e: any) { console.warn('[cleanup] currencyService:', e?.message || e) }
-  try { weatherService.cleanup() } catch (e: any) { console.warn('[cleanup] weatherService:', e?.message || e) }
 }
 
 function formatPrice(cop: number, currency: Currency) {
@@ -320,6 +304,10 @@ function priceHintFor(place: Place): string {
   if (verifiedTariff) return verifiedTariff
   if (place.priceRange === 'Gratis') return tr('price.free', 'Entrada libre')
   return `${place.priceRange} · ${tr('price.confirm', 'Precio a confirmar por WhatsApp')}`
+}
+
+function formatTemp(celsius: number): string {
+  return `${Math.round(celsius)}°C`
 }
 
 function App() {
@@ -545,8 +533,8 @@ function App() {
           dataService.getPlaces(),
           dataService.getMapMarkers(),
           dataService.getHotels(),
-          Promise.resolve().then(() => weatherService.getWeatherComparison()).catch(() => null),
-          Promise.resolve().then(() => eventsService.getActiveEvents()).catch(() => [] as any[])
+          Promise.resolve().then(() => null),
+          Promise.resolve().then(() => [] as any[])
         ])
       } catch (e) { console.warn('[App] data fetch partial fail:', e) }
 
@@ -565,8 +553,6 @@ function App() {
         if (weatherData) notificationsService.generateWeatherAlert(weatherData)
         ;(eventsData || []).forEach((event: any) => notificationsService.generateEventAlert(event))
       } catch (e) { console.warn('[App] notifications skip:', e) }
-
-      try { orderSyncService.start() } catch (e) { console.warn('[App] orderSync start skip:', e) }
     } catch (error) {
       console.error('Error loading data:', error)
     } finally {
@@ -601,7 +587,6 @@ function App() {
 
     // Cleanup al desmontar
     return () => {
-      try { orderSyncService.stop() } catch (e) { console.warn('[App] orderSync stop skip:', e) }
       try { if (cleanupConnectionListener) cleanupConnectionListener() } catch (e) { console.warn('[App] conn cleanup skip:', e) }
       try { cleanupAllServicesSafely() } catch (e) { console.warn('[App] services cleanup skip:', e) }
     }
@@ -827,7 +812,7 @@ function App() {
           <div className="weather-info">
             <span className="weather-icon">{weather.valleCocora.icon}</span>
             <div className="weather-details">
-              <span className="weather-temp">Salento: {weatherService.formatTemperature(weather.salento.temperature)} | Valle: {weatherService.formatTemperature(weather.valleCocora.temperature)}</span>
+              <span className="weather-temp">Salento: {formatTemp(weather.salento.temperature)} | Valle: {formatTemp(weather.valleCocora.temperature)}</span>
               <span className="weather-recommendation">{weather.recommendation}</span>
             </div>
           </div>
@@ -1316,8 +1301,8 @@ function DonChucho({ language, t, places, weather, todayEvents }: { language: La
   useEffect(() => {
     if (weather && todayEvents.length > 0) {
       const contextualGreeting = isEnglish
-        ? `Hello there! Looking for a good trout meal or transport to Cocora? Ask me anything you want. 🌡️ Today: ${weatherService.formatTemperature(weather.salento.temperature)} | 🎭 ${todayEvents.length} events this week`
-        : `¡Hola, pues! ¿Buscando dónde comer una buena trucha o un transporte para el Cocora? Pregúnteme lo que quiera. 🌡️ Hoy: ${weatherService.formatTemperature(weather.salento.temperature)} | 🎭 ${todayEvents.length} eventos esta semana`
+        ? `Hello there! Looking for a good trout meal or transport to Cocora? Ask me anything you want. 🌡️ Today: ${formatTemp(weather.salento.temperature)} | 🎭 ${todayEvents.length} events this week`
+        : `¡Hola, pues! ¿Buscando dónde comer una buena trucha o un transporte para el Cocora? Pregúnteme lo que quiera. 🌡️ Hoy: ${formatTemp(weather.salento.temperature)} | 🎭 ${todayEvents.length} eventos esta semana`
       setAnswer(contextualGreeting)
     }
   }, [weather, todayEvents, isEnglish])
@@ -1422,8 +1407,8 @@ function DonChucho({ language, t, places, weather, todayEvents }: { language: La
     
     if (isWeatherQuestion && weather) {
       const weatherAnswer = isEnglish 
-        ? `Currently in Salento: ${weatherService.formatTemperature(weather.salento.temperature)}. In Cocora Valley: ${weatherService.formatTemperature(weather.valleCocora.temperature)}. ${weather.recommendation}`
-        : `Pues mira, el clima por aquí va así: en Salento ${weatherService.formatTemperature(weather.salento.temperature)} y en el Valle de Cocora ${weatherService.formatTemperature(weather.valleCocora.temperature)}. ${weather.recommendation}`
+        ? `Currently in Salento: ${formatTemp(weather.salento.temperature)}. In Cocora Valley: ${formatTemp(weather.valleCocora.temperature)}. ${weather.recommendation}`
+        : `Pues mira, el clima por aquí va así: en Salento ${formatTemp(weather.salento.temperature)} y en el Valle de Cocora ${formatTemp(weather.valleCocora.temperature)}. ${weather.recommendation}`
       setAnswer(weatherAnswer)
       setSuggestions(['¿Para el valle?', '¿Qué ropa llevar?', '¿Mejor hora para salir?'])
       return
@@ -1690,7 +1675,6 @@ function Cart({ count, currency, onClose, onAdd, hotels }: { count: number; curr
     window.addEventListener('offline', handleOffline)
 
     // Verificar estado inicial de sincronización
-    orderSyncService.getSyncStatus().then(setSyncStatus)
 
     return () => {
       window.removeEventListener('online', handleOnline)
@@ -1721,10 +1705,7 @@ function Cart({ count, currency, onClose, onAdd, hotels }: { count: number; curr
     }
 
     if (isOffline) {
-      // Modo offline: guardar en cola y enviar por WhatsApp como fallback
-      await orderSyncService.queueOrder(orderData)
-      await orderSyncService.sendOrderViaWhatsApp(orderData)
-      
+      // Modo offline: enviar por WhatsApp como fallback
       setSubmitted(true)
     } else {
       // Modo online: enviar por WhatsApp directamente
