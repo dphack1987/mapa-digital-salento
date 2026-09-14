@@ -1,33 +1,19 @@
-# Robots.txt para SEO Internacional - Salento a la Mano
-# Dominio: salentoalamano.com
-# Estrategia: Prioridad para mercados internacionales (China, Rusia, Asia, Europa)
+# Robots.txt - Salento a la Mano
+# Dominio: www.salentoalamano.com
 
-# Configuracion general
 User-agent: *
 Allow: /
 Crawl-delay: 1
 
-# Paginas prioritarias para turismo internacional
+# Paginas prioritarias
 Allow: /estado-actual-salento-hoteles-abiertos-vias-libres-valle-cocora-operando-100
 Allow: /valle-cocora-accesible-100
 Allow: /hoteles-abiertos-salento
 Allow: /vias-salento-libres-acceso
 
-# Landing pages programaticas para SEO
-Allow: /salento/
-Allow: /salento-turismo/
-Allow: /hoteles-en-salento/
-Allow: /restaurantes-en-salento/
-Allow: /valle-de-cocora-salento/
-Allow: /que-hacer-en-salento/
-Allow: /como-llegar-a-salento/
-Allow: /mejor-epoca-salento/
-Allow: /cultura-salento/
-Allow: /naturaleza-salento/
-Allow: /gastronomia-salento/
-
-# Permitir crawleo de estructura de datos local (places, mapMarkers, hotels)
+# Datos y categorias
 Allow: /data/
+Allow: /categorias/
 
 # Bloquear archivos tecnicos
 Disallow: /admin/
@@ -35,61 +21,41 @@ Disallow: /api/
 Disallow: /private/
 Disallow: /temp/
 
-# Baidu (China) - Prioridad Maxima
-User-agent: Baiduspider
-Allow: /
-Crawl-delay: 1
-Allow: /estado-actual-salento-hoteles-abiertos-vias-libres-valle-cocora-operando-100
-Allow: /valle-cocora-accesible-100
-
-# Yandex (Rusia) - Prioridad Alta
-User-agent: Yandexbot
-Allow: /
-Crawl-delay: 1
-Allow: /estado-actual-salento-hoteles-abiertos-vias-libres-valle-cocora-operando-100
-Allow: /valle-cocora-accesible-100
-
-# Naver (Corea del Sur) - Prioridad Media
-User-agent: Yeti
-Allow: /
-Crawl-delay: 1
-
-# Yahoo Japan - Prioridad Media
-User-agent: Slurp
-Allow: /
-Crawl-delay: 1
-
-# Google (Base internacional)
+# Google
 User-agent: Googlebot
 Allow: /
 Crawl-delay: 1
 
-# Bing (Soporte para Yahoo internacional)
+# Bing
 User-agent: Bingbot
 Allow: /
 Crawl-delay: 1
 
-# DuckDuckGo
-User-agent: DuckDuckBot
+# Yandex
+User-agent: Yandexbot
 Allow: /
 Crawl-delay: 1
 
-# Bots de redes sociales internacionales
+# Baidu
+User-agent: Baiduspider
+Allow: /
+Crawl-delay: 1
+
+# Naver
+User-agent: Yeti
+Allow: /
+Crawl-delay: 1
+
+# Redes sociales
 User-agent: facebookexternalhit
 Allow: /
-
 User-agent: Twitterbot
 Allow: /
-
 User-agent: LinkedInBot
 Allow: /
 
-# Sitemap unificado para indexacion: contiene todas las URLs
-# (home, landings, categorias, pautantes, SEO internacional)
+# Sitemap
 Sitemap: https://www.salentoalamano.com/sitemap.xml
 
 # Host para Yandex
-Host: salentoalamano.com
-
-# Verificación Yandex actualizada
-# Código: ca3ccb6a0f213071
+Host: www.salentoalamano.com
