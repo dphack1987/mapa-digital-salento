@@ -47,7 +47,39 @@
         </div><div class="hero-image" aria-label="Finca Hotel El Ocaso"></div>
       </section>
       
-      <section class="section service-section"><h2>Hospedaje y reservas</h2><div class="service-grid"><div><strong>Tipos de habitación</strong><ul><li>Doble</li><li>Triple</li><li>Cuádruple</li><li>Suite familiar</li></ul><strong>Comodidades</strong><ul><li>Desayuno tradicional</li><li>Café de la finca</li><li>Vistas panorámicas</li><li>Entorno natural</li><li>Chimenea</li></ul></div><div><strong>Check-in</strong><p>14:00 - 20:00</p><strong>Check-out</strong><p>08:00 - 12:00</p><strong>Servicios incluidos</strong><ul><li>Desayuno incluido</li><li>Wi-Fi áreas comunes</li><li>Parqueadero gratuito</li><li>Jardines y zonas verdes</li><li>Chimenea</li><li>Terraza con vistas</li><li>Área de descanso</li><li>Información turística</li><li>Zona de BBQ</li><li>Tour de café disponible</li></ul><strong>Tarifas verificadas</strong><p>Las tarifas varían según temporada y tipo de habitación. Confirmar directamente para disponibilidad y precios exactos.</p><strong>Sostenibilidad verificada</strong><ul><li>Caficultura sostenible</li><li>Estación de compostaje</li></ul></div></div><div class="actions"><a class="button primary" href="https://wa.me/573134253669">Consultar disponibilidad</a></div></section>
+      <section class="section" id="menu-interactivo">
+        <h2>Nuestras Habitaciones</h2>
+        <p class="muted" style="margin-top:-8px;margin-bottom:20px">Selecciona tu habitación y agrégala a tu reserva. Al final, envía todo por WhatsApp.</p>
+        <div class="menu-header">
+          <div class="currency-switch" role="group" aria-label="Moneda">
+            <button data-cur="COP" class="active">COP</button>
+            <button data-cur="USD">USD</button>
+            <button data-cur="EUR">EUR</button>
+          </div>
+        </div>
+        <div class="menu-tabs" id="menuTabs"></div>
+        <div class="menu-grid" id="menuGrid"></div>
+        <div class="menu-empty" id="menuEmpty" style="display:none"><span>🔍</span>No encontramos opciones con ese nombre.</div>
+      </section>
+
+      <div class="cart-float" id="cartFloat" role="button" tabindex="0" aria-label="Ver reserva">
+        <span class="badge" id="cartBadge">0</span>
+        <span class="total" id="cartTotal">$0</span>
+        <span>Ver reserva →</span>
+      </div>
+
+      <div class="cart-modal" id="cartModal" role="dialog" aria-modal="true">
+        <div class="cart-panel">
+          <h2>Tu reserva</h2>
+          <div id="cartItems"></div>
+          <div class="cart-total"><span>Total</span><span id="cartModalTotal">$0</span></div>
+          <div class="cart-actions">
+            <button class="send" id="sendWhatsApp">Enviar reserva por WhatsApp</button>
+            <button class="clear" id="clearCart">Vaciar reserva</button>
+            <button class="close" id="closeCart">Seguir explorando</button>
+          </div>
+        </div>
+      </div>
       
       <section class="section"><h2>Conoce la experiencia</h2><div class="two-col"><div><p class="verified">✓ Información verificada en el catálogo local</p><p>Finca Hotel El Ocaso no es solo un hotel: es una inmersión completa en la cultura cafetera del Quindío. Las 4 habitaciones rurales están decoradas con muebles de madera artesanal y telas tejidas por comunidades locales. Cada mañana, el desayuno tipo campesino incluye café de la propia finca, frutas frescas del huerto y arepas de maíz pelao. Los huéspedes pueden participar en coffee tours donde aprenden desde la siembra del grano hasta la preparación de una taza perfecta. Por las noches, la chimenea de la sala común se convierte en el punto de encuentro donde los viajeros comparten historias bajo las estrellas del Eje Cafetero.</p></div><div class="facts"><div class="fact"><strong>Ubicación</strong>Vía rural, 10-15 min del centro de Salento</div><div class="fact"><strong>Check-in/out</strong>14:00-20:00 / 08:00-12:00</div><div class="fact"><strong>Desayuno</strong>Incluido, tipo campesino, 7:00-10:00</div><div class="fact"><strong>Tours</strong>Coffee tour $45.000, caminata $35.000, aves $50.000</div></div></div></section>
       <section class="section"><h2>Galería de imágenes</h2><div class="gallery"><img src="/pautas/coffee-tour-alojamiento-finca-hotel-el-ocaso/imagenes/foto_casa_ocaso.png" alt=" tradicional en Salento Quindío foto " loading="lazy"/><div class="gallery-photo"><img src="/imagenes-salento/finca-don-eduardo-4.jpg" alt=" tradicional en Salento Quindío foto " loading="lazy" /></div><div class="gallery-photo"><img src="/imagenes-salento/finca-don-eduardo-5.jpg" alt=" tradicional en Salento Quindío foto " loading="lazy" /></div></div></section>
@@ -90,5 +122,29 @@
 
       <nav class="bottom-nav" aria-label="Volver" style="display:flex;flex-wrap:wrap;gap:10px;margin-top:28px"><a class="button primary" href="/">Volver al inicio</a><a class="button dark" href="/">Ir a página principal</a><a class="button" href="/categorias/">Ver categorías</a></nav>
     </main>
+  <script src="/pautante-common.js"></script>
+  <script>
+PautanteCommon.initMenu({
+  containerId: 'menuGrid',
+  whatsapp: '573134253669',
+  businessName: 'Reserva — Finca Hotel El Ocaso',
+  precioLabel: 'por noche',
+  showSearch: false,
+  categories: [
+    {id:'todas',label:'Todas'},
+    {id:'habitaciones',label:'Habitaciones'},
+    {id:'extras',label:'Tours y extras'}
+  ],
+  items: [
+    {id:1,cat:'habitaciones',nombre:'Habitación Doble',precio:180000,desc:'Habitación rural con chimenea, desayuno campesino incluido y vistas panorámicas.',emoji:'🛏️'},
+    {id:2,cat:'habitaciones',nombre:'Habitación Triple',precio:220000,desc:'Para 3 personas con chimenea, desayuno incluido y entorno natural.',emoji:'🛏️'},
+    {id:3,cat:'habitaciones',nombre:'Habitación Cuádruple',precio:260000,desc:'Familiar para 4 personas con chimenea, desayuno incluido y vistas al Valle de Cocora.',emoji:'🛏️'},
+    {id:4,cat:'habitaciones',nombre:'Suite Familiar',precio:320000,desc:'Suite amplia con chimenea privada, desayuno incluido y panoramicas al Valle.',emoji:'🛏️'},
+    {id:5,cat:'extras',nombre:'Coffee Tour',precio:45000,desc:'Recorrido por la finca: siembra, recolección, tueste y preparación de café.',emoji:'🎒'},
+    {id:6,cat:'extras',nombre:'Caminata ecológica',precio:35000,desc:'Senderismo por la finca de 12 hectáreas con guía local.',emoji:'🎒'},
+    {id:7,cat:'extras',nombre:'Avistamiento de aves',precio:50000,desc:'Observación de aves locales con guía especializado.',emoji:'🎒'}
+  ]
+});
+</script>
   </body>
 </html>

@@ -48,10 +48,9 @@
       </section>
 
       <section class="section" id="menu-interactivo">
-        <h2>Habitaciones, Servicios y Experiencias</h2>
-        <p class="muted" style="margin-top:-8px;margin-bottom:20px">Selecciona tu habitación, servicios y experiencias. Al final, envía tu reserva por WhatsApp.</p>
+        <h2>Nuestras Habitaciones</h2>
+        <p class="muted" style="margin-top:-8px;margin-bottom:20px">Selecciona tu habitación y agrégala a tu reserva. Al final, envía todo por WhatsApp.</p>
         <div class="menu-header">
-          <div class="menu-search"><input type="text" id="menuSearch" placeholder="Buscar habitación, servicio o experiencia..." /></div>
           <div class="currency-switch" role="group" aria-label="Moneda">
             <button data-cur="COP" class="active">COP</button>
             <button data-cur="USD">USD</button>
@@ -60,7 +59,7 @@
         </div>
         <div class="menu-tabs" id="menuTabs"></div>
         <div class="menu-grid" id="menuGrid"></div>
-        <div class="menu-empty" id="menuEmpty" style="display:none"><span>\uD83D\uDD0D</span>No encontramos nada con ese nombre.</div>
+        <div class="menu-empty" id="menuEmpty" style="display:none"><span>🔍</span>No encontramos opciones con ese nombre.</div>
       </section>
 
       <div class="cart-float" id="cartFloat" role="button" tabindex="0" aria-label="Ver reserva">
@@ -124,174 +123,46 @@
 
       <nav class="bottom-nav" aria-label="Volver" style="display:flex;flex-wrap:wrap;gap:10px;margin-top:28px"><a class="button primary" href="/">Volver al inicio</a><a class="button dark" href="/">Ir a página principal</a><a class="button" href="/categorias/">Ver categorías</a></nav>
     </main>
+  <script src="/pautante-common.js"></script>
   <script>
-(function() {
-  var WHATSAPP = '573112225312';
-  var TASAS = { COP: 1, USD: 4000, EUR: 4300 };
-  var SIMBOLOS = { COP: '$', USD: 'US$', EUR: '\u20AC' };
-  var moneda = 'COP';
-  var categoria = 'todas';
-  var busqueda = '';
-  var carrito = {};
-
-  var PLATOS = [
-    {id:1,cat:'habitaciones',nombre:'Habitación Estándar',precio:150000,desc:'Habitación con baño privado, agua caliente, TV cable, WiFi. Estación de café gratuita.',img:'/pautas/boki_mall/hotel-mirador-boquia/images.jfif'},
-    {id:2,cat:'habitaciones',nombre:'Habitación Doble',precio:180000,desc:'Habitación amplia con cama doble, baño privado, WiFi y todas las comodidades del hotel campestre.',img:'/pautas/boki_mall/hotel-mirador-boquia/images%20(1).jfif'},
-    {id:3,cat:'habitaciones',nombre:'Habitación Familiar',precio:250000,desc:'Habitación familiar con espacio para 4 personas, baño privado y vistas a las zonas verdes.',img:'/pautas/boki_mall/hotel-mirador-boquia/images%20(2).jfif'},
-    {id:4,cat:'habitaciones',nombre:'Suite Premium',precio:350000,desc:'Suite con jacuzzi privado, vistas panorámicas del ecosistema y amenities premium.',img:'/pautas/boki_mall/hotel-mirador-boquia/images%20(3).jfif'},
-    {id:5,cat:'habitaciones',nombre:'Cabaña Rústica',precio:200000,desc:'Cabaña con ambiente rústico cafetero, rodeada de árboles frutales y naturaleza.',img:'/pautas/boki_mall/hotel-mirador-boquia/370049629.jpg'},
-    {id:6,cat:'restaurantes',nombre:'Restaurante Terra',precio:0,desc:'Menú completo: platos vegetarianos, veganos y sin gluten. Horario 7:00 AM - 9:00 PM. Reserva: +57 301 685 5199.',img:'/pautas/boki_mall/hotel-mirador-boquia/314270821.jpg'},
-    {id:7,cat:'restaurantes',nombre:'Barcinales Café-Bar',precio:0,desc:'Mejor café y cócteles de la zona. Bar con ambiente cafetero, zona de eventos y celebraciones.'},
-    {id:8,cat:'restaurantes',nombre:'Estación de café gratuita',precio:0,desc:'Café de la finca disponible 24 horas para todos los huéspedes del hotel.'},
-    {id:9,cat:'servicios',nombre:'Desayuno incluido',precio:0,desc:'Desayuno buffet incluido en algunas tarifas. Frutas frescas, café de la finca y platos típicos.'},
-    {id:10,cat:'servicios',nombre:'Parking privado gratuito',precio:0,desc:'Parqueadero privado gratuito para todos los huéspedes.'},
-    {id:11,cat:'servicios',nombre:'Room Service',precio:0,desc:'Servicio a la habitación disponible.'},
-    {id:12,cat:'servicios',nombre:'Zonas verdes y mirador',precio:0,desc:'Zonas verdes con árboles frutales y mirador natural del ecosistema.'},
-    {id:13,cat:'servicios',nombre:'Pet Friendly',precio:0,desc:'Mascotas bienvenidas. Consultar condiciones al reservar.'},
-    {id:14,cat:'experiencias',nombre:'Tour finca cafetera',precio:0,desc:'Recorrido por una finca cafetera. Incluye degustación y explicación del proceso.'},
-    {id:15,cat:'experiencias',nombre:'Senderismo en Boquía',precio:0,desc:'Senderos por el ecosistema de Boquía y Reserva la Patasola.'},
-    {id:16,cat:'experiencias',nombre:'Avistamiento de aves',precio:0,desc:'Observación de aves locales en los alrededores del hotel.'},
-    {id:17,cat:'experiencias',nombre:'Cabalgata por Boquía',precio:0,desc:'Cabalgata por Boquía y Valle del Cocora. Experiencia guiada.'},
-    {id:18,cat:'experiencias',nombre:'Jeepy Tour Valle del Cocora',precio:0,desc:'Recorrido en Jeep por el Valle del Cocora. Incluye transporte y guía.'},
-    {id:19,cat:'experiencias',nombre:'Cascada de Santa Rita',precio:0,desc:'Excursión a la Cascada de Santa Rita. Transporte incluido.'},
-    {id:20,cat:'extras',nombre:'Traslado aeropuerto',precio:0,desc:'Traslado desde el Aeropuerto de Armenia. Costo adicional, reservar con antelación.'},
-    {id:21,cat:'extras',nombre:'Experiencias personalizadas',precio:0,desc:'Boki Travel diseña experiencias a medida. Consultar en recepción o por WhatsApp.'}
-  ];
-
-  var cats = [
-    {id:'todas',label:'Todos'},
+PautanteCommon.initMenu({
+  containerId: 'menuGrid',
+  whatsapp: '573112225312',
+  businessName: 'Reserva — Hotel El Mirador de Boquía',
+  precioLabel: 'por noche',
+  showSearch: false,
+  categories: [
+    {id:'todas',label:'Todas'},
     {id:'habitaciones',label:'Habitaciones'},
-    {id:'restaurantes',label:'Restaurantes y café'},
-    {id:'servicios',label:'Servicios incluidos'},
-    {id:'experiencias',label:'Experiencias Boki Travel'},
+    {id:'restaurantes',label:'Restaurantes'},
+    {id:'servicios',label:'Servicios'},
+    {id:'experiencias',label:'Experiencias'},
     {id:'extras',label:'Extras'}
-  ];
-
-  var $ = function(id) { return document.getElementById(id); };
-  var fmt = function(precio) {
-    if (precio === 0) return 'Incluido';
-    if (moneda === 'COP') return '$' + precio.toLocaleString('es-CO');
-    var convertido = (precio / TASAS[moneda]).toFixed(2);
-    return SIMBOLOS[moneda] + convertido;
-  };
-
-  var catsConConteo = cats.map(function(c) {
-    return Object.assign({}, c, { count: c.id === 'todas' ? PLATOS.length : PLATOS.filter(function(p) { return p.cat === c.id; }).length });
-  });
-  $('menuTabs').innerHTML = catsConConteo.map(function(c) {
-    return '<button class="menu-tab' + (c.id === categoria ? ' active' : '') + '" data-cat="' + c.id + '">' + c.label + '<span class="count">' + c.count + '</span></button>';
-  }).join('');
-
-  function render() {
-    var filtrados = PLATOS.filter(function(p) {
-      var okCat = categoria === 'todas' || p.cat === categoria;
-      var okBusq = !busqueda || p.nombre.toLowerCase().indexOf(busqueda) !== -1 || (p.desc || '').toLowerCase().indexOf(busqueda) !== -1;
-      return okCat && okBusq;
-    });
-    if (filtrados.length === 0) {
-      $('menuGrid').innerHTML = '';
-      $('menuEmpty').style.display = 'block';
-      return;
-    }
-    $('menuEmpty').style.display = 'none';
-    $('menuGrid').innerHTML = filtrados.map(function(p) {
-      var qty = carrito[p.id] || 0;
-      var catEmoji = {habitaciones:'\uD83D\uDECF\uFE0F',restaurantes:'\uD83C\uDF7D\uFE0F',servicios:'\u2728',experiencias:'\uD83E\uDDEA',extras:'\uD83C\uDF85'};
-      var img = p.img
-        ? '<img class="menu-card-img" src="' + p.img + '" alt="' + p.nombre + '" loading="lazy"/>'
-        : '<div class="menu-card-emoji">' + (catEmoji[p.cat] || '\uD83C\uDFE8') + '</div>';
-      var controls = qty > 0
-        ? '<div class="qty-ctrl"><button data-action="dec" data-id="' + p.id + '">\u2212</button><span>' + qty + '</span><button data-action="inc" data-id="' + p.id + '">+</button></div>'
-        : '<button class="add-btn" data-action="inc" data-id="' + p.id + '" aria-label="Agregar ' + p.nombre + '">+</button>';
-      var priceHtml = p.precio > 0
-        ? '<span class="price">' + fmt(p.precio) + '<small>por noche</small></span>'
-        : '<span class="price" style="color:#39734b;font-size:.9rem">Incluido</span>';
-      return '<article class="menu-card">' + img + '<div class="menu-card-body"><span class="cat-tag">' + p.cat + '</span><h3>' + p.nombre + '</h3><p class="desc">' + (p.desc || '') + '</p><div class="footer">' + priceHtml + controls + '</div></div></article>';
-    }).join('');
-  }
-
-  function totalCarrito() {
-    return Object.keys(carrito).reduce(function(sum, id) {
-      var p = PLATOS.find(function(x) { return x.id === Number(id); });
-      return sum + (p ? p.precio * carrito[id] : 0);
-    }, 0);
-  }
-
-  function countCarrito() {
-    return Object.values(carrito).reduce(function(sum, qty) { return sum + qty; }, 0);
-  }
-
-  function actualizarCarritoFlotante() {
-    var count = countCarrito();
-    var total = totalCarrito();
-    $('cartBadge').textContent = count;
-    $('cartTotal').textContent = total > 0 ? fmt(total) : count > 0 ? count + ' seleccionados' : '$0';
-    $('cartFloat').classList.toggle('visible', count > 0);
-  }
-
-  function renderCarritoModal() {
-    var items = Object.keys(carrito).filter(function(id) { return carrito[id] > 0; });
-    if (items.length === 0) {
-      $('cartItems').innerHTML = '<p class="muted" style="text-align:center;padding:20px">Tu reserva est\u00e1 vac\u00eda.</p>';
-    } else {
-      $('cartItems').innerHTML = items.map(function(id) {
-        var qty = carrito[id];
-        var p = PLATOS.find(function(x) { return x.id === Number(id); });
-        var priceText = p.precio > 0 ? fmt(p.precio * qty) : 'Incluido';
-        return '<div class="cart-item"><div class="info"><strong>' + p.nombre + '</strong><small>' + (p.precio > 0 ? fmt(p.precio) + ' x noche' : 'Incluido') + '</small></div><div class="qty"><button data-action="dec" data-id="' + p.id + '">\u2212</button><span>' + qty + '</span><button data-action="inc" data-id="' + p.id + '">+</button></div><div class="item-total">' + priceText + '</div></div>';
-      }).join('');
-    }
-    $('cartModalTotal').textContent = totalCarrito() > 0 ? fmt(totalCarrito()) : 'Consultar total';
-  }
-
-  function enviarWhatsApp() {
-    var items = Object.keys(carrito).filter(function(id) { return carrito[id] > 0; });
-    if (items.length === 0) return;
-    var msg = '\uD83C\uDFE8 *RESERVA \u2014 Hotel El Mirador de Boquía*\n\n';
-    items.forEach(function(id) {
-      var qty = carrito[id];
-      var p = PLATOS.find(function(x) { return x.id === Number(id); });
-      msg += '\u2022 ' + p.nombre + ' x' + qty + (p.precio > 0 ? ' \u2014 ' + fmt(p.precio * qty) : ' \u2014 Incluido') + '\n';
-    });
-    if (totalCarrito() > 0) msg += '\n*Total: ' + fmt(totalCarrito()) + ' COP*\n';
-    msg += '\n\u00BFMe confirman disponibilidad?';
-    window.open('https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(msg), '_blank');
-  }
-
-  document.addEventListener('click', function(e) {
-    var t = e.target.closest('[data-action]');
-    if (t) {
-      var id = Number(t.dataset.id);
-      if (t.dataset.action === 'inc') carrito[id] = (carrito[id] || 0) + 1;
-      if (t.dataset.action === 'dec') { carrito[id] = (carrito[id] || 0) - 1; if (carrito[id] <= 0) delete carrito[id]; }
-      render(); actualizarCarritoFlotante(); renderCarritoModal(); return;
-    }
-    var tab = e.target.closest('.menu-tab[data-cat]');
-    if (tab) {
-      categoria = tab.dataset.cat;
-      document.querySelectorAll('.menu-tab[data-cat]').forEach(function(b) { b.classList.remove('active'); });
-      tab.classList.add('active');
-      render(); return;
-    }
-    var cur = e.target.closest('.currency-switch button');
-    if (cur) {
-      moneda = cur.dataset.cur;
-      document.querySelectorAll('.currency-switch button').forEach(function(b) { b.classList.remove('active'); });
-      cur.classList.add('active');
-      render(); actualizarCarritoFlotante(); renderCarritoModal(); return;
-    }
-  });
-
-  $('menuSearch').addEventListener('input', function(e) { busqueda = e.target.value.toLowerCase().trim(); render(); });
-  $('cartFloat').addEventListener('click', function() { renderCarritoModal(); $('cartModal').classList.add('open'); });
-  $('closeCart').addEventListener('click', function() { $('cartModal').classList.remove('open'); });
-  $('clearCart').addEventListener('click', function() { carrito = {}; render(); actualizarCarritoFlotante(); renderCarritoModal(); });
-  $('sendWhatsApp').addEventListener('click', enviarWhatsApp);
-  $('cartModal').addEventListener('click', function(e) { if (e.target.id === 'cartModal') $('cartModal').classList.remove('open'); });
-
-  render();
-  actualizarCarritoFlotante();
-})();
+  ],
+  items: [
+    {id:1,cat:'habitaciones',nombre:'Habitación Estándar',precio:150000,desc:'Baño privado, agua caliente, TV cable, WiFi. Estación de café gratuita.',img:'/pautas/boki_mall/hotel-mirador-boquia/images.jfif',emoji:'🛏️'},
+    {id:2,cat:'habitaciones',nombre:'Habitación Doble',precio:180000,desc:'Cama doble, baño privado, WiFi y todas las comodidades del hotel campestre.',img:'/pautas/boki_mall/hotel-mirador-boquia/images%20(1).jfif',emoji:'🛏️'},
+    {id:3,cat:'habitaciones',nombre:'Habitación Familiar',precio:250000,desc:'Espacio para 4 personas, baño privado y vistas a las zonas verdes.',img:'/pautas/boki_mall/hotel-mirador-boquia/images%20(2).jfif',emoji:'🛏️'},
+    {id:4,cat:'habitaciones',nombre:'Suite Premium',precio:350000,desc:'Jacuzzi privado, vistas panorámicas del ecosistema y amenities premium.',img:'/pautas/boki_mall/hotel-mirador-boquia/images%20(3).jfif',emoji:'🛏️'},
+    {id:5,cat:'habitaciones',nombre:'Cabaña Rústica',precio:200000,desc:'Ambiente rústico cafetero, rodeada de árboles frutales y naturaleza.',img:'/pautas/boki_mall/hotel-mirador-boquia/370049629.jpg',emoji:'🛏️'},
+    {id:6,cat:'restaurantes',nombre:'Restaurante Terra',precio:0,desc:'Menú completo: vegetarianos, veganos y sin gluten. 7:00 AM - 9:00 PM.',img:'/pautas/boki_mall/hotel-mirador-boquia/314270821.jpg',emoji:'🍽️'},
+    {id:7,cat:'restaurantes',nombre:'Barcinales Café-Bar',precio:0,desc:'Café y cócteles de la zona. Bar con ambiente cafetero.',emoji:'☕'},
+    {id:8,cat:'restaurantes',nombre:'Estación de café gratuita',precio:0,desc:'Café de la finca disponible 24 horas para huéspedes.',emoji:'☕'},
+    {id:9,cat:'servicios',nombre:'Desayuno incluido',precio:0,desc:'Desayuno buffet. Frutas frescas, café de la finca y platos típicos.',emoji:'✨'},
+    {id:10,cat:'servicios',nombre:'Parking privado gratuito',precio:0,desc:'Parqueadero privado gratuito para todos los huéspedes.',emoji:'✨'},
+    {id:11,cat:'servicios',nombre:'Room Service',precio:0,desc:'Servicio a la habitación disponible.',emoji:'✨'},
+    {id:12,cat:'servicios',nombre:'Zonas verdes y mirador',precio:0,desc:'Zonas verdes con árboles frutales y mirador natural.',emoji:'✨'},
+    {id:13,cat:'servicios',nombre:'Pet Friendly',precio:0,desc:'Mascotas bienvenidas. Consultar condiciones al reservar.',emoji:'✨'},
+    {id:14,cat:'experiencias',nombre:'Tour finca cafetera',precio:0,desc:'Recorrido por finca cafetera. Degustación y explicación del proceso.',emoji:'🧉'},
+    {id:15,cat:'experiencias',nombre:'Senderismo en Boquía',precio:0,desc:'Senderos por el ecosistema de Boquía y Reserva la Patasola.',emoji:'🧉'},
+    {id:16,cat:'experiencias',nombre:'Avistamiento de aves',precio:0,desc:'Observación de aves locales en los alrededores del hotel.',emoji:'🧉'},
+    {id:17,cat:'experiencias',nombre:'Cabalgata por Boquía',precio:0,desc:'Cabalgata por Boquía y Valle del Cocora. Experiencia guiada.',emoji:'🧉'},
+    {id:18,cat:'experiencias',nombre:'Jeepy Tour Valle del Cocora',precio:0,desc:'Recorrido en Jeep por el Valle del Cocora. Transporte y guía incluidos.',emoji:'🧉'},
+    {id:19,cat:'experiencias',nombre:'Cascada de Santa Rita',precio:0,desc:'Excursión a la Cascada de Santa Rita. Transporte incluido.',emoji:'🧉'},
+    {id:20,cat:'extras',nombre:'Traslado aeropuerto',precio:0,desc:'Traslado desde el Aeropuerto de Armenia. Reservar con antelación.',emoji:'🎄'},
+    {id:21,cat:'extras',nombre:'Experiencias personalizadas',precio:0,desc:'Boki Travel diseña experiencias a medida. Consultar por WhatsApp.',emoji:'🎄'}
+  ]
+});
 </script>
   </body>
 </html>

@@ -46,7 +46,37 @@
         </div><div class="hero-image" aria-label="Finca Cafetera Don Elías"></div>
       </section>
       
-      <section class="section service-section"><h2>Plan de la experiencia</h2><div class="service-grid"><div><strong>Incluye</strong><ul><li>Tour completo del proceso del café</li><li>Degustación de café</li><li>Recorrido por plantaciones</li><li>Información educativa</li></ul><strong>Qué llevar</strong><ul><li>Ropa cómoda</li><li>Calzado para caminar</li></ul></div><div><strong>Duración</strong><p>2-3 horas</p><strong>Dificultad</strong><p>Fácil</p><strong>Punto de encuentro</strong><p>Finca Don Elías, Valle de Cocora</p><strong>Idiomas</strong><p>Español, Inglés básico</p><strong>Tarifas verificadas</strong><p>Consultar tarifas actuales</p></div></div><div class="actions"><a class="button primary" href="https://wa.me/573156061113">Reservar experiencia</a></div></section>
+      <section class="section" id="menu-interactivo">
+        <h2>Elige tu Tour</h2>
+        <p class="muted" style="margin-top:-8px;margin-bottom:20px">Selecciona el tour que quieres y agrégalo a tu reserva. Al final, envía todo por WhatsApp.</p>
+        <div class="menu-header">
+          <div class="currency-switch" role="group" aria-label="Moneda">
+            <button data-cur="COP" class="active">COP</button>
+            <button data-cur="USD">USD</button>
+            <button data-cur="EUR">EUR</button>
+          </div>
+        </div>
+        <div class="menu-grid" id="menuGrid"></div>
+      </section>
+
+      <div class="cart-float" id="cartFloat" role="button" tabindex="0" aria-label="Ver reserva">
+        <span class="badge" id="cartBadge">0</span>
+        <span class="total" id="cartTotal">$0</span>
+        <span>Ver reserva →</span>
+      </div>
+
+      <div class="cart-modal" id="cartModal" role="dialog" aria-modal="true">
+        <div class="cart-panel">
+          <h2>Tu reserva</h2>
+          <div id="cartItems"></div>
+          <div class="cart-total"><span>Total</span><span id="cartModalTotal">$0</span></div>
+          <div class="cart-actions">
+            <button class="send" id="sendWhatsApp">Enviar reserva por WhatsApp</button>
+            <button class="clear" id="clearCart">Vaciar reserva</button>
+            <button class="close" id="closeCart">Seguir explorando</button>
+          </div>
+        </div>
+      </div>
       
       <section class="section"><h2>Conoce la experiencia</h2><div class="two-col"><div><p class="verified">✓ Información verificada en el catálogo local</p></div><div class="facts"><div class="fact"><strong>Ubicación</strong>Vereda Palestina Km 4</div><div class="fact"><strong>Referencia</strong>Vía rural de Salento</div><div class="fact"><strong>Horario</strong>Contacto Lun"“Vie 9am"“5pm. Tour ~2 horas, confirmar horarios.</div></div></div></section>
       <section class="section"><h2>Galería de imágenes</h2><div class="gallery"><div class="gallery-photo"><img src="/imagenes-salento/finca-don-eduardo-1.jpg" alt=" tradicional en Salento Quindío foto " loading="lazy" /></div><div class="gallery-photo"><img src="/imagenes-salento/finca-don-eduardo-2.jpg" alt=" tradicional en Salento Quindío foto " loading="lazy" /></div><div class="gallery-photo"><img src="/imagenes-salento/finca-don-eduardo-3.jpg" alt=" tradicional en Salento Quindío foto " loading="lazy" /></div></div></section>
@@ -89,5 +119,22 @@
 
       <nav class="bottom-nav" aria-label="Volver" style="display:flex;flex-wrap:wrap;gap:10px;margin-top:28px"><a class="button primary" href="/">Volver al inicio</a><a class="button dark" href="/">Ir a página principal</a><a class="button" href="/categorias/">Ver categorías</a></nav>
     </main>
+  <script src="/pautante-common.js"></script>
+  <script>
+PautanteCommon.initMenu({
+  containerId: 'menuGrid',
+  whatsapp: '573156061113',
+  businessName: 'Reserva — Finca Cafetera Don Elías',
+  precioLabel: 'por persona',
+  showSearch: false,
+  items: [
+    {id:1,cat:'tours',nombre:'Coffee Tour clásico',precio:40000,desc:'Recorrido 2-3h por cultivos, proceso artesanal y degustación',img:'/imagenes-salento/finca-don-eduardo-1.jpg',emoji:'☕'},
+    {id:2,cat:'tours',nombre:'Coffee Tour + Almuerzo',precio:65000,desc:'Tour completo más almuerzo típico casero',img:'/imagenes-salento/finca-don-eduardo-2.jpg',emoji:'🍽️'},
+    {id:3,cat:'tours',nombre:'Cata de especialidades',precio:25000,desc:'Degustación guiada de 3 tipos de café',img:'/imagenes-salento/finca-don-eduardo-3.jpg',emoji:'🫘'},
+    {id:4,cat:'adicional',nombre:'Transporte ida y vuelta',precio:15000,desc:'Recogida en Plaza de Bolívar, Salento',emoji:'🚗'},
+    {id:5,cat:'adicional',nombre:'Taza de café premium',precio:8000,desc:'Café de la finca para llevar',emoji:'☕'}
+  ]
+});
+</script>
   </body>
 </html>
