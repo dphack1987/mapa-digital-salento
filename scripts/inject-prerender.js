@@ -58,6 +58,7 @@ html = html.replace(/<title>.*?<\/title>/, '<title>Salento a la Mano - Guia Turi
 html = html.replace(/<meta name="description" content="[^"]*"/, '<meta name="description" content="Guia de Salento, Quindio. Hoteles, restaurantes, coffee tours y mapa interactivo."');
 html = html.replace(/<meta property="og:title" content="[^"]*"/, '<meta property="og:title" content="Salento a la Mano | Guia Turistica 2026"');
 html = html.replace(/<meta property="og:description" content="[^"]*"/, '<meta property="og:description" content="Hoteles, restaurantes, coffee tours y mapa de Salento. Reserva directa."');
+html = html.replace(/<meta name="naver-site-verification" content="[^"]*"/, '<meta name="naver-site-verification" content="932c1bd7459fb55347b5f347de3831588dfc7c4c"');
 
 fs.writeFileSync(distPath, html, 'utf8');
 console.log('Prerender + meta tags injected into dist/index.html');

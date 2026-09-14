@@ -1,5 +1,6 @@
 import { useMemo, useState, useEffect, useCallback, lazy, Suspense } from 'react'
 import { Helmet } from 'react-helmet-async'
+import NotFound from './pages/NotFound'
 import { CircleMarker, MapContainer, Popup, TileLayer, useMap } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css'
 import {
@@ -315,6 +316,25 @@ function App() {
     const prerender = document.getElementById('prerender')
     if (prerender) prerender.style.display = 'none'
   }, [])
+
+  const [notFound, setNotFound] = useState(false)
+  useEffect(() => {
+    const path = window.location.pathname
+    if (path === '/' || path === '/index.html') return
+    const validPrefixes = ['/categorias/', '/paginas-pautantes/', '/imagenes-salento/']
+    const validPages = [
+      '/mapa-interactivo-salento.html', '/seguridad-salento-emergencias.html',
+      '/faq-salento-preguntas-frecuentes-turistas-informacion-oficial.html',
+      '/mejor-trucha-salento.html', '/hotel-barato-salento.html',
+      '/coffee-tour-salento.html', '/valle-de-cocora-salento.html',
+      '/fin-de-semana-salento.html', '/agenda-eventos-salento.html',
+      '/robots.txt', '/sitemap.xml', '/b00529ac43b44c15a0d1a45101a8ac41.txt',
+      '/naver40e1bca2d90dc5fc506dbd5a76c0b4a5.html'
+    ]
+    const isValid = validPages.includes(path) || validPrefixes.some(p => path.startsWith(p))
+    if (!isValid) setNotFound(true)
+  }, [])
+
   const [activeCategory, setActiveCategory] = useState<Category>('Todo')
   const [cartCount, setCartCount] = useState(0)
   const [showCart, setShowCart] = useState(false)
@@ -720,6 +740,8 @@ function App() {
 
   return (
     <div className="app-shell">
+      {notFound && <NotFound />}
+      {!notFound && (<>
       <Helmet>
         <title>{helmetTitle}</title>
         <meta name="description" content={helmetDescription} />
@@ -1348,6 +1370,7 @@ function App() {
         <span className="offline-indicator" />
         {t('offline', 'Modo Offline - Valle de Cocora')}
       </div>}
+      </>)}
     </div>
   )
 }
