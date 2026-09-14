@@ -48,21 +48,9 @@
       </section>
 
       <section class="section" id="menu-interactivo">
-        <h2>Habitaciones y Servicios</h2>
-        <p class="muted" style="margin-top:-8px;margin-bottom:20px">Selecciona tu habitación. Los servicios incluidos se listan abajo.</p>
-        <style>
-          .services-info-list { display: flex; flex-wrap: wrap; gap: 6px; margin: 12px 0 20px; padding: 14px; background: #f9f6ef; border: 1px solid var(--line); border-radius: 12px; }
-          .services-info-list h3 { width: 100%; font: 600 13px Fraunces; margin: 0 0 6px; color: var(--ink); }
-          .service-info-item { display: inline-flex; align-items: center; gap: 6px; padding: 5px 10px; background: var(--white); border-radius: 8px; border: 1px solid var(--line); font-size: 12px; }
-          .service-info-icon { color: #3d7a47; font-weight: 700; font-size: 12px; }
-          .service-info-item strong { font-size: 12px; color: var(--ink); }
-          .service-info-item p { display: none; }
-          .menu-card .menu-card-emoji { height: 90px; font-size: 36px; }
-          .menu-card .desc { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-          .menu-card .footer { padding-top: 6px; }
-        </style>
+        <h2>Nuestras Habitaciones</h2>
+        <p class="muted" style="margin-top:-8px;margin-bottom:20px">Selecciona tu habitación y agrégala a tu reserva. Al final, envía todo por WhatsApp.</p>
         <div class="menu-header">
-          <div class="menu-search"><input type="text" id="menuSearch" placeholder="Buscar habitación o servicio..." /></div>
           <div class="currency-switch" role="group" aria-label="Moneda">
             <button data-cur="COP" class="active">COP</button>
             <button data-cur="USD">USD</button>
@@ -71,23 +59,23 @@
         </div>
         <div class="menu-tabs" id="menuTabs"></div>
         <div class="menu-grid" id="menuGrid"></div>
-        <div class="menu-empty" id="menuEmpty" style="display:none"><span>\uD83D\uDD0D</span>No encontramos habitaciones con ese nombre.</div>
+        <div class="menu-empty" id="menuEmpty" style="display:none"><span>🔍</span>No encontramos opciones con ese nombre.</div>
       </section>
 
-      <div class="cart-float" id="cartFloat" role="button" tabindex="0" aria-label="Ver consulta">
+      <div class="cart-float" id="cartFloat" role="button" tabindex="0" aria-label="Ver reserva">
         <span class="badge" id="cartBadge">0</span>
-        <span class="total" id="cartTotal">Consultar</span>
-        <span>Ver consulta →</span>
+        <span class="total" id="cartTotal">$0</span>
+        <span>Ver reserva →</span>
       </div>
 
       <div class="cart-modal" id="cartModal" role="dialog" aria-modal="true">
         <div class="cart-panel">
-          <h2>Tu consulta</h2>
+          <h2>Tu reserva</h2>
           <div id="cartItems"></div>
-          <div class="cart-total"><span>Total</span><span id="cartModalTotal">Consultar tarifa</span></div>
+          <div class="cart-total"><span>Total</span><span id="cartModalTotal">$0</span></div>
           <div class="cart-actions">
-            <button class="send" id="sendWhatsApp">Enviar consulta por WhatsApp</button>
-            <button class="clear" id="clearCart">Vaciar selección</button>
+            <button class="send" id="sendWhatsApp">Enviar reserva por WhatsApp</button>
+            <button class="clear" id="clearCart">Vaciar reserva</button>
             <button class="close" id="closeCart">Seguir explorando</button>
           </div>
         </div>
@@ -136,169 +124,29 @@
 
       <nav class="bottom-nav" aria-label="Volver" style="display:flex;flex-wrap:wrap;gap:10px;margin-top:28px"><a class="button primary" href="/">Volver al inicio</a><a class="button dark" href="/">Ir a página principal</a><a class="button" href="/categorias/">Ver categorías</a></nav>
     </main>
+  <script src="/pautante-common.js"></script>
   <script>
-(function() {
-  var WHATSAPP = '573113903550';
-  var TASAS = { COP: 1, USD: 4000, EUR: 4300 };
-  var SIMBOLOS = { COP: '$', USD: 'US$', EUR: '\u20AC' };
-  var moneda = 'COP';
-  var categoria = 'todas';
-  var busqueda = '';
-  var carrito = {};
-
-  var PLATOS = [
-    {id:1,cat:'habitaciones',nombre:'Habitación Individual',desc:'Habitación con cama sencilla, baño privado, balcón, canales por cable, ventanas insonorizadas y vistas a la calle.',img:'/pautas/hotel_camino_nacional/imagenes/1669032660.webp'},
-    {id:2,cat:'habitaciones',nombre:'Habitación Doble',desc:'Habitación con cama doble, baño privado, balcón, canales por cable, ventanas insonorizadas y vistas a la calle.',img:'/pautas/hotel_camino_nacional/imagenes/1669032671.webp'},
-    {id:3,cat:'habitaciones',nombre:'Habitación Triple',desc:'Habitación para 3 personas con baño privado, balcón y comodidades estándar.',img:'/pautas/hotel_camino_nacional/imagenes/1669032675.webp'},
-    {id:4,cat:'habitaciones',nombre:'Habitación Cuádruple',desc:'Habitación familiar para 4 personas con baño privado, balcón y todas las comodidades.',img:'/pautas/hotel_camino_nacional/imagenes/1669032677.webp'},
-    {id:5,cat:'servicios',nombre:'Desayuno incluido',desc:'Desayuno buffet incluido en todas las habitaciones. Menús para dietas especiales disponibles.'},
-    {id:6,cat:'servicios',nombre:'Wi-Fi gratis',desc:'Conexión Wi-Fi gratuita en todas las áreas del hotel.'},
-    {id:7,cat:'servicios',nombre:'Parking gratuito',desc:'Aparcamiento privado gratuito para huéspedes.'},
-    {id:8,cat:'servicios',nombre:'Seguridad 24 horas',desc:'Recepción y seguridad las 24 horas del día. Detectores de humo y extintores.'},
-    {id:9,cat:'servicios',nombre:'Cambio de divisas',desc:'Servicio de cambio de divisas en mostrador.'},
-    {id:10,cat:'servicios',nombre:'Lavandería',desc:'Servicio de lavandería disponible para huéspedes.'},
-    {id:11,cat:'servicios',nombre:'Guarda equipajes',desc:'Servicio de guarda equipajes antes del check-in y después del check-out.'},
-    {id:12,cat:'extras',nombre:'Traslado aeropuerto',desc:'Traslado desde el Aeropuerto de Armenia (39 km). Costo adicional, reservar con antelación.'},
-    {id:13,cat:'extras',nombre:'Asistencia excursiones',desc:'Información y asistencia para organizar excursiones: Cascada Santa Rita (5 min a pie), Reserva Kasaguadua (2 km), Don Elías (10 min carro).'}
-  ];
-
-  var cats = [
-    {id:'todas',label:'Todos'},
+PautanteCommon.initMenu({
+  containerId: 'menuGrid',
+  whatsapp: '573113903550',
+  businessName: 'Reserva — Hotel Camino Nacional',
+  precioLabel: 'por noche',
+  showSearch: false,
+  categories: [
+    {id:'todas',label:'Todas'},
     {id:'habitaciones',label:'Habitaciones'},
-    {id:'servicios',label:'Servicios incluidos'},
-    {id:'extras',label:'Extras y tours'}
-  ];
-
-  var $ = function(id) { return document.getElementById(id); };
-  var fmt = function(precio) {
-    if (moneda === 'COP') return '$' + precio.toLocaleString('es-CO');
-    var convertido = (precio / TASAS[moneda]).toFixed(2);
-    return SIMBOLOS[moneda] + convertido;
-  };
-
-  var catsConConteo = cats.map(function(c) {
-    return Object.assign({}, c, { count: c.id === 'todas' ? PLATOS.length : PLATOS.filter(function(p) { return p.cat === c.id; }).length });
-  });
-  $('menuTabs').innerHTML = catsConConteo.map(function(c) {
-    return '<button class="menu-tab' + (c.id === categoria ? ' active' : '') + '" data-cat="' + c.id + '">' + c.label + '<span class="count">' + c.count + '</span></button>';
-  }).join('');
-
-  function render() {
-    var filtrados = PLATOS.filter(function(p) {
-      var okCat = categoria === 'todas' || p.cat === categoria;
-      var okBusq = !busqueda || p.nombre.toLowerCase().indexOf(busqueda) !== -1 || (p.desc || '').toLowerCase().indexOf(busqueda) !== -1;
-      return okCat && okBusq;
-    });
-    if (filtrados.length === 0) {
-      $('menuGrid').innerHTML = '';
-      $('menuEmpty').style.display = 'block';
-      return;
-    }
-    $('menuEmpty').style.display = 'none';
-
-    var servicios = filtrados.filter(function(p) { return p.cat === 'servicios'; });
-    var otros = filtrados.filter(function(p) { return p.cat !== 'servicios'; });
-
-    var html = '';
-
-    if (servicios.length > 0 && (categoria === 'todas' || categoria === 'servicios')) {
-      html += '<div class="services-info-list">';
-      html += '<h3 style="grid-column:1/-1;font:600 1.1rem Fraunces;margin:8px 0 4px">Servicios incluidos en todas las habitaciones</h3>';
-      servicios.forEach(function(p) {
-        html += '<div class="service-info-item"><span class="service-info-icon">✓</span><div><strong>' + p.nombre + '</strong><p>' + (p.desc || '') + '</p></div></div>';
-      });
-      html += '</div>';
-    }
-
-    if (otros.length > 0) {
-      html += otros.map(function(p) {
-        var qty = carrito[p.id] || 0;
-        var catEmoji = {habitaciones:'\uD83D\uDECF\uFE0F',extras:'\uD83C\uDF85'};
-        var img = p.img
-          ? '<img class="menu-card-img" src="' + p.img + '" alt="' + p.nombre + '" loading="lazy"/>'
-          : '<div class="menu-card-emoji">' + (catEmoji[p.cat] || '\uD83C\uDFE8') + '</div>';
-        var controls = qty > 0
-          ? '<div class="qty-ctrl"><button data-action="dec" data-id="' + p.id + '">\u2212</button><span>' + qty + '</span><button data-action="inc" data-id="' + p.id + '">+</button></div>'
-          : '<button class="add-btn" data-action="inc" data-id="' + p.id + '" aria-label="Agregar ' + p.nombre + '">+</button>';
-        return '<article class="menu-card">' + img + '<div class="menu-card-body"><span class="cat-tag">' + p.cat + '</span><h3>' + p.nombre + '</h3><p class="desc">' + (p.desc || '') + '</p><div class="footer"><span class="price" style="color:var(--muted);font-size:.9rem">Consultar tarifa</span>' + controls + '</div></div></article>';
-      }).join('');
-    }
-
-    $('menuGrid').innerHTML = html;
-  }
-
-  function countCarrito() {
-    return Object.values(carrito).reduce(function(sum, qty) { return sum + qty; }, 0);
-  }
-
-  function actualizarCarritoFlotante() {
-    var count = countCarrito();
-    $('cartBadge').textContent = count;
-    $('cartTotal').textContent = count > 0 ? count + ' seleccionados' : 'Consultar';
-    $('cartFloat').classList.toggle('visible', count > 0);
-  }
-
-  function renderCarritoModal() {
-    var items = Object.keys(carrito).filter(function(id) { return carrito[id] > 0; });
-    if (items.length === 0) {
-      $('cartItems').innerHTML = '<p class="muted" style="text-align:center;padding:20px">No has seleccionado nada a\u00fan.</p>';
-    } else {
-      $('cartItems').innerHTML = items.map(function(id) {
-        var qty = carrito[id];
-        var p = PLATOS.find(function(x) { return x.id === Number(id); });
-        return '<div class="cart-item"><div class="info"><strong>' + p.nombre + '</strong><small>Consultar tarifa</small></div><div class="qty"><button data-action="dec" data-id="' + p.id + '">\u2212</button><span>' + qty + '</span><button data-action="inc" data-id="' + p.id + '">+</button></div><div class="item-total">Consultar</div></div>';
-      }).join('');
-    }
-    $('cartModalTotal').textContent = 'Consultar tarifa';
-  }
-
-  function enviarWhatsApp() {
-    var items = Object.keys(carrito).filter(function(id) { return carrito[id] > 0; });
-    if (items.length === 0) return;
-    var msg = '\uD83C\uDFE8 *CONSULTA \u2014 Hotel Camino Nacional*\n\n';
-    items.forEach(function(id) {
-      var qty = carrito[id];
-      var p = PLATOS.find(function(x) { return x.id === Number(id); });
-      msg += '\u2022 ' + p.nombre + (qty > 1 ? ' x' + qty : '') + '\n';
-    });
-    msg += '\n\u00BFCu\u00E1l es la tarifa y disponibilidad?';
-    window.open('https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(msg), '_blank');
-  }
-
-  document.addEventListener('click', function(e) {
-    var t = e.target.closest('[data-action]');
-    if (t) {
-      var id = Number(t.dataset.id);
-      if (t.dataset.action === 'inc') carrito[id] = (carrito[id] || 0) + 1;
-      if (t.dataset.action === 'dec') { carrito[id] = (carrito[id] || 0) - 1; if (carrito[id] <= 0) delete carrito[id]; }
-      render(); actualizarCarritoFlotante(); renderCarritoModal(); return;
-    }
-    var tab = e.target.closest('.menu-tab[data-cat]');
-    if (tab) {
-      categoria = tab.dataset.cat;
-      document.querySelectorAll('.menu-tab[data-cat]').forEach(function(b) { b.classList.remove('active'); });
-      tab.classList.add('active');
-      render(); return;
-    }
-    var cur = e.target.closest('.currency-switch button');
-    if (cur) {
-      moneda = cur.dataset.cur;
-      document.querySelectorAll('.currency-switch button').forEach(function(b) { b.classList.remove('active'); });
-      cur.classList.add('active');
-      render(); actualizarCarritoFlotante(); renderCarritoModal(); return;
-    }
-  });
-
-  $('menuSearch').addEventListener('input', function(e) { busqueda = e.target.value.toLowerCase().trim(); render(); });
-  $('cartFloat').addEventListener('click', function() { renderCarritoModal(); $('cartModal').classList.add('open'); });
-  $('closeCart').addEventListener('click', function() { $('cartModal').classList.remove('open'); });
-  $('clearCart').addEventListener('click', function() { carrito = {}; render(); actualizarCarritoFlotante(); renderCarritoModal(); });
-  $('sendWhatsApp').addEventListener('click', enviarWhatsApp);
-  $('cartModal').addEventListener('click', function(e) { if (e.target.id === 'cartModal') $('cartModal').classList.remove('open'); });
-
-  render();
-  actualizarCarritoFlotante();
-})();
+    {id:'extras',label:'Extras'}
+  ],
+  items: [
+    {id:1,cat:'habitaciones',nombre:'Habitación Individual',precio:140000,desc:'Cama sencilla, baño privado, balcón, TV cable, ventanas insonorizadas.',img:'/pautas/hotel_camino_nacional/imagenes/1669032660.webp',emoji:'🛏️'},
+    {id:2,cat:'habitaciones',nombre:'Habitación Doble',precio:160000,desc:'Cama doble, baño privado, balcón, TV cable, ventanas insonorizadas.',img:'/pautas/hotel_camino_nacional/imagenes/1669032671.webp',emoji:'🛏️'},
+    {id:3,cat:'habitaciones',nombre:'Habitación Triple',precio:200000,desc:'Para 3 personas con baño privado, balcón y comodidades estándar.',img:'/pautas/hotel_camino_nacional/imagenes/1669032675.webp',emoji:'🛏️'},
+    {id:4,cat:'habitaciones',nombre:'Habitación Cuádruple',precio:240000,desc:'Familiar para 4 personas con baño privado, balcón y todas las comodidades.',img:'/pautas/hotel_camino_nacional/imagenes/1669032677.webp',emoji:'🛏️'},
+    {id:5,cat:'habitaciones',nombre:'Suite',precio:280000,desc:'Suite con sala independiente, jacuzzi, baño privado y balcón.',img:'/pautas/hotel_camino_nacional/imagenes/1669032704.webp',emoji:'🛏️'},
+    {id:6,cat:'extras',nombre:'Traslado aeropuerto',precio:0,desc:'Traslado desde el Aeropuerto de Armenia (39 km). Reservar con antelación.',emoji:'🎄'},
+    {id:7,cat:'extras',nombre:'Asistencia excursiones',precio:0,desc:'Información y asistencia para Cascada Santa Rita, Kasaguadua, Don Elías.',emoji:'🎄'}
+  ]
+});
 </script>
   </body>
 </html>

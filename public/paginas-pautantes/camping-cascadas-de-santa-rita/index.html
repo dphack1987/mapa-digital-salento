@@ -53,199 +53,248 @@
         <p>Navegación paso a paso sin conexión. Sigue los marcadores, revisa tu progreso y accede a recomendaciones específicas para cada punto del recorrido.</p>
       </div>
 
-      <div class="map-container" style="background:#1a3a1a;border-radius:16px;padding:16px;position:relative;overflow:hidden;">
-        <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;" id="trailMap">
-          <!-- Fondo del mapa -->
+      <div class="map-container" style="background:#0d1f0d;border-radius:16px;padding:16px;position:relative;overflow:hidden;border:2px solid #2a5a2a;">
+        <!-- Mapa offline fiel a geografía real - Cascadas de Santa Rita -->
+        <svg viewBox="0 0 400 700" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;" id="trailMap">
           <defs>
-            <linearGradient id="forest" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" style="stop-color:#1a4a1a"/>
-              <stop offset="100%" style="stop-color:#0d2d0d"/>
+            <linearGradient id="terrain" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" style="stop-color:#1a3a1a"/>
+              <stop offset="50%" style="stop-color:#0d2d0d"/>
+              <stop offset="100%" style="stop-color:#1a4a1a"/>
             </linearGradient>
-            <linearGradient id="water" x1="0%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" style="stop-color:#2196F3"/>
+            <linearGradient id="river" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" style="stop-color:#1565C0"/>
               <stop offset="100%" style="stop-color:#0D47A1"/>
             </linearGradient>
             <filter id="glow">
-              <feGaussianBlur stdDeviation="3" result="blur"/>
+              <feGaussianBlur stdDeviation="2" result="blur"/>
               <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
             </filter>
+            <filter id="shadow">
+              <feDropShadow dx="1" dy="1" stdDeviation="1" flood-color="#000" flood-opacity="0.5"/>
+            </filter>
           </defs>
-          <rect width="800" height="600" fill="url(#forest)"/>
 
-          <!-- Terreno: montañas de fondo -->
-          <polygon points="0,200 100,100 200,160 350,80 500,140 650,90 800,180 800,0 0,0" fill="#1a3a1a" opacity="0.5"/>
+          <rect width="400" height="700" fill="url(#terrain)"/>
 
-          <!-- Río/Quebrada principal -->
-          <path d="M 50,520 Q 150,480 250,500 Q 350,460 450,490 Q 550,450 650,470 Q 720,440 780,460" stroke="url(#water)" stroke-width="8" fill="none" opacity="0.7" stroke-linecap="round"/>
-          <text x="400" y="510" fill="#64B5F6" font-size="11" text-anchor="middle" font-family="sans-serif">Quebrada Santa Rita</text>
+          <!-- Árboles decorativos -->
+          <g opacity="0.3" fill="#2d5a2d">
+            <circle cx="30" cy="50" r="15"/><circle cx="80" cy="30" r="12"/><circle cx="150" cy="60" r="14"/>
+            <circle cx="250" cy="40" r="13"/><circle cx="320" cy="55" r="15"/><circle cx="370" cy="35" r="11"/>
+            <circle cx="20" cy="150" r="14"/><circle cx="90" cy="130" r="12"/><circle cx="180" cy="140" r="13"/>
+            <circle cx="280" cy="120" r="14"/><circle cx="350" cy="145" r="12"/>
+            <circle cx="40" cy="250" r="13"/><circle cx="120" cy="230" r="14"/><circle cx="200" cy="245" r="12"/>
+            <circle cx="300" cy="225" r="13"/><circle cx="360" cy="250" r="14"/>
+            <circle cx="25" cy="350" r="12"/><circle cx="100" cy="340" r="13"/><circle cx="170" cy="355" r="14"/>
+            <circle cx="260" cy="335" r="12"/><circle cx="340" cy="350" r="13"/>
+            <circle cx="35" cy="450" r="14"/><circle cx="110" cy="435" r="12"/><circle cx="190" cy="448" r="13"/>
+            <circle cx="280" cy="430" r="14"/><circle cx="355" cy="445" r="12"/>
+            <circle cx="30" cy="550" r="13"/><circle cx="95" cy="540" r="14"/><circle cx="175" cy="555" r="12"/>
+            <circle cx="270" cy="535" r="13"/><circle cx="345" cy="548" r="14"/>
+            <circle cx="40" cy="650" r="12"/><circle cx="115" cy="640" r="13"/><circle cx="200" cy="655" r="14"/>
+            <circle cx="290" cy="638" r="12"/><circle cx="365" cy="652" r="13"/>
+          </g>
 
-          <!-- Sendero principal (dashed trail) -->
-          <path d="M 100,500 L 180,440 L 280,380 L 380,320 L 460,270 L 540,220 L 620,170 L 700,120" stroke="#FFEB3B" stroke-width="4" fill="none" stroke-dasharray="12,6" stroke-linecap="round" filter="url(#glow)"/>
+          <!-- Quebrada Santa Rita -->
+          <path d="M 200,80 Q 180,120 190,160 Q 210,200 195,240 Q 175,280 185,320 Q 200,360 190,400 Q 175,440 180,480 Q 195,520 185,560 Q 170,600 175,640 Q 180,670 185,700" 
+                stroke="url(#river)" stroke-width="12" fill="none" opacity="0.8" stroke-linecap="round"/>
+          <path d="M 195,240 Q 220,260 250,270 Q 280,275 310,260" 
+                stroke="#1565C0" stroke-width="6" fill="none" opacity="0.6" stroke-linecap="round"/>
+          <text x="215" y="380" fill="#64B5F6" font-size="10" font-family="sans-serif" transform="rotate(-80,215,380)" filter="url(#shadow)">Quebrada Santa Rita</text>
 
-          <!-- Sendero alternativo (vía del tren) -->
-          <path d="M 380,320 L 420,280 L 480,240 L 540,220" stroke="#FF9800" stroke-width="3" fill="none" stroke-dasharray="8,4" opacity="0.8"/>
+          <!-- Sendero Antonio (izquierda/oeste) -->
+          <path d="M 80,680 Q 70,640 75,600 Q 85,560 80,520 Q 70,480 75,440 Q 85,400 90,360 Q 100,320 110,280 Q 125,240 140,200 Q 155,160 170,120 Q 180,90 190,70" 
+                stroke="#C8A84E" stroke-width="3" fill="none" stroke-dasharray="8,4" opacity="0.8" filter="url(#glow)"/>
+          <text x="55" y="480" fill="#C8A84E" font-size="10" font-family="sans-serif" font-weight="bold" transform="rotate(-82,55,480)" filter="url(#shadow)">Sendero Antonio</text>
 
-          <!-- Líneas de distancia -->
-          <text x="140" y="475" fill="#aaa" font-size="9" font-family="sans-serif" transform="rotate(-35,140,475)">200m</text>
-          <text x="230" y="415" fill="#aaa" font-size="9" font-family="sans-serif" transform="rotate(-35,230,415)">400m</text>
-          <text x="330" y="355" fill="#aaa" font-size="9" font-family="sans-serif" transform="rotate(-35,330,355)">500m</text>
-          <text x="420" y="295" fill="#aaa" font-size="9" font-family="sans-serif" transform="rotate(-35,420,295)">350m</text>
-          <text x="500" y="245" fill="#aaa" font-size="9" font-family="sans-serif" transform="rotate(-35,500,245)">300m</text>
-          <text x="580" y="195" fill="#aaa" font-size="9" font-family="sans-serif" transform="rotate(-35,580,195)">250m</text>
+          <!-- Sendero El Silencio (derecha/este) -->
+          <path d="M 320,680 Q 330,640 325,600 Q 315,560 320,520 Q 330,480 325,440 Q 315,400 310,360 Q 300,320 290,280 Q 275,240 260,200 Q 245,160 230,120 Q 220,90 210,70" 
+                stroke="#C8A84E" stroke-width="3" fill="none" stroke-dasharray="8,4" opacity="0.8" filter="url(#glow)"/>
+          <text x="340" y="480" fill="#C8A84E" font-size="10" font-family="sans-serif" font-weight="bold" transform="rotate(-78,340,480)" filter="url(#shadow)">Sendero El Silencio</text>
 
-          <!-- PUNTO 1: Puente Amarillo -->
+          <!-- Sendero Principal -->
+          <path d="M 200,680 Q 195,640 198,600 Q 205,560 200,520 Q 192,480 195,440 Q 202,400 198,360 Q 190,320 195,280 Q 205,240 200,200 Q 192,160 195,120 Q 198,90 200,70" 
+                stroke="#FFEB3B" stroke-width="4" fill="none" stroke-dasharray="12,6" stroke-linecap="round" filter="url(#glow)"/>
+
+          <!-- PUNTO 1: Entrada -->
           <g class="map-point" onclick="goToStep(1)" style="cursor:pointer">
-            <circle cx="100" cy="500" r="18" fill="#F44336" opacity="0.3"/>
-            <circle cx="100" cy="500" r="12" fill="#F44336" stroke="white" stroke-width="2"/>
-            <text x="100" y="504" fill="white" font-size="11" text-anchor="middle" font-weight="bold">1</text>
-            <text x="100" y="530" fill="white" font-size="11" text-anchor="middle" font-weight="bold">Puente Amarillo</text>
-            <text x="100" y="545" fill="#ccc" font-size="9" text-anchor="middle">Punto de partida</text>
+            <circle cx="200" cy="660" r="20" fill="#F44336" opacity="0.25"/>
+            <circle cx="200" cy="660" r="14" fill="#F44336" stroke="white" stroke-width="2"/>
+            <text x="200" y="664" fill="white" font-size="12" text-anchor="middle" font-weight="bold">1</text>
+            <rect x="120" y="680" width="160" height="18" rx="4" fill="rgba(0,0,0,0.6)"/>
+            <text x="200" y="693" fill="white" font-size="10" text-anchor="middle" font-weight="bold">Entrada Hacienda</text>
           </g>
 
-          <!-- PUNTO 2: Caseta de Entrada -->
+          <!-- PUNTO 2: Caseta -->
           <g class="map-point" onclick="goToStep(2)" style="cursor:pointer">
-            <circle cx="180" cy="440" r="18" fill="#FF9800" opacity="0.3"/>
-            <circle cx="180" cy="440" r="12" fill="#FF9800" stroke="white" stroke-width="2"/>
-            <text x="180" y="444" fill="white" font-size="11" text-anchor="middle" font-weight="bold">2</text>
-            <text x="180" y="470" fill="white" font-size="11" text-anchor="middle" font-weight="bold">Caseta Entrada</text>
-            <text x="180" y="485" fill="#ccc" font-size="9" text-anchor="middle">Registro y pago</text>
+            <circle cx="195" cy="580" r="18" fill="#FF9800" opacity="0.25"/>
+            <circle cx="195" cy="580" r="13" fill="#FF9800" stroke="white" stroke-width="2"/>
+            <text x="195" y="584" fill="white" font-size="11" text-anchor="middle" font-weight="bold">2</text>
+            <rect x="115" y="598" width="160" height="18" rx="4" fill="rgba(0,0,0,0.6)"/>
+            <text x="195" y="611" fill="white" font-size="10" text-anchor="middle" font-weight="bold">Caseta · Parqueadero</text>
+            <text x="280" y="585" fill="#aaa" font-size="14">🚗</text>
           </g>
 
-          <!-- PUNTO 3: Sendero Bosque -->
+          <!-- PUNTO 3: Mirador Bajo -->
           <g class="map-point" onclick="goToStep(3)" style="cursor:pointer">
-            <circle cx="280" cy="380" r="18" fill="#4CAF50" opacity="0.3"/>
-            <circle cx="280" cy="380" r="12" fill="#4CAF50" stroke="white" stroke-width="2"/>
-            <text x="280" y="384" fill="white" font-size="11" text-anchor="middle" font-weight="bold">3</text>
-            <text x="280" y="410" fill="white" font-size="11" text-anchor="middle" font-weight="bold">Sendero Bosque</text>
-            <text x="280" y="425" fill="#ccc" font-size="9" text-anchor="middle">Sigue marcas rojas</text>
+            <circle cx="190" cy="490" r="18" fill="#4CAF50" opacity="0.25"/>
+            <circle cx="190" cy="490" r="13" fill="#4CAF50" stroke="white" stroke-width="2"/>
+            <text x="190" y="494" fill="white" font-size="11" text-anchor="middle" font-weight="bold">3</text>
+            <rect x="110" y="508" width="160" height="18" rx="4" fill="rgba(0,0,0,0.6)"/>
+            <text x="190" y="521" fill="white" font-size="10" text-anchor="middle" font-weight="bold">Mirador Bajo · Descanso</text>
+            <text x="275" y="495" fill="#FFEB3B" font-size="14">👁</text>
           </g>
 
-          <!-- PUNTO 4: Vía Tren Antigua -->
+          <!-- PUNTO 4: Cruce Baños -->
           <g class="map-point" onclick="goToStep(4)" style="cursor:pointer">
-            <circle cx="380" cy="320" r="18" fill="#9C27B0" opacity="0.3"/>
-            <circle cx="380" cy="320" r="12" fill="#9C27B0" stroke="white" stroke-width="2"/>
-            <text x="380" y="324" fill="white" font-size="11" text-anchor="middle" font-weight="bold">4</text>
-            <text x="380" y="350" fill="white" font-size="11" text-anchor="middle" font-weight="bold">Vía Tren</text>
-            <text x="380" y="365" fill="#ccc" font-size="9" text-anchor="middle">Antigua vía férrea</text>
+            <circle cx="195" cy="390" r="20" fill="#9C27B0" opacity="0.25"/>
+            <circle cx="195" cy="390" r="14" fill="#9C27B0" stroke="white" stroke-width="2"/>
+            <text x="195" y="394" fill="white" font-size="12" text-anchor="middle" font-weight="bold">4</text>
+            <rect x="105" y="410" width="180" height="18" rx="4" fill="rgba(0,0,0,0.6)"/>
+            <text x="195" y="423" fill="white" font-size="10" text-anchor="middle" font-weight="bold">Cruce Senderos · Baños 🚻</text>
+            <text x="285" y="395" fill="white" font-size="16">🚻</text>
           </g>
 
-          <!-- PUNTO 5: Túnel y Puente -->
+          <!-- PUNTO 5: Piscina Natural -->
           <g class="map-point" onclick="goToStep(5)" style="cursor:pointer">
-            <circle cx="540" cy="220" r="18" fill="#2196F3" opacity="0.3"/>
-            <circle cx="540" cy="220" r="12" fill="#2196F3" stroke="white" stroke-width="2"/>
-            <text x="540" y="224" fill="white" font-size="11" text-anchor="middle" font-weight="bold">5</text>
-            <text x="540" y="250" fill="white" font-size="11" text-anchor="middle" font-weight="bold">Túnel y Puente</text>
-            <text x="540" y="265" fill="#ccc" font-size="9" text-anchor="middle">Usa linterna</text>
+            <circle cx="198" cy="290" r="20" fill="#2196F3" opacity="0.25"/>
+            <circle cx="198" cy="290" r="14" fill="#2196F3" stroke="white" stroke-width="2"/>
+            <text x="198" y="294" fill="white" font-size="12" text-anchor="middle" font-weight="bold">5</text>
+            <rect x="118" y="310" width="160" height="18" rx="4" fill="rgba(0,0,0,0.6)"/>
+            <text x="198" y="323" fill="white" font-size="10" text-anchor="middle" font-weight="bold">Piscina Natural · Roca</text>
+            <text x="283" y="295" fill="#64B5F6" font-size="14">💧</text>
           </g>
 
-          <!-- PUNTO 6: Cascada Principal -->
+          <!-- PUNTO 6: Zona Camping -->
           <g class="map-point" onclick="goToStep(6)" style="cursor:pointer">
-            <circle cx="700" cy="120" r="22" fill="#00BCD4" opacity="0.3"/>
-            <circle cx="700" cy="120" r="15" fill="#00BCD4" stroke="white" stroke-width="3"/>
-            <text x="700" y="125" fill="white" font-size="12" text-anchor="middle" font-weight="bold">6</text>
-            <text x="700" y="155" fill="white" font-size="12" text-anchor="middle" font-weight="bold">Cascada Principal</text>
-            <text x="700" y="172" fill="#ccc" font-size="9" text-anchor="middle">20m altura · Camping</text>
-            <!-- Icono de cascada -->
-            <path d="M 690,100 Q 700,85 710,100" stroke="#64B5F6" stroke-width="2" fill="none"/>
-            <path d="M 695,95 Q 700,80 705,95" stroke="#64B5F6" stroke-width="1.5" fill="none"/>
+            <circle cx="200" cy="190" r="22" fill="#FF5722" opacity="0.25"/>
+            <circle cx="200" cy="190" r="15" fill="#FF5722" stroke="white" stroke-width="2"/>
+            <text x="200" y="195" fill="white" font-size="12" text-anchor="middle" font-weight="bold">6</text>
+            <rect x="120" y="210" width="160" height="18" rx="4" fill="rgba(0,0,0,0.6)"/>
+            <text x="200" y="223" fill="white" font-size="10" text-anchor="middle" font-weight="bold">Zona Camping 🏕️</text>
+            <text x="285" y="195" fill="white" font-size="14">⛺</text>
           </g>
 
-          <!-- Puntos de interés adicionales -->
-          <!-- Fuente de agua -->
-          <g>
-            <circle cx="330" cy="350" r="6" fill="#2196F3" opacity="0.6"/>
-            <text x="345" y="354" fill="#64B5F6" font-size="9" font-family="sans-serif">💧 Fuente</text>
+          <!-- PUNTO 7: Cascada Principal -->
+          <g class="map-point" onclick="goToStep(7)" style="cursor:pointer">
+            <circle cx="200" cy="95" r="26" fill="#00BCD4" opacity="0.3"/>
+            <circle cx="200" cy="95" r="18" fill="#00BCD4" stroke="white" stroke-width="3"/>
+            <text x="200" y="100" fill="white" font-size="14" text-anchor="middle" font-weight="bold">7</text>
+            <path d="M 185,70 Q 200,50 215,70" stroke="#64B5F6" stroke-width="3" fill="none"/>
+            <path d="M 190,65 Q 200,48 210,65" stroke="#90CAF9" stroke-width="2" fill="none"/>
+            <path d="M 195,60 Q 200,45 205,60" stroke="#BBDEFB" stroke-width="1.5" fill="none"/>
+            <rect x="110" y="120" width="180" height="22" rx="4" fill="rgba(0,0,0,0.7)"/>
+            <text x="200" y="136" fill="white" font-size="12" text-anchor="middle" font-weight="bold">🏔️ Cascada Santa Rita</text>
+            <text x="200" y="150" fill="#ccc" font-size="9" text-anchor="middle">20m de altura · Piscina natural</text>
           </g>
-          <!-- Mirador -->
+
+          <!-- Servicios -->
           <g>
-            <circle cx="460" cy="260" r="6" fill="#FFEB3B" opacity="0.6"/>
-            <text x="475" y="264" fill="#FFEB3B" font-size="9" font-family="sans-serif">👁 Mirador</text>
+            <rect x="290" y="370" width="80" height="40" rx="8" fill="rgba(156,39,176,0.3)" stroke="#9C27B0" stroke-width="1"/>
+            <text x="330" y="388" fill="white" font-size="20" text-anchor="middle">🚻</text>
+            <text x="330" y="403" fill="#ccc" font-size="8" text-anchor="middle">Baños</text>
           </g>
-          <!-- Zona de descanso -->
           <g>
-            <circle cx="620" cy="165" r="6" fill="#8BC34A" opacity="0.6"/>
-            <text x="635" y="169" fill="#8BC34A" font-size="9" font-family="sans-serif">🪑 Descanso</text>
+            <rect x="15" y="560" width="70" height="40" rx="8" fill="rgba(255,152,0,0.3)" stroke="#FF9800" stroke-width="1"/>
+            <text x="50" y="578" fill="white" font-size="16" text-anchor="middle">🍽️</text>
+            <text x="50" y="593" fill="#ccc" font-size="8" text-anchor="middle">Comida</text>
+          </g>
+          <g>
+            <rect x="295" y="470" width="70" height="40" rx="8" fill="rgba(255,235,59,0.3)" stroke="#FFEB3B" stroke-width="1"/>
+            <text x="330" y="488" fill="white" font-size="16" text-anchor="middle">👁</text>
+            <text x="330" y="503" fill="#ccc" font-size="8" text-anchor="middle">Mirador</text>
           </g>
 
           <!-- Leyenda -->
-          <rect x="20" y="20" width="200" height="130" rx="8" fill="rgba(0,0,0,0.7)"/>
-          <text x="30" y="40" fill="white" font-size="12" font-weight="bold" font-family="sans-serif">LEYENDA</text>
-          <line x1="30" y1="55" x2="60" y2="55" stroke="#FFEB3B" stroke-width="3" stroke-dasharray="8,4"/>
-          <text x="68" y="59" fill="#ccc" font-size="10" font-family="sans-serif">Sendero principal</text>
-          <line x1="30" y1="75" x2="60" y2="75" stroke="#FF9800" stroke-width="2" stroke-dasharray="6,3"/>
-          <text x="68" y="79" fill="#ccc" font-size="10" font-family="sans-serif">Vía del tren</text>
-          <line x1="30" y1="95" x2="60" y2="95" stroke="#2196F3" stroke-width="4"/>
-          <text x="68" y="99" fill="#ccc" font-size="10" font-family="sans-serif">Quebrada</text>
-          <circle cx="45" cy="115" r="5" fill="#2196F3" opacity="0.6"/>
-          <text x="68" y="119" fill="#ccc" font-size="10" font-family="sans-serif">Fuente de agua</text>
-          <circle cx="45" cy="135" r="5" fill="#FFEB3B" opacity="0.6"/>
-          <text x="68" y="139" fill="#ccc" font-size="10" font-family="sans-serif">Mirador</text>
+          <rect x="10" y="10" width="140" height="105" rx="8" fill="rgba(0,0,0,0.75)" stroke="#444" stroke-width="1"/>
+          <text x="18" y="28" fill="white" font-size="10" font-weight="bold" font-family="sans-serif">LEYENDA</text>
+          <line x1="18" y1="40" x2="45" y2="40" stroke="#FFEB3B" stroke-width="3" stroke-dasharray="8,4"/>
+          <text x="50" y="44" fill="#ccc" font-size="8" font-family="sans-serif">Sendero principal</text>
+          <line x1="18" y1="55" x2="45" y2="55" stroke="#C8A84E" stroke-width="2" stroke-dasharray="6,3"/>
+          <text x="50" y="59" fill="#ccc" font-size="8" font-family="sans-serif">Sendero Antonio</text>
+          <line x1="18" y1="70" x2="45" y2="70" stroke="#C8A84E" stroke-width="2" stroke-dasharray="6,3"/>
+          <text x="50" y="74" fill="#ccc" font-size="8" font-family="sans-serif">Sendero El Silencio</text>
+          <line x1="18" y1="85" x2="45" y2="85" stroke="#2196F3" stroke-width="5"/>
+          <text x="50" y="89" fill="#ccc" font-size="8" font-family="sans-serif">Quebrada</text>
+          <circle cx="30" cy="100" r="4" fill="#00BCD4" opacity="0.8"/>
+          <text x="50" y="104" fill="#ccc" font-size="8" font-family="sans-serif">Cascada</text>
 
           <!-- Brújula -->
-          <g transform="translate(740,50)">
-            <circle cx="0" cy="0" r="25" fill="rgba(0,0,0,0.6)" stroke="#666" stroke-width="1"/>
-            <polygon points="0,-18 5,-5 -5,-5" fill="#F44336"/>
-            <polygon points="0,18 5,5 -5,5" fill="white" opacity="0.5"/>
-            <text x="0" y="-8" fill="#F44336" font-size="8" text-anchor="middle" font-weight="bold">N</text>
-            <text x="0" y="16" fill="#aaa" font-size="7" text-anchor="middle">S</text>
-            <text x="12" y="4" fill="#aaa" font-size="7" text-anchor="middle">E</text>
-            <text x="-12" y="4" fill="#aaa" font-size="7" text-anchor="middle">O</text>
+          <g transform="translate(365,30)">
+            <circle cx="0" cy="0" r="22" fill="rgba(0,0,0,0.7)" stroke="#666" stroke-width="1"/>
+            <polygon points="0,-16 4,-4 -4,-4" fill="#F44336"/>
+            <polygon points="0,16 4,4 -4,4" fill="white" opacity="0.5"/>
+            <text x="0" y="-6" fill="#F44336" font-size="8" text-anchor="middle" font-weight="bold">N</text>
+            <text x="0" y="14" fill="#aaa" font-size="6" text-anchor="middle">S</text>
+            <text x="10" y="4" fill="#aaa" font-size="6" text-anchor="middle">E</text>
+            <text x="-10" y="4" fill="#aaa" font-size="6" text-anchor="middle">O</text>
           </g>
 
-          <!-- Coordenadas GPS referencia -->
-          <rect x="20" y="560" width="280" height="30" rx="6" fill="rgba(0,0,0,0.6)"/>
-          <text x="30" y="580" fill="#4CAF50" font-size="10" font-family="monospace">📍 Inicio: 4.5631°N, 75.5144°W</text>
-          <text x="200" y="580" fill="#00BCD4" font-size="10" font-family="monospace">🎯 Cascada: 4.5712°N, 75.5089°W</text>
+          <!-- Escala -->
+          <rect x="10" y="670" width="100" height="22" rx="4" fill="rgba(0,0,0,0.6)"/>
+          <line x1="18" y1="682" x2="92" y2="682" stroke="white" stroke-width="2"/>
+          <line x1="18" y1="678" x2="18" y2="686" stroke="white" stroke-width="1"/>
+          <line x1="92" y1="678" x2="92" y2="686" stroke="white" stroke-width="1"/>
+          <text x="55" y="696" fill="white" font-size="8" text-anchor="middle">50 m</text>
 
-          <!-- Distancia total -->
-          <rect x="500" y="560" width="280" height="30" rx="6" fill="rgba(0,0,0,0.6)"/>
-          <text x="510" y="580" fill="white" font-size="11" font-family="sans-serif">📏 Total: 3.65 km · ⏱ ~2 horas ida · ⚠️ Señal GPS pierde en punto 4-5</text>
+          <!-- Coordenadas -->
+          <rect x="120" y="670" width="270" height="22" rx="4" fill="rgba(0,0,0,0.6)"/>
+          <text x="128" y="685" fill="#4CAF50" font-size="9" font-family="monospace">📍 Entrada: 4.5631°N, 75.5144°W</text>
+          <text x="280" y="685" fill="#00BCD4" font-size="9" font-family="monospace">🎯 Cascada: 4.5712°N</text>
+          <rect x="120" y="645" width="270" height="18" rx="4" fill="rgba(0,0,0,0.5)"/>
+          <text x="255" y="658" fill="white" font-size="9" font-family="sans-serif" text-anchor="middle">📏 Total: 3.65 km · ⏱ ~2h ida · ⚠️ Sin señal puntos 4-7</text>
         </svg>
 
-        <div style="display:flex;justify-content:space-between;margin-top:12px;flex-wrap:wrap;gap:8px;">
-          <button onclick="goToStep(1)" style="background:#F44336;color:white;border:none;padding:8px 12px;border-radius:8px;cursor:pointer;font-size:12px;">1. Puente Amarillo</button>
-          <button onclick="goToStep(2)" style="background:#FF9800;color:white;border:none;padding:8px 12px;border-radius:8px;cursor:pointer;font-size:12px;">2. Caseta</button>
-          <button onclick="goToStep(3)" style="background:#4CAF50;color:white;border:none;padding:8px 12px;border-radius:8px;cursor:pointer;font-size:12px;">3. Sendero</button>
-          <button onclick="goToStep(4)" style="background:#9C27B0;color:white;border:none;padding:8px 12px;border-radius:8px;cursor:pointer;font-size:12px;">4. Vía Tren</button>
-          <button onclick="goToStep(5)" style="background:#2196F3;color:white;border:none;padding:8px 12px;border-radius:8px;cursor:pointer;font-size:12px;">5. Túnel</button>
-          <button onclick="goToStep(6)" style="background:#00BCD4;color:white;border:none;padding:8px 12px;border-radius:8px;cursor:pointer;font-size:12px;">6. Cascada</button>
+        <!-- Botones de navegación -->
+        <div style="display:flex;justify-content:space-between;margin-top:12px;flex-wrap:wrap;gap:6px;">
+          <button onclick="goToStep(1)" style="background:#F44336;color:white;border:none;padding:8px 10px;border-radius:8px;cursor:pointer;font-size:11px;">1. Entrada</button>
+          <button onclick="goToStep(2)" style="background:#FF9800;color:white;border:none;padding:8px 10px;border-radius:8px;cursor:pointer;font-size:11px;">2. Caseta</button>
+          <button onclick="goToStep(3)" style="background:#4CAF50;color:white;border:none;padding:8px 10px;border-radius:8px;cursor:pointer;font-size:11px;">3. Mirador</button>
+          <button onclick="goToStep(4)" style="background:#9C27B0;color:white;border:none;padding:8px 10px;border-radius:8px;cursor:pointer;font-size:11px;">4. Baños</button>
+          <button onclick="goToStep(5)" style="background:#2196F3;color:white;border:none;padding:8px 10px;border-radius:8px;cursor:pointer;font-size:11px;">5. Piscina</button>
+          <button onclick="goToStep(6)" style="background:#FF5722;color:white;border:none;padding:8px 10px;border-radius:8px;cursor:pointer;font-size:11px;">6. Camping</button>
+          <button onclick="goToStep(7)" style="background:#00BCD4;color:white;border:none;padding:8px 10px;border-radius:8px;cursor:pointer;font-size:11px;">7. Cascada</button>
         </div>
       </div>
 
       <div class="navigation-panel">
         <h2>📍 Navegación del Recorrido</h2>
         <div class="progress-bar">
-          <div class="progress-fill" id="progressFill" style="width: 33%"></div>
+          <div class="progress-fill" id="progressFill" style="width: 14%"></div>
         </div>
         <div class="current-step" id="currentStep">
-          <h3>Paso 3 de 6: Sendero Bosque</h3>
+          <h3>Paso 1 de 7: Entrada Hacienda</h3>
           <p>Camina por el sendero principal hacia el bosque. Sigue las marcas rojas y blancas. Distancia: 1.2 km • Tiempo: 25 min</p>
         </div>
 
         <div class="step-list" id="stepList">
-          <div class="step-item completed" data-step="1">
-            <div class="step-number">✓</div>
-            <div class="step-text"><strong>Puente Amarillo</strong> - Punto de partida. 200m hacia Hacienda Santa Rita</div>
+          <div class="step-item active" data-step="1">
+            <div class="step-number">1</div>
+            <div class="step-text"><strong>Entrada Hacienda</strong> - Punto de partida. 200m del puente amarillo</div>
           </div>
-          <div class="step-item completed" data-step="2">
-            <div class="step-number">✓</div>
-            <div class="step-text"><strong>Caseta de Entrada</strong> - Registro y pago. Recibir información de seguridad</div>
+          <div class="step-item" data-step="2">
+            <div class="step-number">2</div>
+            <div class="step-text"><strong>Caseta y Parqueadero</strong> - Registro y pago. $11.000 entrada</div>
           </div>
-          <div class="step-item active" data-step="3">
+          <div class="step-item" data-step="3">
             <div class="step-number">3</div>
-            <div class="step-text"><strong>Sendero Bosque</strong> - Camino principal hacia las cascadas. Sigue marcas rojas</div>
+            <div class="step-text"><strong>Mirador Bajo</strong> - Vista parcial de la quebrada. Descanso</div>
           </div>
           <div class="step-item" data-step="4">
             <div class="step-number">4</div>
-            <div class="step-text"><strong>Vía Tren Antigua</strong> - Camina por antigua vía férrea hacia túnel</div>
+            <div class="step-text"><strong>Cruce Senderos y Baños</strong> - Último punto con señal</div>
           </div>
           <div class="step-item" data-step="5">
             <div class="step-number">5</div>
-            <div class="step-text"><strong>Túnel y Puente</strong> - Pasa por túnel histórico y puente colgante</div>
+            <div class="step-text"><strong>Piscina Natural</strong> - Agua cristalina. Traer traje de baño</div>
           </div>
           <div class="step-item" data-step="6">
             <div class="step-number">6</div>
-            <div class="step-text"><strong>Cascada Principal</strong> - Llegada a cascada de 20m. Zona de camping</div>
+            <div class="step-text"><strong>Zona Camping</strong> - Fogata, hamacas. Sin señal</div>
+          </div>
+          <div class="step-item" data-step="7">
+            <div class="step-number">7</div>
+            <div class="step-text"><strong>Cascada Principal</strong> - 20m altura. Piscina natural</div>
           </div>
         </div>
 
@@ -295,30 +344,61 @@
         </div>
       </div>
 
-      <div class="sensor-permissions">
-        <h3>📱 Sensores del Dispositivo</h3>
-        <p>Activa los sensores de tu dispositivo para una mejor experiencia de navegación offline:</p>
-        <div class="sensor-status" id="sensorStatus">
-          <div class="sensor-item">
-            <div class="sensor-name">GPS/Geolocalización</div>
-            <div class="sensor-status-text inactive">Verificando...</div>
+      <!-- Panel de Sensores Móviles -->
+      <div id="sensorPanel" style="background:rgba(0,0,0,0.3);border-radius:12px;padding:16px;margin-top:16px;color:white;border:1px solid rgba(76,175,80,0.3);">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+          <h3 style="margin:0;font-size:14px;">📱 Sensores del Dispositivo</h3>
+          <button id="sensorToggle" onclick="toggleSensors()" style="background:#4CAF50;color:white;border:none;padding:6px 12px;border-radius:6px;cursor:pointer;font-size:12px;">Activar</button>
+        </div>
+        
+        <div id="sensorStatus" style="display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:12px;">
+          <div class="sensor-box" style="background:rgba(255,255,255,0.05);border-radius:8px;padding:10px;text-align:center;">
+            <div style="font-size:20px;">📍</div>
+            <div style="font-size:11px;color:#aaa;">GPS</div>
+            <div id="gpsStatus" style="font-size:12px;color:#F44336;">Inactivo</div>
           </div>
-          <div class="sensor-item">
-            <div class="sensor-name">Sensor de Movimiento</div>
-            <div class="sensor-status-text inactive">Verificando...</div>
+          <div class="sensor-box" style="background:rgba(255,255,255,0.05);border-radius:8px;padding:10px;text-align:center;">
+            <div style="font-size:20px;">🧭</div>
+            <div style="font-size:11px;color:#aaa;">Brújula</div>
+            <div id="compassStatus" style="font-size:12px;color:#F44336;">Inactivo</div>
           </div>
-          <div class="sensor-item">
-            <div class="sensor-name">Orientación</div>
-            <div class="sensor-status-text inactive">Verificando...</div>
+          <div class="sensor-box" style="background:rgba(255,255,255,0.05);border-radius:8px;padding:10px;text-align:center;">
+            <div style="font-size:20px;">👣</div>
+            <div style="font-size:11px;color:#aaa;">Pasos</div>
+            <div id="stepsStatus" style="font-size:12px;color:#F44336;">0 pasos</div>
           </div>
-          <div class="sensor-item">
-            <div class="sensor-name">Luz Ambiental</div>
-            <div class="sensor-status-text inactive">Verificando...</div>
+          <div class="sensor-box" style="background:rgba(255,255,255,0.05);border-radius:8px;padding:10px;text-align:center;">
+            <div style="font-size:20px;">⛰️</div>
+            <div style="font-size:11px;color:#aaa;">Altitud</div>
+            <div id="altitudeStatus" style="font-size:12px;color:#F44336;">-- m</div>
           </div>
         </div>
-        <button class="request-sensors-btn" onclick="requestSensorPermissions()">
-          🔄 Solicitar Permisos de Sensores
-        </button>
+
+        <div id="sensorData" style="display:none;background:rgba(76,175,80,0.1);border-radius:8px;padding:12px;font-family:monospace;font-size:11px;">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;">
+            <div>📍 Posición: <span id="currentLat">--</span>, <span id="currentLng">--</span></div>
+            <div>🧭 Rumbo: <span id="currentHeading">--</span>°</div>
+            <div>👣 Pasos: <span id="totalSteps">0</span></div>
+            <div>📏 Distancia: <span id="totalDistance">0</span> m</div>
+            <div>⛰️ Altitud: <span id="currentAlt">--</span> m</div>
+            <div>⚡ Precisión: <span id="gpsAccuracy">--</span> m</div>
+          </div>
+        </div>
+
+        <div id="waypointAlert" style="display:none;margin-top:10px;padding:10px;background:rgba(255,235,59,0.2);border:1px solid #FFEB3B;border-radius:8px;">
+          <div style="display:flex;align-items:center;gap:8px;">
+            <span style="font-size:18px;">🔔</span>
+            <div>
+              <div style="font-weight:bold;font-size:13px;" id="alertTitle">Waypoint cercano</div>
+              <div style="font-size:11px;color:#ccc;" id="alertDesc">Estás cerca de un punto de interés</div>
+            </div>
+          </div>
+        </div>
+
+        <div id="sensorInstructions" style="margin-top:10px;font-size:11px;color:#aaa;">
+          <p style="margin:0;">⚠️ Para usar los sensores, debes dar permisos cuando el navegador lo solicite.</p>
+          <p style="margin:4px 0 0;">Los datos se guardan localmente y NO se envían a ningún servidor.</p>
+        </div>
       </div>
 
       <div style="text-align:center; margin-top:32px;">
@@ -330,67 +410,56 @@
       const steps = [
         {
           id: 1,
-          title: "Puente Amarillo",
-          description: "Punto de partida. Camina 200m hacia Hacienda Santa Rita siguiendo la carretera principal.",
-          recommendations: ["Inicia temprano (8am recomendado)", "Verifica que tengas reserva", "Paga entrada en caseta"],
-          time: "5 min",
-          distance: "200m",
-          gps: "4.5631°N, 75.5144°W",
-          signal: "🟢 Señal estable"
+          title: "Entrada Hacienda Santa Rita",
+          description: "Punto de partida. Ingresa por la entrada principal, 200m del puente amarillo de Boquía.",
+          recommendations: ["Inicia temprano (7-8am recomendado)", "Lleva efectivo para la entrada", "Estaciona en el parqueadero gratuito"],
+          time: "5 min", distance: "0 m", gps: "4.5631°N, 75.5144°W", signal: "🟢 Señal estable"
         },
         {
           id: 2,
-          title: "Caseta de Entrada",
-          description: "Registro y pago. Recibir información de seguridad y mapa físico.",
-          recommendations: ["Lleva identificación", "Pregunta por condiciones climáticas", "Conoce número de emergencia"],
-          time: "10 min",
-          distance: "200m",
-          gps: "4.5648°N, 75.5128°W",
-          signal: "🟢 Señal estable"
+          title: "Caseta y Parqueadero",
+          description: "Registro y pago de entrada. Recibe información del sendero y mapa físico.",
+          recommendations: ["Paga entrada: $11.000 por persona", "Pregunta por estado del sendero", "Guarda comprobante"],
+          time: "10 min", distance: "200 m", gps: "4.5648°N, 75.5128°W", signal: "🟢 Señal estable"
         },
         {
           id: 3,
-          title: "Sendero Bosque",
-          description: "Camina por el sendero principal hacia el bosque. Sigue las marcas rojas y blancas.",
-          recommendations: ["Usa botas antideslizantes", "Lleva agua suficiente", "Aplica repelente"],
-          time: "25 min",
-          distance: "1.2 km",
-          gps: "4.5665°N, 75.5112°W",
-          signal: "🟡 Señal intermitente"
+          title: "Mirador Bajo",
+          description: "Primer mirador con vista parcial de la quebrada. Buen punto de descanso.",
+          recommendations: ["Toma agua", "Aplica repelente", "Observa aves del bosque"],
+          time: "15 min", distance: "500 m", gps: "4.5665°N, 75.5112°W", signal: "🟡 Señal intermitente"
         },
         {
           id: 4,
-          title: "Vía Tren Antigua",
-          description: "Camina por la antigua vía férrea hacia el túnel histórico. ⚠️ Zona sin señal celular.",
-          recommendations: ["Cuidado con rieles oxidados", "Mantente en el centro de la vía", "Fotos seguras desde costado", "⚠️ SIN SEÑAL - Descarga mapa antes"],
-          time: "15 min",
-          distance: "800m",
-          gps: "4.5682°N, 75.5098°W",
-          signal: "🔴 SIN SEÑAL"
+          title: "Cruce de Senderos y Baños",
+          description: "Cruce entre Sendero Antonio y Sendero El Silencio. Aquí están los baños. Último punto con señal.",
+          recommendations: ["Usa los baños aquí", "Descarga el mapa ahora", "Elige tu sendero de regreso"],
+          time: "20 min", distance: "1.0 km", gps: "4.5682°N, 75.5098°W", signal: "🟡 Última señal"
         },
         {
           id: 5,
-          title: "Túnel y Puente",
-          description: "Pasa por el túnel histórico y cruza el puente colgante sobre la quebrada. ⚠️ Zona sin señal.",
-          recommendations: ["Usa linterna en túnel", "Sostén barandillas en puente", "Una persona a la vez en puente", "⚠️ SIN SEÑAL"],
-          time: "20 min",
-          distance: "600m",
-          gps: "4.5698°N, 75.5092°W",
-          signal: "🔴 SIN SEÑAL"
+          title: "Piscina Natural",
+          description: "Piscina natural de agua cristalina formada por la quebrada. Ideal para nadar.",
+          recommendations: ["Trae traje de baño", "Cuidado con piedras resbalosas", "No saltes de rocas"],
+          time: "25 min", distance: "1.5 km", gps: "4.5698°N, 75.5092°W", signal: "🔴 SIN SEÑAL"
         },
         {
           id: 6,
+          title: "Zona de Camping",
+          description: "Área designada para camping. Fogata, hamacas y zonas de descanso.",
+          recommendations: ["Trae implementos de camping", "Se vende madera y carbón", "Respeta silencio nocturno"],
+          time: "15 min", distance: "1.8 km", gps: "4.5705°N, 75.5088°W", signal: "🔴 SIN SEÑAL"
+        },
+        {
+          id: 7,
           title: "Cascada Principal",
-          description: "Llegada a la cascada principal de 20 metros. Zona de camping y piscina natural.",
-          recommendations: ["Zona designada para camping", "No nadar cerca de cascada", "Respetar silencio nocturno"],
-          time: "10 min",
-          distance: "400m",
-          gps: "4.5712°N, 75.5089°W",
-          signal: "🟡 Señal débil"
+          description: "Llegada a la cascada de 20 metros. Piscina natural y cavernas. Punto más alto del recorrido.",
+          recommendations: ["No nadar cerca del chorro", "Cuidado con rocas mojadas", "Disfruta la vista"],
+          time: "10 min", distance: "2.0 km", gps: "4.5712°N, 75.5089°W", signal: "🔴 SIN SEÑAL"
         }
       ];
 
-      let currentStep = 3;
+      let currentStep = 1;
 
       function updateUI() {
         const progressFill = document.getElementById('progressFill');
@@ -516,93 +585,242 @@
       // Load saved progress on page load
       loadProgress();
 
-      // Sensor Permissions
-      const sensors = {
-        geolocation: { name: 'GPS/Geolocalización', available: 'geolocation' in navigator },
-        motion: { name: 'Sensor de Movimiento', available: 'DeviceMotionEvent' in window },
-        orientation: { name: 'Orientación', available: 'DeviceOrientationEvent' in window },
-        ambientLight: { name: 'Luz Ambiental', available: 'AmbientLightSensor' in window }
+      // ═══════════════════════════════════════════════════════════════
+      // SISTEMA DE SENSORES MÓVILES PARA MAPA OFFLINE
+      // ═══════════════════════════════════════════════════════════════
+
+      const SensorSystem = {
+        enabled: false,
+        gpsWatch: null,
+        position: { lat: null, lng: null, alt: null, accuracy: null },
+        heading: 0,
+        steps: 0,
+        totalDistance: 0,
+        lastPosition: null,
+        stepThreshold: 1.5,
+        lastStepTime: 0,
+        stepCooldown: 300,
+
+        waypoints: [
+          { id: 1, name: "Entrada Hacienda", lat: 4.5631, lng: -75.5144, radius: 50 },
+          { id: 2, name: "Caseta y Parqueadero", lat: 4.5648, lng: -75.5128, radius: 30 },
+          { id: 3, name: "Mirador Bajo", lat: 4.5665, lng: -75.5112, radius: 40 },
+          { id: 4, name: "Cruce Senderos y Baños", lat: 4.5682, lng: -75.5098, radius: 30 },
+          { id: 5, name: "Piscina Natural", lat: 4.5698, lng: -75.5092, radius: 30 },
+          { id: 6, name: "Zona Camping", lat: 4.5705, lng: -75.5088, radius: 40 },
+          { id: 7, name: "Cascada Principal", lat: 4.5712, lng: -75.5089, radius: 50 }
+        ],
+        lastAlertWaypoint: null,
+
+        init: function() {
+          this.updateSensorStatus('gpsStatus', 'Verificando...', '#FFEB3B');
+        },
+
+        toggle: function() {
+          if (this.enabled) { this.disable(); } else { this.enable(); }
+        },
+
+        enable: function() {
+          this.enabled = true;
+          document.getElementById('sensorToggle').textContent = 'Desactivar';
+          document.getElementById('sensorToggle').style.background = '#F44336';
+          document.getElementById('sensorData').style.display = 'block';
+          document.getElementById('sensorInstructions').style.display = 'none';
+          this.startGPS();
+          this.startCompass();
+          this.startAccelerometer();
+          if (navigator.vibrate) navigator.vibrate(100);
+        },
+
+        disable: function() {
+          this.enabled = false;
+          if (this.gpsWatch) { navigator.geolocation.clearWatch(this.gpsWatch); this.gpsWatch = null; }
+          window.removeEventListener('deviceorientation', this._orientationHandler);
+          window.removeEventListener('devicemotion', this._motionHandler);
+          document.getElementById('sensorToggle').textContent = 'Activar';
+          document.getElementById('sensorToggle').style.background = '#4CAF50';
+          document.getElementById('sensorData').style.display = 'none';
+          document.getElementById('sensorInstructions').style.display = 'block';
+          this.updateSensorStatus('gpsStatus', 'Inactivo', '#F44336');
+          this.updateSensorStatus('compassStatus', 'Inactivo', '#F44336');
+          this.updateSensorStatus('stepsStatus', '0 pasos', '#F44336');
+          this.updateSensorStatus('altitudeStatus', '-- m', '#F44336');
+        },
+
+        startGPS: function() {
+          var self = this;
+          if (!navigator.geolocation) { this.updateSensorStatus('gpsStatus', 'No disponible', '#F44336'); return; }
+          this.gpsWatch = navigator.geolocation.watchPosition(
+            function(pos) {
+              self.position.lat = pos.coords.latitude;
+              self.position.lng = pos.coords.longitude;
+              self.position.alt = pos.coords.altitude;
+              self.position.accuracy = pos.coords.accuracy;
+              self.updateGPSDisplay();
+              self.updatePositionOnMap();
+              self.checkWaypointProximity();
+              self.calculateDistance();
+            },
+            function(err) { self.updateSensorStatus('gpsStatus', 'Error', '#F44336'); },
+            { enableHighAccuracy: true, maximumAge: 5000, timeout: 15000 }
+          );
+          this.updateSensorStatus('gpsStatus', 'Buscando...', '#FFEB3B');
+        },
+
+        updateGPSDisplay: function() {
+          if (this.position.lat) {
+            this.updateSensorStatus('gpsStatus', 'Activo', '#4CAF50');
+            document.getElementById('currentLat').textContent = this.position.lat.toFixed(4);
+            document.getElementById('currentLng').textContent = this.position.lng.toFixed(4);
+            document.getElementById('gpsAccuracy').textContent = this.position.accuracy ? this.position.accuracy.toFixed(0) : '--';
+          }
+          if (this.position.alt) {
+            document.getElementById('currentAlt').textContent = this.position.alt.toFixed(0);
+            this.updateSensorStatus('altitudeStatus', this.position.alt.toFixed(0) + ' m', '#4CAF50');
+          }
+        },
+
+        startCompass: function() {
+          var self = this;
+          this._orientationHandler = function(e) {
+            var heading = null;
+            if (e.webkitCompassHeading !== undefined) { heading = e.webkitCompassHeading; }
+            else if (e.alpha !== null) { heading = 360 - e.alpha; }
+            if (heading !== null) {
+              self.heading = Math.round(heading);
+              document.getElementById('currentHeading').textContent = self.heading;
+              var direction = self.getCardinalDirection(self.heading);
+              self.updateSensorStatus('compassStatus', direction + ' ' + self.heading + '°', '#4CAF50');
+            }
+          };
+          if (typeof DeviceOrientationEvent !== 'undefined' && typeof DeviceOrientationEvent.requestPermission === 'function') {
+            DeviceOrientationEvent.requestPermission().then(function(response) {
+              if (response === 'granted') { window.addEventListener('deviceorientation', self._orientationHandler); }
+            }).catch(console.error);
+          } else {
+            window.addEventListener('deviceorientation', self._orientationHandler);
+          }
+        },
+
+        getCardinalDirection: function(deg) {
+          var dirs = ['N', 'NE', 'E', 'SE', 'S', 'SO', 'O', 'NO'];
+          return dirs[Math.round(deg / 45) % 8];
+        },
+
+        startAccelerometer: function() {
+          var self = this;
+          var stepDetected = false;
+          this._motionHandler = function(e) {
+            var acc = e.accelerationIncludingGravity;
+            if (!acc) return;
+            var magnitude = Math.sqrt(acc.x * acc.x + acc.y * acc.y + acc.z * acc.z);
+            if (magnitude > 12 && !stepDetected && (Date.now() - self.lastStepTime) > self.stepCooldown) {
+              stepDetected = true;
+              self.steps++;
+              self.lastStepTime = Date.now();
+              self.updateStepsDisplay();
+              if (self.steps % 10 === 0 && navigator.vibrate) navigator.vibrate(50);
+            }
+            if (magnitude < 10) stepDetected = false;
+          };
+          if ('DeviceMotionEvent' in window) {
+            if (typeof DeviceMotionEvent.requestPermission === 'function') {
+              DeviceMotionEvent.requestPermission().then(function(response) {
+                if (response === 'granted') window.addEventListener('devicemotion', self._motionHandler);
+              }).catch(console.error);
+            } else { window.addEventListener('devicemotion', self._motionHandler); }
+          }
+        },
+
+        updateStepsDisplay: function() {
+          document.getElementById('stepsStatus').textContent = this.steps + ' pasos';
+          document.getElementById('totalSteps').textContent = this.steps;
+          document.getElementById('totalDistance').textContent = Math.round(this.steps * this.stepThreshold);
+        },
+
+        calculateDistance: function() {
+          if (!this.position.lat || !this.lastPosition) { this.lastPosition = { lat: this.position.lat, lng: this.position.lng }; return; }
+          var dist = this.haversineDistance(this.lastPosition.lat, this.lastPosition.lng, this.position.lat, this.position.lng);
+          if (dist > 2) {
+            this.totalDistance += dist;
+            document.getElementById('totalDistance').textContent = Math.round(this.totalDistance);
+            this.lastPosition = { lat: this.position.lat, lng: this.position.lng };
+          }
+        },
+
+        haversineDistance: function(lat1, lon1, lat2, lon2) {
+          var R = 6371000;
+          var dLat = (lat2 - lat1) * Math.PI / 180;
+          var dLon = (lon2 - lon1) * Math.PI / 180;
+          var a = Math.sin(dLat/2) * Math.sin(dLat/2) + Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) * Math.sin(dLon/2) * Math.sin(dLon/2);
+          return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+        },
+
+        checkWaypointProximity: function() {
+          if (!this.position.lat) return;
+          var self = this;
+          var nearest = null;
+          var nearestDist = Infinity;
+          this.waypoints.forEach(function(wp) {
+            var dist = self.haversineDistance(self.position.lat, self.position.lng, wp.lat, wp.lng);
+            if (dist < wp.radius && dist < nearestDist) { nearestDist = dist; nearest = wp; }
+          });
+          if (nearest && nearest.id !== this.lastAlertWaypoint) {
+            this.lastAlertWaypoint = nearest.id;
+            this.showWaypointAlert(nearest, nearestDist);
+            if (typeof goToStep === 'function') goToStep(nearest.id);
+          } else if (!nearest) {
+            this.lastAlertWaypoint = null;
+            document.getElementById('waypointAlert').style.display = 'none';
+          }
+        },
+
+        showWaypointAlert: function(waypoint, distance) {
+          document.getElementById('alertTitle').textContent = '📍 ' + waypoint.name;
+          document.getElementById('alertDesc').textContent = 'Estás a ' + Math.round(distance) + ' metros';
+          document.getElementById('waypointAlert').style.display = 'block';
+          if (navigator.vibrate) navigator.vibrate([200, 100, 200]);
+          setTimeout(function() { document.getElementById('waypointAlert').style.display = 'none'; }, 5000);
+        },
+
+        updatePositionOnMap: function() {
+          var svg = document.getElementById('trailMap');
+          if (!svg || !this.position.lat) return;
+          var mapBounds = { latMin: 4.5620, latMax: 4.5720, lngMin: -75.5160, lngMax: -75.5070 };
+          var x = ((this.position.lng - mapBounds.lngMin) / (mapBounds.lngMax - mapBounds.lngMin)) * 400;
+          var y = ((mapBounds.latMax - this.position.lat) / (mapBounds.latMax - mapBounds.latMin)) * 700;
+          x = Math.max(20, Math.min(380, x));
+          y = Math.max(20, Math.min(680, y));
+          var marker = document.getElementById('userPosition');
+          if (!marker) {
+            marker = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+            marker.id = 'userPosition';
+            marker.innerHTML = '<circle cx="0" cy="0" r="15" fill="#4CAF50" opacity="0.3"><animate attributeName="r" values="15;20;15" dur="2s" repeatCount="indefinite"/></circle><circle cx="0" cy="0" r="8" fill="#4CAF50" stroke="white" stroke-width="2"/><text x="0" y="4" fill="white" font-size="8" text-anchor="middle" font-weight="bold">TÚ</text>';
+            svg.appendChild(marker);
+          }
+          marker.setAttribute('transform', 'translate(' + x + ',' + y + ')');
+          marker.style.display = 'block';
+        },
+
+        updateSensorStatus: function(elementId, text, color) {
+          var el = document.getElementById(elementId);
+          if (el) { el.textContent = text; el.style.color = color; }
+        }
       };
 
-      function checkSensorPermissions() {
-        const sensorStatusDiv = document.getElementById('sensorStatus');
-        if (!sensorStatusDiv) return;
+      SensorSystem.init();
 
-        sensorStatusDiv.innerHTML = Object.entries(sensors).map(([key, sensor]) => {
-          const isAvailable = sensor.available;
-          const statusClass = isAvailable ? 'active' : 'inactive';
-          const statusText = isAvailable ? '✓ Disponible' : '✗ No disponible';
-
-          return `
-            <div class="sensor-item">
-              <div class="sensor-name">${sensor.name}</div>
-              <div class="sensor-status-text ${statusClass}">${statusText}</div>
-            </div>
-          `;
-        }).join('');
-      }
+      function toggleSensors() { SensorSystem.toggle(); }
 
       function requestSensorPermissions() {
-        // Request geolocation permission
-        if ('geolocation' in navigator) {
-          navigator.geolocation.getCurrentPosition(
-            (position) => {
-              console.log('Ubicación obtenida:', position.coords);
-              alert('✅ Permisos de GPS concedidos. Tu ubicación puede ayudar en la navegación.');
-            },
-            (error) => {
-              console.log('Error de GPS:', error);
-              alert('❌ Error de GPS: ' + error.message);
-            }
-          );
-        }
-
-        // Request device motion permission (iOS 13+)
-        if (typeof DeviceMotionEvent !== 'undefined' && typeof DeviceMotionEvent.requestPermission === 'function') {
-          DeviceMotionEvent.requestPermission()
-            .then(response => {
-              if (response === 'granted') {
-                alert('✅ Permisos de sensor de movimiento concedidos');
-              } else {
-                alert('❌ Permisos de sensor de movimiento denegados');
-              }
-            })
-            .catch(console.error);
-        }
-
-        // Request device orientation permission (iOS 13+)
         if (typeof DeviceOrientationEvent !== 'undefined' && typeof DeviceOrientationEvent.requestPermission === 'function') {
-          DeviceOrientationEvent.requestPermission()
-            .then(response => {
-              if (response === 'granted') {
-                alert('✅ Permisos de orientación concedidos');
-              } else {
-                alert('❌ Permisos de orientación denegados');
-              }
-            })
-            .catch(console.error);
+          DeviceOrientationEvent.requestPermission().then(function(r) { if (r === 'granted') alert('✅ Orientación concedida'); }).catch(console.error);
         }
-
-        // Check ambient light sensor
-        if ('AmbientLightSensor' in window) {
-          try {
-            const sensor = new AmbientLightSensor();
-            sensor.start();
-            alert('✅ Sensor de luz ambiental disponible');
-            sensor.stop();
-          } catch (error) {
-            console.log('Sensor de luz no disponible:', error);
-          }
+        if (typeof DeviceMotionEvent !== 'undefined' && typeof DeviceMotionEvent.requestPermission === 'function') {
+          DeviceMotionEvent.requestPermission().then(function(r) { if (r === 'granted') alert('✅ Movimiento concedido'); }).catch(console.error);
         }
-
-        // Refresh sensor status
-        checkSensorPermissions();
       }
 
-      // Initialize sensor check on page load
-      checkSensorPermissions();
-
-      // Make function available globally
       window.requestSensorPermissions = requestSensorPermissions;
     </script>
   </body>
