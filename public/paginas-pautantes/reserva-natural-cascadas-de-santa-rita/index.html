@@ -54,7 +54,7 @@
           <p style="color:#aaa;font-size:14px;">Navegación paso a paso sin conexión. Sigue los marcadores y revisa tu progreso.</p>
         </div>
 
-                                        <!-- MAPA GPS REAL - Cascadas de Santa Rita (datos GPX verificados) -->
+                                                <!-- MAPA GPS REAL - Cascadas de Santa Rita (48 puntos GPX) -->
         <div style="background:#1a1a2e;border-radius:20px;padding:0;position:relative;overflow:hidden;border:2px solid #16213e;box-shadow:0 8px 32px rgba(0,0,0,0.4);">
           <!-- Header -->
           <div style="background:linear-gradient(135deg,#1e3c72,#2a5298);padding:12px 16px;display:flex;align-items:center;gap:10px;">
@@ -68,184 +68,169 @@
             <div style="background:rgba(255,255,255,0.15);padding:4px 10px;border-radius:12px;color:white;font-size:10px;font-weight:500;">GPX</div>
           </div>
           
-          <!-- Mapa SVG con track GPS real -->
+          <!-- Mapa SVG con 48 puntos GPS -->
           <svg viewBox="0 0 500 750" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;" id="trailMap">
             <defs>
               <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
                 <stop offset="0%" style="stop-color:#0f1923"/>
                 <stop offset="100%" style="stop-color:#1a2332"/>
               </linearGradient>
-              <linearGradient id="river" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" style="stop-color:#4fc3f7"/>
-                <stop offset="100%" style="stop-color:#0288d1"/>
-              </linearGradient>
               <linearGradient id="elevGrad" x1="0" y1="1" x2="0" y2="0">
                 <stop offset="0%" style="stop-color:#66bb6a"/>
                 <stop offset="50%" style="stop-color:#ffa726"/>
                 <stop offset="100%" style="stop-color:#ef5350"/>
               </linearGradient>
-              <filter id="glow"><feGaussianBlur stdDeviation="2" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-              <filter id="pinShadow"><feDropShadow dx="0" dy="3" stdDeviation="2" flood-color="#000" flood-opacity="0.5"/></filter>
+              <filter id="glow"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+              <filter id="pinShadow"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.5"/></filter>
             </defs>
             
             <rect width="500" height="750" fill="url(#bg)"/>
             
             <!-- Topografia sutil -->
-            <g opacity="0.06" fill="#4fc3f7">
-              <ellipse cx="100" cy="200" rx="80" ry="60"/>
-              <ellipse cx="350" cy="150" rx="100" ry="70"/>
-              <ellipse cx="250" cy="400" rx="120" ry="80"/>
-              <ellipse cx="400" cy="550" rx="90" ry="65"/>
+            <g opacity="0.05" fill="#4fc3f7">
+              <ellipse cx="120" cy="180" rx="80" ry="50"/>
+              <ellipse cx="350" cy="120" rx="90" ry="60"/>
+              <ellipse cx="250" cy="400" rx="100" ry="70"/>
             </g>
             
-            <!-- TRACK GPS REAL - Ruta circular verificada -->
-            <path d="M 2,700 L 210,566 L 309,268 L 399,216 L 407,177 L 410,120 L 493,53 L 481,143 L 469,159 L 405,253 L 359,413 L 236,502 L 52,659 L 4,699" 
+            <!-- TRACK GPS REAL - 48 puntos suavizados -->
+            <path d="M 2,673 L 34,646 L 79,629 L 147,586 L 216,541 L 236,495 L 275,400 L 295,293 L 304,273 L 320,247 L 372,250 L 395,234 L 402,199 L 416,181 L 415,184 L 407,191 L 392,189 L 399,176 L 405,156 L 415,127 L 402,123 L 424,77 L 474,81 L 497,76 L 483,97 L 485,133 L 478,155 L 492,173 L 487,173 L 481,181 L 469,175 L 431,170 L 418,210 L 416,237 L 393,267 L 406,298 L 362,333 L 356,382 L 317,408 L 273,448 L 247,451 L 234,488 L 236,493 L 205,552 L 93,608 L 52,635 L 4,672 L 4,672" 
                   stroke="url(#elevGrad)" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow)"/>
             
-            <!-- Quebrada (referencia) -->
-            <path d="M 2,710 C 50,680 100,650 150,620 C 200,590 220,560 210,566" stroke="#4fc3f7" stroke-width="4" fill="none" opacity="0.4" stroke-linecap="round"/>
-            
-            <!-- WAYPOINTS GPS -->
-            <!-- 1. Entrada Boquia (4.646949, -75.580859) → SVG: 2,700 -->
+            <!-- WAYPOINTS con labels mejorados -->
+            <!-- 1. Entrada Boquia -->
             <g class="map-point" onclick="goToStep(1)" style="cursor:pointer" filter="url(#pinShadow)">
-              <circle cx="2" cy="700" r="16" fill="#EA4335" opacity="0.3"/>
-              <circle cx="2" cy="700" r="10" fill="#EA4335" stroke="white" stroke-width="2"/>
-              <text x="2" y="704" fill="white" font-size="8" text-anchor="middle" font-weight="bold">1</text>
-              <rect x="20" y="690" width="130" height="22" rx="11" fill="rgba(234,67,53,0.9)"/>
-              <text x="85" y="705" fill="white" font-size="9" text-anchor="middle" font-weight="500">Entrada (1,783m)</text>
+              <circle cx="2" cy="673" r="14" fill="#EA4335" opacity="0.35"/>
+              <circle cx="2" cy="673" r="9" fill="#EA4335" stroke="white" stroke-width="2"/>
+              <text x="2" y="677" fill="white" font-size="7" text-anchor="middle" font-weight="bold">1</text>
+              <rect x="16" y="662" width="95" height="18" rx="9" fill="rgba(234,67,53,0.9)"/>
+              <text x="63" y="675" fill="white" font-size="8" text-anchor="middle" font-weight="500">Entrada (1,783m)</text>
             </g>
             
-            <!-- 2. Hacienda Santa Rita (aprox 4.650, -75.576) → SVG: 150,620 -->
+            <!-- 2. Hacienda Santa Rita -->
             <g class="map-point" onclick="goToStep(2)" style="cursor:pointer" filter="url(#pinShadow)">
-              <circle cx="150" cy="620" r="14" fill="#FB8C00" opacity="0.3"/>
-              <circle cx="150" cy="620" r="9" fill="#FB8C00" stroke="white" stroke-width="2"/>
-              <text x="150" y="624" fill="white" font-size="7" text-anchor="middle" font-weight="bold">2</text>
-              <rect x="168" y="610" width="130" height="20" rx="10" fill="rgba(251,140,0,0.9)"/>
-              <text x="233" y="624" fill="white" font-size="9" text-anchor="middle" font-weight="500">Hacienda (1,810m)</text>
+              <circle cx="147" cy="586" r="12" fill="#FB8C00" opacity="0.35"/>
+              <circle cx="147" cy="586" r="8" fill="#FB8C00" stroke="white" stroke-width="1.5"/>
+              <text x="147" y="590" fill="white" font-size="6" text-anchor="middle" font-weight="bold">2</text>
+              <rect x="162" y="576" width="105" height="16" rx="8" fill="rgba(251,140,0,0.9)"/>
+              <text x="214" y="588" fill="white" font-size="7" text-anchor="middle" font-weight="500">Hacienda (1,810m)</text>
             </g>
             
-            <!-- 3. Tuneles Ferrocarril (aprox 4.655, -75.575) → SVG: 210,566 -->
+            <!-- 3. Tuneles Ferrocarril -->
             <g class="map-point" onclick="goToStep(3)" style="cursor:pointer" filter="url(#pinShadow)">
-              <circle cx="210" cy="566" r="14" fill="#8D6E63" opacity="0.3"/>
-              <circle cx="210" cy="566" r="9" fill="#8D6E63" stroke="white" stroke-width="2"/>
-              <text x="210" y="570" fill="white" font-size="7" text-anchor="middle" font-weight="bold">3</text>
-              <rect x="228" y="556" width="130" height="20" rx="10" fill="rgba(141,110,99,0.9)"/>
-              <text x="293" y="570" fill="white" font-size="9" text-anchor="middle" font-weight="500">Tuneles (1,870m)</text>
+              <circle cx="236" cy="495" r="12" fill="#8D6E63" opacity="0.35"/>
+              <circle cx="236" cy="495" r="8" fill="#8D6E63" stroke="white" stroke-width="1.5"/>
+              <text x="236" y="499" fill="white" font-size="6" text-anchor="middle" font-weight="bold">3</text>
+              <rect x="251" y="485" width="105" height="16" rx="8" fill="rgba(141,110,99,0.9)"/>
+              <text x="303" y="497" fill="white" font-size="7" text-anchor="middle" font-weight="500">Tuneles (1,870m)</text>
             </g>
             
-            <!-- 4. Puente Colgante (aprox 4.658, -75.574) → SVG: 309,268 -->
+            <!-- 4. Puente Colgante -->
             <g class="map-point" onclick="goToStep(4)" style="cursor:pointer" filter="url(#pinShadow)">
-              <circle cx="309" cy="268" r="14" fill="#E53935" opacity="0.3"/>
-              <circle cx="309" cy="268" r="9" fill="#E53935" stroke="white" stroke-width="2"/>
-              <text x="309" y="272" fill="white" font-size="7" text-anchor="middle" font-weight="bold">4</text>
-              <rect x="327" y="258" width="130" height="20" rx="10" fill="rgba(229,57,53,0.9)"/>
-              <text x="392" y="272" fill="white" font-size="9" text-anchor="middle" font-weight="500">Puente (1,960m)</text>
+              <circle cx="304" cy="273" r="12" fill="#E53935" opacity="0.35"/>
+              <circle cx="304" cy="273" r="8" fill="#E53935" stroke="white" stroke-width="1.5"/>
+              <text x="304" y="277" fill="white" font-size="6" text-anchor="middle" font-weight="bold">4</text>
+              <rect x="319" y="263" width="105" height="16" rx="8" fill="rgba(229,57,53,0.9)"/>
+              <text x="371" y="275" fill="white" font-size="7" text-anchor="middle" font-weight="500">Puente (1,960m)</text>
             </g>
             
-            <!-- 5. Cruce Senderos (aprox 4.661, -75.571) → SVG: 407,177 -->
+            <!-- 5. Cruce Senderos -->
             <g class="map-point" onclick="goToStep(5)" style="cursor:pointer" filter="url(#pinShadow)">
-              <circle cx="407" cy="177" r="16" fill="#7B1FA2" opacity="0.3"/>
-              <circle cx="407" cy="177" r="10" fill="#7B1FA2" stroke="white" stroke-width="2"/>
-              <text x="407" y="181" fill="white" font-size="8" text-anchor="middle" font-weight="bold">5</text>
-              <rect x="425" y="167" width="65" height="20" rx="10" fill="rgba(123,31,162,0.9)"/>
-              <text x="457" y="181" fill="white" font-size="8" text-anchor="middle" font-weight="500">Cruce</text>
+              <circle cx="416" cy="181" r="13" fill="#7B1FA2" opacity="0.35"/>
+              <circle cx="416" cy="181" r="9" fill="#7B1FA2" stroke="white" stroke-width="1.5"/>
+              <text x="416" y="185" fill="white" font-size="7" text-anchor="middle" font-weight="bold">5</text>
+              <rect x="340" y="195" width="110" height="16" rx="8" fill="rgba(123,31,162,0.9)"/>
+              <text x="395" y="207" fill="white" font-size="7" text-anchor="middle" font-weight="500">Cruce (1,960m)</text>
             </g>
             
-            <!-- 6. Cascada Santa Rita (aprox 4.664, -75.569) → SVG: 493,53 -->
+            <!-- 6. Cascada Santa Rita -->
             <g class="map-point" onclick="goToStep(6)" style="cursor:pointer" filter="url(#pinShadow)">
-              <circle cx="493" cy="53" r="18" fill="#1E88E5" opacity="0.35"/>
-              <circle cx="493" cy="53" r="12" fill="#1E88E5" stroke="white" stroke-width="2.5"/>
-              <text x="493" y="58" fill="white" font-size="9" text-anchor="middle" font-weight="bold">6</text>
-              <rect x="400" y="25" width="130" height="24" rx="12" fill="rgba(30,136,229,0.95)"/>
-              <text x="465" y="41" fill="white" font-size="10" text-anchor="middle" font-weight="600">Cascada (2,010m)</text>
+              <circle cx="497" cy="76" r="16" fill="#1E88E5" opacity="0.4"/>
+              <circle cx="497" cy="76" r="11" fill="#1E88E5" stroke="white" stroke-width="2"/>
+              <text x="497" y="80" fill="white" font-size="8" text-anchor="middle" font-weight="bold">6</text>
+              <rect x="395" y="55" width="100" height="18" rx="9" fill="rgba(30,136,229,0.95)"/>
+              <text x="445" y="68" fill="white" font-size="8" text-anchor="middle" font-weight="600">Cascada (2,010m)</text>
             </g>
             
-            <!-- 7. Gallito de Roca / Pico (4.664101, -75.570069) → SVG: 410,120 -->
+            <!-- 7. Pico Gallito de Roca -->
             <g class="map-point" onclick="goToStep(7)" style="cursor:pointer" filter="url(#pinShadow)">
-              <circle cx="410" cy="120" r="16" fill="#00ACC1" opacity="0.3"/>
-              <circle cx="410" cy="120" r="10" fill="#00ACC1" stroke="white" stroke-width="2"/>
-              <text x="410" y="124" fill="white" font-size="8" text-anchor="middle" font-weight="bold">7</text>
-              <rect x="318" y="95" width="120" height="24" rx="12" fill="rgba(0,172,193,0.9)"/>
-              <text x="378" y="111" fill="white" font-size="9" text-anchor="middle" font-weight="500">Pico (2,049m)</text>
+              <circle cx="424" cy="77" r="13" fill="#00ACC1" opacity="0.35"/>
+              <circle cx="424" cy="77" r="9" fill="#00ACC1" stroke="white" stroke-width="1.5"/>
+              <text x="424" y="81" fill="white" font-size="7" text-anchor="middle" font-weight="bold">7</text>
+              <rect x="340" y="92" width="100" height="16" rx="8" fill="rgba(0,172,193,0.9)"/>
+              <text x="390" y="104" fill="white" font-size="7" text-anchor="middle" font-weight="500">Pico (2,049m)</text>
             </g>
             
-            <!-- 8. Regreso (vuelta por sendero) -->
+            <!-- 8. Regreso -->
             <g class="map-point" onclick="goToStep(8)" style="cursor:pointer" filter="url(#pinShadow)">
-              <circle cx="4" cy="699" r="12" fill="#4CAF50" opacity="0.3"/>
-              <circle cx="4" cy="699" r="8" fill="#4CAF50" stroke="white" stroke-width="2"/>
-              <text x="4" y="703" fill="white" font-size="6" text-anchor="middle" font-weight="bold">8</text>
-              <rect x="20" y="715" width="100" height="18" rx="9" fill="rgba(76,175,80,0.9)"/>
-              <text x="70" y="728" fill="white" font-size="8" text-anchor="middle" font-weight="500">Regreso</text>
+              <circle cx="4" cy="672" r="10" fill="#4CAF50" opacity="0.35"/>
+              <circle cx="4" cy="672" r="7" fill="#4CAF50" stroke="white" stroke-width="1.5"/>
+              <text x="4" y="676" fill="white" font-size="5" text-anchor="middle" font-weight="bold">8</text>
+              <rect x="16" y="686" width="80" height="14" rx="7" fill="rgba(76,175,80,0.9)"/>
+              <text x="56" y="697" fill="white" font-size="7" text-anchor="middle" font-weight="500">Regreso</text>
             </g>
             
             <!-- LEYENDA -->
-            <rect x="10" y="10" width="140" height="100" rx="10" fill="rgba(26,35,46,0.95)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
-            <text x="18" y="26" fill="white" font-size="9" font-weight="600" font-family="system-ui">LEYENDA</text>
-            <line x1="18" y1="38" x2="45" y2="38" stroke="#66bb6a" stroke-width="3"/>
-            <text x="52" y="42" fill="rgba(255,255,255,0.8)" font-size="7" font-family="system-ui">Subida (1,783m)</text>
-            <line x1="18" y1="52" x2="45" y2="52" stroke="#ffa726" stroke-width="3"/>
-            <text x="52" y="56" fill="rgba(255,255,255,0.8)" font-size="7" font-family="system-ui">Zona media</text>
-            <line x1="18" y1="66" x2="45" y2="66" stroke="#ef5350" stroke-width="3"/>
-            <text x="52" y="70" fill="rgba(255,255,255,0.8)" font-size="7" font-family="system-ui">Cumbre (2,049m)</text>
-            <circle cx="30" cy="82" r="3" fill="#4fc3f7"/>
-            <text x="52" y="86" fill="rgba(255,255,255,0.8)" font-size="7" font-family="system-ui">Quebrada</text>
-            <circle cx="30" cy="96" r="3" fill="#1E88E5"/>
-            <text x="52" y="100" fill="rgba(255,255,255,0.8)" font-size="7" font-family="system-ui">Cascada</text>
+            <rect x="10" y="10" width="130" height="95" rx="10" fill="rgba(26,35,46,0.95)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+            <text x="18" y="25" fill="white" font-size="8" font-weight="600" font-family="system-ui">LEYENDA</text>
+            <line x1="18" y1="36" x2="40" y2="36" stroke="#66bb6a" stroke-width="3"/>
+            <text x="47" y="40" fill="rgba(255,255,255,0.8)" font-size="7" font-family="system-ui">Subida</text>
+            <line x1="18" y1="50" x2="40" y2="50" stroke="#ffa726" stroke-width="3"/>
+            <text x="47" y="54" fill="rgba(255,255,255,0.8)" font-size="7" font-family="system-ui">Zona media</text>
+            <line x1="18" y1="64" x2="40" y2="64" stroke="#ef5350" stroke-width="3"/>
+            <text x="47" y="68" fill="rgba(255,255,255,0.8)" font-size="7" font-family="system-ui">Cumbre</text>
+            <circle cx="28" cy="78" r="3" fill="#4fc3f7"/>
+            <text x="47" y="82" fill="rgba(255,255,255,0.8)" font-size="7" font-family="system-ui">Quebrada</text>
+            <circle cx="28" cy="92" r="3" fill="#1E88E5"/>
+            <text x="47" y="96" fill="rgba(255,255,255,0.8)" font-size="7" font-family="system-ui">Cascada</text>
             
             <!-- BRUJULA -->
-            <g transform="translate(465,35)">
-              <circle cx="0" cy="0" r="20" fill="rgba(26,35,46,0.9)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
-              <polygon points="0,-14 4,-4 -4,-4" fill="#EA4335"/>
-              <polygon points="0,14 4,4 -4,4" fill="rgba(255,255,255,0.3)"/>
-              <text x="0" y="-5" fill="#EA4335" font-size="7" text-anchor="middle" font-weight="700">N</text>
+            <g transform="translate(470,30)">
+              <circle cx="0" cy="0" r="18" fill="rgba(26,35,46,0.9)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+              <polygon points="0,-12 3,-3 -3,-3" fill="#EA4335"/>
+              <text x="0" y="-4" fill="#EA4335" font-size="7" text-anchor="middle" font-weight="700">N</text>
             </g>
             
-            <!-- PERFIL DE ELEVACION GPS REAL -->
-            <rect x="10" y="685" width="480" height="55" rx="10" fill="rgba(26,35,46,0.95)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
-            <text x="20" y="700" fill="rgba(255,255,255,0.7)" font-size="8" font-weight="500" font-family="system-ui">PERFIL GPS (1,783m → 2,049m → 1,783m)</text>
-            <!-- Perfil real del GPX: sube de izq a centro, baja de centro a der -->
-            <polyline points="25,728 75,725 125,718 175,705 225,690 275,680 325,682 375,695 425,710 475,725" stroke="url(#elevGrad)" stroke-width="2" fill="none"/>
-            <text x="25" y="738" fill="rgba(255,255,255,0.5)" font-size="7" font-family="system-ui">0km</text>
-            <text x="175" y="738" fill="rgba(255,255,255,0.5)" font-size="7" font-family="system-ui">2km</text>
-            <text x="325" y="738" fill="rgba(255,255,255,0.5)" font-size="7" font-family="system-ui">4km</text>
-            <text x="455" y="738" fill="rgba(255,255,255,0.5)" font-size="7" font-family="system-ui">6.7km</text>
-            <text x="25" y="715" fill="#66bb6a" font-size="7" font-family="system-ui">1,783m</text>
-            <text x="275" y="678" fill="#ef5350" font-size="7" font-family="system-ui">2,049m</text>
+            <!-- PERFIL DE ELEVACION -->
+            <rect x="10" y="700" width="480" height="42" rx="8" fill="rgba(26,35,46,0.95)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+            <text x="20" y="714" fill="rgba(255,255,255,0.7)" font-size="7" font-weight="500" font-family="system-ui">PERFIL GPS (1,783m → 2,049m)</text>
+            <polyline points="25,732 75,728 125,720 175,710 225,700 275,695 325,697 375,705 425,718 475,730" stroke="url(#elevGrad)" stroke-width="2" fill="none"/>
+            <text x="25" y="740" fill="rgba(255,255,255,0.4)" font-size="6" font-family="system-ui">0km</text>
+            <text x="245" y="740" fill="rgba(255,255,255,0.4)" font-size="6" font-family="system-ui">3.3km</text>
+            <text x="465" y="740" fill="rgba(255,255,255,0.4)" font-size="6" font-family="system-ui">6.7km</text>
           </svg>
           
           <!-- Panel inferior -->
-          <div id="mapInfoPanel" style="background:white;padding:14px 16px;border-top:1px solid #e0e0e0;min-height:80px;">
-            <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px;">
-              <div style="width:40px;height:40px;background:#EA4335;border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-weight:bold;font-size:16px;">1</div>
+          <div id="mapInfoPanel" style="background:white;padding:12px 14px;border-top:1px solid #e0e0e0;">
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+              <div style="width:36px;height:36px;background:#EA4335;border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-weight:bold;font-size:14px;">1</div>
               <div style="flex:1">
-                <div style="font-size:14px;font-weight:600;color:#1a1a1a;">Entrada Boquia</div>
-                <div style="font-size:12px;color:#666;">Punto de partida · 1,783m</div>
+                <div style="font-size:13px;font-weight:600;color:#1a1a1a;">Entrada Boquia</div>
+                <div style="font-size:11px;color:#666;">Punto de partida · 1,783m</div>
               </div>
               <div style="text-align:right">
-                <div style="font-size:11px;color:#999;">Distancia</div>
-                <div style="font-size:13px;font-weight:600;color:#1a1a1a;">0 km</div>
+                <div style="font-size:10px;color:#999;">Distancia</div>
+                <div style="font-size:12px;font-weight:600;color:#1a1a1a;">0 km</div>
               </div>
             </div>
-            <div style="display:flex;gap:16px;font-size:11px;color:#666;">
+            <div style="display:flex;gap:12px;font-size:10px;color:#666;">
               <span>⏱ 0 min</span>
               <span>📶 Senal estable</span>
-              <span>📍 4.6469°N, -75.5808°W</span>
+              <span>📍 4.6469°N</span>
             </div>
-            <div style="margin-top:8px;font-size:11px;color:#4CAF50;">
-              Inicia temprano (7-8am) · Lleva efectivo
-            </div>
+            <div style="margin-top:6px;font-size:10px;color:#4CAF50;">Inicia temprano · Lleva efectivo</div>
           </div>
           
-          <!-- Navegacion -->
-          <div style="background:white;padding:8px 12px;display:flex;justify-content:space-between;border-top:1px solid #f0f0f0;">
-            <button onclick="goToStep(1)" style="background:#EA4335;color:white;border:none;padding:6px 10px;border-radius:16px;cursor:pointer;font-size:10px;font-weight:500;">1</button>
-            <button onclick="goToStep(2)" style="background:#FB8C00;color:white;border:none;padding:6px 10px;border-radius:16px;cursor:pointer;font-size:10px;font-weight:500;">2</button>
-            <button onclick="goToStep(3)" style="background:#8D6E63;color:white;border:none;padding:6px 10px;border-radius:16px;cursor:pointer;font-size:10px;font-weight:500;">3</button>
-            <button onclick="goToStep(4)" style="background:#E53935;color:white;border:none;padding:6px 10px;border-radius:16px;cursor:pointer;font-size:10px;font-weight:500;">4</button>
-            <button onclick="goToStep(5)" style="background:#7B1FA2;color:white;border:none;padding:6px 10px;border-radius:16px;cursor:pointer;font-size:10px;font-weight:500;">5</button>
-            <button onclick="goToStep(6)" style="background:#1E88E5;color:white;border:none;padding:6px 10px;border-radius:16px;cursor:pointer;font-size:10px;font-weight:600;">6</button>
-            <button onclick="goToStep(7)" style="background:#00ACC1;color:white;border:none;padding:6px 10px;border-radius:16px;cursor:pointer;font-size:10px;font-weight:500;">7</button>
-            <button onclick="goToStep(8)" style="background:#4CAF50;color:white;border:none;padding:6px 10px;border-radius:16px;cursor:pointer;font-size:10px;font-weight:500;">8</button>
+          <!-- Navegacion mejorada -->
+          <div style="background:white;padding:10px 12px;display:flex;justify-content:space-between;border-top:1px solid #f0f0f0;">
+            <button onclick="goToStep(1)" style="background:#EA4335;color:white;border:none;padding:8px 12px;border-radius:18px;cursor:pointer;font-size:11px;font-weight:500;">1</button>
+            <button onclick="goToStep(2)" style="background:#FB8C00;color:white;border:none;padding:8px 12px;border-radius:18px;cursor:pointer;font-size:11px;font-weight:500;">2</button>
+            <button onclick="goToStep(3)" style="background:#8D6E63;color:white;border:none;padding:8px 12px;border-radius:18px;cursor:pointer;font-size:11px;font-weight:500;">3</button>
+            <button onclick="goToStep(4)" style="background:#E53935;color:white;border:none;padding:8px 12px;border-radius:18px;cursor:pointer;font-size:11px;font-weight:500;">4</button>
+            <button onclick="goToStep(5)" style="background:#7B1FA2;color:white;border:none;padding:8px 12px;border-radius:18px;cursor:pointer;font-size:11px;font-weight:500;">5</button>
+            <button onclick="goToStep(6)" style="background:#1E88E5;color:white;border:none;padding:8px 12px;border-radius:18px;cursor:pointer;font-size:11px;font-weight:600;">6</button>
+            <button onclick="goToStep(7)" style="background:#00ACC1;color:white;border:none;padding:8px 12px;border-radius:18px;cursor:pointer;font-size:11px;font-weight:500;">7</button>
+            <button onclick="goToStep(8)" style="background:#4CAF50;color:white;border:none;padding:8px 12px;border-radius:18px;cursor:pointer;font-size:11px;font-weight:500;">8</button>
           </div>
         </div>
 <!-- Panel de Sensores Móviles -->
