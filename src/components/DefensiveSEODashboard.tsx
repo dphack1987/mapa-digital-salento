@@ -31,6 +31,7 @@ const DefensiveSEODashboard: React.FC<DefensiveSEODashboardProps> = ({ onClose }
   const [backlinkSources, setBacklinkSources] = useState<any[]>([])
   const [backlinkStats, setBacklinkStats] = useState<any>(null)
   const [contentLocalization, setContentLocalization] = useState<any[]>([])
+  const [showRealWorldEngines, setShowRealWorldEngines] = useState(false)
   
   
   

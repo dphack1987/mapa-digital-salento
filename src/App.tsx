@@ -732,8 +732,8 @@ function App() {
         <meta name="twitter:title" content={helmetTitle} />
         <meta name="twitter:description" content={helmetDescription} />
         <meta name="twitter:image" content="https://www.salentoalamano.com/imagenes-salento/salento-landscape.jpg" />
-        <link rel="alternate" hreflang="es-CO" href={helmetCanonical} />
-        <link rel="alternate" hreflang="x-default" href={helmetCanonical} />
+        <link rel="alternate" hrefLang="es-CO" href={helmetCanonical} />
+        <link rel="alternate" hrefLang="x-default" href={helmetCanonical} />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "WebPage",
@@ -899,7 +899,7 @@ function App() {
                       <span className="place-meta">💰 {event.price}</span>
                     </div>
                     <div className="place-highlights">
-                      {event.highlights.map((highlight, idx) => (
+                      {event.highlights.map((highlight: string, idx: number) => (
                         <span key={idx} className="highlight-tag">{highlight}</span>
                       ))}
                     </div>
@@ -1102,7 +1102,7 @@ function App() {
                         <span>📍 {event.location.split(',')[0]}</span>
                       </div>
                       <div className="events-showcase-highlights">
-                        {event.highlights.slice(0, 2).map((h, i) => <span key={i}>{h}</span>)}
+                        {event.highlights.slice(0, 2).map((h: string, i: number) => <span key={i}>{h}</span>)}
                       </div>
                     </div>
                     <div className="events-showcase-footer">
