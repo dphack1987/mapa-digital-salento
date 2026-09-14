@@ -397,6 +397,27 @@ function App() {
     }
   }, [selectedPlace, selectedCategoryPage, isEnglish, language])
 
+  const helmetCanonical = useMemo(() => {
+    const base = 'https://www.salentoalamano.com'
+    if (selectedPlace) {
+      const slug = selectedPlace.name?.toLowerCase()
+        .replace(/[^a-z0-9\s-]/g, '')
+        .replace(/\s+/g, '-')
+        .replace(/-+/g, '-')
+        .trim()
+      return `${base}/pautantes/${selectedPlace.id}-${slug}.html`
+    }
+    if (selectedCategoryPage && selectedCategoryPage !== 'Todo') {
+      const catSlug = selectedCategoryPage.toLowerCase()
+        .replace(/[^a-z0-9\s-]/g, '')
+        .replace(/\s+/g, '-')
+        .replace(/-+/g, '-')
+        .trim()
+      return `${base}/categorias/${catSlug}.html`
+    }
+    return `${base}/`
+  }, [selectedPlace, selectedCategoryPage])
+
   // Función para manejar acciones del modal de pautantes
   const handleProviderAction = (providerId: number, action: 'reserve' | 'order' | 'contact') => {
     const provider = places.find(p => p.id === providerId)
@@ -698,10 +719,30 @@ function App() {
       <Helmet>
         <title>{helmetTitle}</title>
         <meta name="description" content={helmetDescription} />
+        <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
+        <link rel="canonical" href={helmetCanonical} />
         <meta property="og:title" content={helmetTitle} />
         <meta property="og:description" content={helmetDescription} />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={helmetCanonical} />
+        <meta property="og:image" content="https://www.salentoalamano.com/imagenes-salento/salento-landscape.jpg" />
+        <meta property="og:site_name" content="Salento a la Mano" />
+        <meta property="og:locale" content="es_CO" />
+        <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={helmetTitle} />
         <meta name="twitter:description" content={helmetDescription} />
+        <meta name="twitter:image" content="https://www.salentoalamano.com/imagenes-salento/salento-landscape.jpg" />
+        <link rel="alternate" hreflang="es-CO" href={helmetCanonical} />
+        <link rel="alternate" hreflang="x-default" href={helmetCanonical} />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          "name": helmetTitle,
+          "description": helmetDescription,
+          "url": helmetCanonical,
+          "inLanguage": "es",
+          "isPartOf": { "@type": "WebSite", "name": "Salento a la Mano", "url": "https://www.salentoalamano.com/" }
+        })}</script>
       </Helmet>
       <header className="mobile-header site-header">
         <div className="identity-header">
