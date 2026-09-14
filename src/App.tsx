@@ -311,6 +311,10 @@ function formatTemp(celsius: number): string {
 }
 
 function App() {
+  useEffect(() => {
+    const prerender = document.getElementById('prerender')
+    if (prerender) prerender.style.display = 'none'
+  }, [])
   const [activeCategory, setActiveCategory] = useState<Category>('Todo')
   const [cartCount, setCartCount] = useState(0)
   const [showCart, setShowCart] = useState(false)
