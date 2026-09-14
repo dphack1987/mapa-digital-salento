@@ -53,16 +53,162 @@
         <p>Navegación paso a paso sin conexión. Sigue los marcadores, revisa tu progreso y accede a recomendaciones específicas para cada punto del recorrido.</p>
       </div>
 
-      <div class="map-container">
-        <img src="/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/mapaoffline.jpeg" alt="Mapa turístico offline del Sendero Cascadas de Santa Rita en Salento Quindío" class="map-image" />
-        <div class="map-overlay" id="mapOverlay">
-          <!-- Marcadores interactivos -->
-          <div class="map-marker completed" style="top:15%; left:10%;" data-step="1">1</div>
-          <div class="map-marker completed" style="top:25%; left:30%;" data-step="2">2</div>
-          <div class="map-marker current" style="top:40%; left:50%;" data-step="3">3</div>
-          <div class="map-marker pending" style="top:55%; left:40%;" data-step="4">4</div>
-          <div class="map-marker pending" style="top:70%; left:60%;" data-step="5">5</div>
-          <div class="map-marker pending" style="top:85%; left:45%;" data-step="6">6</div>
+      <div class="map-container" style="background:#1a3a1a;border-radius:16px;padding:16px;position:relative;overflow:hidden;">
+        <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;" id="trailMap">
+          <!-- Fondo del mapa -->
+          <defs>
+            <linearGradient id="forest" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:#1a4a1a"/>
+              <stop offset="100%" style="stop-color:#0d2d0d"/>
+            </linearGradient>
+            <linearGradient id="water" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" style="stop-color:#2196F3"/>
+              <stop offset="100%" style="stop-color:#0D47A1"/>
+            </linearGradient>
+            <filter id="glow">
+              <feGaussianBlur stdDeviation="3" result="blur"/>
+              <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+          </defs>
+          <rect width="800" height="600" fill="url(#forest)"/>
+
+          <!-- Terreno: montañas de fondo -->
+          <polygon points="0,200 100,100 200,160 350,80 500,140 650,90 800,180 800,0 0,0" fill="#1a3a1a" opacity="0.5"/>
+
+          <!-- Río/Quebrada principal -->
+          <path d="M 50,520 Q 150,480 250,500 Q 350,460 450,490 Q 550,450 650,470 Q 720,440 780,460" stroke="url(#water)" stroke-width="8" fill="none" opacity="0.7" stroke-linecap="round"/>
+          <text x="400" y="510" fill="#64B5F6" font-size="11" text-anchor="middle" font-family="sans-serif">Quebrada Santa Rita</text>
+
+          <!-- Sendero principal (dashed trail) -->
+          <path d="M 100,500 L 180,440 L 280,380 L 380,320 L 460,270 L 540,220 L 620,170 L 700,120" stroke="#FFEB3B" stroke-width="4" fill="none" stroke-dasharray="12,6" stroke-linecap="round" filter="url(#glow)"/>
+
+          <!-- Sendero alternativo (vía del tren) -->
+          <path d="M 380,320 L 420,280 L 480,240 L 540,220" stroke="#FF9800" stroke-width="3" fill="none" stroke-dasharray="8,4" opacity="0.8"/>
+
+          <!-- Líneas de distancia -->
+          <text x="140" y="475" fill="#aaa" font-size="9" font-family="sans-serif" transform="rotate(-35,140,475)">200m</text>
+          <text x="230" y="415" fill="#aaa" font-size="9" font-family="sans-serif" transform="rotate(-35,230,415)">400m</text>
+          <text x="330" y="355" fill="#aaa" font-size="9" font-family="sans-serif" transform="rotate(-35,330,355)">500m</text>
+          <text x="420" y="295" fill="#aaa" font-size="9" font-family="sans-serif" transform="rotate(-35,420,295)">350m</text>
+          <text x="500" y="245" fill="#aaa" font-size="9" font-family="sans-serif" transform="rotate(-35,500,245)">300m</text>
+          <text x="580" y="195" fill="#aaa" font-size="9" font-family="sans-serif" transform="rotate(-35,580,195)">250m</text>
+
+          <!-- PUNTO 1: Puente Amarillo -->
+          <g class="map-point" onclick="goToStep(1)" style="cursor:pointer">
+            <circle cx="100" cy="500" r="18" fill="#F44336" opacity="0.3"/>
+            <circle cx="100" cy="500" r="12" fill="#F44336" stroke="white" stroke-width="2"/>
+            <text x="100" y="504" fill="white" font-size="11" text-anchor="middle" font-weight="bold">1</text>
+            <text x="100" y="530" fill="white" font-size="11" text-anchor="middle" font-weight="bold">Puente Amarillo</text>
+            <text x="100" y="545" fill="#ccc" font-size="9" text-anchor="middle">Punto de partida</text>
+          </g>
+
+          <!-- PUNTO 2: Caseta de Entrada -->
+          <g class="map-point" onclick="goToStep(2)" style="cursor:pointer">
+            <circle cx="180" cy="440" r="18" fill="#FF9800" opacity="0.3"/>
+            <circle cx="180" cy="440" r="12" fill="#FF9800" stroke="white" stroke-width="2"/>
+            <text x="180" y="444" fill="white" font-size="11" text-anchor="middle" font-weight="bold">2</text>
+            <text x="180" y="470" fill="white" font-size="11" text-anchor="middle" font-weight="bold">Caseta Entrada</text>
+            <text x="180" y="485" fill="#ccc" font-size="9" text-anchor="middle">Registro y pago</text>
+          </g>
+
+          <!-- PUNTO 3: Sendero Bosque -->
+          <g class="map-point" onclick="goToStep(3)" style="cursor:pointer">
+            <circle cx="280" cy="380" r="18" fill="#4CAF50" opacity="0.3"/>
+            <circle cx="280" cy="380" r="12" fill="#4CAF50" stroke="white" stroke-width="2"/>
+            <text x="280" y="384" fill="white" font-size="11" text-anchor="middle" font-weight="bold">3</text>
+            <text x="280" y="410" fill="white" font-size="11" text-anchor="middle" font-weight="bold">Sendero Bosque</text>
+            <text x="280" y="425" fill="#ccc" font-size="9" text-anchor="middle">Sigue marcas rojas</text>
+          </g>
+
+          <!-- PUNTO 4: Vía Tren Antigua -->
+          <g class="map-point" onclick="goToStep(4)" style="cursor:pointer">
+            <circle cx="380" cy="320" r="18" fill="#9C27B0" opacity="0.3"/>
+            <circle cx="380" cy="320" r="12" fill="#9C27B0" stroke="white" stroke-width="2"/>
+            <text x="380" y="324" fill="white" font-size="11" text-anchor="middle" font-weight="bold">4</text>
+            <text x="380" y="350" fill="white" font-size="11" text-anchor="middle" font-weight="bold">Vía Tren</text>
+            <text x="380" y="365" fill="#ccc" font-size="9" text-anchor="middle">Antigua vía férrea</text>
+          </g>
+
+          <!-- PUNTO 5: Túnel y Puente -->
+          <g class="map-point" onclick="goToStep(5)" style="cursor:pointer">
+            <circle cx="540" cy="220" r="18" fill="#2196F3" opacity="0.3"/>
+            <circle cx="540" cy="220" r="12" fill="#2196F3" stroke="white" stroke-width="2"/>
+            <text x="540" y="224" fill="white" font-size="11" text-anchor="middle" font-weight="bold">5</text>
+            <text x="540" y="250" fill="white" font-size="11" text-anchor="middle" font-weight="bold">Túnel y Puente</text>
+            <text x="540" y="265" fill="#ccc" font-size="9" text-anchor="middle">Usa linterna</text>
+          </g>
+
+          <!-- PUNTO 6: Cascada Principal -->
+          <g class="map-point" onclick="goToStep(6)" style="cursor:pointer">
+            <circle cx="700" cy="120" r="22" fill="#00BCD4" opacity="0.3"/>
+            <circle cx="700" cy="120" r="15" fill="#00BCD4" stroke="white" stroke-width="3"/>
+            <text x="700" y="125" fill="white" font-size="12" text-anchor="middle" font-weight="bold">6</text>
+            <text x="700" y="155" fill="white" font-size="12" text-anchor="middle" font-weight="bold">Cascada Principal</text>
+            <text x="700" y="172" fill="#ccc" font-size="9" text-anchor="middle">20m altura · Camping</text>
+            <!-- Icono de cascada -->
+            <path d="M 690,100 Q 700,85 710,100" stroke="#64B5F6" stroke-width="2" fill="none"/>
+            <path d="M 695,95 Q 700,80 705,95" stroke="#64B5F6" stroke-width="1.5" fill="none"/>
+          </g>
+
+          <!-- Puntos de interés adicionales -->
+          <!-- Fuente de agua -->
+          <g>
+            <circle cx="330" cy="350" r="6" fill="#2196F3" opacity="0.6"/>
+            <text x="345" y="354" fill="#64B5F6" font-size="9" font-family="sans-serif">💧 Fuente</text>
+          </g>
+          <!-- Mirador -->
+          <g>
+            <circle cx="460" cy="260" r="6" fill="#FFEB3B" opacity="0.6"/>
+            <text x="475" y="264" fill="#FFEB3B" font-size="9" font-family="sans-serif">👁 Mirador</text>
+          </g>
+          <!-- Zona de descanso -->
+          <g>
+            <circle cx="620" cy="165" r="6" fill="#8BC34A" opacity="0.6"/>
+            <text x="635" y="169" fill="#8BC34A" font-size="9" font-family="sans-serif">🪑 Descanso</text>
+          </g>
+
+          <!-- Leyenda -->
+          <rect x="20" y="20" width="200" height="130" rx="8" fill="rgba(0,0,0,0.7)"/>
+          <text x="30" y="40" fill="white" font-size="12" font-weight="bold" font-family="sans-serif">LEYENDA</text>
+          <line x1="30" y1="55" x2="60" y2="55" stroke="#FFEB3B" stroke-width="3" stroke-dasharray="8,4"/>
+          <text x="68" y="59" fill="#ccc" font-size="10" font-family="sans-serif">Sendero principal</text>
+          <line x1="30" y1="75" x2="60" y2="75" stroke="#FF9800" stroke-width="2" stroke-dasharray="6,3"/>
+          <text x="68" y="79" fill="#ccc" font-size="10" font-family="sans-serif">Vía del tren</text>
+          <line x1="30" y1="95" x2="60" y2="95" stroke="#2196F3" stroke-width="4"/>
+          <text x="68" y="99" fill="#ccc" font-size="10" font-family="sans-serif">Quebrada</text>
+          <circle cx="45" cy="115" r="5" fill="#2196F3" opacity="0.6"/>
+          <text x="68" y="119" fill="#ccc" font-size="10" font-family="sans-serif">Fuente de agua</text>
+          <circle cx="45" cy="135" r="5" fill="#FFEB3B" opacity="0.6"/>
+          <text x="68" y="139" fill="#ccc" font-size="10" font-family="sans-serif">Mirador</text>
+
+          <!-- Brújula -->
+          <g transform="translate(740,50)">
+            <circle cx="0" cy="0" r="25" fill="rgba(0,0,0,0.6)" stroke="#666" stroke-width="1"/>
+            <polygon points="0,-18 5,-5 -5,-5" fill="#F44336"/>
+            <polygon points="0,18 5,5 -5,5" fill="white" opacity="0.5"/>
+            <text x="0" y="-8" fill="#F44336" font-size="8" text-anchor="middle" font-weight="bold">N</text>
+            <text x="0" y="16" fill="#aaa" font-size="7" text-anchor="middle">S</text>
+            <text x="12" y="4" fill="#aaa" font-size="7" text-anchor="middle">E</text>
+            <text x="-12" y="4" fill="#aaa" font-size="7" text-anchor="middle">O</text>
+          </g>
+
+          <!-- Coordenadas GPS referencia -->
+          <rect x="20" y="560" width="280" height="30" rx="6" fill="rgba(0,0,0,0.6)"/>
+          <text x="30" y="580" fill="#4CAF50" font-size="10" font-family="monospace">📍 Inicio: 4.5631°N, 75.5144°W</text>
+          <text x="200" y="580" fill="#00BCD4" font-size="10" font-family="monospace">🎯 Cascada: 4.5712°N, 75.5089°W</text>
+
+          <!-- Distancia total -->
+          <rect x="500" y="560" width="280" height="30" rx="6" fill="rgba(0,0,0,0.6)"/>
+          <text x="510" y="580" fill="white" font-size="11" font-family="sans-serif">📏 Total: 3.65 km · ⏱ ~2 horas ida · ⚠️ Señal GPS pierde en punto 4-5</text>
+        </svg>
+
+        <div style="display:flex;justify-content:space-between;margin-top:12px;flex-wrap:wrap;gap:8px;">
+          <button onclick="goToStep(1)" style="background:#F44336;color:white;border:none;padding:8px 12px;border-radius:8px;cursor:pointer;font-size:12px;">1. Puente Amarillo</button>
+          <button onclick="goToStep(2)" style="background:#FF9800;color:white;border:none;padding:8px 12px;border-radius:8px;cursor:pointer;font-size:12px;">2. Caseta</button>
+          <button onclick="goToStep(3)" style="background:#4CAF50;color:white;border:none;padding:8px 12px;border-radius:8px;cursor:pointer;font-size:12px;">3. Sendero</button>
+          <button onclick="goToStep(4)" style="background:#9C27B0;color:white;border:none;padding:8px 12px;border-radius:8px;cursor:pointer;font-size:12px;">4. Vía Tren</button>
+          <button onclick="goToStep(5)" style="background:#2196F3;color:white;border:none;padding:8px 12px;border-radius:8px;cursor:pointer;font-size:12px;">5. Túnel</button>
+          <button onclick="goToStep(6)" style="background:#00BCD4;color:white;border:none;padding:8px 12px;border-radius:8px;cursor:pointer;font-size:12px;">6. Cascada</button>
         </div>
       </div>
 
@@ -188,7 +334,9 @@
           description: "Punto de partida. Camina 200m hacia Hacienda Santa Rita siguiendo la carretera principal.",
           recommendations: ["Inicia temprano (8am recomendado)", "Verifica que tengas reserva", "Paga entrada en caseta"],
           time: "5 min",
-          distance: "200m"
+          distance: "200m",
+          gps: "4.5631°N, 75.5144°W",
+          signal: "🟢 Señal estable"
         },
         {
           id: 2,
@@ -196,7 +344,9 @@
           description: "Registro y pago. Recibir información de seguridad y mapa físico.",
           recommendations: ["Lleva identificación", "Pregunta por condiciones climáticas", "Conoce número de emergencia"],
           time: "10 min",
-          distance: "200m"
+          distance: "200m",
+          gps: "4.5648°N, 75.5128°W",
+          signal: "🟢 Señal estable"
         },
         {
           id: 3,
@@ -204,23 +354,29 @@
           description: "Camina por el sendero principal hacia el bosque. Sigue las marcas rojas y blancas.",
           recommendations: ["Usa botas antideslizantes", "Lleva agua suficiente", "Aplica repelente"],
           time: "25 min",
-          distance: "1.2 km"
+          distance: "1.2 km",
+          gps: "4.5665°N, 75.5112°W",
+          signal: "🟡 Señal intermitente"
         },
         {
           id: 4,
           title: "Vía Tren Antigua",
-          description: "Camina por la antigua vía férrea hacia el túnel histórico.",
-          recommendations: ["Cuidado con rieles oxidados", "Mantente en el centro de la vía", "Fotos seguras desde costado"],
+          description: "Camina por la antigua vía férrea hacia el túnel histórico. ⚠️ Zona sin señal celular.",
+          recommendations: ["Cuidado con rieles oxidados", "Mantente en el centro de la vía", "Fotos seguras desde costado", "⚠️ SIN SEÑAL - Descarga mapa antes"],
           time: "15 min",
-          distance: "800m"
+          distance: "800m",
+          gps: "4.5682°N, 75.5098°W",
+          signal: "🔴 SIN SEÑAL"
         },
         {
           id: 5,
           title: "Túnel y Puente",
-          description: "Pasa por el túnel histórico y cruza el puente colgante sobre la quebrada.",
-          recommendations: ["Usa linterna en túnel", "Sostén barandillas en puente", "Una persona a la vez en puente"],
+          description: "Pasa por el túnel histórico y cruza el puente colgante sobre la quebrada. ⚠️ Zona sin señal.",
+          recommendations: ["Usa linterna en túnel", "Sostén barandillas en puente", "Una persona a la vez en puente", "⚠️ SIN SEÑAL"],
           time: "20 min",
-          distance: "600m"
+          distance: "600m",
+          gps: "4.5698°N, 75.5092°W",
+          signal: "🔴 SIN SEÑAL"
         },
         {
           id: 6,
@@ -228,7 +384,9 @@
           description: "Llegada a la cascada principal de 20 metros. Zona de camping y piscina natural.",
           recommendations: ["Zona designada para camping", "No nadar cerca de cascada", "Respetar silencio nocturno"],
           time: "10 min",
-          distance: "400m"
+          distance: "400m",
+          gps: "4.5712°N, 75.5089°W",
+          signal: "🟡 Señal débil"
         }
       ];
 
@@ -249,7 +407,13 @@
         const step = steps[currentStep - 1];
         currentStepDiv.innerHTML = `
           <h3>Paso ${currentStep} de ${steps.length}: ${step.title}</h3>
-          <p>${step.description} • Distancia: ${step.distance} • Tiempo: ${step.time}</p>
+          <p>${step.description}</p>
+          <div style="display:flex;gap:16px;margin-top:8px;flex-wrap:wrap;font-size:13px;">
+            <span>📏 ${step.distance}</span>
+            <span>⏱ ${step.time}</span>
+            <span style="font-family:monospace;">📍 ${step.gps}</span>
+            <span>${step.signal}</span>
+          </div>
         `;
 
         // Update step list
