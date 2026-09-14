@@ -1277,6 +1277,7 @@ function App() {
         </div>
         <div className="footer-brand">
           <span>Salento a la mano · Guía comercial y gastronómica</span>
+          <span>Página aliada: <a href="https://www.mapaturisticodelquindio.com" target="_blank" rel="noopener noreferrer" style={{color:'var(--green)',textDecoration:'underline'}}>Mapa Turístico del Quindío</a></span>
           <span>Hecho con cariño en el Quindío</span>
         </div>
       </footer>
