@@ -53,11 +53,11 @@
         <p>Navegación paso a paso sin conexión. Sigue los marcadores, revisa tu progreso y accede a recomendaciones específicas para cada punto del recorrido.</p>
       </div>
 
-      <div class="map-container" style="background:#0d1f0d;border-radius:16px;padding:16px;position:relative;overflow:hidden;border:2px solid #2a5a2a;">
-        <!-- Mapa offline fiel a geografía real - Cascadas de Santa Rita -->
-        <svg viewBox="0 0 400 700" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;" id="trailMap">
+            <div class="map-container" style="background:#0d1f0d;border-radius:16px;padding:16px;position:relative;overflow:hidden;border:2px solid #2a5a2a;">
+        <!-- Mapa offline - Geografía real Cascadas de Santa Rita, Salento -->
+        <svg viewBox="0 0 500 800" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;" id="trailMap">
           <defs>
-            <linearGradient id="terrain" x1="0%" y1="0%" x2="0%" y2="100%">
+            <linearGradient id="terrain" x1="0%" y1="0%" x2="100%" y2="100%">
               <stop offset="0%" style="stop-color:#1a3a1a"/>
               <stop offset="50%" style="stop-color:#0d2d0d"/>
               <stop offset="100%" style="stop-color:#1a4a1a"/>
@@ -66,285 +66,160 @@
               <stop offset="0%" style="stop-color:#1565C0"/>
               <stop offset="100%" style="stop-color:#0D47A1"/>
             </linearGradient>
-            <filter id="glow">
-              <feGaussianBlur stdDeviation="2" result="blur"/>
-              <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-            </filter>
-            <filter id="shadow">
-              <feDropShadow dx="1" dy="1" stdDeviation="1" flood-color="#000" flood-opacity="0.5"/>
-            </filter>
+            <filter id="glow"><feGaussianBlur stdDeviation="2" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+            <filter id="shadow"><feDropShadow dx="1" dy="1" stdDeviation="1" flood-color="#000" flood-opacity="0.5"/></filter>
           </defs>
-
-          <rect width="400" height="700" fill="url(#terrain)"/>
-
-          <!-- Árboles decorativos -->
-          <g opacity="0.3" fill="#2d5a2d">
-            <circle cx="30" cy="50" r="15"/><circle cx="80" cy="30" r="12"/><circle cx="150" cy="60" r="14"/>
-            <circle cx="250" cy="40" r="13"/><circle cx="320" cy="55" r="15"/><circle cx="370" cy="35" r="11"/>
-            <circle cx="20" cy="150" r="14"/><circle cx="90" cy="130" r="12"/><circle cx="180" cy="140" r="13"/>
-            <circle cx="280" cy="120" r="14"/><circle cx="350" cy="145" r="12"/>
-            <circle cx="40" cy="250" r="13"/><circle cx="120" cy="230" r="14"/><circle cx="200" cy="245" r="12"/>
-            <circle cx="300" cy="225" r="13"/><circle cx="360" cy="250" r="14"/>
-            <circle cx="25" cy="350" r="12"/><circle cx="100" cy="340" r="13"/><circle cx="170" cy="355" r="14"/>
-            <circle cx="260" cy="335" r="12"/><circle cx="340" cy="350" r="13"/>
-            <circle cx="35" cy="450" r="14"/><circle cx="110" cy="435" r="12"/><circle cx="190" cy="448" r="13"/>
-            <circle cx="280" cy="430" r="14"/><circle cx="355" cy="445" r="12"/>
-            <circle cx="30" cy="550" r="13"/><circle cx="95" cy="540" r="14"/><circle cx="175" cy="555" r="12"/>
-            <circle cx="270" cy="535" r="13"/><circle cx="345" cy="548" r="14"/>
-            <circle cx="40" cy="650" r="12"/><circle cx="115" cy="640" r="13"/><circle cx="200" cy="655" r="14"/>
-            <circle cx="290" cy="638" r="12"/><circle cx="365" cy="652" r="13"/>
+          <rect width="500" height="800" fill="url(#terrain)"/>
+          <g opacity="0.25" fill="#2d5a2d">
+            <circle cx="40" cy="60" r="18"/><circle cx="100" cy="40" r="15"/><circle cx="180" cy="70" r="16"/>
+            <circle cx="300" cy="50" r="14"/><circle cx="400" cy="65" r="17"/><circle cx="460" cy="45" r="13"/>
+            <circle cx="30" cy="180" r="16"/><circle cx="120" cy="160" r="14"/><circle cx="220" cy="175" r="15"/>
+            <circle cx="350" cy="155" r="16"/><circle cx="440" cy="170" r="14"/>
+            <circle cx="50" cy="300" r="15"/><circle cx="150" cy="280" r="16"/><circle cx="280" cy="295" r="14"/>
+            <circle cx="380" cy="275" r="15"/><circle cx="460" cy="290" r="16"/>
+            <circle cx="35" cy="420" r="16"/><circle cx="130" cy="400" r="15"/><circle cx="250" cy="415" r="14"/>
+            <circle cx="360" cy="395" r="16"/><circle cx="450" cy="410" r="15"/>
+            <circle cx="45" cy="540" r="14"/><circle cx="140" cy="520" r="16"/><circle cx="260" cy="535" r="15"/>
+            <circle cx="370" cy="515" r="14"/><circle cx="455" cy="530" r="16"/>
+            <circle cx="40" cy="660" r="16"/><circle cx="125" cy="640" r="15"/><circle cx="240" cy="655" r="14"/>
+            <circle cx="350" cy="635" r="16"/><circle cx="445" cy="650" r="15"/>
+            <circle cx="50" cy="760" r="15"/><circle cx="160" cy="745" r="14"/><circle cx="320" cy="755" r="16"/>
+            <circle cx="430" cy="740" r="15"/>
           </g>
-
-          <!-- Quebrada Santa Rita -->
-          <path d="M 200,80 Q 180,120 190,160 Q 210,200 195,240 Q 175,280 185,320 Q 200,360 190,400 Q 175,440 180,480 Q 195,520 185,560 Q 170,600 175,640 Q 180,670 185,700" 
-                stroke="url(#river)" stroke-width="12" fill="none" opacity="0.8" stroke-linecap="round"/>
-          <path d="M 195,240 Q 220,260 250,270 Q 280,275 310,260" 
-                stroke="#1565C0" stroke-width="6" fill="none" opacity="0.6" stroke-linecap="round"/>
-          <text x="215" y="380" fill="#64B5F6" font-size="10" font-family="sans-serif" transform="rotate(-80,215,380)" filter="url(#shadow)">Quebrada Santa Rita</text>
-
-          <!-- Sendero Antonio (izquierda/oeste) -->
-          <path d="M 80,680 Q 70,640 75,600 Q 85,560 80,520 Q 70,480 75,440 Q 85,400 90,360 Q 100,320 110,280 Q 125,240 140,200 Q 155,160 170,120 Q 180,90 190,70" 
-                stroke="#C8A84E" stroke-width="3" fill="none" stroke-dasharray="8,4" opacity="0.8" filter="url(#glow)"/>
-          <text x="55" y="480" fill="#C8A84E" font-size="10" font-family="sans-serif" font-weight="bold" transform="rotate(-82,55,480)" filter="url(#shadow)">Sendero Antonio</text>
-
-          <!-- Sendero El Silencio (derecha/este) -->
-          <path d="M 320,680 Q 330,640 325,600 Q 315,560 320,520 Q 330,480 325,440 Q 315,400 310,360 Q 300,320 290,280 Q 275,240 260,200 Q 245,160 230,120 Q 220,90 210,70" 
-                stroke="#C8A84E" stroke-width="3" fill="none" stroke-dasharray="8,4" opacity="0.8" filter="url(#glow)"/>
-          <text x="340" y="480" fill="#C8A84E" font-size="10" font-family="sans-serif" font-weight="bold" transform="rotate(-78,340,480)" filter="url(#shadow)">Sendero El Silencio</text>
-
-          <!-- Sendero Principal -->
-          <path d="M 200,680 Q 195,640 198,600 Q 205,560 200,520 Q 192,480 195,440 Q 202,400 198,360 Q 190,320 195,280 Q 205,240 200,200 Q 192,160 195,120 Q 198,90 200,70" 
-                stroke="#FFEB3B" stroke-width="4" fill="none" stroke-dasharray="12,6" stroke-linecap="round" filter="url(#glow)"/>
-
-          <!-- PUNTO 1: Entrada -->
+          <!-- QUEBRADA SANTA RITA -->
+          <path d="M 230,790 Q 220,750 225,710 Q 235,670 228,630 Q 218,590 222,550 Q 232,510 225,470 Q 215,430 220,390 Q 230,350 222,310 Q 212,270 218,230 Q 228,190 220,150 Q 210,110 215,70 Q 218,40 220,10" stroke="url(#river)" stroke-width="14" fill="none" opacity="0.7" stroke-linecap="round"/>
+          <path d="M 222,310 Q 250,300 280,310 Q 310,320 340,305 Q 360,290 370,270" stroke="#1565C0" stroke-width="7" fill="none" opacity="0.5" stroke-linecap="round"/>
+          <text x="235" y="450" fill="#64B5F6" font-size="11" font-family="sans-serif" transform="rotate(-85,235,450)" filter="url(#shadow)">Quebrada Santa Rita</text>
+          <!-- SENDERO ANTONIO (curva natural) -->
+          <path d="M 180,770 Q 170,730 175,690 Q 185,650 178,610 Q 168,570 172,530 Q 182,490 175,450 Q 165,410 170,370 Q 180,330 172,290 Q 162,250 168,210 Q 178,170 170,130 Q 162,90 168,50" stroke="#C8A84E" stroke-width="4" fill="none" stroke-dasharray="10,5" opacity="0.9" filter="url(#glow)"/>
+          <text x="140" y="500" fill="#C8A84E" font-size="12" font-family="sans-serif" font-weight="bold" transform="rotate(-85,140,500)" filter="url(#shadow)">Sendero Antonio</text>
+          <!-- SENDERO EL SILENCIO (loop real) -->
+          <path d="M 220,310 Q 250,290 280,300 Q 310,280 340,260 Q 370,230 390,200 Q 400,170 385,140 Q 365,115 340,130 Q 315,150 290,170 Q 265,190 245,215 Q 230,240 225,270 Q 222,290 220,310" stroke="#D4A84E" stroke-width="3.5" fill="none" stroke-dasharray="8,4" opacity="0.85" filter="url(#glow)"/>
+          <text x="380" y="220" fill="#D4A84E" font-size="11" font-family="sans-serif" font-weight="bold" transform="rotate(-50,380,220)" filter="url(#shadow)">Sendero El Silencio</text>
+          <!-- PUNTO 1 -->
           <g class="map-point" onclick="goToStep(1)" style="cursor:pointer">
-            <circle cx="200" cy="660" r="20" fill="#F44336" opacity="0.25"/>
-            <circle cx="200" cy="660" r="14" fill="#F44336" stroke="white" stroke-width="2"/>
-            <text x="200" y="664" fill="white" font-size="12" text-anchor="middle" font-weight="bold">1</text>
-            <rect x="120" y="680" width="160" height="18" rx="4" fill="rgba(0,0,0,0.6)"/>
-            <text x="200" y="693" fill="white" font-size="10" text-anchor="middle" font-weight="bold">Entrada Hacienda</text>
+            <circle cx="180" cy="760" r="22" fill="#F44336" opacity="0.25"/>
+            <circle cx="180" cy="760" r="15" fill="#F44336" stroke="white" stroke-width="2.5"/>
+            <text x="180" y="765" fill="white" font-size="13" text-anchor="middle" font-weight="bold">1</text>
+            <rect x="100" y="780" width="160" height="18" rx="4" fill="rgba(0,0,0,0.7)"/>
+            <text x="180" y="793" fill="white" font-size="10" text-anchor="middle" font-weight="bold">Entrada Hacienda</text>
           </g>
-
-          <!-- PUNTO 2: Caseta -->
+          <!-- PUNTO 2 -->
           <g class="map-point" onclick="goToStep(2)" style="cursor:pointer">
-            <circle cx="195" cy="580" r="18" fill="#FF9800" opacity="0.25"/>
-            <circle cx="195" cy="580" r="13" fill="#FF9800" stroke="white" stroke-width="2"/>
-            <text x="195" y="584" fill="white" font-size="11" text-anchor="middle" font-weight="bold">2</text>
-            <rect x="115" y="598" width="160" height="18" rx="4" fill="rgba(0,0,0,0.6)"/>
-            <text x="195" y="611" fill="white" font-size="10" text-anchor="middle" font-weight="bold">Caseta · Parqueadero</text>
-            <text x="280" y="585" fill="#aaa" font-size="14">🚗</text>
+            <circle cx="175" cy="650" r="20" fill="#FF9800" opacity="0.25"/>
+            <circle cx="175" cy="650" r="14" fill="#FF9800" stroke="white" stroke-width="2"/>
+            <text x="175" y="655" fill="white" font-size="12" text-anchor="middle" font-weight="bold">2</text>
+            <rect x="95" y="668" width="160" height="18" rx="4" fill="rgba(0,0,0,0.7)"/>
+            <text x="175" y="681" fill="white" font-size="10" text-anchor="middle" font-weight="bold">Caseta · Parqueadero</text>
+            <text x="265" y="655" fill="#aaa" font-size="14">🚗</text>
           </g>
-
-          <!-- PUNTO 3: Mirador Bajo -->
+          <!-- PUNTO 3 -->
           <g class="map-point" onclick="goToStep(3)" style="cursor:pointer">
-            <circle cx="190" cy="490" r="18" fill="#4CAF50" opacity="0.25"/>
-            <circle cx="190" cy="490" r="13" fill="#4CAF50" stroke="white" stroke-width="2"/>
-            <text x="190" y="494" fill="white" font-size="11" text-anchor="middle" font-weight="bold">3</text>
-            <rect x="110" y="508" width="160" height="18" rx="4" fill="rgba(0,0,0,0.6)"/>
-            <text x="190" y="521" fill="white" font-size="10" text-anchor="middle" font-weight="bold">Mirador Bajo · Descanso</text>
-            <text x="275" y="495" fill="#FFEB3B" font-size="14">👁</text>
+            <circle cx="172" cy="520" r="20" fill="#795548" opacity="0.25"/>
+            <circle cx="172" cy="520" r="14" fill="#795548" stroke="white" stroke-width="2"/>
+            <text x="172" y="525" fill="white" font-size="12" text-anchor="middle" font-weight="bold">3</text>
+            <rect x="82" y="538" width="180" height="18" rx="4" fill="rgba(0,0,0,0.7)"/>
+            <text x="172" y="551" fill="white" font-size="10" text-anchor="middle" font-weight="bold">Túneles Ferrocarril</text>
+            <text x="262" y="525" fill="#aaa" font-size="14">🚇</text>
           </g>
-
-          <!-- PUNTO 4: Cruce Baños -->
+          <!-- PUNTO 4 -->
           <g class="map-point" onclick="goToStep(4)" style="cursor:pointer">
-            <circle cx="195" cy="390" r="20" fill="#9C27B0" opacity="0.25"/>
-            <circle cx="195" cy="390" r="14" fill="#9C27B0" stroke="white" stroke-width="2"/>
-            <text x="195" y="394" fill="white" font-size="12" text-anchor="middle" font-weight="bold">4</text>
-            <rect x="105" y="410" width="180" height="18" rx="4" fill="rgba(0,0,0,0.6)"/>
-            <text x="195" y="423" fill="white" font-size="10" text-anchor="middle" font-weight="bold">Cruce Senderos · Baños 🚻</text>
-            <text x="285" y="395" fill="white" font-size="16">🚻</text>
+            <circle cx="170" cy="400" r="20" fill="#FF5722" opacity="0.25"/>
+            <circle cx="170" cy="400" r="14" fill="#FF5722" stroke="white" stroke-width="2"/>
+            <text x="170" y="405" fill="white" font-size="12" text-anchor="middle" font-weight="bold">4</text>
+            <rect x="80" y="418" width="180" height="18" rx="4" fill="rgba(0,0,0,0.7)"/>
+            <text x="170" y="431" fill="white" font-size="10" text-anchor="middle" font-weight="bold">Puente Colgante</text>
+            <text x="260" y="405" fill="#aaa" font-size="14">🌉</text>
           </g>
-
-          <!-- PUNTO 5: Piscina Natural -->
+          <!-- PUNTO 5 -->
           <g class="map-point" onclick="goToStep(5)" style="cursor:pointer">
-            <circle cx="198" cy="290" r="20" fill="#2196F3" opacity="0.25"/>
-            <circle cx="198" cy="290" r="14" fill="#2196F3" stroke="white" stroke-width="2"/>
-            <text x="198" y="294" fill="white" font-size="12" text-anchor="middle" font-weight="bold">5</text>
-            <rect x="118" y="310" width="160" height="18" rx="4" fill="rgba(0,0,0,0.6)"/>
-            <text x="198" y="323" fill="white" font-size="10" text-anchor="middle" font-weight="bold">Piscina Natural · Roca</text>
-            <text x="283" y="295" fill="#64B5F6" font-size="14">💧</text>
+            <circle cx="220" cy="310" r="22" fill="#9C27B0" opacity="0.25"/>
+            <circle cx="220" cy="310" r="15" fill="#9C27B0" stroke="white" stroke-width="2.5"/>
+            <text x="220" y="315" fill="white" font-size="13" text-anchor="middle" font-weight="bold">5</text>
+            <rect x="130" y="330" width="180" height="18" rx="4" fill="rgba(0,0,0,0.7)"/>
+            <text x="220" y="343" fill="white" font-size="10" text-anchor="middle" font-weight="bold">Cruce Senderos · Mirador</text>
+            <text x="310" y="315" fill="#FFEB3B" font-size="14">👁</text>
           </g>
-
-          <!-- PUNTO 6: Zona Camping -->
+          <!-- PUNTO 6 -->
           <g class="map-point" onclick="goToStep(6)" style="cursor:pointer">
-            <circle cx="200" cy="190" r="22" fill="#FF5722" opacity="0.25"/>
-            <circle cx="200" cy="190" r="15" fill="#FF5722" stroke="white" stroke-width="2"/>
-            <text x="200" y="195" fill="white" font-size="12" text-anchor="middle" font-weight="bold">6</text>
-            <rect x="120" y="210" width="160" height="18" rx="4" fill="rgba(0,0,0,0.6)"/>
-            <text x="200" y="223" fill="white" font-size="10" text-anchor="middle" font-weight="bold">Zona Camping 🏕️</text>
-            <text x="285" y="195" fill="white" font-size="14">⛺</text>
+            <circle cx="168" cy="170" r="24" fill="#2196F3" opacity="0.3"/>
+            <circle cx="168" cy="170" r="16" fill="#2196F3" stroke="white" stroke-width="3"/>
+            <text x="168" y="175" fill="white" font-size="14" text-anchor="middle" font-weight="bold">6</text>
+            <path d="M 150,140 Q 168,115 186,140" stroke="#64B5F6" stroke-width="3" fill="none"/>
+            <path d="M 155,135 Q 168,112 181,135" stroke="#90CAF9" stroke-width="2" fill="none"/>
+            <path d="M 160,130 Q 168,110 176,130" stroke="#BBDEFB" stroke-width="1.5" fill="none"/>
+            <rect x="80" y="190" width="176" height="22" rx="4" fill="rgba(0,0,0,0.75)"/>
+            <text x="168" y="206" fill="white" font-size="12" text-anchor="middle" font-weight="bold">Cascada Santa Rita</text>
+            <text x="168" y="220" fill="#ccc" font-size="9" text-anchor="middle">8m altura · Piscina natural</text>
           </g>
-
-          <!-- PUNTO 7: Cascada Principal -->
+          <!-- PUNTO 7 -->
           <g class="map-point" onclick="goToStep(7)" style="cursor:pointer">
-            <circle cx="200" cy="95" r="26" fill="#00BCD4" opacity="0.3"/>
-            <circle cx="200" cy="95" r="18" fill="#00BCD4" stroke="white" stroke-width="3"/>
-            <text x="200" y="100" fill="white" font-size="14" text-anchor="middle" font-weight="bold">7</text>
-            <path d="M 185,70 Q 200,50 215,70" stroke="#64B5F6" stroke-width="3" fill="none"/>
-            <path d="M 190,65 Q 200,48 210,65" stroke="#90CAF9" stroke-width="2" fill="none"/>
-            <path d="M 195,60 Q 200,45 205,60" stroke="#BBDEFB" stroke-width="1.5" fill="none"/>
-            <rect x="110" y="120" width="180" height="22" rx="4" fill="rgba(0,0,0,0.7)"/>
-            <text x="200" y="136" fill="white" font-size="12" text-anchor="middle" font-weight="bold">🏔️ Cascada Santa Rita</text>
-            <text x="200" y="150" fill="#ccc" font-size="9" text-anchor="middle">20m de altura · Piscina natural</text>
+            <circle cx="385" cy="155" r="22" fill="#00BCD4" opacity="0.3"/>
+            <circle cx="385" cy="155" r="15" fill="#00BCD4" stroke="white" stroke-width="2.5"/>
+            <text x="385" y="160" fill="white" font-size="13" text-anchor="middle" font-weight="bold">7</text>
+            <path d="M 372,135 Q 385,120 398,135" stroke="#64B5F6" stroke-width="2" fill="none"/>
+            <path d="M 377,132 Q 385,118 393,132" stroke="#90CAF9" stroke-width="1.5" fill="none"/>
+            <rect x="300" y="175" width="170" height="22" rx="4" fill="rgba(0,0,0,0.75)"/>
+            <text x="385" y="191" fill="white" font-size="11" text-anchor="middle" font-weight="bold">Gallito de Roca</text>
+            <text x="385" y="205" fill="#ccc" font-size="9" text-anchor="middle">Pozas cristalinas · El Silencio</text>
           </g>
-
-          <!-- Servicios -->
-          <g>
-            <rect x="290" y="370" width="80" height="40" rx="8" fill="rgba(156,39,176,0.3)" stroke="#9C27B0" stroke-width="1"/>
-            <text x="330" y="388" fill="white" font-size="20" text-anchor="middle">🚻</text>
-            <text x="330" y="403" fill="#ccc" font-size="8" text-anchor="middle">Baños</text>
+          <!-- SERVICIOS -->
+          <g><rect x="20" y="150" width="60" height="50" rx="8" fill="rgba(255,152,0,0.25)" stroke="#FF9800" stroke-width="1"/><text x="50" y="172" fill="white" font-size="18" text-anchor="middle">🍽</text><text x="50" y="192" fill="#ccc" font-size="8" text-anchor="middle">Comida</text></g>
+          <g><rect x="260" y="290" width="60" height="50" rx="8" fill="rgba(156,39,176,0.25)" stroke="#9C27B0" stroke-width="1"/><text x="290" y="312" fill="white" font-size="18" text-anchor="middle">🚻</text><text x="290" y="332" fill="#ccc" font-size="8" text-anchor="middle">Baños</text></g>
+          <g><rect x="60" y="250" width="60" height="50" rx="8" fill="rgba(255,87,34,0.25)" stroke="#FF5722" stroke-width="1"/><text x="90" y="272" fill="white" font-size="18" text-anchor="middle">⛺</text><text x="90" y="292" fill="#ccc" font-size="8" text-anchor="middle">Camping</text></g>
+          <g><rect x="310" y="250" width="60" height="50" rx="8" fill="rgba(33,150,243,0.25)" stroke="#2196F3" stroke-width="1"/><text x="340" y="272" fill="white" font-size="18" text-anchor="middle">💧</text><text x="340" y="292" fill="#ccc" font-size="8" text-anchor="middle">Pozas</text></g>
+          <!-- LEYENDA -->
+          <rect x="10" y="10" width="160" height="120" rx="8" fill="rgba(0,0,0,0.8)" stroke="#555" stroke-width="1"/>
+          <text x="18" y="30" fill="white" font-size="11" font-weight="bold" font-family="sans-serif">LEYENDA</text>
+          <line x1="18" y1="44" x2="48" y2="44" stroke="#C8A84E" stroke-width="3" stroke-dasharray="8,4"/>
+          <text x="54" y="48" fill="#ccc" font-size="9" font-family="sans-serif">Sendero Antonio</text>
+          <line x1="18" y1="60" x2="48" y2="60" stroke="#D4A84E" stroke-width="2.5" stroke-dasharray="6,3"/>
+          <text x="54" y="64" fill="#ccc" font-size="9" font-family="sans-serif">Sendero El Silencio</text>
+          <line x1="18" y1="76" x2="48" y2="76" stroke="#2196F3" stroke-width="6"/>
+          <text x="54" y="80" fill="#ccc" font-size="9" font-family="sans-serif">Quebrada</text>
+          <circle cx="32" cy="92" r="5" fill="#00BCD4" opacity="0.8"/>
+          <text x="54" y="96" fill="#ccc" font-size="9" font-family="sans-serif">Cascada</text>
+          <circle cx="32" cy="108" r="5" fill="#FF5722" opacity="0.8"/>
+          <text x="54" y="112" fill="#ccc" font-size="9" font-family="sans-serif">Camping</text>
+          <rect x="26" y="118" width="12" height="8" rx="2" fill="#795548" opacity="0.8"/>
+          <text x="54" y="127" fill="#ccc" font-size="9" font-family="sans-serif">Tunel</text>
+          <!-- BRUJULA -->
+          <g transform="translate(460,40)">
+            <circle cx="0" cy="0" r="25" fill="rgba(0,0,0,0.75)" stroke="#666" stroke-width="1"/>
+            <polygon points="0,-18 5,-5 -5,-5" fill="#F44336"/>
+            <polygon points="0,18 5,5 -5,5" fill="white" opacity="0.5"/>
+            <text x="0" y="-7" fill="#F44336" font-size="9" text-anchor="middle" font-weight="bold">N</text>
+            <text x="0" y="16" fill="#aaa" font-size="7" text-anchor="middle">S</text>
+            <text x="12" y="4" fill="#aaa" font-size="7" text-anchor="middle">E</text>
+            <text x="-12" y="4" fill="#aaa" font-size="7" text-anchor="middle">O</text>
           </g>
-          <g>
-            <rect x="15" y="560" width="70" height="40" rx="8" fill="rgba(255,152,0,0.3)" stroke="#FF9800" stroke-width="1"/>
-            <text x="50" y="578" fill="white" font-size="16" text-anchor="middle">🍽️</text>
-            <text x="50" y="593" fill="#ccc" font-size="8" text-anchor="middle">Comida</text>
-          </g>
-          <g>
-            <rect x="295" y="470" width="70" height="40" rx="8" fill="rgba(255,235,59,0.3)" stroke="#FFEB3B" stroke-width="1"/>
-            <text x="330" y="488" fill="white" font-size="16" text-anchor="middle">👁</text>
-            <text x="330" y="503" fill="#ccc" font-size="8" text-anchor="middle">Mirador</text>
-          </g>
-
-          <!-- Leyenda -->
-          <rect x="10" y="10" width="140" height="105" rx="8" fill="rgba(0,0,0,0.75)" stroke="#444" stroke-width="1"/>
-          <text x="18" y="28" fill="white" font-size="10" font-weight="bold" font-family="sans-serif">LEYENDA</text>
-          <line x1="18" y1="40" x2="45" y2="40" stroke="#FFEB3B" stroke-width="3" stroke-dasharray="8,4"/>
-          <text x="50" y="44" fill="#ccc" font-size="8" font-family="sans-serif">Sendero principal</text>
-          <line x1="18" y1="55" x2="45" y2="55" stroke="#C8A84E" stroke-width="2" stroke-dasharray="6,3"/>
-          <text x="50" y="59" fill="#ccc" font-size="8" font-family="sans-serif">Sendero Antonio</text>
-          <line x1="18" y1="70" x2="45" y2="70" stroke="#C8A84E" stroke-width="2" stroke-dasharray="6,3"/>
-          <text x="50" y="74" fill="#ccc" font-size="8" font-family="sans-serif">Sendero El Silencio</text>
-          <line x1="18" y1="85" x2="45" y2="85" stroke="#2196F3" stroke-width="5"/>
-          <text x="50" y="89" fill="#ccc" font-size="8" font-family="sans-serif">Quebrada</text>
-          <circle cx="30" cy="100" r="4" fill="#00BCD4" opacity="0.8"/>
-          <text x="50" y="104" fill="#ccc" font-size="8" font-family="sans-serif">Cascada</text>
-
-          <!-- Brújula -->
-          <g transform="translate(365,30)">
-            <circle cx="0" cy="0" r="22" fill="rgba(0,0,0,0.7)" stroke="#666" stroke-width="1"/>
-            <polygon points="0,-16 4,-4 -4,-4" fill="#F44336"/>
-            <polygon points="0,16 4,4 -4,4" fill="white" opacity="0.5"/>
-            <text x="0" y="-6" fill="#F44336" font-size="8" text-anchor="middle" font-weight="bold">N</text>
-            <text x="0" y="14" fill="#aaa" font-size="6" text-anchor="middle">S</text>
-            <text x="10" y="4" fill="#aaa" font-size="6" text-anchor="middle">E</text>
-            <text x="-10" y="4" fill="#aaa" font-size="6" text-anchor="middle">O</text>
-          </g>
-
-          <!-- Escala -->
-          <rect x="10" y="670" width="100" height="22" rx="4" fill="rgba(0,0,0,0.6)"/>
-          <line x1="18" y1="682" x2="92" y2="682" stroke="white" stroke-width="2"/>
-          <line x1="18" y1="678" x2="18" y2="686" stroke="white" stroke-width="1"/>
-          <line x1="92" y1="678" x2="92" y2="686" stroke="white" stroke-width="1"/>
-          <text x="55" y="696" fill="white" font-size="8" text-anchor="middle">50 m</text>
-
-          <!-- Coordenadas -->
-          <rect x="120" y="670" width="270" height="22" rx="4" fill="rgba(0,0,0,0.6)"/>
-          <text x="128" y="685" fill="#4CAF50" font-size="9" font-family="monospace">📍 Entrada: 4.5631°N, 75.5144°W</text>
-          <text x="280" y="685" fill="#00BCD4" font-size="9" font-family="monospace">🎯 Cascada: 4.5712°N</text>
-          <rect x="120" y="645" width="270" height="18" rx="4" fill="rgba(0,0,0,0.5)"/>
-          <text x="255" y="658" fill="white" font-size="9" font-family="sans-serif" text-anchor="middle">📏 Total: 3.65 km · ⏱ ~2h ida · ⚠️ Sin señal puntos 4-7</text>
+          <!-- ESCALA -->
+          <rect x="10" y="770" width="120" height="24" rx="4" fill="rgba(0,0,0,0.7)"/>
+          <line x1="18" y1="782" x2="112" y2="782" stroke="white" stroke-width="2"/>
+          <line x1="18" y1="778" x2="18" y2="786" stroke="white" stroke-width="1"/>
+          <line x1="65" y1="778" x2="65" y2="786" stroke="white" stroke-width="1"/>
+          <line x1="112" y1="778" x2="112" y2="786" stroke="white" stroke-width="1"/>
+          <text x="41" y="798" fill="white" font-size="8" text-anchor="middle">500m</text>
+          <text x="88" y="798" fill="white" font-size="8" text-anchor="middle">1km</text>
+          <!-- COORDENADAS -->
+          <rect x="140" y="770" width="350" height="24" rx="4" fill="rgba(0,0,0,0.7)"/>
+          <text x="148" y="786" fill="#4CAF50" font-size="9" font-family="monospace">Entrada: 4.5631N, 75.5144W</text>
+          <text x="320" y="786" fill="#00BCD4" font-size="9" font-family="monospace">Cascada: 4.5685N</text>
+          <rect x="140" y="745" width="350" height="20" rx="4" fill="rgba(0,0,0,0.6)"/>
+          <text x="315" y="759" fill="white" font-size="9" font-family="sans-serif" text-anchor="middle">Antonio: 1.5km · El Silencio: 2km loop · 2-3h total · Sin senal desde punto 5</text>
         </svg>
-
-        <!-- Botones de navegación -->
+        <!-- Botones de navegacion -->
         <div style="display:flex;justify-content:space-between;margin-top:12px;flex-wrap:wrap;gap:6px;">
           <button onclick="goToStep(1)" style="background:#F44336;color:white;border:none;padding:8px 10px;border-radius:8px;cursor:pointer;font-size:11px;">1. Entrada</button>
           <button onclick="goToStep(2)" style="background:#FF9800;color:white;border:none;padding:8px 10px;border-radius:8px;cursor:pointer;font-size:11px;">2. Caseta</button>
-          <button onclick="goToStep(3)" style="background:#4CAF50;color:white;border:none;padding:8px 10px;border-radius:8px;cursor:pointer;font-size:11px;">3. Mirador</button>
-          <button onclick="goToStep(4)" style="background:#9C27B0;color:white;border:none;padding:8px 10px;border-radius:8px;cursor:pointer;font-size:11px;">4. Baños</button>
-          <button onclick="goToStep(5)" style="background:#2196F3;color:white;border:none;padding:8px 10px;border-radius:8px;cursor:pointer;font-size:11px;">5. Piscina</button>
-          <button onclick="goToStep(6)" style="background:#FF5722;color:white;border:none;padding:8px 10px;border-radius:8px;cursor:pointer;font-size:11px;">6. Camping</button>
-          <button onclick="goToStep(7)" style="background:#00BCD4;color:white;border:none;padding:8px 10px;border-radius:8px;cursor:pointer;font-size:11px;">7. Cascada</button>
+          <button onclick="goToStep(3)" style="background:#795548;color:white;border:none;padding:8px 10px;border-radius:8px;cursor:pointer;font-size:11px;">3. Tuneles</button>
+          <button onclick="goToStep(4)" style="background:#FF5722;color:white;border:none;padding:8px 10px;border-radius:8px;cursor:pointer;font-size:11px;">4. Puente</button>
+          <button onclick="goToStep(5)" style="background:#9C27B0;color:white;border:none;padding:8px 10px;border-radius:8px;cursor:pointer;font-size:11px;">5. Cruce</button>
+          <button onclick="goToStep(6)" style="background:#2196F3;color:white;border:none;padding:8px 10px;border-radius:8px;cursor:pointer;font-size:11px;">6. Cascada</button>
+          <button onclick="goToStep(7)" style="background:#00BCD4;color:white;border:none;padding:8px 10px;border-radius:8px;cursor:pointer;font-size:11px;">7. Gallito</button>
         </div>
       </div>
-
-      <div class="navigation-panel">
-        <h2>📍 Navegación del Recorrido</h2>
-        <div class="progress-bar">
-          <div class="progress-fill" id="progressFill" style="width: 14%"></div>
-        </div>
-        <div class="current-step" id="currentStep">
-          <h3>Paso 1 de 7: Entrada Hacienda</h3>
-          <p>Camina por el sendero principal hacia el bosque. Sigue las marcas rojas y blancas. Distancia: 1.2 km • Tiempo: 25 min</p>
-        </div>
-
-        <div class="step-list" id="stepList">
-          <div class="step-item active" data-step="1">
-            <div class="step-number">1</div>
-            <div class="step-text"><strong>Entrada Hacienda</strong> - Punto de partida. 200m del puente amarillo</div>
-          </div>
-          <div class="step-item" data-step="2">
-            <div class="step-number">2</div>
-            <div class="step-text"><strong>Caseta y Parqueadero</strong> - Registro y pago. $11.000 entrada</div>
-          </div>
-          <div class="step-item" data-step="3">
-            <div class="step-number">3</div>
-            <div class="step-text"><strong>Mirador Bajo</strong> - Vista parcial de la quebrada. Descanso</div>
-          </div>
-          <div class="step-item" data-step="4">
-            <div class="step-number">4</div>
-            <div class="step-text"><strong>Cruce Senderos y Baños</strong> - Último punto con señal</div>
-          </div>
-          <div class="step-item" data-step="5">
-            <div class="step-number">5</div>
-            <div class="step-text"><strong>Piscina Natural</strong> - Agua cristalina. Traer traje de baño</div>
-          </div>
-          <div class="step-item" data-step="6">
-            <div class="step-number">6</div>
-            <div class="step-text"><strong>Zona Camping</strong> - Fogata, hamacas. Sin señal</div>
-          </div>
-          <div class="step-item" data-step="7">
-            <div class="step-number">7</div>
-            <div class="step-text"><strong>Cascada Principal</strong> - 20m altura. Piscina natural</div>
-          </div>
-        </div>
-
-        <div class="nav-buttons">
-          <button class="nav-button" onclick="previousStep()">← Anterior</button>
-          <button class="nav-button primary" onclick="nextStep()">Siguiente →</button>
-        </div>
-      </div>
-
-      <div class="recommendations" id="recommendations">
-        <h3>💡 Recomendaciones Actuales</h3>
-        <div class="rec-list">
-          <div class="rec-item">
-            <div class="rec-icon">🥾</div>
-            <div class="rec-text">Usa botas antideslizantes para el sendero bosque</div>
-          </div>
-          <div class="rec-item">
-            <div class="rec-icon">💧</div>
-            <div class="rec-text">Lleva suficiente agua (1L mínimo por persona)</div>
-          </div>
-          <div class="rec-item">
-            <div class="rec-icon">🧴</div>
-            <div class="rec-text">Aplica repelente durante el sendero</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="emergency-contacts">
-        <h3>🆘 Contactos de Emergencia</h3>
-        <div class="contact-grid">
-          <div class="contact-item">
-            <strong>Camping Santa Rita</strong>
-            <a href="tel:+573145083065">+57 301 503 8254</a>
-          </div>
-          <div class="contact-item">
-            <strong>Emergencias 123</strong>
-            <a href="tel:123">123</a>
-          </div>
-          <div class="contact-item">
-            <strong>Cruz Roja</strong>
-            <a href="tel:132">132</a>
-          </div>
-          <div class="contact-item">
-            <strong>Policía Turística</strong>
-            <a href="tel:123">123</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Panel de Sensores Móviles -->
+<!-- Panel de Sensores Móviles -->
       <div id="sensorPanel" style="background:rgba(0,0,0,0.3);border-radius:12px;padding:16px;margin-top:16px;color:white;border:1px solid rgba(76,175,80,0.3);">
         <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
           <h3 style="margin:0;font-size:14px;">📱 Sensores del Dispositivo</h3>
@@ -411,51 +286,51 @@
         {
           id: 1,
           title: "Entrada Hacienda Santa Rita",
-          description: "Punto de partida. Ingresa por la entrada principal, 200m del puente amarillo de Boquía.",
-          recommendations: ["Inicia temprano (7-8am recomendado)", "Lleva efectivo para la entrada", "Estaciona en el parqueadero gratuito"],
-          time: "5 min", distance: "0 m", gps: "4.5631°N, 75.5144°W", signal: "🟢 Señal estable"
+          description: "Punto de partida. 200m del puente amarillo de Boquia. Registro y pago ($11.000).",
+          recommendations: ["Inicia temprano (7-8am)", "Lleva efectivo", "Parqueadero gratuito"],
+          time: "5 min", distance: "0 m", gps: "4.5631°N, 75.5144°W", signal: "Senal estable"
         },
         {
           id: 2,
           title: "Caseta y Parqueadero",
-          description: "Registro y pago de entrada. Recibe información del sendero y mapa físico.",
-          recommendations: ["Paga entrada: $11.000 por persona", "Pregunta por estado del sendero", "Guarda comprobante"],
-          time: "10 min", distance: "200 m", gps: "4.5648°N, 75.5128°W", signal: "🟢 Señal estable"
+          description: "Registro oficial. Recibe mapa del sendero y recomendaciones.",
+          recommendations: ["Guarda tu comprobante", "Pregunta por clima", "Descarga mapa aqui"],
+          time: "10 min", distance: "200 m", gps: "4.5642°N, 75.5135°W", signal: "Senal estable"
         },
         {
           id: 3,
-          title: "Mirador Bajo",
-          description: "Primer mirador con vista parcial de la quebrada. Buen punto de descanso.",
-          recommendations: ["Toma agua", "Aplica repelente", "Observa aves del bosque"],
-          time: "15 min", distance: "500 m", gps: "4.5665°N, 75.5112°W", signal: "🟡 Señal intermitente"
+          title: "Tuneles del Ferrocarril",
+          description: "Antiguos tuneles del ferrocarril Armenia-Ibagué (nunca completado). Oscuros, usa linterna.",
+          recommendations: ["Usa linterna/flash", "Camina con cuidado", "Piedras mojadas"],
+          time: "20 min", distance: "800 m", gps: "4.5658°N, 75.5118°W", signal: "Senal intermitente"
         },
         {
           id: 4,
-          title: "Cruce de Senderos y Baños",
-          description: "Cruce entre Sendero Antonio y Sendero El Silencio. Aquí están los baños. Último punto con señal.",
-          recommendations: ["Usa los baños aquí", "Descarga el mapa ahora", "Elige tu sendero de regreso"],
-          time: "20 min", distance: "1.0 km", gps: "4.5682°N, 75.5098°W", signal: "🟡 Última señal"
+          title: "Puente Colgante",
+          description: "Puente colgante sobre la quebrada. Cruzar de uno en uno.",
+          recommendations: ["Una persona a la vez", "Sostén barandillas", "No balancees"],
+          time: "15 min", distance: "1.2 km", gps: "4.5670°N, 75.5105°W", signal: "Senal debil"
         },
         {
           id: 5,
-          title: "Piscina Natural",
-          description: "Piscina natural de agua cristalina formada por la quebrada. Ideal para nadar.",
-          recommendations: ["Trae traje de baño", "Cuidado con piedras resbalosas", "No saltes de rocas"],
-          time: "25 min", distance: "1.5 km", gps: "4.5698°N, 75.5092°W", signal: "🔴 SIN SEÑAL"
+          title: "Cruce Senderos y Mirador",
+          description: "Centro del trail. Sendero Antonio (plano) vs El Silencio (loop empinado). Baños y comida.",
+          recommendations: ["Elige tu ruta", "Baños disponibles", "Ultimo punto con senal"],
+          time: "10 min", distance: "1.5 km", gps: "4.5678°N, 75.5098°W", signal: "SIN SENAL"
         },
         {
           id: 6,
-          title: "Zona de Camping",
-          description: "Área designada para camping. Fogata, hamacas y zonas de descanso.",
-          recommendations: ["Trae implementos de camping", "Se vende madera y carbón", "Respeta silencio nocturno"],
-          time: "15 min", distance: "1.8 km", gps: "4.5705°N, 75.5088°W", signal: "🔴 SIN SEÑAL"
+          title: "Cascada Santa Rita",
+          description: "Cascada principal de 8m. Piscina natural. Restaurante y zona de picnic.",
+          recommendations: ["Puedes nadar", "Cuidado con rocas", "Restaurante abierto"],
+          time: "20 min", distance: "1.8 km", gps: "4.5685°N, 75.5092°W", signal: "SIN SENAL"
         },
         {
           id: 7,
-          title: "Cascada Principal",
-          description: "Llegada a la cascada de 20 metros. Piscina natural y cavernas. Punto más alto del recorrido.",
-          recommendations: ["No nadar cerca del chorro", "Cuidado con rocas mojadas", "Disfruta la vista"],
-          time: "10 min", distance: "2.0 km", gps: "4.5712°N, 75.5089°W", signal: "🔴 SIN SEÑAL"
+          title: "Gallito de Roca",
+          description: "Loop de El Silencio. Cascada menor con pozas cristalinas. Bosque denso y silencioso.",
+          recommendations: ["Loop de 2km", "Subida empinada", "Pozas para nadar"],
+          time: "45 min", distance: "3.5 km", gps: "4.5692°N, 75.5078°W", signal: "SIN SENAL"
         }
       ];
 
@@ -603,12 +478,12 @@
 
         waypoints: [
           { id: 1, name: "Entrada Hacienda", lat: 4.5631, lng: -75.5144, radius: 50 },
-          { id: 2, name: "Caseta y Parqueadero", lat: 4.5648, lng: -75.5128, radius: 30 },
-          { id: 3, name: "Mirador Bajo", lat: 4.5665, lng: -75.5112, radius: 40 },
-          { id: 4, name: "Cruce Senderos y Baños", lat: 4.5682, lng: -75.5098, radius: 30 },
-          { id: 5, name: "Piscina Natural", lat: 4.5698, lng: -75.5092, radius: 30 },
-          { id: 6, name: "Zona Camping", lat: 4.5705, lng: -75.5088, radius: 40 },
-          { id: 7, name: "Cascada Principal", lat: 4.5712, lng: -75.5089, radius: 50 }
+          { id: 2, name: "Caseta y Parqueadero", lat: 4.5642, lng: -75.5135, radius: 30 },
+          { id: 3, name: "Tuneles Ferrocarril", lat: 4.5658, lng: -75.5118, radius: 40 },
+          { id: 4, name: "Puente Colgante", lat: 4.5670, lng: -75.5105, radius: 30 },
+          { id: 5, name: "Cruce Senderos", lat: 4.5678, lng: -75.5098, radius: 40 },
+          { id: 6, name: "Cascada Santa Rita", lat: 4.5685, lng: -75.5092, radius: 50 },
+          { id: 7, name: "Gallito de Roca", lat: 4.5692, lng: -75.5078, radius: 40 }
         ],
         lastAlertWaypoint: null,
 
@@ -786,11 +661,11 @@
         updatePositionOnMap: function() {
           var svg = document.getElementById('trailMap');
           if (!svg || !this.position.lat) return;
-          var mapBounds = { latMin: 4.5620, latMax: 4.5720, lngMin: -75.5160, lngMax: -75.5070 };
-          var x = ((this.position.lng - mapBounds.lngMin) / (mapBounds.lngMax - mapBounds.lngMin)) * 400;
-          var y = ((mapBounds.latMax - this.position.lat) / (mapBounds.latMax - mapBounds.latMin)) * 700;
-          x = Math.max(20, Math.min(380, x));
-          y = Math.max(20, Math.min(680, y));
+          var mapBounds = { latMin: 4.5620, latMax: 4.5700, lngMin: -75.5160, lngMax: -75.5060 };
+          var x = ((this.position.lng - mapBounds.lngMin) / (mapBounds.lngMax - mapBounds.lngMin)) * 500;
+          var y = ((mapBounds.latMax - this.position.lat) / (mapBounds.latMax - mapBounds.latMin)) * 800;
+          x = Math.max(20, Math.min(480, x));
+          y = Math.max(20, Math.min(780, y));
           var marker = document.getElementById('userPosition');
           if (!marker) {
             marker = document.createElementNS('http://www.w3.org/2000/svg', 'g');
