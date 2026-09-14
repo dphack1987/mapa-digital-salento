@@ -286,56 +286,56 @@
           desc: "Punto de partida. 200m del puente amarillo.",
           details: "Registro y pago $11.000 · Parqueadero gratuito",
           recs: "Inicia temprano (7-8am) · Lleva efectivo",
-          time: "0 min", dist: "0 km", alt: "1,780m", gps: "4.5631°N, 75.5144°W", signal: "Senal estable"
+          time: "0 min", dist: "0 km", alt: "1,783m", gps: "4.6469°N, 75.5809°W", signal: "Senal estable"
         },
         {
           id: 2, title: "Hacienda Santa Rita", color: "#FB8C00",
           desc: "Casa historica. Entrada oficial al sendero.",
           details: "Pago de entrada · Mapa del sendero · Tienda",
           recs: "Compra agua y snacks aqui · Incluye taza de tinto",
-          time: "15 min", dist: "0.8 km", alt: "1,820m", gps: "4.5642°N, 75.5135°W", signal: "Senal estable"
+          time: "15 min", dist: "0.8 km", alt: "1,810m", gps: "4.6500°N, 75.5760°W", signal: "Senal estable"
         },
         {
           id: 3, title: "Tuneles Ferrocarril", color: "#8D6E63",
           desc: "Antiguos tuneles del ferrocarril Armenia-Ibague.",
           details: "Oscuros · Piedras mojadas · 50m de largo",
           recs: "Usa linterna/flash · Camina con cuidado",
-          time: "35 min", dist: "1.5 km", alt: "1,870m", gps: "4.5658°N, 75.5118°W", signal: "Intermitente"
+          time: "35 min", dist: "1.5 km", alt: "1,870m", gps: "4.6550°N, 75.5750°W", signal: "Intermitente"
         },
         {
           id: 4, title: "Puente Colgante", color: "#E53935",
           desc: "Puente colgante sobre la quebrada Santa Rita.",
           details: "Cruzar de uno en uno · 30m de largo",
           recs: "Una persona a la vez · Sostén barandillas",
-          time: "50 min", dist: "2.2 km", alt: "1,920m", gps: "4.5670°N, 75.5105°W", signal: "Debil"
+          time: "50 min", dist: "2.2 km", alt: "1,920m", gps: "4.6580°N, 75.5740°W", signal: "Debil"
         },
         {
           id: 5, title: "Cruce Senderos", color: "#7B1FA2",
           desc: "Centro del trail. Elegir: Antonio (plano) o El Silencio (loop).",
           details: "Banos · Comida · Ultimo punto con senal",
           recs: "Descarga mapa ahora · Elige tu ruta",
-          time: "1h 10min", dist: "3.0 km", alt: "1,960m", gps: "4.5678°N, 75.5098°W", signal: "SIN SENAL"
+          time: "1h 10min", dist: "3.0 km", alt: "1,960m", gps: "4.6610°N, 75.5710°W", signal: "SIN SENAL"
         },
         {
           id: 6, title: "Cascada Santa Rita", color: "#1E88E5",
           desc: "Cascada principal. Piscina natural cristalina.",
           details: "Restaurant · Zona de picnic · Puedes nadar",
           recs: "Trae traje de baño · Agua a 18°C · Cuidado con rocas",
-          time: "1h 30min", dist: "3.8 km", alt: "2,010m", gps: "4.5685°N, 75.5092°W", signal: "SIN SENAL"
+          time: "1h 30min", dist: "3.8 km", alt: "2,010m", gps: "4.6642°N, 75.5689°W", signal: "SIN SENAL"
         },
         {
           id: 7, title: "Gallito de Roca", color: "#00ACC1",
           desc: "Loop de El Silencio. Cascada menor con pozas cristalinas.",
-          details: "2,051m altitud max · Bosque denso · Silencio total",
+          details: "2,049m altitud max · Bosque denso · Silencio total",
           recs: "Loop de 2km · Subida empinada · Pozas para nadar",
-          time: "2h 30min", dist: "5.4 km", alt: "2,051m", gps: "4.5692°N, 75.5078°W", signal: "SIN SENAL"
+          time: "2h 30min", dist: "5.4 km", alt: "2,049m", gps: "4.6641°N, 75.5701°W", signal: "SIN SENAL"
         },
         {
           id: 8, title: "Regreso a Boquia", color: "#4CAF50",
           desc: "Via de regreso por Sendero Antonio. Bajada suave.",
           details: "6.7km total circular · 368m desnivel total",
           recs: "Camina despacio · Disfruta el bosque · Llega antes del oscuro",
-          time: "3h 30min", dist: "6.7 km", alt: "1,780m", gps: "4.5631°N, 75.5144°W", signal: "Senal estable"
+          time: "3h 30min", dist: "6.7 km", alt: "1,783m", gps: "4.6469°N, 75.5809°W", signal: "Senal estable"
         }
       ];
 
@@ -356,9 +356,9 @@
         const step = steps[currentStep - 1];
         currentStepDiv.innerHTML = `
           <h3>Paso ${currentStep} de ${steps.length}: ${step.title}</h3>
-          <p>${step.description}</p>
+          <p>${step.desc}</p>
           <div style="display:flex;gap:16px;margin-top:8px;flex-wrap:wrap;font-size:13px;">
-            <span>📏 ${step.distance}</span>
+            <span>📏 ${step.dist}</span>
             <span>⏱ ${step.time}</span>
             <span style="font-family:monospace;">📍 ${step.gps}</span>
             <span>${step.signal}</span>
@@ -375,7 +375,7 @@
           return `
             <div class="step-item ${statusClass}" data-step="${stepNumber}" onclick="goToStep(${stepNumber})">
               <div class="step-number">${numberContent}</div>
-              <div class="step-text"><strong>${s.title}</strong> - ${s.description}</div>
+              <div class="step-text"><strong>${s.title}</strong> - ${s.desc}</div>
             </div>
           `;
         }).join('');
@@ -384,10 +384,10 @@
         recommendations.innerHTML = `
           <h3>💡 Recomendaciones para ${step.title}</h3>
           <div class="rec-list">
-            ${step.recommendations.map(rec => `
+            ${step.recs.split('·').map(rec => `
               <div class="rec-item">
                 <div class="rec-icon">💡</div>
-                <div class="rec-text">${rec}</div>
+                <div class="rec-text">${rec.trim()}</div>
               </div>
             `).join('')}
           </div>
@@ -482,13 +482,13 @@
         stepCooldown: 300,
 
         waypoints: [
-          { id: 1, name: "Entrada Hacienda", lat: 4.5631, lng: -75.5144, radius: 50 },
-          { id: 2, name: "Caseta y Parqueadero", lat: 4.5642, lng: -75.5135, radius: 30 },
-          { id: 3, name: "Tuneles Ferrocarril", lat: 4.5658, lng: -75.5118, radius: 40 },
-          { id: 4, name: "Puente Colgante", lat: 4.5670, lng: -75.5105, radius: 30 },
-          { id: 5, name: "Cruce Senderos", lat: 4.5678, lng: -75.5098, radius: 40 },
-          { id: 6, name: "Cascada Santa Rita", lat: 4.5685, lng: -75.5092, radius: 50 },
-          { id: 7, name: "Gallito de Roca", lat: 4.5692, lng: -75.5078, radius: 40 }
+          { id: 1, name: "Entrada Boquia", lat: 4.6469, lng: -75.5809, radius: 50 },
+          { id: 2, name: "Hacienda Santa Rita", lat: 4.6500, lng: -75.5760, radius: 30 },
+          { id: 3, name: "Tuneles Ferrocarril", lat: 4.6550, lng: -75.5750, radius: 40 },
+          { id: 4, name: "Puente Colgante", lat: 4.6580, lng: -75.5740, radius: 30 },
+          { id: 5, name: "Cruce Senderos", lat: 4.6610, lng: -75.5710, radius: 40 },
+          { id: 6, name: "Cascada Santa Rita", lat: 4.6642, lng: -75.5689, radius: 50 },
+          { id: 7, name: "Gallito de Roca", lat: 4.6641, lng: -75.5701, radius: 40 }
         ],
         lastAlertWaypoint: null,
 
@@ -666,7 +666,7 @@
         updatePositionOnMap: function() {
           var svg = document.getElementById('trailMap');
           if (!svg || !this.position.lat) return;
-          var mapBounds = { latMin: 4.5620, latMax: 4.5700, lngMin: -75.5160, lngMax: -75.5060 };
+          var mapBounds = { latMin: 4.6469, latMax: 4.6642, lngMin: -75.5809, lngMax: -75.5688 };
           var x = ((this.position.lng - mapBounds.lngMin) / (mapBounds.lngMax - mapBounds.lngMin)) * 500;
           var y = ((mapBounds.latMax - this.position.lat) / (mapBounds.latMax - mapBounds.latMin)) * 800;
           x = Math.max(20, Math.min(480, x));
