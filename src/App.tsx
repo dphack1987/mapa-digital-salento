@@ -1247,6 +1247,24 @@ function App() {
 
             <section className="advertising-section" id="pautas"><div><p className="eyebrow">Hazte visible en Salento</p><h2>Pautas que llegan<br /><i>al lugar correcto.</i></h2><p>Tu negocio aparece en el mapa digital, en las búsquedas y frente a turistas listos para comprar o reservar.</p></div><div className="advertising-cards"><article><span className="ad-tag">Gastronomía</span><strong>Tu sabor, en el mapa.</strong><small>Ficha + ubicación + pedidos</small></article><article><span className="ad-tag green-tag">Comercio local</span><strong>Lo local se encuentra.</strong><small>Ficha + ubicación + contacto</small></article><article><span className="ad-tag yellow-tag">Experiencias</span><strong>El plan empieza aquí.</strong><small>Ficha + reservas + rutas</small></article></div><button className="dark-button ad-button" onClick={() => alert('Para registrar tu negocio, escríbenos por WhatsApp al +57 313 716 0977')}>Registra tu negocio <ArrowRight size={17} /></button></section>
 
+        <section className="partner-sites-section" aria-label="Sitios aliados">
+          <div className="section-heading"><div><p className="eyebrow">Red turística del Quindío</p><h2>Sitios aliados<br /><i>que complementan tu viaje.</i></h2></div></div>
+          <div className="partner-cards">
+            <a href="https://www.mapaturisticodelquindio.com" target="_blank" rel="noopener noreferrer" className="partner-card">
+              <span className="partner-icon">🗺️</span>
+              <strong>Mapa Turístico del Quindío</strong>
+              <small>70+ negocios en todo el departamento · Armenia, Circasia, Calarcá, Filandia y más</small>
+              <span className="partner-cta">Visitar sitio →</span>
+            </a>
+            <a href="https://www.salentoalamano.com" target="_blank" rel="noopener noreferrer" className="partner-card partner-card-active">
+              <span className="partner-icon">📍</span>
+              <strong>Salento a la Mano</strong>
+              <small>Foco en Salento · Hoteles, restaurantes, coffee tours y experiencias locales</small>
+              <span className="partner-cta">Estás aquí</span>
+            </a>
+          </div>
+        </section>
+
         <section className="stay-banner" id="experiencias"><div><p className="eyebrow">Para tu estadía</p><h2>Que no te cuenten<br /><i>el plan completo.</i></h2></div><div className="stay-actions"><p>Recibe recomendaciones según tu hospedaje, tus gustos y el tiempo que tienes.</p><button className="outline-button" onClick={() => { setActiveCategory('Todo'); scrollToSection('pedidos') }}>Personalizar mi visita <ArrowRight size={16} /></button></div></section>
           </>
         )}
