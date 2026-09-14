@@ -53,5 +53,11 @@ const prerender = `    <div id="prerender" style="font-family:sans-serif;max-wid
 
 html = html.replace('<div id="root"></div>', prerender + '\n    <div id="root"></div>');
 
+// Fix meta tags for Naver/SEO
+html = html.replace(/<title>.*?<\/title>/, '<title>Salento a la Mano - Guia Turistica 2026</title>');
+html = html.replace(/<meta name="description" content="[^"]*"/, '<meta name="description" content="Guia de Salento, Quindio. Hoteles, restaurantes, coffee tours y mapa interactivo."');
+html = html.replace(/<meta property="og:title" content="[^"]*"/, '<meta property="og:title" content="Salento a la Mano | Guia Turistica 2026"');
+html = html.replace(/<meta property="og:description" content="[^"]*"/, '<meta property="og:description" content="Hoteles, restaurantes, coffee tours y mapa de Salento. Reserva directa."');
+
 fs.writeFileSync(distPath, html, 'utf8');
-console.log('Prerender content injected into dist/index.html');
+console.log('Prerender + meta tags injected into dist/index.html');
