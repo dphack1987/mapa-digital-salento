@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && node scripts/inject-prerender.js",
     "preview": "vite preview",
     "type-check": "tsc --noEmit",
     "seo:generate": "node tools/generate_international_seo_pages.js && node tools/generate_category_pages.js",
