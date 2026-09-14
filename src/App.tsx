@@ -1554,7 +1554,7 @@ function PlaceCard({ place, onAdd, onOpen, onReviews }: { place: Place; onAdd: (
   return (
     <article className="place-card">
       <div className={`place-image ${place.color}`}>
-        {place.photos?.[0] && <img className="place-photo" src={place.photos[0]} alt={`${place.name}`} />}
+        {place.photos?.[0] && <img className="place-photo" src={place.photos[0]} alt={`${place.name} en Salento, Quindío - ${place.type || 'turismo'}`} />}
         <div className="image-pattern" />
         <span className="place-badge">{place.badge}</span>
         <button className="heart-button" aria-label={`Guardar ${place.name}`}>
