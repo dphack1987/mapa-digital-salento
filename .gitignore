@@ -15,3 +15,5 @@ pautas_list.txt
 tools/dbg.cjserror.log
 
 error.log
+# Archivos temporales de pautas
+public/pautas/*/info-*.jpeg
