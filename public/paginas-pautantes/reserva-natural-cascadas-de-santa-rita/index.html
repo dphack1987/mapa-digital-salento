@@ -475,10 +475,12 @@
           }).join('');
         }
 
-        recList.innerHTML = step.recs.split(' · ').map(function(rec) {
-          return '<div style="display:flex;align-items:center;gap:8px;padding:8px;background:rgba(255,255,255,0.05);border-radius:6px;">' +
-            '<span>💡</span><span style="font-size:12px;">' + rec + '</span></div>';
-        }).join('');
+        if (recList) {
+          recList.innerHTML = step.recs.split(' · ').map(function(rec) {
+            return '<div style="display:flex;align-items:center;gap:8px;padding:8px;background:rgba(255,255,255,0.05);border-radius:6px;">' +
+              '<span>💡</span><span style="font-size:12px;">' + rec + '</span></div>';
+          }).join('');
+        }
       }
 
       function nextStep() { if (currentStep < steps.length) { currentStep++; updateUI(); saveProgress(); } }
