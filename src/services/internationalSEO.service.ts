@@ -362,17 +362,11 @@ class InternationalSEOService {
 <meta name="twitter:locale" content="es" />
 
 <!-- Hreflang para SEO internacional -->
-<link rel="alternate" hreflang="es-CO" href="${this.domain}/" />
-<link rel="alternate" hreflang="en-US" href="${this.domain}/" />
-<link rel="alternate" hreflang="zh-CN" href="${this.domain}/" />
-<link rel="alternate" hreflang="ru-RU" href="${this.domain}/" />
-<link rel="alternate" hreflang="ja-JP" href="${this.domain}/" />
-<link rel="alternate" hreflang="ko-KR" href="${this.domain}/" />
-<link rel="alternate" hreflang="de-DE" href="${this.domain}/" />
-<link rel="alternate" hreflang="fr-FR" href="${this.domain}/" />
-<link rel="alternate" hreflang="en-GB" href="${this.domain}/" />
-<link rel="alternate" hreflang="pt-BR" href="${this.domain}/" />
-<link rel="alternate" hreflang="es-MX" href="${this.domain}/" />
+<link rel="alternate" hreflang="es-CO" href="${this.domain}/es/" />
+<link rel="alternate" hreflang="en-US" href="${this.domain}/en/" />
+<link rel="alternate" hreflang="de-DE" href="${this.domain}/de/" />
+<link rel="alternate" hreflang="fr-FR" href="${this.domain}/fr/" />
+<link rel="alternate" hreflang="pt-BR" href="${this.domain}/pt/" />
 <link rel="alternate" hreflang="x-default" href="${this.domain}/" />
 `
   }
@@ -509,10 +503,11 @@ Host: salentoalamano.com
 ### 2. Hreflang Configuration
 \`\`\`html
 <!-- Hreflang para SEO internacional -->
-<link rel="alternate" hreflang="es-CO" href="${this.domain}/" />
-<link rel="alternate" hreflang="en-US" href="${this.domain}/" />
-<link rel="alternate" hreflang="zh-CN" href="${this.domain}/" />
-<link rel="alternate" hreflang="ru-RU" href="${this.domain}/" />
+<link rel="alternate" hreflang="es-CO" href="${this.domain}/es/" />
+<link rel="alternate" hreflang="en-US" href="${this.domain}/en/" />
+<link rel="alternate" hreflang="de-DE" href="${this.domain}/de/" />
+<link rel="alternate" hreflang="fr-FR" href="${this.domain}/fr/" />
+<link rel="alternate" hreflang="pt-BR" href="${this.domain}/pt/" />
 <link rel="alternate" hreflang="x-default" href="${this.domain}/" />
 \`\`\`
 
