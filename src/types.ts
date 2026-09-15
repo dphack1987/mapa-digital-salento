@@ -65,7 +65,7 @@ export type AccommodationDetails = {
   bookingNotes?: string
 }
 
-// ÃƒÂtem estructurado del menú (para menú interactivo visual)
+// Ítem estructurado del menú (para menú interactivo visual)
 export type MenuItemData = {
   id: string
   name: string
@@ -105,7 +105,7 @@ export type ExperienceDetails = {
   languages: string[]
   meetingPoint: string
   cancellationPolicy: string
-  tariff?: string // Tarifas verificadas en texto (ej: "10 min: $15.000 Ã‚Â· 15 min: $20.000")
+  tariff?: string // Tarifas verificadas en texto (ej: "10 min: $15.000 · 15 min: $20.000")
 }
 
 // Información específica para comercios
@@ -170,7 +170,7 @@ export type TourismDetails = {
   photoStops?: string[]
 }
 
-// Tipos extendidos Fase2 Ã¢â‚¬â€ SEO voz/IA, guías, FAQs, internacionalización
+// Tipos extendidos Fase2 — SEO voz/IA, guías, FAQs, internacionalización
 // Tipos de idiomas: TODOS los planificados para la estrategia internacional
 export type I18nLocale = 'ES' | 'EN' | 'DE' | 'FR' | 'PT' | 'IT' | 'ZH' | 'JA' | 'KO' | 'TH' | 'VI' | 'ID' | 'MS' | 'EN_GB'
 
@@ -312,7 +312,7 @@ export type Place = {
   // Solo se publica cuando existe evidencia en la ficha oficial; nunca se inventa.
   sustainability?: string[]
 
-  // Campos extendidos Fase2 Ã¢â‚¬â€ SEO voz/IA y SERP features
+  // Campos extendidos Fase2 — SEO voz/IA y SERP features
   aggregateRating?: { ratingValue: number | string; reviewCount?: number }
   actionTarget?: { reserveUrl?: string; orderUrl?: string; viewUrl?: string }
   speakable?: string[]
@@ -341,7 +341,7 @@ export type SystemData = {
   version: string
 }
 
-// Catálogo 14 locales internacionales Fase2 Ã¢â‚¬â€ SEO i18n
+// Catálogo 14 locales internacionales Fase2 — SEO i18n
 export const LOCALES_ALL: Record<I18nLocale, {
   code: I18nLocale
   hreflang: string
@@ -355,8 +355,8 @@ export const LOCALES_ALL: Record<I18nLocale, {
   EN: { code: 'EN', hreflang: 'en-US', inLanguage: 'en', ogLocale: 'en_US', label: 'English (US)' },
   EN_GB: { code: 'EN_GB', hreflang: 'en-GB', inLanguage: 'en', ogLocale: 'en_GB', label: 'English (UK)' },
   DE: { code: 'DE', hreflang: 'de-DE', inLanguage: 'de', ogLocale: 'de_DE', label: 'Deutsch' },
-  FR: { code: 'FR', hreflang: 'fr-FR', inLanguage: 'fr', ogLocale: 'fr_FR', label: 'FranÃƒÂ§ais' },
-  PT: { code: 'PT', hreflang: 'pt-BR', inLanguage: 'pt', ogLocale: 'pt_BR', label: 'PortuguÃƒÂªs (Brasil)' },
+  FR: { code: 'FR', hreflang: 'fr-FR', inLanguage: 'fr', ogLocale: 'fr_FR', label: 'Français' },
+  PT: { code: 'PT', hreflang: 'pt-BR', inLanguage: 'pt', ogLocale: 'pt_BR', label: 'Português (Brasil)' },
   IT: { code: 'IT', hreflang: 'it-IT', inLanguage: 'it', ogLocale: 'it_IT', label: 'Italiano' },
   ZH: { code: 'ZH', hreflang: 'zh-CN', inLanguage: 'zh', ogLocale: 'zh_CN', label: '简体中文' },
   JA: { code: 'JA', hreflang: 'ja-JP', inLanguage: 'ja', ogLocale: 'ja_JP', label: '日本語' },
