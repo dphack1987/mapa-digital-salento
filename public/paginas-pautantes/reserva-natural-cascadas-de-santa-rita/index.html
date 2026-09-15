@@ -29,12 +29,12 @@
  m[i].l=1*new Date();
  for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}
  k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-(window, document, "script", "https://mc.yandex.ru/metrika/tag.js?id=112528103", "ym");
+(window, document, "script", "YANDEX_DESACTIVADO", "ym");
 
  ym(112528103, 'init', {ssr:true, webvisor:true, clickmap:true,
  ecommerce:true, accurateTrackBounce:true, trackHash:true});
 </script>
-<noscript><div><img src="https://mc.yandex.ru/watch/112528103" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<noscript><div><img src="YANDEX_WATCH_DESACTIVADO" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 <!-- /Yandex.Metrika counter -->
 </head>
   <body>
@@ -475,7 +475,7 @@
           }).join('');
         }
 
-        recList.innerHTML = step.recommendations.map(function(rec) {
+        recList.innerHTML = step.recs.split(' · ').map(function(rec) {
           return '<div style="display:flex;align-items:center;gap:8px;padding:8px;background:rgba(255,255,255,0.05);border-radius:6px;">' +
             '<span>💡</span><span style="font-size:12px;">' + rec + '</span></div>';
         }).join('');
@@ -483,8 +483,7 @@
 
       function nextStep() { if (currentStep < steps.length) { currentStep++; updateUI(); saveProgress(); } }
       function previousStep() { if (currentStep > 1) { currentStep--; updateUI(); saveProgress(); } }
-      function goToStep(n) { currentStep = n; updateUI(); saveProgress(); }
-      function saveProgress() { localStorage.setItem('santaRitaMapStep', currentStep); }
+            function saveProgress() { localStorage.setItem('santaRitaMapStep', currentStep); }
       function loadProgress() { var s = localStorage.getItem('santaRitaMapStep'); if (s) { currentStep = parseInt(s); } }
 
       loadProgress();
