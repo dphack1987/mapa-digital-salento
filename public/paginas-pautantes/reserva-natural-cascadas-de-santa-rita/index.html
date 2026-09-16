@@ -456,6 +456,7 @@
         if (progressFill) progressFill.style.width = progress + '%';
 
         var step = steps[currentStep - 1];
+        if (!step) return;
         if (currentStepDiv) {
           currentStepDiv.innerHTML = '<h3 style="margin:0 0 6px;font-size:15px;">Paso ' + currentStep + ' de ' + steps.length + ': ' + step.title + '</h3>' +
             '<p style="margin:0;color:#ccc;font-size:13px;">' + step.desc + '</p>' +
@@ -861,8 +862,67 @@
       SensorSystem.init();
 
       // Función global para toggle
-      function toggleSensors() {
-        SensorSystem.toggle();
+      async function toggleSensors() {
+        try {
+          // 1. Verificar SensorSystem
+          if (typeof SensorSystem === 'undefined' || !SensorSystem) {
+            console.warn('SensorSystem no está listo');
+            return;
+          }
+
+          // 2. Si está desactivado, pedir permisos iOS ANTES de activar
+          if (!SensorSystem.enabled) {
+            // Permiso de orientación (brújula) - iOS 13+
+            if (typeof DeviceOrientationEvent !== 'undefined' && typeof DeviceOrientationEvent.requestPermission === 'function') {
+              try {
+                var orientPerm = await DeviceOrientationEvent.requestPermission();
+                console.log('Permiso orientación:', orientPerm);
+                if (orientPerm !== 'granted') {
+                  console.warn('Permiso de brújula denegado');
+                }
+              } catch (err) {
+                console.warn('Error pidiendo permiso orientación:', err);
+              }
+            }
+
+            // Permiso de movimiento (acelerómetro/pasos) - iOS 13+
+            if (typeof DeviceMotionEvent !== 'undefined' && typeof DeviceMotionEvent.requestPermission === 'function') {
+              try {
+                var motionPerm = await DeviceMotionEvent.requestPermission();
+                console.log('Permiso movimiento:', motionPerm);
+                if (motionPerm !== 'granted') {
+                  console.warn('Permiso de acelerómetro denegado');
+                }
+              } catch (err) {
+                console.warn('Error pidiendo permiso movimiento:', err);
+              }
+            }
+
+            // Permiso de GPS (geolocation)
+            if (navigator.geolocation) {
+              navigator.geolocation.getCurrentPosition(
+                function(pos) { console.log('GPS OK:', pos.coords.latitude, pos.coords.longitude); },
+                function(err) { console.warn('GPS error:', err.message); },
+                { enableHighAccuracy: true, timeout: 5000 }
+              );
+            }
+          }
+
+          // 3. Activar o desactivar
+          SensorSystem.toggle();
+
+        } catch (e) {
+          console.error('Error en toggleSensors:', e);
+          alert('Error al activar sensores: ' + e.message);
+        }
+      }
+            SensorSystem.toggle();
+          } else {
+            console.warn('SensorSystem no está listo todavía');
+          }
+        } catch (e) {
+          console.error('Error en toggleSensors:', e);
+        }
       }
 
       // Solicitar permisos de sensores (iOS)
