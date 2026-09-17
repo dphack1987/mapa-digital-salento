@@ -17,3 +17,6 @@ tools/dbg.cjserror.log
 error.log
 # Archivos temporales de pautas
 public/pautas/*/info-*.jpeg
+*.log
+*.backup-*.json
+*.log
