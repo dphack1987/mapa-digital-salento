@@ -292,6 +292,9 @@
           <!-- Sugerencias GPS -->
           <div id="gpsSuggestion" style="display:none;margin-top:8px;padding:8px;background:rgba(255,152,0,0.1);border:1px solid #FF9800;border-radius:6px;font-size:11px;color:#FF9800;"></div>
 
+          <!-- DEBUG LOG -->
+          <div id="debugLog" style="display:none;margin-top:8px;padding:8px;background:rgba(33,150,243,0.1);border:1px solid #2196F3;border-radius:6px;font-size:10px;color:#2196F3;font-family:monospace;"></div>
+
           <!-- Alerta de waypoint cercano -->
           <div id="waypointAlert" style="display:none;margin-top:10px;padding:10px;background:rgba(255,235,59,0.2);border:1px solid #FFEB3B;border-radius:8px;">
             <div style="display:flex;align-items:center;gap:8px;">
@@ -589,6 +592,13 @@
         enable: async function() {
           var self = this;
           console.log('Activando GPS para navegación offline...');
+          
+          // DEBUG: Mostrar log visible en UI
+          var debugLog = document.getElementById('debugLog');
+          if (debugLog) {
+            debugLog.innerHTML = '🔧 DEBUG: Botón clickeado. Iniciando proceso GPS...';
+            debugLog.style.display = 'block';
+          }
 
           // Actualizar UI a estado "activando"
           document.getElementById('sensorToggle').textContent = 'Activando...';
@@ -600,9 +610,17 @@
             if (navigator.geolocation) {
               console.log('Solicitando GPS...');
               
+              if (debugLog) {
+                debugLog.innerHTML = '🔧 DEBUG: navigator.geolocation disponible. Solicitando posición...';
+              }
+              
               navigator.geolocation.getCurrentPosition(
                 function(pos) { 
                   console.log('GPS OK:', pos.coords.latitude, pos.coords.longitude, pos.coords.altitude); 
+                  
+                  if (debugLog) {
+                    debugLog.innerHTML = '🔧 DEBUG: GPS recibido. Lat: ' + pos.coords.latitude.toFixed(6) + ', Lng: ' + pos.coords.longitude.toFixed(6);
+                  }
                   
                   self.position.lat = pos.coords.latitude;
                   self.position.lng = pos.coords.longitude;
@@ -631,6 +649,11 @@
                 },
                 function(err) { 
                   console.warn('GPS error:', err.message); 
+                  
+                  if (debugLog) {
+                    debugLog.innerHTML = '🔧 DEBUG: Error GPS. Código: ' + err.code + ', Mensaje: ' + err.message;
+                  }
+                  
                   self.updateSensorStatus('gpsStatus', 'Error', '#F44336');
                   
                   if (err.code === 1) {
@@ -653,12 +676,20 @@
                 }
               );
             } else {
+              if (debugLog) {
+                debugLog.innerHTML = '🔧 DEBUG: navigator.geolocation NO disponible en este navegador/dispositivo';
+              }
               alert('❌ Tu dispositivo no soporta GPS. No podrás usar la navegación GPS.');
               return;
             }
 
           } catch (err) {
             console.error('Error activando GPS:', err);
+            
+            if (debugLog) {
+              debugLog.innerHTML = '🔧 DEBUG: Excepción: ' + err.message;
+            }
+            
             alert('Error al activar GPS: ' + err.message);
             document.getElementById('sensorToggle').textContent = 'Activar';
             document.getElementById('sensorToggle').style.background = '#4CAF50';
