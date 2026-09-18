@@ -45,8 +45,13 @@ import {
   Building2,
   ChevronRight
 } from 'lucide-react'
-import { Category, Language, Place, MapMarker, Hotel as HotelType, LanguageConst } from './types'
+import { Category, Language, Place, MapMarker, Hotel as HotelType, LanguageConst, Currency } from './types'
 import dataService from './services/dataService'
+import { useTravelContext, getContextualMessage } from './hooks/useTravelContext'
+import { GenerativeUI, detectIntent, UserIntent } from './components/GenerativeUI'
+import { VoiceInput, useSpeechSynthesis } from './components/VoiceInput'
+import { LODControl, useDetailLevel, adaptDetail, DetailLevel } from './components/LODControl'
+import { generateAgenticResponse, executeAction, AgentAction } from './services/agenticDonChucho'
 
 const salentoImageGallery = [
   ['1326163558.webp', 'Paisaje urbano de Salento'],
@@ -285,6 +290,7 @@ function cleanupAllServicesSafely() {
   try { currencyService.cleanup() } catch (e: any) { console.warn('[cleanup] currencyService:', e?.message || e) }
 }
 
+// Función para formatear precios - movida fuera del componente App para ser accesible
 function formatPrice(cop: number, currency: Currency) {
   return currencyService.formatAmount(currencyService.convertFromCOP(cop, currency), currency)
 }
@@ -599,7 +605,13 @@ function App() {
         setIsOffline(!online)
         if (online) {
           console.log('Connection restored, syncing data...')
-          loadData()
+          // Sincronizar datos frescos del servidor cuando vuelve la conexión
+          loadData().then(() => {
+            // Forzar actualización de marcadores del mapa
+            dataService.getMapMarkers().then(markers => {
+              setMapMarkers(markers)
+            }).catch(() => {})
+          }).catch(() => {})
         }
       })
     } catch (e) { console.warn('[App] connection listener skip:', e) }
@@ -1214,11 +1226,11 @@ function App() {
             <PhotoGallery
               label="Paisajes de Salento"
               photos={[
-                { src: '/salento/1326163558.webp', alt: 'Tejados tradicionales de Salento' },
-                { src: '/salento/1326163759.webp', alt: 'Monumento entre palmas en Salento' },
-                { src: '/salento/631026720.webp', alt: 'Calle colorida de Salento' },
-                { src: '/salento/631032744.webp', alt: 'Iglesia y plaza de Salento' },
-                { src: '/salento/653410779.webp', alt: 'Palmas de cera en el Valle de Cocora' },
+                { src: '/imagenes-salento/1326163558.webp', alt: 'Tejados tradicionales de Salento' },
+                { src: '/imagenes-salento/1326163759.webp', alt: 'Monumento entre palmas en Salento' },
+                { src: '/imagenes-salento/631026720.webp', alt: 'Calle colorida de Salento' },
+                { src: '/imagenes-salento/631032744.webp', alt: 'Iglesia y plaza de Salento' },
+                { src: '/imagenes-salento/653410779.webp', alt: 'Palmas de cera en el Valle de Cocora' },
               ]}
             />
           </Suspense>
@@ -1236,7 +1248,7 @@ function App() {
 
         <section className="map-section" id="mapa">
           <div className="map-copy"><p className="eyebrow">{t('map.eyebrow', 'Orienta tu paseo')}</p><h2>{t('map')}</h2><p>{t('map.desc', 'Descubre rutas a pie, lugares favoritos y recomendaciones de quienes hacen de Salento su casa.')}</p><button className="dark-button" onClick={() => window.location.assign('/mapa-interactivo-salento.html')}><span>{t('map.open', 'Abrir mapa completo')}</span> <ArrowRight size={17} /></button><div className="map-legend"><span><i className="legend-dot coral" />{t('map.favorites', 'Favoritos locales')}</span><span><i className="legend-dot green" />{t('map.discover', 'Para descubrir')}</span></div></div>
-          <div className="map-visual" aria-label="Mapa interactivo de Salento con lugares destacados"><MapContainer center={[4.6371, -75.5706]} zoom={16} scrollWheelZoom={false} className="leaflet-map"><TileLayer attribution="&copy; OpenStreetMap" url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />{visibleMarkers.map((marker) => <CircleMarker key={marker.label} center={marker.coord} radius={10} pathOptions={{ color: marker.tone === 'green' ? '#56755b' : marker.tone === 'yellow' ? '#ba8a25' : '#e76c52', fillColor: marker.tone === 'green' ? '#56755b' : marker.tone === 'yellow' ? '#e8bb58' : '#e76c52', fillOpacity: 0.9 }}><Popup><strong>{marker.label}</strong><br /><span>{marker.type} · Salento</span><br /><button className="popup-action" onClick={() => {
+          <div className="map-visual" aria-label="Mapa interactivo de Salento con lugares destacados"><MapContainer center={[4.65746762702703, -75.5727757405405]} zoom={16} scrollWheelZoom={false} className="leaflet-map"><TileLayer attribution="&copy; OpenStreetMap" url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />{visibleMarkers.map((marker) => <CircleMarker key={marker.label} center={marker.coord} radius={10} pathOptions={{ color: marker.tone === 'green' ? '#56755b' : marker.tone === 'yellow' ? '#ba8a25' : '#e76c52', fillColor: marker.tone === 'green' ? '#56755b' : marker.tone === 'yellow' ? '#e8bb58' : '#e76c52', fillOpacity: 0.9 }}><Popup><strong>{marker.label}</strong><br /><span>{marker.type} · Salento</span><br /><button className="popup-action" onClick={() => {
               const found = marker.placeId != null ? places.find((p) => p.id === marker.placeId) : undefined
               if (found) {
                 setSelectedPlace(found)
@@ -1290,7 +1302,7 @@ function App() {
               </div>
             </div>
             <div style={{display:'flex',gap:'12px',justifyContent:'center',flexWrap:'wrap'}}>
-              <button className="dark-button" onClick={() => window.open('https://wa.me/573137160977?text=' + encodeURIComponent(t('conservation.waMessage', 'Quiero contribuir a la conservación de Salento. ¿Cómo puedo donar?')), '_blank')} style={{background:'var(--green,#56755b)',display:'flex',alignItems:'center',gap:'8px'}}>
+              <button className="dark-button" onClick={() => window.open('https://wa.me/573174426044?text=' + encodeURIComponent(t('conservation.waMessage', 'Quiero contribuir a la conservación de Salento. ¿Cómo puedo donar?')), '_blank')} style={{background:'var(--green,#56755b)',display:'flex',alignItems:'center',gap:'8px'}}>
                 <Heart size={17} /> {t('conservation.donate', 'Contribuir ahora')}
               </button>
               <a href="/conservacion-salento.html" className="outline-button" style={{display:'flex',alignItems:'center',gap:'8px'}}>
@@ -1386,69 +1398,109 @@ function App() {
 function DonChucho({ language, t, places, weather, todayEvents }: { language: Language; t: (key: string, fallback?: string) => string; places: Place[]; weather: any; todayEvents: any[] }) {
   const [open, setOpen] = useState(false)
   const [question, setQuestion] = useState('')
-  const [answer, setAnswer] = useState(t('donChucho.welcome', '¡Hola, pues! ¿Buscando dónde comer una buena trucha o un transporte para el Cocora? Pregúnteme lo que quiera.'))
+  const [answer, setAnswer] = useState(t('donChucho.welcome', '¡Hola, pues! ¿Buscando dónde comer una buena trucha o un transporte para el Valle de Cocora? Pregúnteme lo que quiera.'))
   const [suggestions, setSuggestions] = useState<string[]>([])
   const [showGreeting, setShowGreeting] = useState(true)
   const [relatedPlace, setRelatedPlace] = useState<Place | null>(null)
+  const [conversationHistory, setConversationHistory] = useState<Array<{role: 'user' | 'assistant', text: string}>>([])
+  const [isTyping, setIsTyping] = useState(false)
+  const [showQuickActions, setShowQuickActions] = useState(true)
+  const [currentIntent, setCurrentIntent] = useState<UserIntent>('general-info')
+  const [pendingActions, setPendingActions] = useState<AgentAction[]>([])
   const isEnglish = language === 'en'
+  const kbLang = language as 'es' | 'en' | 'de' | 'fr' | 'pt' | 'it'
+  
+  // Nuevos hooks para UX avanzado
+  const travelContext = useTravelContext()
+  const { speak, stop: stopSpeaking, isSpeaking } = useSpeechSynthesis()
+  const [detailLevel, setDetailLevel] = useDetailLevel()
+  const [showGenerativeUI, setShowGenerativeUI] = useState(false)
 
-  // Agregar alerta contextual en el mensaje de bienvenida
+  const quickActionsLabels: Record<string, { label: string; emoji: string; category: string }[]> = {
+    es: [
+      { label: 'Gastronomía', emoji: '🍽️', category: 'gastronomia' },
+      { label: 'Historia', emoji: '📜', category: 'historia' },
+      { label: 'Municipios', emoji: '🏘️', category: 'municipios' },
+      { label: 'Experiencias', emoji: '🌄', category: 'experiencias' },
+      { label: 'Consejos', emoji: '💡', category: 'consejos' },
+      { label: 'Festivales', emoji: '🎉', category: 'festivales' }
+    ],
+    en: [
+      { label: 'Gastronomy', emoji: '🍽️', category: 'gastronomia' },
+      { label: 'History', emoji: '📜', category: 'historia' },
+      { label: 'Municipalities', emoji: '🏘️', category: 'municipios' },
+      { label: 'Experiences', emoji: '🌄', category: 'experiencias' },
+      { label: 'Practical Tips', emoji: '💡', category: 'consejos' },
+      { label: 'Festivals', emoji: '🎉', category: 'festivales' }
+    ],
+    de: [
+      { label: 'Gastronomie', emoji: '🍽️', category: 'gastronomia' },
+      { label: 'Geschichte', emoji: '📜', category: 'historia' },
+      { label: 'Gemeinden', emoji: '🏘️', category: 'municipios' },
+      { label: 'Erlebnisse', emoji: '🌄', category: 'experiencias' },
+      { label: 'Tipps', emoji: '💡', category: 'consejos' },
+      { label: 'Festivals', emoji: '🎉', category: 'festivales' }
+    ],
+    fr: [
+      { label: 'Gastronomie', emoji: '🍽️', category: 'gastronomia' },
+      { label: 'Histoire', emoji: '📜', category: 'historia' },
+      { label: 'Communes', emoji: '🏘️', category: 'municipios' },
+      { label: 'Expériences', emoji: '🌄', category: 'experiencias' },
+      { label: 'Conseils', emoji: '💡', category: 'consejos' },
+      { label: 'Festivals', emoji: '🎉', category: 'festivales' }
+    ],
+    pt: [
+      { label: 'Gastronomia', emoji: '🍽️', category: 'gastronomia' },
+      { label: 'História', emoji: '📜', category: 'historia' },
+      { label: 'Municípios', emoji: '🏘️', category: 'municipios' },
+      { label: 'Experiências', emoji: '🌄', category: 'experiencias' },
+      { label: 'Dicas', emoji: '💡', category: 'consejos' },
+      { label: 'Festivais', emoji: '🎉', category: 'festivales' }
+    ],
+    it: [
+      { label: 'Gastronomia', emoji: '🍽️', category: 'gastronomia' },
+      { label: 'Storia', emoji: '📜', category: 'historia' },
+      { label: 'Comuni', emoji: '🏘️', category: 'municipios' },
+      { label: 'Esperienze', emoji: '🌄', category: 'experiencias' },
+      { label: 'Consigli', emoji: '💡', category: 'consejos' },
+      { label: 'Festival', emoji: '🎉', category: 'festivales' }
+    ]
+  }
+  const quickActions = quickActionsLabels[language] || quickActionsLabels.es
+
   useEffect(() => {
     if (weather && todayEvents.length > 0) {
-      const contextualGreeting = t('donChucho.contextualGreeting', `¡Hola, pues! ¿Buscando dónde comer una buena trucha o un transporte para el Cocora? Pregúnteme lo que quiera. 🌡️ Hoy: ${formatTemp(weather.salento.temperature)} | 🎭 ${todayEvents.length} eventos esta semana`).replace('{temp}', formatTemp(weather.salento.temperature)).replace('{eventCount}', String(todayEvents.length))
+      const contextualGreeting = getContextualMessage(travelContext)
       setAnswer(contextualGreeting)
     }
-  }, [weather, todayEvents, isEnglish])
+  }, [weather, todayEvents, isEnglish, travelContext])
 
   function decorateDonChuchoReply(text: string, baseReply: string): string {
     const query = text.toLowerCase()
     const reply = baseReply.trim()
-
     if (!reply) return reply
 
-    const naturalOpeners = [
-      'Pues mira,',
-      'Ay, hermano,',
-      'Mira nomás,',
-      'Eso sí te lo digo,',
-      'Con toda sinceridad,',
-      'Pues sí,',
-      'Aja, y aquí va la verdad,'
-    ]
-
-    const closers = [
-      '¿Te armo la ruta del día?',
-      '¿Quieres que te diga qué te conviene más?',
-      'Si quieres, te lo dejo más sencillo.',
-      '¿Te ayudo a elegir entre varias opciones?'
-    ]
-
+    const naturalOpeners = ['Pues mira,', 'Ay, hermano,', 'Mira nomás,', 'Eso sí te lo digo,', 'Con toda sinceridad,', 'Pues sí,', 'Aja, y aquí va la verdad,']
+    const closers = ['¿Te armo la ruta del día?', '¿Quieres que te diga qué te conviene más?', 'Si quieres, te lo dejo más sencillo.', '¿Te ayudo a elegir entre varias opciones?']
     const opener = naturalOpeners[Math.floor(Math.random() * naturalOpeners.length)]
     const closer = closers[Math.floor(Math.random() * closers.length)]
-
-    const recomendacion = query.includes('recomi') || query.includes('suger') || query.includes('conviene') || query.includes('dónde me conviene')
-    const plan = query.includes('plan') || query.includes('qué hacer') || query.includes('ruta') || query.includes('itinerario')
+    const recomendacion = query.includes('recomi') || query.includes('suger') || query.includes('conviene')
+    const plan = query.includes('plan') || query.includes('qué hacer') || query.includes('ruta')
     const busquedaLugar = /hotel|restaurante|mirador|cascada|finca|cabalgata|moto|boquía|salento/.test(query)
 
     if (!isEnglish) {
-      if (recomendacion) {
-        return `${opener} en Salento yo te diría: ${reply} ${closer}`
-      }
-
-      if (plan) {
-        return `${opener} para un plan bien rico en Salento, ${reply} ${closer}`
-      }
-
-      if (busquedaLugar) {
-        return `${opener} ${reply} ${closer}`
-      }
+      if (recomendacion) return `${opener} en Salento yo te diría: ${reply} ${closer}`
+      if (plan) return `${opener} para un plan bien rico en Salento, ${reply} ${closer}`
+      if (busquedaLugar) return `${opener} ${reply} ${closer}`
     }
-
     return `${reply} ${isEnglish ? t('donChucho.wantPlan', 'Want me to build a simple plan for you?') : closer}`
   }
 
   function buildNaturalSuggestions(text: string, isDefensive: boolean): string[] {
     const query = text.toLowerCase()
+    if (isDefensive) {
+      return [t('donChucho.sugSafeRoute', '¿Te ayudo con la ruta segura?'), t('donChucho.sugHotelOptions', '¿Quieres ver opciones de hoteles?'), t('donChucho.sugRelaxed', '¿Prefieres plan tranquilo?')]
+    }
     const spanishSuggestions = {
       hotel: ['¿Te sirve algo más cerca del centro?', '¿Quieres opción con desayuno?', '¿Prefieres algo más tranquilo?'],
       comida: ['¿Te gusta trucha o cocina local?', '¿Quieres algo para almuerzo?', '¿Te conviene algo tipo típico?'],
@@ -1457,7 +1509,6 @@ function DonChucho({ language, t, places, weather, todayEvents }: { language: La
       finca: ['¿Te interesa el tour del café?', '¿Quieres reserva o sugerencia?', '¿Te sirve algo más educativo?'],
       default: ['¿Te ayudo con la ruta?', '¿Quieres plan del día?', '¿Quieres algo más tranquilo?']
     }
-
     const englishSuggestions = {
       hotel: ['Need something closer to town?', 'Would you like breakfast included?', 'Prefer a quieter stay?'],
       food: ['Do you want trout or local dishes?', 'Planning lunch?', 'Interested in something traditional?'],
@@ -1466,26 +1517,19 @@ function DonChucho({ language, t, places, weather, todayEvents }: { language: La
       farm: ['Interested in a coffee tour?', 'Need a reservation tip?', 'Want something more educational?'],
       default: ['Need help with the route?', 'Want a day plan?', 'Prefer a quieter option?']
     }
-
-    if (isDefensive) {
-      return [t('donChucho.sugSafeRoute', '¿Te ayudo con la ruta segura?'), t('donChucho.sugHotelOptions', '¿Quieres ver opciones de hoteles?'), t('donChucho.sugRelaxed', '¿Prefieres plan tranquilo?')]
-    }
-
     if (isEnglish) {
       if (query.includes('hotel') || query.includes('stay')) return englishSuggestions.hotel
-      if (query.includes('eat') || query.includes('restaurant') || query.includes('trout') || query.includes('lunch')) return englishSuggestions.food
+      if (query.includes('eat') || query.includes('restaurant') || query.includes('trout')) return englishSuggestions.food
       if (query.includes('mirador') || query.includes('photo') || query.includes('view')) return englishSuggestions.viewpoint
       if (query.includes('waterfall') || query.includes('trail') || query.includes('boquia')) return englishSuggestions.waterfall
       if (query.includes('farm') || query.includes('coffee')) return englishSuggestions.farm
       return englishSuggestions.default
     }
-
     if (query.includes('hotel') || query.includes('hospedaje')) return spanishSuggestions.hotel
-    if (query.includes('comer') || query.includes('restaurante') || query.includes('trucha') || query.includes('almuerzo')) return spanishSuggestions.comida
+    if (query.includes('comer') || query.includes('restaurante') || query.includes('trucha')) return spanishSuggestions.comida
     if (query.includes('mirador') || query.includes('fotos') || query.includes('vista')) return spanishSuggestions.mirador
     if (query.includes('cascada') || query.includes('sendero') || query.includes('boquía')) return spanishSuggestions.cascada
     if (query.includes('finca') || query.includes('cafe') || query.includes('café')) return spanishSuggestions.finca
-
     return spanishSuggestions.default
   }
 
@@ -1493,78 +1537,225 @@ function DonChucho({ language, t, places, weather, todayEvents }: { language: La
     setQuestion(text)
     setShowGreeting(false)
     setRelatedPlace(null)
+    setShowQuickActions(false)
+    setIsTyping(true)
+    setConversationHistory(prev => [...prev, { role: 'user', text }])
     
-    // Verificar si pregunta sobre clima
-    const weatherKeywords = ['clima', 'tiempo', 'lluvia', 'frío', 'calor', 'weather', 'rain', 'cold', 'hot']
-    const isWeatherQuestion = weatherKeywords.some(keyword => text.toLowerCase().includes(keyword))
-    
-    if (isWeatherQuestion && weather) {
-      const weatherAnswer = t('donChucho.weatherAnswer', `Pues mira, el clima por aquí va así: en Salento ${formatTemp(weather.salento.temperature)} y en el Valle de Cocora ${formatTemp(weather.valleCocora.temperature)}. ${weather.recommendation}`).replace('{temp}', formatTemp(weather.salento.temperature)).replace('{valleTemp}', formatTemp(weather.valleCocora.temperature)).replace('{recommendation}', weather.recommendation)
-      setAnswer(weatherAnswer)
-      setSuggestions([t('donChucho.sugValle', '¿Para el valle?'), t('donChucho.sugClothes', '¿Qué ropa llevar?'), t('donChucho.sugBestTime', '¿Mejor hora para salir?')])
-      return
-    }
-    
-    // Verificar si pregunta sobre eventos
-    const eventKeywords = ['evento', 'festival', 'actividad', 'qué hacer', 'plan', 'event', 'festival', 'activity', 'what to do', 'plan']
-    const isEventQuestion = eventKeywords.some(keyword => text.toLowerCase().includes(keyword))
-    
-    if (isEventQuestion && todayEvents.length > 0) {
-      const eventsList = todayEvents.map(event => event.title).join(', ')
-      const eventAnswer = t('donChucho.eventAnswer', `Hoy hay ${todayEvents.length} eventos: ${eventsList}. ¡Te recomiendo revisarlos!`).replace('{count}', String(todayEvents.length)).replace('{list}', eventsList)
-      setAnswer(eventAnswer)
-      setSuggestions([t('donChucho.sugDetails', '¿Más detalles?'), t('donChucho.sugWhere', '¿Dónde son?'), t('donChucho.sugTimes', '¿Horarios?')])
-      return
-    }
-    
-    // Usar base de conocimiento local mejorada
-    const knowledgeAnswer = donChuchoKnowledge.getAnswer(text, isEnglish ? 'en' : 'es')
-    const naturalAnswer = decorateDonChuchoReply(text, knowledgeAnswer)
-    
-    // Verificar si es una respuesta defensiva
-    const isDefensive = donChuchoKnowledge.isDefensiveResponse(text)
-    const defensiveActions = donChuchoKnowledge.getDefensiveActions(text)
-    
-    setAnswer(naturalAnswer)
-    
-    // Si es defensiva, mostrar acciones específicas
-    if (isDefensive) {
-      const actionSuggestions = defensiveActions.includes('redirect_routes_landing') 
-        ? ['Estado de vías', 'Hoteles disponibles', 'Valle de Cocora']
-        : defensiveActions.includes('redirect_safety_landing')
-        ? ['Información seguridad', 'Contactos emergencia', 'Turismo activo']
-        : ['Ver servicios', 'Contactar comercios', 'Planear visita']
-      
-      setSuggestions(isEnglish ? [t('donChucho.sugOfficial', 'Official info'), t('donChucho.sugServices', 'Available services'), t('donChucho.sugPlanVisit', 'Plan visit')] : actionSuggestions)
-    } else {
-      // Obtener sugerencias de seguimiento normales
-      const followUpSuggestions = donChuchoKnowledge.getFollowUpSuggestions(text, isEnglish ? 'en' : 'es')
-      setSuggestions(followUpSuggestions.length > 0 ? followUpSuggestions : buildNaturalSuggestions(text, false))
-    }
-    
-    // Obtener lugares relacionados
-    const relatedPlaceIds = donChuchoKnowledge.getRelatedPlaces(text)
-    if (relatedPlaceIds.length > 0) {
-      const relatedPlaces = places.filter(p => relatedPlaceIds.includes(p.id))
-      if (relatedPlaces.length > 0) {
-        const placeNames = relatedPlaces.map(p => p.name).join(', ')
-        const enhancedAnswer = naturalAnswer + ` ${t('donChucho.relatedPlaces', 'Lugares relacionados:')} ${placeNames}`
-        setAnswer(enhancedAnswer)
-        setRelatedPlace(relatedPlaces[0]) // Tomar el primer lugar relacionado
+    // Track interaction for context-aware UI
+    travelContext.trackInteraction(text, detectIntent(text))
+
+    setTimeout(() => {
+      // Detectar intención para Generative UI
+      const intent = detectIntent(text)
+      setCurrentIntent(intent)
+      setShowGenerativeUI(intent !== 'general-info' && intent !== 'get-weather')
+
+      // Intentar respuesta agente primero
+      const agenticResponse = generateAgenticResponse(text, places, language)
+      if (agenticResponse.text && agenticResponse.actions.length > 0) {
+        const naturalAnswer = decorateDonChuchoReply(text, agenticResponse.text)
+        setAnswer(naturalAnswer)
+        setPendingActions(agenticResponse.actions)
+        setSuggestions(agenticResponse.followUp || [])
+        setIsTyping(false)
+        setConversationHistory(prev => [...prev, { role: 'assistant', text: naturalAnswer }])
+        return
       }
-    }
+
+      const categoryMatch = quickActions.find(a => a.label.toLowerCase() === text.toLowerCase())
+      if (categoryMatch) {
+        const items = donChuchoKnowledge.getByCategory(categoryMatch.category)
+        if (items.length > 0) {
+          const randomItem = items[Math.floor(Math.random() * items.length)]
+          const answerText = randomItem.answer[kbLang] || randomItem.answer.es
+          const adaptedAnswer = adaptDetail(answerText, detailLevel)
+          setAnswer(adaptedAnswer)
+          setSuggestions(items.slice(0, 3).map(i => i.keywords[0]))
+          setIsTyping(false)
+          setConversationHistory(prev => [...prev, { role: 'assistant', text: adaptedAnswer }])
+          return
+        }
+      }
+
+      const weatherKeywords = ['clima', 'tiempo', 'lluvia', 'frío', 'calor', 'weather', 'rain', 'cold', 'hot']
+      if (weatherKeywords.some(kw => text.toLowerCase().includes(kw)) && weather) {
+        const weatherAnswer = t('donChucho.weatherAnswer', `Pues mira, el clima: Salento ${formatTemp(weather.salento.temperature)}, Valle de Cocora ${formatTemp(weather.valleCocora.temperature)}. ${weather.recommendation}`).replace('{temp}', formatTemp(weather.salento.temperature)).replace('{valleTemp}', formatTemp(weather.valleCocora.temperature)).replace('{recommendation}', weather.recommendation)
+        setAnswer(weatherAnswer)
+        setSuggestions([t('donChucho.sugValle', '¿Para el valle?'), t('donChucho.sugClothes', '¿Qué ropa llevar?'), t('donChucho.sugBestTime', '¿Mejor hora?')])
+        setIsTyping(false)
+        setConversationHistory(prev => [...prev, { role: 'assistant', text: weatherAnswer }])
+        return
+      }
+
+      const eventKeywords = ['evento', 'festival', 'actividad', 'qué hacer', 'plan', 'event', 'activity', 'what to do']
+      if (eventKeywords.some(kw => text.toLowerCase().includes(kw)) && todayEvents.length > 0) {
+        const eventsList = todayEvents.map(event => event.title).join(', ')
+        const eventAnswer = t('donChucho.eventAnswer', `Hoy hay ${todayEvents.length} eventos: ${eventsList}. ¡Te recomiendo revisarlos!`).replace('{count}', String(todayEvents.length)).replace('{list}', eventsList)
+        setAnswer(eventAnswer)
+        setSuggestions([t('donChucho.sugDetails', '¿Más detalles?'), t('donChucho.sugWhere', '¿Dónde son?'), t('donChucho.sugTimes', '¿Horarios?')])
+        setIsTyping(false)
+        setConversationHistory(prev => [...prev, { role: 'assistant', text: eventAnswer }])
+        return
+      }
+
+      const contextHints = conversationHistory.slice(-4).map(h => h.text).join(' ').toLowerCase()
+      let enrichedQuery = text
+      if ((contextHints.includes('comer') || contextHints.includes('trucha')) && (text.includes('también') || text.includes('otro'))) {
+        enrichedQuery = text + ' restaurante'
+      }
+      if ((contextHints.includes('hotel') || contextHints.includes('hospedaje')) && (text.includes('y') || text.includes('cerca'))) {
+        enrichedQuery = text + ' hospedaje'
+      }
+
+      const knowledgeAnswer = donChuchoKnowledge.getAnswer(enrichedQuery, kbLang)
+      const naturalAnswer = decorateDonChuchoReply(text, knowledgeAnswer)
+      const adaptedAnswer = adaptDetail(naturalAnswer, detailLevel)
+      const isDefensive = donChuchoKnowledge.isDefensiveResponse(text)
+      const defensiveActions = donChuchoKnowledge.getDefensiveActions(text)
+      setAnswer(adaptedAnswer)
+      setConversationHistory(prev => [...prev, { role: 'assistant', text: adaptedAnswer }])
+
+      if (isDefensive) {
+        const actionSuggestions = defensiveActions.includes('redirect_routes_landing')
+          ? ['Estado de vías', 'Hoteles disponibles', 'Valle de Cocora']
+          : ['Ver servicios', 'Contactar comercios', 'Planear visita']
+        setSuggestions(isEnglish ? ['Official info', 'Available services', 'Plan visit'] : actionSuggestions)
+      } else {
+        const followUpSuggestions = donChuchoKnowledge.getFollowUpSuggestions(text, kbLang)
+        setSuggestions(followUpSuggestions.length > 0 ? followUpSuggestions : buildNaturalSuggestions(text, false))
+      }
+
+      const relatedPlaceIds = donChuchoKnowledge.getRelatedPlaces(text)
+      if (relatedPlaceIds.length > 0) {
+        const relatedPlaces = places.filter(p => relatedPlaceIds.includes(p.id))
+        if (relatedPlaces.length > 0) {
+          const placeNames = relatedPlaces.map(p => p.name).join(', ')
+          setAnswer(adaptedAnswer + ` ${t('donChucho.relatedPlaces', 'Lugares relacionados:')} ${placeNames}`)
+          setRelatedPlace(relatedPlaces[0])
+        }
+      }
+      setIsTyping(false)
+    }, 500)
   }
 
   function handleWhatsAppClick(place: Place) {
     const message = t('donChucho.whatsappMessage', `¡Hola! Estoy interesado en ${place.name}. ¿Me pueden ayudar?`).replace('{name}', place.name)
     const whatsappNumber = place.contact?.whatsapp
     if (whatsappNumber) {
-      const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`
-      window.open(whatsappUrl, '_blank')
+      window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`, '_blank')
     }
   }
 
-  return <div className={open ? 'chucho-widget open' : 'chucho-widget'}>{open && <div className="chucho-panel"><div className="chucho-head"><img src="/avatar-don-chucho.png" alt="Don Chucho" className="chucho-avatar-image" /><div><strong>{t('donChucho.title')}</strong><span>{t('donChucho.subtitle')}</span></div><button className="icon-button" onClick={() => setOpen(false)} aria-label="Cerrar asistente"><X size={16} /></button></div><div className="chucho-answer"><MessageCircle size={16} />{answer}</div>{relatedPlace && relatedPlace.contact.whatsapp && <div className="chucho-whatsapp"><button className="whatsapp-button" onClick={() => handleWhatsAppClick(relatedPlace)}><Phone size={16} />{t('donChucho.contact', 'Contactar a')} {relatedPlace.name}</button></div>}{suggestions.length > 0 && <div className="chucho-suggestions">{suggestions.map((suggestion, index) => <button key={index} onClick={() => ask(suggestion)}>{suggestion}</button>)}</div>}<form onSubmit={(event) => { event.preventDefault(); if (question.trim()) ask(question) }}><input value={question} onChange={(event) => setQuestion(event.target.value)} placeholder={t('donChucho.placeholder')} /><button aria-label="Enviar pregunta"><Send size={15} /></button></form></div>}<button className="chucho-trigger" onClick={() => setOpen(!open)} aria-label="Abrir asistente Don Chucho"><img src="/don-chucho-boton.png" alt="Don Chucho" className="chucho-button-image" />{showGreeting && <span className="chucho-greeting">¡Hola, pues!</span>}</button></div>
+  return (
+    <div className={open ? 'chucho-widget open' : 'chucho-widget'}>
+      {open && (
+        <div className="chucho-panel">
+          <div className="chucho-head">
+            <img src="/avatar-don-chucho.png" alt="Don Chucho" className="chucho-avatar-image" />
+            <div>
+              <strong>{t('donChucho.title', 'Don Chucho')}</strong>
+              <span>{t('donChucho.subtitle', 'Tu guía local en Salento')}</span>
+            </div>
+            <LODControl level={detailLevel} onChange={setDetailLevel} language={language} />
+            <button className="icon-button" onClick={() => setOpen(false)} aria-label="Cerrar asistente">
+              <X size={16} />
+            </button>
+          </div>
+
+          <div className="chucho-messages">
+            {conversationHistory.length === 0 && showQuickActions && (
+              <div className="chucho-quick-actions">
+                <p className="chucho-quick-title">{isEnglish ? 'What interests you?' : '¿Qué te interesa?'}</p>
+                <div className="chucho-quick-grid">
+                  {quickActions.map((action, i) => (
+                    <button key={i} className="chucho-quick-btn" onClick={() => ask(action.label)}>
+                      <span className="chucho-quick-emoji">{action.emoji}</span>
+                      <span>{action.label}</span>
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {conversationHistory.map((msg, i) => (
+              <div key={i} className={`chucho-msg chucho-msg-${msg.role}`}>
+                {msg.role === 'assistant' && <MessageCircle size={14} className="chucho-msg-icon" />}
+                <div className={`chucho-bubble chucho-bubble-${msg.role}`}>{msg.text}</div>
+              </div>
+            ))}
+
+            {showGenerativeUI && conversationHistory.length > 0 && (
+              <GenerativeUI
+                intent={currentIntent}
+                places={places}
+                language={language}
+                phase={travelContext.phase}
+                onPlaceSelect={(place) => {
+                  setRelatedPlace(place)
+                  ask(place.name)
+                }}
+                onWhatsApp={(phone, msg) => {
+                  window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`, '_blank')
+                }}
+              />
+            )}
+
+            {pendingActions.length > 0 && (
+              <div className="chucho-actions">
+                {pendingActions.map((action, i) => (
+                  <button key={i} className="chucho-action-btn" onClick={() => executeAction(action)}>
+                    {action.type === 'whatsapp' && <><Phone size={14} /> WhatsApp</>}
+                    {action.type === 'call' && <><Phone size={14} /> Llamar</>}
+                    {action.type === 'open-map' && <><MapPin size={14} /> Cómo llegar</>}
+                    {action.type === 'navigate' && <><Compass size={14} /> Navegar</>}
+                    {action.type === 'share' && <><Share2 size={14} /> Compartir</>}
+                    {action.type === 'save-favorite' && <><Heart size={14} /> Guardar</>}
+                  </button>
+                ))}
+              </div>
+            )}
+
+            {isTyping && (
+              <div className="chucho-msg chucho-msg-assistant">
+                <MessageCircle size={14} className="chucho-msg-icon" />
+                <div className="chucho-bubble chucho-bubble-assistant chucho-typing">
+                  <span className="chucho-dot"></span>
+                  <span className="chucho-dot"></span>
+                  <span className="chucho-dot"></span>
+                </div>
+              </div>
+            )}
+          </div>
+
+          {relatedPlace && relatedPlace.contact?.whatsapp && (
+            <div className="chucho-whatsapp">
+              <button className="whatsapp-button" onClick={() => handleWhatsAppClick(relatedPlace)}>
+                <Phone size={16} />{t('donChucho.contact', 'Contactar a')} {relatedPlace.name}
+              </button>
+            </div>
+          )}
+
+          {suggestions.length > 0 && (
+            <div className="chucho-suggestions">
+              {suggestions.map((suggestion, index) => (
+                <button key={index} onClick={() => { setConversationHistory(prev => [...prev, { role: 'user', text: suggestion }]); ask(suggestion) }}>{suggestion}</button>
+              ))}
+            </div>
+          )}
+
+          <form className="chucho-input-form" onSubmit={(event) => { event.preventDefault(); if (question.trim()) { setConversationHistory(prev => [...prev, { role: 'user', text: question }]); ask(question); setQuestion('') } }}>
+            <VoiceInput onTranscript={(text) => { setQuestion(text); if (text.trim()) { setConversationHistory(prev => [...prev, { role: 'user', text }]); ask(text) } }} language={language === 'es' ? 'es-CO' : language === 'en' ? 'en-US' : `${language}-CO`} />
+            <input value={question} onChange={(event) => setQuestion(event.target.value)} placeholder={t('donChucho.placeholder', 'Escribe tu pregunta...')} />
+            <button aria-label="Enviar pregunta"><Send size={15} /></button>
+          </form>
+        </div>
+      )}
+      <button className="chucho-trigger" onClick={() => setOpen(!open)} aria-label="Abrir asistente Don Chucho">
+        <img src="/don-chucho-boton.png" alt="Don Chucho" className="chucho-button-image" />
+        {showGreeting && <span className="chucho-greeting">¡Hola, pues!</span>}
+      </button>
+    </div>
+  )
 }
 
 function categoryToMapType(category: Category) {
@@ -1792,7 +1983,14 @@ function Cart({ count, currency, onClose, onAdd, hotels }: { count: number; curr
     }
 
     if (isOffline) {
-      // Modo offline: enviar por WhatsApp como fallback
+      // Modo offline: guardar en IndexedDB para sincronizar después
+      offlineStorage.saveOrder({
+        id: `PEDIDO-SAL-${Date.now()}`,
+        timestamp: Date.now(),
+        status: 'pending',
+        orderData,
+        retryCount: 0
+      }).catch(err => console.error('Error saving offline order:', err))
       setSubmitted(true)
     } else {
       // Modo online: enviar por WhatsApp directamente
@@ -1815,8 +2013,6 @@ function Cart({ count, currency, onClose, onAdd, hotels }: { count: number; curr
 
 // ---------- TIPOS PARA PEDIDO DIRECTO POR WHATSAPP ----------
 export type PaymentMethod = 'efectivo' | 'transferencia' | 'tarjeta'
-
-export type Currency = 'COP' | 'USD' | 'EUR'
 
 export interface OrderItem {
   name: string

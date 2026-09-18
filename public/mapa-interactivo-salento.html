@@ -77,6 +77,9 @@
         const data = await res.json();
         const places = data.places || [];
 
+        // Ruta GPS de Cascadas de Santa Rita
+        const santaRitaRoute = '/pautas/reserva-natural-cascadas-de-santa-rita/cascadas-santa-rita-salento-colombia-.gpx';
+
         const typeColors = {
           'Alojamientos': '#56755b',
           'Restaurantes': '#e76c52',
@@ -94,7 +97,7 @@
 
         const slugify = (name) => name.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
 
-        const map = L.map('map').setView([4.6371, -75.5706], 14);
+        const map = L.map('map').setView([4.65746762702703, -75.5727757405405], 14);
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
           attribution: '&copy; OpenStreetMap contributors',
           maxZoom: 18

@@ -1,0 +1,76 @@
+{
+  "sites": {
+    "cascadas-santa-rita": {
+      "name": "Cascadas de Santa Rita",
+      "center": [4.65746762702703, -75.5727757405405],
+      "zoom": 16,
+      "tileRange": 6,
+      "gpxFile": "/pautas/reserva-natural-cascadas-de-santa-rita/cascadas-santa-rita-salento-colombia-.gpx",
+      "bounds": {
+        "latMin": 4.646949,
+        "latMax": 4.664209,
+        "lonMin": -75.580899,
+        "lonMax": -75.568804
+      },
+      "images": [
+        "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/logo_cascadas_de_santa_rita.jpg",
+        "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/santa-rita-1.jpg",
+        "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/santa-rita-2.jpg",
+        "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/santa-rita-3.jpg",
+        "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/cascada2.jpg",
+        "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/cascada3.jpg",
+        "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/cueva1.jpg",
+        "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/cueva2.jpg",
+        "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/puente-cpolgante1.jpg",
+        "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/rio2.jpg",
+        "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/casa1.jpg",
+        "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/monte1.jpg",
+        "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/f2.jpeg",
+        "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/foto1.jpeg"
+      ]
+    },
+    "salento-centro": {
+      "name": "Salento Centro",
+      "center": [4.6371, -75.5706],
+      "zoom": 16,
+      "tileRange": 5,
+      "gpxFile": null,
+      "bounds": {
+        "latMin": 4.632,
+        "latMax": 4.642,
+        "lonMin": -75.576,
+        "lonMax": -75.565
+      },
+      "images": [
+        "/imagenes-salento/1326163558.webp",
+        "/imagenes-salento/1326163759.webp",
+        "/imagenes-salento/631026720.webp",
+        "/imagenes-salento/631032744.webp",
+        "/imagenes-salento/653410779.webp"
+      ]
+    },
+    "valle-cocora": {
+      "name": "Valle de Cocora",
+      "center": [4.639, -75.467],
+      "zoom": 15,
+      "tileRange": 6,
+      "gpxFile": null,
+      "bounds": {
+        "latMin": 4.635,
+        "latMax": 4.643,
+        "lonMin": -75.472,
+        "lonMax": -75.462
+      },
+      "images": [
+        "/imagenes-salento/653410779.webp",
+        "/imagenes-salento/valle-cocora-palmas-2.jpg"
+      ]
+    }
+  },
+  "defaultSite": "cascadas-santa-rita",
+  "tileServer": {
+    "url": "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+    "subdomains": ["a", "b", "c"],
+    "zoomRange": [12, 16]
+  }
+}

@@ -6,8 +6,8 @@
       "type": "Comercial",
       "placeId": 31,
       "coord": [
-        4.64,
-        -75.56
+        4.65746762702703,
+        -75.5727757405405
       ],
       "tone": "coral",
       "note": "Camping natural con acceso a cascadas"
@@ -42,8 +42,8 @@
       "type": "Turístico",
       "placeId": 15,
       "coord": [
-        4.64,
-        -75.56
+        4.65746762702703,
+        -75.5727757405405
       ],
       "tone": "success",
       "note": "Reserva Natural Cascadas de Santa Rita"

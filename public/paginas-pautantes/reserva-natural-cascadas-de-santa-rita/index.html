@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
     <meta name="description" content="Cascadas de Santa Rita en Salento: reserva natural con cascada, piscina natural, sendero circular de 6.7 km (+368m), tuneles del ferrocarril, puente colgante. Entrada $11.000. Camping $28.000." />
     <title>Reserva Natural Cascadas de Santa Rita | Vive Salento directamente</title>
     <meta property="og:title" content="Cascadas de Santa Rita: Reserva Natural en Salento | Salento a la Mano" />
@@ -241,26 +242,36 @@
           </div>
           
           <!-- Estado de sensores -->
-          <div id="sensorStatus" style="display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:12px;">
-            <div class="sensor-box" style="background:rgba(255,255,255,0.05);border-radius:8px;padding:10px;text-align:center;">
-              <div style="font-size:20px;">📍</div>
-              <div style="font-size:11px;color:#aaa;">GPS</div>
-              <div id="gpsStatus" style="font-size:12px;color:#F44336;">Inactivo</div>
+          <div id="sensorStatus" style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:12px;">
+            <div class="sensor-box" style="background:rgba(255,255,255,0.05);border-radius:8px;padding:8px;text-align:center;">
+              <div style="font-size:18px;">📍</div>
+              <div style="font-size:10px;color:#aaa;">GPS</div>
+              <div id="gpsStatus" style="font-size:11px;color:#F44336;">Inactivo</div>
             </div>
-            <div class="sensor-box" style="background:rgba(255,255,255,0.05);border-radius:8px;padding:10px;text-align:center;">
-              <div style="font-size:20px;">🧭</div>
-              <div style="font-size:11px;color:#aaa;">Brújula</div>
-              <div id="compassStatus" style="font-size:12px;color:#F44336;">Inactivo</div>
+            <div class="sensor-box" style="background:rgba(255,255,255,0.05);border-radius:8px;padding:8px;text-align:center;">
+              <div style="font-size:18px;">🧭</div>
+              <div style="font-size:10px;color:#aaa;">Brújula</div>
+              <div id="compassStatus" style="font-size:11px;color:#F44336;">Inactivo</div>
             </div>
-            <div class="sensor-box" style="background:rgba(255,255,255,0.05);border-radius:8px;padding:10px;text-align:center;">
-              <div style="font-size:20px;">👣</div>
-              <div style="font-size:11px;color:#aaa;">Pasos</div>
-              <div id="stepsStatus" style="font-size:12px;color:#F44336;">0 pasos</div>
+            <div class="sensor-box" style="background:rgba(255,255,255,0.05);border-radius:8px;padding:8px;text-align:center;">
+              <div style="font-size:18px;">👣</div>
+              <div style="font-size:10px;color:#aaa;">Pasos</div>
+              <div id="stepsStatus" style="font-size:11px;color:#F44336;">0 pasos</div>
             </div>
-            <div class="sensor-box" style="background:rgba(255,255,255,0.05);border-radius:8px;padding:10px;text-align:center;">
-              <div style="font-size:20px;">⛰️</div>
-              <div style="font-size:11px;color:#aaa;">Altitud</div>
-              <div id="altitudeStatus" style="font-size:12px;color:#F44336;">-- m</div>
+            <div class="sensor-box" style="background:rgba(255,255,255,0.05);border-radius:8px;padding:8px;text-align:center;">
+              <div style="font-size:18px;">⛰️</div>
+              <div style="font-size:10px;color:#aaa;">Altitud</div>
+              <div id="altitudeStatus" style="font-size:11px;color:#F44336;">-- m</div>
+            </div>
+            <div class="sensor-box" style="background:rgba(255,255,255,0.05);border-radius:8px;padding:8px;text-align:center;">
+              <div style="font-size:18px;">🔋</div>
+              <div style="font-size:10px;color:#aaa;">Batería</div>
+              <div id="batteryStatus" style="font-size:11px;color:#F44336;">--%</div>
+            </div>
+            <div class="sensor-box" style="background:rgba(255,255,255,0.05);border-radius:8px;padding:8px;text-align:center;">
+              <div style="font-size:18px;">💡</div>
+              <div style="font-size:10px;color:#aaa;">Luz</div>
+              <div id="lightStatus" style="font-size:11px;color:#F44336;">-- lux</div>
             </div>
           </div>
 
@@ -272,6 +283,9 @@
               <div>👣 Pasos: <span id="totalSteps">0</span></div>
               <div>📏 Distancia: <span id="totalDistance">0</span> m</div>
               <div>⛰️ Altitud: <span id="currentAlt">--</span> m</div>
+              <div>🔋 Batería: <span id="batteryLevel">--</span>%</div>
+              <div>💡 Luz: <span id="lightLevel">--</span> lux</div>
+              <div>📊 Precisión GPS: <span id="gpsAccuracy">--</span> m</div>
               <div>⚡ Precisión: <span id="gpsAccuracy">--</span> m</div>
             </div>
           </div>
@@ -507,6 +521,11 @@
         stepThreshold: 1.5, // metros por paso promedio
         lastStepTime: 0,
         stepCooldown: 300, // ms mínimo entre pasos
+        batteryLevel: null,
+        batteryAlertShown: false,
+        lightLevel: null,
+        speed: 0,
+        lastPositionTime: null
 
         // Coordenadas de waypoints (para alertas de proximidad)
         waypoints: [
@@ -524,14 +543,28 @@
         init: function() {
           this.updateSensorStatus('gpsStatus', 'Verificando...', '#FFEB3B');
           this.checkCapabilities();
+          this.startBattery();
+          this.startLightSensor();
         },
 
         checkCapabilities: function() {
           var hasGPS = 'geolocation' in navigator;
           var hasOrientation = 'DeviceOrientationEvent' in window;
+          var hasBattery = 'getBattery' in navigator;
+          var hasLight = 'AmbientLightSensor' in window;
           var hasMotion = 'DeviceMotionEvent' in window;
 
-          console.log('Sensores disponibles:', { gps: hasGPS, orientation: hasOrientation, motion: hasMotion });
+          console.log('Capacidades del dispositivo:', {
+            GPS: hasGPS,
+            Orientación: hasOrientation,
+            Batería: hasBattery,
+            Luz: hasLight,
+            Movimiento: hasMotion
+          });
+
+          if (hasGPS) this.startGPS();
+          if (hasOrientation) this.startCompass();
+          if (hasMotion) this.startStepCounter();
         },
 
         toggle: function() {
@@ -597,11 +630,15 @@
 
           this.gpsWatch = navigator.geolocation.watchPosition(
             function(pos) {
+              self.lastPosition = { lat: self.position.lat, lng: self.position.lng };
+              self.lastPositionTime = Date.now();
+
               self.position.lat = pos.coords.latitude;
               self.position.lng = pos.coords.longitude;
               self.position.alt = pos.coords.altitude;
               self.position.accuracy = pos.coords.accuracy;
 
+              self.speed = self.calculateSpeed();
               self.updateGPSDisplay();
               self.updatePositionOnMap();
               self.checkWaypointProximity();
@@ -683,6 +720,32 @@
           return dirs[idx];
         },
 
+        // ═══════ VELOCIDAD DE MOVIMIENTO ═══════
+        calculateSpeed: function() {
+          if (!this.position.lat || !this.lastPosition || !this.lastPositionTime) return 0;
+
+          var distance = this.calculateDistanceBetween(
+            this.lastPosition.lat, this.lastPosition.lng,
+            this.position.lat, this.position.lng
+          );
+
+          var timeDiff = (Date.now() - this.lastPositionTime) / 1000; // segundos
+          var speed = distance / timeDiff; // m/s
+
+          return Math.round(speed * 3.6); // km/h
+        },
+
+        calculateDistanceBetween: function(lat1, lon1, lat2, lon2) {
+          var R = 6371000; // radio de la tierra en metros
+          var dLat = (lat2 - lat1) * Math.PI / 180;
+          var dLon = (lon2 - lon1) * Math.PI / 180;
+          var a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+                  Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+                  Math.sin(dLon/2) * Math.sin(dLon/2);
+          var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+          return R * c;
+        },
+
         // ═══════ ACELERÓMETRO / CONTADOR DE PASOS ═══════
         startAccelerometer: function() {
           var self = this;
@@ -735,6 +798,90 @@
           document.getElementById('stepsStatus').textContent = this.steps + ' pasos';
           document.getElementById('totalSteps').textContent = this.steps;
           document.getElementById('totalDistance').textContent = Math.round(this.steps * this.stepThreshold);
+        },
+
+        // ═══════ BATERÍA ═══════
+        startBattery: function() {
+          var self = this;
+          if ('getBattery' in navigator) {
+            navigator.getBattery().then(function(battery) {
+              self.updateBatteryDisplay(battery);
+
+              battery.addEventListener('levelchange', function() {
+                self.updateBatteryDisplay(battery);
+              });
+
+              battery.addEventListener('chargingchange', function() {
+                self.updateBatteryDisplay(battery);
+              });
+            }).catch(function(err) {
+              console.warn('Battery API error:', err);
+              self.updateSensorStatus('batteryStatus', 'No disponible', '#FF9800');
+            });
+          } else {
+            self.updateSensorStatus('batteryStatus', 'No disponible', '#FF9800');
+          }
+        },
+
+        updateBatteryDisplay: function(battery) {
+          var level = Math.round(battery.level * 100);
+          var charging = battery.charging ? '⚡' : '';
+          var color = level > 50 ? '#4CAF50' : level > 20 ? '#FF9800' : '#F44336';
+
+          this.batteryLevel = level;
+          this.updateSensorStatus('batteryStatus', level + '% ' + charging, color);
+          document.getElementById('batteryLevel').textContent = level + '%';
+          this.checkBatteryAlert();
+        },
+
+        // ═══════ SENSOR DE LUZ ═══════
+        startLightSensor: function() {
+          var self = this;
+          if ('AmbientLightSensor' in window) {
+            try {
+              var sensor = new AmbientLightSensor();
+              sensor.addEventListener('reading', function() {
+                var lux = Math.round(sensor.illuminance);
+                var conditions = self.getLightConditions(lux);
+                self.lightLevel = lux;
+                self.updateSensorStatus('lightStatus', lux + ' lux - ' + conditions, '#4CAF50');
+                document.getElementById('lightLevel').textContent = lux;
+                self.adjustBrightness(lux);
+              });
+              sensor.start();
+            } catch (err) {
+              console.warn('Light sensor error:', err);
+              self.updateSensorStatus('lightStatus', 'No disponible', '#FF9800');
+            }
+          } else {
+            self.updateSensorStatus('lightStatus', 'No disponible', '#FF9800');
+          }
+        },
+
+        getLightConditions: function(lux) {
+          if (lux < 10) return 'Oscuro';
+          if (lux < 50) return 'Tenue';
+          if (lux < 200) return 'Interior';
+          if (lux < 500) return 'Claro';
+          if (lux < 1000) return 'Brillante';
+          return 'Soleado';
+        },
+
+        // ═══════ ALERTAS DE BATERÍA BAJA ═══════
+        checkBatteryAlert: function() {
+          if (this.batteryLevel && this.batteryLevel < 20 && !this.batteryAlertShown) {
+            this.batteryAlertShown = true;
+            alert('⚠️ Batería baja (' + this.batteryLevel + '%). Conecta un cargador para evitar perder el GPS.');
+            if (navigator.vibrate) navigator.vibrate([200, 100, 200]);
+          }
+        },
+
+        // ═══════ AJUSTE AUTOMÁTICO DE BRILLO ═══════
+        adjustBrightness: function(lux) {
+          if (lux < 50 && this.lightLevel > 50) {
+            // Ambiente oscuro, sugerir bajar brillo para ahorrar batería
+            console.log('Sugerencia: Bajar brillo para ahorrar batería');
+          }
         },
 
         // ═══════ CÁLCULO DE DISTANCIA ═══════
@@ -914,14 +1061,6 @@
         } catch (e) {
           console.error('Error en toggleSensors:', e);
           alert('Error al activar sensores: ' + e.message);
-        }
-      }
-            SensorSystem.toggle();
-          } else {
-            console.warn('SensorSystem no está listo todavía');
-          }
-        } catch (e) {
-          console.error('Error en toggleSensors:', e);
         }
       }
 
