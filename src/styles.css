@@ -3993,6 +3993,24 @@ footer { max-width: 1184px; margin: auto; border-top: 1px solid var(--line); dis
 .chucho-suggestions { display: flex; flex-wrap: wrap; gap: 8px; padding: 0 16px 16px; }
 .chucho-suggestions button { padding: 6px 12px; background: rgba(119,127,109,0.1); color: var(--ink); border: 1px solid var(--line); border-radius: 16px; font-size: 11px; cursor: pointer; transition: all 0.2s; }
 .chucho-suggestions button:hover { background: var(--coral); color: white; border-color: var(--coral); }
+.chucho-messages { max-height: 400px; overflow-y: auto; padding: 16px; display: flex; flex-direction: column; gap: 10px; }
+.chucho-msg { display: flex; align-items: flex-start; gap: 8px; }
+.chucho-msg-user { justify-content: flex-end; }
+.chucho-msg-icon { color: var(--coral); flex-shrink: 0; margin-top: 4px; }
+.chucho-bubble { max-width: 85%; padding: 10px 14px; border-radius: 12px; font-size: 13px; line-height: 1.5; }
+.chucho-bubble-assistant { background: rgba(119,127,109,0.08); color: var(--ink); border-bottom-left-radius: 4px; }
+.chucho-bubble-user { background: var(--coral); color: white; border-bottom-right-radius: 4px; }
+.chucho-typing { display: flex; gap: 4px; align-items: center; padding: 12px 18px; }
+.chucho-dot { width: 6px; height: 6px; background: #72796d; border-radius: 50%; animation: chuchoBounce 1.4s infinite ease-in-out; }
+.chucho-dot:nth-child(2) { animation-delay: 0.2s; }
+.chucho-dot:nth-child(3) { animation-delay: 0.4s; }
+@keyframes chuchoBounce { 0%, 80%, 100% { transform: scale(0.6); opacity: 0.4; } 40% { transform: scale(1); opacity: 1; } }
+.chucho-quick-actions { padding: 4px 0 8px; }
+.chucho-quick-title { font-size: 12px; color: #72796d; margin: 0 0 10px; text-align: center; }
+.chucho-quick-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.chucho-quick-btn { display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 10px 6px; background: rgba(119,127,109,0.06); border: 1px solid var(--line); border-radius: 10px; cursor: pointer; transition: all 0.2s; font-size: 11px; color: var(--ink); }
+.chucho-quick-btn:hover { background: var(--coral); color: white; border-color: var(--coral); transform: translateY(-2px); }
+.chucho-quick-emoji { font-size: 20px; }
 .chucho-panel form { display: flex; gap: 8px; padding: 12px 16px 16px; border-top: 1px solid var(--line); }
 .chucho-panel input { flex: 1; padding: 8px 12px; border: 1px solid var(--line); border-radius: 6px; font-size: 12px; }
 .chucho-panel button { padding: 8px 12px; background: var(--coral); color: white; border: none; border-radius: 6px; cursor: pointer; }
@@ -5539,4 +5557,89 @@ footer { max-width: 1184px; margin: auto; border-top: 1px solid var(--line); dis
 @media (max-width: 800px) {
   .partner-sites-section { padding: 32px 16px; }
   .partner-cards { grid-template-columns: 1fr; }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   ADVANCED UX/UI - Context-Aware, Generative UI, Agentic, Voice, LOD
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Voice Input */
+.voice-input-container { display: inline-flex; align-items: center; gap: 6px; }
+.voice-btn { position: relative; width: 36px; height: 36px; border-radius: 50%; border: 1.5px solid var(--line); background: #fff; color: var(--ink); display: grid; place-items: center; cursor: pointer; transition: all .2s; }
+.voice-btn:hover { border-color: var(--coral); color: var(--coral); }
+.voice-btn-active { background: var(--coral); border-color: var(--coral); color: #fff; animation: voice-pulse 1.5s infinite; }
+.voice-icon { width: 16px; height: 16px; }
+.voice-pulse { position: absolute; inset: -4px; border-radius: 50%; border: 2px solid var(--coral); animation: voice-ring 1.5s infinite; pointer-events: none; }
+@keyframes voice-pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.08); } }
+@keyframes voice-ring { 0% { opacity: .6; transform: scale(1); } 100% { opacity: 0; transform: scale(1.5); } }
+.voice-interim { display: flex; align-items: center; gap: 4px; padding: 4px 8px; background: #f0f0f0; border-radius: 12px; font-size: 11px; color: #666; max-width: 150px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; animation: voice-fade-in .3s; }
+@keyframes voice-fade-in { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
+
+/* LOD Control */
+.lod-control { display: flex; align-items: center; gap: 6px; }
+.lod-label { font: 9px 'DM Mono'; color: #899084; text-transform: uppercase; }
+.lod-buttons { display: flex; gap: 2px; }
+.lod-btn { width: 24px; height: 24px; border: 1px solid var(--line); background: #fff; color: var(--ink); display: grid; place-items: center; cursor: pointer; transition: all .15s; font-size: 10px; }
+.lod-btn:hover { border-color: var(--coral); color: var(--coral); }
+.lod-btn-active { background: var(--ink); border-color: var(--ink); color: #fff; }
+
+/* Generative UI */
+.gen-ui-restaurant-cards, .gen-ui-hotel-cards, .gen-ui-activities, .gen-ui-route, .gen-ui-transport, .gen-ui-quick-order { padding: 12px; margin: 8px 0; background: #f8f7f4; border: 1px solid var(--line); border-radius: 8px; animation: gen-ui-slide-in .3s ease-out; }
+@keyframes gen-ui-slide-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+.gen-ui-restaurant-cards h4, .gen-ui-hotel-cards h4, .gen-ui-activities h4, .gen-ui-route h4, .gen-ui-transport h4, .gen-ui-quick-order h4 { margin: 0 0 10px; font: 600 13px 'DM Sans', sans-serif; color: var(--ink); }
+.gen-ui-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 8px; }
+.gen-ui-card { border: 1px solid var(--line); background: #fff; cursor: pointer; transition: all .2s; overflow: hidden; }
+.gen-ui-card:hover { border-color: var(--coral); transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,.08); }
+.gen-ui-card-img { width: 100%; height: 80px; object-fit: cover; }
+.gen-ui-card-body { padding: 8px; }
+.gen-ui-card-body strong { display: block; font: 600 12px 'DM Sans', sans-serif; margin-bottom: 4px; }
+.gen-ui-card-meta { display: block; font-size: 10px; color: #899084; }
+.gen-ui-card-price { display: block; font: 600 11px 'DM Mono'; color: var(--coral); margin-top: 4px; }
+.gen-ui-card-rating { display: block; font-size: 11px; color: #f59e0b; }
+.gen-ui-card-action { margin-top: 6px; padding: 4px 8px; border: 1px solid #168a48; background: #168a48; color: #fff; font-size: 10px; font-weight: 600; cursor: pointer; }
+
+/* Route Timeline */
+.gen-ui-timeline { display: flex; flex-direction: column; gap: 0; }
+.gen-ui-timeline-item { display: flex; align-items: center; gap: 10px; padding: 8px 0; border-left: 2px solid var(--line); margin-left: 8px; padding-left: 16px; position: relative; }
+.gen-ui-timeline-item::before { content: ''; position: absolute; left: -5px; width: 8px; height: 8px; border-radius: 50%; background: var(--coral); }
+.gen-ui-timeline-place::before { background: var(--green); }
+.gen-ui-timeline-time { font: 600 11px 'DM Mono'; color: var(--ink); min-width: 70px; }
+.gen-ui-timeline-activity { font-size: 12px; color: #697568; }
+
+/* Transport Options */
+.gen-ui-transport-options { display: flex; flex-direction: column; gap: 8px; }
+.gen-ui-transport-option { display: flex; align-items: center; gap: 10px; padding: 10px; border: 1px solid var(--line); background: #fff; }
+.gen-ui-transport-icon { font-size: 20px; }
+.gen-ui-transport-option strong { display: block; font: 600 12px 'DM Sans', sans-serif; }
+.gen-ui-transport-option p { margin: 2px 0 0; font-size: 11px; color: #697568; }
+
+/* Quick Order */
+.gen-ui-order-list { display: flex; flex-direction: column; gap: 6px; }
+.gen-ui-order-item { display: flex; align-items: center; justify-content: space-between; padding: 8px; border: 1px solid var(--line); background: #fff; }
+.gen-ui-order-item span { font: 500 12px 'DM Sans', sans-serif; }
+.gen-ui-order-btn { padding: 4px 10px; border: 1px solid #168a48; background: #168a48; color: #fff; font-size: 11px; font-weight: 600; cursor: pointer; transition: background .2s; }
+.gen-ui-order-btn:hover { background: #137a3e; }
+
+/* Agentic Action Buttons */
+.chucho-actions { display: flex; flex-wrap: wrap; gap: 6px; padding: 8px 0; }
+.chucho-action-btn { display: inline-flex; align-items: center; gap: 5px; padding: 6px 10px; border: 1.5px solid var(--green); background: #fff; color: var(--green); font: 600 11px 'DM Sans', sans-serif; cursor: pointer; transition: all .2s; border-radius: 4px; }
+.chucho-action-btn:hover { background: var(--green); color: #fff; }
+
+/* Input form with voice */
+.chucho-input-form { display: flex; align-items: center; gap: 6px; padding: 8px 12px; border-top: 1px solid var(--line); background: #fff; }
+.chucho-input-form input { flex: 1; border: none; outline: none; font: 14px 'DM Sans', sans-serif; background: transparent; }
+.chucho-input-form button { width: 32px; height: 32px; border-radius: 50%; border: none; background: var(--ink); color: #fff; display: grid; place-items: center; cursor: pointer; transition: background .2s; }
+.chucho-input-form button:hover { background: var(--coral); }
+
+/* Adaptive Response */
+.adaptive-response { position: relative; }
+.adaptive-text { margin: 0; }
+.adaptive-expand { display: inline-block; margin-top: 4px; padding: 0; border: none; background: none; color: var(--coral); font: 600 11px 'DM Sans', sans-serif; cursor: pointer; text-decoration: underline; text-underline-offset: 2px; }
+.adaptive-expand:hover { color: var(--ink); }
+
+@media (max-width: 600px) {
+  .gen-ui-grid { grid-template-columns: 1fr 1fr; }
+  .gen-ui-card-img { height: 60px; }
+  .lod-label { display: none; }
+  .voice-interim { max-width: 100px; }
 }
