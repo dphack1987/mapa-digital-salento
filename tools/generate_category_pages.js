@@ -249,13 +249,16 @@ function buildSchemaJsonLd(provider) {
       name: 'Salento',
       containedIn: { '@type': 'State', name: 'Quindío' },
     },
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: parseFloat(ratingValue) || 4.8,
-      ratingCount: 12,
-      bestRating: 5,
-      worstRating: 1,
-    },
+    // aggregateRating solo si hay rating REAL (regla Google)
+    ...(ratingValue && parseFloat(ratingValue) > 0 ? {
+      aggregateRating: {
+        '@type': 'AggregateRating',
+        ratingValue: parseFloat(ratingValue),
+        reviewCount: provider.reviewCount || provider.reviews || 1,
+        bestRating: 5,
+        worstRating: 1,
+      },
+    } : {}),
     openingHoursSpecification: provider.verified ? {
       '@type': 'OpeningHoursSpecification',
       dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
