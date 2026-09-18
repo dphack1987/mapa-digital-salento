@@ -1,15 +1,20 @@
 # Restaurante Don Elías
 
 ## Estado
-- Estado actual: ficha inicial
+- Estado actual: ficha sin verificar — negocio no encontrado en fuentes públicas
 - Prioridad: alta
-- Verificación: sin ficha completa
+- Verificación: sin presencia web verificada
 
 ## Información confirmada
-- Nombre comercial: Restaurante Don Elías
+- Nombre comercial: Restaurante Don Elías (nombre reportado pero no verificado)
 - Categoría principal: gastronomía / restaurante
 - Tipo de oferta: cocina local y experiencia gastronómica
 - Enfoque: comida local, visita turística y servicio directo
+- Nota: No se encontró evidencia de un "Restaurante Don Elías" en Salento, Quindío en ninguna fuente pública (Google Maps, TripAdvisor, Instagram, Facebook). Las búsquedas devuelven resultados no relacionados (México).
+
+## Posible relación
+- Podría estar relacionado con "Finca Cafetera Don Elías" (misma familia/propiedad)
+- Si tiene información de contacto, favor confirmar para actualizar la ficha
 
 ## Modelo de pedido directo
 - Canal principal: WhatsApp o contacto directo para pedido o reserva
@@ -41,6 +46,7 @@ Se requieren confirmar:
 - fotos reales
 
 ## Pendientes para completar la ficha pública
+- Confirmar si el negocio existe y está activo
 - Dirección exacta
 - Contacto oficial
 - Descripción del menú y experiencia
@@ -49,7 +55,7 @@ Se requieren confirmar:
 
 ## Criterio para pasar a ficha publicada
 La ficha se considerará lista cuando tenga:
-- nombre comercial claro
+- nombre comercial claro y verificado
 - categoría definida
 - ubicación real
 - contacto verificable
