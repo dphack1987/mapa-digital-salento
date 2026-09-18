@@ -20,3 +20,7 @@ public/pautas/*/info-*.jpeg
 *.log
 *.backup-*.json
 *.log
+
+# Archivos temporales y backups
+screenshot*.png
+*.backup-*
