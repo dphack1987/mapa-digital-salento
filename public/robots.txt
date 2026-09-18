@@ -21,6 +21,9 @@ Disallow: /api/
 Disallow: /private/
 Disallow: /temp/
 
+# Bloquear ruta duplicada de inicio
+Disallow: /salento/
+
 # Google
 User-agent: Googlebot
 Allow: /

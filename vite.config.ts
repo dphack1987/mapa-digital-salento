@@ -51,7 +51,9 @@ export default defineConfig({
   publicDir: 'public',
   server: {
     port: 3000,
-    host: true
+    host: '0.0.0.0', // Permitir acceso desde dispositivos externos
+    strictPort: false,
+    open: false
   },
   optimizeDeps: {
     include: ['react', 'react-dom', 'leaflet', 'lucide-react', 'qrcode'],
