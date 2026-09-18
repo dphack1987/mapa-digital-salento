@@ -113,9 +113,14 @@ class DataService {
           
           if (offlinePlaces.length > 0 && offlineHotels.length > 0) {
             console.log('Loading data from IndexedDB (offline mode)')
+            // Cargar mapMarkers desde mapData store
+            let offlineMarkers: MapMarker[] = []
+            try {
+              offlineMarkers = await offlineStorage.getMapData('mapMarkers') || []
+            } catch {}
             this.dataCache = {
               places: offlinePlaces,
-              mapMarkers: [], // Los marcadores se cargarían de otra fuente
+              mapMarkers: offlineMarkers,
               hotels: offlineHotels,
               productCatalogs: [],
               lastUpdated: new Date().toISOString(),
@@ -177,6 +182,10 @@ class DataService {
         try {
           await offlineStorage.savePlaces(placesData.places)
           await offlineStorage.saveHotels(hotelsData.hotels)
+          // Guardar mapMarkers en IndexedDB para offline
+          if (markersData?.mapMarkers) {
+            await offlineStorage.saveMapData('mapMarkers', markersData.mapMarkers)
+          }
           console.log('Data saved to IndexedDB for offline use')
         } catch (error) {
           console.error('Error saving to IndexedDB:', error)
