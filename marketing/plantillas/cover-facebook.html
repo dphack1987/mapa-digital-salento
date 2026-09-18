@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1640, initial-scale=1.0">
+  <title>Facebook Cover - Salento a la Mano</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      width: 1640px;
+      height: 856px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      overflow: hidden;
+    }
+    
+    .cover {
+      width: 1640px;
+      height: 856px;
+      background: linear-gradient(135deg, #1a5c2e 0%, #2d8a4e 50%, #1a5c2e 100%);
+      position: relative;
+      display: flex;
+      align-items: center;
+      padding: 0 100px;
+    }
+    
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: 
+        radial-gradient(circle at 80% 50%, rgba(255,255,255,0.1) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    
+    .content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+    }
+    
+    .badge {
+      display: inline-block;
+      background: #FFD700;
+      color: #1a5c2e;
+      padding: 12px 32px;
+      border-radius: 30px;
+      font-weight: bold;
+      font-size: 24px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 24px;
+    }
+    
+    .title {
+      font-size: 72px;
+      font-weight: 900;
+      color: white;
+      line-height: 1.1;
+      margin-bottom: 24px;
+    }
+    
+    .title span {
+      color: #FFD700;
+    }
+    
+    .subtitle {
+      font-size: 32px;
+      color: rgba(255,255,255,0.9);
+      margin-bottom: 40px;
+      line-height: 1.4;
+    }
+    
+    .features {
+      display: flex;
+      gap: 32px;
+    }
+    
+    .feature {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: white;
+      font-size: 24px;
+    }
+    
+    .feature-dot {
+      width: 12px;
+      height: 12px;
+      background: #FFD700;
+      border-radius: 50%;
+    }
+    
+    .visual {
+      position: absolute;
+      right: 100px;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 2;
+    }
+    
+    .phone-mockup {
+      width: 300px;
+      height: 600px;
+      background: #111;
+      border-radius: 40px;
+      padding: 20px;
+      box-shadow: 0 40px 80px rgba(0,0,0,0.4);
+      position: relative;
+    }
+    
+    .phone-screen {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(180deg, #2d8a4e 0%, #1a5c2e 100%);
+      border-radius: 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    
+    .phone-icon {
+      font-size: 80px;
+      margin-bottom: 20px;
+    }
+    
+    .phone-text {
+      color: white;
+      font-size: 24px;
+      text-align: center;
+      font-weight: bold;
+    }
+    
+    .phone-url {
+      color: #FFD700;
+      font-size: 18px;
+      margin-top: 10px;
+    }
+    
+    .logo-area {
+      position: absolute;
+      top: 60px;
+      left: 100px;
+      z-index: 2;
+    }
+    
+    .logo-text {
+      color: white;
+      font-size: 28px;
+      font-weight: bold;
+      opacity: 0.8;
+    }
+  </style>
+</head>
+<body>
+  <div class="cover">
+    <div class="overlay"></div>
+    
+    <div class="logo-area">
+      <div class="logo-text">🌿 Salento a la Mano</div>
+    </div>
+    
+    <div class="content">
+      <div class="badge">🛡️ Fuente Oficial Verificada</div>
+      <h1 class="title">Tu Guía<br><span>Oficial</span> de Salento</h1>
+      <p class="subtitle">Información turística verificada en tiempo real contra la desinformación</p>
+      
+      <div class="features">
+        <div class="feature">
+          <div class="feature-dot"></div>
+          <span>Mapa Interactivo</span>
+        </div>
+        <div class="feature">
+          <div class="feature-dot"></div>
+          <span>Asistente Don Chucho</span>
+        </div>
+        <div class="feature">
+          <div class="feature-dot"></div>
+          <span>Modo Offline</span>
+        </div>
+        <div class="feature">
+          <div class="feature-dot"></div>
+          <span>Negocios Verificados</span>
+        </div>
+      </div>
+    </div>
+    
+    <div class="visual">
+      <div class="phone-mockup">
+        <div class="phone-screen">
+          <div class="phone-icon">🗺️</div>
+          <div class="phone-text">Mapa Interactivo</div>
+          <div class="phone-url">salentoalamano.com</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

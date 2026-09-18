@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1080, initial-scale=1.0">
+  <title>Post Instagram - Lanzamiento Salento a la Mano</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      width: 1080px;
+      height: 1080px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      overflow: hidden;
+    }
+    
+    .post {
+      width: 1080px;
+      height: 1080px;
+      background: linear-gradient(135deg, #1a5c2e 0%, #2d8a4e 50%, #1a5c2e 100%);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 60px;
+    }
+    
+    .overlay-pattern {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: 
+        radial-gradient(circle at 20% 30%, rgba(255,255,255,0.1) 0%, transparent 40%),
+        radial-gradient(circle at 80% 70%, rgba(255,255,255,0.08) 0%, transparent 40%);
+      pointer-events: none;
+    }
+    
+    .mountain-silhouette {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 300px;
+      background: linear-gradient(to top, rgba(0,0,0,0.3), transparent);
+    }
+    
+    .mountain-silhouette::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 200px;
+      background: 
+        linear-gradient(135deg, transparent 33%, rgba(255,255,255,0.05) 33%, rgba(255,255,255,0.05) 66%, transparent 66%),
+        linear-gradient(225deg, transparent 33%, rgba(255,255,255,0.05) 33%, rgba(255,255,255,0.05) 66%, transparent 66%);
+    }
+    
+    .header {
+      position: relative;
+      z-index: 2;
+    }
+    
+    .badge {
+      display: inline-block;
+      background: #FFD700;
+      color: #1a5c2e;
+      padding: 12px 24px;
+      border-radius: 30px;
+      font-weight: bold;
+      font-size: 24px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 20px;
+    }
+    
+    .title {
+      font-size: 72px;
+      font-weight: 900;
+      color: white;
+      line-height: 1.1;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+    
+    .title span {
+      color: #FFD700;
+    }
+    
+    .content {
+      position: relative;
+      z-index: 2;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    
+    .features {
+      list-style: none;
+      margin-top: 40px;
+    }
+    
+    .features li {
+      color: white;
+      font-size: 32px;
+      padding: 16px 0;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    
+    .features li::before {
+      content: '✓';
+      background: #FFD700;
+      color: #1a5c2e;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 28px;
+      flex-shrink: 0;
+    }
+    
+    .footer {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+    
+    .cta {
+      background: #FFD700;
+      color: #1a5c2e;
+      padding: 24px 48px;
+      border-radius: 50px;
+      font-size: 28px;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    
+    .url {
+      color: white;
+      font-size: 28px;
+      opacity: 0.9;
+    }
+    
+    .logo-area {
+      position: absolute;
+      top: 60px;
+      right: 60px;
+      z-index: 2;
+    }
+    
+    .logo-area img {
+      width: 120px;
+      height: 120px;
+    }
+    
+    .palm-trees {
+      position: absolute;
+      bottom: 250px;
+      right: 100px;
+      font-size: 180px;
+      opacity: 0.15;
+      z-index: 1;
+    }
+    
+    .hashtags {
+      position: absolute;
+      bottom: 180px;
+      left: 60px;
+      right: 60px;
+      z-index: 2;
+    }
+    
+    .hashtags span {
+      color: rgba(255,255,255,0.7);
+      font-size: 22px;
+      margin-right: 12px;
+    }
+  </style>
+</head>
+<body>
+  <div class="post">
+    <div class="overlay-pattern"></div>
+    <div class="mountain-silhouette"></div>
+    
+    <div class="header">
+      <div class="badge">🛡️ Oficial y Verificado</div>
+      <h1 class="title">SALENTO<br><span>ABIERTO</span><br>AL 100%</h1>
+    </div>
+    
+    <div class="content">
+      <ul class="features">
+        <li>Vías libres y en buen estado</li>
+        <li>Hoteles operativos con disponibilidad</li>
+        <li>Valle de Cocora 100% accesible</li>
+        <li>Turismo seguro y normal</li>
+      </ul>
+    </div>
+    
+    <div class="palm-trees">🌴</div>
+    
+    <div class="hashtags">
+      <span>#SalentoAbierto</span>
+      <span>#ValleDeCocora</span>
+      <span>#TurismoQuindío</span>
+      <span>#ColombiaReal</span>
+    </div>
+    
+    <div class="footer">
+      <div class="cta">MAPA OFICIAL →</div>
+      <div class="url">salentoalamano.com</div>
+    </div>
+  </div>
+</body>
+</html>
