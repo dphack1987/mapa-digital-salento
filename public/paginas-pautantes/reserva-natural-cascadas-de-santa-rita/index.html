@@ -579,30 +579,77 @@
           }
         },
 
-        enable: function() {
+        enable: async function() {
           var self = this;
-          this.enabled = true;
-          console.log('Activando sensores...');
+          console.log('Solicitando permisos de sensores...');
 
-          // Mostrar datos en tiempo real
-          document.getElementById('sensorData').style.display = 'block';
+          // Actualizar UI a estado "solicitando"
+          document.getElementById('sensorToggle').textContent = 'Solicitando...';
+          document.getElementById('sensorToggle').style.background = '#FF9800';
 
-          // Iniciar GPS
-          this.startGPS();
+          try {
+            // 1. Solicitar permiso de orientación (brújula) - iOS 13+
+            if (typeof DeviceOrientationEvent !== 'undefined' && typeof DeviceOrientationEvent.requestPermission === 'function') {
+              console.log('Solicitando permiso de orientación...');
+              var orientPerm = await DeviceOrientationEvent.requestPermission();
+              console.log('Permiso orientación:', orientPerm);
+              if (orientPerm !== 'granted') {
+                alert('Permiso de brújula denegado. Sin este permiso no podrás usar la navegación por brújula.');
+              }
+            }
 
-          // Iniciar brújula
-          this.startCompass();
+            // 2. Solicitar permiso de movimiento (acelerómetro/pasos) - iOS 13+
+            if (typeof DeviceMotionEvent !== 'undefined' && typeof DeviceMotionEvent.requestPermission === 'function') {
+              console.log('Solicitando permiso de movimiento...');
+              var motionPerm = await DeviceMotionEvent.requestPermission();
+              console.log('Permiso movimiento:', motionPerm);
+              if (motionPerm !== 'granted') {
+                alert('Permiso de movimiento denegado. Sin este permiso no podrás usar el contador de pasos.');
+              }
+            }
 
-          // Iniciar contador de pasos
-          this.startStepCounter();
+            // 3. Verificar GPS (geolocation)
+            if (navigator.geolocation) {
+              console.log('Verificando GPS...');
+              navigator.geolocation.getCurrentPosition(
+                function(pos) { 
+                  console.log('GPS OK:', pos.coords.latitude, pos.coords.longitude); 
+                  self.updateSensorStatus('gpsStatus', 'Permitido', '#4CAF50');
+                },
+                function(err) { 
+                  console.warn('GPS error:', err.message); 
+                  self.updateSensorStatus('gpsStatus', 'Error: ' + err.message, '#F44336');
+                  alert('Error de GPS: ' + err.message + '. Por favor habilita el GPS en tu dispositivo.');
+                },
+                { enableHighAccuracy: true, timeout: 10000 }
+              );
+            } else {
+              alert('Tu dispositivo no soporta GPS. No podrás usar la navegación GPS.');
+            }
 
-          // Iniciar batería
-          this.startBattery();
+            // 4. Activar sensores
+            this.enabled = true;
+            document.getElementById('sensorData').style.display = 'block';
 
-          // Iniciar sensor de luz
-          this.startLightSensor();
+            this.startGPS();
+            this.startCompass();
+            this.startStepCounter();
+            this.startBattery();
+            this.startLightSensor();
 
-          console.log('Sensores activados');
+            // Actualizar UI
+            document.getElementById('sensorToggle').textContent = 'Desactivar';
+            document.getElementById('sensorToggle').style.background = '#F44336';
+
+            console.log('Sensores activados correctamente');
+            alert('✅ Sensores activados. Puedes comenzar la navegación GPS.');
+
+          } catch (err) {
+            console.error('Error activando sensores:', err);
+            alert('Error al activar sensores: ' + err.message);
+            document.getElementById('sensorToggle').textContent = 'Activar';
+            document.getElementById('sensorToggle').style.background = '#4CAF50';
+          }
         },
 
         disable: function() {
