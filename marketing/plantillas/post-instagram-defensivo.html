@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1080, initial-scale=1.0">
+  <title>Post Instagram - Defensivo Contra Desinformación</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      width: 1080px;
+      height: 1080px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      overflow: hidden;
+    }
+    
+    .post {
+      width: 1080px;
+      height: 1080px;
+      background: linear-gradient(135deg, #1a365d 0%, #2c5282 50%, #1a365d 100%);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      padding: 60px;
+    }
+    
+    .warning-stripe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 20px;
+      background: repeating-linear-gradient(
+        45deg,
+        #FFD700,
+        #FFD700 20px,
+        #1a365d 20px,
+        #1a365d 40px
+      );
+    }
+    
+    .header {
+      margin-top: 40px;
+      margin-bottom: 40px;
+    }
+    
+    .alert-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: #e53e3e;
+      color: white;
+      padding: 16px 32px;
+      border-radius: 8px;
+      font-weight: bold;
+      font-size: 28px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 24px;
+    }
+    
+    .title {
+      font-size: 64px;
+      font-weight: 900;
+      color: white;
+      line-height: 1.1;
+    }
+    
+    .title span {
+      color: #FFD700;
+    }
+    
+    .content {
+      flex: 1;
+      display: flex;
+      gap: 60px;
+    }
+    
+    .truth-column, .lies-column {
+      flex: 1;
+    }
+    
+    .column-header {
+      font-size: 32px;
+      font-weight: bold;
+      padding: 16px 24px;
+      margin-bottom: 24px;
+      border-radius: 8px;
+    }
+    
+    .truth-column .column-header {
+      background: #38a169;
+      color: white;
+    }
+    
+    .lies-column .column-header {
+      background: #e53e3e;
+      color: white;
+    }
+    
+    .column-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 20px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    
+    .column-item:last-child {
+      border-bottom: none;
+    }
+    
+    .truth-column .column-item {
+      color: white;
+      font-size: 28px;
+    }
+    
+    .lies-column .column-item {
+      color: rgba(255,255,255,0.7);
+      font-size: 24px;
+    }
+    
+    .icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      flex-shrink: 0;
+    }
+    
+    .truth-column .icon {
+      background: #38a169;
+    }
+    
+    .lies-column .icon {
+      background: #e53e3e;
+    }
+    
+    .divider {
+      width: 4px;
+      background: rgba(255,255,255,0.2);
+      border-radius: 2px;
+    }
+    
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 40px;
+      padding-top: 40px;
+      border-top: 2px solid rgba(255,255,255,0.1);
+    }
+    
+    .cta {
+      background: #FFD700;
+      color: #1a365d;
+      padding: 24px 48px;
+      border-radius: 50px;
+      font-size: 28px;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+    
+    .url {
+      color: white;
+      font-size: 32px;
+      font-weight: bold;
+    }
+    
+    .shield-icon {
+      position: absolute;
+      top: 60px;
+      right: 60px;
+      font-size: 120px;
+      opacity: 0.2;
+    }
+  </style>
+</head>
+<body>
+  <div class="post">
+    <div class="warning-stripe"></div>
+    <div class="shield-icon">🛡️</div>
+    
+    <div class="header">
+      <div class="alert-badge">⚠️ Información Oficial</div>
+      <h1 class="title">NO A LA<br><span>DESINFORMACIÓN</span></h1>
+    </div>
+    
+    <div class="content">
+      <div class="truth-column">
+        <div class="column-header">✅ VERDAD OFICIAL</div>
+        <div class="column-item">
+          <div class="icon">✓</div>
+          <div>Vías principales abiertas y operativas</div>
+        </div>
+        <div class="column-item">
+          <div class="icon">✓</div>
+          <div>Valle de Cocora 100% accesible</div>
+        </div>
+        <div class="column-item">
+          <div class="icon">✓</div>
+          <div>Hoteles funcionando normalmente</div>
+        </div>
+        <div class="column-item">
+          <div class="icon">✓</div>
+          <div>Seguridad nivel normal para turismo</div>
+        </div>
+      </div>
+      
+      <div class="divider"></div>
+      
+      <div class="lies-column">
+        <div class="column-header">❌ RUMORES FALSOS</div>
+        <div class="column-item">
+          <div class="icon">✗</div>
+          <div>Videos viejos reutilizados</div>
+        </div>
+        <div class="column-item">
+          <div class="icon">✗</div>
+          <div>Información descontextualizada</div>
+        </div>
+        <div class="column-item">
+          <div class="icon">✗</div>
+          <div>Contenido viral sin verificación</div>
+        </div>
+        <div class="column-item">
+          <div class="icon">✗</div>
+          <div>Buscadores desactualizados</div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer">
+      <div class="cta">CONSULTA FUENTES OFICIALES</div>
+      <div class="url">salentoalamano.com</div>
+    </div>
+  </div>
+</body>
+</html>
