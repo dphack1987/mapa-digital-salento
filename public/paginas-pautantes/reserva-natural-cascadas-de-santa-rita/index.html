@@ -570,19 +570,22 @@
         toggle: function() {
           if (this.enabled) {
             this.disable();
+            document.getElementById('sensorToggle').textContent = 'Activar';
+            document.getElementById('sensorToggle').style.background = '#4CAF50';
           } else {
             this.enable();
+            document.getElementById('sensorToggle').textContent = 'Desactivar';
+            document.getElementById('sensorToggle').style.background = '#F44336';
           }
         },
 
         enable: function() {
           var self = this;
           this.enabled = true;
+          console.log('Activando sensores...');
 
-          document.getElementById('sensorToggle').textContent = 'Desactivar';
-          document.getElementById('sensorToggle').style.background = '#F44336';
+          // Mostrar datos en tiempo real
           document.getElementById('sensorData').style.display = 'block';
-          document.getElementById('sensorInstructions').style.display = 'none';
 
           // Iniciar GPS
           this.startGPS();
@@ -590,11 +593,38 @@
           // Iniciar brújula
           this.startCompass();
 
-          // Iniciar acelerómetro
-          this.startAccelerometer();
+          // Iniciar contador de pasos
+          this.startStepCounter();
 
-          // Vibiar para confirmar
-          if (navigator.vibrate) navigator.vibrate(100);
+          // Iniciar batería
+          this.startBattery();
+
+          // Iniciar sensor de luz
+          this.startLightSensor();
+
+          console.log('Sensores activados');
+        },
+
+        disable: function() {
+          this.enabled = false;
+          console.log('Desactivando sensores...');
+
+          // Detener GPS
+          if (this.gpsWatch) {
+            navigator.geolocation.clearWatch(this.gpsWatch);
+            this.gpsWatch = null;
+          }
+
+          // Ocultar datos en tiempo real
+          document.getElementById('sensorData').style.display = 'none';
+
+          // Resetear estados
+          this.updateSensorStatus('gpsStatus', 'Inactivo', '#F44336');
+          this.updateSensorStatus('compassStatus', 'Inactivo', '#F44336');
+          this.updateSensorStatus('stepsStatus', '0 pasos', '#F44336');
+          this.updateSensorStatus('altitudeStatus', '-- m', '#F44336');
+
+          console.log('Sensores desactivados');
         },
 
         disable: function() {
@@ -611,7 +641,6 @@
           document.getElementById('sensorToggle').textContent = 'Activar';
           document.getElementById('sensorToggle').style.background = '#4CAF50';
           document.getElementById('sensorData').style.display = 'none';
-          document.getElementById('sensorInstructions').style.display = 'block';
 
           this.updateSensorStatus('gpsStatus', 'Inactivo', '#F44336');
           this.updateSensorStatus('compassStatus', 'Inactivo', '#F44336');
