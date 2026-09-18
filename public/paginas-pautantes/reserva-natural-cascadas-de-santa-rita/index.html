@@ -1079,52 +1079,18 @@
       // Función global para toggle
       async function toggleSensors() {
         try {
-          // 1. Verificar SensorSystem
+          console.log('toggleSensors llamado');
+          
+          // Verificar SensorSystem
           if (typeof SensorSystem === 'undefined' || !SensorSystem) {
-            console.warn('SensorSystem no está listo');
+            console.error('SensorSystem no está definido');
+            alert('Error: Sistema de sensores no disponible');
             return;
           }
 
-          // 2. Si está desactivado, pedir permisos iOS ANTES de activar
-          if (!SensorSystem.enabled) {
-            // Permiso de orientación (brújula) - iOS 13+
-            if (typeof DeviceOrientationEvent !== 'undefined' && typeof DeviceOrientationEvent.requestPermission === 'function') {
-              try {
-                var orientPerm = await DeviceOrientationEvent.requestPermission();
-                console.log('Permiso orientación:', orientPerm);
-                if (orientPerm !== 'granted') {
-                  console.warn('Permiso de brújula denegado');
-                }
-              } catch (err) {
-                console.warn('Error pidiendo permiso orientación:', err);
-              }
-            }
-
-            // Permiso de movimiento (acelerómetro/pasos) - iOS 13+
-            if (typeof DeviceMotionEvent !== 'undefined' && typeof DeviceMotionEvent.requestPermission === 'function') {
-              try {
-                var motionPerm = await DeviceMotionEvent.requestPermission();
-                console.log('Permiso movimiento:', motionPerm);
-                if (motionPerm !== 'granted') {
-                  console.warn('Permiso de acelerómetro denegado');
-                }
-              } catch (err) {
-                console.warn('Error pidiendo permiso movimiento:', err);
-              }
-            }
-
-            // Permiso de GPS (geolocation)
-            if (navigator.geolocation) {
-              navigator.geolocation.getCurrentPosition(
-                function(pos) { console.log('GPS OK:', pos.coords.latitude, pos.coords.longitude); },
-                function(err) { console.warn('GPS error:', err.message); },
-                { enableHighAccuracy: true, timeout: 5000 }
-              );
-            }
-          }
-
-          // 3. Activar o desactivar
-          SensorSystem.toggle();
+          console.log('Llamando a SensorSystem.toggle()');
+          await SensorSystem.toggle();
+          console.log('SensorSystem.toggle() completado');
 
         } catch (e) {
           console.error('Error en toggleSensors:', e);
