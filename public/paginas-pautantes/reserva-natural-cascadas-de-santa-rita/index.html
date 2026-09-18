@@ -279,16 +279,18 @@
           <div id="sensorData" style="display:none;background:rgba(76,175,80,0.1);border-radius:8px;padding:12px;font-family:monospace;font-size:11px;">
             <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;">
               <div>📍 Posición: <span id="currentLat">--</span>, <span id="currentLng">--</span></div>
-              <div>🧭 Rumbo: <span id="currentHeading">--</span>°</div>
-              <div>👣 Pasos: <span id="totalSteps">0</span></div>
-              <div>📏 Distancia: <span id="totalDistance">0</span> m</div>
+              <div>🧭 Rumbo: <span id="headingDisplay">--</span>°</div>
+              <div>📏 Distancia: <span id="totalDistance">0</span> km</div>
+              <div>⚡ Velocidad: <span id="speedDisplay">--</span> km/h</div>
               <div>⛰️ Altitud: <span id="currentAlt">--</span> m</div>
               <div>🔋 Batería: <span id="batteryLevel">--</span>%</div>
-              <div>💡 Luz: <span id="lightLevel">--</span> lux</div>
               <div>📊 Precisión GPS: <span id="gpsAccuracy">--</span> m</div>
-              <div>⚡ Precisión: <span id="gpsAccuracy">--</span> m</div>
+              <div>⏱ Tiempo est.: <span id="estimatedTime">--</span></div>
             </div>
           </div>
+
+          <!-- Sugerencias GPS -->
+          <div id="gpsSuggestion" style="display:none;margin-top:8px;padding:8px;background:rgba(255,152,0,0.1);border:1px solid #FF9800;border-radius:6px;font-size:11px;color:#FF9800;"></div>
 
           <!-- Alerta de waypoint cercano -->
           <div id="waypointAlert" style="display:none;margin-top:10px;padding:10px;background:rgba(255,235,59,0.2);border:1px solid #FFEB3B;border-radius:8px;">
@@ -305,6 +307,7 @@
           <div id="sensorInstructions" style="margin-top:10px;font-size:11px;color:#aaa;">
             <p style="margin:0;">⚠️ Para usar los sensores, debes dar permisos cuando el navegador lo solicite.</p>
             <p style="margin:4px 0 0;">Los datos se guardan localmente y NO se envían a ningún servidor.</p>
+            <p style="margin:4px 0 0;">🌲 Optimizado para senderismo en zonas de montaña con señal intermitente.</p>
           </div>
         </div>
 
@@ -513,7 +516,7 @@
       const SensorSystem = {
         enabled: false,
         gpsWatch: null,
-        position: { lat: null, lng: null, alt: null, accuracy: null },
+        position: { lat: null, lng: null, alt: null, accuracy: null, speed: null, heading: null },
         heading: 0,
         steps: 0,
         totalDistance: 0,
@@ -525,7 +528,8 @@
         batteryAlertShown: false,
         lightLevel: null,
         speed: 0,
-        lastPositionTime: null
+        lastPositionTime: null,
+        lastAlertWaypoint: null
 
         // Coordenadas de waypoints (para alertas de proximidad)
         waypoints: [
@@ -685,7 +689,7 @@
           console.log('GPS desactivado');
         },
 
-        // ═══════ GPS SIMPLIFICADO ═══════
+        // ═══════ GPS OPTIMIZADO PARA SENDERISMO OFFLINE ═══════
         startGPS: function() {
           var self = this;
 
@@ -694,6 +698,7 @@
             return;
           }
 
+          // Configuración optimizada para senderismo en montaña
           this.gpsWatch = navigator.geolocation.watchPosition(
             function(pos) {
               self.lastPosition = { lat: self.position.lat, lng: self.position.lng };
@@ -703,35 +708,149 @@
               self.position.lng = pos.coords.longitude;
               self.position.alt = pos.coords.altitude;
               self.position.accuracy = pos.coords.accuracy;
+              self.position.speed = pos.coords.speed;
+              self.position.heading = pos.coords.heading;
+
+              // Guardar track para revisión posterior
+              self.saveTrackPoint(pos);
 
               self.updateGPSDisplay();
               self.updatePositionOnMap();
               self.checkWaypointProximity();
+              self.checkRouteProgress();
             },
             function(err) {
               console.log('GPS Error:', err.message);
-              self.updateSensorStatus('gpsStatus', 'Error: ' + err.message, '#F44336');
+              self.handleGPSError(err);
             },
             {
-              enableHighAccuracy: true,
-              maximumAge: 5000,
-              timeout: 15000
+              enableHighAccuracy: true,          // GPS preciso para senderismo
+              maximumAge: 10000,                 // Aceptar posiciones de 10s (zonas con mala señal)
+              timeout: 30000,                     // Timeout más largo para montaña
+              distanceFilter: 5                   // Actualizar solo cada 5 metros (ahorro batería)
             }
           );
 
-          this.updateSensorStatus('gpsStatus', 'Buscando...', '#FFEB3B');
+          this.updateSensorStatus('gpsStatus', 'Buscando señal...', '#FFEB3B');
         },
 
         updateGPSDisplay: function() {
           if (this.position.lat) {
-            this.updateSensorStatus('gpsStatus', 'Activo ✓', '#4CAF50');
-            document.getElementById('currentLat').textContent = this.position.lat.toFixed(4);
-            document.getElementById('currentLng').textContent = this.position.lng.toFixed(4);
-            document.getElementById('gpsAccuracy').textContent = this.position.accuracy ? this.position.accuracy.toFixed(0) : '--';
+            // Indicador de calidad de señal
+            var signalQuality = this.getSignalQuality(this.position.accuracy);
+            this.updateSensorStatus('gpsStatus', 'Activo ✓ ' + signalQuality, signalQuality.color);
+            
+            document.getElementById('currentLat').textContent = this.position.lat.toFixed(6);
+            document.getElementById('currentLng').textContent = this.position.lng.toFixed(6);
+            document.getElementById('currentAlt').textContent = this.position.alt ? this.position.alt.toFixed(0) + ' m' : '--';
+            document.getElementById('gpsAccuracy').textContent = this.position.accuracy ? this.position.accuracy.toFixed(0) + ' m' : '--';
+            
+            // Mostrar velocidad y dirección si están disponibles
+            if (this.position.speed) {
+              document.getElementById('speedDisplay').textContent = (this.position.speed * 3.6).toFixed(1) + ' km/h';
+            }
+            if (this.position.heading) {
+              document.getElementById('headingDisplay').textContent = this.position.heading.toFixed(0) + '°';
+            }
           }
-          if (this.position.alt) {
-            document.getElementById('currentAlt').textContent = this.position.alt.toFixed(0);
-            this.updateSensorStatus('altitudeStatus', this.position.alt.toFixed(0) + ' m', '#4CAF50');
+        },
+
+        // ═══════ FUNCIONES OPTIMIZADAS PARA SENDERISMO ═══════
+        getSignalQuality: function(accuracy) {
+          if (!accuracy) return { text: '', color: '#4CAF50' };
+          if (accuracy < 10) return { text: '(Excelente)', color: '#4CAF50' };
+          if (accuracy < 20) return { text: '(Bueno)', color: '#8BC34A' };
+          if (accuracy < 50) return { text: '(Regular)', color: '#FFC107' };
+          return { text: '(Débil)', color: '#FF5722' };
+        },
+
+        handleGPSError: function(err) {
+          var errorMessage = '';
+          var suggestions = '';
+
+          switch(err.code) {
+            case 1: // PERMISSION_DENIED
+              errorMessage = 'Permiso denegado';
+              suggestions = 'Habilita GPS y permite acceso a ubicación en Chrome';
+              break;
+            case 2: // POSITION_UNAVAILABLE
+              errorMessage = 'GPS no disponible';
+              suggestions = 'Ve a zona abierta. En montaña la señal puede ser intermitente';
+              break;
+            case 3: // TIMEOUT
+              errorMessage = 'Timeout GPS';
+              suggestions = 'Espera más tiempo. En zonas boscosas el GPS tarda más';
+              break;
+            default:
+              errorMessage = 'Error GPS: ' + err.message;
+              suggestions = 'Intenta reiniciar GPS o moverte a zona con mejor cobertura';
+          }
+
+          this.updateSensorStatus('gpsStatus', errorMessage, '#F44336');
+          console.warn('GPS Error:', errorMessage, '-', suggestions);
+          
+          // Mostrar sugerencias en UI si es posible
+          var suggestionElement = document.getElementById('gpsSuggestion');
+          if (suggestionElement) {
+            suggestionElement.textContent = '💡 ' + suggestions;
+            suggestionElement.style.display = 'block';
+          }
+        },
+
+        saveTrackPoint: function(pos) {
+          // Guardar puntos del track para revisión posterior y compartir
+          var trackPoint = {
+            lat: pos.coords.latitude,
+            lng: pos.coords.longitude,
+            alt: pos.coords.altitude,
+            accuracy: pos.coords.accuracy,
+            timestamp: Date.now()
+          };
+
+          // Usar localStorage para persistencia offline
+          var currentTrack = JSON.parse(localStorage.getItem('santaRitaTrack') || '[]');
+          currentTrack.push(trackPoint);
+          
+          // Limitar a últimos 1000 puntos para no saturar memoria
+          if (currentTrack.length > 1000) {
+            currentTrack = currentTrack.slice(-1000);
+          }
+          
+          localStorage.setItem('santaRitaTrack', JSON.stringify(currentTrack));
+        },
+
+        checkRouteProgress: function() {
+          // Calcular progreso en la ruta de Santa Rita
+          if (!this.position.lat || !this.lastPosition) return;
+
+          var distanceTraveled = this.haversineDistance(
+            this.lastPosition.lat, this.lastPosition.lng,
+            this.position.lat, this.position.lng
+          );
+
+          this.totalDistance += distanceTraveled;
+
+          // Actualizar display de distancia
+          var distanceElement = document.getElementById('totalDistance');
+          if (distanceElement) {
+            distanceElement.textContent = this.totalDistance.toFixed(1) + ' km';
+          }
+
+          // Estimar tiempo restante basado en velocidad promedio
+          if (this.position.speed && this.position.speed > 0.5) {
+            var avgSpeed = this.position.speed; // m/s
+            var remainingDistance = 6.7 - (this.totalDistance / 1000); // 6.7km total
+            if (remainingDistance > 0) {
+              var estimatedTime = (remainingDistance * 1000) / avgSpeed; // segundos
+              var hours = Math.floor(estimatedTime / 3600);
+              var minutes = Math.floor((estimatedTime % 3600) / 60);
+              var timeString = hours > 0 ? hours + 'h ' + minutes + 'min' : minutes + ' min';
+              
+              var timeElement = document.getElementById('estimatedTime');
+              if (timeElement) {
+                timeElement.textContent = timeString;
+              }
+            }
           }
         },
 
