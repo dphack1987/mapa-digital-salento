@@ -581,64 +581,78 @@
 
         enable: async function() {
           var self = this;
-          console.log('Activando sensores para Android...');
+          console.log('Activando GPS para navegación offline...');
 
           // Actualizar UI a estado "activando"
           document.getElementById('sensorToggle').textContent = 'Activando...';
           document.getElementById('sensorToggle').style.background = '#FF9800';
 
           try {
-            // Android no requiere permisos explícitos para brújula/acelerómetro
-            // Solo GPS requiere permisos en Android
-
+            // En la web, GPS es el sensor más confiable
+            // Los otros sensores (brújula, acelerómetro) tienen muchas limitaciones en navegadores web
             if (navigator.geolocation) {
-              console.log('Verificando GPS en Android...');
+              console.log('Solicitando GPS...');
+              
               navigator.geolocation.getCurrentPosition(
                 function(pos) { 
-                  console.log('GPS OK:', pos.coords.latitude, pos.coords.longitude); 
-                  self.updateSensorStatus('gpsStatus', 'Activo', '#4CAF50');
+                  console.log('GPS OK:', pos.coords.latitude, pos.coords.longitude, pos.coords.altitude); 
+                  
+                  self.position.lat = pos.coords.latitude;
+                  self.position.lng = pos.coords.longitude;
+                  self.position.alt = pos.coords.altitude;
+                  self.position.accuracy = pos.coords.accuracy;
+                  
+                  self.updateSensorStatus('gpsStatus', 'Activo ✓', '#4CAF50');
+                  document.getElementById('currentLat').textContent = pos.coords.latitude.toFixed(6);
+                  document.getElementById('currentLng').textContent = pos.coords.longitude.toFixed(6);
+                  document.getElementById('currentAlt').textContent = pos.coords.altitude ? pos.coords.altitude.toFixed(0) + ' m' : '--';
+                  document.getElementById('gpsAccuracy').textContent = pos.coords.accuracy.toFixed(0) + ' m';
+                  
+                  // Activar solo sensores que funcionan en web
+                  self.startBattery();
+                  
+                  self.enabled = true;
+                  document.getElementById('sensorData').style.display = 'block';
+                  document.getElementById('sensorToggle').textContent = 'Desactivar';
+                  document.getElementById('sensorToggle').style.background = '#F44336';
+                  
+                  self.updatePositionOnMap();
+                  self.checkWaypointProximity();
+                  
+                  console.log('GPS activado correctamente');
+                  alert('✅ GPS activado. Tu posición está siendo rastreada. El sistema te alertará cuando te acerques a puntos de interés.');
                 },
                 function(err) { 
                   console.warn('GPS error:', err.message); 
-                  self.updateSensorStatus('gpsStatus', 'Error: ' + err.message, '#F44336');
+                  self.updateSensorStatus('gpsStatus', 'Error', '#F44336');
                   
                   if (err.code === 1) {
-                    alert('GPS denegado. Por favor habilita el GPS en tu dispositivo y permite que el navegador acceda a tu ubicación.');
+                    alert('❌ GPS denegado. Para usar la navegación GPS, debes:\n1. Habilitar GPS en tu dispositivo\n2. Permitir que Chrome acceda a tu ubicación\n3. Recargar la página');
                   } else if (err.code === 2) {
-                    alert('GPS no disponible. Por favor habilita el GPS en tu dispositivo.');
+                    alert('❌ GPS no disponible. Por favor habilita el GPS en tu dispositivo y verifica que tengas señal.');
                   } else if (err.code === 3) {
-                    alert('GPS timeout. Por favor verifica que tengas señal GPS.');
+                    alert('❌ GPS timeout. El GPS está tardando mucho. Por favor:\n1. Ve a un lugar con mejor señal\n2. Verifica que el GPS esté habilitado\n3. Intenta nuevamente');
                   } else {
-                    alert('Error de GPS: ' + err.message);
+                    alert('❌ Error de GPS: ' + err.message);
                   }
+                  
+                  document.getElementById('sensorToggle').textContent = 'Activar';
+                  document.getElementById('sensorToggle').style.background = '#4CAF50';
                 },
-                { enableHighAccuracy: true, timeout: 15000 }
+                { 
+                  enableHighAccuracy: true, 
+                  timeout: 20000,
+                  maximumAge: 0 
+                }
               );
             } else {
-              alert('Tu dispositivo no soporta GPS. No podrás usar la navegación GPS.');
+              alert('❌ Tu dispositivo no soporta GPS. No podrás usar la navegación GPS.');
               return;
             }
 
-            // Activar sensores (Android no requiere permisos explícitos)
-            this.enabled = true;
-            document.getElementById('sensorData').style.display = 'block';
-
-            this.startGPS();
-            this.startCompass();
-            this.startStepCounter();
-            this.startBattery();
-            this.startLightSensor();
-
-            // Actualizar UI
-            document.getElementById('sensorToggle').textContent = 'Desactivar';
-            document.getElementById('sensorToggle').style.background = '#F44336';
-
-            console.log('Sensores activados para Android');
-            alert('✅ Sensores activados. GPS, brújula y pasos activos. El GPS puede tardar unos segundos en obtener la posición.');
-
           } catch (err) {
-            console.error('Error activando sensores:', err);
-            alert('Error al activar sensores: ' + err.message);
+            console.error('Error activando GPS:', err);
+            alert('Error al activar GPS: ' + err.message);
             document.getElementById('sensorToggle').textContent = 'Activar';
             document.getElementById('sensorToggle').style.background = '#4CAF50';
           }
@@ -646,7 +660,7 @@
 
         disable: function() {
           this.enabled = false;
-          console.log('Desactivando sensores...');
+          console.log('Desactivando GPS...');
 
           // Detener GPS
           if (this.gpsWatch) {
@@ -662,32 +676,16 @@
           this.updateSensorStatus('compassStatus', 'Inactivo', '#F44336');
           this.updateSensorStatus('stepsStatus', '0 pasos', '#F44336');
           this.updateSensorStatus('altitudeStatus', '-- m', '#F44336');
-
-          console.log('Sensores desactivados');
-        },
-
-        disable: function() {
-          this.enabled = false;
-
-          if (this.gpsWatch) {
-            navigator.geolocation.clearWatch(this.gpsWatch);
-            this.gpsWatch = null;
-          }
-
-          window.removeEventListener('deviceorientation', this._orientationHandler);
-          window.removeEventListener('devicemotion', this._motionHandler);
+          this.updateSensorStatus('batteryStatus', '--%', '#F44336');
+          this.updateSensorStatus('lightStatus', '-- lux', '#F44336');
 
           document.getElementById('sensorToggle').textContent = 'Activar';
           document.getElementById('sensorToggle').style.background = '#4CAF50';
-          document.getElementById('sensorData').style.display = 'none';
 
-          this.updateSensorStatus('gpsStatus', 'Inactivo', '#F44336');
-          this.updateSensorStatus('compassStatus', 'Inactivo', '#F44336');
-          this.updateSensorStatus('stepsStatus', '0 pasos', '#F44336');
-          this.updateSensorStatus('altitudeStatus', '-- m', '#F44336');
+          console.log('GPS desactivado');
         },
 
-        // ═══════ GPS ═══════
+        // ═══════ GPS SIMPLIFICADO ═══════
         startGPS: function() {
           var self = this;
 
@@ -706,11 +704,9 @@
               self.position.alt = pos.coords.altitude;
               self.position.accuracy = pos.coords.accuracy;
 
-              self.speed = self.calculateSpeed();
               self.updateGPSDisplay();
               self.updatePositionOnMap();
               self.checkWaypointProximity();
-              self.calculateDistance();
             },
             function(err) {
               console.log('GPS Error:', err.message);
@@ -728,7 +724,7 @@
 
         updateGPSDisplay: function() {
           if (this.position.lat) {
-            this.updateSensorStatus('gpsStatus', 'Activo', '#4CAF50');
+            this.updateSensorStatus('gpsStatus', 'Activo ✓', '#4CAF50');
             document.getElementById('currentLat').textContent = this.position.lat.toFixed(4);
             document.getElementById('currentLng').textContent = this.position.lng.toFixed(4);
             document.getElementById('gpsAccuracy').textContent = this.position.accuracy ? this.position.accuracy.toFixed(0) : '--';
