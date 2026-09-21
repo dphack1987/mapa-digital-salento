@@ -347,8 +347,20 @@
       ],
       "tone": "success",
       "note": "Punto de Encuentro Jeeps Willys Plaza"
+    },
+    {
+      "id": 32,
+      "label": "Mahalo Hostel Salento",
+      "type": "Turístico",
+      "placeId": 32,
+      "coord": [
+        4.6352,
+        -75.5695
+      ],
+      "tone": "primary",
+      "note": "Hostel boutique con jacuzzi y vista al mirador"
     }
   ],
-  "lastUpdated": "2026-09-07T00:00:00.000Z",
+  "lastUpdated": "2026-09-21T00:00:00.000Z",
   "version": "2.0.0-pautantes-only"
 }

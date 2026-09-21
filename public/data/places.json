@@ -1964,8 +1964,141 @@
         "/imagenes-salento/pueblo.jpg",
         "/imagenes-salento/destinos-75.png"
       ]
+    },
+    {
+      "id": 32,
+      "name": "Mahalo Hostel Salento",
+      "type": "Alojamientos",
+      "description": "Desde 2020, Mahalo Hostel ofrece a los viajeros una experiencia auténtica en el corazón del Quindío. 11 habitaciones con jacuzzi, desayuno, fogata al aire libre y vista a la montaña. Donde la hospitalidad quindiana cobra vida.",
+      "priceRange": "$$$",
+      "rating": "7.7",
+      "timeInfo": "Check-in 3:00 PM / Check-out 12:00 PM",
+      "badge": "Hostal",
+      "color": "sage",
+      "icon": "Hotel",
+      "contact": {
+        "phone": "+57 322 855 1504",
+        "whatsapp": "573228551504",
+        "email": "infomahalohostel@gmail.com",
+        "website": "https://mahalohostel.co/",
+        "instagram": "@mahalohostelsalento",
+        "facebook": "https://www.facebook.com/profile.php?id=100063911436044"
+      },
+      "location": {
+        "lat": 4.6352,
+        "lng": -75.5695,
+        "address": "Calle 2 # 6-08, Salento, Quindío",
+        "landmark": "A 200m del Mirador de Salento y Yo Amo Salento"
+      },
+      "operatingHours": {
+        "notes": "Recepción 24 horas. Check-in: 15:00-23:00. Check-out: 06:00-12:00"
+      },
+      "tags": [
+        "hostel",
+        "hostal",
+        "jacuzzi",
+        "mirador",
+        "centro",
+        "salento",
+        "fogata",
+        "netflix",
+        "wifi",
+        "desayuno",
+        "montaña",
+        "parejas",
+        "familias"
+      ],
+      "verified": true,
+      "active": true,
+      "accommodationDetails": {
+        "categoryLabel": "Hostel boutique · Jacuzzi · Fogata · Vista a la montaña",
+        "roomTypes": [
+          "Suite Deluxe (Hab 5)",
+          "Suite Deluxe II (Hab 7)",
+          "Dobles (Habs 6, 8, 9)",
+          "Habitaciones 1, 2, 3",
+          "Habitación 4",
+          "Habitación 14",
+          "Habitación 15",
+          "Habitaciones 11, 12, 13",
+          "Habitación 16",
+          "Familiar C2",
+          "Familiar C3"
+        ],
+        "services": [
+          "Wi-Fi gratis",
+          "Netflix",
+          "Fogata al aire libre",
+          "Juegos de mesa",
+          "Desayuno",
+          "Avistamiento a la montaña",
+          "Recepción 24 horas"
+        ],
+        "roomFeatures": [
+          "Jacuzzi en suites",
+          "Vista a la montaña",
+          "Baño privado en algunas",
+          "Netflix",
+          "WiFi gratis"
+        ],
+        "nearby": [
+          "Mirador de Salento · 200m",
+          "Yo Amo Salento · 200m",
+          "Alto de la Cruz · 200m",
+          "Plaza de Bolívar · 350m",
+          "Calle Real · 5 min caminando",
+          "Terminal Jeeps · 5 min caminando",
+          "Cascada Santa Rita · 400m"
+        ],
+        "policies": [
+          "Check-in: 15:00",
+          "Check-out: 12:00",
+          "No se admiten mascotas",
+          "Pago en efectivo"
+        ],
+        "checkIn": "15:00",
+        "checkOut": "12:00",
+        "amenities": [
+          "WiFi gratis",
+          "Netflix",
+          "Fogata",
+          "Juegos de mesa",
+          "Desayuno",
+          "Jacuzzi en suites"
+        ],
+        "capacity": "11 habitaciones",
+        "bookingNotes": "Reservar por WhatsApp al +57 322 855 1504. Suite Deluxe desde $250 USD/noche."
+      },
+      "photos": [
+        "/pautas/mahalo_hostel/imagenes/151829511_115398783872298_53747583158063699_n.webp",
+        "/pautas/mahalo_hostel/imagenes/suitedeluxehab5.webp",
+        "/pautas/mahalo_hostel/imagenes/suitedeluxeIIhab7.webp",
+        "/pautas/mahalo_hostel/imagenes/familiarc2.webp",
+        "/pautas/mahalo_hostel/imagenes/familiarc3.webp",
+        "/pautas/mahalo_hostel/imagenes/doblehab6,8,9.webp",
+        "/pautas/mahalo_hostel/imagenes/habitaciones1,2,3.webp",
+        "/pautas/mahalo_hostel/imagenes/Hab-1-768x1062.webp",
+        "/pautas/mahalo_hostel/imagenes/hab-1.1.webp",
+        "/pautas/mahalo_hostel/imagenes/habitacion4.webp",
+        "/pautas/mahalo_hostel/imagenes/habitacion14.webp",
+        "/pautas/mahalo_hostel/imagenes/habitacion15.webp",
+        "/pautas/mahalo_hostel/imagenes/habitracion16.webp",
+        "/pautas/mahalo_hostel/imagenes/habitaciones11,12,13.webp",
+        "/pautas/mahalo_hostel/imagenes/colonial-2.webp",
+        "/pautas/mahalo_hostel/imagenes/gal-1.webp",
+        "/pautas/mahalo_hostel/imagenes/gal-2.webp",
+        "/pautas/mahalo_hostel/imagenes/gal-4-768x1024.webp",
+        "/pautas/mahalo_hostel/imagenes/gal-6-768x1024.webp",
+        "/pautas/mahalo_hostel/imagenes/gal-8-768x1024.webp",
+        "/pautas/mahalo_hostel/imagenes/gal-9-768x1024.webp",
+        "/pautas/mahalo_hostel/imagenes/FONDO-3.webp",
+        "/pautas/mahalo_hostel/imagenes/logo-mahalo.jpg"
+      ],
+      "actionTarget": {
+        "viewUrl": "https://salentoalamano.com/paginas-pautantes/mahalo-hostel-salento/"
+      }
     }
   ],
-  "lastUpdated": "2026-09-07T00:00:00.000Z",
+  "lastUpdated": "2026-09-21T00:00:00.000Z",
   "version": "2.0.0-pautantes-only"
 }
