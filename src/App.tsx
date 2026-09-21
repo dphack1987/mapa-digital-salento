@@ -406,9 +406,9 @@ function App() {
   const toggleARMode = () => {
     setARMapMode(!arMapMode)
     if (!arMapMode) {
-      setUserLocation(null)
-    } else {
       requestUserLocation()
+    } else {
+      setUserLocation(null)
     }
   }
   const [showLandingPageEstadoActual, setShowLandingPageEstadoActual] = useState(false)
@@ -1309,7 +1309,7 @@ function App() {
           <div className="map-actions">
             <button className="dark-button" onClick={() => window.location.assign('/mapa-interactivo-salento.html')}><span>{t('map.open', 'Abrir mapa completo')}</span> <ArrowRight size={17} /></button>
             <button className="ar-toggle-button" onClick={toggleARMode} aria-label={arMapMode ? 'Desactivar modo AR' : 'Activar modo AR'}>
-              {arMapMode ? '🥻 AR Activo' : '🎯 Activar AR'}
+              {arMapMode ? '🗺️ AR activo' : '🎯 Activar AR'}
             </button>
           </div>
           
@@ -1318,10 +1318,10 @@ function App() {
           {arMapMode ? (
             <div className="map-visual ar-map-visual" aria-label="Mapa AR interactivo de Salento con realidad aumentada">
               <ARMapController 
-                places={places as any} 
+                places={places} 
                 userLocation={userLocation || undefined}
                 onPlaceSelect={(place) => {
-                  setSelectedPlace(place as any)
+                  setSelectedPlace(place)
                   window.scrollTo({ top: 0, behavior: 'smooth' })
                 }}
               />
