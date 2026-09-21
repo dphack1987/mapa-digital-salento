@@ -18,6 +18,9 @@ interface Pautante {
   local_approval?: string
 }
 
+// Alias para lenguaje más natural en la UI
+type LocalPlace = Pautante
+
 interface EnhancedDonChuchoProps {
   onFallback?: () => void
   existingComponent?: React.ReactNode
@@ -29,17 +32,17 @@ function EnhancedDonChucho({ onFallback, existingComponent }: EnhancedDonChuchoP
   const [isLoading, setIsLoading] = useState(false)
   const [usePython, setUsePython] = useState(true)
   const [pythonStatus, setPythonStatus] = useState<'checking' | 'online' | 'offline'>('checking')
-  const [pautantes, setPautantes] = useState<Pautante[]>([])
-  const [hasPautantes, setHasPautantes] = useState(false)
+  const [localPlaces, setLocalPlaces] = useState<LocalPlace[]>([])
+  const [hasLocalPlaces, setHasLocalPlaces] = useState(false)
   const [userLocation, setUserLocation] = useState<{lat: number; lng: number} | null>(null)
-  const [nearbyPautantes, setNearbyPautantes] = useState<Pautante[]>([])
+  const [nearbyPlaces, setNearbyPlaces] = useState<LocalPlace[]>([])
   const [isSpeaking, setIsSpeaking] = useState(false)
   const [voiceEnabled, setVoiceEnabled] = useState(true)
   const [selectedVoice, setSelectedVoice] = useState<SpeechSynthesisVoice | null>(null)
   const [availableVoices, setAvailableVoices] = useState<SpeechSynthesisVoice[]>([])
   const [availabilityStatus, setAvailabilityStatus] = useState<Record<string, boolean>>({})
   const [qualityScores, setQualityScores] = useState<Record<string, number>>({})
-  const [authenticPlaces, setAuthenticPlaces] = useState<Pautante[]>([])
+  const [authenticPlaces, setAuthenticPlaces] = useState<LocalPlace[]>([])
   
   const speechSynthRef = useRef<SpeechSynthesis | null>(null)
   const currentUtteranceRef = useRef<SpeechSynthesisUtterance | null>(null)
@@ -88,8 +91,8 @@ function EnhancedDonChucho({ onFallback, existingComponent }: EnhancedDonChuchoP
       if (usePython && pythonStatus === 'online') {
         const result = await pythonBackendService.sendChatMessage(message)
         setResponse(result.response)
-        setPautantes(result.pautantes || [])
-        setHasPautantes(result.has_pautantes || false)
+        setLocalPlaces(result.pautantes || [])
+        setHasLocalPlaces(result.has_pautantes || false)
         
         if (navigator.geolocation) {
           navigator.geolocation.getCurrentPosition(
@@ -110,22 +113,22 @@ function EnhancedDonChucho({ onFallback, existingComponent }: EnhancedDonChuchoP
         
         // Local Truth Engine: Verificar disponibilidad y calidad
         if (result.pautantes && result.pautantes.length > 0) {
-          checkPautantesTruth(result.pautantes)
+          checkLocalPlacesTruth(result.pautantes)
         }
       } else {
         if (onFallback) {
           onFallback()
         }
-        setResponse('Usando sistema existente de Don Chucho')
-        setPautantes([])
-        setHasPautantes(false)
+        setResponse('Estoy procesando tu solicitud con el sistema local. ¿En qué más puedo ayudarte?')
+        setLocalPlaces([])
+        setHasLocalPlaces(false)
       }
     } catch (error) {
       console.error('Error:', error)
-      setResponse('Error de conexión, usando sistema local')
+      setResponse('Hubo un error de conexión. Por favor intenta de nuevo.')
       setUsePython(false)
-      setPautantes([])
-      setHasPautantes(false)
+      setLocalPlaces([])
+      setHasLocalPlaces(false)
     } finally {
       setIsLoading(false)
     }
@@ -174,30 +177,30 @@ function EnhancedDonChucho({ onFallback, existingComponent }: EnhancedDonChuchoP
     }
   }
 
-  const checkPautantesTruth = async (pautantesList: Pautante[]) => {
-    // Local Truth Engine: Verificar disponibilidad y calidad de cada pautante
-    for (const pautante of pautantesList) {
-      if (pautante.id) {
+  const checkLocalPlacesTruth = async (localPlacesList: LocalPlace[]) => {
+    // Local Truth Engine: Verificar disponibilidad y calidad de cada lugar local
+    for (const localPlace of localPlacesList) {
+      if (localPlace.id) {
         // Verificar disponibilidad
-        const availability = await pythonBackendService.checkAvailability(pautante.id)
+        const availability = await pythonBackendService.checkAvailability(localPlace.id)
         if (availability.success && availability.is_available !== undefined) {
-          setAvailabilityStatus(prev => ({...prev, [String(pautante.id)]: availability.is_available!}))
+          setAvailabilityStatus(prev => ({...prev, [String(localPlace.id)]: availability.is_available!}))
         }
         
         // Verificar calidad
-        const quality = await pythonBackendService.getQualityVerification(pautante.id)
+        const quality = await pythonBackendService.getQualityVerification(localPlace.id)
         if (quality.success && quality.quality_score) {
-          setQualityScores(prev => ({...prev, [String(pautante.id)]: quality.quality_score!}))
+          setQualityScores(prev => ({...prev, [String(localPlace.id)]: quality.quality_score!}))
         }
       }
     }
     
     // Filtro de turistazas para la categoría
-    if (pautantesList.length > 0) {
-      const category = pautantesList[0].type.toLowerCase()
+    if (localPlacesList.length > 0) {
+      const category = localPlacesList[0].type.toLowerCase()
       const filter = await pythonBackendService.getTouristTrapFilter(category)
       if (filter.authentic_places && filter.authentic_places.length > 0) {
-        setAuthenticPlaces(filter.authentic_places as unknown as Pautante[])
+        setAuthenticPlaces(filter.authentic_places as unknown as LocalPlace[])
       }
     }
   }
@@ -205,7 +208,7 @@ function EnhancedDonChucho({ onFallback, existingComponent }: EnhancedDonChuchoP
   const loadNearbyPautantes = async (lat: number, lng: number) => {
     try {
       const nearby = await pythonBackendService.getNearbyPautantes(lat, lng, 'all', 0.5)
-      setNearbyPautantes(nearby.nearby_pautantes || [])
+      setNearbyPlaces(nearby.nearby_pautantes || [])
     } catch (error) {
       console.error('Error cargando nearby pautantes:', error)
     }
@@ -261,37 +264,37 @@ function EnhancedDonChucho({ onFallback, existingComponent }: EnhancedDonChuchoP
               <strong>Don Chucho IA:</strong>
               <p style={{whiteSpace: 'pre-line'}}>{response}</p>
               
-              {hasPautantes && pautantes.length > 0 && (
-                <div className="pautantes-results">
-                  {pautantes.map((pautante, index) => (
-                    <div key={index} className="pautante-card">
-                      <div className="pautante-header">
-                        <strong>{pautante.name}</strong>
-                        <span className="badge">{pautante.type}</span>
-                        {pautante.distance_km && (
-                          <span className="distance-badge">{pautante.distance_km} km</span>
+              {hasLocalPlaces && localPlaces.length > 0 && (
+                <div className="local-places-results">
+                  {localPlaces.map((localPlace, index) => (
+                    <div key={index} className="local-place-card">
+                      <div className="local-place-header">
+                        <strong>{localPlace.name}</strong>
+                        <span className="badge">{localPlace.type}</span>
+                        {localPlace.distance_km && (
+                          <span className="distance-badge">{localPlace.distance_km} km</span>
                         )}
-                        {pautante.id && availabilityStatus[String(pautante.id)] !== undefined && (
-                          <span className={`availability-badge ${availabilityStatus[String(pautante.id)] ? 'available' : 'unavailable'}`}>
-                            {availabilityStatus[String(pautante.id)] ? '✓ Disponible' : '✗ Sin cupo'}
+                        {localPlace.id && availabilityStatus[String(localPlace.id)] !== undefined && (
+                          <span className={`availability-badge ${availabilityStatus[String(localPlace.id)] ? 'available' : 'unavailable'}`}>
+                            {availabilityStatus[String(localPlace.id)] ? '✓ Disponible' : '✗ Sin cupo'}
                           </span>
                         )}
-                        {pautante.id && qualityScores[String(pautante.id)] && (
+                        {localPlace.id && qualityScores[String(localPlace.id)] && (
                           <span className="quality-badge">
-                            ★ {qualityScores[String(pautante.id)]}/100
+                            ★ {qualityScores[String(localPlace.id)]}/100
                           </span>
                         )}
                       </div>
-                      <p>{pautante.description}</p>
-                      <div className="pautante-actions">
+                      <p>{localPlace.description}</p>
+                      <div className="local-place-actions">
                         <button 
-                          onClick={() => handleWhatsApp(pautante.contact.whatsapp!, pautante.id)}
+                          onClick={() => handleWhatsApp(localPlace.contact.whatsapp!, localPlace.id)}
                           className="whatsapp-btn"
                         >
                           WhatsApp One-Tap
                         </button>
-                        {pautante.contact.phone && (
-                          <a href={`tel:${pautante.contact.phone}`} className="phone-btn">
+                        {localPlace.contact.phone && (
+                          <a href={`tel:${localPlace.contact.phone}`} className="phone-btn">
                             Llamar
                           </a>
                         )}
@@ -302,31 +305,26 @@ function EnhancedDonChucho({ onFallback, existingComponent }: EnhancedDonChuchoP
               )}
               
               {authenticPlaces.length > 0 && (
-                <div className="authentic-section">
-                  <h4>Lugares auténticos recomendados por locales:</h4>
-                  {authenticPlaces.slice(0, 3).map((place, index) => (
-                    <div key={index} className="authentic-card">
+                <div className="authentic-places-section">
+                  <h4>Lugares auténticos recomendados</h4>
+                  {authenticPlaces.map((place, index) => (
+                    <div key={index} className="authentic-place-item">
                       <strong>{place.name}</strong>
-                      {place.authenticity_score && (
-                        <span className="authenticity-score">
-                          Autenticidad: {place.authenticity_score}%
-                        </span>
-                      )}
-                      {place.local_approval && (
-                        <span className="local-approval">✓ Aprobado por locales</span>
-                      )}
+                      <span className="authenticity-badge">
+                        {place.local_approval}
+                      </span>
                     </div>
                   ))}
                 </div>
               )}
               
-              {nearbyPautantes.length > 0 && (
+              {nearbyPlaces.length > 0 && (
                 <div className="nearby-section">
                   <h4>Servicios cercanos a ti:</h4>
-                  {nearbyPautantes.slice(0, 3).map((pautante, index) => (
+                  {nearbyPlaces.slice(0, 3).map((place, index) => (
                     <div key={index} className="nearby-card">
-                      <strong>{pautante.name}</strong>
-                      <span className="nearby-distance">{pautante.distance_km} km</span>
+                      <strong>{place.name}</strong>
+                      <span className="nearby-distance">{place.distance_km} km</span>
                     </div>
                   ))}
                 </div>

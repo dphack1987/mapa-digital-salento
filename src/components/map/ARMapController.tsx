@@ -1,41 +1,21 @@
 import { useState } from 'react'
 import { MapContainer, TileLayer, CircleMarker, Popup } from 'react-leaflet'
 import L from 'leaflet'
+import { Place } from '../../types'
 import './ARMapController.css'
 
-interface ARPlace {
-  id: number
-  name: string
-  type: string
-  description: string
-  rating?: string
-  photos?: string[]
-  location: {
-    lat?: number
-    lng?: number
-    address?: string
-    landmark?: string
-  }
-  contact?: {
-    phone?: string
-    whatsapp?: string
-  }
-  verified?: boolean
-  active?: boolean
-}
-
 interface ARMapControllerProps {
-  places: ARPlace[]
+  places: Place[]
   userLocation?: { lat: number; lng: number } | null
-  onPlaceSelect?: (place: ARPlace) => void
+  onPlaceSelect?: (place: Place) => void
 }
 
 function ARMapController({ places, userLocation, onPlaceSelect }: ARMapControllerProps) {
   const [arMode, setARMode] = useState(false)
-  const [selectedPlace, setSelectedPlace] = useState<ARPlace | null>(null)
+  const [selectedPlace, setSelectedPlace] = useState<Place | null>(null)
   const [donChuchoSpeaking, setDonChuchoSpeaking] = useState(false)
 
-  const speakPlaceInfo = (place: ARPlace) => {
+  const speakPlaceInfo = (place: Place) => {
     if ('speechSynthesis' in window) {
       const info = `${place.name}. ${place.description} Ubicado en ${place.location?.address || 'Salento'}. Rating: ${place.rating || 'sin rating'} estrellas.`
       const utterance = new SpeechSynthesisUtterance(info)
@@ -54,7 +34,7 @@ function ARMapController({ places, userLocation, onPlaceSelect }: ARMapControlle
     }
   }
 
-  const handlePlaceClick = (place: ARPlace) => {
+  const handlePlaceClick = (place: Place) => {
     setSelectedPlace(place)
     if (onPlaceSelect) {
       onPlaceSelect(place)
@@ -64,7 +44,7 @@ function ARMapController({ places, userLocation, onPlaceSelect }: ARMapControlle
     }
   }
 
-  const getDistance = (place: ARPlace) => {
+  const getDistance = (place: Place) => {
     if (!userLocation || !place.location?.lat || !place.location?.lng) return null
     const R = 6371 // Radio de la Tierra en km
     const dLat = (place.location.lat - userLocation.lat) * Math.PI / 180
@@ -120,7 +100,7 @@ function ARMapController({ places, userLocation, onPlaceSelect }: ARMapControlle
         {arPlaces.map((place) => (
           <CircleMarker
             key={place.id}
-            center={[place.location.lat!, place.location.lng!]}
+            center={[place.location?.lat || 4.65746762702703, place.location?.lng || -75.5727757405405]}
             radius={arMode ? 15 : 10}
             pathOptions={{
               color: arMode ? '#e76c52' : '#56755b',
