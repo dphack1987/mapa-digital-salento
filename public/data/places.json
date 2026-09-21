@@ -485,7 +485,14 @@
           "Río Quindío",
           "Cordillera"
         ]
-      }
+      },
+      "photos": [
+        "/pautas/mirador_mano_de_dios/imagenes/caption.jpg",
+        "/pautas/mirador_mano_de_dios/imagenes/dios2.jpg",
+        "/pautas/mirador_mano_de_dios/imagenes/dios5.jpg",
+        "/pautas/mirador_mano_de_dios/imagenes/images.jpg",
+        "/pautas/mirador_mano_de_dios/imagenes/logo-mirador-dios.jpg"
+      ]
     },
     {
       "id": 15,
@@ -1125,7 +1132,12 @@
           "Calzado cerrado",
           "Protector solar"
         ]
-      }
+      },
+      "photos": [
+        "/pautas/cabalgatas_cocora_magica/imagenes/569470963_18046468172670095_956795626231849522_n.jpg",
+        "/pautas/cabalgatas_cocora_magica/imagenes/531844358_18037570829670095_8249491298736222506_n.jpg",
+        "/pautas/cabalgatas_cocora_magica/imagenes/497410897_18027320600670095_3742212002478362495_n.jpg"
+      ]
     },
     {
       "id": 21,
@@ -1427,7 +1439,12 @@
         ],
         "averagePrice": "$$",
         "reservationRequired": true
-      }
+      },
+      "photos": [
+        "/pautas/coffee-tour-finca-cafetera-don-elias/imagenes/cafe-don-elias.jpg",
+        "/pautas/coffee-tour-finca-cafetera-don-elias/imagenes/484042363_664478162683303_2341224993788835150_n.jpg",
+        "/pautas/coffee-tour-finca-cafetera-don-elias/imagenes/483101751_664446382686481_2585961616784103288_n.jpg"
+      ]
     },
     {
       "id": 23,
@@ -1547,7 +1564,11 @@
       ],
       "verified": true,
       "active": true,
-      "isFree": true
+      "isFree": true,
+      "photos": [
+        "/imagenes-salento/calle.jpg",
+        "/imagenes-salento/631026720.webp"
+      ]
     },
     {
       "id": 101,
@@ -1579,7 +1600,11 @@
       ],
       "verified": true,
       "active": true,
-      "isFree": true
+      "isFree": true,
+      "photos": [
+        "/imagenes-salento/pueblo.jpg",
+        "/imagenes-salento/631032744.webp"
+      ]
     },
     {
       "id": 102,
@@ -1611,7 +1636,11 @@
       ],
       "verified": true,
       "active": true,
-      "isFree": true
+      "isFree": true,
+      "photos": [
+        "/imagenes-salento/salento-landscape.jpg",
+        "/imagenes-salento/653410779.webp"
+      ]
     },
     {
       "id": 103,
@@ -1643,7 +1672,11 @@
       ],
       "verified": true,
       "active": true,
-      "isFree": true
+      "isFree": true,
+      "photos": [
+        "/imagenes-salento/iglesia.jpg",
+        "/imagenes-salento/1326163759.webp"
+      ]
     },
     {
       "id": 104,
@@ -1675,7 +1708,11 @@
       ],
       "verified": true,
       "active": true,
-      "isFree": true
+      "isFree": true,
+      "photos": [
+        "/imagenes-salento/valle-cocora-palmas-2.jpg",
+        "/imagenes-salento/653410779.webp"
+      ]
     },
     {
       "id": 105,
@@ -1707,7 +1744,11 @@
       ],
       "verified": true,
       "active": true,
-      "isFree": true
+      "isFree": true,
+      "photos": [
+        "/imagenes-salento/salento-landscape.jpg",
+        "/imagenes-salento/colombia-palms.jpg"
+      ]
     },
     {
       "id": 108,
@@ -1739,7 +1780,11 @@
       ],
       "verified": true,
       "active": true,
-      "isFree": true
+      "isFree": true,
+      "photos": [
+        "/imagenes-salento/images.jpg",
+        "/imagenes-salento/images (1).jpg"
+      ]
     },
     {
       "id": 109,
@@ -1771,7 +1816,11 @@
       ],
       "verified": true,
       "active": true,
-      "isFree": true
+      "isFree": true,
+      "photos": [
+        "/imagenes-salento/colombia-palms.jpg",
+        "/imagenes-salento/653410779.webp"
+      ]
     },
     {
       "id": 110,
@@ -1803,7 +1852,11 @@
       ],
       "verified": true,
       "active": true,
-      "isFree": true
+      "isFree": true,
+      "photos": [
+        "/imagenes-salento/631026720.webp",
+        "/imagenes-salento/1326163558.webp"
+      ]
     },
     {
       "id": 111,
@@ -1835,7 +1888,11 @@
       ],
       "verified": true,
       "active": true,
-      "isFree": true
+      "isFree": true,
+      "photos": [
+        "/imagenes-salento/pueblo.jpg",
+        "/imagenes-salento/1326163759.webp"
+      ]
     },
     {
       "id": 112,
@@ -1867,7 +1924,10 @@
       ],
       "verified": true,
       "active": true,
-      "isFree": true
+      "isFree": true,
+      "photos": [
+        "/imagenes-salento/destinos-75.png"
+      ]
     },
     {
       "id": 113,
@@ -1899,7 +1959,11 @@
       ],
       "verified": true,
       "active": true,
-      "isFree": true
+      "isFree": true,
+      "photos": [
+        "/imagenes-salento/pueblo.jpg",
+        "/imagenes-salento/destinos-75.png"
+      ]
     }
   ],
   "lastUpdated": "2026-09-07T00:00:00.000Z",
