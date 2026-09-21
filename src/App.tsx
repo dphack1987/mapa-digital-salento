@@ -662,10 +662,17 @@ function App() {
 
   const filteredPlaces = useMemo(() => {
     const normalizedSearch = search.toLowerCase().trim()
-    return places.filter((place) => {
+    const filtered = places.filter((place) => {
       const matchesCategory = activeCategory === 'Todo' || place.type === activeCategory
       const matchesSearch = !normalizedSearch || `${place.name} ${place.description} ${place.tags?.join(' ') || ''}`.toLowerCase().includes(normalizedSearch)
       return matchesCategory && matchesSearch
+    })
+    return filtered.sort((a, b) => {
+      const aIsPautante = !!a.actionTarget?.viewUrl || !!a.actionTarget?.reserveUrl || !!a.actionTarget?.orderUrl
+      const bIsPautante = !!b.actionTarget?.viewUrl || !!b.actionTarget?.reserveUrl || !!b.actionTarget?.orderUrl
+      if (aIsPautante && !bIsPautante) return -1
+      if (!aIsPautante && bIsPautante) return 1
+      return 0
     })
   }, [activeCategory, search, places])
 
@@ -696,7 +703,14 @@ function App() {
       Camping: ['camping', 'campamento', 'carpa', 'tienda de campaña', 'glamping', 'al aire libre', 'outdoor', 'campsite', 'cabin']
     }
 
-    return places.filter((place) => matchesKeywords(place, categoryKeywords[selectedCategoryPage]))
+    const result = places.filter((place) => matchesKeywords(place, categoryKeywords[selectedCategoryPage]))
+    return result.sort((a, b) => {
+      const aIsPautante = !!a.actionTarget?.viewUrl || !!a.actionTarget?.reserveUrl || !!a.actionTarget?.orderUrl
+      const bIsPautante = !!b.actionTarget?.viewUrl || !!b.actionTarget?.reserveUrl || !!b.actionTarget?.orderUrl
+      if (aIsPautante && !bIsPautante) return -1
+      if (!aIsPautante && bIsPautante) return 1
+      return 0
+    })
   }, [places, selectedCategoryPage])
 
   // Manejar cambio de idioma
@@ -807,7 +821,7 @@ function App() {
       <header className="mobile-header site-header">
         <div className="identity-header">
           <div className="brand-mobile">
-            <img src="/logo_salento2026.png" alt="Salento a la Mano - Mapa turístico digital de Salento, Quindío" className="mobile-logo" />
+            <img src="/logo_salento2026.webp" alt="Salento a la Mano - Mapa turístico digital de Salento, Quindío" className="mobile-logo" />
             <div className="brand-text">
               <h1>Salento a la Mano 🇨🇴 - Guía Turística Oficial de Salento, Quindío 2026</h1>
               <p className="subtitle">Descubre hoteles abiertos, restaurantes auténticos, coffee tours, Valle de Cocora, palmas de cera y experiencias únicas con el mapa turístico digital más completo de Salento, Quindío. Tu guía oficial para turismo responsable y directo con locales.</p>

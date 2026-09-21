@@ -6,10 +6,16 @@ var PautanteCommon = (function() {
   var TASAS = { COP: 1, USD: 4000, EUR: 4300 };
   var SIMBOLOS = { COP: '$', USD: 'US$', EUR: '\u20AC' };
 
-  function fmt(precio, moneda) {
+  function fmt(precio, moneda, baseCurrency) {
     if (precio === 0) return 'Incluido';
-    if (moneda === 'COP') return '$' + precio.toLocaleString('es-CO');
-    var convertido = (precio / TASAS[moneda]).toFixed(2);
+    baseCurrency = baseCurrency || 'COP';
+    if (moneda === baseCurrency) {
+      if (moneda === 'COP') return '$' + precio.toLocaleString('es-CO');
+      return SIMBOLOS[moneda] + precio;
+    }
+    var precioCOP = baseCurrency === 'USD' ? precio * TASAS.USD : baseCurrency === 'EUR' ? precio * TASAS.EUR : precio;
+    if (moneda === 'COP') return '$' + Math.round(precioCOP).toLocaleString('es-CO');
+    var convertido = (precioCOP / TASAS[moneda]).toFixed(2);
     return SIMBOLOS[moneda] + convertido;
   }
 
@@ -24,18 +30,18 @@ var PautanteCommon = (function() {
     }, 0);
   }
 
-  function actualizarCarritoFlotante(carrito, items, moneda) {
+  function actualizarCarritoFlotante(carrito, items, moneda, baseCurrency) {
     var count = countCarrito(carrito);
     var total = totalCarrito(carrito, items);
     var badge = document.getElementById('cartBadge');
     var totalEl = document.getElementById('cartTotal');
     var floatEl = document.getElementById('cartFloat');
     if (badge) badge.textContent = count;
-    if (totalEl) totalEl.textContent = total > 0 ? fmt(total, moneda) : (count > 0 ? count + ' seleccionados' : '$0');
+    if (totalEl) totalEl.textContent = total > 0 ? fmt(total, moneda, baseCurrency) : (count > 0 ? count + ' seleccionados' : '$0');
     if (floatEl) floatEl.classList.toggle('visible', count > 0);
   }
 
-  function renderCarritoModal(carrito, items, moneda) {
+  function renderCarritoModal(carrito, items, moneda, baseCurrency) {
     var container = document.getElementById('cartItems');
     var totalEl = document.getElementById('cartModalTotal');
     var itemList = Object.keys(carrito).filter(function(id) { return carrito[id] > 0; });
@@ -46,25 +52,25 @@ var PautanteCommon = (function() {
       container.innerHTML = itemList.map(function(id) {
         var qty = carrito[id];
         var p = items.find(function(x) { return x.id === Number(id); });
-        var priceText = p.precio > 0 ? fmt(p.precio * qty, moneda) : 'Incluido';
-        return '<div class="cart-item"><div class="info"><strong>' + p.nombre + '</strong><small>' + (p.precio > 0 ? fmt(p.precio, moneda) + ' ' + (p.precioLabel || 'c/u') : 'Incluido') + '</small></div><div class="qty"><button data-action="dec" data-id="' + p.id + '">\u2212</button><span>' + qty + '</span><button data-action="inc" data-id="' + p.id + '">+</button></div><div class="item-total">' + priceText + '</div></div>';
+        var priceText = p.precio > 0 ? fmt(p.precio * qty, moneda, baseCurrency) : 'Incluido';
+        return '<div class="cart-item"><div class="info"><strong>' + p.nombre + '</strong><small>' + (p.precio > 0 ? fmt(p.precio, moneda, baseCurrency) + ' ' + (p.precioLabel || 'c/u') : 'Incluido') + '</small></div><div class="qty"><button data-action="dec" data-id="' + p.id + '">\u2212</button><span>' + qty + '</span><button data-action="inc" data-id="' + p.id + '">+</button></div><div class="item-total">' + priceText + '</div></div>';
       }).join('');
     }
     var total = totalCarrito(carrito, items);
-    if (totalEl) totalEl.textContent = total > 0 ? fmt(total, moneda) : 'Consultar total';
+    if (totalEl) totalEl.textContent = total > 0 ? fmt(total, moneda, baseCurrency) : 'Consultar total';
   }
 
-  function enviarWhatsApp(whatsappNum, carrito, items, moneda, titulo) {
+  function enviarWhatsApp(whatsappNum, carrito, items, moneda, titulo, baseCurrency) {
     var itemList = Object.keys(carrito).filter(function(id) { return carrito[id] > 0; });
     if (itemList.length === 0) return;
     var msg = '\uD83C\uDFE8 *' + (titulo || 'PEDIDO') + '*\n\n';
     itemList.forEach(function(id) {
       var qty = carrito[id];
       var p = items.find(function(x) { return x.id === Number(id); });
-      msg += '\u2022 ' + p.nombre + ' x' + qty + (p.precio > 0 ? ' \u2014 ' + fmt(p.precio * qty, moneda) : ' \u2014 Incluido') + '\n';
+      msg += '\u2022 ' + p.nombre + ' x' + qty + (p.precio > 0 ? ' \u2014 ' + fmt(p.precio * qty, moneda, baseCurrency) : ' \u2014 Incluido') + '\n';
     });
     var total = totalCarrito(carrito, items);
-    if (total > 0) msg += '\n*Total: ' + fmt(total, moneda) + '*\n';
+    if (total > 0) msg += '\n*Total: ' + fmt(total, moneda, baseCurrency) + '*\n';
     msg += '\n\u00BFMe confirman disponibilidad?';
     window.open('https://wa.me/' + whatsappNum + '?text=' + encodeURIComponent(msg), '_blank');
   }
@@ -86,6 +92,7 @@ var PautanteCommon = (function() {
     var whatsapp = config.whatsapp || '';
     var businessName = config.businessName || 'PEDIDO';
     var moneda = config.currency || 'COP';
+    var baseCurrency = config.baseCurrency || 'COP';
     var showSearch = config.showSearch !== false;
     var showCurrency = config.showCurrency !== false;
     var precioLabel = config.precioLabel || 'c/u';
@@ -155,8 +162,8 @@ var PautanteCommon = (function() {
           if (carrito[id] <= 0) delete carrito[id];
         }
         render();
-        actualizarCarritoFlotante(carrito, items, moneda);
-        renderCarritoModal(carrito, items, moneda);
+        actualizarCarritoFlotante(carrito, items, moneda, baseCurrency);
+        renderCarritoModal(carrito, items, moneda, baseCurrency);
         return;
       }
       var tab = e.target.closest('.menu-tab[data-cat]');
@@ -173,8 +180,8 @@ var PautanteCommon = (function() {
         document.querySelectorAll('.currency-switch button').forEach(function(b) { b.classList.remove('active'); });
         cur.classList.add('active');
         render();
-        actualizarCarritoFlotante(carrito, items, moneda);
-        renderCarritoModal(carrito, items, moneda);
+        actualizarCarritoFlotante(carrito, items, moneda, baseCurrency);
+        renderCarritoModal(carrito, items, moneda, baseCurrency);
         return;
       }
     });
@@ -192,7 +199,7 @@ var PautanteCommon = (function() {
     var cartFloat = document.getElementById('cartFloat');
     if (cartFloat) {
       cartFloat.addEventListener('click', function() {
-        renderCarritoModal(carrito, items, moneda);
+        renderCarritoModal(carrito, items, moneda, baseCurrency);
         document.getElementById('cartModal').classList.add('open');
       });
     }
@@ -204,11 +211,11 @@ var PautanteCommon = (function() {
     var clearCart = document.getElementById('clearCart');
     if (clearCart) clearCart.addEventListener('click', function() {
       carrito = {};
-      render(); actualizarCarritoFlotante(carrito, items, moneda); renderCarritoModal(carrito, items, moneda);
+      render(); actualizarCarritoFlotante(carrito, items, moneda, baseCurrency); renderCarritoModal(carrito, items, moneda, baseCurrency);
     });
 
     var sendBtn = document.getElementById('sendWhatsApp');
-    if (sendBtn) sendBtn.addEventListener('click', function() { enviarWhatsApp(whatsapp, carrito, items, moneda, businessName); });
+    if (sendBtn) sendBtn.addEventListener('click', function() { enviarWhatsApp(whatsapp, carrito, items, moneda, businessName, baseCurrency); });
 
     var cartModal = document.getElementById('cartModal');
     if (cartModal) {
@@ -219,7 +226,7 @@ var PautanteCommon = (function() {
 
     // Initial render
     render();
-    actualizarCarritoFlotante(carrito, items, moneda);
+    actualizarCarritoFlotante(carrito, items, moneda, baseCurrency);
 
     return { render: render, getCarrito: function() { return carrito; } };
   }
