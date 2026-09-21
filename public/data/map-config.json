@@ -13,20 +13,20 @@
         "lonMax": -75.568804
       },
       "images": [
-        "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/logo_cascadas_de_santa_rita.jpg",
-        "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/santa-rita-1.jpg",
-        "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/santa-rita-2.jpg",
-        "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/santa-rita-3.jpg",
-        "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/cascada2.jpg",
-        "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/cascada3.jpg",
-        "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/cueva1.jpg",
-        "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/cueva2.jpg",
-        "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/puente-cpolgante1.jpg",
-        "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/rio2.jpg",
-        "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/casa1.jpg",
-        "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/monte1.jpg",
-        "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/f2.jpeg",
-        "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/foto1.jpeg"
+        "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/logo_cascadas_de_santa_rita.webp",
+        "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/santa-rita-1.webp",
+        "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/santa-rita-2.webp",
+        "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/santa-rita-3.webp",
+        "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/cascada2.webp",
+        "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/cascada3.webp",
+        "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/cueva1.webp",
+        "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/cueva2.webp",
+        "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/puente-cpolgante1.webp",
+        "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/rio2.webp",
+        "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/casa1.webp",
+        "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/monte1.webp",
+        "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/f2.webp",
+        "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/foto1.webp"
       ]
     },
     "salento-centro": {
@@ -63,13 +63,13 @@
       },
       "images": [
         "/imagenes-salento/653410779.webp",
-        "/imagenes-salento/valle-cocora-palmas-2.jpg"
+        "/imagenes-salento/valle-cocora-palmas-2.webp"
       ]
     }
   },
   "defaultSite": "cascadas-santa-rita",
   "tileServer": {
-    "url": "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+    "url": "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.webp",
     "subdomains": ["a", "b", "c"],
     "zoomRange": [12, 16]
   }
