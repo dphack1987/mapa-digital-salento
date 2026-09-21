@@ -1,0 +1,21 @@
+# Python virtual environment
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+
+# Python testing
+test_*.py
+*_test.py
+*.json (except requirements.txt)
+
+# Environment variables
+.env
+.env.local
