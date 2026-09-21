@@ -359,6 +359,18 @@
       ],
       "tone": "primary",
       "note": "Hostel boutique con jacuzzi y vista al mirador"
+    },
+    {
+      "id": 33,
+      "label": "Parque Mirador La Vida es Bella",
+      "type": "Turístico",
+      "placeId": 33,
+      "coord": [
+        4.647,
+        -75.577
+      ],
+      "tone": "coral",
+      "note": "Mirador Valle de Cocora con casa al revés y columpios"
     }
   ],
   "lastUpdated": "2026-09-21T00:00:00.000Z",
