@@ -82,7 +82,14 @@ self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
       console.log('[SW] Caching app shell')
-      return cache.addAll(APP_SHELL)
+      // Use individual puts instead of addAll to avoid atomic failure
+      return Promise.allSettled(
+        APP_SHELL.map(url =>
+          fetch(url)
+            .then(r => r.ok ? cache.put(url, r) : null)
+            .catch(() => null)
+        )
+      )
     }).then(() => {
       // Cachear tiles del mapa en segundo plano (toma tiempo)
       return caches.open(TILE_CACHE_NAME).then((tileCache) => {
