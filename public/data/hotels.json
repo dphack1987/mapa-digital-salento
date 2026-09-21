@@ -35,8 +35,17 @@
       "isPartner": true,
       "placeId": 16,
       "url": "/paginas-pautantes/hotel-la-floresta-salento/"
+    },
+    {
+      "id": "hotel_5",
+      "name": "Mahalo Hostel Salento",
+      "address": "Calle 2 # 6-08, Salento, Quindío",
+      "phone": "+57 322 855 1504",
+      "isPartner": true,
+      "placeId": 32,
+      "url": "/paginas-pautantes/mahalo-hostel-salento/"
     }
   ],
-  "lastUpdated": "2026-09-07T00:00:00.000Z",
+  "lastUpdated": "2026-09-21T00:00:00.000Z",
   "version": "2.0.0-pautantes-only"
 }
