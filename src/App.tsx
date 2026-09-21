@@ -3,6 +3,9 @@ import { Helmet } from 'react-helmet-async'
 import NotFound from './pages/NotFound'
 import { CircleMarker, MapContainer, Popup, TileLayer, useMap } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css'
+// AR Map Controller para realidad aumentada básica
+import ARMapController from './components/map/ARMapController'
+import './components/map/ARMapControllerApp.css'
 import {
   ArrowDown,
   ArrowRight,
@@ -48,6 +51,8 @@ import {
 import { Category, Language, Place, MapMarker, Hotel as HotelType, LanguageConst, Currency } from './types'
 import dataService from './services/dataService'
 import { useTravelContext, getContextualMessage } from './hooks/useTravelContext'
+// Integración de Don Chucho IA mejorado
+import EnhancedDonChucho from './components/enhanced/EnhancedDonChucho'
 import { GenerativeUI, detectIntent, UserIntent } from './components/GenerativeUI'
 import { VoiceInput, useSpeechSynthesis } from './components/VoiceInput'
 import { LODControl, useDetailLevel, adaptDetail, DetailLevel } from './components/LODControl'
@@ -365,6 +370,11 @@ function App() {
   const [showSupport, setShowSupport] = useState(false)
   const [showLandingPage, setShowLandingPage] = useState<string | null>(null)
   const [showHotelModal, setShowHotelModal] = useState(false)
+  // Estado para Don Chucho IA mejorado
+  const [showDonChuchoAI, setShowDonChuchoAI] = useState(false)
+  // Estado para modo AR en mapa
+  const [arMapMode, setARMapMode] = useState(false)
+  const [userLocation, setUserLocation] = useState<{lat: number; lng: number} | null>(null)
   const [pendingOrderCategory, setPendingOrderCategory] = useState<string | null>(null)
   const [isOffline, setIsOffline] = useState<boolean>(() => {
     try { return !navigator.onLine } catch (e) { return false }
@@ -374,6 +384,33 @@ function App() {
   const [showAllyBacklinksDashboard, setShowAllyBacklinksDashboard] = useState(false)
   const [showAllyRegistrationForm, setShowAllyRegistrationForm] = useState(false)
   const [showInternationalMarkets, setShowInternationalMarkets] = useState(false)
+
+  // Solicitar ubicación del usuario para AR
+  const requestUserLocation = () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          setUserLocation({
+            lat: position.coords.latitude,
+            lng: position.coords.longitude
+          })
+        },
+        (error) => {
+          console.log('Geolocation no disponible:', error)
+        }
+      )
+    }
+  }
+
+  // Activar modo AR cuando usuario lo solicita
+  const toggleARMode = () => {
+    setARMapMode(!arMapMode)
+    if (!arMapMode) {
+      setUserLocation(null)
+    } else {
+      requestUserLocation()
+    }
+  }
   const [showLandingPageEstadoActual, setShowLandingPageEstadoActual] = useState(false)
   const [showLandingPageValleCocora, setShowLandingPageValleCocora] = useState(false)
   const [showLandingPageSalentoSeguro, setShowLandingPageSalentoSeguro] = useState(false)
@@ -726,6 +763,17 @@ function App() {
 
   return (
     <div className="app-shell">
+      {/* Skip Links para accesibilidad - navegación por teclado */}
+      <a href="#main-content" className="skip-link">
+        Saltar al contenido principal
+      </a>
+      <a href="#don-chucho-ai" className="skip-link">
+        Ir a Don Chucho IA
+      </a>
+      <a href="#map-container" className="skip-link">
+        Ir al mapa
+      </a>
+      
       {notFound && <NotFound />}
       {!notFound && (<>
       <Helmet>
@@ -795,6 +843,15 @@ function App() {
           </button>
           <button className="header-home-button" onClick={scrollToHome} aria-label={t('aria.home', 'Volver al inicio')}>
             <Home size={18} />
+          </button>
+          {/* Botón Don Chucho IA - producción */}
+          <button 
+            className="header-don-chucho-button" 
+            onClick={() => setShowDonChuchoAI(!showDonChuchoAI)}
+            aria-label="Don Chucho IA"
+            style={{ fontSize: '12px', fontWeight: 'bold', padding: '4px 8px' }}
+          >
+            Don Chucho IA
           </button>
           <button className="icon-button mobile-menu" aria-label={t('aria.menu', 'Abrir menú')} onClick={() => setMobileNav(!mobileNav)}><Menu size={20} /></button>
           <div className="locale-tools-mobile">
@@ -878,13 +935,13 @@ function App() {
         </div>
       )}
 
-      <main id="inicio">
+      <main id="main-content">
         {selectedCategoryPage === 'Eventos' ? (
-          <section className="category-page-shell" id="category-page">
+          <section className="category-page-shell" id="category-page" aria-labelledby="events-title">
             <div className="category-page-header">
               <div>
                 <p className="eyebrow">{t('events.agenda', 'Agenda Cultural')}</p>
-                <h2>{t('events.title', 'Eventos en Salento')}</h2>
+                <h2 id="events-title">{t('events.title', 'Eventos en Salento')}</h2>
               </div>
               <button className="text-button" onClick={() => setSelectedCategoryPage(null)}>{t('events.back', 'Volver al directorio')}</button>
             </div>
@@ -1247,14 +1304,37 @@ function App() {
         </section>
 
         <section className="map-section" id="mapa">
-          <div className="map-copy"><p className="eyebrow">{t('map.eyebrow', 'Orienta tu paseo')}</p><h2>{t('map')}</h2><p>{t('map.desc', 'Descubre rutas a pie, lugares favoritos y recomendaciones de quienes hacen de Salento su casa.')}</p><button className="dark-button" onClick={() => window.location.assign('/mapa-interactivo-salento.html')}><span>{t('map.open', 'Abrir mapa completo')}</span> <ArrowRight size={17} /></button><div className="map-legend"><span><i className="legend-dot coral" />{t('map.favorites', 'Favoritos locales')}</span><span><i className="legend-dot green" />{t('map.discover', 'Para descubrir')}</span></div></div>
-          <div className="map-visual" aria-label="Mapa interactivo de Salento con lugares destacados"><MapContainer center={[4.65746762702703, -75.5727757405405]} zoom={16} scrollWheelZoom={false} className="leaflet-map"><TileLayer attribution="&copy; OpenStreetMap" url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />{visibleMarkers.map((marker) => <CircleMarker key={marker.label} center={marker.coord} radius={10} pathOptions={{ color: marker.tone === 'green' ? '#56755b' : marker.tone === 'yellow' ? '#ba8a25' : '#e76c52', fillColor: marker.tone === 'green' ? '#56755b' : marker.tone === 'yellow' ? '#e8bb58' : '#e76c52', fillOpacity: 0.9 }}><Popup><strong>{marker.label}</strong><br /><span>{marker.type} · Salento</span><br /><button className="popup-action" onClick={() => {
+          <div className="map-copy"><p className="eyebrow">{t('map.eyebrow', 'Orienta tu paseo')}</p><h2>{t('map')}</h2><p>{t('map.desc', 'Descubre rutas a pie, lugares favoritos y recomendaciones de quienes hacen de Salento su casa.')}</p>
+          
+          <div className="map-actions">
+            <button className="dark-button" onClick={() => window.location.assign('/mapa-interactivo-salento.html')}><span>{t('map.open', 'Abrir mapa completo')}</span> <ArrowRight size={17} /></button>
+            <button className="ar-toggle-button" onClick={toggleARMode} aria-label={arMapMode ? 'Desactivar modo AR' : 'Activar modo AR'}>
+              {arMapMode ? '🥻 AR Activo' : '🎯 Activar AR'}
+            </button>
+          </div>
+          
+          <div className="map-legend"><span><i className="legend-dot coral" />{t('map.favorites', 'Favoritos locales')}</span><span><i className="legend-dot green" />{t('map.discover', 'Para descubrir')}</span></div></div>
+          
+          {arMapMode ? (
+            <div className="map-visual ar-map-visual" aria-label="Mapa AR interactivo de Salento con realidad aumentada">
+              <ARMapController 
+                places={places as any} 
+                userLocation={userLocation || undefined}
+                onPlaceSelect={(place) => {
+                  setSelectedPlace(place as any)
+                  window.scrollTo({ top: 0, behavior: 'smooth' })
+                }}
+              />
+            </div>
+          ) : (
+            <div className="map-visual" aria-label="Mapa interactivo de Salento con lugares destacados"><MapContainer center={[4.65746762702703, -75.5727757405405]} zoom={16} scrollWheelZoom={false} className="leaflet-map"><TileLayer attribution="&copy; OpenStreetMap" url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />{visibleMarkers.map((marker) => <CircleMarker key={marker.label} center={marker.coord} radius={10} pathOptions={{ color: marker.tone === 'green' ? '#56755b' : marker.tone === 'yellow' ? '#ba8a25' : '#e76c52', fillColor: marker.tone === 'green' ? '#56755b' : marker.tone === 'yellow' ? '#e8bb58' : '#e76c52', fillOpacity: 0.9 }}><Popup><strong>{marker.label}</strong><br /><span>{marker.type} · Salento</span><br /><button className="popup-action" onClick={() => {
               const found = marker.placeId != null ? places.find((p) => p.id === marker.placeId) : undefined
               if (found) {
                 setSelectedPlace(found)
                 window.scrollTo({ top: 0, behavior: 'smooth' })
               }
             }}>{/Restaurant|Gastrono|Restaurante/.test(marker.type) ? t('map.viewMenu', 'Ver menú') : t('map.viewInfo', 'Ver información')} <ArrowRight size={13} /></button></Popup></CircleMarker>)}<MapControls /></MapContainer></div>
+          )}
         </section>
 
             <section className="advertising-section" id="pautas"><div><p className="eyebrow">{t('ads.eyebrow', 'Hazte visible en Salento')}</p><h2>{t('ads.title', 'Pautas que llegan\n<i>al lugar correcto.</i>')}</h2><p>{t('ads.desc', 'Tu negocio aparece en el mapa digital, en las búsquedas y frente a turistas listos para comprar o reservar.')}</p></div><div className="advertising-cards"><article><span className="ad-tag">{t('ads.tag1', 'Gastronomía')}</span><strong>{t('ads.card1Title', 'Tu sabor, en el mapa.')}</strong><small>{t('ads.card1Desc', 'Ficha + ubicación + pedidos')}</small></article><article><span className="ad-tag green-tag">{t('ads.tag2', 'Comercio local')}</span><strong>{t('ads.card2Title', 'Lo local se encuentra.')}</strong><small>{t('ads.card2Desc', 'Ficha + ubicación + contacto')}</small></article><article><span className="ad-tag yellow-tag">{t('ads.tag3', 'Experiencias')}</span><strong>{t('ads.card3Title', 'El plan empieza aquí.')}</strong><small>{t('ads.card3Desc', 'Ficha + reservas + rutas')}</small></article></div><button className="dark-button ad-button" onClick={() => alert('Para registrar tu negocio, escríbenos por WhatsApp al +57 313 716 0977')}>{t('ads.register', 'Registra tu negocio')} <ArrowRight size={17} /></button></section>
@@ -1334,6 +1414,8 @@ function App() {
         {showReviews && selectedPlaceForReviews && <Reviews placeId={showReviews} placeName={selectedPlaceForReviews.name} placeType={selectedPlaceForReviews.type} onClose={() => setShowReviews(null)} language={language as 'es' | 'en'} />}
         {showSupport && <SupportCenter onClose={() => setShowSupport(false)} language={language as 'es' | 'en'} />}
         {showLandingPage && <DynamicLandingPage slug={showLandingPage} onClose={() => setShowLandingPage(null)} />}
+        {/* Don Chucho IA mejorado - producción */}
+        {showDonChuchoAI && <EnhancedDonChucho />}
         {showHotelModal && (
           <HotelInfoModal 
             isOpen={showHotelModal}
