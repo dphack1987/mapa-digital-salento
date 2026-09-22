@@ -5657,6 +5657,77 @@ footer { max-width: 1184px; margin: auto; border-top: 1px solid var(--line); dis
   .voice-interim { max-width: 100px; }
 }
 
+/* Hoy en Salento — patrón visual de páginas pautantes (cards blancas, highlights, CTAs) */
+.hoy-salento { max-width: 1184px; margin: 24px auto 34px; padding: 0 28px; }
+.hoy-salento-inner { background: var(--white, #fff); border: 1px solid var(--line); border-radius: 24px; padding: 28px; box-shadow: 0 14px 30px rgba(39, 54, 43, .06); }
+.hoy-salento-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 18px; flex-wrap: wrap; margin-bottom: 20px; }
+.hoy-salento-header .eyebrow { color: var(--coral); text-transform: uppercase; letter-spacing: .12em; font-size: 11px; font-weight: 700; margin: 0; }
+.hoy-salento-header h2 { margin: 8px 0 4px; font: 700 clamp(1.6rem, 3vw, 2.2rem)/1.1 Fraunces; color: var(--ink); }
+.hoy-date { margin: 0; color: var(--muted); font: 12px 'DM Mono'; text-transform: capitalize; }
+.hoy-subtitle { margin: 10px 0 0; color: var(--muted); font-size: 14px; line-height: 1.55; max-width: 560px; }
+.hoy-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.hoy-actions .dark-button, .hoy-actions .outline-button { display: inline-flex; align-items: center; gap: 7px; min-height: 42px; padding: 0 16px; font-size: 13px; font-weight: 700; border-radius: 999px; }
+.hoy-actions .outline-button { border: 1px solid var(--line); background: var(--paper); color: var(--ink); cursor: pointer; }
+.hoy-actions .outline-button:hover { border-color: var(--ink); }
+.hoy-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 18px; }
+.hoy-stat { display: grid; grid-template-columns: auto 1fr; column-gap: 10px; align-items: center; padding: 12px 14px; border: 1px solid var(--line); border-radius: 16px; background: var(--paper); }
+.hoy-stat-icon { grid-row: span 2; font-size: 20px; }
+.hoy-stat strong { font: 700 22px Fraunces; color: var(--ink); line-height: 1; }
+.hoy-stat span:last-child { color: var(--muted); font-size: 11px; }
+.hoy-plans { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 22px; }
+.hoy-plan { display: flex; flex-direction: column; padding: 16px; border: 1px solid var(--line); border-radius: 16px; background: var(--white, #fff); min-height: 100%; }
+.hoy-plan-morning { background: linear-gradient(160deg, #fdf6ee 0%, #f3ead6 100%); }
+.hoy-plan-afternoon { background: linear-gradient(160deg, #eef6ef 0%, #e2eedd 100%); }
+.hoy-plan-evening { background: linear-gradient(160deg, #fdf1ea 0%, #f7e0d4 100%); }
+.hoy-plan-top { display: flex; gap: 10px; align-items: flex-start; margin-bottom: 12px; }
+.hoy-plan-emoji { width: 40px; height: 40px; border-radius: 12px; display: grid; place-items: center; background: rgba(255, 255, 255, .75); font-size: 20px; flex: none; }
+.hoy-plan-top h3 { margin: 0 0 4px; font: 600 17px Fraunces; color: var(--ink); }
+.hoy-plan-top p { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.4; }
+.hoy-plan-list { list-style: none; margin: 0 0 14px; padding: 0; display: grid; gap: 8px; flex: 1; }
+.hoy-plan-list li { display: flex; justify-content: space-between; gap: 8px; align-items: baseline; padding-bottom: 7px; border-bottom: 1px dashed var(--line); }
+.hoy-plan-name { font-size: 12px; font-weight: 600; color: var(--ink); line-height: 1.3; }
+.hoy-plan-list small { color: var(--muted); font: 9px 'DM Mono'; text-transform: uppercase; white-space: nowrap; }
+.hoy-plan-empty { color: var(--muted); font-size: 12px; border-bottom: 0 !important; }
+.hoy-plan-link { display: inline-flex; align-items: center; gap: 6px; color: var(--coral); font-size: 12px; font-weight: 700; text-decoration: none; margin-top: auto; }
+.hoy-plan-link:hover { color: var(--ink); }
+.hoy-pautantes { border-top: 1px solid var(--line); padding-top: 20px; }
+.hoy-pautantes-head { display: flex; justify-content: space-between; gap: 14px; flex-wrap: wrap; align-items: end; margin-bottom: 14px; }
+.hoy-pautantes-head .eyebrow { margin: 0; color: var(--coral); text-transform: uppercase; letter-spacing: .1em; font-size: 10px; font-weight: 700; }
+.hoy-pautantes-head h3 { margin: 6px 0 0; font: 600 1.35rem Fraunces; color: var(--ink); }
+.hoy-pautantes-note { margin: 0; color: #39734b; font-size: 12px; font-weight: 700; max-width: 420px; line-height: 1.4; }
+.hoy-pautantes-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.hoy-pautante-card { display: flex; flex-direction: column; padding: 16px; border: 1px solid var(--line); border-radius: 16px; background: var(--white, #fff); transition: border-color .2s, transform .2s, box-shadow .2s; }
+.hoy-pautante-card:hover { border-color: var(--coral); transform: translateY(-3px); box-shadow: 0 10px 24px rgba(0, 0, 0, .08); }
+.hoy-pautante-icon { width: 40px; height: 40px; border-radius: 12px; display: grid; place-items: center; background: #f3ead6; font-size: 20px; margin-bottom: 10px; }
+.hoy-pautante-tag { align-self: flex-start; padding: 4px 9px; border-radius: 999px; background: #f3ead6; color: var(--coral); font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; margin-bottom: 8px; }
+.hoy-pautante-card h4 { margin: 0 0 6px; font: 600 15px/1.25 Fraunces; color: var(--ink); }
+.hoy-pautante-card > p { margin: 0 0 10px; color: var(--muted); font-size: 11.5px; line-height: 1.45; flex: 1; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.hoy-pautante-highlights { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+.hoy-pautante-highlights span { padding: 5px 8px; border: 1px solid var(--line); border-radius: 999px; background: #f3ead6; font-size: 10px; font-weight: 700; color: var(--ink); }
+.hoy-pautante-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.hoy-pautante-actions .button { display: inline-flex; align-items: center; justify-content: center; min-height: 38px; padding: 0 13px; border: 1px solid var(--line); border-radius: 999px; background: var(--white, #fff); color: var(--ink); font-size: 12px; font-weight: 700; text-decoration: none; }
+.hoy-pautante-actions .button.primary { background: var(--ink); border-color: var(--ink); color: #fff; }
+.hoy-pautante-actions .button:hover { border-color: var(--ink); }
+.hoy-pautante-actions .button.primary:hover { background: var(--coral); border-color: var(--coral); }
+
+@media (max-width: 900px) {
+  .hoy-stats { grid-template-columns: repeat(2, 1fr); }
+  .hoy-plans { grid-template-columns: 1fr; }
+  .hoy-pautantes-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 640px) {
+  .hoy-salento { padding: 0 16px; margin-top: 18px; }
+  .hoy-salento-inner { padding: 18px 14px; border-radius: 18px; }
+  .hoy-salento-header { flex-direction: column; }
+  .hoy-actions { width: 100%; }
+  .hoy-actions .dark-button, .hoy-actions .outline-button { flex: 1 1 auto; justify-content: center; min-height: 44px; font-size: 12px; }
+  .hoy-stat { padding: 10px 12px; }
+  .hoy-stat strong { font-size: 18px; }
+  .hoy-pautantes-grid { grid-template-columns: 1fr; }
+  .hoy-pautante-actions .button { flex: 1; min-height: 44px; }
+}
+
 /* Fichas del directorio más compactas en móvil: menos altura, CTA más fuerte */
 @media (max-width: 640px) {
   .place-card { display: flex; flex-direction: column; height: 100%; border-radius: 6px; overflow: hidden; box-shadow: 0 4px 12px rgba(39, 54, 43, .06); }
