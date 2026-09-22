@@ -23,7 +23,7 @@ const categoryMeta = {
   Artesanías: { title: 'Artesanías', description: 'Productos locales, regalos y cultura hecha a mano', image: 'https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1200&q=80' },
   Tiendas: { title: 'Tiendas', description: 'Comercios locales, souvenirs y compras directas', image: '/imagenes-salento/calle.jfif' },
   Experiencias: { title: 'Experiencias', description: 'Tour, miradores, senderismo y actividades para vivir Salento', image: '/imagenes-salento/653410779.webp' },
-  Servicios: { title: 'Servicios', description: 'Transporte, movilidad y ayuda rápida para tu visita', image: '/pautas/cootracocora_ltda/willys.jpg' },
+  Servicios: { title: 'Servicios', description: 'Transporte, movilidad y ayuda rápida para tu visita', image: '/pautas/cootracocora_ltda/willys.webp' },
 };
 
 const categoryNames = Object.keys(categoryMeta);
@@ -47,29 +47,29 @@ function escapeHtml(value) {
 }
 
 function brandMark(link = true) {
-  const mark = `<img src="/logo_salento2026.png" alt="Salento a la Mano" class="brand-logo" style="width:64px;height:64px;object-fit:contain;border-radius:50%"/><span>Salento a la Mano</span>`;
+  const mark = `<img src="/logo_salento2026.webp" alt="Salento a la Mano" class="brand-logo" style="width:64px;height:64px;object-fit:contain;border-radius:50%"/><span>Salento a la Mano</span>`;
   return link ? `<a class="brand" href="/">${mark}</a>` : `<div class="brand">${mark}</div>`;
 }
 
 const PAUTANTE_LOGOS = {
-  'boki-mall-hotel-el-mirador-de-boquia': '/pautas/boki_mall/hotel-mirador-boquia/logo-hotel-mirador-de-boquia.png',
-  'boki-mall-restaurante-terra': '/pautas/boki_mall/boki_mall_logo.jpg',
-  'boki-mall-barcinales-cafe-bar': '/pautas/boki_mall/boki_mall_logo.jpg',
-  'boki-mall-eventos': '/pautas/boki_mall/boki_mall_logo.jpg',
-  'moto-aventura-110': '/pautas/moto_aventura_110/imagenes/logo-moto-aventura-110.jpg',
+  'boki-mall-hotel-el-mirador-de-boquia': '/pautas/boki_mall/hotel-mirador-boquia/logo-hotel-mirador-de-boquia.webp',
+  'boki-mall-restaurante-terra': '/pautas/boki_mall/boki_mall_logo.webp',
+  'boki-mall-barcinales-cafe-bar': '/pautas/boki_mall/boki_mall_logo.webp',
+  'boki-mall-eventos': '/pautas/boki_mall/boki_mall_logo.webp',
+  'moto-aventura-110': '/pautas/moto_aventura_110/imagenes/logo-moto-aventura-110.webp',
   'reserva-natural-cascadas-de-santa-rita': '/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/logo_cascadas_de_santa_rita.jfif',
   'camping-cascadas-de-santa-rita': '/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/logo_cascadas_de_santa_rita.jfif',
   'camping-cascadas-santa-rita': '/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/logo_cascadas_de_santa_rita.jfif',
-  'finca-hotel-el-ocaso': '/pautas/coffee-tour-alojamiento-finca-hotel-el-ocaso/imagenes/logo_ocaso.png',
-  'finca-don-eduardo-coffee-tour': '/pautas/coffee-tour-finca-don-eduardo/logo-finca-don-eduardo.jpg',
-  'cootracocora-ltda': '/pautas/cootracocora_ltda/logo-cootracocora.jpg',
-  'el-recuerdo-coffee-tour': '/pautas/el_recuerdo_coffee_tour/logo-recuerdo-tour.jpg',
+  'finca-hotel-el-ocaso': '/pautas/coffee-tour-alojamiento-finca-hotel-el-ocaso/imagenes/logo_ocaso.webp',
+  'finca-don-eduardo-coffee-tour': '/pautas/coffee-tour-finca-don-eduardo/logo-finca-don-eduardo.webp',
+  'cootracocora-ltda': '/pautas/cootracocora_ltda/logo-cootracocora.webp',
+  'el-recuerdo-coffee-tour': '/pautas/el_recuerdo_coffee_tour/logo-recuerdo-tour.webp',
 };
 
 function brandMarkFor(slug) {
   const logo = PAUTANTE_LOGOS[slug];
   if (!logo) return brandMark(true);
-  return `<a class="brand" href="/"><img src="/logo_salento2026.png" alt="Salento a la Mano" class="brand-logo" style="width:64px;height:64px;object-fit:contain;border-radius:50%"/><span>Salento a la Mano</span><span aria-hidden="true" style="opacity:.4">×</span><img src="${logo}" alt="Logo pautante" class="brand-logo" style="width:64px;height:64px;object-fit:contain;border-radius:50%;border:1px solid var(--line)" /></a>`;
+  return `<a class="brand" href="/"><img src="/logo_salento2026.webp" alt="Salento a la Mano" class="brand-logo" style="width:64px;height:64px;object-fit:contain;border-radius:50%"/><span>Salento a la Mano</span><span aria-hidden="true" style="opacity:.4">×</span><img src="${logo}" alt="Logo pautante" class="brand-logo" style="width:64px;height:64px;object-fit:contain;border-radius:50%;border:1px solid var(--line)" /></a>`;
 }
 
 function bottomNav() {
@@ -114,7 +114,7 @@ function providerPhotos(provider) {
 
 // Imagen destacada por pautante en tarjetas de categoría (logo oficial del aliado)
 const CARD_IMAGE_OVERRIDES = {
-  'cootracocora-ltda': '/pautas/cootracocora_ltda/logo-cootracocora.jpg',
+  'cootracocora-ltda': '/pautas/cootracocora_ltda/logo-cootracocora.webp',
 };
 
 function cardImageFor(item, category) {
@@ -170,7 +170,7 @@ function buildSchemaJsonLd(provider) {
   const category = provider.type || 'Servicios';
   const description = provider.description || `Servicio local en Salento, Quindío.`;
   const rawImage = providerPhotos(provider)[0];
-  const image = rawImage ? (rawImage.startsWith('http') ? rawImage : encodeURI(rawImage)) : 'https://salentoalamano.com/logo_salento2026.png';
+  const image = rawImage ? (rawImage.startsWith('http') ? rawImage : encodeURI(rawImage)) : 'https://salentoalamano.com/logo_salento2026.webp';
   const url = `/paginas-pautantes/${slugify(name)}/`;
   const telephone = provider.contact?.phone || undefined;
   const whatsapp = provider.contact?.whatsapp ? `+57${String(provider.contact.whatsapp).replace(/\D/g, '')}` : undefined;
@@ -756,7 +756,7 @@ const indexHtml = `<!DOCTYPE html>
   </head>
   <body>
     <div class="container">
-          <header class="topbar"><a class="brand" href="/"><img src="/logo_salento2026.png" alt="Salento a la Mano" class="brand-logo"/><span>Salento a la Mano</span></a><a href="/">Volver al inicio</a></header>
+          <header class="topbar"><a class="brand" href="/"><img src="/logo_salento2026.webp" alt="Salento a la Mano" class="brand-logo"/><span>Salento a la Mano</span></a><a href="/">Volver al inicio</a></header>
           <h1>Categorías de Salento</h1>
       <div class="grid">
         ${categoryNames.map((category) => `
