@@ -4,7 +4,7 @@
       "id": 31,
       "name": "Camping Cascadas de Santa Rita",
       "type": "Camping",
-      "description": "Zona de camping en la Reserva Natural Cascadas de Santa Rita. Áreas equipadas para acampar cerca de la cascada principal y segunda cascada por cavernas. Incluye baños, zonas de fogata y acceso a senderos naturales. Experiencia única de acampada en medio del bosque con sonido de agua natural.",
+      "description": "Camping dentro de la Reserva Cascadas de Santa Rita. Áreas de fogata, baños y acceso a senderos y cascadas.",
       "priceRange": "$",
       "rating": "4.6",
       "timeInfo": "Pernoctada disponible",
@@ -96,7 +96,7 @@
       "id": 13,
       "name": "Boki Mall - Hotel El Mirador de Boquía",
       "type": "Alojamientos",
-      "description": "Complejo turístico y hotelero en Boquía que combina hospedaje, restaurante, bar, eventos y experiencias locales en un entorno rural cercano a Salento. Es una opción reconocida por su propuesta premium y su acceso rápido al centro del pueblo.",
+      "description": "Complejo hotelero en Boquía: hospedaje, restaurante, bar y eventos. Premio al mejor hotel rural de Salento 2024. RNT #91079.",
       "priceRange": "$$$",
       "rating": "4.9",
       "timeInfo": "Reservas directas",
@@ -192,7 +192,7 @@
       "id": 28,
       "name": "Boki Mall - Restaurante Terra",
       "type": "Restaurantes",
-      "description": "Restaurante Terra - Experiencia gastronómica que destaca los sabores locales. Restaurante principal de Boki Mall especializado en gastronomía colombiana tradicional y platos gourmet del Quindío. Cocina de autor con ingredientes locales, ambiente elegante y vistas al paisaje cafetero.",
+      "description": "Restaurante del Boki Mall con cocina de autor y producto local en entorno rural de Boquía.",
       "priceRange": "$$",
       "rating": "4.8",
       "timeInfo": "7:00 a.m. - 9:00 p.m.",
@@ -259,7 +259,7 @@
       "id": 29,
       "name": "Boki Mall - Barcinales Café - Bar",
       "type": "Restaurante Bar",
-      "description": "Barcinales Café - Bar - Disfruta de café y coctelería en un espacio vanguardista. Café-bar y lounge dentro de Boki Mall, ideal para disfrutar de cafés de especialidad, cócteles artesanales y ambiente relajado. Horario variable según programación de eventos y entretenimiento.",
+      "description": "Café de especialidad, pasteles artesanales y ambiente tranquilo en el Boki Mall de Boquía.",
       "priceRange": "$",
       "rating": "4.7",
       "timeInfo": "Horario variable",
@@ -324,7 +324,7 @@
       "id": 30,
       "name": "Boki Mall - Eventos",
       "type": "Eventos",
-      "description": "Salón de eventos ideal para celebraciones en el Eje Cafetero. Organización de bodas, eventos corporativos, cumpleaños y celebraciones especiales. Espacio completo para todo tipo de eventos en Boki Mall.",
+      "description": "Eventos y celebraciones en el Boki Mall de Boquía. Espacios versátiles para grupos, con gastronomía y hospedaje en el mismo lugar.",
       "priceRange": "$$",
       "rating": "4.8",
       "timeInfo": "Con cita previa",
@@ -412,7 +412,7 @@
       "id": 14,
       "name": "Mirador Las Manos de Dios",
       "type": "Atractivos Turísticos",
-      "description": "Mirador y parque fotográfico con escenarios temáticos y vistas panorámicas sobre la cordillera del Quindío. La experiencia combina fotografía, paisaje y clima de aventura para visitantes que buscan una parada icónica cerca de Salento.",
+      "description": "Ecoparque con miradores, réplica del cóndor y escenarios fotográficos únicos. Estación de café y zonas de descanso con vistas al valle.",
       "priceRange": "$",
       "rating": "4.8",
       "timeInfo": "8:00 a.m. - 6:00 p.m.",
@@ -504,7 +504,7 @@
       "id": 15,
       "name": "Reserva Natural Cascadas de Santa Rita",
       "type": "Atractivos Turísticos",
-      "description": "Hermosa quebrada con caída de 20 metros a piscina natural en Boquía. Sendero de 4.8 km con bosque, montes, valle, antigua vía de tren, túnel y puente colgante. Incluye segunda cascada por cavernas y zonas de camping.",
+      "description": "Reserva con cascadas, senderos y pozos naturales. Caminata fácil en plena naturaleza del Quindío.",
       "priceRange": "$",
       "rating": "4.7",
       "timeInfo": "3-4 horas caminata",
@@ -621,7 +621,7 @@
       "id": 5,
       "name": "Hotel Camino Nacional Salento",
       "type": "Alojamientos",
-      "description": "Ubicación central con fácil acceso a la Calle Real y a los principales puntos de interés del municipio. Cuenta con seguridad 24 horas, cambio de divisas y mostrador de información turística. La mayoría de las habitaciones dispone de balcón, canales por cable, ventanas insonorizadas y vistas a la calle.",
+      "description": "Hotel cénico en el centro de Salento. Habitaciones cómodas, atención personalizada y desayuno. Ideal para explorar la plaza y la Calle Real a pie.",
       "priceRange": "$$$",
       "rating": "4.8",
       "timeInfo": "Reservas directas",
@@ -752,7 +752,7 @@
       "id": 9,
       "name": "Finca Hotel El Ocaso",
       "type": "Alojamientos",
-      "description": "Experiencia auténtica de la cultura cafetera con habitaciones confortables rodeadas de naturaleza. Ubicada en entorno tranquilo cerca de Salento, combina la hospitalidad tradicional con comodidades modernas.",
+      "description": "Finca hotel rodeada de cafetales con piscina, jardines y vistas al valle. Descanso campo adentro a minutos del pueblo.",
       "priceRange": "$$$",
       "rating": "4.7",
       "timeInfo": "Reservas directas",
@@ -850,7 +850,7 @@
       "id": 16,
       "name": "Hotel La Floresta Salento",
       "type": "Alojamientos",
-      "description": "Hotel boutique con ambiente de finca a 400 metros de la plaza de Salento: café gratuito, Coffee Spa, coworking y suites con jacuzzi. Habitaciones inspiradas en aves de la región y base ideal para el Valle del Cocora.",
+      "description": "Hotel a 400 m de la plaza con terrazas panorámicas, jardín y habitaciones acogedoras. Ideal para parejas y familias.",
       "priceRange": "$$",
       "rating": "4.6",
       "timeInfo": "Reservas directas",
@@ -934,7 +934,7 @@
       "id": 17,
       "name": "Finca Cafetera Don Elías",
       "type": "Coffee Tours",
-      "description": "Tour auténtico de café en finca tradicional del Eje Cafetero. Experiencia educativa sobre el proceso del café desde la semilla hasta la taza, con degustación incluida.",
+      "description": "Finca cafetera familiar. Recorrido por el cafetal, proceso del café y degustación de café de especialidad.",
       "priceRange": "$$",
       "rating": "4.9",
       "timeInfo": "Tours programados",
@@ -1074,7 +1074,7 @@
       "id": 20,
       "name": "Cabalgatas Cocora Mágica",
       "type": "Experiencias",
-      "description": "Cabalgatas tradicionales por el Valle de Cocora con operadores certificados y guías locales. Experiencia inolvidable montando caballos por los paisajes más icónicos del Quindío.",
+      "description": "Cabalgatas por el campo y la vía al Valle de Cocora. Recorridos para principiantes y experimentados, con guía local.",
       "priceRange": "$$",
       "rating": "4.9",
       "timeInfo": "Reserva previa",
@@ -1156,7 +1156,7 @@
       "id": 21,
       "name": "Fonda Boquía",
       "type": "Restaurantes",
-      "description": "Restaurante tradicional en Boquía con especialidad en platos típicos del Quindío. Ambiente acogedor y comida casera con ingredientes locales. Carta verificada con precios. Pedido directo por WhatsApp.",
+      "description": "Comida casera costeña y platos típicos a pasos de la plaza. Porciones generales y precios amigables.",
       "priceRange": "$$",
       "rating": "4.7",
       "timeInfo": "Carta con precios verificados",
@@ -1465,7 +1465,7 @@
       "id": 23,
       "name": "Finca Don Eduardo Coffee Tour",
       "type": "Coffee Tours",
-      "description": "Tour de café en inglés y español en Finca Don Eduardo, ubicada a 8 minutos caminando de la plaza principal de Salento. Experiencia educativa completa sobre el proceso del café con guías certificados.",
+      "description": "Coffee tour en finca familiar. Recorrido por el cafetal, proceso del grano y degustación con transporte Willys opcional.",
       "priceRange": "$$$",
       "rating": "4.9",
       "timeInfo": "Lunes a sábado",
@@ -1554,7 +1554,7 @@
       "id": 100,
       "name": "Calle Real de Salento",
       "type": "Atractivos Turísticos",
-      "description": "Calle histórica y principal de Salento, conocida por sus arquitectura tradicional, balcones con flores, tiendas de artesanías y cafés. Es el corazón cultural y comercial del municipio.",
+      "description": "Calle principal de Salento, llena de artesanías, cafés y restaurantes. Desde la plaza hasta la vía al Cocora.",
       "priceRange": "Gratis",
       "rating": "4.8",
       "timeInfo": "Acceso libre",
@@ -1591,7 +1591,7 @@
       "id": 101,
       "name": "Plaza de Bolívar de Salento",
       "type": "Atractivos Turísticos",
-      "description": "Plaza principal de Salento, punto de encuentro tradicional del municipio. Rodeada de arquitectura colonial, iglesia y edificios históricos. Es el corazón social y cultural del pueblo.",
+      "description": "Corazón de Salento: kiosco, palmas de cera y ambiente de pueblo. Punto de encuentro de locales y visitantes.",
       "priceRange": "Gratis",
       "rating": "4.9",
       "timeInfo": "Acceso libre",
@@ -1628,7 +1628,7 @@
       "id": 102,
       "name": "Mirador Alto de la Cruz",
       "type": "Atractivos Turísticos",
-      "description": "Mirador tradicional de Salento con vistas panorámicas del municipio y los valles circundantes. Se puede llegar caminando por un sendero escénico desde el centro del pueblo.",
+      "description": "Mirador a pocos minutos del centro con vista panorámica al pueblo y el valle. Subida corta y fácil.",
       "priceRange": "Gratis",
       "rating": "4.7",
       "timeInfo": "30-45 min caminata",
@@ -1665,7 +1665,7 @@
       "id": 103,
       "name": "Iglesia de Nuestra Señora del Carmen de Salento",
       "type": "Atractivos Turísticos",
-      "description": "Iglesia histórica de arquitectura colonial en el centro de Salento. Templo católico dedicado a Nuestra Señora del Carmen, patrona del municipio. Ejemplo destacado del patrimonio religioso y arquitectónico de la región.",
+      "description": "Iglesia icónica de fachada amarilla y verde. Patrimonio del casco histórico de Salento.",
       "priceRange": "Gratis",
       "rating": "4.8",
       "timeInfo": "Visita libre",
@@ -1702,7 +1702,7 @@
       "id": 104,
       "name": "Valle de Cocora — Sendero de Entrada Libre",
       "type": "Atractivos Turísticos",
-      "description": "Valle de Cocora, hogar de la palma de cera, árbol nacional de Colombia. Sendero principal de acceso libre con vistas espectaculares de las palmas gigantes y montañas circundantes.",
+      "description": "Sendero de entrada libre al Valle de Cocora. Paisajes de palmas de cera y bosque de niebla.",
       "priceRange": "Gratis",
       "rating": "5.0",
       "timeInfo": "2-4 horas caminata",
@@ -1739,7 +1739,7 @@
       "id": 105,
       "name": "Mirador del Cóndor (Salento)",
       "type": "Atractivos Turísticos",
-      "description": "Mirador natural desde donde se pueden observar cóndores andinos en su hábitat natural. Ubicado en zona de alta montaña con vistas espectaculares de la cordillera.",
+      "description": "Mirador de aves y vistas al valle. Ideal para avistamiento de cóndores y fotos panorámicas.",
       "priceRange": "Gratis",
       "rating": "4.6",
       "timeInfo": "Caminata requerida",
@@ -1776,7 +1776,7 @@
       "id": 108,
       "name": "Puente de Boquía (Sendero Cercano)",
       "type": "Atractivos Turísticos",
-      "description": "Puente histórico en Boquía, punto de acceso a senderos naturales cercanos incluyendo Cascadas de Santa Rita. Estructura tradicional que conecta áreas de interés turístico.",
+      "description": "Sendero cercano al Puente de Boquía. Caminata corta entre cafetales y bosque, ideal para una media tarde.",
       "priceRange": "Gratis",
       "rating": "4.5",
       "timeInfo": "Acceso libre",
@@ -1850,7 +1850,7 @@
       "id": 110,
       "name": "Recorrido Cultural Casco Histórico",
       "type": "Atractivos Turísticos",
-      "description": "Recorrido por el casco histórico de Salento, descubriendo arquitectura colonial, plazas, iglesias y edificios patrimoniales. Caminata cultural por las calles más representativas del municipio.",
+      "description": "Recorrido a pie por el casco histórico de Salento: iglesia, miradores, fachadas de colonización y rincones típicos.",
       "priceRange": "Gratis",
       "rating": "4.8",
       "timeInfo": "1-2 horas",
@@ -1924,7 +1924,7 @@
       "id": 112,
       "name": "Terminal de Transporte de Salento (Acceso Peatonal)",
       "type": "Atractivos Turísticos",
-      "description": "Terminal de transporte de Salento, punto de llegada y salida de buses intermunicipales. Acceso peatonal para visitantes que llegan o salen del municipio en transporte público.",
+      "description": "Terminal de buses de Salento. Salidas a Armenia, Pereira y Filandia; a pocos minutos de la plaza a pie.",
       "priceRange": "Gratis",
       "rating": "4.5",
       "timeInfo": "Acceso libre",
@@ -1960,7 +1960,7 @@
       "id": 113,
       "name": "Punto de Encuentro Jeeps Willys Plaza",
       "type": "Atractivos Turísticos",
-      "description": "Punto de encuentro oficial para Jeeps Willys que transportan turistas al Valle de Cocora y otros destinos. Ubicado en la Plaza Principal, es el lugar de partida para los transporte tradicionales.",
+      "description": "Punto de encuentro de los jeeps Willys a la plaza. Icono del transporte tradicional de Salento.",
       "priceRange": "Gratis",
       "rating": "4.7",
       "timeInfo": "Salidas regulares",
@@ -1997,7 +1997,7 @@
       "id": 32,
       "name": "Mahalo Hostel Salento",
       "type": "Alojamientos",
-      "description": "Desde 2020, Mahalo Hostel ofrece a los viajeros una experiencia auténtica en el corazón del Quindío. 11 habitaciones con jacuzzi, desayuno, fogata al aire libre y vista a la montaña. Donde la hospitalidad quindiana cobra vida.",
+      "description": "Hostel con habitaciones tipo tatami, desayuno, fogata y vistas a la montaña. Hospitalidad quindiana desde 2020.",
       "priceRange": "$$$",
       "rating": "",
       "timeInfo": "Check-in 3:00 PM / Check-out 12:00 PM",
@@ -2131,7 +2131,7 @@
       "id": 33,
       "name": "Parque Mirador La Vida es Bella",
       "type": "Atractivos Turísticos",
-      "description": "Parque mirador en la primera entrada del Valle de Cocora, Salento. Vistas panorámicas de las palmas de cera más altas del mundo, casa al revés, columpios gigantes, escalera al cielo y más de 26 escenarios fotográficos. Un plan seguro, al aire libre y para todas las edades.",
+      "description": "Mirador con vistas espectaculares al valle y las montañas. Spot perfecto para fotos atardecer.",
       "priceRange": "$",
       "rating": "4.5",
       "timeInfo": "Todos los días",
@@ -2219,7 +2219,7 @@
       "id": 34,
       "name": "El Recuerdo Coffee Tour",
       "type": "Coffee Tours",
-      "description": "Una finca en medio de la naturaleza donde se respira café. Tour cada hora de 9am a 4pm, café de especialidad y experiencia auténtica del Eje Cafetero. $50.000 COP por persona. Transporte Willys desde la plaza por $9.000.",
+      "description": "Finca en medio de la naturaleza. Tour cada hora de 9am a 4pm, café de especialidad. $50.000 COP por persona. Willys desde la plaza: $9.000.",
       "priceRange": "$$",
       "rating": "4.8",
       "timeInfo": "Tours cada hora de 9am a 4pm",
@@ -2255,8 +2255,14 @@
       },
       "photos": [
         "/pautas/el_recuerdo_coffee_tour/recuerdo1casa.webp",
+        "/pautas/el_recuerdo_coffee_tour/recuerdo2.webp",
         "/pautas/el_recuerdo_coffee_tour/recuerdocafetal1.webp",
         "/pautas/el_recuerdo_coffee_tour/recuerdocafetal2.webp",
+        "/pautas/el_recuerdo_coffee_tour/recuerdopaisaje1.webp",
+        "/pautas/el_recuerdo_coffee_tour/10.webp",
+        "/pautas/el_recuerdo_coffee_tour/11.webp",
+        "/pautas/el_recuerdo_coffee_tour/12.webp",
+        "/pautas/el_recuerdo_coffee_tour/13.webp",
         "/pautas/el_recuerdo_coffee_tour/logo-recuerdo-tour.webp"
       ],
       "actionTarget": {
@@ -2268,10 +2274,10 @@
       "id": 35,
       "name": "Hotel La Tía Emiss",
       "type": "Alojamientos",
-      "description": "Hotel familiar de arquitectura de colonización antioqueña a dos cuadras del parque principal de Salento. Habitaciones doble, twin, triple y dúplex familiar con Wi-Fi gratis y desayunos destacados por huéspedes.",
+      "description": "Hotel familiar de arquitectura de colonización antioqueña a 2 cuadras del parque. Habitaciones doble, twin, triple y dúplex con Wi-Fi y desayuno destacado.",
       "priceRange": "$$",
       "rating": "4.4",
-      "timeInfo": "Consultar disponibilidad",
+      "timeInfo": "Check-in 3:00 PM · Check-out 11:00 AM",
       "badge": "Hotel",
       "color": "yellow",
       "icon": "Hotel",
@@ -2286,7 +2292,7 @@
         "landmark": "A dos cuadras del parque principal"
       },
       "operatingHours": {
-        "notes": "Consultar check-in y recepción con el hotel"
+        "notes": "Check-in 15:00–22:00 · Check-out hasta 11:00"
       },
       "tags": [
         "hotel",
@@ -2294,13 +2300,15 @@
         "familiar",
         "wifi",
         "desayuno",
+        "jardín",
+        "terraza",
         "parque",
         "salento"
       ],
       "verified": true,
       "active": true,
       "accommodationDetails": {
-        "categoryLabel": "Hotel 2 estrellas · familiar",
+        "categoryLabel": "Hotel familiar · colonización antioqueña",
         "roomTypes": [
           "Doble matrimonial (2 pax)",
           "Twin (4 pax)",
@@ -2309,119 +2317,40 @@
         ],
         "services": [
           "Wi-Fi gratis",
-          "Desayuno destacado"
-        ]
-      },
-      "photos": [],
-      "actionTarget": {
-        "viewUrl": "https://salentoalamano.com/paginas-pautantes/parque-mirador-la-vida-es-bella/"
-      },
-      "isPautante": true
-    },
-    {
-      "id": 34,
-      "name": "El Recuerdo Coffee Tour",
-      "type": "Coffee Tours",
-      "description": "Una finca en medio de la naturaleza donde se respira café. Tour cada hora de 9am a 4pm, café de especialidad y experiencia auténtica del Eje Cafetero. $50.000 COP por persona. Transporte Willys desde la plaza por $9.000.",
-      "priceRange": "$$",
-      "rating": "4.8",
-      "timeInfo": "Tours cada hora de 9am a 4pm",
-      "badge": "Coffee Tour",
-      "color": "sage",
-      "icon": "Coffee",
-      "contact": {
-        "phone": "+57 310 3764672",
-        "whatsapp": "573103764672",
-        "email": "cazal16@yahoo.es"
-      },
-      "location": {
-        "address": "Finca rural, Salento, Quindío",
-        "landmark": "Salento rural"
-      },
-      "operatingHours": {
-        "notes": "Tours cada hora de 9:00 a.m. a 4:00 p.m."
-      },
-      "tags": [
-        "coffee tour",
-        "café de especialidad",
-        "finca",
-        "naturaleza",
-        "willys",
-        "salento"
-      ],
-      "verified": true,
-      "active": true,
-      "experienceDetails": {
-        "duration": "~2 horas",
-        "difficulty": "Fácil",
-        "meetingPoint": "Plaza de Bolívar (transporte Willys) o finca"
+          "Desayuno destacado",
+          "Jardín y terraza",
+          "Patio en habitaciones",
+          "TV plana",
+          "No fumador",
+          "Mascotas permitidas",
+          "Recepción",
+          "Equipaje",
+          "Traslado aeropuerto (pago)"
+        ],
+        "bookingNotes": "Desde ~$61 USD · tarifa a confirmar por WhatsApp",
+        "policies": "Check-in 15:00–22:00 · Check-out 07:00–11:00 · No fumador"
       },
       "photos": [
-        "/pautas/el_recuerdo_coffee_tour/recuerdo1casa.webp",
-        "/pautas/el_recuerdo_coffee_tour/recuerdocafetal1.webp",
-        "/pautas/el_recuerdo_coffee_tour/recuerdocafetal2.webp",
-        "/pautas/el_recuerdo_coffee_tour/logo-recuerdo-tour.webp"
+        "/pautas/hotel_tia_emiss/1625430084.webp",
+        "/pautas/hotel_tia_emiss/1662261168.webp",
+        "/pautas/hotel_tia_emiss/emmis1.jpg",
+        "/pautas/hotel_tia_emiss/1625429615.webp",
+        "/pautas/hotel_tia_emiss/1625429949.webp",
+        "/pautas/hotel_tia_emiss/1625430062.webp",
+        "/pautas/hotel_tia_emiss/1625430071.webp",
+        "/pautas/hotel_tia_emiss/sala-al-aire-libre-del.jpg",
+        "/pautas/hotel_tia_emiss/1625430107.webp",
+        "/pautas/hotel_tia_emiss/1625429971.webp",
+        "/pautas/hotel_tia_emiss/1625429973.webp",
+        "/pautas/hotel_tia_emiss/1625430113.webp",
+        "/pautas/hotel_tia_emiss/1625430117.webp"
       ],
-      "actionTarget": {
-        "viewUrl": "https://salentoalamano.com/paginas-pautantes/el-recuerdo-coffee-tour/"
-      },
-      "isPautante": true
-    },
-    {
-      "id": 35,
-      "name": "Hotel La Tía Emiss",
-      "type": "Alojamientos",
-      "description": "Hotel familiar de arquitectura de colonización antioqueña a dos cuadras del parque principal de Salento. Habitaciones doble, twin, triple y dúplex familiar con Wi-Fi gratis y desayunos destacados por huéspedes.",
-      "priceRange": "$$",
-      "rating": "4.4",
-      "timeInfo": "Consultar disponibilidad",
-      "badge": "Hotel",
-      "color": "yellow",
-      "icon": "Hotel",
-      "contact": {
-        "phone": "+57 316 4162726",
-        "whatsapp": "573164162726",
-        "email": "tiaemiss@gmail.com",
-        "facebook": "https://www.facebook.com/latiaemiss"
-      },
-      "location": {
-        "address": "Carrera 4 #5-38, Salento, Quindío",
-        "landmark": "A dos cuadras del parque principal"
-      },
-      "operatingHours": {
-        "notes": "Consultar check-in y recepción con el hotel"
-      },
-      "tags": [
-        "hotel",
-        "alojamiento",
-        "familiar",
-        "wifi",
-        "desayuno",
-        "parque",
-        "salento"
-      ],
-      "verified": true,
-      "active": true,
-      "accommodationDetails": {
-        "categoryLabel": "Hotel 2 estrellas · familiar",
-        "roomTypes": [
-          "Doble matrimonial (2 pax)",
-          "Twin (4 pax)",
-          "Triple (6 pax)",
-          "Dúplex familiar (8 pax)"
-        ],
-        "services": [
-          "Wi-Fi gratis",
-          "Desayuno destacado"
-        ]
-      },
-      "photos": [],
       "actionTarget": {
         "viewUrl": "https://salentoalamano.com/paginas-pautantes/hotel-la-tia-emiss/"
       },
       "isPautante": true
     }
   ],
-  "lastUpdated": "2026-09-22T00:00:00.000Z",
+  "lastUpdated": "2026-09-22T22:03:54.962Z",
   "version": "2.0.0-pautantes-only"
 }
