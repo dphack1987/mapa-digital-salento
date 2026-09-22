@@ -49,10 +49,16 @@ function EnhancedDonChucho({ onFallback, existingComponent }: EnhancedDonChuchoP
 
   useEffect(() => {
     const checkPythonBackend = async () => {
-      const health = await pythonBackendService.healthCheck()
-      if (health && health.status === 'healthy') {
-        setPythonStatus('online')
-      } else {
+      try {
+        const health = await pythonBackendService.healthCheck()
+        if (health && health.status === 'healthy') {
+          setPythonStatus('online')
+        } else {
+          setPythonStatus('offline')
+          setUsePython(false)
+        }
+      } catch (err) {
+        console.warn('[EnhancedDonChucho] Backend no disponible:', err)
         setPythonStatus('offline')
         setUsePython(false)
       }
