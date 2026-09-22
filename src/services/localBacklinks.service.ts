@@ -123,7 +123,7 @@ class LocalBacklinksService {
    * Generar opciones de backlinks para aliados
    */
   private generateBacklinkOptions(): BacklinkOption[] {
-    const baseUrl = 'https://salentoalamano.com'
+    const baseUrl = 'https://www.salentoalamano.com'
     
     return [
       // BADGE OFICIAL
@@ -455,7 +455,7 @@ class LocalBacklinksService {
     whatsapp: string
   } {
     const ally = this.allies.find(a => a.id === allyId)
-    const baseUrl = 'https://salentoalamano.com'
+    const baseUrl = 'https://www.salentoalamano.com'
     const trackingParams = `?utm_source=social&utm_medium=${ally?.type}_backlink&utm_campaign=seo_defensivo`
 
     return {
@@ -526,7 +526,7 @@ class LocalBacklinksService {
     
     if (allyId && backlinkType) {
       // Enviar datos al servidor
-      fetch('https://salentoalamano.com/api/backlink-track', {
+      fetch('https://www.salentoalamano.com/api/backlink-track', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -550,7 +550,7 @@ class LocalBacklinksService {
       // Track impresión
       const allyId = backlink.dataset.allyId;
       if (allyId) {
-        fetch('https://salentoalamano.com/api/backlink-impression', {
+        fetch('https://www.salentoalamano.com/api/backlink-impression', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

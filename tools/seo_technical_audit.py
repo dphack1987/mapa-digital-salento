@@ -20,7 +20,7 @@ from xml.etree import ElementTree
 
 ROOT = Path(__file__).resolve().parents[1]
 PUBLIC = ROOT / "public"
-DEFAULT_ORIGIN = "https://salentoalamano.com"
+DEFAULT_ORIGIN = "https://www.salentoalamano.com"
 SKIP_DIRS = {".git", "node_modules", "dist", "__pycache__"}
 SEVERITIES = ("error", "warning", "info")
 

@@ -464,6 +464,8 @@ function App() {
 
   const helmetCanonical = useMemo(() => {
     const base = 'https://www.salentoalamano.com'
+    const cleanPath = (p: string) => p.split('?')[0].split('#')[0]
+    const currentPath = typeof window !== 'undefined' ? cleanPath(window.location.pathname) : '/'
     if (selectedPlace) {
       const slug = selectedPlace.name?.toLowerCase()
         .replace(/[^a-z0-9\s-]/g, '')
@@ -480,7 +482,10 @@ function App() {
         .trim()
       return `${base}/categorias/${catSlug}.html`
     }
-    return `${base}/`
+    if (currentPath === '/' || currentPath === '') return `${base}/`
+    if (currentPath.endsWith('/')) return `${base}${currentPath}`
+    if (currentPath.endsWith('.html')) return `${base}${currentPath}`
+    return `${base}${currentPath.replace(/\/$/, '')}/`
   }, [selectedPlace, selectedCategoryPage])
 
   // Función para manejar acciones del modal de pautantes
@@ -886,7 +891,12 @@ function App() {
         <meta name="twitter:description" content={helmetDescription} />
         <meta name="twitter:image" content="https://www.salentoalamano.com/imagenes-salento/salento-landscape.webp" />
         <link rel="alternate" hrefLang="es-CO" href={helmetCanonical} />
-        <link rel="alternate" hrefLang="x-default" href={helmetCanonical} />
+        <link rel="alternate" hrefLang="en" href="https://www.salentoalamano.com/en/" />
+        <link rel="alternate" hrefLang="de" href="https://www.salentoalamano.com/de/" />
+        <link rel="alternate" hrefLang="fr" href="https://www.salentoalamano.com/fr/" />
+        <link rel="alternate" hrefLang="pt-BR" href="https://www.salentoalamano.com/pt/" />
+        <link rel="alternate" hrefLang="it" href="https://www.salentoalamano.com/it/" />
+        <link rel="alternate" hrefLang="x-default" href="https://www.salentoalamano.com/" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "WebPage",
@@ -1511,6 +1521,120 @@ function App() {
                   </article>
                 )
               })}
+            </div>
+          </div>
+        </section>
+
+        <section className="home-content-guide" id="guia-salento" aria-labelledby="guia-salento-title">
+          <div className="home-content-guide-inner">
+            <p className="eyebrow">Guía práctica de viaje</p>
+            <h2 id="guia-salento-title">Salento, Quindío: la guía completa para planear tu visita</h2>
+            <p className="home-content-lead">
+              Salento es un pueblo paisa de orígenes fundacionales a 1.895 metros sobre el nivel del mar, enclavado en el departamento del Quindío y reconocido como una de las joyas del Eje Cafetero colombiano. Su casco urbano conserva calles empedradas, balcones de guadua, casas de bahareque pintadas de colores y una arquitectura que mezcla la herencia colonial con el carácter acogedor de los pueblos cafeteros. Desde la Plaza de Bolívar, con su iglesia de techumbre blanca y el mirador natural del Alto de la Cruz, se entiende de inmediato por qué miles de viajeros llegan cada año en busca de naturaleza, café de origen y experiencias auténticas con la comunidad local.
+            </p>
+            <p>
+              El gran reclamo de Salento es el <strong>Valle de Cocora</strong>, a pocos minutos en jeep: un paisaje de selva de niebla atravesado por el río Quindío y flanqueado por las <strong>palmas de cera</strong>, el árbol nacional de Colombia, que superan los 60 metros de altura. En el pueblo, el ritmo lo marcan los <a href="/paginas-pautantes/punto-de-encuentro-jeeps-willys-plaza/">jeeps Willys</a> que parten desde la plaza, los fogones con trucha arcoíris, las fincas cafeteras familiares y una agenda viva de experiencias: coffee tours, cabalgatas, senderismo, cascadas, artesanía y gastronomía de raíz. Además de la ruta clásica al valle, muchos visitantes combinan el mirador del Alto de la Cruz al atardecer, una mañana de siembra y cata en finca, y una tarde lenta por la Calle Real, donde las tiendas de artesanía conviven con heladerías de sabores locales y cafés de especialidad. El clima de altura suaviza las jornadas: mañanas frescas, tardes templadas y noches ideales para cenar con vistas al valle.
+            </p>
+            <p>
+              Esta página reúne lo esencial —cómo llegar, qué hacer y cuándo ir— con enlaces directos a nuestras <a href="/paginas-pautantes/calle-real-de-salento/">páginas de pautantes</a> y a las <a href="/landing/valle-de-cocora-guia/">guías extendidas</a> del sitio para que armes un itinerario claro, real y sin vueltas. También encontrarás referencias a <a href="/paginas-pautantes/finca-don-eduardo-coffee-tour/">fincas de coffee tour verificadas</a>, <a href="/paginas-pautantes/valle-de-cocora-sendero-de-entrada-libre/">senderos con entrada libre</a> al Valle de Cocora y opciones de hospedaje y gastronomía con contacto directo por WhatsApp, sin comisiones de intermediarios. La idea es simple: que llegues con expectativas realistas, vuelvas con historias propias y apoyes a los negocios locales que hacen de Salento un destino con identidad. Si es tu primera visita, empieza por las secciones de transporte y actividades; si ya conoces el pueblo, usa los enlaces a categorías y landings para descubrir rincones menos transitados y planes de temporada baja.
+            </p>
+            <figure className="home-content-figure">
+              <img src="/imagenes-salento/salento-landscape.webp" alt="Vista panorámica del valle y las montañas de Salento, Quindío, al atardecer" loading="lazy" width="1200" height="675" />
+              <figcaption>Paisaje del entorno de Salento, Quindío — foto de archivo Salento a la Mano</figcaption>
+            </figure>
+
+            <h2>Cómo llegar a Salento</h2>
+            <p>
+              Salento no tiene aeropuerto comercial propio: se llega por carretera desde los puertos aéreos del Eje Cafetero o desde grandes ciudades. La última milla, desde Armenia o Filadelfia, se resuelve en bus intermunicipal, en taxi o en el tradicional jeep. Abajo, las tres rutas más usadas por viajeros y locales.
+            </p>
+
+            <h3>Desde Armenia en bus o transporte local</h3>
+            <p>
+              Desde el terminal de Armenia el trayecto dura entre 30 y 45 minutos según el tráfico de fin de semana. Hay buses y combis frecuentes durante el día; el último regreso conviene confirmarlo en terminal porque varía en temporada alta. Si viajas con maleta grande, reserva espacio con anticipación o considera un traslado privado. Enlace útil: <a href="/landing/hotel-barato-salento/">hoteles y hospedaje económico en Salento</a>.
+            </p>
+
+            <h3>Desde Pereira y el aeropuerto Matecaña</h3>
+            <p>
+              Desde Pereira se toma bus o van hacia Armenia y conexión a Salento, o un traslado directo de aproximadamente 2 a 2,5 horas. El aeropuato Matecaña (PEI) es una de las entradas más cómodas para vuelos nacionales; desde allí, coordinar transporte compartido o privado reduce tiempos de espera. Consulta antes de salir el estado de vías en nuestras <a href="/vias-salento-libres-acceso.html">actualizaciones de carreteras</a>.
+            </p>
+
+            <h3>En jeep Willys desde la plaza</h3>
+            <p>
+              Los jeeps Willys son el sistema público de movilidad hacia el Valle de Cocora, Filadelfia y veredas cercanas. Salen desde la Plaza de Bolívar cuando llenan cupo, con tarifas populares por persona. Es la forma más auténtica de moverse y también el mejor preámbulo para el día de senderismo. Puntos de referencia y horarios orientativos en <a href="/paginas-pautantes/punto-de-encuentro-jeeps-willys-plaza/">punto de encuentro de jeeps</a>.
+            </p>
+
+            <h3>Desde Bogotá o Medellín</h3>
+            <p>
+              La opción más práctica es volar a Armenia (AXM) o Pereira (PEI) y continuar por tierra. En bus nocturno o diurno desde Bogotá se suma el trayecto al Eje Cafetero; desde Medellín, buses y vans operan con frecuencia hacia Armenia. Una vez en el corredor cafetero, el resto del viaje es corto y escénico. Planifica alojamiento con tiempo en temporada de puentes: revisa <a href="/hoteles-abiertos-salento.html">hoteles abiertos en Salento</a>.
+            </p>
+            <figure className="home-content-figure">
+              <img src="/imagenes-salento/calle.webp" alt="Calle empedrada del centro histórico de Salento con casas de colores y balcones de guadua" loading="lazy" width="1200" height="800" />
+              <figcaption>Centro histórico de Salento: calles empedradas y arquitectura tradicional</figcaption>
+            </figure>
+
+            <h2>Qué hacer en Salento</h2>
+            <p>
+              Con dos o tres días bien distribuidos se combinan naturaleza, café, cultura y descanso. Estas son las experiencias que no deberían faltar en tu ruta, con enlaces a operadores locales verificados del directorio.
+            </p>
+
+            <h3>Valle de Cocora y las palmas de cera</h3>
+            <p>
+              El sendero clásico rodea el río Quindío, cruza puentes colgantes y asciende entre niebla hasta el bosque de los Robles. Completa la vuelta en 4 a 6 horas con ritmo pausado, calzado con agarre y agua. Lleva impermeable ligero: la lluvia corta es parte del paisaje. Opciones guiadas y de entrada libre: <a href="/paginas-pautantes/valle-de-cocora-sendero-de-entrada-libre/">Valle de Cocora por entrada libre</a> y la <a href="/landing/valle-de-cocora-guia/">guía completa del Valle de Cocora</a>.
+            </p>
+
+            <h3>Coffee tours en fincas cafeteras</h3>
+            <p>
+              Un coffee tour de media mañana enseña siembra, cosecha, despulpado y cata, casi siempre en fincas familiares de la zona. Ideal para viajeros que quieren entender el origen del café colombiano más allá de la taza. Reserva directa con pautantes como <a href="/paginas-pautantes/finca-don-eduardo-coffee-tour/">Finca Don Eduardo</a> o explora más opciones en <a href="/coffee-tour-salento.html">la guía de coffee tours</a>.
+            </p>
+
+            <h3>Calle Real, Plaza de Bolívar y miradores</h3>
+            <p>
+              La Calle Real concentra artesanías, heladerías de sabores locales y fachadas fotogénicas. Desde la plaza sube al <a href="/paginas-pautantes/mirador-alto-de-la-cruz/">Alto de la Cruz</a> al atardecer: es la vista clásica de tejados, valle y montañas. Recorre también la <a href="/paginas-pautantes/plaza-de-bolivar-de-salento/">Plaza de Bolívar</a> y la iglesia; la ruta a pie toma menos de una hora si no te detienes en tiendas.
+            </p>
+
+            <h3>Gastronomía local y vida nocturna</h3>
+            <p>
+              Prueba trucha arcoíris, patacones, arepas de queso, sancocho y el café de la región. Para reservar o pedir sin intermediarios, usa las fichas de <a href="/categorias/restaurantes.html">restaurantes en Salento</a> y destinos como <a href="/paginas-pautantes/restaurante-don-elias/">Restaurante Don Elías</a>, <a href="/paginas-pautantes/fonda-boquia/">Fonda Boquia</a> o el complejo <a href="/paginas-pautantes/boki-mall-restaurante-terra/">Boki Mall · Restaurante Terra</a>. La noche es tranquila: bares con música en vivo y terrazas, sin el ruido de las grandes ciudades. Más ideas en <a href="/landing/mejor-trucha-salento/">dónde comer la mejor trucha</a>.
+            </p>
+            <figure className="home-content-figure">
+              <img src="/imagenes-salento/valle-cocora-palmas-2.webp" alt="Palmas de cera gigantes en el Valle de Cocora, árbol nacional de Colombia, entre neblina" loading="lazy" width="1200" height="800" />
+              <figcaption>Palmas de cera en el Valle de Cocora, atravesadas por senderos de niebla</figcaption>
+            </figure>
+
+            <h2>Mejores épocas para visitar Salento</h2>
+            <p>
+              Salento se puede visitar todo el año; lo que cambia es el clima, la densidad de viajeros y el estado de los senderos. Estas ventanas de tiempo ayudan a elegir según tu prioridad: fotos, festival o tranquilidad.
+            </p>
+
+            <h3>Diciembre a marzo: temporada seca y claro de estrellas</h3>
+            <p>
+              Los meses secos suelen dar las mañanas más despejadas para el Valle de Cocora y los miradores. Es alta temporada navideña y de vacaciones colombianas: reserva alojamiento con anticipación y espera más movimiento en el centro. Buen momento para combinar trekking y fotos largas al atardecer. Opciones de hospedaje: <a href="/landing/hotel-barato-salento/">guía de hoteles</a>.
+            </p>
+
+            <h3>Julio y agosto: vacaciones y ambiente local</h3>
+            <p>
+              En julio y agosto el pueblo se llena de familias colombianas; los jeeps trabajan a full y las fincas ofrecen más cupos. Las lluvias de la tarde son habituales pero cortas. Ideal si te gusta el bullicio, los grupos de coffee tour completos y la vida de plaza al anochecer. Consulta el estado de los atractivos en <a href="/valle-cocora-accesible-100.html">Valle de Cocora accesible</a>.
+            </p>
+
+            <h3>Temporada de lluvias: verde intenso y menos gente</h3>
+            <p>
+              Abril–mayo y octubre–noviembre traen más precipitación. El paisaje se vuelve más verde, las cascadas ganan caudal y hay menos filas en los senderos. Lleva funda impermeable para el celular, capas técnicas y un plan B de museo, cafés o <a href="/paginas-pautantes/reserva-natural-cascadas-de-santa-rita/">Cascadas de Santa Rita</a> cuando el aguacero es fuerte.
+            </p>
+
+            <h3>Puentes, Semana Santa y ferias</h3>
+            <p>
+              En Semana Santa, puentes largos y ferias de artesanía el centro se satura; perfecto si buscas ambiente y eventos, menos ideal si quieres senderos en solitario. Revisa la <a href="/categorias/eventos.html">agenda de eventos</a> y llega temprano a la plaza para jeeps y estacionamiento. Para escapadas cortas de fin de semana, usa el plan de <a href="/landing/que-hacer-salento-fin-de-semana/">qué hacer en un fin de semana en Salento</a>.
+            </p>
+            <figure className="home-content-figure">
+              <img src="/imagenes-salento/iglesia.webp" alt="Iglesia de Nuestra Señora del Carmen y plaza principal de Salento bajo cielo despejado" loading="lazy" width="1200" height="800" />
+              <figcaption>Iglesia y plaza de Salento, punto de partida de la mayoría de rutas</figcaption>
+            </figure>
+
+            <div className="home-content-cta">
+              <h3>¿Listo para armar tu ruta?</h3>
+              <p>
+                Explora el <a href="/mapa-interactivo-salento.html">mapa interactivo</a>, filtra por categoría en el directorio de esta misma página o visita directamente las fichas de pautantes con WhatsApp de contacto. Si buscas profundidad, empieza por nuestras guías: <a href="/valle-de-cocora-salento.html">Valle de Cocora</a>, <a href="/faq-salento-preguntas-frecuentes-turistas-informacion-oficial.html">preguntas frecuentes</a> y <a href="/seguridad-salento-emergencias.html">seguridad y emergencias</a>.
+              </p>
             </div>
           </div>
         </section>

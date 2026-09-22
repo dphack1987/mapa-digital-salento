@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-09-22T23:13:58.764Z",
-  "total": 752,
-  "ok": 752,
+  "generatedAt": "2026-09-22T23:43:19.252Z",
+  "total": 756,
+  "ok": 756,
   "broken": 0,
   "fixable": 0,
   "unfixable": 0,
@@ -15,98 +15,98 @@
     },
     {
       "file": "check.html",
-      "line": 275,
+      "line": 276,
       "path": "/favicon.svg",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "check.html",
-      "line": 276,
+      "line": 277,
       "path": "/favicon.ico",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "check.html",
-      "line": 277,
+      "line": 278,
       "path": "/favicon-16x16.png",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "check.html",
-      "line": 278,
+      "line": 279,
       "path": "/favicon-32x32.png",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "check.html",
-      "line": 279,
+      "line": 280,
       "path": "/favicon-120x120.png",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "check.html",
-      "line": 280,
+      "line": 281,
       "path": "/apple-touch-icon.png",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "check.html",
-      "line": 281,
+      "line": 282,
       "path": "/favicon-192x192.png",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "index.html",
-      "line": 275,
+      "line": 276,
       "path": "/favicon.svg",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "index.html",
-      "line": 276,
+      "line": 277,
       "path": "/favicon.ico",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "index.html",
-      "line": 277,
+      "line": 278,
       "path": "/favicon-16x16.png",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "index.html",
-      "line": 278,
+      "line": 279,
       "path": "/favicon-32x32.png",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "index.html",
-      "line": 279,
+      "line": 280,
       "path": "/favicon-120x120.png",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "index.html",
-      "line": 280,
+      "line": 281,
       "path": "/apple-touch-icon.png",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "index.html",
-      "line": 281,
+      "line": 282,
       "path": "/favicon-192x192.png",
       "status": "OK",
       "equivalent": null
@@ -5076,63 +5076,91 @@
     },
     {
       "file": "src/App.tsx",
-      "line": 903,
+      "line": 913,
       "path": "/logo_salento2026.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "src/App.tsx",
-      "line": 1007,
+      "line": 1017,
       "path": "/imagenes-salento/salento-landscape.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "src/App.tsx",
-      "line": 1531,
+      "line": 1542,
+      "path": "/imagenes-salento/salento-landscape.webp",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
+      "file": "src/App.tsx",
+      "line": 1571,
+      "path": "/imagenes-salento/calle.webp",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
+      "file": "src/App.tsx",
+      "line": 1600,
+      "path": "/imagenes-salento/valle-cocora-palmas-2.webp",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
+      "file": "src/App.tsx",
+      "line": 1629,
+      "path": "/imagenes-salento/iglesia.webp",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
+      "file": "src/App.tsx",
+      "line": 1655,
       "path": "/imagenes-salento/1326163558.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "src/App.tsx",
-      "line": 1532,
+      "line": 1656,
       "path": "/imagenes-salento/1326163759.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "src/App.tsx",
-      "line": 1533,
+      "line": 1657,
       "path": "/imagenes-salento/631026720.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "src/App.tsx",
-      "line": 1534,
+      "line": 1658,
       "path": "/imagenes-salento/631032744.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "src/App.tsx",
-      "line": 1535,
+      "line": 1659,
       "path": "/imagenes-salento/653410779.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "src/App.tsx",
-      "line": 1981,
+      "line": 2105,
       "path": "/avatar-don-chucho.png",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "src/App.tsx",
-      "line": 2081,
+      "line": 2205,
       "path": "/don-chucho-boton.webp",
       "status": "OK",
       "equivalent": null

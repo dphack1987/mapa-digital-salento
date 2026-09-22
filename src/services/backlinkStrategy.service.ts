@@ -25,7 +25,7 @@ interface ContentLocalization {
 }
 
 class BacklinkStrategyService {
-  private domain: string = 'https://salentoalamano.com'
+  private domain: string = 'https://www.salentoalamano.com'
   private brandName: string = 'Salento a la Mano'
 
   /**

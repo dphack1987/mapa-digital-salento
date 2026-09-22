@@ -14,7 +14,7 @@ from urllib.parse import urljoin, urlparse
 
 ROOT = Path(__file__).resolve().parents[1]
 PUBLIC = ROOT / "public"
-ORIGIN = "https://salentoalamano.com"
+ORIGIN = "https://www.salentoalamano.com"
 SKIP = {".git", "node_modules", "dist", "__pycache__"}
 
 

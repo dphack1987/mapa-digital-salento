@@ -31,7 +31,7 @@ class SEOLandingService {
   private faqs: Map<string, FAQ[]> = new Map()
   private config: SEOConfig = {
     siteName: 'Salento a la Mano',
-    siteUrl: 'https://salentoalamano.com',
+    siteUrl: 'https://www.salentoalamano.com',
     defaultLocale: 'es',
     organizationName: 'Red de Prestadores Turísticos de Salento',
     organizationType: 'TourismOrganization'

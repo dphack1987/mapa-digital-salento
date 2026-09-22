@@ -14,7 +14,7 @@ interface QRShareProps {
 
 const QRShare: React.FC<QRShareProps> = ({ 
   onClose, 
-  url = typeof window !== 'undefined' ? window.location.href : 'https://salentoalamano.com',
+  url = typeof window !== 'undefined' ? window.location.href : 'https://www.salentoalamano.com',
   title = 'Salento a la Mano',
   description = 'Escané para acceder al mapa digital de Salento'
 }) => {

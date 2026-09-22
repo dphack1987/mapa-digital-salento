@@ -9,7 +9,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 PUBLIC = ROOT / "public"
-ORIGIN = "https://salentoalamano.com"
+ORIGIN = "https://www.salentoalamano.com"
 
 PAGES = {
     "don-chucho-asistente": {

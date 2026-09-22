@@ -26,7 +26,7 @@ class DefensiveSEOGService {
   private defensivePages: DefensiveSEOPage[] = []
   private misinformationClaims: MisinformationClaim[] = []
   private initialized = false
-  private readonly targetDomain = 'https://salentoalamano.com'
+  private readonly targetDomain = 'https://www.salentoalamano.com'
   private readonly brandName = 'Salento a la Mano'
 
   /**
@@ -650,7 +650,7 @@ class DefensiveSEOGService {
         name: 'Red Oficial de Turismo Salento',
         logo: {
           '@type': 'ImageObject',
-          url: 'https://salentoalamano.com/logo_salento2026.png'
+          url: 'https://www.salentoalamano.com/logo_salento2026.png'
         }
       }
     }
