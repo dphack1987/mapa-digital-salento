@@ -1,20 +1,23 @@
 # Restaurante Don Elías
 
 ## Estado
-- Estado actual: ficha sin verificar — negocio no encontrado en fuentes públicas
+- Estado actual: ficha con contacto verificado desde sitio oficial de la finca
 - Prioridad: alta
-- Verificación: sin presencia web verificada
+- Verificación: contacto y ubicación verificados
 
 ## Información confirmada
-- Nombre comercial: Restaurante Don Elías (nombre reportado pero no verificado)
+- Nombre comercial: Restaurante Don Elías
 - Categoría principal: gastronomía / restaurante
 - Tipo de oferta: cocina local y experiencia gastronómica
 - Enfoque: comida local, visita turística y servicio directo
-- Nota: No se encontró evidencia de un "Restaurante Don Elías" en Salento, Quindío en ninguna fuente pública (Google Maps, TripAdvisor, Instagram, Facebook). Las búsquedas devuelven resultados no relacionados (México).
-
-## Posible relación
-- Podría estar relacionado con "Finca Cafetera Don Elías" (misma familia/propiedad)
-- Si tiene información de contacto, favor confirmar para actualizar la ficha
+- Relación: restaurante en la Finca Cafetera Don Elías (misma propiedad)
+- Dirección: Vereda Palestina Km 4, Salento, Quindío, Colombia (631027)
+- Teléfono/WhatsApp: +57 315 606 1113
+- Email: fincafeteradonelias@gmail.com
+- Sitio web (finca): fincafeteradonelias.com.co
+- Horario telefónico: lunes a viernes 9am-5pm
+- Fuente: sitio oficial fincafeteradonelias.com.co/contacto y Trip.com (verificado)
+- Nota: el número +57 313 716 0977 pertenece a Fonda Boquía, NO a este restaurante
 
 ## Modelo de pedido directo
 - Canal principal: WhatsApp o contacto directo para pedido o reserva
@@ -37,13 +40,14 @@
 - Reserva o pedido por confirmar
 
 ## Contacto y datos faltantes
+Confirmado:
+- teléfono/WhatsApp: +57 315 606 1113
+- ubicación: Vereda Palestina Km 4, Salento
+- horario telefónico: Lun-Vie 9am-5pm
+
 Se requieren confirmar:
-- teléfono directo
-- WhatsApp
-- ubicación exacta
-- horario
-- especialidades del menú
-- fotos reales
+- especialidades del menú (precios del restaurante)
+- fotos reales del restaurante
 
 ## Pendientes para completar la ficha pública
 - Confirmar si el negocio existe y está activo
