@@ -83,15 +83,15 @@ const salentoImageGallery = [
 
 const serviceCardImages = {
   gastronomy: '/imagenes-salento/trucha%20y%20patacon.webp',
-  restaurantBar: '/imagenes-salento/pueblo.webp',
-  transport: '/imagenes-salento/destinos-75.webp',
-  horseback: '/imagenes-salento/653410779.webp',
-  guides: '/imagenes-salento/pueblo.webp',
-  accommodation: '/pautas/coffee-tour-alojamiento-finca-hotel-el-ocaso/imagenes/foto_casa_ocaso.webp',
+  restaurantBar: '/pautas/restaurante_bar_fonda_boquia/imagenes/480508481_1169835038167384_4932382570318530100_n.webp',
+  transport: '/pautas/cootracocora_ltda/willys.webp',
+  horseback: '/pautas/cabalgatas_cocora_magica/imagenes/cabalgatas-en-el-valle-de-cocora-6.webp',
+  guides: '/imagenes-salento/valle-cocora-palmas-2.webp',
+  accommodation: '/pautas/hotel_la_floresta_salento/imagenes/lafloresta-fachada.webp',
   artisan: '/imagenes-salento/calle.webp',
-  commerce: '/imagenes-salento/pueblo.webp',
-  events: '/imagenes-salento/pueblo.webp',
-  camping: '/imagenes-salento/631032744.webp'
+  commerce: '/imagenes-salento/631026720.webp',
+  events: '/imagenes-salento/631032744.webp',
+  camping: '/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/santa-rita-1.webp'
 } as const
 
 function providerSlug(name: string) {
