@@ -315,7 +315,7 @@ function priceHintFor(place: Place): string {
     place.transportDetails?.pricingNotes
   if (verifiedTariff) return verifiedTariff
   if (place.priceRange === 'Gratis') return tr('price.free', 'Entrada libre')
-  return `${place.priceRange} · ${tr('price.confirm', 'Precio a confirmar por WhatsApp')}`
+  return `${place.priceRange} · ${tr('price.confirm', 'Precio por WhatsApp')}`
 }
 
 function formatTemp(celsius: number): string {
@@ -1860,7 +1860,7 @@ function PlaceCard({ place, onAdd, onOpen, onReviews }: { place: Place; onAdd: (
   const Icon = place.icon
   const stats = reviewsService.getPlaceStats(String(place.id))
   const mapUrl = `https://www.google.com/maps/search/${encodeURIComponent(place.location?.address || `${place.name} Salento`)}`
-  
+
   return (
     <article className="place-card">
       <div className={`place-image ${place.color}`}>
@@ -1893,49 +1893,48 @@ function PlaceCard({ place, onAdd, onOpen, onReviews }: { place: Place; onAdd: (
         <small className="currency-hint">
           {priceHintFor(place)}
         </small>
-        <button className="detail-button" onClick={onOpen}>{/Restaurant|Gastrono|Restaurante/.test(place.type) ? 'Ver menú' : 'Ver información'} <ArrowRight size={14} /></button>
-        <a className="map-link-button" href={mapUrl} target="_blank" rel="noopener noreferrer">Cómo llegar <MapPin size={14} /></a>
-        {onReviews && (
-          <button className="reviews-button" onClick={onReviews} aria-label={`Ver reseñas de ${place.name}`}>
-            <Star size={14} />
-            {stats.totalReviews === 0
-              ? translationService.translate('reviews.first', '¡Sé el primero en opinar!')
-              : `${stats.totalReviews} ${stats.totalReviews === 1 ? 'reseña' : 'reseñas'}`}
-          </button>
-        )}
-        <div className="contact-actions">
-          {place.contact.whatsapp && (
-            <a
-              href={`https://wa.me/${place.contact.whatsapp}?text=Hola%20${encodeURIComponent(place.name)}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="contact-btn whatsapp"
-              aria-label={`Contactar ${place.name} por WhatsApp`}
-              onClick={() => analyticsService.trackClick(String(place.id), 'whatsapp')}
-            >
-              <MessageSquare size={15} />
-            </a>
+        <button className="detail-button" onClick={onOpen}>{/Restaurant|Gastrono|Restaurante/.test(place.type) ? 'Ver menú' : 'Reservar / Ver más'} <ArrowRight size={14} /></button>
+        <div className="card-actions-row">
+          <a className="map-link-button" href={mapUrl} target="_blank" rel="noopener noreferrer" aria-label={`Cómo llegar a ${place.name}`}><MapPin size={14} /> <span className="map-link-label">Cómo llegar</span></a>
+          {onReviews && (
+            <button className="reviews-button" onClick={onReviews} aria-label={`Ver reseñas de ${place.name}`}>
+              <Star size={14} />
+              {stats.totalReviews === 0 ? '' : stats.totalReviews}
+            </button>
           )}
-          {place.contact.phone && (
+          <div className="contact-actions">
+            {place.contact.whatsapp && (
+              <a
+                href={`https://wa.me/${place.contact.whatsapp}?text=Hola%20${encodeURIComponent(place.name)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="contact-btn whatsapp"
+                aria-label={`Contactar ${place.name} por WhatsApp`}
+                onClick={() => analyticsService.trackClick(String(place.id), 'whatsapp')}
+              >
+                <MessageSquare size={15} />
+              </a>
+            )}
+            {place.contact.phone && (
+              <a
+                href={`tel:${place.contact.phone}`}
+                className="contact-btn phone"
+                aria-label={`Llamar a ${place.name}`}
+                onClick={() => analyticsService.trackClick(String(place.id), 'phone')}
+              >
+                <Phone size={15} />
+              </a>
+            )}
             <a
-              href={`tel:${place.contact.phone}`}
-              className="contact-btn phone"
-              aria-label={`Llamar a ${place.name}`}
-              onClick={() => analyticsService.trackClick(String(place.id), 'phone')}
-            >
-              <Phone size={15} />
-            </a>
-          )}
-          {place.contact.email && (
-            <a
-              href={`mailto:${place.contact.email}`}
-              className="contact-btn email"
+              href={`mailto:${place.contact.email || ''}`}
+              className="contact-btn email contact-email"
               aria-label={`Enviar correo a ${place.name}`}
               onClick={() => analyticsService.trackClick(String(place.id), 'email')}
+              style={{ display: place.contact.email ? undefined : 'none' }}
             >
               <Mail size={15} />
             </a>
-          )}
+          </div>
         </div>
       </div>
     </article>

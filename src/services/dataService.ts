@@ -201,11 +201,23 @@ class DataService {
   }
 
   /**
+   * Eliminar duplicados por id (protección ante JSON desactualizado en caché)
+   */
+  private dedupeById<T extends { id: number | string }>(items: T[]): T[] {
+    const seen = new Set<number | string>()
+    return items.filter(item => {
+      if (seen.has(item.id)) return false
+      seen.add(item.id)
+      return true
+    })
+  }
+
+  /**
    * Obtener todos los lugares
    */
   async getPlaces(): Promise<Place[]> {
     const data = await this.loadSystemData()
-    return data.places.filter(place => place.active)
+    return this.dedupeById(data.places.filter(place => place.active))
   }
 
   /**
