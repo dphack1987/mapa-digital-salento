@@ -668,11 +668,9 @@ function App() {
       return matchesCategory && matchesSearch
     })
     return filtered.sort((a, b) => {
-      const aIsPautante = !!a.actionTarget?.viewUrl || !!a.actionTarget?.reserveUrl || !!a.actionTarget?.orderUrl
-      const bIsPautante = !!b.actionTarget?.viewUrl || !!b.actionTarget?.reserveUrl || !!b.actionTarget?.orderUrl
-      if (aIsPautante && !bIsPautante) return -1
-      if (!aIsPautante && bIsPautante) return 1
-      return 0
+      const aPriority = a.actionTarget?.viewUrl || a.actionTarget?.reserveUrl ? 2 : a.isPautante ? 1 : 0
+      const bPriority = b.actionTarget?.viewUrl || b.actionTarget?.reserveUrl ? 2 : b.isPautante ? 1 : 0
+      return bPriority - aPriority
     })
   }, [activeCategory, search, places])
 
@@ -705,11 +703,9 @@ function App() {
 
     const result = places.filter((place) => matchesKeywords(place, categoryKeywords[selectedCategoryPage]))
     return result.sort((a, b) => {
-      const aIsPautante = !!a.actionTarget?.viewUrl || !!a.actionTarget?.reserveUrl || !!a.actionTarget?.orderUrl
-      const bIsPautante = !!b.actionTarget?.viewUrl || !!b.actionTarget?.reserveUrl || !!b.actionTarget?.orderUrl
-      if (aIsPautante && !bIsPautante) return -1
-      if (!aIsPautante && bIsPautante) return 1
-      return 0
+      const aPriority = a.actionTarget?.viewUrl || a.actionTarget?.reserveUrl ? 2 : a.isPautante ? 1 : 0
+      const bPriority = b.actionTarget?.viewUrl || b.actionTarget?.reserveUrl ? 2 : b.isPautante ? 1 : 0
+      return bPriority - aPriority
     })
   }, [places, selectedCategoryPage])
 
