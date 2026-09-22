@@ -942,7 +942,7 @@
       "color": "coral",
       "icon": "Coffee",
       "contact": {
-        "phone": "Por confirmar"
+        "phone": "+57 315 606 1113"
       },
       "location": {
         "lat": 4.647,
@@ -1419,7 +1419,7 @@
       "color": "terracotta",
       "icon": "Utensils",
       "contact": {
-        "phone": "Por confirmar"
+        "phone": "+57 315 606 1113"
       },
       "location": {
         "lat": 4.646,
@@ -1999,7 +1999,7 @@
       "type": "Alojamientos",
       "description": "Desde 2020, Mahalo Hostel ofrece a los viajeros una experiencia auténtica en el corazón del Quindío. 11 habitaciones con jacuzzi, desayuno, fogata al aire libre y vista a la montaña. Donde la hospitalidad quindiana cobra vida.",
       "priceRange": "$$$",
-      "rating": "7.7",
+      "rating": "",
       "timeInfo": "Check-in 3:00 PM / Check-out 12:00 PM",
       "badge": "Hostal",
       "color": "sage",
@@ -2214,8 +2214,214 @@
         "viewUrl": "https://salentoalamano.com/paginas-pautantes/parque-mirador-la-vida-es-bella/"
       },
       "isPautante": true
+    },
+    {
+      "id": 34,
+      "name": "El Recuerdo Coffee Tour",
+      "type": "Coffee Tours",
+      "description": "Una finca en medio de la naturaleza donde se respira café. Tour cada hora de 9am a 4pm, café de especialidad y experiencia auténtica del Eje Cafetero. $50.000 COP por persona. Transporte Willys desde la plaza por $9.000.",
+      "priceRange": "$$",
+      "rating": "4.8",
+      "timeInfo": "Tours cada hora de 9am a 4pm",
+      "badge": "Coffee Tour",
+      "color": "sage",
+      "icon": "Coffee",
+      "contact": {
+        "phone": "+57 310 3764672",
+        "whatsapp": "573103764672",
+        "email": "cazal16@yahoo.es"
+      },
+      "location": {
+        "address": "Finca rural, Salento, Quindío",
+        "landmark": "Salento rural"
+      },
+      "operatingHours": {
+        "notes": "Tours cada hora de 9:00 a.m. a 4:00 p.m."
+      },
+      "tags": [
+        "coffee tour",
+        "café de especialidad",
+        "finca",
+        "naturaleza",
+        "willys",
+        "salento"
+      ],
+      "verified": true,
+      "active": true,
+      "experienceDetails": {
+        "duration": "~2 horas",
+        "difficulty": "Fácil",
+        "meetingPoint": "Plaza de Bolívar (transporte Willys) o finca"
+      },
+      "photos": [
+        "/pautas/el_recuerdo_coffee_tour/recuerdo1casa.webp",
+        "/pautas/el_recuerdo_coffee_tour/recuerdocafetal1.webp",
+        "/pautas/el_recuerdo_coffee_tour/recuerdocafetal2.webp",
+        "/pautas/el_recuerdo_coffee_tour/logo-recuerdo-tour.webp"
+      ],
+      "actionTarget": {
+        "viewUrl": "https://salentoalamano.com/paginas-pautantes/el-recuerdo-coffee-tour/"
+      },
+      "isPautante": true
+    },
+    {
+      "id": 35,
+      "name": "Hotel La Tía Emiss",
+      "type": "Alojamientos",
+      "description": "Hotel familiar de arquitectura de colonización antioqueña a dos cuadras del parque principal de Salento. Habitaciones doble, twin, triple y dúplex familiar con Wi-Fi gratis y desayunos destacados por huéspedes.",
+      "priceRange": "$$",
+      "rating": "4.4",
+      "timeInfo": "Consultar disponibilidad",
+      "badge": "Hotel",
+      "color": "yellow",
+      "icon": "Hotel",
+      "contact": {
+        "phone": "+57 316 4162726",
+        "whatsapp": "573164162726",
+        "email": "tiaemiss@gmail.com",
+        "facebook": "https://www.facebook.com/latiaemiss"
+      },
+      "location": {
+        "address": "Carrera 4 #5-38, Salento, Quindío",
+        "landmark": "A dos cuadras del parque principal"
+      },
+      "operatingHours": {
+        "notes": "Consultar check-in y recepción con el hotel"
+      },
+      "tags": [
+        "hotel",
+        "alojamiento",
+        "familiar",
+        "wifi",
+        "desayuno",
+        "parque",
+        "salento"
+      ],
+      "verified": true,
+      "active": true,
+      "accommodationDetails": {
+        "categoryLabel": "Hotel 2 estrellas · familiar",
+        "roomTypes": [
+          "Doble matrimonial (2 pax)",
+          "Twin (4 pax)",
+          "Triple (6 pax)",
+          "Dúplex familiar (8 pax)"
+        ],
+        "services": [
+          "Wi-Fi gratis",
+          "Desayuno destacado"
+        ]
+      },
+      "photos": [],
+      "actionTarget": {
+        "viewUrl": "https://salentoalamano.com/paginas-pautantes/parque-mirador-la-vida-es-bella/"
+      },
+      "isPautante": true
+    },
+    {
+      "id": 34,
+      "name": "El Recuerdo Coffee Tour",
+      "type": "Coffee Tours",
+      "description": "Una finca en medio de la naturaleza donde se respira café. Tour cada hora de 9am a 4pm, café de especialidad y experiencia auténtica del Eje Cafetero. $50.000 COP por persona. Transporte Willys desde la plaza por $9.000.",
+      "priceRange": "$$",
+      "rating": "4.8",
+      "timeInfo": "Tours cada hora de 9am a 4pm",
+      "badge": "Coffee Tour",
+      "color": "sage",
+      "icon": "Coffee",
+      "contact": {
+        "phone": "+57 310 3764672",
+        "whatsapp": "573103764672",
+        "email": "cazal16@yahoo.es"
+      },
+      "location": {
+        "address": "Finca rural, Salento, Quindío",
+        "landmark": "Salento rural"
+      },
+      "operatingHours": {
+        "notes": "Tours cada hora de 9:00 a.m. a 4:00 p.m."
+      },
+      "tags": [
+        "coffee tour",
+        "café de especialidad",
+        "finca",
+        "naturaleza",
+        "willys",
+        "salento"
+      ],
+      "verified": true,
+      "active": true,
+      "experienceDetails": {
+        "duration": "~2 horas",
+        "difficulty": "Fácil",
+        "meetingPoint": "Plaza de Bolívar (transporte Willys) o finca"
+      },
+      "photos": [
+        "/pautas/el_recuerdo_coffee_tour/recuerdo1casa.webp",
+        "/pautas/el_recuerdo_coffee_tour/recuerdocafetal1.webp",
+        "/pautas/el_recuerdo_coffee_tour/recuerdocafetal2.webp",
+        "/pautas/el_recuerdo_coffee_tour/logo-recuerdo-tour.webp"
+      ],
+      "actionTarget": {
+        "viewUrl": "https://salentoalamano.com/paginas-pautantes/el-recuerdo-coffee-tour/"
+      },
+      "isPautante": true
+    },
+    {
+      "id": 35,
+      "name": "Hotel La Tía Emiss",
+      "type": "Alojamientos",
+      "description": "Hotel familiar de arquitectura de colonización antioqueña a dos cuadras del parque principal de Salento. Habitaciones doble, twin, triple y dúplex familiar con Wi-Fi gratis y desayunos destacados por huéspedes.",
+      "priceRange": "$$",
+      "rating": "4.4",
+      "timeInfo": "Consultar disponibilidad",
+      "badge": "Hotel",
+      "color": "yellow",
+      "icon": "Hotel",
+      "contact": {
+        "phone": "+57 316 4162726",
+        "whatsapp": "573164162726",
+        "email": "tiaemiss@gmail.com",
+        "facebook": "https://www.facebook.com/latiaemiss"
+      },
+      "location": {
+        "address": "Carrera 4 #5-38, Salento, Quindío",
+        "landmark": "A dos cuadras del parque principal"
+      },
+      "operatingHours": {
+        "notes": "Consultar check-in y recepción con el hotel"
+      },
+      "tags": [
+        "hotel",
+        "alojamiento",
+        "familiar",
+        "wifi",
+        "desayuno",
+        "parque",
+        "salento"
+      ],
+      "verified": true,
+      "active": true,
+      "accommodationDetails": {
+        "categoryLabel": "Hotel 2 estrellas · familiar",
+        "roomTypes": [
+          "Doble matrimonial (2 pax)",
+          "Twin (4 pax)",
+          "Triple (6 pax)",
+          "Dúplex familiar (8 pax)"
+        ],
+        "services": [
+          "Wi-Fi gratis",
+          "Desayuno destacado"
+        ]
+      },
+      "photos": [],
+      "actionTarget": {
+        "viewUrl": "https://salentoalamano.com/paginas-pautantes/hotel-la-tia-emiss/"
+      },
+      "isPautante": true
     }
   ],
-  "lastUpdated": "2026-09-21T00:00:00.000Z",
+  "lastUpdated": "2026-09-22T00:00:00.000Z",
   "version": "2.0.0-pautantes-only"
 }

@@ -44,8 +44,17 @@
       "isPartner": true,
       "placeId": 32,
       "url": "/paginas-pautantes/mahalo-hostel-salento/"
+    },
+    {
+      "id": "hotel_6",
+      "name": "Hotel La Tía Emiss",
+      "address": "Carrera 4 #5-38, Salento, Quindío",
+      "phone": "+57 316 4162726",
+      "isPartner": true,
+      "placeId": 35,
+      "url": "/paginas-pautantes/hotel-la-tia-emiss/"
     }
   ],
-  "lastUpdated": "2026-09-21T00:00:00.000Z",
+  "lastUpdated": "2026-09-22T00:00:00.000Z",
   "version": "2.0.0-pautantes-only"
 }
