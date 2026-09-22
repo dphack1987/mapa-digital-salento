@@ -299,6 +299,7 @@ export type Place = {
   verified: boolean // Indica si los datos están validados comercialmente
   active: boolean // Indica si el lugar está activo en el sistema
   isFree?: boolean // Indica si la actividad es gratuita / sin costo de entrada
+  isPautante?: boolean // Indica si tiene landing page propia (pautante patrocinado)
   
   // Detalles específicos según tipo
   accommodationDetails?: AccommodationDetails

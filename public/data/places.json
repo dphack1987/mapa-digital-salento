@@ -89,7 +89,8 @@
       ],
       "actionTarget": {
         "viewUrl": "https://salentoalamano.com/paginas-pautantes/camping-cascadas-santa-rita/"
-      }
+      },
+      "isPautante": true
     },
     {
       "id": 13,
@@ -184,7 +185,8 @@
         "/pautas/boki_mall/hotel-mirador-boquia/Hotel_Mirador_de_Boquia_1747081077351.webp",
         "/pautas/boki_mall/hotel-mirador-boquia/314270821.webp",
         "/pautas/boki_mall/hotel-mirador-boquia/370049629.webp"
-      ]
+      ],
+      "isPautante": true
     },
     {
       "id": 28,
@@ -250,7 +252,8 @@
       },
       "photos": [
         "/pautas/boki_mall/hotel-mirador-boquia/Hotel_Mirador_de_Boquia_1747081077351.webp"
-      ]
+      ],
+      "isPautante": true
     },
     {
       "id": 29,
@@ -314,7 +317,8 @@
       },
       "photos": [
         "/pautas/boki_mall/hotel-mirador-boquia/314270821.webp"
-      ]
+      ],
+      "isPautante": true
     },
     {
       "id": 30,
@@ -401,7 +405,8 @@
       },
       "photos": [
         "/pautas/boki_mall/hotel-mirador-boquia/370049629.webp"
-      ]
+      ],
+      "isPautante": true
     },
     {
       "id": 14,
@@ -492,7 +497,8 @@
         "/pautas/mirador_mano_de_dios/imagenes/dios5.webp",
         "/pautas/mirador_mano_de_dios/imagenes/images.webp",
         "/pautas/mirador_mano_de_dios/imagenes/logo-mirador-dios.webp"
-      ]
+      ],
+      "isPautante": true
     },
     {
       "id": 15,
@@ -608,7 +614,8 @@
         "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/f6.webp",
         "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/WhatsApp Image 2026-09-07 at 08.38.38.webp",
         "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/f16.webp"
-      ]
+      ],
+      "isPautante": true
     },
     {
       "id": 5,
@@ -738,7 +745,8 @@
         ],
         "capacity": "Por confirmar",
         "bookingNotes": "Las tarifas no fueron incluidas en la información recibida. Deben confirmarse directamente con el hotel según fecha, número de huéspedes, tipo de habitación y temporada."
-      }
+      },
+      "isPautante": true
     },
     {
       "id": 9,
@@ -835,7 +843,8 @@
         ],
         "capacity": "Máximo 20 huéspedes",
         "bookingNotes": "Las tarifas varían según temporada y tipo de habitación. Confirmar directamente para disponibilidad y precios exactos."
-      }
+      },
+      "isPautante": true
     },
     {
       "id": 16,
@@ -918,7 +927,8 @@
         "/pautas/hotel_la_floresta_salento/imagenes/floresta-mirador.webp",
         "/pautas/hotel_la_floresta_salento/imagenes/floresta-gym.webp",
         "/pautas/hotel_la_floresta_salento/imagenes/floresta-bar.webp"
-      ]
+      ],
+      "isPautante": true
     },
     {
       "id": 17,
@@ -984,7 +994,8 @@
         "/pautas/coffee-tour-finca-cafetera-don-elias/imagenes/692728292_18069951644670095_2829106976592801887_n.webp",
         "/pautas/coffee-tour-finca-cafetera-don-elias/imagenes/681426934_18068473622670095_8170870217327481165_n.webp",
         "/pautas/coffee-tour-finca-cafetera-don-elias/imagenes/658126044_18063985268670095_3075015024937128905_n.webp"
-      ]
+      ],
+      "isPautante": true
     },
     {
       "id": 19,
@@ -1056,7 +1067,8 @@
         "/pautas/moto_aventura_110/imagenes/3.webp",
         "/pautas/moto_aventura_110/imagenes/4.webp",
         "/pautas/moto_aventura_110/imagenes/5.webp"
-      ]
+      ],
+      "isPautante": true
     },
     {
       "id": 20,
@@ -1137,7 +1149,8 @@
         "/pautas/cabalgatas_cocora_magica/imagenes/Caballos.webp",
         "/pautas/cabalgatas_cocora_magica/imagenes/cabalgatas-en-el-valle-de-cocora-6.webp",
         "/pautas/cabalgatas_cocora_magica/imagenes/cabalgatas-valle-del-cocora-2.webp"
-      ]
+      ],
+      "isPautante": true
     },
     {
       "id": 21,
@@ -1391,7 +1404,8 @@
         "/pautas/restaurante_bar_fonda_boquia/imagenes/481917729_1182180286932859_1362131829553801165_n.webp",
         "/pautas/restaurante_bar_fonda_boquia/imagenes/481961056_1182180233599531_8927232009685756092_n.webp",
         "/pautas/restaurante_bar_fonda_boquia/imagenes/65375183_1331615080320675_8125305373516103680_n.webp"
-      ]
+      ],
+      "isPautante": true
     },
     {
       "id": 22,
@@ -1444,7 +1458,8 @@
         "/pautas/coffee-tour-finca-cafetera-don-elias/imagenes/cafe-don-elias.webp",
         "/pautas/coffee-tour-finca-cafetera-don-elias/imagenes/484042363_664478162683303_2341224993788835150_n.webp",
         "/pautas/coffee-tour-finca-cafetera-don-elias/imagenes/483101751_664446382686481_2585961616784103288_n.webp"
-      ]
+      ],
+      "isPautante": true
     },
     {
       "id": 23,
@@ -1532,7 +1547,8 @@
         "/pautas/coffee-tour-finca-don-eduardo/IMG_9320.webp",
         "/pautas/coffee-tour-finca-don-eduardo/IMG_9326.webp",
         "/pautas/coffee-tour-finca-don-eduardo/IMG_9360_1.webp"
-      ]
+      ],
+      "isPautante": true
     },
     {
       "id": 100,
@@ -1568,7 +1584,8 @@
       "photos": [
         "/imagenes-salento/calle.webp",
         "/imagenes-salento/631026720.webp"
-      ]
+      ],
+      "isPautante": true
     },
     {
       "id": 101,
@@ -1604,7 +1621,8 @@
       "photos": [
         "/imagenes-salento/pueblo.webp",
         "/imagenes-salento/631032744.webp"
-      ]
+      ],
+      "isPautante": true
     },
     {
       "id": 102,
@@ -1640,7 +1658,8 @@
       "photos": [
         "/imagenes-salento/salento-landscape.webp",
         "/imagenes-salento/653410779.webp"
-      ]
+      ],
+      "isPautante": true
     },
     {
       "id": 103,
@@ -1676,7 +1695,8 @@
       "photos": [
         "/imagenes-salento/iglesia.webp",
         "/imagenes-salento/1326163759.webp"
-      ]
+      ],
+      "isPautante": true
     },
     {
       "id": 104,
@@ -1712,7 +1732,8 @@
       "photos": [
         "/imagenes-salento/valle-cocora-palmas-2.webp",
         "/imagenes-salento/653410779.webp"
-      ]
+      ],
+      "isPautante": true
     },
     {
       "id": 105,
@@ -1748,7 +1769,8 @@
       "photos": [
         "/imagenes-salento/salento-landscape.webp",
         "/imagenes-salento/colombia-palms.webp"
-      ]
+      ],
+      "isPautante": true
     },
     {
       "id": 108,
@@ -1784,7 +1806,8 @@
       "photos": [
         "/imagenes-salento/images.webp",
         "/imagenes-salento/images (1).webp"
-      ]
+      ],
+      "isPautante": true
     },
     {
       "id": 109,
@@ -1820,7 +1843,8 @@
       "photos": [
         "/imagenes-salento/colombia-palms.webp",
         "/imagenes-salento/653410779.webp"
-      ]
+      ],
+      "isPautante": true
     },
     {
       "id": 110,
@@ -1856,7 +1880,8 @@
       "photos": [
         "/imagenes-salento/631026720.webp",
         "/imagenes-salento/1326163558.webp"
-      ]
+      ],
+      "isPautante": true
     },
     {
       "id": 111,
@@ -1892,7 +1917,8 @@
       "photos": [
         "/imagenes-salento/pueblo.webp",
         "/imagenes-salento/1326163759.webp"
-      ]
+      ],
+      "isPautante": true
     },
     {
       "id": 112,
@@ -1927,7 +1953,8 @@
       "isFree": true,
       "photos": [
         "/imagenes-salento/destinos-75.webp"
-      ]
+      ],
+      "isPautante": true
     },
     {
       "id": 113,
@@ -1963,7 +1990,8 @@
       "photos": [
         "/imagenes-salento/pueblo.webp",
         "/imagenes-salento/destinos-75.webp"
-      ]
+      ],
+      "isPautante": true
     },
     {
       "id": 32,
@@ -2096,7 +2124,8 @@
       ],
       "actionTarget": {
         "viewUrl": "https://salentoalamano.com/paginas-pautantes/mahalo-hostel-salento/"
-      }
+      },
+      "isPautante": true
     },
     {
       "id": 33,
@@ -2183,7 +2212,8 @@
       ],
       "actionTarget": {
         "viewUrl": "https://salentoalamano.com/paginas-pautantes/parque-mirador-la-vida-es-bella/"
-      }
+      },
+      "isPautante": true
     }
   ],
   "lastUpdated": "2026-09-21T00:00:00.000Z",
