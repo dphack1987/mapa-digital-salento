@@ -24,6 +24,13 @@ Disallow: /temp/
 # Bloquear ruta duplicada de inicio
 Disallow: /salento/
 
+# Bloquear URLs parametrizadas (evita canibalización / crawl waste)
+Disallow: /*?lang=
+Disallow: /*?q=
+Disallow: /*?utm_
+Disallow: /*?ref=
+Disallow: /*?fbclid=
+
 # Google
 User-agent: Googlebot
 Allow: /

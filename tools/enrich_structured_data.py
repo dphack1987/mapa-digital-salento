@@ -11,7 +11,7 @@ from urllib.parse import urlparse
 
 ROOT = Path(__file__).resolve().parents[1]
 PUBLIC = ROOT / "public"
-ORIGIN = "https://salentoalamano.com"
+ORIGIN = "https://www.salentoalamano.com"
 
 
 def extract(pattern: str, text: str) -> str:

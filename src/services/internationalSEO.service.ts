@@ -46,7 +46,7 @@ const EUROPEAN_MARKETS: InternationalMarket[] = [
 }))
 
 class InternationalSEOService {
-  private domain: string = 'https://salentoalamano.com'
+  private domain: string = 'https://www.salentoalamano.com'
   private brandName: string = 'Salento a la Mano'
 
   /**
@@ -367,6 +367,7 @@ class InternationalSEOService {
 <link rel="alternate" hreflang="de-DE" href="${this.domain}/de/" />
 <link rel="alternate" hreflang="fr-FR" href="${this.domain}/fr/" />
 <link rel="alternate" hreflang="pt-BR" href="${this.domain}/pt/" />
+<link rel="alternate" hreflang="it" href="${this.domain}/it/" />
 <link rel="alternate" hreflang="x-default" href="${this.domain}/" />
 `
   }
@@ -508,6 +509,7 @@ Host: salentoalamano.com
 <link rel="alternate" hreflang="de-DE" href="${this.domain}/de/" />
 <link rel="alternate" hreflang="fr-FR" href="${this.domain}/fr/" />
 <link rel="alternate" hreflang="pt-BR" href="${this.domain}/pt/" />
+<link rel="alternate" hreflang="it" href="${this.domain}/it/" />
 <link rel="alternate" hreflang="x-default" href="${this.domain}/" />
 \`\`\`
 

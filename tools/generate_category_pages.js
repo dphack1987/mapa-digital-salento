@@ -141,7 +141,7 @@ function categoryLabelFor(type) {
 }
 
 function canonicalTag(pathname) {
-  return `<link rel="canonical" href="https://salentoalamano.com${pathname}" />`;
+  return `<link rel="canonical" href="https://www.salentoalamano.com${pathname}" />`;
 }
 
 const FONTS_LINK = `
@@ -170,7 +170,7 @@ function buildSchemaJsonLd(provider) {
   const category = provider.type || 'Servicios';
   const description = provider.description || `Servicio local en Salento, Quindío.`;
   const rawImage = providerPhotos(provider)[0];
-  const image = rawImage ? (rawImage.startsWith('http') ? rawImage : encodeURI(rawImage)) : 'https://salentoalamano.com/logo_salento2026.webp';
+  const image = rawImage ? (rawImage.startsWith('http') ? rawImage : encodeURI(rawImage)) : 'https://www.salentoalamano.com/logo_salento2026.webp';
   const url = `/paginas-pautantes/${slugify(name)}/`;
   const telephone = provider.contact?.phone || undefined;
   const whatsapp = provider.contact?.whatsapp ? `+57${String(provider.contact.whatsapp).replace(/\D/g, '')}` : undefined;
@@ -385,8 +385,8 @@ function renderCategoryPage(category, items) {
     </style>
     <link rel="stylesheet" href="/page-theme.css" />
     ${buildBreadcrumbListSchema([
-      { name: 'Inicio', url: 'https://salentoalamano.com/' },
-      { name: 'Categorías', url: 'https://salentoalamano.com/categorias/' },
+      { name: 'Inicio', url: 'https://www.salentoalamano.com/' },
+      { name: 'Categorías', url: 'https://www.salentoalamano.com/categorias/' },
       { name: categoryMeta[category]?.title || category },
     ])}
     <script type="application/ld+json">${JSON.stringify({
@@ -394,7 +394,7 @@ function renderCategoryPage(category, items) {
       '@type': 'CollectionPage',
       name: `${categoryMeta[category]?.title || category} | Salento a la Mano`,
       description: categoryMeta[category]?.description || 'Directorio de servicios locales en Salento, Quindío.',
-      url: `https://salentoalamano.com/categorias/${slugify(category)}.html`,
+      url: `https://www.salentoalamano.com/categorias/${slugify(category)}.html`,
       inLanguage: 'es',
       mainEntity: {
         '@type': 'ItemList',
@@ -402,7 +402,7 @@ function renderCategoryPage(category, items) {
           '@type': 'ListItem',
           position: idx + 1,
           name: it.name,
-          url: `https://salentoalamano.com/paginas-pautantes/${slugify(it.name)}/`
+          url: `https://www.salentoalamano.com/paginas-pautantes/${slugify(it.name)}/`
         }))
       }
     })}</script>
@@ -675,7 +675,7 @@ function renderProviderLandingPage(provider) {
     </style>
     <link rel="stylesheet" href="/page-theme.css" />
     ${buildBreadcrumbListSchema([
-      { name: 'Inicio', url: 'https://salentoalamano.com/' },
+      { name: 'Inicio', url: 'https://www.salentoalamano.com/' },
       { name: categoryLabelFor(category), url: hrefBack },
       { name: provider.name }
     ])}

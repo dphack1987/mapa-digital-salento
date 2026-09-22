@@ -37,7 +37,7 @@ const DefensiveSEODashboard: React.FC<DefensiveSEODashboardProps> = ({ onClose }
   
   const [showBaiduVerification, setShowBaiduVerification] = useState(false)
   const [showYandexVerification, setShowYandexVerification] = useState(false)
-  const targetDomain = 'https://salentoalamano.com'
+  const targetDomain = 'https://www.salentoalamano.com'
   const brandName = 'Salento a la Mano'
 
   useEffect(() => {
