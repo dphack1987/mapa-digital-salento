@@ -53,8 +53,8 @@ function brandMark(link = true) {
 
 const PAUTANTE_LOGOS = {
   'boki-mall-hotel-el-mirador-de-boquia': '/pautas/boki_mall/hotel-mirador-boquia/logo-hotel-mirador-de-boquia.webp',
-  'boki-mall-restaurante-terra': '/pautas/boki_mall/boki_mall_logo.webp',
-  'boki-mall-barcinales-cafe-bar': '/pautas/boki_mall/boki_mall_logo.webp',
+  'boki-mall-restaurante-terra': '/pautas/boki_mall/restaurante-terra/terra-restaurante-logo.webp',
+  'boki-mall-barcinales-cafe-bar': '/pautas/boki_mall/barcinales-cafe-bar/barcinales-cafe-bar-logo.webp',
   'boki-mall-eventos': '/pautas/boki_mall/boki_mall_logo.webp',
   'moto-aventura-110': '/pautas/moto_aventura_110/imagenes/logo-moto-aventura-110.webp',
   'reserva-natural-cascadas-de-santa-rita': '/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/logo_cascadas_de_santa_rita.jfif',

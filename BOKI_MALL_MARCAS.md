@@ -241,11 +241,14 @@ Salón de eventos ideal para celebraciones en el Eje Cafetero. Organización de 
 - **Website:** https://bokimall.com/ (principal) + subsecciones específicas
 
 ### FOTOS Y ASSETS
-- **Hotel:** /pautas/boki_mall/hotel-mirador-boquia/Hotel_Mirador_de_Boquia_1747081077351.jpeg
-- **Hotel:** /pautas/boki_mall/hotel-mirador-boquia/314270821.jpg
-- **Hotel:** /pautas/boki_mall/hotel-mirador-boquia/370049629.jpg
-- **Logo:** /pautas/boki_mall/boki_mall_logo.jpg
-- **Restaurante:** Usar fotos existentes del hotel hasta tener específicas
+- **Hotel:** /pautas/boki_mall/hotel-mirador-boquia/Hotel_Mirador_de_Boquia_1747081077351.webp
+- **Hotel:** /pautas/boki_mall/hotel-mirador-boquia/314270821.webp
+- **Premio 2024:** /pautas/boki_mall/eventos/premio-mejor-hotel-rural-2024.webp
+- **Logo raíz:** /pautas/boki_mall/boki_mall_logo.webp
+- **Logo hotel:** /pautas/boki_mall/hotel-mirador-boquia/logo-hotel-mirador-de-boquia.webp
+- **Logo Terra:** /pautas/boki_mall/restaurante-terra/terra-restaurante-logo.webp
+- **Logo Barcinales:** /pautas/boki_mall/barcinales-cafe-bar/barcinales-cafe-bar-logo.webp
+- **Terraza/comedor (compartido):** /pautas/boki_mall/hotel-mirador-boquia/images (1).webp
 
 ### MAPA Y UBICACIÓN
 - **Coordenadas:** 4.642, -75.565 (mismo para todas las marcas)
