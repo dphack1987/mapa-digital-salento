@@ -16,13 +16,25 @@ type PhotoGalleryProps = {
 
 export default function PhotoGallery({ photos, label }: PhotoGalleryProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(null)
+  const [failed, setFailed] = useState<Set<string>>(new Set())
+
+  const markFailed = useCallback((src: string) => {
+    setFailed(prev => {
+      if (prev.has(src)) return prev
+      const next = new Set(prev)
+      next.add(src)
+      return next
+    })
+  }, [])
+
+  const visiblePhotos = photos.filter(p => !failed.has(p.src))
 
   const close = useCallback(() => setOpenIndex(null), [])
   const step = useCallback(
     (delta: number) => {
-      setOpenIndex((prev) => (prev === null ? prev : (prev + delta + photos.length) % photos.length))
+      setOpenIndex((prev) => (prev === null ? prev : (prev + delta + visiblePhotos.length) % visiblePhotos.length))
     },
-    [photos.length]
+    [visiblePhotos.length]
   )
 
   useEffect(() => {
@@ -41,12 +53,12 @@ export default function PhotoGallery({ photos, label }: PhotoGalleryProps) {
     }
   }, [openIndex, close, step])
 
-  if (photos.length === 0) return null
+  if (visiblePhotos.length === 0) return null
 
   return (
     <>
       <div className="pg-grid" role="list" aria-label={label}>
-        {photos.map((photo, index) => (
+        {visiblePhotos.map((photo, index) => (
           <button
             key={`${photo.src}-${index}`}
             type="button"
@@ -55,7 +67,7 @@ export default function PhotoGallery({ photos, label }: PhotoGalleryProps) {
             onClick={() => setOpenIndex(index)}
             aria-label={`${tr('gallery.expand', 'Ampliar foto')}: ${photo.alt}`}
           >
-            <img src={photo.src} alt={photo.alt} loading="lazy" />
+            <img src={photo.src} alt={photo.alt} loading="lazy" onError={() => markFailed(photo.src)} />
             <span className="pg-thumb-veil" aria-hidden>
               <Expand size={18} />
               <em>{photo.alt}</em>
@@ -64,12 +76,12 @@ export default function PhotoGallery({ photos, label }: PhotoGalleryProps) {
         ))}
       </div>
 
-      {openIndex !== null && photos[openIndex] && (
-        <div className="pg-lightbox" role="dialog" aria-modal="true" aria-label={`${label} — ${openIndex + 1} / ${photos.length}`} onClick={close}>
+      {openIndex !== null && visiblePhotos[openIndex] && (
+        <div className="pg-lightbox" role="dialog" aria-modal="true" aria-label={`${label} — ${openIndex + 1} / ${visiblePhotos.length}`} onClick={close}>
           <button type="button" className="pg-close" onClick={close} aria-label={tr('gallery.close', 'Cerrar visor')}>
             <X size={20} />
           </button>
-          {photos.length > 1 && (
+          {visiblePhotos.length > 1 && (
             <>
               <button
                 type="button"
@@ -96,11 +108,11 @@ export default function PhotoGallery({ photos, label }: PhotoGalleryProps) {
             </>
           )}
           <figure className="pg-figure" onClick={(event) => event.stopPropagation()}>
-            <img src={photos[openIndex].src} alt={photos[openIndex].alt} />
+            <img src={visiblePhotos[openIndex].src} alt={visiblePhotos[openIndex].alt} onError={() => markFailed(visiblePhotos[openIndex].src)} />
             <figcaption>
-              <span>{photos[openIndex].alt}</span>
+              <span>{visiblePhotos[openIndex].alt}</span>
               <strong>
-                {openIndex + 1} / {photos.length}
+                {openIndex + 1} / {visiblePhotos.length}
               </strong>
             </figcaption>
           </figure>

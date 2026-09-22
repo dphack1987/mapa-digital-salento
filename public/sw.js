@@ -1,4 +1,4 @@
-const CACHE_NAME = 'salento-a-la-mano-v13'
+const CACHE_NAME = 'salento-a-la-mano-v15'
 const CACHE_STRATEGIES = {
   static: ['html', 'css', 'js', 'png', 'jpg', 'jpeg', 'svg', 'webp', 'ico', 'gif'],
   shell: ['html', 'js', 'css']
@@ -7,9 +7,9 @@ const APP_SHELL = [
   '/',
   '/index.html',
   '/manifest.webmanifest',
-  '/logo_salento2026.png',
+  '/logo_salento2026.webp',
   '/avatar-don-chucho.png',
-  '/don-chucho-boton.png',
+  '/don-chucho-boton.webp',
   '/sw.js',
   '/data/places.json',
   '/data/hotels.json',
@@ -23,25 +23,25 @@ const APP_SHELL = [
   // Ruta GPS de Cascadas de Santa Rita para navegación offline
   '/pautas/reserva-natural-cascadas-de-santa-rita/cascadas-santa-rita-salento-colombia-.gpx',
   // Imágenes principales de Cascadas de Santa Rita para offline
-  '/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/logo_cascadas_de_santa_rita.jpg',
-  '/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/santa-rita-1.jpg',
-  '/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/santa-rita-2.jpg',
-  '/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/santa-rita-3.jpg',
-  '/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/cascada2.jpg',
-  '/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/cascada3.jpg',
-  '/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/cueva1.jpg',
-  '/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/cueva2.jpg',
-  '/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/puente-cpolgante1.jpg',
-  '/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/rio2.jpg',
-  '/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/casa1.jpg',
-  '/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/monte1.jpg',
-  '/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/f2.jpeg',
-  '/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/foto1.jpeg'
+  '/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/logo_cascadas_de_santa_rita.webp',
+  '/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/santa-rita-1.webp',
+  '/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/santa-rita-2.webp',
+  '/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/santa-rita-3.webp',
+  '/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/cascada2.webp',
+  '/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/cascada3.webp',
+  '/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/cueva1.webp',
+  '/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/cueva2.webp',
+  '/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/puente-cpolgante1.webp',
+  '/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/rio2.webp',
+  '/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/casa1.webp',
+  '/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/monte1.webp',
+  '/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/f2.webp',
+  '/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/foto1.webp'
 ]
 
 // Rangos de tiles de Cascadas de Santa Rita para cachear offline
 // Zoom 12-16 cubre Cascadas de Santa Rita + ruta GPS completa + Boquía (~4km radio)
-const TILE_CACHE_NAME = 'salento-tiles-v13'
+const TILE_CACHE_NAME = 'salento-tiles-v15'
 const TILE_URL_TEMPLATE = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
 const TILE_SUBDOMAINS = ['a', 'b', 'c']
 
@@ -78,7 +78,7 @@ function getTileUrls() {
 }
 
 self.addEventListener('install', (event) => {
-  console.log('[SW] Installing service worker v13 - Cascadas de Santa Rita offline tiles')
+  console.log('[SW] Installing service worker v15 - Cascadas de Santa Rita offline tiles')
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
       console.log('[SW] Caching app shell')
@@ -142,7 +142,7 @@ async function cacheTilesInBatches(cache, urls, batchSize) {
 }
 
 self.addEventListener('activate', (event) => {
-  console.log('[SW] Activating service worker v13 - Cascadas de Santa Rita')
+  console.log('[SW] Activating service worker v15 - Cascadas de Santa Rita')
   event.waitUntil(
     caches.keys().then((keys) => {
       return Promise.all(

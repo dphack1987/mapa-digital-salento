@@ -1,4 +1,4 @@
-﻿{
+{
     "slug": "finca-cafetera-el-ocaso",
     "nombre": "Finca Cafetera El Ocaso",
     "municipio": "Salento",
@@ -32,9 +32,9 @@
     ],
     "multimedia": {
         "fotos": [
-            "foto_casa_ocaso.webp"
+            "imagenes/foto_casa_ocaso.webp"
         ],
-        "logo": "logo_ocaso.webp",
+        "logo": "imagenes/logo_ocaso.webp",
         "videos": [
             "https://www.youtube.com/watch?v=uE5cEDRVIhA"
         ]
