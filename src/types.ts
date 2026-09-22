@@ -300,7 +300,10 @@ export type Place = {
   active: boolean // Indica si el lugar está activo en el sistema
   isFree?: boolean // Indica si la actividad es gratuita / sin costo de entrada
   isPautante?: boolean // Indica si tiene landing page propia (pautante patrocinado)
-  
+  parentBrand?: string // Marca padre (ej. "Boki Mall") cuando el lugar es una sub-marca
+  brandSlug?: string // Slug estable de la marca dentro del complejo
+  siblingBrands?: { name: string; slug: string; path: string }[] // Otras marcas del mismo complejo
+
   // Detalles específicos según tipo
   accommodationDetails?: AccommodationDetails
   foodServiceDetails?: FoodServiceDetails

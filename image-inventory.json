@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-09-22T22:56:10.490Z",
-  "total": 744,
-  "ok": 744,
+  "generatedAt": "2026-09-22T23:13:58.764Z",
+  "total": 752,
+  "ok": 752,
   "broken": 0,
   "fixable": 0,
   "unfixable": 0,
@@ -387,7 +387,7 @@
     {
       "file": "public/categorias/eventos.html",
       "line": 44,
-      "path": "/pautas/boki_mall/hotel-mirador-boquia/370049629.webp",
+      "path": "/pautas/boki_mall/eventos/premio-mejor-hotel-rural-2024.webp",
       "status": "OK",
       "equivalent": null
     },
@@ -401,7 +401,7 @@
     {
       "file": "public/categorias/eventos.html",
       "line": 93,
-      "path": "/pautas/boki_mall/hotel-mirador-boquia/370049629.webp",
+      "path": "/pautas/boki_mall/eventos/premio-mejor-hotel-rural-2024.webp",
       "status": "OK",
       "equivalent": null
     },
@@ -779,1203 +779,1245 @@
     {
       "file": "public/data/places.json",
       "line": 187,
-      "path": "/pautas/boki_mall/hotel-mirador-boquia/370049629.webp",
+      "path": "/pautas/boki_mall/hotel-mirador-boquia/logo-hotel-mirador-de-boquia.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 254,
+      "line": 273,
+      "path": "/pautas/boki_mall/restaurante-terra/terra-restaurante-logo.webp",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
+      "file": "public/data/places.json",
+      "line": 274,
+      "path": "/pautas/boki_mall/hotel-mirador-boquia/images (1).webp",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
+      "file": "public/data/places.json",
+      "line": 275,
       "path": "/pautas/boki_mall/hotel-mirador-boquia/Hotel_Mirador_de_Boquia_1747081077351.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 319,
+      "line": 358,
+      "path": "/pautas/boki_mall/barcinales-cafe-bar/barcinales-cafe-bar-logo.webp",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
+      "file": "public/data/places.json",
+      "line": 359,
+      "path": "/pautas/boki_mall/hotel-mirador-boquia/images (1).webp",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
+      "file": "public/data/places.json",
+      "line": 360,
       "path": "/pautas/boki_mall/hotel-mirador-boquia/314270821.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 407,
-      "path": "/pautas/boki_mall/hotel-mirador-boquia/370049629.webp",
+      "line": 466,
+      "path": "/pautas/boki_mall/boki_mall_logo.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 495,
+      "line": 467,
+      "path": "/pautas/boki_mall/hotel-mirador-boquia/images (1).webp",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
+      "file": "public/data/places.json",
+      "line": 468,
+      "path": "/pautas/boki_mall/eventos/premio-mejor-hotel-rural-2024.webp",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
+      "file": "public/data/places.json",
+      "line": 574,
       "path": "/pautas/mirador_mano_de_dios/imagenes/caption.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 496,
+      "line": 575,
       "path": "/pautas/mirador_mano_de_dios/imagenes/dios2.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 497,
+      "line": 576,
       "path": "/pautas/mirador_mano_de_dios/imagenes/dios5.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 498,
+      "line": 577,
       "path": "/pautas/mirador_mano_de_dios/imagenes/images.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 499,
+      "line": 578,
       "path": "/pautas/mirador_mano_de_dios/imagenes/logo-mirador-dios.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 587,
+      "line": 666,
       "path": "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/rita1.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 588,
+      "line": 667,
       "path": "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/rita2.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 589,
+      "line": 668,
       "path": "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/rita3.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 590,
+      "line": 669,
       "path": "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/WhatsApp Image 2026-09-07 at 08.36.46.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 591,
+      "line": 670,
       "path": "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/WhatsApp Image 2026-09-07 at 08.38.34.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 592,
+      "line": 671,
       "path": "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/f13.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 593,
+      "line": 672,
       "path": "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/f15.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 594,
+      "line": 673,
       "path": "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/f8.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 595,
+      "line": 674,
       "path": "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/WhatsApp Image 2026-09-07 at 08.38.35.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 596,
+      "line": 675,
       "path": "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/f14.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 597,
+      "line": 676,
       "path": "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/rita6.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 598,
+      "line": 677,
       "path": "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/f18.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 599,
+      "line": 678,
       "path": "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/rita7.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 600,
+      "line": 679,
       "path": "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/rita8.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 601,
+      "line": 680,
       "path": "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/f10.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 602,
+      "line": 681,
       "path": "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/rita5.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 603,
+      "line": 682,
       "path": "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/WhatsApp Image 2026-09-07 at 08.38.37.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 604,
+      "line": 683,
       "path": "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/f12.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 605,
+      "line": 684,
       "path": "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/WhatsApp Image 2026-09-07 at 08.38.39.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 606,
+      "line": 685,
       "path": "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/foto1.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 607,
+      "line": 686,
       "path": "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/f10.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 608,
+      "line": 687,
       "path": "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/WhatsApp Image 2026-09-07 at 08.37.29.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 609,
+      "line": 688,
       "path": "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/f7.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 610,
+      "line": 689,
       "path": "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/f11.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 611,
+      "line": 690,
       "path": "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/f5.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 612,
+      "line": 691,
       "path": "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/f3.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 613,
+      "line": 692,
       "path": "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/f2.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 614,
+      "line": 693,
       "path": "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/f6.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 615,
+      "line": 694,
       "path": "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/WhatsApp Image 2026-09-07 at 08.38.38.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 616,
+      "line": 695,
       "path": "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/f16.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 643,
+      "line": 722,
       "path": "/pautas/hotel_camino_nacional/imagenes/1326164875.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 644,
+      "line": 723,
       "path": "/pautas/hotel_camino_nacional/imagenes/1669032660.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 645,
+      "line": 724,
       "path": "/pautas/hotel_camino_nacional/imagenes/1669032671.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 646,
+      "line": 725,
       "path": "/pautas/hotel_camino_nacional/imagenes/1669032675.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 647,
+      "line": 726,
       "path": "/pautas/hotel_camino_nacional/imagenes/1669032677.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 648,
+      "line": 727,
       "path": "/pautas/hotel_camino_nacional/imagenes/1669032704.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 649,
+      "line": 728,
       "path": "/pautas/hotel_camino_nacional/imagenes/1669032914.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 650,
+      "line": 729,
       "path": "/pautas/hotel_camino_nacional/imagenes/1672597073.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 651,
+      "line": 730,
       "path": "/pautas/hotel_camino_nacional/imagenes/1672597074.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 652,
+      "line": 731,
       "path": "/pautas/hotel_camino_nacional/imagenes/1672597077.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 653,
+      "line": 732,
       "path": "/pautas/hotel_camino_nacional/imagenes/631033284.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 775,
+      "line": 854,
       "path": "/pautas/coffee-tour-alojamiento-finca-hotel-el-ocaso/imagenes/foto_casa_ocaso.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 919,
+      "line": 998,
       "path": "/pautas/hotel_la_floresta_salento/imagenes/lafloresta-fachada.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 920,
+      "line": 999,
       "path": "/pautas/hotel_la_floresta_salento/imagenes/floresta1.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 921,
+      "line": 1000,
       "path": "/pautas/hotel_la_floresta_salento/imagenes/floresta2.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 922,
+      "line": 1001,
       "path": "/pautas/hotel_la_floresta_salento/imagenes/floresta3.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 923,
+      "line": 1002,
       "path": "/pautas/hotel_la_floresta_salento/imagenes/floresta4.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 924,
+      "line": 1003,
       "path": "/pautas/hotel_la_floresta_salento/imagenes/floresta5.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 925,
+      "line": 1004,
       "path": "/pautas/hotel_la_floresta_salento/imagenes/floresta-habitacion.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 926,
+      "line": 1005,
       "path": "/pautas/hotel_la_floresta_salento/imagenes/floresta-spa.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 927,
+      "line": 1006,
       "path": "/pautas/hotel_la_floresta_salento/imagenes/floresta-mirador.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 928,
+      "line": 1007,
       "path": "/pautas/hotel_la_floresta_salento/imagenes/floresta-gym.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 929,
+      "line": 1008,
       "path": "/pautas/hotel_la_floresta_salento/imagenes/floresta-bar.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 992,
+      "line": 1071,
       "path": "/pautas/coffee-tour-finca-cafetera-don-elias/imagenes/cafe-don-elias.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 993,
+      "line": 1072,
       "path": "/pautas/coffee-tour-finca-cafetera-don-elias/imagenes/724493520_18074799854670095_3547519742275705982_n.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 994,
+      "line": 1073,
       "path": "/pautas/coffee-tour-finca-cafetera-don-elias/imagenes/692728292_18069951644670095_2829106976592801887_n.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 995,
+      "line": 1074,
       "path": "/pautas/coffee-tour-finca-cafetera-don-elias/imagenes/681426934_18068473622670095_8170870217327481165_n.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 996,
+      "line": 1075,
       "path": "/pautas/coffee-tour-finca-cafetera-don-elias/imagenes/658126044_18063985268670095_3075015024937128905_n.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 1065,
+      "line": 1144,
       "path": "/pautas/moto_aventura_110/imagenes/1.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 1066,
+      "line": 1145,
       "path": "/pautas/moto_aventura_110/imagenes/2.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 1067,
+      "line": 1146,
       "path": "/pautas/moto_aventura_110/imagenes/3.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 1068,
+      "line": 1147,
       "path": "/pautas/moto_aventura_110/imagenes/4.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 1069,
+      "line": 1148,
       "path": "/pautas/moto_aventura_110/imagenes/5.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 1149,
+      "line": 1228,
       "path": "/pautas/cabalgatas_cocora_magica/imagenes/Caballos.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 1150,
+      "line": 1229,
       "path": "/pautas/cabalgatas_cocora_magica/imagenes/cabalgatas-en-el-valle-de-cocora-6.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 1151,
+      "line": 1230,
       "path": "/pautas/cabalgatas_cocora_magica/imagenes/cabalgatas-valle-del-cocora-2.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 1401,
+      "line": 1480,
       "path": "/pautas/restaurante_bar_fonda_boquia/imagenes/29389126_1005353112946875_6049563033867386880_n.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 1402,
+      "line": 1481,
       "path": "/pautas/restaurante_bar_fonda_boquia/imagenes/30411747_1017613001720886_1046791999434260480_n.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 1403,
+      "line": 1482,
       "path": "/pautas/restaurante_bar_fonda_boquia/imagenes/480508481_1169835038167384_4932382570318530100_n.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 1404,
+      "line": 1483,
       "path": "/pautas/restaurante_bar_fonda_boquia/imagenes/481917729_1182180286932859_1362131829553801165_n.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 1405,
+      "line": 1484,
       "path": "/pautas/restaurante_bar_fonda_boquia/imagenes/481961056_1182180233599531_8927232009685756092_n.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 1406,
+      "line": 1485,
       "path": "/pautas/restaurante_bar_fonda_boquia/imagenes/65375183_1331615080320675_8125305373516103680_n.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 1458,
+      "line": 1537,
       "path": "/pautas/coffee-tour-finca-cafetera-don-elias/imagenes/cafe-don-elias.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 1459,
+      "line": 1538,
       "path": "/pautas/coffee-tour-finca-cafetera-don-elias/imagenes/484042363_664478162683303_2341224993788835150_n.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 1460,
+      "line": 1539,
       "path": "/pautas/coffee-tour-finca-cafetera-don-elias/imagenes/483101751_664446382686481_2585961616784103288_n.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 1540,
+      "line": 1619,
       "path": "/pautas/coffee-tour-finca-don-eduardo/IMG_0224.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 1541,
+      "line": 1620,
       "path": "/pautas/coffee-tour-finca-don-eduardo/IMG_0366.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 1542,
+      "line": 1621,
       "path": "/pautas/coffee-tour-finca-don-eduardo/IMG_0372.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 1543,
+      "line": 1622,
       "path": "/pautas/coffee-tour-finca-don-eduardo/IMG_0736.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 1544,
+      "line": 1623,
       "path": "/pautas/coffee-tour-finca-don-eduardo/IMG_3229.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 1545,
+      "line": 1624,
       "path": "/pautas/coffee-tour-finca-don-eduardo/IMG_8454.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 1546,
+      "line": 1625,
       "path": "/pautas/coffee-tour-finca-don-eduardo/IMG_9079.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 1547,
+      "line": 1626,
       "path": "/pautas/coffee-tour-finca-don-eduardo/IMG_9320.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 1548,
+      "line": 1627,
       "path": "/pautas/coffee-tour-finca-don-eduardo/IMG_9326.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 1549,
+      "line": 1628,
       "path": "/pautas/coffee-tour-finca-don-eduardo/IMG_9360_1.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 1585,
+      "line": 1664,
       "path": "/imagenes-salento/calle.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 1586,
+      "line": 1665,
       "path": "/imagenes-salento/631026720.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 1622,
+      "line": 1701,
       "path": "/imagenes-salento/pueblo.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 1623,
+      "line": 1702,
       "path": "/imagenes-salento/631032744.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 1659,
+      "line": 1738,
       "path": "/imagenes-salento/salento-landscape.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 1660,
+      "line": 1739,
       "path": "/imagenes-salento/653410779.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 1696,
+      "line": 1775,
       "path": "/imagenes-salento/iglesia.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 1697,
+      "line": 1776,
       "path": "/imagenes-salento/1326163759.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 1733,
+      "line": 1812,
       "path": "/imagenes-salento/valle-cocora-palmas-2.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 1734,
+      "line": 1813,
       "path": "/imagenes-salento/653410779.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 1770,
+      "line": 1849,
       "path": "/imagenes-salento/salento-landscape.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 1771,
+      "line": 1850,
       "path": "/imagenes-salento/colombia-palms.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 1807,
+      "line": 1886,
       "path": "/imagenes-salento/images.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 1808,
+      "line": 1887,
       "path": "/imagenes-salento/images (1).webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 1844,
+      "line": 1923,
       "path": "/imagenes-salento/colombia-palms.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 1845,
+      "line": 1924,
       "path": "/imagenes-salento/653410779.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 1881,
+      "line": 1960,
       "path": "/imagenes-salento/631026720.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 1882,
+      "line": 1961,
       "path": "/imagenes-salento/1326163558.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 1918,
+      "line": 1997,
       "path": "/imagenes-salento/pueblo.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 1919,
+      "line": 1998,
       "path": "/imagenes-salento/1326163759.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 1955,
+      "line": 2034,
       "path": "/imagenes-salento/destinos-75.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 1991,
+      "line": 2070,
       "path": "/imagenes-salento/pueblo.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 1992,
+      "line": 2071,
       "path": "/imagenes-salento/destinos-75.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 2101,
+      "line": 2180,
       "path": "/pautas/mahalo_hostel/imagenes/151829511_115398783872298_53747583158063699_n.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 2102,
+      "line": 2181,
       "path": "/pautas/mahalo_hostel/imagenes/suitedeluxehab5.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 2103,
+      "line": 2182,
       "path": "/pautas/mahalo_hostel/imagenes/suitedeluxeIIhab7.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 2104,
+      "line": 2183,
       "path": "/pautas/mahalo_hostel/imagenes/familiarc2.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 2105,
+      "line": 2184,
       "path": "/pautas/mahalo_hostel/imagenes/familiarc3.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 2106,
+      "line": 2185,
       "path": "/pautas/mahalo_hostel/imagenes/doblehab6,8,9.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 2107,
+      "line": 2186,
       "path": "/pautas/mahalo_hostel/imagenes/habitaciones1,2,3.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 2108,
+      "line": 2187,
       "path": "/pautas/mahalo_hostel/imagenes/Hab-1-768x1062.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 2109,
+      "line": 2188,
       "path": "/pautas/mahalo_hostel/imagenes/hab-1.1.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 2110,
+      "line": 2189,
       "path": "/pautas/mahalo_hostel/imagenes/habitacion4.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 2111,
+      "line": 2190,
       "path": "/pautas/mahalo_hostel/imagenes/habitacion14.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 2112,
+      "line": 2191,
       "path": "/pautas/mahalo_hostel/imagenes/habitacion15.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 2113,
+      "line": 2192,
       "path": "/pautas/mahalo_hostel/imagenes/habitracion16.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 2114,
+      "line": 2193,
       "path": "/pautas/mahalo_hostel/imagenes/habitaciones11,12,13.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 2115,
+      "line": 2194,
       "path": "/pautas/mahalo_hostel/imagenes/colonial-2.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 2116,
+      "line": 2195,
       "path": "/pautas/mahalo_hostel/imagenes/gal-1.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 2117,
+      "line": 2196,
       "path": "/pautas/mahalo_hostel/imagenes/gal-2.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 2118,
+      "line": 2197,
       "path": "/pautas/mahalo_hostel/imagenes/gal-4-768x1024.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 2119,
+      "line": 2198,
       "path": "/pautas/mahalo_hostel/imagenes/gal-6-768x1024.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 2120,
+      "line": 2199,
       "path": "/pautas/mahalo_hostel/imagenes/gal-8-768x1024.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 2121,
+      "line": 2200,
       "path": "/pautas/mahalo_hostel/imagenes/gal-9-768x1024.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 2122,
+      "line": 2201,
       "path": "/pautas/mahalo_hostel/imagenes/FONDO-3.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 2123,
+      "line": 2202,
       "path": "/pautas/mahalo_hostel/imagenes/logo-mahalo.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 2203,
+      "line": 2282,
       "path": "/pautas/parque-mirador-la-vida-bella/Logolavidabella.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 2204,
+      "line": 2283,
       "path": "/pautas/parque-mirador-la-vida-bella/IMG_0769.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 2205,
+      "line": 2284,
       "path": "/pautas/parque-mirador-la-vida-bella/IMG_0777.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 2206,
+      "line": 2285,
       "path": "/pautas/parque-mirador-la-vida-bella/IMG_0791.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 2207,
+      "line": 2286,
       "path": "/pautas/parque-mirador-la-vida-bella/IMG_0880.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 2208,
+      "line": 2287,
       "path": "/pautas/parque-mirador-la-vida-bella/IMG_0888.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 2209,
+      "line": 2288,
       "path": "/pautas/parque-mirador-la-vida-bella/IMG_0890.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 2210,
+      "line": 2289,
       "path": "/pautas/parque-mirador-la-vida-bella/IMG_0896.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 2211,
+      "line": 2290,
       "path": "/pautas/parque-mirador-la-vida-bella/IMG_1231.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 2257,
+      "line": 2336,
       "path": "/pautas/el_recuerdo_coffee_tour/recuerdo1casa.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 2258,
+      "line": 2337,
       "path": "/pautas/el_recuerdo_coffee_tour/recuerdo2.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 2259,
+      "line": 2338,
       "path": "/pautas/el_recuerdo_coffee_tour/recuerdocafetal1.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 2260,
+      "line": 2339,
       "path": "/pautas/el_recuerdo_coffee_tour/recuerdocafetal2.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 2261,
+      "line": 2340,
       "path": "/pautas/el_recuerdo_coffee_tour/recuerdopaisaje1.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 2262,
+      "line": 2341,
       "path": "/pautas/el_recuerdo_coffee_tour/10.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 2263,
+      "line": 2342,
       "path": "/pautas/el_recuerdo_coffee_tour/11.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 2264,
+      "line": 2343,
       "path": "/pautas/el_recuerdo_coffee_tour/12.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 2265,
+      "line": 2344,
       "path": "/pautas/el_recuerdo_coffee_tour/13.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 2266,
+      "line": 2345,
       "path": "/pautas/el_recuerdo_coffee_tour/logo-recuerdo-tour.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 2334,
+      "line": 2413,
       "path": "/pautas/hotel_tia_emiss/1625430084.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 2335,
+      "line": 2414,
       "path": "/pautas/hotel_tia_emiss/1662261168.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 2336,
+      "line": 2415,
       "path": "/pautas/hotel_tia_emiss/emmis1.jpg",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 2337,
+      "line": 2416,
       "path": "/pautas/hotel_tia_emiss/1625429615.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 2338,
+      "line": 2417,
       "path": "/pautas/hotel_tia_emiss/1625429949.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 2339,
+      "line": 2418,
       "path": "/pautas/hotel_tia_emiss/1625430062.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 2340,
+      "line": 2419,
       "path": "/pautas/hotel_tia_emiss/1625430071.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 2341,
+      "line": 2420,
       "path": "/pautas/hotel_tia_emiss/sala-al-aire-libre-del.jpg",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 2342,
+      "line": 2421,
       "path": "/pautas/hotel_tia_emiss/1625430107.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 2343,
+      "line": 2422,
       "path": "/pautas/hotel_tia_emiss/1625429971.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 2344,
+      "line": 2423,
       "path": "/pautas/hotel_tia_emiss/1625429973.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 2345,
+      "line": 2424,
       "path": "/pautas/hotel_tia_emiss/1625430113.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 2346,
+      "line": 2425,
       "path": "/pautas/hotel_tia_emiss/1625430117.webp",
       "status": "OK",
       "equivalent": null
@@ -2395,8 +2437,15 @@
     },
     {
       "file": "public/paginas-pautantes/boki-mall-barcinales-cafe-bar/index.html",
+      "line": 22,
+      "path": "/pautas/boki_mall/barcinales-cafe-bar/barcinales-cafe-bar-logo.webp",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
+      "file": "public/paginas-pautantes/boki-mall-barcinales-cafe-bar/index.html",
       "line": 25,
-      "path": "/pautas/boki_mall/hotel-mirador-boquia/images%20(2).webp",
+      "path": "/pautas/boki_mall/barcinales-cafe-bar/barcinales-cafe-bar-logo.webp",
       "status": "OK",
       "equivalent": null
     },
@@ -2410,21 +2459,14 @@
     {
       "file": "public/paginas-pautantes/boki-mall-barcinales-cafe-bar/index.html",
       "line": 43,
-      "path": "/pautas/boki_mall/boki_mall_logo.webp",
+      "path": "/pautas/boki_mall/barcinales-cafe-bar/barcinales-cafe-bar-logo.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/paginas-pautantes/boki-mall-barcinales-cafe-bar/index.html",
       "line": 87,
-      "path": "/pautas/boki_mall/hotel-mirador-boquia/images%20(2).webp",
-      "status": "OK",
-      "equivalent": null
-    },
-    {
-      "file": "public/paginas-pautantes/boki-mall-barcinales-cafe-bar/index.html",
-      "line": 87,
-      "path": "/pautas/boki_mall/hotel-mirador-boquia/images.webp",
+      "path": "/pautas/boki_mall/barcinales-cafe-bar/barcinales-cafe-bar-logo.webp",
       "status": "OK",
       "equivalent": null
     },
@@ -2436,16 +2478,23 @@
       "equivalent": null
     },
     {
+      "file": "public/paginas-pautantes/boki-mall-barcinales-cafe-bar/index.html",
+      "line": 87,
+      "path": "/pautas/boki_mall/hotel-mirador-boquia/314270821.webp",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
       "file": "public/paginas-pautantes/boki-mall-eventos/index.html",
       "line": 22,
-      "path": "/pautas/boki_mall/hotel-mirador-boquia/370049629.webp",
+      "path": "/pautas/boki_mall/boki_mall_logo.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/paginas-pautantes/boki-mall-eventos/index.html",
       "line": 25,
-      "path": "/pautas/boki_mall/hotel-mirador-boquia/370049629.webp",
+      "path": "/pautas/boki_mall/boki_mall_logo.webp",
       "status": "OK",
       "equivalent": null
     },
@@ -2466,14 +2515,21 @@
     {
       "file": "public/paginas-pautantes/boki-mall-eventos/index.html",
       "line": 54,
-      "path": "/pautas/boki_mall/hotel-mirador-boquia/370049629.webp",
+      "path": "/pautas/boki_mall/boki_mall_logo.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/paginas-pautantes/boki-mall-eventos/index.html",
       "line": 54,
-      "path": "/imagenes-salento/salento-landscape.webp",
+      "path": "/pautas/boki_mall/hotel-mirador-boquia/images%20(1).webp",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
+      "file": "public/paginas-pautantes/boki-mall-eventos/index.html",
+      "line": 54,
+      "path": "/pautas/boki_mall/eventos/premio-mejor-hotel-rural-2024.webp",
       "status": "OK",
       "equivalent": null
     },
@@ -2543,7 +2599,7 @@
     {
       "file": "public/paginas-pautantes/boki-mall-hotel-el-mirador-de-boquia/index.html",
       "line": 86,
-      "path": "/pautas/boki_mall/hotel-mirador-boquia/370049629.webp",
+      "path": "/pautas/boki_mall/eventos/premio-mejor-hotel-rural-2024.webp",
       "status": "OK",
       "equivalent": null
     },
@@ -2556,42 +2612,42 @@
     },
     {
       "file": "public/paginas-pautantes/boki-mall-hotel-el-mirador-de-boquia/index.html",
-      "line": 144,
+      "line": 151,
       "path": "/pautas/boki_mall/hotel-mirador-boquia/images.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/paginas-pautantes/boki-mall-hotel-el-mirador-de-boquia/index.html",
-      "line": 145,
+      "line": 152,
       "path": "/pautas/boki_mall/hotel-mirador-boquia/images (1).webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/paginas-pautantes/boki-mall-hotel-el-mirador-de-boquia/index.html",
-      "line": 146,
+      "line": 153,
       "path": "/pautas/boki_mall/hotel-mirador-boquia/images (2).webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/paginas-pautantes/boki-mall-hotel-el-mirador-de-boquia/index.html",
-      "line": 147,
+      "line": 154,
       "path": "/pautas/boki_mall/hotel-mirador-boquia/images (3).webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/paginas-pautantes/boki-mall-hotel-el-mirador-de-boquia/index.html",
-      "line": 148,
-      "path": "/pautas/boki_mall/hotel-mirador-boquia/370049629.webp",
+      "line": 155,
+      "path": "/pautas/boki_mall/hotel-mirador-boquia/images%20(2).webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/paginas-pautantes/boki-mall-hotel-el-mirador-de-boquia/index.html",
-      "line": 149,
+      "line": 156,
       "path": "/pautas/boki_mall/hotel-mirador-boquia/314270821.webp",
       "status": "OK",
       "equivalent": null
@@ -2599,14 +2655,14 @@
     {
       "file": "public/paginas-pautantes/boki-mall-restaurante-terra/index.html",
       "line": 22,
-      "path": "/pautas/boki_mall/hotel-mirador-boquia/314270821.webp",
+      "path": "/pautas/boki_mall/hotel-mirador-boquia/images (1).webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/paginas-pautantes/boki-mall-restaurante-terra/index.html",
       "line": 25,
-      "path": "/pautas/boki_mall/hotel-mirador-boquia/314270821.webp",
+      "path": "/pautas/boki_mall/hotel-mirador-boquia/images (1).webp",
       "status": "OK",
       "equivalent": null
     },
@@ -2620,7 +2676,21 @@
     {
       "file": "public/paginas-pautantes/boki-mall-restaurante-terra/index.html",
       "line": 43,
-      "path": "/pautas/boki_mall/boki_mall_logo.webp",
+      "path": "/pautas/boki_mall/restaurante-terra/terra-restaurante-logo.webp",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
+      "file": "public/paginas-pautantes/boki-mall-restaurante-terra/index.html",
+      "line": 87,
+      "path": "/pautas/boki_mall/hotel-mirador-boquia/images%20(1).webp",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
+      "file": "public/paginas-pautantes/boki-mall-restaurante-terra/index.html",
+      "line": 87,
+      "path": "/pautas/boki_mall/restaurante-terra/terra-restaurante-logo.webp",
       "status": "OK",
       "equivalent": null
     },
@@ -2628,20 +2698,6 @@
       "file": "public/paginas-pautantes/boki-mall-restaurante-terra/index.html",
       "line": 87,
       "path": "/pautas/boki_mall/hotel-mirador-boquia/314270821.webp",
-      "status": "OK",
-      "equivalent": null
-    },
-    {
-      "file": "public/paginas-pautantes/boki-mall-restaurante-terra/index.html",
-      "line": 87,
-      "path": "/pautas/boki_mall/hotel-mirador-boquia/Hotel_Mirador_de_Boquia_1747081077351.webp",
-      "status": "OK",
-      "equivalent": null
-    },
-    {
-      "file": "public/paginas-pautantes/boki-mall-restaurante-terra/index.html",
-      "line": 87,
-      "path": "/pautas/boki_mall/hotel-mirador-boquia/370049629.webp",
       "status": "OK",
       "equivalent": null
     },
@@ -5034,49 +5090,49 @@
     },
     {
       "file": "src/App.tsx",
-      "line": 1530,
+      "line": 1531,
       "path": "/imagenes-salento/1326163558.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "src/App.tsx",
-      "line": 1531,
+      "line": 1532,
       "path": "/imagenes-salento/1326163759.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "src/App.tsx",
-      "line": 1532,
+      "line": 1533,
       "path": "/imagenes-salento/631026720.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "src/App.tsx",
-      "line": 1533,
+      "line": 1534,
       "path": "/imagenes-salento/631032744.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "src/App.tsx",
-      "line": 1534,
+      "line": 1535,
       "path": "/imagenes-salento/653410779.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "src/App.tsx",
-      "line": 1980,
+      "line": 1981,
       "path": "/avatar-don-chucho.png",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "src/App.tsx",
-      "line": 2080,
+      "line": 2081,
       "path": "/don-chucho-boton.webp",
       "status": "OK",
       "equivalent": null
@@ -5133,14 +5189,14 @@
     {
       "file": "tools/generate_category_pages.js",
       "line": 56,
-      "path": "/pautas/boki_mall/boki_mall_logo.webp",
+      "path": "/pautas/boki_mall/restaurante-terra/terra-restaurante-logo.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "tools/generate_category_pages.js",
       "line": 57,
-      "path": "/pautas/boki_mall/boki_mall_logo.webp",
+      "path": "/pautas/boki_mall/barcinales-cafe-bar/barcinales-cafe-bar-logo.webp",
       "status": "OK",
       "equivalent": null
     },

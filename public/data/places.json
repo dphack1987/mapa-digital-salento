@@ -184,9 +184,28 @@
       "photos": [
         "/pautas/boki_mall/hotel-mirador-boquia/Hotel_Mirador_de_Boquia_1747081077351.webp",
         "/pautas/boki_mall/hotel-mirador-boquia/314270821.webp",
-        "/pautas/boki_mall/hotel-mirador-boquia/370049629.webp"
+        "/pautas/boki_mall/hotel-mirador-boquia/logo-hotel-mirador-de-boquia.webp"
       ],
-      "isPautante": true
+      "isPautante": true,
+      "parentBrand": "Boki Mall",
+      "brandSlug": "boki-mall-hotel-el-mirador-de-boquia",
+      "siblingBrands": [
+        {
+          "name": "Restaurante Terra",
+          "slug": "boki-mall-restaurante-terra",
+          "path": "/paginas-pautantes/boki-mall-restaurante-terra/"
+        },
+        {
+          "name": "Barcinales Café - Bar",
+          "slug": "boki-mall-barcinales-cafe-bar",
+          "path": "/paginas-pautantes/boki-mall-barcinales-cafe-bar/"
+        },
+        {
+          "name": "Eventos",
+          "slug": "boki-mall-eventos",
+          "path": "/paginas-pautantes/boki-mall-eventos/"
+        }
+      ]
     },
     {
       "id": 28,
@@ -251,9 +270,29 @@
         ]
       },
       "photos": [
+        "/pautas/boki_mall/restaurante-terra/terra-restaurante-logo.webp",
+        "/pautas/boki_mall/hotel-mirador-boquia/images (1).webp",
         "/pautas/boki_mall/hotel-mirador-boquia/Hotel_Mirador_de_Boquia_1747081077351.webp"
       ],
-      "isPautante": true
+      "isPautante": true,
+      "brandSlug": "boki-mall-restaurante-terra",
+      "siblingBrands": [
+        {
+          "name": "Hotel El Mirador de Boquía",
+          "slug": "boki-mall-hotel-el-mirador-de-boquia",
+          "path": "/paginas-pautantes/boki-mall-hotel-el-mirador-de-boquia/"
+        },
+        {
+          "name": "Barcinales Café - Bar",
+          "slug": "boki-mall-barcinales-cafe-bar",
+          "path": "/paginas-pautantes/boki-mall-barcinales-cafe-bar/"
+        },
+        {
+          "name": "Eventos",
+          "slug": "boki-mall-eventos",
+          "path": "/paginas-pautantes/boki-mall-eventos/"
+        }
+      ]
     },
     {
       "id": 29,
@@ -316,9 +355,29 @@
         ]
       },
       "photos": [
+        "/pautas/boki_mall/barcinales-cafe-bar/barcinales-cafe-bar-logo.webp",
+        "/pautas/boki_mall/hotel-mirador-boquia/images (1).webp",
         "/pautas/boki_mall/hotel-mirador-boquia/314270821.webp"
       ],
-      "isPautante": true
+      "isPautante": true,
+      "brandSlug": "boki-mall-barcinales-cafe-bar",
+      "siblingBrands": [
+        {
+          "name": "Hotel El Mirador de Boquía",
+          "slug": "boki-mall-hotel-el-mirador-de-boquia",
+          "path": "/paginas-pautantes/boki-mall-hotel-el-mirador-de-boquia/"
+        },
+        {
+          "name": "Restaurante Terra",
+          "slug": "boki-mall-restaurante-terra",
+          "path": "/paginas-pautantes/boki-mall-restaurante-terra/"
+        },
+        {
+          "name": "Eventos",
+          "slug": "boki-mall-eventos",
+          "path": "/paginas-pautantes/boki-mall-eventos/"
+        }
+      ]
     },
     {
       "id": 30,
@@ -404,9 +463,29 @@
         ]
       },
       "photos": [
-        "/pautas/boki_mall/hotel-mirador-boquia/370049629.webp"
+        "/pautas/boki_mall/boki_mall_logo.webp",
+        "/pautas/boki_mall/hotel-mirador-boquia/images (1).webp",
+        "/pautas/boki_mall/eventos/premio-mejor-hotel-rural-2024.webp"
       ],
-      "isPautante": true
+      "isPautante": true,
+      "brandSlug": "boki-mall-eventos",
+      "siblingBrands": [
+        {
+          "name": "Hotel El Mirador de Boquía",
+          "slug": "boki-mall-hotel-el-mirador-de-boquia",
+          "path": "/paginas-pautantes/boki-mall-hotel-el-mirador-de-boquia/"
+        },
+        {
+          "name": "Restaurante Terra",
+          "slug": "boki-mall-restaurante-terra",
+          "path": "/paginas-pautantes/boki-mall-restaurante-terra/"
+        },
+        {
+          "name": "Barcinales Café - Bar",
+          "slug": "boki-mall-barcinales-cafe-bar",
+          "path": "/paginas-pautantes/boki-mall-barcinales-cafe-bar/"
+        }
+      ]
     },
     {
       "id": 14,
@@ -2351,6 +2430,6 @@
       "isPautante": true
     }
   ],
-  "lastUpdated": "2026-09-22T22:03:54.962Z",
+  "lastUpdated": "2026-09-22",
   "version": "2.0.0-pautantes-only"
 }
