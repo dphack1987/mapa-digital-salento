@@ -64,33 +64,33 @@ const salentoImageGallery = [
   ['631026720.webp', 'Arquitectura tradicional de Salento'],
   ['631032744.webp', 'Iglesia y plaza de Salento'],
   ['653410779.webp', 'Palmas de cera del Quindío'],
-  ['calle.jpg', 'Calle colorida de Salento'],
-  ['destinos-75.png', 'Destinos turísticos de Salento'],
-  ['iglesia.jpg', 'Iglesia de Salento'],
-  ['images (1).jpg', 'Paisaje del destino'],
-  ['images (2).jpg', 'Paisaje natural del Quindío'],
-  ['images.jpg', 'Vista de Salento'],
-  ['patacon 3.jpg', 'Patacón de la cocina local'],
-  ['patacon.jpg', 'Patacón tradicional'],
-  ['patacon2.jpg', 'Plato local con patacón'],
-  ['patacon4.jpg', 'Gastronomía local'],
-  ['pueblo.jpg', 'Pueblo de Salento'],
-  ['trucha y patacon.jpg', 'Trucha con patacón'],
+  ['calle.webp', 'Calle colorida de Salento'],
+  ['destinos-75.webp', 'Destinos turísticos de Salento'],
+  ['iglesia.webp', 'Iglesia de Salento'],
+  ['images (1).webp', 'Paisaje del destino'],
+  ['images (2).webp', 'Paisaje natural del Quindío'],
+  ['images.webp', 'Vista de Salento'],
+  ['patacon 3.webp', 'Patacón de la cocina local'],
+  ['patacon.webp', 'Patacón tradicional'],
+  ['patacon2.webp', 'Plato local con patacón'],
+  ['patacon4.webp', 'Gastronomía local'],
+  ['pueblo.webp', 'Pueblo de Salento'],
+  ['trucha y patacon.webp', 'Trucha con patacón'],
   ['Trucha-con-camarones-Salento-Quindio-1024x768.jpeg.webp', 'Trucha con camarones'],
-  ['trucha1.jpg', 'Trucha de la cocina salentina'],
-  ['truite-a-la-plancha.jpg', 'Trucha a la plancha']
+  ['trucha1.webp', 'Trucha de la cocina salentina'],
+  ['truite-a-la-plancha.webp', 'Trucha a la plancha']
 ]
 
 const serviceCardImages = {
-  gastronomy: '/imagenes-salento/trucha%20y%20patacon.jpg',
-  restaurantBar: '/imagenes-salento/pueblo.jpg',
-  transport: '/imagenes-salento/destinos-75.png',
+  gastronomy: '/imagenes-salento/trucha%20y%20patacon.webp',
+  restaurantBar: '/imagenes-salento/pueblo.webp',
+  transport: '/imagenes-salento/destinos-75.webp',
   horseback: '/imagenes-salento/653410779.webp',
-  guides: '/imagenes-salento/pueblo.jpg',
-  accommodation: '/pautas/coffee-tour-alojamiento-finca-hotel-el-ocaso/imagenes/foto_casa_ocaso.png',
-  artisan: '/imagenes-salento/calle.jpg',
-  commerce: '/imagenes-salento/pueblo.jpg',
-  events: '/imagenes-salento/pueblo.jpg',
+  guides: '/imagenes-salento/pueblo.webp',
+  accommodation: '/pautas/coffee-tour-alojamiento-finca-hotel-el-ocaso/imagenes/foto_casa_ocaso.webp',
+  artisan: '/imagenes-salento/calle.webp',
+  commerce: '/imagenes-salento/pueblo.webp',
+  events: '/imagenes-salento/pueblo.webp',
   camping: '/imagenes-salento/631032744.webp'
 } as const
 
@@ -795,13 +795,13 @@ function App() {
         <meta property="og:description" content={helmetDescription} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={helmetCanonical} />
-        <meta property="og:image" content="https://www.salentoalamano.com/imagenes-salento/salento-landscape.jpg" />
+        <meta property="og:image" content="https://www.salentoalamano.com/imagenes-salento/salento-landscape.webp" />
         <meta property="og:site_name" content="Salento a la Mano" />
         <meta property="og:locale" content="es_CO" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={helmetTitle} />
         <meta name="twitter:description" content={helmetDescription} />
-        <meta name="twitter:image" content="https://www.salentoalamano.com/imagenes-salento/salento-landscape.jpg" />
+        <meta name="twitter:image" content="https://www.salentoalamano.com/imagenes-salento/salento-landscape.webp" />
         <link rel="alternate" hrefLang="es-CO" href={helmetCanonical} />
         <link rel="alternate" hrefLang="x-default" href={helmetCanonical} />
         <script type="application/ld+json">{JSON.stringify({
@@ -1843,7 +1843,7 @@ function DonChucho({ language, t, places, weather, todayEvents }: { language: La
         </div>
       )}
       <button className="chucho-trigger" onClick={() => setOpen(!open)} aria-label="Abrir asistente Don Chucho">
-        <img src="/don-chucho-boton.png" alt="Don Chucho" className="chucho-button-image" />
+        <img src="/don-chucho-boton.webp" alt="Don Chucho" className="chucho-button-image" />
         {showGreeting && <span className="chucho-greeting">¡Hola, pues!</span>}
       </button>
     </div>
