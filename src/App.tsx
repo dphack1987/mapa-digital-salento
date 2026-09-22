@@ -937,15 +937,7 @@ function App() {
           <button className="header-home-button" onClick={scrollToHome} aria-label={t('aria.home', 'Volver al inicio')}>
             <Home size={18} />
           </button>
-          {/* Botón Don Chucho IA - producción */}
-          <button 
-            className="header-don-chucho-button" 
-            onClick={() => setShowDonChuchoAI(!showDonChuchoAI)}
-            aria-label="Don Chucho IA"
-            style={{ fontSize: '12px', fontWeight: 'bold', padding: '4px 8px' }}
-          >
-            Don Chucho IA
-          </button>
+          {/* Don Chucho movido al botón flotante */}
           <button className="icon-button mobile-menu" aria-label={t('aria.menu', 'Abrir menú')} onClick={() => setMobileNav(!mobileNav)}><Menu size={20} /></button>
           <div className="locale-tools-mobile">
             <select aria-label="Cambiar idioma" value={language} onChange={(event) => handleLanguageChange(event.target.value as Language)}>
@@ -1499,6 +1491,7 @@ function App() {
                       {photo && <img src={photo} alt={place.name} loading="lazy" />}
                       {!photo && <span className="hoy-pautante-icon" aria-hidden="true">{place.type === 'Alojamientos' ? '🏨' : place.type === 'Coffee Tours' ? '☕' : place.type === 'Experiencias' ? '🐎' : place.type === 'Camping' ? '⛺' : place.type === 'Restaurantes' || place.type === 'Restaurante Bar' ? '🍽️' : '📍'}</span>}
                       <span className="hoy-pautante-tag">{place.type}</span>
+                      {place.parentBrand && <span className="hoy-pautante-parent">{place.parentBrand}</span>}
                     </div>
                     <div className="hoy-pautante-body">
                       <h3>{place.name}</h3>
@@ -1719,7 +1712,7 @@ function App() {
           <ArrowDown size={14} />
         </button>
       </div>
-      <DonChucho language={language} t={t} places={places} weather={weather} todayEvents={todayEvents} />
+      <DonChucho language={language} t={t} places={places} weather={weather} todayEvents={todayEvents}  onOpenEnhanced={() => setShowDonChuchoAI(true)} />
       {isOffline && <div className="offline-status">
         <span className="offline-indicator" />
         {t('offline', 'Modo Offline - Valle de Cocora')}
@@ -1729,7 +1722,7 @@ function App() {
   )
 }
 
-function DonChucho({ language, t, places, weather, todayEvents }: { language: Language; t: (key: string, fallback?: string) => string; places: Place[]; weather: any; todayEvents: any[] }) {
+function DonChucho({ language, t, places, weather, todayEvents, onOpenEnhanced }: { language: Language; t: (key: string, fallback?: string) => string; places: Place[]; weather: any; todayEvents: any[]; onOpenEnhanced?: () => void }) {
   const [open, setOpen] = useState(false)
   const [question, setQuestion] = useState('')
   const [answer, setAnswer] = useState(t('donChucho.welcome', '¡Hola, pues! ¿Buscando dónde comer una buena trucha o un transporte para el Valle de Cocora? Pregúnteme lo que quiera.'))
@@ -2084,7 +2077,7 @@ function DonChucho({ language, t, places, weather, todayEvents }: { language: La
           </form>
         </div>
       )}
-      <button className="chucho-trigger" onClick={() => setOpen(!open)} aria-label="Abrir asistente Don Chucho">
+      <button className="chucho-trigger" onClick={onOpenEnhanced} aria-label="Abrir asistente Don Chucho">
         <img src="/don-chucho-boton.webp" alt="Don Chucho" className="chucho-button-image" />
         {showGreeting && <span className="chucho-greeting">¡Hola, pues!</span>}
       </button>
@@ -2113,6 +2106,7 @@ function PlaceCard({ place, onOpen, onReviews }: { place: Place; onAdd?: () => v
         <div className="image-pattern" />
         <span className="place-badge">{place.badge}</span>
         <div className="place-card-flags">
+          {place.parentBrand && <span className="place-flag brand-family">{place.parentBrand}</span>}
           {place.isPautante && <span className="place-flag pautante">Pautante</span>}
           {place.verified && !place.isPautante && <span className="place-flag verified">✓ Verificado</span>}
         </div>

@@ -1757,7 +1757,7 @@
   color: var(--green);
 }
 
-.chucho-panel { position: absolute; right: 0; bottom: 58px; width: min(380px, calc(100vw - 32px)); padding: 20px; background: var(--paper); border: 2px solid var(--line); box-shadow: 8px 8px 0 rgba(39,54,43,.15); border-radius: 16px; animation: slideUp 0.3s ease; }
+.chucho-panel { position: absolute; right: 0; bottom: 58px; width: min(380px, calc(100vw - 32px)); max-width: calc(100vw - 32px); max-height: calc(100vh - 160px); padding: 20px; background: var(--paper); border: 2px solid var(--line); box-shadow: 8px 8px 0 rgba(39,54,43,.15); border-radius: 16px; animation: slideUp 0.3s ease; overflow-y: auto; overflow-x: hidden; }
 .offline-status { position: fixed; z-index: 30; left: 16px; bottom: 18px; display: flex; align-items: center; gap: 7px; color: #6e796d; background: rgba(245,241,232,.92); border: 1px solid var(--line); padding: 8px 10px; font: 9px 'DM Mono'; border-radius: 999px; box-shadow: 0 6px 14px rgba(39,54,43,.05); }
 .chucho-head { display: flex; justify-content: space-between; align-items: start; padding-bottom: 16px; border-bottom: 1px solid var(--line); }
 .chucho-avatar-image { width: 52px; height: 52px; object-fit: contain; border-radius: 16px; margin-right: 12px; padding: 6px; background: linear-gradient(135deg, rgba(232,187,88,.22) 0%, rgba(231,108,82,.18) 100%); border: 1px solid rgba(39,54,43,.08); box-shadow: inset 0 1px 0 rgba(255,255,255,.6); }
@@ -4072,7 +4072,7 @@ footer { max-width: 1184px; margin: auto; border-top: 1px solid var(--line); dis
 .chucho-button-image { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; }
 .chucho-greeting { position: absolute; top: -30px; left: 50%; transform: translateX(-50%); background: var(--ink); color: white; padding: 6px 12px; border-radius: 16px; font-size: 11px; font-weight: 600; white-space: nowrap; animation: bounce 2s infinite; }
 @keyframes bounce { 0%, 100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(-10px); } }
-.chucho-panel { position: absolute; bottom: 80px; right: 0; width: min(380px, calc(100vw - 32px)); max-width: calc(100vw - 32px); background: var(--paper); border-radius: 12px; box-shadow: 0 10px 40px rgba(39,54,43,0.2); overflow: hidden; animation: slideUp 0.3s ease; }
+.chucho-panel { position: absolute; bottom: 80px; right: 0; width: min(380px, calc(100vw - 32px)); max-width: calc(100vw - 32px); max-height: calc(100vh - 160px); background: var(--paper); border-radius: 12px; box-shadow: 0 10px 40px rgba(39,54,43,0.2); overflow-y: auto; overflow-x: hidden; animation: slideUp 0.3s ease; }
 .chucho-head { display: flex; align-items: center; gap: 12px; padding: 16px; background: rgba(119,127,109,0.05); border-bottom: 1px solid var(--line); }
 .chucho-avatar-image { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; border: 2px solid var(--coral); }
 .chucho-head > div { flex: 1; }
@@ -5827,6 +5827,12 @@ footer { max-width: 1184px; margin: auto; border-top: 1px solid var(--line); dis
   .card-actions-row .contact-email { display: none !important; }
   .add-button { width: 34px; height: 34px; }
 }
+
+
+.place-flag.brand-family { background: var(--yellow, #e8bb58); color: var(--ink); }
+.hoy-pautante-parent { display: inline-flex; align-items: center; padding: 3px 8px; border-radius: 999px; background: var(--ink); color: var(--paper); font: 700 8px 'DM Mono', monospace; text-transform: uppercase; letter-spacing: .06em; margin-bottom: 8px; align-self: flex-start; }
+.brand-family-grid .brand-family-item h3 a { color: inherit; }
+.brand-family-grid .brand-family-item h3 a:hover { text-decoration: underline; }
 
 /* === Design pass overrides (must stay last) === */
 .home-hero { margin-left: auto; margin-right: auto; width: calc(100% - 32px); }
