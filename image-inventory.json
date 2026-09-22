@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-09-22T19:14:58.438Z",
-  "total": 694,
-  "ok": 694,
+  "generatedAt": "2026-09-22T22:56:10.490Z",
+  "total": 744,
+  "ok": 744,
   "broken": 0,
   "fixable": 0,
   "unfixable": 0,
@@ -10,6 +10,55 @@
       "file": "AYUDA_VENTAS_SALENTO_A_LA_MANO.html",
       "line": 12,
       "path": "/logo_salento2026.webp",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
+      "file": "check.html",
+      "line": 275,
+      "path": "/favicon.svg",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
+      "file": "check.html",
+      "line": 276,
+      "path": "/favicon.ico",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
+      "file": "check.html",
+      "line": 277,
+      "path": "/favicon-16x16.png",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
+      "file": "check.html",
+      "line": 278,
+      "path": "/favicon-32x32.png",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
+      "file": "check.html",
+      "line": 279,
+      "path": "/favicon-120x120.png",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
+      "file": "check.html",
+      "line": 280,
+      "path": "/apple-touch-icon.png",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
+      "file": "check.html",
+      "line": 281,
+      "path": "/favicon-192x192.png",
       "status": "OK",
       "equivalent": null
     },
@@ -126,6 +175,20 @@
       "equivalent": null
     },
     {
+      "file": "public/categorias/alojamientos.html",
+      "line": 214,
+      "path": "/pautas/mahalo_hostel/imagenes/151829511_115398783872298_53747583158063699_n.webp",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
+      "file": "public/categorias/alojamientos.html",
+      "line": 235,
+      "path": "/imagenes-salento/pueblo.webp",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
       "file": "public/categorias/artesanias.html",
       "line": 109,
       "path": "/logo_salento2026.webp",
@@ -149,7 +212,7 @@
     {
       "file": "public/categorias/atractivos-turisticos.html",
       "line": 93,
-      "path": "/imagenes-salento/1326163558.webp",
+      "path": "/pautas/mirador_mano_de_dios/imagenes/dios2.webp",
       "status": "OK",
       "equivalent": null
     },
@@ -259,6 +322,13 @@
       "equivalent": null
     },
     {
+      "file": "public/categorias/atractivos-turisticos.html",
+      "line": 318,
+      "path": "/pautas/parque-mirador-la-vida-bella/IMG_0769.webp",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
       "file": "public/categorias/cafes.html",
       "line": 109,
       "path": "/logo_salento2026.webp",
@@ -304,6 +374,13 @@
       "file": "public/categorias/coffee-tours.html",
       "line": 168,
       "path": "/pautas/coffee-tour-finca-don-eduardo/IMG_0224.webp",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
+      "file": "public/categorias/coffee-tours.html",
+      "line": 190,
+      "path": "/pautas/el_recuerdo_coffee_tour/recuerdo1casa.webp",
       "status": "OK",
       "equivalent": null
     },
@@ -1739,6 +1816,167 @@
       "file": "public/data/places.json",
       "line": 2211,
       "path": "/pautas/parque-mirador-la-vida-bella/IMG_1231.webp",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
+      "file": "public/data/places.json",
+      "line": 2257,
+      "path": "/pautas/el_recuerdo_coffee_tour/recuerdo1casa.webp",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
+      "file": "public/data/places.json",
+      "line": 2258,
+      "path": "/pautas/el_recuerdo_coffee_tour/recuerdo2.webp",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
+      "file": "public/data/places.json",
+      "line": 2259,
+      "path": "/pautas/el_recuerdo_coffee_tour/recuerdocafetal1.webp",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
+      "file": "public/data/places.json",
+      "line": 2260,
+      "path": "/pautas/el_recuerdo_coffee_tour/recuerdocafetal2.webp",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
+      "file": "public/data/places.json",
+      "line": 2261,
+      "path": "/pautas/el_recuerdo_coffee_tour/recuerdopaisaje1.webp",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
+      "file": "public/data/places.json",
+      "line": 2262,
+      "path": "/pautas/el_recuerdo_coffee_tour/10.webp",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
+      "file": "public/data/places.json",
+      "line": 2263,
+      "path": "/pautas/el_recuerdo_coffee_tour/11.webp",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
+      "file": "public/data/places.json",
+      "line": 2264,
+      "path": "/pautas/el_recuerdo_coffee_tour/12.webp",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
+      "file": "public/data/places.json",
+      "line": 2265,
+      "path": "/pautas/el_recuerdo_coffee_tour/13.webp",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
+      "file": "public/data/places.json",
+      "line": 2266,
+      "path": "/pautas/el_recuerdo_coffee_tour/logo-recuerdo-tour.webp",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
+      "file": "public/data/places.json",
+      "line": 2334,
+      "path": "/pautas/hotel_tia_emiss/1625430084.webp",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
+      "file": "public/data/places.json",
+      "line": 2335,
+      "path": "/pautas/hotel_tia_emiss/1662261168.webp",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
+      "file": "public/data/places.json",
+      "line": 2336,
+      "path": "/pautas/hotel_tia_emiss/emmis1.jpg",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
+      "file": "public/data/places.json",
+      "line": 2337,
+      "path": "/pautas/hotel_tia_emiss/1625429615.webp",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
+      "file": "public/data/places.json",
+      "line": 2338,
+      "path": "/pautas/hotel_tia_emiss/1625429949.webp",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
+      "file": "public/data/places.json",
+      "line": 2339,
+      "path": "/pautas/hotel_tia_emiss/1625430062.webp",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
+      "file": "public/data/places.json",
+      "line": 2340,
+      "path": "/pautas/hotel_tia_emiss/1625430071.webp",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
+      "file": "public/data/places.json",
+      "line": 2341,
+      "path": "/pautas/hotel_tia_emiss/sala-al-aire-libre-del.jpg",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
+      "file": "public/data/places.json",
+      "line": 2342,
+      "path": "/pautas/hotel_tia_emiss/1625430107.webp",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
+      "file": "public/data/places.json",
+      "line": 2343,
+      "path": "/pautas/hotel_tia_emiss/1625429971.webp",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
+      "file": "public/data/places.json",
+      "line": 2344,
+      "path": "/pautas/hotel_tia_emiss/1625429973.webp",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
+      "file": "public/data/places.json",
+      "line": 2345,
+      "path": "/pautas/hotel_tia_emiss/1625430113.webp",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
+      "file": "public/data/places.json",
+      "line": 2346,
+      "path": "/pautas/hotel_tia_emiss/1625430117.webp",
       "status": "OK",
       "equivalent": null
     },
@@ -3346,6 +3584,111 @@
       "equivalent": null
     },
     {
+      "file": "public/paginas-pautantes/hotel-la-tia-emiss/index.html",
+      "line": 23,
+      "path": "/pautas/hotel_tia_emiss/1625430084.webp",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
+      "file": "public/paginas-pautantes/hotel-la-tia-emiss/index.html",
+      "line": 43,
+      "path": "/logo_salento2026.webp",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
+      "file": "public/paginas-pautantes/hotel-la-tia-emiss/index.html",
+      "line": 53,
+      "path": "/pautas/hotel_tia_emiss/1625430084.webp",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
+      "file": "public/paginas-pautantes/hotel-la-tia-emiss/index.html",
+      "line": 53,
+      "path": "/pautas/hotel_tia_emiss/1662261168.webp",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
+      "file": "public/paginas-pautantes/hotel-la-tia-emiss/index.html",
+      "line": 53,
+      "path": "/pautas/hotel_tia_emiss/emmis1.jpg",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
+      "file": "public/paginas-pautantes/hotel-la-tia-emiss/index.html",
+      "line": 53,
+      "path": "/pautas/hotel_tia_emiss/1625429615.webp",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
+      "file": "public/paginas-pautantes/hotel-la-tia-emiss/index.html",
+      "line": 53,
+      "path": "/pautas/hotel_tia_emiss/1625429949.webp",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
+      "file": "public/paginas-pautantes/hotel-la-tia-emiss/index.html",
+      "line": 53,
+      "path": "/pautas/hotel_tia_emiss/1625430062.webp",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
+      "file": "public/paginas-pautantes/hotel-la-tia-emiss/index.html",
+      "line": 53,
+      "path": "/pautas/hotel_tia_emiss/1625430071.webp",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
+      "file": "public/paginas-pautantes/hotel-la-tia-emiss/index.html",
+      "line": 53,
+      "path": "/pautas/hotel_tia_emiss/sala-al-aire-libre-del.jpg",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
+      "file": "public/paginas-pautantes/hotel-la-tia-emiss/index.html",
+      "line": 53,
+      "path": "/pautas/hotel_tia_emiss/1625430107.webp",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
+      "file": "public/paginas-pautantes/hotel-la-tia-emiss/index.html",
+      "line": 53,
+      "path": "/pautas/hotel_tia_emiss/1625429971.webp",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
+      "file": "public/paginas-pautantes/hotel-la-tia-emiss/index.html",
+      "line": 53,
+      "path": "/pautas/hotel_tia_emiss/1625429973.webp",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
+      "file": "public/paginas-pautantes/hotel-la-tia-emiss/index.html",
+      "line": 53,
+      "path": "/pautas/hotel_tia_emiss/1625430113.webp",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
+      "file": "public/paginas-pautantes/hotel-la-tia-emiss/index.html",
+      "line": 53,
+      "path": "/pautas/hotel_tia_emiss/1625430117.webp",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
       "file": "public/paginas-pautantes/iglesia-de-nuestra-senora-del-carmen-de-salento/index.html",
       "line": 23,
       "path": "/paginas-pautantes/iglesia-de-nuestra-senora-del-carmen-de-salento/iglesia-nuestra-señora-carmen.webp",
@@ -4615,35 +4958,35 @@
     {
       "file": "src/App.tsx",
       "line": 86,
-      "path": "/imagenes-salento/pueblo.webp",
+      "path": "/pautas/restaurante_bar_fonda_boquia/imagenes/480508481_1169835038167384_4932382570318530100_n.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "src/App.tsx",
       "line": 87,
-      "path": "/imagenes-salento/destinos-75.webp",
+      "path": "/pautas/cootracocora_ltda/willys.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "src/App.tsx",
       "line": 88,
-      "path": "/imagenes-salento/653410779.webp",
+      "path": "/pautas/cabalgatas_cocora_magica/imagenes/cabalgatas-en-el-valle-de-cocora-6.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "src/App.tsx",
       "line": 89,
-      "path": "/imagenes-salento/pueblo.webp",
+      "path": "/imagenes-salento/valle-cocora-palmas-2.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "src/App.tsx",
       "line": 90,
-      "path": "/pautas/coffee-tour-alojamiento-finca-hotel-el-ocaso/imagenes/foto_casa_ocaso.webp",
+      "path": "/pautas/hotel_la_floresta_salento/imagenes/lafloresta-fachada.webp",
       "status": "OK",
       "equivalent": null
     },
@@ -4657,76 +5000,83 @@
     {
       "file": "src/App.tsx",
       "line": 92,
-      "path": "/imagenes-salento/pueblo.webp",
-      "status": "OK",
-      "equivalent": null
-    },
-    {
-      "file": "src/App.tsx",
-      "line": 93,
-      "path": "/imagenes-salento/pueblo.webp",
-      "status": "OK",
-      "equivalent": null
-    },
-    {
-      "file": "src/App.tsx",
-      "line": 94,
-      "path": "/imagenes-salento/631032744.webp",
-      "status": "OK",
-      "equivalent": null
-    },
-    {
-      "file": "src/App.tsx",
-      "line": 820,
-      "path": "/logo_salento2026.webp",
-      "status": "OK",
-      "equivalent": null
-    },
-    {
-      "file": "src/App.tsx",
-      "line": 1296,
-      "path": "/imagenes-salento/1326163558.webp",
-      "status": "OK",
-      "equivalent": null
-    },
-    {
-      "file": "src/App.tsx",
-      "line": 1297,
-      "path": "/imagenes-salento/1326163759.webp",
-      "status": "OK",
-      "equivalent": null
-    },
-    {
-      "file": "src/App.tsx",
-      "line": 1298,
       "path": "/imagenes-salento/631026720.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "src/App.tsx",
-      "line": 1299,
+      "line": 93,
       "path": "/imagenes-salento/631032744.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "src/App.tsx",
-      "line": 1300,
+      "line": 94,
+      "path": "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/santa-rita-1.webp",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
+      "file": "src/App.tsx",
+      "line": 903,
+      "path": "/logo_salento2026.webp",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
+      "file": "src/App.tsx",
+      "line": 1007,
+      "path": "/imagenes-salento/salento-landscape.webp",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
+      "file": "src/App.tsx",
+      "line": 1530,
+      "path": "/imagenes-salento/1326163558.webp",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
+      "file": "src/App.tsx",
+      "line": 1531,
+      "path": "/imagenes-salento/1326163759.webp",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
+      "file": "src/App.tsx",
+      "line": 1532,
+      "path": "/imagenes-salento/631026720.webp",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
+      "file": "src/App.tsx",
+      "line": 1533,
+      "path": "/imagenes-salento/631032744.webp",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
+      "file": "src/App.tsx",
+      "line": 1534,
       "path": "/imagenes-salento/653410779.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "src/App.tsx",
-      "line": 1746,
+      "line": 1980,
       "path": "/avatar-don-chucho.png",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "src/App.tsx",
-      "line": 1846,
+      "line": 2080,
       "path": "/don-chucho-boton.webp",
       "status": "OK",
       "equivalent": null
@@ -4740,7 +5090,7 @@
     },
     {
       "file": "src/styles.css",
-      "line": 3677,
+      "line": 3766,
       "path": "/imagenes-salento/653410779.webp",
       "status": "OK",
       "equivalent": null
