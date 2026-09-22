@@ -678,6 +678,70 @@ function App() {
     return internationalSEOService.getInternationalMarkets().slice(0, 8)
   }, [])
 
+  const hoyDateLabel = useMemo(() => {
+    try {
+      return new Date().toLocaleDateString('es-CO', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' })
+    } catch {
+      return new Date().toISOString().slice(0, 10)
+    }
+  }, [])
+
+  const hoyStats = useMemo(() => {
+    const count = (type: string) => places.filter(p => p.type === type).length
+    return [
+      { icon: '☕', label: t('hoy.statCoffee', 'coffee tours'), value: count('Coffee Tours') },
+      { icon: '🌿', label: t('hoy.statAttractions', 'atractivos'), value: count('Atractivos Turísticos') },
+      { icon: '🍽️', label: t('hoy.statFood', 'lugares para comer'), value: count('Restaurantes') + count('Restaurante Bar') + count('Cafés') },
+      { icon: '🏨', label: t('hoy.statStay', 'alojamientos'), value: count('Alojamientos') },
+    ]
+  }, [places, t])
+
+  const featuredPautantes = useMemo(() => {
+    const wanted = ['Hotel La Tía Emiss', 'Finca Don Eduardo Coffee Tour', 'Fonda Boquía', 'Reserva Natural Cascadas de Santa Rita', 'Cabalgatas Cocora Mágica', 'El Recuerdo Coffee Tour']
+    const byName = places.filter(p => p.isPautante && wanted.includes(p.name))
+    const extra = places.filter(p => p.isPautante && !wanted.includes(p.name))
+    return [...byName, ...extra].slice(0, 4)
+  }, [places])
+
+  const todayPlans = useMemo(() => {
+    const pick = (types: string[], n: number) =>
+      places
+        .filter(p => types.includes(p.type))
+        .slice()
+        .sort((a, b) => (b.isPautante ? 1 : 0) - (a.isPautante ? 1 : 0))
+        .slice(0, n)
+
+    return [
+      {
+        id: 'manana',
+        icon: '☕',
+        title: t('hoy.morningTitle', 'Mañana activa'),
+        desc: t('hoy.morningDesc', 'Coffee tours y miradores con buena luz.'),
+        items: pick(['Coffee Tours', 'Atractivos Turísticos'], 3),
+        href: '/categorias/coffee-tours.html',
+        cta: t('hoy.morningCta', 'Ver coffee tours'),
+      },
+      {
+        id: 'tarde',
+        icon: '🌿',
+        title: t('hoy.afternoonTitle', 'Tarde de naturaleza'),
+        desc: t('hoy.afternoonDesc', 'Senderos, cascadas y experiencias guiadas.'),
+        items: pick(['Atractivos Turísticos', 'Experiencias', 'Camping'], 3),
+        href: '/categorias/atractivos-turisticos.html',
+        cta: t('hoy.afternoonCta', 'Explorar atractivos'),
+      },
+      {
+        id: 'noche',
+        icon: '🍽️',
+        title: t('hoy.eveningTitle', 'Cierre sabroso'),
+        desc: t('hoy.eveningDesc', 'Restaurantes, cafés y bars de la Calle Real.'),
+        items: pick(['Restaurantes', 'Restaurante Bar', 'Cafés'], 3),
+        href: '/categorias/restaurantes.html',
+        cta: t('hoy.eveningCta', 'Dónde comer hoy'),
+      },
+    ]
+  }, [places, t])
+
   const visibleMarkers = useMemo(() => mapMarkers.filter((marker) => activeCategory === 'Todo' || marker.type === categoryToMapType(activeCategory)), [activeCategory, mapMarkers])
 
   const categoryPagePlaces = useMemo(() => {
@@ -1149,6 +1213,99 @@ function App() {
                 <ChevronRight size={16} />
               </div>
             </button>
+          </div>
+        </section>
+
+        <section className="hoy-salento" id="hoy-salento" aria-labelledby="hoy-salento-title">
+          <div className="hoy-salento-inner">
+            <header className="hoy-salento-header">
+              <div>
+                <p className="eyebrow">{t('hoy.eyebrow', 'Plan del día · Salento, Quindío')}</p>
+                <h2 id="hoy-salento-title">{t('today', 'Hoy en Salento')}</h2>
+                <p className="hoy-date">{hoyDateLabel}</p>
+                <p className="hoy-subtitle">
+                  {weather?.temp != null
+                    ? `🌤️ ${Math.round(weather.temp)}°C · ${weather.description || t('hoy.weatherOk', 'Clima apto para salir')}`
+                    : t('hoy.weatherTip', 'Llega temprano al Valle, lleva chaqueta ligera y confirma jeeps en la plaza.')}
+                </p>
+              </div>
+              <div className="hoy-actions">
+                <a className="dark-button" href="/agenda-eventos-salento.html">{t('events.viewAgenda', 'Ver agenda completa')} <ArrowRight size={16} /></a>
+                <button className="outline-button" onClick={() => scrollToSection('pedidos')}>{t('hoy.exploreDirectory', 'Explorar directorio')}</button>
+              </div>
+            </header>
+
+            <div className="hoy-stats" aria-label={t('hoy.statsAria', 'Resumen de lugares disponibles hoy')}>
+              {hoyStats.map((s) => (
+                <div key={s.label} className="hoy-stat">
+                  <span className="hoy-stat-icon" aria-hidden="true">{s.icon}</span>
+                  <strong>{s.value}</strong>
+                  <span>{s.label}</span>
+                </div>
+              ))}
+            </div>
+
+            <div className="hoy-plans">
+              {todayPlans.map((plan) => (
+                <article key={plan.id} className={`hoy-plan hoy-plan-${plan.id}`}>
+                  <div className="hoy-plan-top">
+                    <span className="hoy-plan-emoji" aria-hidden="true">{plan.icon}</span>
+                    <div>
+                      <h3>{plan.title}</h3>
+                      <p>{plan.desc}</p>
+                    </div>
+                  </div>
+                  <ul className="hoy-plan-list">
+                    {plan.items.map((item) => (
+                      <li key={item.id}>
+                        <span className="hoy-plan-name">{item.name}</span>
+                        <small>{item.type}</small>
+                      </li>
+                    ))}
+                    {plan.items.length === 0 && <li className="hoy-plan-empty">{t('hoy.emptyPlan', 'Pronto sumaremos más planes aquí.')}</li>}
+                  </ul>
+                  <a className="hoy-plan-link" href={plan.href}>{plan.cta} <ArrowRight size={14} /></a>
+                </article>
+              ))}
+            </div>
+
+            <div className="hoy-pautantes">
+              <div className="hoy-pautantes-head">
+                <div>
+                  <p className="eyebrow">{t('hoy.pautantesEyebrow', 'Negocios locales verificados')}</p>
+                  <h3>{t('hoy.pautantesTitle', 'Reserva directo con pautantes')}</h3>
+                </div>
+                <p className="hoy-pautantes-note">{t('hoy.pautantesNote', '✓ WhatsApp directo · Sin comisiones · Información verificada en el catálogo local')}</p>
+              </div>
+              <div className="hoy-pautantes-grid">
+                {featuredPautantes.map((place) => {
+                  const slug = providerSlug(place.name)
+                  const href = place.actionTarget?.viewUrl || `/paginas-pautantes/${slug}/`
+                  const wa = place.contact?.whatsapp
+                  return (
+                    <article key={place.id} className="hoy-pautante-card">
+                      <div className="hoy-pautante-icon" aria-hidden="true">
+                        {place.type === 'Alojamientos' ? '🏨' : place.type === 'Coffee Tours' ? '☕' : place.type === 'Experiencias' ? '🐎' : place.type === 'Camping' ? '⛺' : place.type === 'Restaurantes' || place.type === 'Restaurante Bar' ? '🍽️' : '📍'}
+                      </div>
+                      <span className="hoy-pautante-tag">{place.type}</span>
+                      <h4>{place.name}</h4>
+                      <p>{(place.description || '').slice(0, 110)}{(place.description || '').length > 110 ? '…' : ''}</p>
+                      <div className="hoy-pautante-highlights">
+                        {place.rating && <span>★ {place.rating}</span>}
+                        {place.priceRange && <span>{place.priceRange}</span>}
+                        {place.location?.landmark && <span>{place.location.landmark.slice(0, 28)}</span>}
+                      </div>
+                      <div className="hoy-pautante-actions">
+                        <a className="button primary" href={href} onClick={(e) => { if (!place.actionTarget?.viewUrl) { e.preventDefault(); window.location.assign(href) } }}>{t('hoy.viewPautante', 'Ver ficha')}</a>
+                        {wa && (
+                          <a className="button" href={`https://wa.me/${wa}`} target="_blank" rel="noreferrer">WhatsApp</a>
+                        )}
+                      </div>
+                    </article>
+                  )
+                })}
+              </div>
+            </div>
           </div>
         </section>
 
