@@ -27,6 +27,7 @@
       @media (max-width:800px) { .hero,.two-col { grid-template-columns:1fr; } .hero-image { min-height:260px; order:-1; } .topbar { align-items:flex-start; flex-direction:column; } .gallery { grid-template-columns:1fr; } }
     </style>
     <link rel="stylesheet" href="/page-theme.css" />
+    <link rel="stylesheet" href="/pautante-theme.css" />
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://www.salentoalamano.com/"},{"@type":"ListItem","position":2,"name":"Alojamientos","item":"/categorias/alojamientos.html"},{"@type":"ListItem","position":3,"name":"Finca Hotel El Ocaso"}]}</script>
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"Hotel","name":"Finca Hotel El Ocaso","description":"Finca hotel rodeada de cafetales con piscina, jardines y vistas al valle. Descanso campo adentro a minutos del pueblo.","url":"/paginas-pautantes/finca-hotel-el-ocaso/","image":"/pautas/coffee-tour-alojamiento-finca-hotel-el-ocaso/imagenes/foto_casa_ocaso.webp","address":{"@type":"PostalAddress","addressLocality":"Salento","addressRegion":"Quindío","addressCountry":"CO","streetAddress":"Vía rural, Salento"},"geo":{"@type":"GeoCoordinates","latitude":4.635,"longitude":-75.568},"telephone":"+57 313 425 3669","email":"contacto@fincaelocasosalento.com","priceRange":"$$$","areaServed":{"@type":"City","name":"Salento","containedIn":{"@type":"State","name":"Quindío"}},"aggregateRating":{"@type":"AggregateRating","ratingValue":4.7,"reviewCount":1,"bestRating":5,"worstRating":1},"openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]},"starRating":{"@type":"Rating","ratingValue":3},"numberOfRooms":4,"amenityFeature":["Desayuno tradicional","Café de la finca","Vistas panorámicas","Entorno natural","Chimenea"]}</script>
   </head>
@@ -44,9 +45,45 @@
       
       <section class="section"><h2>Conoce la experiencia</h2><div class="two-col"><div><p class="trust">Finca hotel rodeada de cafetales con piscina, jardines y vistas al valle. Descanso campo adentro a minutos del pueblo.</p><p class="verified">✓ Información verificada en el catálogo local</p></div><div class="facts"><div class="fact"><strong>Ubicación</strong>Vía rural, Salento</div><div class="fact"><strong>Referencia</strong>10-15 min del centro de Salento</div><div class="fact"><strong>Horario</strong>Check-in: 14:00-20:00, Check-out: 08:00-12:00, Desayuno: 7:00-10:00</div></div></div></section>
       <section class="section"><h2>Galería de imágenes</h2><div class="gallery"><img src="/pautas/coffee-tour-alojamiento-finca-hotel-el-ocaso/imagenes/foto_casa_ocaso.webp" alt="Finca Hotel El Ocaso foto 1" loading="lazy"/><div class="photo-pending" aria-label="Foto verificada pendiente para Finca Hotel El Ocaso"><span>📷</span><strong>Finca Hotel El Ocaso</strong><small>Foto verificada pendiente 2/3</small></div><div class="photo-pending" aria-label="Foto verificada pendiente para Finca Hotel El Ocaso"><span>📷</span><strong>Finca Hotel El Ocaso</strong><small>Foto verificada pendiente 3/3</small></div></div></section>
+      
+      <section class="section" id="menu-interactivo">
+        <h2>Habitaciones, tours y servicios</h2>
+        <p class="muted" style="margin-top:-8px;margin-bottom:20px">Revisa opciones y servicios. Agrega lo que necesites y consulta disponibilidad por WhatsApp.</p>
+        <div class="menu-header">
+          <div class="menu-search"><input type="text" id="menuSearch" placeholder="Buscar opción..." /></div>
+          <div class="currency-switch" role="group" aria-label="Moneda">
+            <button data-cur="COP" class="active">COP</button>
+            <button data-cur="USD">USD</button>
+            <button data-cur="EUR">EUR</button>
+          </div>
+        </div>
+        <div class="menu-tabs" id="menuTabs"></div>
+        <div class="menu-grid" id="menuGrid"></div>
+        <div class="menu-empty" id="menuEmpty" style="display:none"><span>🔍</span>No encontramos opciones con ese nombre.</div>
+      </section>
+      <div class="cart-float" id="cartFloat" role="button" tabindex="0" aria-label="Ver selección">
+        <span class="badge" id="cartBadge">0</span>
+        <span class="total" id="cartTotal">$0</span>
+        <span>Ver pedido →</span>
+      </div>
+      <div class="cart-modal" id="cartModal" role="dialog" aria-modal="true">
+        <div class="cart-panel">
+          <h2>Tu pedido</h2>
+          <div id="cartItems"></div>
+          <div class="cart-total"><span>Total</span><span id="cartModalTotal">$0</span></div>
+          <div class="cart-actions">
+            <button class="send" id="sendWhatsApp">Enviar por WhatsApp</button>
+            <button class="clear" id="clearCart">Vaciar</button>
+            <button class="close" id="closeCart">Seguir explorando</button>
+          </div>
+        </div>
+      </div>
       <section class="section"><h2>Antes de confirmar tu visita</h2><div class="two-col"><div><p class="trust">¿Cuál es el horario de Finca Hotel El Ocaso? Check-in: 14:00-20:00, Check-out: 08:00-12:00, Desayuno: 7:00-10:00</p><p class="trust">¿Cuánto cuesta? Las tarifas varían según temporada y tipo de habitación. Confirmar directamente para disponibilidad y precios exactos.</p><p class="trust">¿Cómo reservo? Contacto directo por WhatsApp, sin intermediarios ni comisiones.</p></div><div class="facts"><div class="fact"><strong>Punto de encuentro</strong>10-15 min del centro de Salento</div><div class="fact"><strong>Cómo llegar</strong><a href="https://www.google.com/maps/search/V%C3%ADa%20rural%2C%20Salento" target="_blank" rel="noreferrer">Abrir en Google Maps</a></div><div class="fact"><strong>Reseñas</strong>Las reseñas se publican en la ficha interactiva del directorio</div></div></div></section>
       <section class="section"><h2>Lo que puedes encontrar</h2><div class="tags"><span class="tag">finca hotel</span><span class="tag">rural</span><span class="tag">naturaleza</span><span class="tag">café</span><span class="tag">parejas</span><span class="tag">familias</span></div></section>
       <nav class="bottom-nav" aria-label="Volver" style="display:flex;flex-wrap:wrap;gap:10px;margin-top:28px"><a class="button primary" href="/">Volver al inicio</a><a class="button dark" href="/">Ir a página principal</a><a class="button" href="/categorias/">Ver categorías</a></nav>
     </main>
+    
+    <script src="/pautante-common.js"></script>
+    <script>PautanteCommon.initMenu({"containerId":"menuGrid","items":[{"id":1,"cat":"habitaciones","nombre":"Habitación Tabi (Queen)","precio":315000,"desc":"1–2 pax · ~$280k–$350k/noche según temporada","img":"/pautas/coffee-tour-alojamiento-finca-hotel-el-ocaso/imagenes/foto_casa_ocaso.webp"},{"id":2,"cat":"habitaciones","nombre":"Habitación Arábiga (Doble)","precio":315000,"desc":"1–2 pax · ~$280k–$350k/noche según temporada","img":"/pautas/coffee-tour-alojamiento-finca-hotel-el-ocaso/imagenes/foto_casa_ocaso.webp"},{"id":3,"cat":"habitaciones","nombre":"Habitación Borbón (Doble)","precio":315000,"desc":"1–2 pax · ~$280k–$350k/noche según temporada","img":"/pautas/coffee-tour-alojamiento-finca-hotel-el-ocaso/imagenes/foto_casa_ocaso.webp"},{"id":4,"cat":"habitaciones","nombre":"Habitación Caturra","precio":315000,"desc":"3–5 pax · doble + 2 twin","img":"/pautas/coffee-tour-alojamiento-finca-hotel-el-ocaso/imagenes/foto_casa_ocaso.webp"},{"id":5,"cat":"habitaciones","nombre":"Casa completa","precio":315000,"desc":"Hasta 10 pax · toda la finca","img":"/pautas/coffee-tour-alojamiento-finca-hotel-el-ocaso/imagenes/foto_casa_ocaso.webp"},{"id":6,"cat":"tours","nombre":"Coffee Tour Tradicional","precio":40000,"desc":"1.5 hrs · no requiere reserva · ES 10am/3pm","img":"/pautas/coffee-tour-alojamiento-finca-hotel-el-ocaso/imagenes/foto_casa_ocaso.webp"},{"id":7,"cat":"tours","nombre":"Coffee Tour Premium","precio":100000,"desc":"3 hrs · requiere reserva · ES 9am / EN 2pm","img":"/pautas/coffee-tour-alojamiento-finca-hotel-el-ocaso/imagenes/foto_casa_ocaso.webp"},{"id":8,"cat":"planes","nombre":"Avistamiento de aves privado","precio":200000,"desc":"Desde $200.000","img":"/pautas/coffee-tour-alojamiento-finca-hotel-el-ocaso/imagenes/foto_casa_ocaso.webp"},{"id":9,"cat":"servicios","nombre":"Coffee Tour Tradicional incluido","precio":0,"desc":"","img":"/pautas/coffee-tour-alojamiento-finca-hotel-el-ocaso/imagenes/foto_casa_ocaso.webp"},{"id":10,"cat":"servicios","nombre":"Desayuno tradicional","precio":0,"desc":"","img":"/pautas/coffee-tour-alojamiento-finca-hotel-el-ocaso/imagenes/foto_casa_ocaso.webp"},{"id":11,"cat":"servicios","nombre":"Wi-Fi, caja de seguridad, parqueadero","precio":0,"desc":"","img":"/pautas/coffee-tour-alojamiento-finca-hotel-el-ocaso/imagenes/foto_casa_ocaso.webp"},{"id":12,"cat":"servicios","nombre":"Cocina equipada y salón con chimenea","precio":0,"desc":"","img":"/pautas/coffee-tour-alojamiento-finca-hotel-el-ocaso/imagenes/foto_casa_ocaso.webp"},{"id":13,"cat":"servicios","nombre":"Kiosko con parrilla y hamacas","precio":0,"desc":"","img":"/pautas/coffee-tour-alojamiento-finca-hotel-el-ocaso/imagenes/foto_casa_ocaso.webp"}],"categories":[{"id":"todas","label":"Todas"},{"id":"habitaciones","label":"Habitaciones"},{"id":"tours","label":"Tours"},{"id":"planes","label":"Planes"},{"id":"servicios","label":"Servicios"}],"whatsapp":"573134253669","businessName":"Finca Hotel El Ocaso","currency":"COP","showSearch":true,"showCurrency":true,"precioLabel":"por noche"});</script>
   </body>
 </html>

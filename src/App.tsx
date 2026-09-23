@@ -55,7 +55,7 @@ import { useTravelContext, getContextualMessage } from './hooks/useTravelContext
 import EnhancedDonChucho from './components/enhanced/EnhancedDonChucho'
 import { GenerativeUI, detectIntent, UserIntent } from './components/GenerativeUI'
 import { VoiceInput, useSpeechSynthesis } from './components/VoiceInput'
-import { LODControl, useDetailLevel, adaptDetail, DetailLevel } from './components/LODControl'
+import { useDetailLevel, adaptDetail } from './components/LODControl'
 import { generateAgenticResponse, executeAction, AgentAction } from './services/agenticDonChucho'
 
 const salentoImageGallery = [
@@ -1902,7 +1902,7 @@ function DonChucho({ language, t, places, weather, todayEvents, open: openProp, 
   // Nuevos hooks para UX avanzado
   const travelContext = useTravelContext()
   const { speak, stop: stopSpeaking, isSpeaking } = useSpeechSynthesis()
-  const [detailLevel, setDetailLevel] = useDetailLevel()
+  const [detailLevel] = useDetailLevel()
   const [showGenerativeUI, setShowGenerativeUI] = useState(false)
 
   const quickActionsLabels: Record<string, { label: string; emoji: string; category: string }[]> = {
@@ -2145,9 +2145,8 @@ function DonChucho({ language, t, places, weather, todayEvents, open: openProp, 
               <strong>{t('donChucho.title', 'Don Chucho')}</strong>
               <span>{t('donChucho.subtitle', 'Tu guía local en Salento')}</span>
             </div>
-            <LODControl level={detailLevel} onChange={setDetailLevel} language={language} />
-            <button className="icon-button" onClick={() => setOpen(false)} aria-label="Cerrar asistente">
-              <X size={16} />
+            <button className="chucho-close" onClick={() => setOpen(false)} aria-label={t('donChucho.close', 'Cerrar asistente')}>
+              <X size={18} />
             </button>
           </div>
 

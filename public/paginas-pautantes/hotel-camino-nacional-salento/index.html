@@ -27,6 +27,7 @@
       @media (max-width:800px) { .hero,.two-col { grid-template-columns:1fr; } .hero-image { min-height:260px; order:-1; } .topbar { align-items:flex-start; flex-direction:column; } .gallery { grid-template-columns:1fr; } }
     </style>
     <link rel="stylesheet" href="/page-theme.css" />
+    <link rel="stylesheet" href="/pautante-theme.css" />
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://www.salentoalamano.com/"},{"@type":"ListItem","position":2,"name":"Alojamientos","item":"/categorias/alojamientos.html"},{"@type":"ListItem","position":3,"name":"Hotel Camino Nacional Salento"}]}</script>
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"Hotel","name":"Hotel Camino Nacional Salento","description":"Hotel cénico en el centro de Salento. Habitaciones cómodas, atención personalizada y desayuno. Ideal para explorar la plaza y la Calle Real a pie.","url":"/paginas-pautantes/hotel-camino-nacional-salento/","image":"/pautas/hotel_camino_nacional/imagenes/1326164875.webp","address":{"@type":"PostalAddress","addressLocality":"Salento","addressRegion":"Quindío","addressCountry":"CO","streetAddress":"Por confirmar"},"geo":{"@type":"GeoCoordinates","latitude":4.6372,"longitude":-75.5708},"telephone":"+57 311 3903550","email":"reservas@hotelcamino.com.co","priceRange":"$$$","areaServed":{"@type":"City","name":"Salento","containedIn":{"@type":"State","name":"Quindío"}},"aggregateRating":{"@type":"AggregateRating","ratingValue":4.8,"reviewCount":1,"bestRating":5,"worstRating":1},"openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]},"starRating":{"@type":"Rating","ratingValue":2},"numberOfRooms":4,"amenityFeature":["Desayuno incluido","Wi-Fi gratis","Parking","Seguridad 24 horas","Cambio de divisas"]}</script>
   </head>
@@ -44,9 +45,41 @@
       
       <section class="section"><h2>Conoce la experiencia</h2><div class="two-col"><div><p class="trust">Hotel cénico en el centro de Salento. Habitaciones cómodas, atención personalizada y desayuno. Ideal para explorar la plaza y la Calle Real a pie.</p><p class="verified">✓ Información verificada en el catálogo local</p></div><div class="facts"><div class="fact"><strong>Ubicación</strong>Por confirmar</div><div class="fact"><strong>Referencia</strong>Plaza de Bolívar · 150 m, Calle Real · 300 m</div><div class="fact"><strong>Horario</strong>Recepción 24 horas. Check-in: 14:00-23:00, Check-out: 07:00-11:00</div></div></div></section>
       <section class="section"><h2>Galería de imágenes</h2><div class="gallery"><img src="/pautas/hotel_camino_nacional/imagenes/1326164875.webp" alt="Hotel Camino Nacional Salento foto 1" loading="lazy"/><img src="/pautas/hotel_camino_nacional/imagenes/1669032660.webp" alt="Hotel Camino Nacional Salento foto 2" loading="lazy"/><img src="/pautas/hotel_camino_nacional/imagenes/1669032671.webp" alt="Hotel Camino Nacional Salento foto 3" loading="lazy"/></div></section>
+      
+      <section class="section" id="menu-interactivo">
+        <h2>Habitaciones y servicios</h2>
+        <p class="muted" style="margin-top:-8px;margin-bottom:20px">Revisa opciones y servicios. Agrega lo que necesites y consulta disponibilidad por WhatsApp.</p>
+        <div class="menu-header">
+          <div class="menu-search"><input type="text" id="menuSearch" placeholder="Buscar opción..." /></div>
+          
+        </div>
+        <div class="menu-tabs" id="menuTabs"></div>
+        <div class="menu-grid" id="menuGrid"></div>
+        <div class="menu-empty" id="menuEmpty" style="display:none"><span>🔍</span>No encontramos opciones con ese nombre.</div>
+      </section>
+      <div class="cart-float" id="cartFloat" role="button" tabindex="0" aria-label="Ver selección">
+        <span class="badge" id="cartBadge">0</span>
+        <span class="total" id="cartTotal">$0</span>
+        <span>Ver pedido →</span>
+      </div>
+      <div class="cart-modal" id="cartModal" role="dialog" aria-modal="true">
+        <div class="cart-panel">
+          <h2>Tu pedido</h2>
+          <div id="cartItems"></div>
+          <div class="cart-total"><span>Total</span><span id="cartModalTotal">$0</span></div>
+          <div class="cart-actions">
+            <button class="send" id="sendWhatsApp">Enviar por WhatsApp</button>
+            <button class="clear" id="clearCart">Vaciar</button>
+            <button class="close" id="closeCart">Seguir explorando</button>
+          </div>
+        </div>
+      </div>
       <section class="section"><h2>Antes de confirmar tu visita</h2><div class="two-col"><div><p class="trust">¿Cuál es el horario de Hotel Camino Nacional Salento? Recepción 24 horas. Check-in: 14:00-23:00, Check-out: 07:00-11:00</p><p class="trust">¿Cuánto cuesta? Las tarifas no fueron incluidas en la información recibida. Deben confirmarse directamente con el hotel según fecha, número de huéspedes, tipo de habitación y temporada.</p><p class="trust">¿Cómo reservo? Contacto directo por WhatsApp, sin intermediarios ni comisiones.</p></div><div class="facts"><div class="fact"><strong>Punto de encuentro</strong>Plaza de Bolívar · 150 m, Calle Real · 300 m</div><div class="fact"><strong>Cómo llegar</strong><a href="https://www.google.com/maps/search/Por%20confirmar" target="_blank" rel="noreferrer">Abrir en Google Maps</a></div><div class="fact"><strong>Reseñas</strong>Las reseñas se publican en la ficha interactiva del directorio</div></div></div></section>
       <section class="section"><h2>Lo que puedes encontrar</h2><div class="tags"><span class="tag">hotel</span><span class="tag">centro</span><span class="tag">familiar</span><span class="tag">seguridad</span><span class="tag">2 estrellas</span><span class="tag">licencia 18061</span></div></section>
       <nav class="bottom-nav" aria-label="Volver" style="display:flex;flex-wrap:wrap;gap:10px;margin-top:28px"><a class="button primary" href="/">Volver al inicio</a><a class="button dark" href="/">Ir a página principal</a><a class="button" href="/categorias/">Ver categorías</a></nav>
     </main>
+    
+    <script src="/pautante-common.js"></script>
+    <script>PautanteCommon.initMenu({"containerId":"menuGrid","items":[{"id":1,"cat":"habitaciones","nombre":"Doble estándar (24 m²)","precio":0,"desc":"Desde ~$29 USD/noche · rango OTA $60–$81 USD · consultar COP","img":"/pautas/hotel_camino_nacional/imagenes/1326164875.webp"},{"id":2,"cat":"habitaciones","nombre":"Doble con balcón (12 m²)","precio":0,"desc":"Consultar tarifa","img":"/pautas/hotel_camino_nacional/imagenes/1669032660.webp"},{"id":3,"cat":"habitaciones","nombre":"Superior Queen (15 m², balcón)","precio":0,"desc":"Consultar tarifa","img":"/pautas/hotel_camino_nacional/imagenes/1669032671.webp"},{"id":4,"cat":"habitaciones","nombre":"Familiar","precio":0,"desc":"Consultar tarifa · cuna disponible","img":"/pautas/hotel_camino_nacional/imagenes/1669032675.webp"},{"id":5,"cat":"servicios","nombre":"Wi-Fi gratis","precio":0,"desc":"","img":"/pautas/hotel_camino_nacional/imagenes/1669032677.webp"},{"id":6,"cat":"servicios","nombre":"Seguridad y recepción 24 horas","precio":0,"desc":"","img":"/pautas/hotel_camino_nacional/imagenes/1669032704.webp"},{"id":7,"cat":"servicios","nombre":"Cambio de divisas y consigna","precio":0,"desc":"","img":"/pautas/hotel_camino_nacional/imagenes/1669032914.webp"},{"id":8,"cat":"servicios","nombre":"Traslado al aeropuerto (pago adicional)","precio":0,"desc":"","img":"/pautas/hotel_camino_nacional/imagenes/1672597073.webp"},{"id":9,"cat":"servicios","nombre":"Desayuno en habitación disponible","precio":0,"desc":"","img":"/pautas/hotel_camino_nacional/imagenes/1672597074.webp"}],"categories":[{"id":"todas","label":"Todas"},{"id":"habitaciones","label":"Habitaciones"},{"id":"servicios","label":"Servicios"}],"whatsapp":"573113903550","businessName":"Hotel Camino Nacional Salento","currency":"COP","showSearch":true,"showCurrency":false,"precioLabel":"por noche"});</script>
   </body>
 </html>

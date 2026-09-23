@@ -643,6 +643,658 @@ function renderProviderPage(provider) {
 </html>`;
 }
 
+const MENU_CAT_LABELS = {
+  truchas: 'Truchas',
+  carnes: 'Carnes',
+  acomponamientos: 'Acompañamientos',
+  acompanamientos: 'Acompañamientos',
+  adicionales: 'Adicionales',
+  desayuno: 'Desayunos',
+  desayunos: 'Desayunos y bebidas',
+  bebidas: 'Bebidas',
+  especialidades: 'Especialidades',
+  carta: 'En la carta',
+  habitaciones: 'Habitaciones',
+  servicios: 'Servicios',
+  planes: 'Planes',
+  plan: 'Plan',
+  rutas: 'Rutas',
+  productos: 'Productos',
+  experiencia: 'Experiencia',
+  incluye: 'Incluye',
+  tours: 'Tours',
+  ambiente: 'Ambiente',
+  cotizar: 'Cotizar',
+  mudas: 'Opciones',
+  atracciones: 'Atracciones',
+  requisitos: 'Requisitos',
+};
+
+const FONDA_DISH_IMGS = {
+  'fonda-01': '/pautas/restaurante_bar_fonda_boquia/imagenes/481970368_1182179880266233_2620181488091833302_n.webp',
+  'fonda-02': '/pautas/restaurante_bar_fonda_boquia/imagenes/481917729_1182180286932859_1362131829553801165_n.webp',
+  'fonda-03': '/pautas/restaurante_bar_fonda_boquia/imagenes/482003557_1182180256932862_8419771631759090824_n.webp',
+  'fonda-04': '/pautas/restaurante_bar_fonda_boquia/imagenes/482003557_1182180256932862_8419771631759090824_n.webp',
+  'fonda-05': '/pautas/restaurante_bar_fonda_boquia/imagenes/487330322_1197294652088089_7040377348548028698_n.webp',
+  'fonda-06': '/pautas/restaurante_bar_fonda_boquia/imagenes/481917729_1182180286932859_1362131829553801165_n.webp',
+  'fonda-07': '/pautas/restaurante_bar_fonda_boquia/imagenes/482003557_1182180256932862_8419771631759090824_n.webp',
+  'fonda-08': '/pautas/restaurante_bar_fonda_boquia/imagenes/487330322_1197294652088089_7040377348548028698_n.webp',
+  'fonda-09': '/pautas/restaurante_bar_fonda_boquia/imagenes/482003557_1182180256932862_8419771631759090824_n.webp',
+  'fonda-10': '/pautas/restaurante_bar_fonda_boquia/imagenes/487330322_1197294652088089_7040377348548028698_n.webp',
+  'fonda-11': '/pautas/restaurante_bar_fonda_boquia/imagenes/482003557_1182180256932862_8419771631759090824_n.webp',
+  'fonda-12': '/pautas/restaurante_bar_fonda_boquia/imagenes/65375183_1331615080320675_8125305373516103680_n.webp',
+  'fonda-13': '/pautas/restaurante_bar_fonda_boquia/imagenes/481961056_1182180233599531_8927232009685756092_n.webp',
+  'fonda-14': '/pautas/restaurante_bar_fonda_boquia/imagenes/481961056_1182180233599531_8927232009685756092_n.webp',
+  'fonda-15': '/pautas/restaurante_bar_fonda_boquia/imagenes/481961056_1182180233599531_8927232009685756092_n.webp',
+  'fonda-16': '/pautas/restaurante_bar_fonda_boquia/imagenes/481970368_1182179880266233_2620181488091833302_n.webp',
+  'fonda-17': '/pautas/restaurante_bar_fonda_boquia/imagenes/480508481_1169835038167384_4932382570318530100_n.webp',
+  'fonda-18': '/pautas/restaurante_bar_fonda_boquia/imagenes/482003557_1182180256932862_8419771631759090824_n.webp',
+  'fonda-19': '/pautas/restaurante_bar_fonda_boquia/imagenes/30411747_1017613001720886_1046791999434260480_n.webp',
+  'fonda-21': '/pautas/restaurante_bar_fonda_boquia/imagenes/29389126_1005353112946875_6049563033867386880_n.webp',
+  'fonda-23': '/pautas/restaurante_bar_fonda_boquia/imagenes/30411747_1017613001720886_1046791999434260480_n.webp',
+};
+
+function parsePriceText(text) {
+  const m = String(text || '').match(/\$\s*([\d.,]+)/);
+  if (!m) return 0;
+  const n = Number(m[1].replace(/\./g, '').replace(/,/g, ''));
+  return Number.isFinite(n) ? n : 0;
+}
+
+function stripPriceText(text) {
+  return String(text || '')
+    .replace(/\s*\$\s*[\d.,]+(\s*(COP|cop))?/g, '')
+    .replace(/\s+por\s+(persona|noche|pareja|hora|día|dia)\b.*$/i, '')
+    .replace(/\s{2,}/g, ' ')
+    .trim();
+}
+
+function menuImgPool(provider) {
+  return providerPhotos(provider).filter((src) => !/logo/i.test(String(src || '')));
+}
+
+const VERIFIED_MENUS = {
+  'fonda-boquia': {
+    heading: 'Nuestra carta',
+    intro: 'Toca los platos para armar tu pedido. Al final, envíalo por WhatsApp. Sin app ni pasarela de pago.',
+    precioLabel: 'c/u',
+    items: [
+      { cat: 'especialidades', nombre: 'Trucha frita', precio: 28000, id: 'fonda-01' },
+      { cat: 'especialidades', nombre: 'Trucha a la plancha', precio: 28000, id: 'fonda-02' },
+      { cat: 'especialidades', nombre: 'Trucha finas hierbas', precio: 30000, id: 'fonda-03' },
+      { cat: 'especialidades', nombre: 'Trucha al ajillo', precio: 32000, id: 'fonda-04' },
+      { cat: 'especialidades', nombre: 'Trucha hawaiana', precio: 30000, id: 'fonda-05' },
+      { cat: 'especialidades', nombre: 'Trucha criolla', precio: 30000, id: 'fonda-06' },
+      { cat: 'especialidades', nombre: 'Trucha con champiñones', precio: 36000, id: 'fonda-07' },
+      { cat: 'especialidades', nombre: 'Trucha gratinada', precio: 36000, id: 'fonda-08' },
+      { cat: 'especialidades', nombre: 'Trucha al ajillo más champiñones', precio: 40000, id: 'fonda-09' },
+      { cat: 'especialidades', nombre: 'Trucha mixta', precio: 46000, id: 'fonda-10' },
+      { cat: 'especialidades', nombre: 'Trucha marinera', precio: 45000, id: 'fonda-11' },
+      { cat: 'especialidades', nombre: 'Mojarra', precio: 38000, id: 'fonda-12' },
+      { cat: 'carnes', nombre: 'Chorizo', precio: 15000, id: 'fonda-13' },
+      { cat: 'carnes', nombre: 'Carne de res', precio: 45000, id: 'fonda-13' },
+      { cat: 'carnes', nombre: 'Filete de pollo', precio: 35000, id: 'fonda-14' },
+      { cat: 'carnes', nombre: 'Lomo de cerdo', precio: 36000, id: 'fonda-15' },
+      { cat: 'carnes', nombre: 'Filete de pollo BBQ', precio: 37000, id: 'fonda-14' },
+      { cat: 'carnes', nombre: 'Lomo de cerdo BBQ', precio: 38000, id: 'fonda-15' },
+      { cat: 'carnes', nombre: 'Lomo de cerdo hawaiano', precio: 38000, id: 'fonda-15' },
+      { cat: 'adicionales', nombre: 'Porción de arroz', precio: 4000, id: 'fonda-16' },
+      { cat: 'adicionales', nombre: 'Porción de ensalada', precio: 5000, id: 'fonda-18' },
+      { cat: 'adicionales', nombre: 'Papas a la francesa', precio: 8000, id: 'fonda-19' },
+      { cat: 'adicionales', nombre: 'Empanada', precio: 3000, id: 'fonda-17' },
+      { cat: 'adicionales', nombre: 'Patacón', precio: 8000, id: 'fonda-16' },
+      { cat: 'adicionales', nombre: 'Crema de trucha', precio: 10000, id: 'fonda-18' },
+      { cat: 'adicionales', nombre: 'Salchipapa', precio: 18000, id: 'fonda-19' },
+      { cat: 'adicionales', nombre: 'Patacón con hogao', precio: 16000, id: 'fonda-16' },
+      { cat: 'adicionales', nombre: 'Patacón con queso', precio: 18000, id: 'fonda-16' },
+      { cat: 'adicionales', nombre: 'Nuggets', precio: 18000, id: 'fonda-20' },
+      { cat: 'adicionales', nombre: 'Porción de queso', precio: 5000, id: 'fonda-18' },
+      { cat: 'desayunos', nombre: 'Huevos al gusto', precio: 14000, id: 'fonda-20' },
+      { cat: 'desayunos', nombre: 'Caldo', precio: 16000, id: 'fonda-18' },
+      { cat: 'desayunos', nombre: 'Chorizo en desayuno', precio: 18000, id: 'fonda-13' },
+      { cat: 'desayunos', nombre: 'Adición de calentado', precio: 6000, id: 'fonda-20' },
+      { cat: 'bebidas', nombre: 'Limonada (vaso)', precio: 5000, id: 'fonda-23' },
+      { cat: 'bebidas', nombre: 'Jugo natural en agua', precio: 8000, id: 'fonda-21' },
+      { cat: 'bebidas', nombre: 'Jugo natural en leche', precio: 10000, id: 'fonda-22' },
+      { cat: 'bebidas', nombre: 'Milo frío', precio: 12000, id: 'fonda-23' },
+      { cat: 'bebidas', nombre: 'Limonada de coco', precio: 12000, id: 'fonda-23' },
+      { cat: 'bebidas', nombre: 'Media jarra de limonada', precio: 8000, id: 'fonda-23' },
+      { cat: 'bebidas', nombre: 'Jarra de limonada', precio: 15000, id: 'fonda-23' },
+    ],
+  },
+  'camping-cascadas-de-santa-rita': {
+    heading: 'Habitaciones, camping y servicios',
+    intro: 'Revisa opciones y servicios. Agrega lo que necesites y consulta disponibilidad por WhatsApp.',
+    precioLabel: 'por persona',
+    items: [
+      { cat: 'planes', nombre: 'Pasadía', precio: 11000, desc: 'Acceso a senderos, piscina natural, cascadas y miradores' },
+      { cat: 'planes', nombre: 'Camping por noche', precio: 28000, desc: 'Incluye caminata, piscina, cascadas, cavernas y túnel. Traer implementos; se vende madera y carbón' },
+      { cat: 'habitaciones', nombre: 'Habitación (pareja)', precio: 140000, desc: 'Incluye desayuno y acceso a senderos, piscina, cascadas, cavernas y túnel. Mascota: $15.000' },
+      { cat: 'servicios', nombre: 'Desayuno', precio: 12000 },
+      { cat: 'servicios', nombre: 'Calentado', precio: 15000 },
+      { cat: 'servicios', nombre: 'Almuerzo', precio: 18000 },
+      { cat: 'servicios', nombre: 'Trucha', precio: 28000 },
+      { cat: 'servicios', nombre: 'Parqueadero', precio: 0, desc: 'Gratis para moto y carro' },
+    ],
+  },
+  'reserva-natural-cascadas-de-santa-rita': {
+    heading: 'Entrada y servicios',
+    intro: 'Elige el plan o lo que quieras incluir y envía tu solicitud por WhatsApp.',
+    precioLabel: 'por persona',
+    items: [
+      { cat: 'planes', nombre: 'Pasadía', precio: 11000, desc: 'Senderismo, piscina natural, cascadas y segunda cascada/mirador' },
+      { cat: 'planes', nombre: 'Camping por noche', precio: 28000, desc: 'Incluye senderos, piscina, cascadas, cavernas y túnel' },
+      { cat: 'habitaciones', nombre: 'Habitación (pareja)', precio: 140000, desc: 'Incluye desayuno. Mascota: $15.000' },
+      { cat: 'servicios', nombre: 'Desayuno', precio: 12000 },
+      { cat: 'servicios', nombre: 'Calentado', precio: 15000 },
+      { cat: 'servicios', nombre: 'Almuerzo', precio: 18000 },
+      { cat: 'servicios', nombre: 'Trucha', precio: 28000 },
+      { cat: 'servicios', nombre: 'Parqueadero', precio: 0, desc: 'Gratis para moto y carro' },
+    ],
+  },
+  'moto-aventura-110': {
+    heading: 'Tiempos y tarifas',
+    intro: 'Selecciona el tiempo de pista y coordina tu visita por WhatsApp.',
+    precioLabel: 'por sesión',
+    items: [
+      { cat: 'planes', nombre: '10 minutos en pista', precio: 15000, desc: 'Minimoto 110cc. Incluye casco, protecciones y póliza' },
+      { cat: 'planes', nombre: '15 minutos en pista', precio: 20000, desc: 'Minimoto 110cc. Incluye casco, protecciones y póliza' },
+      { cat: 'planes', nombre: '20 minutos en pista', precio: 25000, desc: 'Minimoto 110cc. Incluye casco, protecciones y póliza' },
+      { cat: 'incluye', nombre: 'Casco', precio: 0 },
+      { cat: 'incluye', nombre: 'Protecciones', precio: 0 },
+      { cat: 'incluye', nombre: 'Póliza de seguro', precio: 0 },
+      { cat: 'requisitos', nombre: 'Estatura mínima 130 cm', precio: 0 },
+      { cat: 'requisitos', nombre: 'Saber manejar bicicleta', precio: 0 },
+    ],
+  },
+  'finca-don-eduardo-coffee-tour': {
+    heading: 'Tours y experiencias',
+    intro: 'Elige el tour y envía tu solicitud por WhatsApp. Pago con tarjeta +6%.',
+    precioLabel: 'por persona',
+    items: [
+      { cat: 'tours', nombre: 'English Coffee Tour', precio: 100000, desc: '3 horas · Lun–sáb 9:30 AM y 2:30 PM' },
+      { cat: 'tours', nombre: 'Recorrido en Español', precio: 100000, desc: '3 horas · Lun–sáb 10:40 AM · mín. 2 personas' },
+      { cat: 'cotizar', nombre: 'Private Tour personalizado', precio: 0, desc: 'Cotización directa · pago con tarjeta +6%' },
+      { cat: 'incluye', nombre: 'Historia y proceso del café', precio: 0 },
+      { cat: 'incluye', nombre: 'Visita a plantación', precio: 0 },
+      { cat: 'incluye', nombre: 'Tostión y molienda del propio café', precio: 0 },
+      { cat: 'incluye', nombre: 'Degustación de café especial', precio: 0 },
+    ],
+  },
+  'coffee-tour-finca-don-eduardo': {
+    heading: 'Tours y experiencias',
+    intro: 'Elige el tour y envía tu solicitud por WhatsApp. Pago con tarjeta +6%.',
+    precioLabel: 'por persona',
+    items: [
+      { cat: 'tours', nombre: 'English Coffee Tour', precio: 100000, desc: '3 horas · Lun–sáb 9:30 AM y 2:30 PM' },
+      { cat: 'tours', nombre: 'Recorrido en Español', precio: 100000, desc: '3 horas · Lun–sáb 10:40 AM · mín. 2 personas' },
+      { cat: 'cotizar', nombre: 'Private Tour personalizado', precio: 0, desc: 'Cotización directa · pago con tarjeta +6%' },
+      { cat: 'incluye', nombre: 'Historia y proceso del café', precio: 0 },
+      { cat: 'incluye', nombre: 'Visita a plantación', precio: 0 },
+      { cat: 'incluye', nombre: 'Tostión y molienda del propio café', precio: 0 },
+      { cat: 'incluye', nombre: 'Degustación de café especial', precio: 0 },
+    ],
+  },
+  'finca-cafetera-don-elias': {
+    heading: 'Tours y productos',
+    intro: 'Elige el tour o el café para llevar y envía tu solicitud por WhatsApp.',
+    precioLabel: 'por persona',
+    items: [
+      { cat: 'tours', nombre: 'Coffee Tour compartido (ES/EN)', precio: 75000, desc: '1h 15min · ~$18 USD/pax · salidas cada hora 9:00–16:00' },
+      { cat: 'tours', nombre: 'Private Tour inglés', precio: 80000, desc: '1h 30min · ~$20 USD/pax' },
+      { cat: 'tours', nombre: 'Private Tour francés', precio: 84000, desc: '1h 30min · ~$21 USD/pax' },
+      { cat: 'tours', nombre: 'Niños menores de 12 años', precio: 0, desc: 'Gratis' },
+      { cat: 'productos', nombre: 'Café Tradicional (molido o grano)', precio: 40000 },
+      { cat: 'productos', nombre: 'Café Grano Premium', precio: 50000 },
+      { cat: 'productos', nombre: 'Café Molido Premium', precio: 50000 },
+      { cat: 'productos', nombre: 'Taza Colombia', precio: 18000 },
+      { cat: 'productos', nombre: 'Café Natural Premium (pre-orden)', precio: 75000 },
+      { cat: 'productos', nombre: 'Café Honey (pre-orden)', precio: 43000 },
+      { cat: 'productos', nombre: 'Café Honey Premium (pre-orden)', precio: 52500 },
+      { cat: 'incluye', nombre: 'Caminata guiada y degustación', precio: 0 },
+      { cat: 'incluye', nombre: 'Cascada de la Abuela y Río Quindío', precio: 0 },
+    ],
+  },
+  'coffee-tour-finca-cafetera-don-elias': {
+    heading: 'Tours y productos',
+    intro: 'Elige el tour o el café para llevar y envía tu solicitud por WhatsApp.',
+    precioLabel: 'por persona',
+    items: [
+      { cat: 'tours', nombre: 'Coffee Tour compartido (ES/EN)', precio: 75000, desc: '1h 15min · ~$18 USD/pax · salidas cada hora 9:00–16:00' },
+      { cat: 'tours', nombre: 'Private Tour inglés', precio: 80000, desc: '1h 30min · ~$20 USD/pax' },
+      { cat: 'tours', nombre: 'Private Tour francés', precio: 84000, desc: '1h 30min · ~$21 USD/pax' },
+      { cat: 'tours', nombre: 'Niños menores de 12 años', precio: 0, desc: 'Gratis' },
+      { cat: 'productos', nombre: 'Café Tradicional (molido o grano)', precio: 40000 },
+      { cat: 'productos', nombre: 'Café Grano Premium', precio: 50000 },
+      { cat: 'productos', nombre: 'Café Molido Premium', precio: 50000 },
+      { cat: 'productos', nombre: 'Taza Colombia', precio: 18000 },
+      { cat: 'productos', nombre: 'Café Natural Premium (pre-orden)', precio: 75000 },
+      { cat: 'productos', nombre: 'Café Honey (pre-orden)', precio: 43000 },
+      { cat: 'productos', nombre: 'Café Honey Premium (pre-orden)', precio: 52500 },
+      { cat: 'incluye', nombre: 'Caminata guiada y degustación', precio: 0 },
+      { cat: 'incluye', nombre: 'Cascada de la Abuela y Río Quindío', precio: 0 },
+    ],
+  },
+  'finca-hotel-el-ocaso': {
+    heading: 'Habitaciones, tours y servicios',
+    intro: 'Revisa opciones y servicios. Agrega lo que necesites y consulta disponibilidad por WhatsApp.',
+    precioLabel: 'por noche',
+    items: [
+      { cat: 'habitaciones', nombre: 'Habitación Tabi (Queen)', precio: 315000, desc: '1–2 pax · ~$280k–$350k/noche según temporada' },
+      { cat: 'habitaciones', nombre: 'Habitación Arábiga (Doble)', precio: 315000, desc: '1–2 pax · ~$280k–$350k/noche según temporada' },
+      { cat: 'habitaciones', nombre: 'Habitación Borbón (Doble)', precio: 315000, desc: '1–2 pax · ~$280k–$350k/noche según temporada' },
+      { cat: 'habitaciones', nombre: 'Habitación Caturra', precio: 315000, desc: '3–5 pax · doble + 2 twin' },
+      { cat: 'habitaciones', nombre: 'Casa completa', precio: 315000, desc: 'Hasta 10 pax · toda la finca' },
+      { cat: 'tours', nombre: 'Coffee Tour Tradicional', precio: 40000, desc: '1.5 hrs · no requiere reserva · ES 10am/3pm' },
+      { cat: 'tours', nombre: 'Coffee Tour Premium', precio: 100000, desc: '3 hrs · requiere reserva · ES 9am / EN 2pm' },
+      { cat: 'planes', nombre: 'Avistamiento de aves privado', precio: 200000, desc: 'Desde $200.000' },
+      { cat: 'servicios', nombre: 'Coffee Tour Tradicional incluido', precio: 0 },
+      { cat: 'servicios', nombre: 'Desayuno tradicional', precio: 0 },
+      { cat: 'servicios', nombre: 'Wi-Fi, caja de seguridad, parqueadero', precio: 0 },
+      { cat: 'servicios', nombre: 'Cocina equipada y salón con chimenea', precio: 0 },
+      { cat: 'servicios', nombre: 'Kiosko con parrilla y hamacas', precio: 0 },
+    ],
+  },
+  'hotel-la-floresta-salento': {
+    heading: 'Habitaciones y servicios',
+    intro: 'Revisa opciones y servicios. Agrega lo que necesites y consulta disponibilidad por WhatsApp.',
+    precioLabel: 'por noche',
+    items: [
+      { cat: 'habitaciones', nombre: 'Habitación estándar / doble / triple / cuádruple / familiar', precio: 131500, desc: 'Desde $124.000–$139.000/noche' },
+      { cat: 'habitaciones', nombre: 'Suite con jacuzzi (queen/king)', precio: 0, desc: 'Tarifa superior · consultar' },
+      { cat: 'habitaciones', nombre: 'Paquete parejas con masajes', precio: 0, desc: 'Por confirmar con el hotel' },
+      { cat: 'servicios', nombre: 'Coffee Spa', precio: 0, desc: 'Masajes, faciales, aromaterapia, body wraps' },
+      { cat: 'servicios', nombre: 'Desayuno con vista (7:00–10:00)', precio: 0 },
+      { cat: 'servicios', nombre: 'Gimnasio y zona de hamacas', precio: 0 },
+      { cat: 'servicios', nombre: 'Coworking con internet', precio: 0 },
+      { cat: 'servicios', nombre: 'Parqueadero, Wi-Fi, recepción 24h', precio: 0 },
+      { cat: 'servicios', nombre: 'Talleres de cocina y avistamiento de aves', precio: 0 },
+    ],
+  },
+  'mirador-las-manos-de-dios': {
+    heading: 'Entrada y atracciones',
+    intro: 'Elige tu visita y pide información o guía por WhatsApp.',
+    precioLabel: 'por persona',
+    items: [
+      { cat: 'planes', nombre: 'Entrada general', precio: 12000, desc: 'Referencia Cocoratours; puede variar $15.000–$20.000 según sección' },
+      { cat: 'atracciones', nombre: 'Escultura Las Manos de Dios', precio: 0, desc: 'Vista a Armenia, Circasia y Filandia' },
+      { cat: 'atracciones', nombre: 'Réplica de cóndor andino', precio: 0 },
+      { cat: 'atracciones', nombre: 'Réplica del Poporo Quimbayo', precio: 0 },
+      { cat: 'atracciones', nombre: 'Espoto para foto con Willys jeep', precio: 0 },
+      { cat: 'atracciones', nombre: 'Estación de café', precio: 0 },
+    ],
+  },
+  'cootracocora-ltda': {
+    heading: 'Rutas y tarifas',
+    intro: 'Selecciona la ruta y coordina el transporte directo por WhatsApp.',
+    precioLabel: 'por persona',
+    items: [
+      { cat: 'rutas', nombre: 'Salento → Valle de Cocora → Salento (compartido)', precio: 3600, desc: 'Jeep Willys · desde $3.600 · tarifa exacta según ruta y temporada' },
+      { cat: 'servicios', nombre: 'Salidas al completar cupo', precio: 0, desc: 'Lun–dom 6:00 AM–9:00 PM · Plaza / Terminal Jeep Willys' },
+    ],
+  },
+  'cabalgatas-cocora-magica': {
+    heading: 'Cabalgatas y tours',
+    intro: 'Elige el plan o lo que quieras incluir y envía tu solicitud por WhatsApp.',
+    precioLabel: 'por persona',
+    items: [
+      { cat: 'planes', nombre: 'Tour Valle del Cocora a caballo', precio: 120000, desc: 'Rango zona $110.000–$480.000 según tour · confirmar operador' },
+      { cat: 'planes', nombre: 'Cabalgata corta', precio: 0, desc: 'Por confirmar con operador' },
+      { cat: 'planes', nombre: 'Cabalgata media', precio: 0, desc: 'Por confirmar con operador' },
+      { cat: 'planes', nombre: 'Cabalgata larga o personalizada', precio: 0, desc: 'Por confirmar con operador' },
+      { cat: 'incluye', nombre: 'Guía u operador', precio: 0 },
+      { cat: 'incluye', nombre: 'Ruta en caballo y seguridad básica', precio: 0 },
+      { cat: 'incluye', nombre: 'Cascos y protección', precio: 0 },
+    ],
+  },
+  'hotel-camino-nacional-salento': {
+    heading: 'Habitaciones y servicios',
+    intro: 'Revisa opciones y servicios. Agrega lo que necesites y consulta disponibilidad por WhatsApp.',
+    precioLabel: 'por noche',
+    items: [
+      { cat: 'habitaciones', nombre: 'Doble estándar (24 m²)', precio: 0, desc: 'Desde ~$29 USD/noche · rango OTA $60–$81 USD · consultar COP' },
+      { cat: 'habitaciones', nombre: 'Doble con balcón (12 m²)', precio: 0, desc: 'Consultar tarifa' },
+      { cat: 'habitaciones', nombre: 'Superior Queen (15 m², balcón)', precio: 0, desc: 'Consultar tarifa' },
+      { cat: 'habitaciones', nombre: 'Familiar', precio: 0, desc: 'Consultar tarifa · cuna disponible' },
+      { cat: 'servicios', nombre: 'Wi-Fi gratis', precio: 0 },
+      { cat: 'servicios', nombre: 'Seguridad y recepción 24 horas', precio: 0 },
+      { cat: 'servicios', nombre: 'Cambio de divisas y consigna', precio: 0 },
+      { cat: 'servicios', nombre: 'Traslado al aeropuerto (pago adicional)', precio: 0 },
+      { cat: 'servicios', nombre: 'Desayuno en habitación disponible', precio: 0 },
+    ],
+  },
+  'hotel-la-tia-emiss': {
+    heading: 'Habitaciones y servicios',
+    intro: 'Revisa opciones y servicios. Agrega lo que necesites y consulta disponibilidad por WhatsApp.',
+    precioLabel: 'por noche',
+    items: [
+      { cat: 'habitaciones', nombre: 'Doble matrimonial (2 pax)', precio: 0, desc: 'Desde ~$61 USD · confirmar tarifa directo' },
+      { cat: 'habitaciones', nombre: 'Twin (4 pax)', precio: 0, desc: 'Confirmar tarifa directo' },
+      { cat: 'habitaciones', nombre: 'Triple (6 pax)', precio: 0, desc: 'Confirmar tarifa directo' },
+      { cat: 'habitaciones', nombre: 'Dúplex familiar (8 pax)', precio: 0, desc: 'Confirmar tarifa directo' },
+      { cat: 'servicios', nombre: 'Wi-Fi gratis', precio: 0 },
+      { cat: 'servicios', nombre: 'Desayuno destacado', precio: 0 },
+      { cat: 'servicios', nombre: 'Jardín y terraza', precio: 0 },
+      { cat: 'servicios', nombre: 'Mascotas permitidas', precio: 0 },
+    ],
+  },
+  'restaurante-don-elias': {
+    heading: 'Nuestra carta',
+    intro: 'Toca los platos para armar tu pedido. Al final, envíalo por WhatsApp. Sin app ni pasarela de pago.',
+    precioLabel: 'c/u',
+    items: [
+      { cat: 'carta', nombre: 'Platos de la casa', precio: 0, desc: 'Precio por confirmar con el restaurante' },
+      { cat: 'carta', nombre: 'Menú local o típico', precio: 0, desc: 'Precio por confirmar con el restaurante' },
+      { cat: 'carta', nombre: 'Bebidas y acompañamientos', precio: 0, desc: 'Precio por confirmar con el restaurante' },
+      { cat: 'servicios', nombre: 'Reserva o pedido por WhatsApp', precio: 0 },
+    ],
+  },
+  'boki-mall-restaurante-terra': {
+    heading: 'Restaurante Terra',
+    intro: 'Toca las opciones para armar tu consulta o reserva. Al final, envíalo por WhatsApp.',
+    precioLabel: 'c/u',
+    items: [
+      { cat: 'carta', nombre: 'Platos vegetarianos', precio: 0, desc: 'Consultar disponibilidad y precio' },
+      { cat: 'carta', nombre: 'Platos veganos', precio: 0, desc: 'Consultar disponibilidad y precio' },
+      { cat: 'carta', nombre: 'Opciones libres de gluten', precio: 0, desc: 'Consultar disponibilidad y precio' },
+      { cat: 'carta', nombre: 'Menú especial para niños', precio: 0, desc: 'Consultar disponibilidad y precio' },
+      { cat: 'servicios', nombre: 'Reserva recomendada (fines de semana)', precio: 0, desc: 'Horario 7:00 AM–9:00 PM' },
+    ],
+  },
+  'boki-mall-barcinales-cafe-bar': {
+    heading: 'Café y bar',
+    intro: 'Toca las opciones para armar tu consulta. Al final, envíalo por WhatsApp.',
+    precioLabel: 'c/u',
+    items: [
+      { cat: 'bebidas', nombre: 'Café de especialidad', precio: 0, desc: 'Consultar carta en sitio' },
+      { cat: 'bebidas', nombre: 'Cócteles', precio: 0, desc: 'Consultar carta en sitio' },
+      { cat: 'servicios', nombre: 'Zona de eventos y celebraciones privadas', precio: 0 },
+    ],
+  },
+  'boki-mall-eventos': {
+    heading: 'Eventos y celebraciones',
+    intro: 'Selecciona lo que necesites y envía tu solicitud por WhatsApp.',
+    precioLabel: 'consultar',
+    items: [
+      { cat: 'planes', nombre: 'Celebraciones privadas', precio: 0, desc: 'Cotizar con Boki Mall' },
+      { cat: 'planes', nombre: 'Eventos corporativos', precio: 0, desc: 'Cotizar con Boki Mall' },
+      { cat: 'servicios', nombre: 'Espacio con ambiente cafetero', precio: 0 },
+    ],
+  },
+  'boki-mall-hotel-el-mirador-de-boquia': {
+    heading: 'Habitaciones y servicios',
+    intro: 'Revisa opciones y servicios. Agrega lo que necesites y consulta disponibilidad por WhatsApp.',
+    precioLabel: 'por noche',
+    items: [
+      { cat: 'habitaciones', nombre: 'Habitación (9 opciones con nombre)', precio: 0, desc: 'Check-in 15:00 · check-out 12:00 · consultar tarifa' },
+      { cat: 'servicios', nombre: 'Desayuno incluido en algunas tarifas', precio: 0 },
+      { cat: 'servicios', nombre: 'Parqueadero privado gratuito', precio: 0 },
+      { cat: 'servicios', nombre: 'Wi-Fi, agua caliente, TV por cable', precio: 0 },
+      { cat: 'servicios', nombre: 'Pet Friendly y room service', precio: 0 },
+      { cat: 'servicios', nombre: 'Estación de café gratuita', precio: 0 },
+      { cat: 'servicios', nombre: 'Traslado al aeropuerto (costo adicional)', precio: 0 },
+    ],
+  },
+  'el-recuerdo-coffee-tour': {
+    heading: 'Tours y experiencias',
+    intro: 'Elige el plan y envía tu solicitud por WhatsApp.',
+    precioLabel: 'por persona',
+    items: [
+      { cat: 'tours', nombre: 'Coffee Tour', precio: 0, desc: 'Tarifas por confirmar directo con la finca' },
+      { cat: 'incluye', nombre: 'Recorrido por plantación de café', precio: 0 },
+      { cat: 'incluye', nombre: 'Degustación', precio: 0 },
+    ],
+  },
+  'mahalo-hostel-salento': {
+    heading: 'Habitaciones y servicios',
+    intro: 'Revisa opciones y servicios. Agrega lo que necesites y consulta disponibilidad por WhatsApp.',
+    precioLabel: 'por noche',
+    items: [
+      { cat: 'habitaciones', nombre: 'Habitación compartida / privada', precio: 0, desc: 'Consultar tarifa directo' },
+      { cat: 'servicios', nombre: 'Áreas comunes y cocina', precio: 0 },
+      { cat: 'servicios', nombre: 'Wi-Fi', precio: 0 },
+    ],
+  },
+  'parque-mirador-la-vida-es-bella': {
+    heading: 'Entrada y atracciones',
+    intro: 'Elige tu visita y pide información o guía por WhatsApp.',
+    precioLabel: 'por persona',
+    items: [
+      { cat: 'planes', nombre: 'Entrada al mirador', precio: 0, desc: 'Consultar tarifa en sitio' },
+      { cat: 'atracciones', nombre: 'Miradores y escenarios fotográficos', precio: 0 },
+    ],
+  },
+};
+
+function verifiedMenuFor(slug) {
+  return VERIFIED_MENUS[slug] || null;
+}
+
+function buildMenuItems(provider) {
+  const slug = slugify(provider.name);
+  const verified = verifiedMenuFor(slug);
+  if (verified?.items?.length) {
+    return verified.items.map((it, i) => ({
+      id: i + 1,
+      cat: String(it.cat || 'planes'),
+      nombre: String(it.nombre || '').trim(),
+      precio: Number(it.precio) || 0,
+      desc: String(it.desc || '').slice(0, 160),
+      img: it.img || (FONDA_DISH_IMGS[it.id] || (menuImgPool(provider).length ? menuImgPool(provider)[i % menuImgPool(provider).length] : '')),
+    })).filter((it) => it.nombre);
+  }
+  const pool = menuImgPool(provider);
+  const items = [];
+  let seq = 1;
+  const push = (cat, nombre, precio, desc, img) => {
+    const name = String(nombre || '').trim();
+    if (!name) return;
+    items.push({
+      id: seq++,
+      cat: String(cat || 'planes'),
+      nombre: name,
+      precio: Number(precio) || 0,
+      desc: String(desc || '').slice(0, 160),
+      img: img || (pool.length ? pool[items.length % pool.length] : ''),
+    });
+  };
+
+  const food = provider.foodServiceDetails;
+  if (food?.menuItems?.length) {
+    for (const mi of food.menuItems) {
+      const dishImg = slug === 'fonda-boquia' ? FONDA_DISH_IMGS[mi.id] : (mi.img || '');
+      push(mi.category || 'carta', mi.name, mi.price, mi.description, dishImg);
+    }
+    return items;
+  }
+  if (food?.menuHighlights?.length) {
+    for (const line of food.menuHighlights) {
+      push('carta', stripPriceText(line) || line, parsePriceText(line), '', '');
+    }
+    return items;
+  }
+  if (food?.specialties?.length) {
+    for (const s of food.specialties) {
+      push('especialidades', s, 0, (food.cuisineType || []).join(', '), '');
+    }
+    if (food.ambience) push('ambiente', food.ambience, 0, food.seating || '', '');
+    if (!items.length) push('especialidades', provider.name, 0, provider.description || '', '');
+    return items;
+  }
+
+  const acc = provider.accommodationDetails;
+  if (acc) {
+    for (const r of acc.roomTypes || []) {
+      push('habitaciones', r, 0, acc.bookingNotes || acc.categoryLabel || acc.checkIn || '', '');
+    }
+    for (const s of (acc.services || []).slice(0, 14)) {
+      push('servicios', s, 0, '', '');
+    }
+    if (!items.length) push('habitaciones', provider.name, 0, provider.description || '', '');
+    return items;
+  }
+
+  const exp = provider.experienceDetails || provider.horsebackRidingDetails || provider.tourismDetails;
+  if (exp) {
+    const tariff = exp.tariff || exp.pricingNotes || '';
+    const named = [...String(tariff).matchAll(/([A-Za-zÁÉÍÓÚáéíóúñÑ][^:.\n]{2,50}):\s*\$\s*([\d.,]+)/g)];
+    if (named.length) {
+      for (const m of named) {
+        push('planes', m[1].trim(), parsePriceText(`$${m[2]}`), exp.duration ? `Duración: ${exp.duration}` : '', '');
+      }
+    } else if (tariff && !/consultar|cotizaci|variable|seg[uú]n/i.test(tariff)) {
+      push('planes', provider.name, parsePriceText(tariff), stripPriceText(tariff) || tariff, '');
+    } else if (tariff) {
+      push('cotizar', stripPriceText(tariff) || 'Cotización', 0, tariff, '');
+    }
+    const included = exp.included || exp.services || exp.attractions || [];
+    for (const s of included.slice(0, 14)) {
+      push(named.length || items.length ? 'incluye' : 'experiencia', s, 0, '', '');
+    }
+    if (!items.length && exp.services?.length) {
+      for (const s of exp.services.slice(0, 12)) push('planes', s, 0, '', '');
+    }
+    if (!items.length) push('planes', provider.name, 0, provider.description || '', '');
+    return items;
+  }
+
+  if (provider.horsebackRidingDetails) {
+    const h = provider.horsebackRidingDetails;
+    for (const [k, v] of Object.entries(h)) {
+      if (typeof v === 'string' && v.length < 80) push('planes', k, parsePriceText(v), v, '');
+      else if (Array.isArray(v)) for (const x of v) if (typeof x === 'string') push('planes', x, 0, '', '');
+    }
+    if (!items.length) push('planes', provider.name, 0, provider.description || '', '');
+    return items;
+  }
+
+  const tr = provider.transportDetails;
+  if (tr) {
+    for (const r of tr.routes || []) {
+      push('rutas', r, parsePriceText(tr.pricingNotes || tr.tariff || ''), tr.transportType || tr.capacity || '', '');
+    }
+    if (!items.length) push('rutas', tr.transportType || provider.name, 0, tr.pricingNotes || '', '');
+    return items;
+  }
+
+  const commerce = provider.commerceDetails;
+  if (commerce) {
+    for (const p of commerce.mainProducts || commerce.productTypes || []) {
+      push('productos', p, 0, '', '');
+    }
+    if (!items.length) push('productos', provider.name, 0, provider.description || '', '');
+    return items;
+  }
+
+  for (const t of provider.tags || []) {
+    push('plan', t, 0, provider.location?.landmark || provider.description || '', '');
+  }
+  if (!items.length && provider.name) push('plan', provider.name, 0, provider.description || '', '');
+  return items;
+}
+
+function menuHeading(provider) {
+  const verified = verifiedMenuFor(slugify(provider.name));
+  if (verified?.heading) return verified.heading;
+  const t = provider.type || '';
+  if (/Restaurante|Caf[eé]|Food|Comida/i.test(t) || provider.foodServiceDetails) return 'Nuestra carta';
+  if (/Alojamiento|Camping/i.test(t) || provider.accommodationDetails) return 'Habitaciones y servicios';
+  if (/Coffee|Experiencia|Evento/i.test(t) || provider.experienceDetails) return 'Planes y experiencias';
+  if (provider.transportDetails) return 'Rutas y servicios';
+  if (/Atractivo/i.test(t)) return 'Qué puedes vivir aquí';
+  return 'Menú de servicios';
+}
+
+function menuIntro(provider) {
+  const verified = verifiedMenuFor(slugify(provider.name));
+  if (verified?.intro) return verified.intro;
+  const t = provider.type || '';
+  if (provider.foodServiceDetails) return 'Toca los platos para armar tu pedido. Al final, envíalo por WhatsApp. Sin app ni pasarela de pago.';
+  if (provider.accommodationDetails) return 'Revisa opciones y servicios. Agrega lo que necesites y consulta disponibilidad por WhatsApp.';
+  if (provider.experienceDetails || provider.horsebackRidingDetails) return 'Elige el plan o lo que quieras incluir y envía tu solicitud por WhatsApp.';
+  if (provider.transportDetails) return 'Selecciona la ruta y coordina el transporte directo por WhatsApp.';
+  if (/Atractivo/i.test(t)) return 'Explora lo que puedes vivir aquí y pide información o guía por WhatsApp.';
+  return 'Selecciona lo que necesites y envía tu solicitud por WhatsApp.';
+}
+
+function menuPrecioLabel(provider) {
+  const verified = verifiedMenuFor(slugify(provider.name));
+  if (verified?.precioLabel) return verified.precioLabel;
+  if (provider.foodServiceDetails) return 'c/u';
+  if (provider.accommodationDetails) return 'consultar';
+  if (provider.experienceDetails || provider.horsebackRidingDetails) return 'por persona';
+  if (provider.transportDetails) return 'consultar';
+  return 'consultar';
+}
+
+function renderInteractiveMenu(provider) {
+  const items = buildMenuItems(provider);
+  if (!items.length) return { section: '', assets: '' };
+
+  const cats = [{ id: 'todas', label: 'Todas' }];
+  const seen = new Set();
+  for (const it of items) {
+    if (seen.has(it.cat)) continue;
+    seen.add(it.cat);
+    const label = MENU_CAT_LABELS[it.cat] || it.cat.charAt(0).toUpperCase() + it.cat.slice(1);
+    cats.push({ id: it.cat, label });
+  }
+
+  const whatsapp = String(provider.contact?.whatsapp || '').replace(/\D/g, '');
+  const showCurrency = items.some((it) => it.precio > 0);
+  const config = {
+    containerId: 'menuGrid',
+    items,
+    categories: cats,
+    whatsapp,
+    businessName: provider.name,
+    currency: 'COP',
+    showSearch: true,
+    showCurrency,
+    precioLabel: menuPrecioLabel(provider),
+  };
+
+  const section = `
+      <section class="section" id="menu-interactivo">
+        <h2>${escapeHtml(menuHeading(provider))}</h2>
+        <p class="muted" style="margin-top:-8px;margin-bottom:20px">${escapeHtml(menuIntro(provider))}</p>
+        <div class="menu-header">
+          <div class="menu-search"><input type="text" id="menuSearch" placeholder="Buscar opción..." /></div>
+          ${showCurrency ? `<div class="currency-switch" role="group" aria-label="Moneda">
+            <button data-cur="COP" class="active">COP</button>
+            <button data-cur="USD">USD</button>
+            <button data-cur="EUR">EUR</button>
+          </div>` : ''}
+        </div>
+        <div class="menu-tabs" id="menuTabs"></div>
+        <div class="menu-grid" id="menuGrid"></div>
+        <div class="menu-empty" id="menuEmpty" style="display:none"><span>🔍</span>No encontramos opciones con ese nombre.</div>
+      </section>
+      <div class="cart-float" id="cartFloat" role="button" tabindex="0" aria-label="Ver selección">
+        <span class="badge" id="cartBadge">0</span>
+        <span class="total" id="cartTotal">$0</span>
+        <span>Ver pedido →</span>
+      </div>
+      <div class="cart-modal" id="cartModal" role="dialog" aria-modal="true">
+        <div class="cart-panel">
+          <h2>Tu pedido</h2>
+          <div id="cartItems"></div>
+          <div class="cart-total"><span>Total</span><span id="cartModalTotal">$0</span></div>
+          <div class="cart-actions">
+            <button class="send" id="sendWhatsApp">Enviar por WhatsApp</button>
+            <button class="clear" id="clearCart">Vaciar</button>
+            <button class="close" id="closeCart">Seguir explorando</button>
+          </div>
+        </div>
+      </div>`;
+
+  const assets = `
+    <script src="/pautante-common.js"></script>
+    <script>PautanteCommon.initMenu(${JSON.stringify(config).replace(/</g, '\\u003c')});</script>`;
+
+  return { section, assets };
+}
+
 function renderConfirmBlock(provider, mapUrl) {
   const hours = provider.operatingHours?.notes || provider.operatingHours?.monday || provider.timeInfo || 'Horario por confirmar con el local';
   const tariff = provider.experienceDetails?.tariff
@@ -668,6 +1320,7 @@ function renderProviderLandingPage(provider) {
   const website = provider.contact?.website || '';
   const mapUrl = `https://www.google.com/maps/search/${encodeURIComponent(provider.location?.address || provider.name + ' Salento')}`;
   const gallery = galleryFor(provider);
+  const interactiveMenu = renderInteractiveMenu(provider);
   const details = provider.experienceDetails || provider.accommodationDetails || provider.foodServiceDetails || {};
   const contactAction = whatsapp || phone || hrefFicha;
   const listItems = (items = []) => items.length ? `<ul>${items.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ul>` : '<p class="muted">Consultar directamente con el pautante.</p>';
@@ -718,6 +1371,7 @@ function renderProviderLandingPage(provider) {
       @media (max-width:800px) { .hero,.two-col { grid-template-columns:1fr; } .hero-image { min-height:260px; order:-1; } .topbar { align-items:flex-start; flex-direction:column; } .gallery { grid-template-columns:1fr; } }
     </style>
     <link rel="stylesheet" href="/page-theme.css" />
+    <link rel="stylesheet" href="/pautante-theme.css" />
     ${buildBreadcrumbListSchema([
       { name: 'Inicio', url: 'https://www.salentoalamano.com/' },
       { name: categoryLabelFor(category), url: hrefBack },
@@ -738,10 +1392,12 @@ function renderProviderLandingPage(provider) {
       ${transportSection}
       <section class="section"><h2>Conoce la experiencia</h2><div class="two-col"><div><p class="trust">${escapeHtml(provider.description || 'Información del servicio local.')}</p><p class="verified">${provider.verified ? '✓ Información verificada en el catálogo local' : 'Información disponible para confirmar directamente con el local'}</p></div><div class="facts"><div class="fact"><strong>Ubicación</strong>${escapeHtml(provider.location?.address || 'Salento, Quindío')}</div><div class="fact"><strong>Referencia</strong>${escapeHtml(provider.location?.landmark || 'Consulta la ruta con el local')}</div><div class="fact"><strong>Horario</strong>${escapeHtml(provider.operatingHours?.notes || provider.operatingHours?.monday || provider.timeInfo || 'Horario por confirmar')}</div></div></div></section>
       <section class="section"><h2>Galería de imágenes</h2><div class="gallery">${gallery}</div></section>
+      ${interactiveMenu.section}
       ${renderConfirmBlock(provider, mapUrl)}
       <section class="section"><h2>Lo que puedes encontrar</h2><div class="tags">${(provider.tags || []).map((tag) => `<span class="tag">${escapeHtml(tag)}</span>`).join('') || '<span class="tag">Servicio local</span>'}</div></section>
       ${bottomNav()}
     </main>
+    ${interactiveMenu.assets}
   </body>
 </html>`;
   return html.replaceAll('href="tel:"', `href="${hrefFicha}"`).replaceAll('href="tel:tel:', 'href="tel:');
@@ -759,6 +1415,7 @@ for (const category of categoryNames) {
 }
 
 // Páginas artesanales que el generador nunca debe sobrescribir (mapa offline a medida)
+// El mapa offline SOLO existe en Camping y Reserva Natural Cascadas de Santa Rita.
 const PROTECT = new Set([
   'camping-cascadas-de-santa-rita',
   'reserva-natural-cascadas-de-santa-rita',
