@@ -6035,6 +6035,23 @@ footer { max-width: 1184px; margin: auto; border-top: 1px solid var(--line); dis
   .image-inventory-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
 }
 
+/* Compact directory: less vertical air, denser sections */
+.quick-section { padding-top: 20px; padding-bottom: 28px; }
+.quick-section .section-heading { margin-bottom: 14px; }
+.quick-section .section-heading h2 { font-size: clamp(28px, 4vw, 36px); }
+.quick-section .directory-search { margin-bottom: 10px; }
+.quick-section .directory-quick-chips { margin-bottom: 10px; }
+.quick-section .category-row { margin-bottom: 8px; gap: 8px; }
+.quick-section .category { padding: 8px 12px; font-size: 11px; }
+.directory-intro { padding: 6px 0 8px !important; }
+.place-grid { gap: 12px !important; min-height: 0 !important; }
+.empty-state { grid-column: 1 / -1; padding: 18px 16px !important; margin: 0; border: 1px dashed var(--line); border-radius: 12px; background: #faf7f1; color: #70796e; font-size: 12.5px; line-height: 1.45; }
+.pautantes-band { margin-top: 4px !important; margin-bottom: 24px !important; }
+.pautantes-band-inner { padding: 18px 16px !important; }
+.hoy-pautantes-head { gap: 8px; margin-bottom: 4px; }
+.hoy-pautantes-note { font-size: 11px !important; }
+.home-content-guide { margin-top: 8px; }
+
 /* Compact directory cards: short text, tight spacing, bold CTA */
 .place-grid .place-image { height: 120px; }
 .place-grid .place-info { padding: 10px 12px 12px; }
