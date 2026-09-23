@@ -1543,7 +1543,7 @@ function App() {
                         {place.location?.landmark && <span>{place.location.landmark.slice(0, 28)}</span>}
                       </div>
                       <div className="hoy-pautante-actions">
-                        <a className="button primary" href={href} onClick={(e) => { if (!place.actionTarget?.viewUrl) { e.preventDefault(); window.location.assign(href) } }}>{t('hoy.viewPautante', 'Ver ficha')}</a>
+                        <a className="button primary" href={href} onClick={(e) => { if (!place.actionTarget?.viewUrl) { e.preventDefault(); window.location.assign(href) } }}>{t('hoy.viewPautante', 'Ver información')}</a>
                         {wa && (
                           <a className="button" href={`https://wa.me/${wa}`} target="_blank" rel="noreferrer">WhatsApp</a>
                         )}
@@ -2286,7 +2286,7 @@ function PlaceCard({ place, onOpen, onReviews }: { place: Place; onAdd?: () => v
   const Icon = place.icon
   const stats = reviewsService.getPlaceStats(String(place.id))
   const mapUrl = `https://www.google.com/maps/search/${encodeURIComponent(place.location?.address || `${place.name} Salento`)}`
-  const ctaLabel = /Restaurant|Gastrono|Restaurante/.test(place.type) ? 'Ver menú' : place.isPautante ? 'Ver ficha' : 'Reservar / Ver más'
+  const ctaLabel = 'Ver información'
   const priceFrom = place.priceRange && place.priceRange !== 'Gratis' ? place.priceRange : place.price
 
   return (
