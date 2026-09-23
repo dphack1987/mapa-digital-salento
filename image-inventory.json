@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-09-23T00:24:15.660Z",
-  "total": 685,
-  "ok": 685,
+  "generatedAt": "2026-09-23T16:23:55.189Z",
+  "total": 709,
+  "ok": 709,
   "broken": 0,
   "fixable": 0,
   "unfixable": 0,
@@ -289,7 +289,7 @@
     {
       "file": "public/categorias/atractivos-turisticos.html",
       "line": 256,
-      "path": "/imagenes-salento/images (2).webp",
+      "path": "/imagenes-salento/valle-cocora-palmas-2.webp",
       "status": "OK",
       "equivalent": null
     },
@@ -331,7 +331,7 @@
     {
       "file": "public/categorias/atractivos-turisticos.html",
       "line": 346,
-      "path": "/imagenes-salento/images.webp",
+      "path": "/imagenes-salento/destinos-75.webp",
       "status": "OK",
       "equivalent": null
     },
@@ -1640,14 +1640,14 @@
     {
       "file": "public/data/places.json",
       "line": 1886,
-      "path": "/imagenes-salento/images.webp",
+      "path": "/imagenes-salento/destinos-75.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
       "line": 1887,
-      "path": "/imagenes-salento/images (1).webp",
+      "path": "/imagenes-salento/calle.webp",
       "status": "OK",
       "equivalent": null
     },
@@ -2355,6 +2355,97 @@
       "file": "public/hotel-barato-salento.html",
       "line": 75,
       "path": "/logo_salento2026.webp",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
+      "file": "public/hoteles-abiertos-salento.html",
+      "line": 81,
+      "path": "/logo_salento2026.webp",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
+      "file": "public/hoteles-abiertos-salento.html",
+      "line": 107,
+      "path": "/pautas/hotel_la_floresta_salento/imagenes/lafloresta-fachada.webp",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
+      "file": "public/hoteles-abiertos-salento.html",
+      "line": 114,
+      "path": "/pautas/boki_mall/hotel-mirador-boquia/Hotel_Mirador_de_Boquia_1747081077351.webp",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
+      "file": "public/hoteles-abiertos-salento.html",
+      "line": 130,
+      "path": "/pautas/hotel_camino_nacional/imagenes/1326164875.webp",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
+      "file": "public/hoteles-abiertos-salento.html",
+      "line": 146,
+      "path": "/pautas/coffee-tour-alojamiento-finca-hotel-el-ocaso/imagenes/foto_casa_ocaso.webp",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
+      "file": "public/hoteles-abiertos-salento.html",
+      "line": 162,
+      "path": "/pautas/hotel_la_floresta_salento/imagenes/lafloresta-fachada.webp",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
+      "file": "public/hoteles-abiertos-salento.html",
+      "line": 178,
+      "path": "/pautas/mahalo_hostel/imagenes/151829511_115398783872298_53747583158063699_n.webp",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
+      "file": "public/hoteles-abiertos-salento.html",
+      "line": 194,
+      "path": "/pautas/hotel_tia_emiss/1625430084.webp",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
+      "file": "public/hoteles-abiertos-salento.html",
+      "line": 214,
+      "path": "/imagenes-salento/pueblo.webp",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
+      "file": "public/hoteles-abiertos-salento.html",
+      "line": 215,
+      "path": "/imagenes-salento/calle.webp",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
+      "file": "public/hoteles-abiertos-salento.html",
+      "line": 216,
+      "path": "/imagenes-salento/destinos-75.webp",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
+      "file": "public/hoteles-abiertos-salento.html",
+      "line": 217,
+      "path": "/imagenes-salento/631032744.webp",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
+      "file": "public/hoteles-abiertos-salento.html",
+      "line": 218,
+      "path": "/imagenes-salento/colombia-palms.webp",
       "status": "OK",
       "equivalent": null
     },
@@ -3551,14 +3642,14 @@
     {
       "file": "public/paginas-pautantes/puente-de-boquia-sendero-cercano/index.html",
       "line": 20,
-      "path": "/imagenes-salento/images.webp",
+      "path": "/imagenes-salento/destinos-75.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/paginas-pautantes/puente-de-boquia-sendero-cercano/index.html",
       "line": 31,
-      "path": "/imagenes-salento/images.webp",
+      "path": "/imagenes-salento/destinos-75.webp",
       "status": "OK",
       "equivalent": null
     },
@@ -3572,14 +3663,14 @@
     {
       "file": "public/paginas-pautantes/puente-de-boquia-sendero-cercano/index.html",
       "line": 45,
-      "path": "/imagenes-salento/images.webp",
+      "path": "/imagenes-salento/destinos-75.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/paginas-pautantes/puente-de-boquia-sendero-cercano/index.html",
       "line": 45,
-      "path": "/imagenes-salento/images%20(1).webp",
+      "path": "/imagenes-salento/calle.webp",
       "status": "OK",
       "equivalent": null
     },
@@ -4361,197 +4452,274 @@
       "equivalent": null
     },
     {
+      "file": "public/vias-salento-libres-acceso.html",
+      "line": 86,
+      "path": "/logo_salento2026.webp",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
+      "file": "public/vias-salento-libres-acceso.html",
+      "line": 112,
+      "path": "/imagenes-salento/pueblo.webp",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
+      "file": "public/vias-salento-libres-acceso.html",
+      "line": 137,
+      "path": "/imagenes-salento/destinos-75.webp",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
+      "file": "public/vias-salento-libres-acceso.html",
+      "line": 150,
+      "path": "/pautas/cootracocora_ltda/willys.webp",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
+      "file": "public/vias-salento-libres-acceso.html",
+      "line": 163,
+      "path": "/pautas/moto_aventura_110/imagenes/1.webp",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
+      "file": "public/vias-salento-libres-acceso.html",
+      "line": 176,
+      "path": "/pautas/cootracocora_ltda/info-transcocora.webp",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
+      "file": "public/vias-salento-libres-acceso.html",
+      "line": 205,
+      "path": "/imagenes-salento/pueblo.webp",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
+      "file": "public/vias-salento-libres-acceso.html",
+      "line": 206,
+      "path": "/imagenes-salento/calle.webp",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
+      "file": "public/vias-salento-libres-acceso.html",
+      "line": 207,
+      "path": "/imagenes-salento/destinos-75.webp",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
+      "file": "public/vias-salento-libres-acceso.html",
+      "line": 208,
+      "path": "/imagenes-salento/631026720.webp",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
+      "file": "public/vias-salento-libres-acceso.html",
+      "line": 209,
+      "path": "/imagenes-salento/colombia-palms.webp",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
       "file": "src/App.tsx",
-      "line": 87,
+      "line": 86,
       "path": "/imagenes-salento/trucha%20y%20patacon.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "src/App.tsx",
-      "line": 88,
+      "line": 87,
       "path": "/pautas/restaurante_bar_fonda_boquia/imagenes/480508481_1169835038167384_4932382570318530100_n.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "src/App.tsx",
-      "line": 89,
+      "line": 88,
       "path": "/pautas/cootracocora_ltda/willys.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "src/App.tsx",
-      "line": 90,
+      "line": 89,
       "path": "/pautas/cabalgatas_cocora_magica/imagenes/cabalgatas-en-el-valle-de-cocora-6.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "src/App.tsx",
-      "line": 91,
+      "line": 90,
       "path": "/imagenes-salento/valle-cocora-palmas-2.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "src/App.tsx",
-      "line": 92,
+      "line": 91,
       "path": "/pautas/hotel_la_floresta_salento/imagenes/lafloresta-fachada.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "src/App.tsx",
-      "line": 93,
+      "line": 92,
       "path": "/imagenes-salento/calle.webp",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
+      "file": "src/App.tsx",
+      "line": 93,
+      "path": "/imagenes-salento/631026720.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "src/App.tsx",
       "line": 94,
-      "path": "/imagenes-salento/631026720.webp",
+      "path": "/imagenes-salento/631032744.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "src/App.tsx",
       "line": 95,
-      "path": "/imagenes-salento/631032744.webp",
-      "status": "OK",
-      "equivalent": null
-    },
-    {
-      "file": "src/App.tsx",
-      "line": 96,
       "path": "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/santa-rita-1.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "src/App.tsx",
-      "line": 922,
+      "line": 921,
       "path": "/logo_salento2026.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "src/App.tsx",
-      "line": 1026,
+      "line": 1025,
       "path": "/imagenes-salento/destinos-75.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "src/App.tsx",
-      "line": 1551,
+      "line": 1550,
       "path": "/imagenes-salento/colombia-palms.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "src/App.tsx",
-      "line": 1580,
+      "line": 1579,
       "path": "/imagenes-salento/calle.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "src/App.tsx",
-      "line": 1609,
+      "line": 1608,
       "path": "/imagenes-salento/valle-cocora-palmas-2.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "src/App.tsx",
-      "line": 1638,
+      "line": 1637,
       "path": "/imagenes-salento/iglesia.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "src/App.tsx",
-      "line": 1664,
+      "line": 1663,
       "path": "/imagenes-salento/destinos-75.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "src/App.tsx",
-      "line": 1665,
+      "line": 1664,
       "path": "/imagenes-salento/colombia-palms.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "src/App.tsx",
-      "line": 1666,
+      "line": 1665,
       "path": "/imagenes-salento/valle-cocora-palmas-2.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "src/App.tsx",
-      "line": 1667,
+      "line": 1666,
       "path": "/imagenes-salento/1326163759.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "src/App.tsx",
-      "line": 1668,
+      "line": 1667,
       "path": "/imagenes-salento/631026720.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "src/App.tsx",
-      "line": 1669,
+      "line": 1668,
       "path": "/imagenes-salento/631032744.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "src/App.tsx",
-      "line": 1670,
+      "line": 1669,
       "path": "/imagenes-salento/1326163558.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "src/App.tsx",
-      "line": 1671,
+      "line": 1670,
       "path": "/imagenes-salento/653410779.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "src/App.tsx",
-      "line": 1672,
+      "line": 1671,
       "path": "/imagenes-salento/pueblo.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "src/App.tsx",
-      "line": 1673,
+      "line": 1672,
       "path": "/imagenes-salento/calle.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "src/App.tsx",
-      "line": 2144,
+      "line": 2143,
       "path": "/avatar-don-chucho.png",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "src/App.tsx",
-      "line": 2251,
+      "line": 2250,
       "path": "/don-chucho-boton.webp",
       "status": "OK",
       "equivalent": null
@@ -4580,7 +4748,7 @@
     {
       "file": "tools/generate_atractivos_page.js",
       "line": 90,
-      "path": "/imagenes-salento/images (2).webp",
+      "path": "/imagenes-salento/valle-cocora-palmas-2.webp",
       "status": "OK",
       "equivalent": null
     },

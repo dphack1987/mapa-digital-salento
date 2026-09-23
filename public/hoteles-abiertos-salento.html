@@ -10,7 +10,7 @@
     <meta property="og:description" content="Explora hoteles, hostales y fincas hoteleras de Salento, Quindío con información de ubicación, servicios y contacto directo." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://www.salentoalamano.com/hoteles-abiertos-salento" />
-    <meta property="og:image" content="https://www.salentoalamano.com/imagenes-salento/salento-landscape.webp" />
+    <meta property="og:image" content="https://www.salentoalamano.com/pautas/hotel_la_floresta_salento/imagenes/lafloresta-fachada.webp" />
     <meta property="og:site_name" content="Salento a la Mano" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Hoteles abiertos en Salento: alojamientos y contacto directo" />
@@ -18,30 +18,228 @@
     <link rel="alternate" hreflang="es-CO" href="https://www.salentoalamano.com/hoteles-abiertos-salento" />
     <link rel="alternate" hreflang="x-default" href="https://www.salentoalamano.com/hoteles-abiertos-salento" />
     <link rel="canonical" href="https://www.salentoalamano.com/hoteles-abiertos-salento">
+    <style>
+      :root { --paper:#f5f1e8; --ink:#1f2d26; --line:#d9d0bf; --coral:#dd7f5d; --green:#5a7d63; --yellow:#e7c77b; --white:#fff; --muted:#59665f; }
+      * { box-sizing:border-box; }
+      body { margin:0; font-family:'DM Sans',sans-serif; background:var(--paper); color:var(--ink); }
+      a { color:inherit; text-decoration:none; }
+      .container { max-width:1100px; margin:0 auto; padding:32px 20px 80px; }
+      .topbar { display:flex; justify-content:space-between; align-items:center; gap:16px; margin-bottom:24px; flex-wrap:wrap; }
+      .brand { display:inline-flex; align-items:center; gap:10px; font-size:20px; font-weight:700; }
+      .brand-logo { width:42px; height:42px; object-fit:contain; border-radius:50%; }
+      .top-actions { display:flex; flex-wrap:wrap; gap:8px; }
+      .button { display:inline-flex; align-items:center; justify-content:center; padding:10px 14px; border:1px solid var(--line); background:var(--white); border-radius:999px; font-weight:700; font-size:13px; }
+      .button.primary { background:var(--coral); border-color:var(--coral); color:#fff; }
+      .button.dark { background:var(--ink); border-color:var(--ink); color:#fff; }
+      .hero { display:grid; grid-template-columns:1.25fr .75fr; gap:0; align-items:stretch; margin-bottom:28px; background:var(--white); border:1px solid var(--line); border-radius:24px; overflow:hidden; box-shadow:0 18px 40px rgba(39,54,43,.1); }
+      .hero-copy { padding:36px 32px; display:flex; flex-direction:column; justify-content:center; }
+      .eyebrow { text-transform:uppercase; letter-spacing:.12em; font-size:11px; color:var(--coral); font-weight:700; }
+      h1 { font-size:clamp(2rem,4vw,3.4rem); margin:12px 0; line-height:1.02; font-family:Fraunces,serif; font-weight:500; }
+      .lead { color:#536057; font-size:1.05rem; line-height:1.6; margin:0 0 16px; }
+      .highlights { display:flex; flex-wrap:wrap; gap:10px; margin-bottom:18px; }
+      .highlight { background:#f1eadb; border:1px solid var(--line); border-radius:999px; padding:8px 12px; font-size:12px; font-weight:700; }
+      .actions { display:flex; flex-wrap:wrap; gap:10px; }
+      .hero-visual { background-size:cover; background-position:center; min-height:280px; }
+      .section { background:var(--white); border:1px solid var(--line); border-radius:24px; padding:28px; margin-bottom:24px; box-shadow:0 8px 24px rgba(39,54,43,.06); }
+      .section h2 { margin:0 0 18px; font-size:1.6rem; font-family:Fraunces,serif; font-weight:500; }
+      .provider-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:18px; }
+      .provider-card { background:var(--white); border:1px solid var(--line); border-radius:20px; overflow:hidden; box-shadow:0 8px 24px rgba(39,54,43,.06); transition:transform .2s,box-shadow .2s,border-color .2s; display:flex; flex-direction:column; }
+      .provider-card:hover { transform:translateY(-4px); box-shadow:0 16px 32px rgba(39,54,43,.12); border-color:var(--coral); }
+      .card-image { height:170px; background-size:cover; background-position:center; width:100%; transition:transform .35s ease; }
+      .provider-card:hover .card-image { transform:scale(1.04); }
+      .card-body { padding:18px; display:flex; flex-direction:column; flex:1; }
+      .card-header-row { display:flex; justify-content:space-between; gap:10px; align-items:center; margin-bottom:10px; }
+      .pill { background:#f3ead6; border-radius:999px; padding:6px 10px; font-size:10px; font-weight:700; text-transform:uppercase; }
+      .rating { font-size:12px; font-weight:700; }
+      .provider-card h3 { margin:8px 0 10px; font-size:1.25rem; font-family:Fraunces,serif; font-weight:500; }
+      .card-body p { margin:0 0 8px; color:var(--muted); line-height:1.5; font-size:.95rem; }
+      .meta-row { display:flex; gap:10px; flex-wrap:wrap; margin:8px 0; color:#4d5a51; font-size:12px; }
+      .card-actions { display:flex; flex-wrap:wrap; gap:8px; margin-top:12px; }
+      .btn { display:inline-flex; align-items:center; justify-content:center; padding:10px 12px; border-radius:10px; border:1px solid var(--line); background:var(--white); font-weight:700; font-size:12px; }
+      .btn.primary { background:var(--ink); color:#fff; border-color:var(--ink); }
+      .btn.whatsapp { background:#25d366; border-color:#25d366; color:#fff; }
+      footer { margin-top:32px; color:var(--muted); }
+      @media (max-width:760px) {
+        .hero { grid-template-columns:1fr; }
+        .hero-visual { min-height:180px; order:-1; }
+        .hero-copy { padding:24px 20px 28px; }
+        .topbar { flex-direction:column; align-items:flex-start; }
+        .provider-grid { grid-template-columns:1fr; }
+        .section { padding:20px 16px; }
+      }
+    </style>
     <link rel="stylesheet" href="/page-theme.css">
-    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "Hoteles abiertos en Salento: alojamientos y contacto directo", "description": "Explora hoteles, hostales y fincas hoteleras de Salento, Quindío con información de ubicación, servicios y contacto directo.", "url": "https://www.salentoalamano.com/hoteles-abiertos-salento", "inLanguage": "es-CO", "isPartOf": {"@type": "WebSite", "name": "Salento a la Mano", "url": "https://www.salentoalamano.com/"}}</script>
-  
-    <!-- Yandex.Metrika counter -->
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"Hoteles abiertos en Salento: alojamientos y contacto directo","description":"Explora hoteles, hostales y fincas hoteleras de Salento, Quindío con información de ubicación, servicios y contacto directo.","url":"https://www.salentoalamano.com/hoteles-abiertos-salento","inLanguage":"es-CO","mainEntity":{"@type":"ItemList","itemListElement":[{"@type":"ListItem","position":1,"name":"Boki Mall - Hotel El Mirador de Boquía","url":"https://www.salentoalamano.com/paginas-pautantes/boki-mall-hotel-el-mirador-de-boquia/"},{"@type":"ListItem","position":2,"name":"Hotel Camino Nacional Salento","url":"https://www.salentoalamano.com/paginas-pautantes/hotel-camino-nacional-salento/"},{"@type":"ListItem","position":3,"name":"Finca Hotel El Ocaso","url":"https://www.salentoalamano.com/paginas-pautantes/finca-hotel-el-ocaso/"},{"@type":"ListItem","position":4,"name":"Hotel La Floresta Salento","url":"https://www.salentoalamano.com/paginas-pautantes/hotel-la-floresta-salento/"},{"@type":"ListItem","position":5,"name":"Mahalo Hostel Salento","url":"https://www.salentoalamano.com/paginas-pautantes/mahalo-hostel-salento/"},{"@type":"ListItem","position":6,"name":"Hotel La Tía Emiss","url":"https://www.salentoalamano.com/paginas-pautantes/hotel-la-tia-emiss/"}]}}</script>
     <script type="text/javascript">
       (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,"script","https://mc.yandex.ru/metrika/tag.js?id=112528103","ym");ym(112528103,'init',{ssr:true,webvisor:true,clickmap:true,ecommerce:"dataLayer",referer:document.referrer,url:location.href,accurateTrackBounce:true,trackLinks:true});
     </script>
     <noscript><div><img src="https://mc.yandex.ru/watch/112528103" style="position:absolute;left:-9999px;" alt="" /></div></noscript>
-    <!-- /Yandex.Metrika counter -->
   </head>
   <body>
-    <main style="max-width:900px;margin:0 auto;padding:48px 20px 80px">
-      <p><a href="/">Salento a la Mano</a></p>
-      <h1>Hoteles y alojamientos en Salento</h1>
-      <p>Compara opciones de alojamiento en Salento y contacta directamente con cada establecimiento para confirmar disponibilidad, tarifas, horarios y condiciones de reserva.</p>
-      <nav aria-label="Enlaces relacionados">
-        <a href="/categorias/">Explorar categorías</a> |
-        <a href="/es/">Guía turística</a> |
-        <a href="/mapa-interactivo-salento.html">Mapa interactivo</a>
-      </nav>
-            <section>
-                <h2>También puede interesarte</h2>
-                <ul><li><a href="/don-chucho-asistente.html">Don Chucho, tu asistente turístico de Salento</a></li><li><a href="/estado-actual-salento-hoteles-abiertos-vias-libres-valle-cocora-operando-100.html">Estado actual de Salento</a></li><li><a href="/landing-estado-actual-salento-2026.html">Guía de Salento 2026</a></li><li><a href="/mapa-interactivo-salento.html">Mapa interactivo de Salento</a></li><li><a href="/registro-aliados.html">Registro de aliados locales</a></li><li><a href="/salento-seguro-turismo.html">Turismo responsable en Salento</a></li><li><a href="/valle-cocora-accesible-100.html">Visitar el Valle de Cocora</a></li><li><a href="/vias-salento-libres-acceso.html">Cómo llegar a Salento</a></li></ul>
-            </section>
-    </main>
+    <div class="container">
+      <header class="topbar">
+        <a class="brand" href="/"><img src="/logo_salento2026.webp" alt="Salento a la Mano" class="brand-logo" /><span>Salento a la Mano</span></a>
+        <nav class="top-actions" aria-label="Navegación principal">
+          <a class="button" href="/">Inicio</a>
+          <a class="button" href="/categorias/">Categorías</a>
+          <a class="button" href="/mapa-interactivo-salento.html">Mapa</a>
+          <a class="button" href="/es/">Guía</a>
+          <a class="button dark" href="/">Volver al inicio</a>
+        </nav>
+      </header>
+      <main>
+        <section class="hero">
+          <div class="hero-copy">
+            <div class="eyebrow">Alojamientos · Salento, Quindío</div>
+            <h1>Hoteles y alojamientos en Salento</h1>
+            <p class="lead">Compara opciones de alojamiento en Salento y contacta directamente con cada establecimiento para confirmar disponibilidad, tarifas, horarios y condiciones de reserva. Sin intermediarios.</p>
+            <div class="highlights">
+              <span class="highlight">6 alojamientos verificados</span>
+              <span class="highlight">WhatsApp directo</span>
+              <span class="highlight">Servicios y fotos reales</span>
+            </div>
+            <div class="actions">
+              <a class="button primary" href="#alojamientos">Ver alojamientos</a>
+              <a class="button dark" href="/categorias/alojamientos.html">Categoría completa</a>
+              <a class="button" href="/mapa-interactivo-salento.html">Mapa interactivo</a>
+            </div>
+          </div>
+          <div class="hero-visual" style="background-image:url('/pautas/hotel_la_floresta_salento/imagenes/lafloresta-fachada.webp')" aria-label="Alojamientos en Salento"></div>
+        </section>
+
+        <section class="section" id="alojamientos">
+          <h2>Alojamientos abiertos con contacto directo</h2>
+          <div class="provider-grid">
+            <article class="provider-card" onclick="window.location.href='/paginas-pautantes/boki-mall-hotel-el-mirador-de-boquia/'" role="link" tabindex="0" onkeydown="if(event.key==='Enter'){window.location.href='/paginas-pautantes/boki-mall-hotel-el-mirador-de-boquia/'}" style="cursor:pointer" aria-label="Abrir página de Boki Mall - Hotel El Mirador de Boquía">
+              <div class="card-image" style="background-image:url('/pautas/boki_mall/hotel-mirador-boquia/Hotel_Mirador_de_Boquia_1747081077351.webp')"></div>
+              <div class="card-body" style="padding:16px 18px 20px">
+                <div class="card-header-row" style="display:flex;justify-content:space-between;gap:8px;margin-bottom:8px"><span class="pill">Alojamientos</span><span class="rating">⭐ 4.9</span></div>
+                <h3>Boki Mall - Hotel El Mirador de Boquía</h3>
+                <p>Complejo hotelero en Boquía: hospedaje, restaurante, bar y eventos. Premio al mejor hotel rural de Salento 2024. RNT #91079.</p>
+                <p style="color:var(--muted);font-size:13px;margin-top:8px"><strong>Servicios:</strong> Wi-Fi · Parqueadero · Restaurante Terra · Barcinales Café · Zona de eventos · Desayuno · Suites/dobles/familiares</p>
+                <div class="meta-row" style="display:flex;gap:10px;flex-wrap:wrap;margin-top:8px;font-size:12px;color:var(--muted)"><span>$$$</span><span>Check-in 15:00</span><span>Check-out 12:00</span></div>
+                <div class="card-actions" onclick="event.stopPropagation()" style="display:flex;flex-wrap:wrap;gap:8px;margin-top:12px">
+                  <a class="btn primary" href="/paginas-pautantes/boki-mall-hotel-el-mirador-de-boquia/">Ver página</a>
+                  <a class="btn" href="https://www.google.com/maps/search/Km%205%2C%20v%C3%ADa%20principal%20a%20Salento%2C%20Vereda%20Boqu%C3%ADa" target="_blank" rel="noreferrer">Cómo llegar</a>
+                  <a class="btn whatsapp" href="https://wa.me/573112225312" target="_blank" rel="noreferrer">WhatsApp</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="provider-card" onclick="window.location.href='/paginas-pautantes/hotel-camino-nacional-salento/'" role="link" tabindex="0" onkeydown="if(event.key==='Enter'){window.location.href='/paginas-pautantes/hotel-camino-nacional-salento/'}" style="cursor:pointer" aria-label="Abrir página de Hotel Camino Nacional Salento">
+              <div class="card-image" style="background-image:url('/pautas/hotel_camino_nacional/imagenes/1326164875.webp')"></div>
+              <div class="card-body" style="padding:16px 18px 20px">
+                <div class="card-header-row" style="display:flex;justify-content:space-between;gap:8px;margin-bottom:8px"><span class="pill">Alojamientos</span><span class="rating">⭐ 4.8</span></div>
+                <h3>Hotel Camino Nacional Salento</h3>
+                <p>Hotel cénico en el centro de Salento. Habitaciones cómodas, atención personalizada y desayuno. Ideal para explorar la plaza y la Calle Real a pie.</p>
+                <p style="color:var(--muted);font-size:13px;margin-top:8px"><strong>Servicios:</strong> Wi-Fi · Desayuno · Seguridad 24h · Guarda equipajes · Traslado aeropuerto · Individual/doble/triple/cuádruple</p>
+                <div class="meta-row" style="display:flex;gap:10px;flex-wrap:wrap;margin-top:8px;font-size:12px;color:var(--muted)"><span>$$$</span><span>Check-in 14:00–23:00</span><span>Licencia 18061</span></div>
+                <div class="card-actions" onclick="event.stopPropagation()" style="display:flex;flex-wrap:wrap;gap:8px;margin-top:12px">
+                  <a class="btn primary" href="/paginas-pautantes/hotel-camino-nacional-salento/">Ver página</a>
+                  <a class="btn" href="https://www.google.com/maps/search/Salento%2C%20Quind%C3%ADo" target="_blank" rel="noreferrer">Cómo llegar</a>
+                  <a class="btn whatsapp" href="https://wa.me/573113903550" target="_blank" rel="noreferrer">WhatsApp</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="provider-card" onclick="window.location.href='/paginas-pautantes/finca-hotel-el-ocaso/'" role="link" tabindex="0" onkeydown="if(event.key==='Enter'){window.location.href='/paginas-pautantes/finca-hotel-el-ocaso/'}" style="cursor:pointer" aria-label="Abrir página de Finca Hotel El Ocaso">
+              <div class="card-image" style="background-image:url('/pautas/coffee-tour-alojamiento-finca-hotel-el-ocaso/imagenes/foto_casa_ocaso.webp')"></div>
+              <div class="card-body" style="padding:16px 18px 20px">
+                <div class="card-header-row" style="display:flex;justify-content:space-between;gap:8px;margin-bottom:8px"><span class="pill">Alojamientos</span><span class="rating">⭐ 4.7</span></div>
+                <h3>Finca Hotel El Ocaso</h3>
+                <p>Finca hotel rodeada de cafetales con piscina, jardines y vistas al valle. Descanso campo adentro a minutos del pueblo.</p>
+                <p style="color:var(--muted);font-size:13px;margin-top:8px"><strong>Servicios:</strong> Desayuno · Wi-Fi · Parqueadero · Chimenea · Terraza · Zona BBQ · Tour de café</p>
+                <div class="meta-row" style="display:flex;gap:10px;flex-wrap:wrap;margin-top:8px;font-size:12px;color:var(--muted)"><span>$$$</span><span>Check-in 14:00–20:00</span><span>Máx 20 huéspedes</span></div>
+                <div class="card-actions" onclick="event.stopPropagation()" style="display:flex;flex-wrap:wrap;gap:8px;margin-top:12px">
+                  <a class="btn primary" href="/paginas-pautantes/finca-hotel-el-ocaso/">Ver página</a>
+                  <a class="btn" href="https://www.google.com/maps/search/V%C3%ADa%20rural%2C%20Salento" target="_blank" rel="noreferrer">Cómo llegar</a>
+                  <a class="btn whatsapp" href="https://wa.me/573134253669" target="_blank" rel="noreferrer">WhatsApp</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="provider-card" onclick="window.location.href='/paginas-pautantes/hotel-la-floresta-salento/'" role="link" tabindex="0" onkeydown="if(event.key==='Enter'){window.location.href='/paginas-pautantes/hotel-la-floresta-salento/'}" style="cursor:pointer" aria-label="Abrir página de Hotel La Floresta Salento">
+              <div class="card-image" style="background-image:url('/pautas/hotel_la_floresta_salento/imagenes/lafloresta-fachada.webp')"></div>
+              <div class="card-body" style="padding:16px 18px 20px">
+                <div class="card-header-row" style="display:flex;justify-content:space-between;gap:8px;margin-bottom:8px"><span class="pill">Alojamientos</span><span class="rating">⭐ 4.6</span></div>
+                <h3>Hotel La Floresta Salento</h3>
+                <p>Hotel a 400 m de la plaza con terrazas panorámicas, jardín y habitaciones acogedoras. Ideal para parejas y familias.</p>
+                <p style="color:var(--muted);font-size:13px;margin-top:8px"><strong>Servicios:</strong> Wi-Fi · Desayuno · Parqueadero · Baño privado · Televisor</p>
+                <div class="meta-row" style="display:flex;gap:10px;flex-wrap:wrap;margin-top:8px;font-size:12px;color:var(--muted)"><span>$$</span><span>Check-in 14:00</span><span>Check-out 12:00</span></div>
+                <div class="card-actions" onclick="event.stopPropagation()" style="display:flex;flex-wrap:wrap;gap:8px;margin-top:12px">
+                  <a class="btn primary" href="/paginas-pautantes/hotel-la-floresta-salento/">Ver página</a>
+                  <a class="btn" href="https://www.google.com/maps/search/Salento%2C%20Quind%C3%ADo" target="_blank" rel="noreferrer">Cómo llegar</a>
+                  <a class="btn whatsapp" href="https://wa.me/573207211382" target="_blank" rel="noreferrer">WhatsApp</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="provider-card" onclick="window.location.href='/paginas-pautantes/mahalo-hostel-salento/'" role="link" tabindex="0" onkeydown="if(event.key==='Enter'){window.location.href='/paginas-pautantes/mahalo-hostel-salento/'}" style="cursor:pointer" aria-label="Abrir página de Mahalo Hostel Salento">
+              <div class="card-image" style="background-image:url('/pautas/mahalo_hostel/imagenes/151829511_115398783872298_53747583158063699_n.webp')"></div>
+              <div class="card-body" style="padding:16px 18px 20px">
+                <div class="card-header-row" style="display:flex;justify-content:space-between;gap:8px;margin-bottom:8px"><span class="pill">Alojamientos</span><span class="rating">⭐ 4.8</span></div>
+                <h3>Mahalo Hostel Salento</h3>
+                <p>Hostel con habitaciones tipo tatami, desayuno, fogata y vistas a la montaña. Hospitalidad quindiana desde 2020.</p>
+                <p style="color:var(--muted);font-size:13px;margin-top:8px"><strong>Servicios:</strong> Wi-Fi · Netflix · Fogata · Juegos de mesa · Desayuno · Jacuzzi en suites · Recepción 24h</p>
+                <div class="meta-row" style="display:flex;gap:10px;flex-wrap:wrap;margin-top:8px;font-size:12px;color:var(--muted)"><span>$$$</span><span>Check-in 15:00</span><span>11 habitaciones</span></div>
+                <div class="card-actions" onclick="event.stopPropagation()" style="display:flex;flex-wrap:wrap;gap:8px;margin-top:12px">
+                  <a class="btn primary" href="/paginas-pautantes/mahalo-hostel-salento/">Ver página</a>
+                  <a class="btn" href="https://www.google.com/maps/search/Calle%202%20%23%206-08%2C%20Salento%2C%20Quind%C3%ADo" target="_blank" rel="noreferrer">Cómo llegar</a>
+                  <a class="btn whatsapp" href="https://wa.me/573228551504" target="_blank" rel="noreferrer">WhatsApp</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="provider-card" onclick="window.location.href='/paginas-pautantes/hotel-la-tia-emiss/'" role="link" tabindex="0" onkeydown="if(event.key==='Enter'){window.location.href='/paginas-pautantes/hotel-la-tia-emiss/'}" style="cursor:pointer" aria-label="Abrir página de Hotel La Tía Emiss">
+              <div class="card-image" style="background-image:url('/pautas/hotel_tia_emiss/1625430084.webp')"></div>
+              <div class="card-body" style="padding:16px 18px 20px">
+                <div class="card-header-row" style="display:flex;justify-content:space-between;gap:8px;margin-bottom:8px"><span class="pill">Alojamientos</span><span class="rating">⭐ 4.4</span></div>
+                <h3>Hotel La Tía Emiss</h3>
+                <p>Hotel familiar de arquitectura de colonización antioqueña a 2 cuadras del parque. Habitaciones doble, twin, triple y dúplex con Wi-Fi y desayuno destacado.</p>
+                <p style="color:var(--muted);font-size:13px;margin-top:8px"><strong>Servicios:</strong> Wi-Fi · Desayuno · Jardín y terraza · Equipaje · Mascotas · Traslado aeropuerto</p>
+                <div class="meta-row" style="display:flex;gap:10px;flex-wrap:wrap;margin-top:8px;font-size:12px;color:var(--muted)"><span>$$</span><span>Check-in 15:00–22:00</span><span>Check-out 11:00</span></div>
+                <div class="card-actions" onclick="event.stopPropagation()" style="display:flex;flex-wrap:wrap;gap:8px;margin-top:12px">
+                  <a class="btn primary" href="/paginas-pautantes/hotel-la-tia-emiss/">Ver página</a>
+                  <a class="btn" href="https://www.google.com/maps/search/Carrera%204%20%235-38%2C%20Salento%2C%20Quind%C3%ADo" target="_blank" rel="noreferrer">Cómo llegar</a>
+                  <a class="btn whatsapp" href="https://wa.me/573164162726" target="_blank" rel="noreferrer">WhatsApp</a>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2>Galería de Salento</h2>
+          <div class="gallery">
+            <img src="/imagenes-salento/pueblo.webp" alt="Calle de Salento" loading="lazy" />
+            <img src="/imagenes-salento/calle.webp" alt="Calle colorida de Salento" loading="lazy" />
+            <img src="/imagenes-salento/destinos-75.webp" alt="Centro de Salento" loading="lazy" />
+            <img src="/imagenes-salento/631032744.webp" alt="Iglesia de Salento" loading="lazy" />
+            <img src="/imagenes-salento/colombia-palms.webp" alt="Palmas de cera" loading="lazy" />
+          </div>
+        </section>
+
+        <nav aria-label="Enlaces relacionados" class="section">
+          <a href="/categorias/">Explorar categorías</a> |
+          <a href="/es/">Guía turística</a> |
+          <a href="/mapa-interactivo-salento.html">Mapa interactivo</a> |
+          <a href="/vias-salento-libres-acceso.html">Cómo llegar</a>
+        </nav>
+
+        <section class="section">
+          <h2>También puede interesarte</h2>
+          <ul><li><a href="/don-chucho-asistente.html">Don Chucho, tu asistente turístico de Salento</a></li><li><a href="/estado-actual-salento-hoteles-abiertos-vias-libres-valle-cocora-operando-100.html">Estado actual de Salento</a></li><li><a href="/landing-estado-actual-salento-2026.html">Guía de Salento 2026</a></li><li><a href="/mapa-interactivo-salento.html">Mapa interactivo de Salento</a></li><li><a href>/registro-aliados.html">Registro de aliados locales</a></li><li><a href="/salento-seguro-turismo.html">Turismo responsable en Salento</a></li><li><a href="/valle-cocora-accesible-100.html">Visitar el Valle de Cocora</a></li><li><a href="/vias-salento-libres-acceso.html">Cómo llegar a Salento</a></li></ul>
+        </section>
+
+        <div class="actions" style="margin-top:24px">
+          <a class="button primary" href="/">Volver al inicio</a>
+          <a class="button dark" href="/categorias/alojamientos.html">Ver categoría alojamientos</a>
+          <a class="button" href="/mapa-interactivo-salento.html">Abrir mapa</a>
+        </div>
+      </main>
+      <footer style="margin-top:32px;color:var(--muted)">
+        <p>© Salento a la Mano · Guía local Salento, Quindío · <a href="/">salentoalamano.com</a></p>
+      </footer>
+    </div>
   </body>
 </html>

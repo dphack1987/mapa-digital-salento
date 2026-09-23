@@ -117,10 +117,20 @@ def page_html(slug: str, page: dict[str, str]) -> str:
 '''
 
 
+# Páginas con contenido rico (hoteles, vías…): no sobrescribir si ya tienen hero/cards
+RICH_SLUGS = {"hoteles-abiertos-salento", "vias-salento-libres-acceso"}
+
+
 def main() -> None:
+    written = 0
+    skipped = 0
     for slug, page in PAGES.items():
+        if slug in RICH_SLUGS and (PUBLIC / f"{slug}.html").exists():
+            skipped += 1
+            continue
         (PUBLIC / f"{slug}.html").write_text(page_html(slug, page), encoding="utf-8")
-    print(f"Rutas estáticas generadas: {len(PAGES)}")
+        written += 1
+    print(f"Rutas estáticas generadas: {written} (omitidas ricas: {skipped})")
 
 
 if __name__ == "__main__":

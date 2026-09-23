@@ -87,7 +87,7 @@ const HANDCRAFTED = [
     priceRange: 'Gratis',
     timeInfo: 'Acceso libre durante el día',
     slug: 'caminata-ecologica-calle-real-alto-de-la-cruz',
-    photo: '/imagenes-salento/images (2).webp',
+    photo: '/imagenes-salento/valle-cocora-palmas-2.webp',
     map: 'Calle Real Alto de la Cruz Salento',
     sub: 'naturaleza',
     pautante: true,
