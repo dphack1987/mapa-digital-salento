@@ -3,20 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
     <meta name="description" content="Hoteles, fincas y hospedajes para descansar en Salento" />
     <title>Alojamientos | Salento a la Mano</title>
-    <meta property="og:title" content="Hoteles y Alojamientos en Salento | Salento a la Mano" />
-    <meta property="og:description" content="Hoteles, fincas y hospedajes en Salento, Quindío: desde boutique hasta finca hotel, con reservas directas y contacto por WhatsApp." />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://www.salentoalamano.com/categorias/alojamientos.html" />
-    <meta property="og:image" content="https://www.salentoalamano.com/imagenes-salento/pueblo.webp" />
-    <meta property="og:site_name" content="Salento a la Mano" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Hoteles y Alojamientos en Salento | Salento a la Mano" />
-    <meta name="twitter:description" content="Hoteles y fincas en Salento: alojamientos verificados con reservas directas." />
-    <link rel="alternate" hreflang="es-CO" href="https://www.salentoalamano.com/categorias/alojamientos.html" />
-    <link rel="alternate" hreflang="x-default" href="https://www.salentoalamano.com/categorias/alojamientos.html" />
     <link rel="canonical" href="https://www.salentoalamano.com/categorias/alojamientos.html" />
     
     <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
@@ -46,41 +34,45 @@
       .brand-logo { width: 42px; height: 42px; object-fit: contain; border-radius: 50%; }
       .nav-link { background: var(--white); border: 1px solid var(--line); padding: 10px 14px; border-radius: 999px; }
       .hero {
-        display: grid; grid-template-columns: 1.3fr .7fr; gap: 20px; align-items: stretch; margin-bottom: 28px;
+        display: grid; grid-template-columns: 1.25fr .75fr; gap: 0; align-items: stretch; margin-bottom: 28px;
+        background: var(--white); border: 1px solid var(--line); border-radius: 24px; overflow: hidden;
+        box-shadow: 0 18px 40px rgba(39,54,43,.1);
       }
-      .hero-copy, .hero-visual {
-        background: var(--white); border: 1px solid var(--line); border-radius: 22px; overflow: hidden;
-      }
-      .hero-copy { padding: 30px 28px; }
+      .hero-copy { padding: 36px 32px; display: flex; flex-direction: column; justify-content: center; }
       .eyebrow { text-transform: uppercase; letter-spacing: .12em; font-size: 11px; color: var(--coral); font-weight: 700; }
-      h1 { font-size: clamp(2rem, 4vw, 4rem); margin: 12px 0 12px; }
+      h1 { font-size: clamp(2rem, 4vw, 4rem); margin: 12px 0 12px; line-height: .98; }
       .sub { color: #536057; font-size: 1.05rem; line-height: 1.6; }
       .stats { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 20px; }
       .stat { background: #f1eadb; border: 1px solid var(--line); border-radius: 14px; padding: 12px 14px; }
       .hero-visual {
-        background-image: linear-gradient(rgba(0,0,0,.15), rgba(0,0,0,.3)), url('/pautas/hotel_la_floresta_salento/imagenes/lafloresta-fachada.webp');
-        background-size: cover; background-position: center; min-height: 260px;
+        background-image: linear-gradient(rgba(15,28,18,.18), rgba(15,28,18,.42)), url('/imagenes-salento/pueblo.webp');
+        background-size: cover; background-position: center; min-height: 280px;
       }
       .provider-grid {
-        display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; margin-top: 24px;
+        display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 18px; margin-top: 24px;
       }
       .empty-category { display: flex; align-items: center; gap: 18px; margin-top: 24px; padding: 24px; border: 1px dashed var(--coral); background: rgba(255,255,255,.7); }
       .empty-category-mark { display: grid; place-items: center; width: 42px; height: 42px; flex: 0 0 42px; border: 1px solid var(--coral); border-radius: 50%; color: var(--coral); font-size: 25px; }
       .empty-category h2 { margin: 0 0 6px; font: 600 22px Fraunces, serif; }
       .empty-category p { margin: 0; color: #59665f; line-height: 1.5; }
       .provider-card {
-        background: var(--white); border: 1px solid var(--line); border-radius: 20px; overflow: hidden; 
+        background: var(--white); border: 1px solid var(--line); border-radius: 20px; overflow: hidden;
+        box-shadow: 0 8px 24px rgba(39,54,43,.06); transition: transform .2s, box-shadow .2s, border-color .2s;
+        display: flex; flex-direction: column;
       }
+      .provider-card:hover { transform: translateY(-4px); box-shadow: 0 16px 32px rgba(39,54,43,.12); border-color: var(--coral); }
       .card-image {
-        height: 150px; background-size: cover; background-position: center; width: 100%;
+        height: 170px; background-size: cover; background-position: center; width: 100%;
+        transition: transform .35s ease;
       }
-      .card-body { padding: 18px; }
+      .provider-card:hover .card-image { transform: scale(1.04); }
+      .card-body { padding: 18px; display: flex; flex-direction: column; flex: 1; }
       .card-header-row, .meta-row, .card-actions { display: flex; justify-content: space-between; gap: 10px; align-items: center; }
       .card-header-row { margin-bottom: 10px; }
       .pill { background: #f3ead6; border-radius: 999px; padding: 6px 10px; font-size: 10px; font-weight: 700; text-transform: uppercase; }
       .rating { font-size: 12px; font-weight: 700; }
       h3 { margin: 8px 0 10px; font-size: 1.35rem; }
-      .card-body p { margin: 0 0 14px; color: #59665f; line-height: 1.5; font-size: 0.96rem; }
+      .card-body p { margin: 0 0 14px; color: #59665f; line-height: 1.5; font-size: 0.96rem; flex: 1; }
       .meta-row { color: #4d5a51; font-size: 12px; margin-bottom: 16px; }
       .btn {
         display: inline-flex; align-items: center; justify-content: center; padding: 10px 12px; border-radius: 10px; border: 1px solid var(--line); font-weight: 700; font-size: 12px;
@@ -89,19 +81,15 @@
       .btn.whatsapp { background: #25d366; border-color: #25d366; color: #fff; }
       @media (max-width: 760px) {
         .hero { grid-template-columns: 1fr; }
+        .hero-visual { min-height: 180px; order: -1; }
+        .hero-copy { padding: 24px 20px 28px; }
         .topbar { flex-direction: column; align-items: flex-start; }
+        .provider-grid { grid-template-columns: 1fr; }
       }
     </style>
     <link rel="stylesheet" href="/page-theme.css" />
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://www.salentoalamano.com/"},{"@type":"ListItem","position":2,"name":"Categorías","item":"https://www.salentoalamano.com/categorias/"},{"@type":"ListItem","position":3,"name":"Alojamientos"}]}</script>
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"Alojamientos | Salento a la Mano","description":"Hoteles, fincas y hospedajes para descansar en Salento","url":"https://www.salentoalamano.com/categorias/alojamientos.html","inLanguage":"es","mainEntity":{"@type":"ItemList","itemListElement":[{"@type":"ListItem","position":1,"name":"Boki Mall - Hotel El Mirador de Boquía","url":"https://www.salentoalamano.com/paginas-pautantes/boki-mall-hotel-el-mirador-de-boquia/"},{"@type":"ListItem","position":2,"name":"Hotel Camino Nacional Salento","url":"https://www.salentoalamano.com/paginas-pautantes/hotel-camino-nacional-salento/"},{"@type":"ListItem","position":3,"name":"Finca Hotel El Ocaso","url":"https://www.salentoalamano.com/paginas-pautantes/finca-hotel-el-ocaso/"},{"@type":"ListItem","position":4,"name":"Hotel La Floresta Salento","url":"https://www.salentoalamano.com/paginas-pautantes/hotel-la-floresta-salento/"},{"@type":"ListItem","position":5,"name":"Mahalo Hostel Salento","url":"https://www.salentoalamano.com/paginas-pautantes/mahalo-hostel-salento/"},{"@type":"ListItem","position":6,"name":"Hotel La Tía Emiss","url":"https://www.salentoalamano.com/paginas-pautantes/hotel-la-tia-emiss/"}]}}</script>
-  
-    <!-- Yandex.Metrika counter -->
-    <script type="text/javascript">
-      (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,"script","https://mc.yandex.ru/metrika/tag.js?id=112528103","ym");ym(112528103,'init',{ssr:true,webvisor:true,clickmap:true,ecommerce:"dataLayer",referer:document.referrer,url:location.href,accurateTrackBounce:true,trackLinks:true});
-    </script>
-    <noscript><div><img src="https://mc.yandex.ru/watch/112528103" style="position:absolute;left:-9999px;" alt="" /></div></noscript>
-    <!-- /Yandex.Metrika counter -->
   </head>
   <body>
     <div class="container">
@@ -127,14 +115,14 @@
       <div class="provider-grid">
         
       <article class="provider-card" onclick="window.location.href='/paginas-pautantes/boki-mall-hotel-el-mirador-de-boquia/'" role="link" tabindex="0" onkeydown="if(event.key==='Enter'){window.location.href='/paginas-pautantes/boki-mall-hotel-el-mirador-de-boquia/'}" style="cursor:pointer" aria-label="Abrir página de Boki Mall - Hotel El Mirador de Boquía">
-        <div class="card-image" style="background-image:url('/pautas/boki_mall/hotel-mirador-boquia/314270821.webp')"></div>
+        <div class="card-image" style="background-image:url('/pautas/boki_mall/hotel-mirador-boquia/Hotel_Mirador_de_Boquia_1747081077351.webp')"></div>
         <div class="card-body">
           <div class="card-header-row">
             <span class="pill">Alojamientos</span>
             <span class="rating">⭐ 4.9</span>
           </div>
           <h3>Boki Mall - Hotel El Mirador de Boquía</h3>
-          <p>Complejo turístico y hotelero en Boquía que combina hospedaje, restaurante, bar, eventos y experiencias locales en un entorno rural cercano a Salento. Es una opción reconocida por su propuesta premium y su acceso rápido al centro del pueblo. Registro Nacional de Turismo #91079.</p>
+          <p>Complejo hotelero en Boquía: hospedaje, restaurante, bar y eventos. Premio al mejor hotel rural de Salento 2024. RNT #91079.</p>
           <div class="meta-row">
             <span>$$$</span>
             <span>Reservas directas</span>
@@ -155,7 +143,7 @@
             <span class="rating">⭐ 4.8</span>
           </div>
           <h3>Hotel Camino Nacional Salento</h3>
-          <p>Ubicación central con fácil acceso a la Calle Real y a los principales puntos de interés del municipio. Cuenta con seguridad 24 horas, cambio de divisas y mostrador de información turística. La mayoría de las habitaciones dispone de balcón, canales por cable, ventanas insonorizadas y vistas a la calle.</p>
+          <p>Hotel cénico en el centro de Salento. Habitaciones cómodas, atención personalizada y desayuno. Ideal para explorar la plaza y la Calle Real a pie.</p>
           <div class="meta-row">
             <span>$$$</span>
             <span>Reservas directas</span>
@@ -176,7 +164,7 @@
             <span class="rating">⭐ 4.7</span>
           </div>
           <h3>Finca Hotel El Ocaso</h3>
-          <p>Experiencia auténtica de la cultura cafetera con habitaciones confortables rodeadas de naturaleza. Ubicada en entorno tranquilo cerca de Salento, combina la hospitalidad tradicional con comodidades modernas.</p>
+          <p>Finca hotel rodeada de cafetales con piscina, jardines y vistas al valle. Descanso campo adentro a minutos del pueblo.</p>
           <div class="meta-row">
             <span>$$$</span>
             <span>Reservas directas</span>
@@ -197,15 +185,15 @@
             <span class="rating">⭐ 4.6</span>
           </div>
           <h3>Hotel La Floresta Salento</h3>
-          <p>Hotel boutique con ambiente de finca a 400 metros de la plaza de Salento: café gratuito, Coffee Spa, coworking y suites con jacuzzi. Habitaciones inspiradas en aves de la región y base ideal para el Valle del Cocora. Tarifas desde $124.000 COP por noche.</p>
+          <p>Hotel a 400 m de la plaza con terrazas panorámicas, jardín y habitaciones acogedoras. Ideal para parejas y familias.</p>
           <div class="meta-row">
             <span>$$</span>
             <span>Reservas directas</span>
           </div>
           <div class="card-actions" onclick="event.stopPropagation()">
             <a class="btn primary" href="/paginas-pautantes/hotel-la-floresta-salento/">Ver página</a>
-            <a class="btn" href="https://www.google.com/maps/search/Cra.%205%20%2310-11%2C%20Barrio%20La%20Floresta" target="_blank" rel="noreferrer">Cómo llegar</a>
-            <a class="btn whatsapp" href="https://wa.me/573128681808" target="_blank" rel="noreferrer">WhatsApp</a>
+            <a class="btn" href="https://www.google.com/maps/search/Salento%2C%20Quind%C3%ADo" target="_blank" rel="noreferrer">Cómo llegar</a>
+            <a class="btn whatsapp" href="https://wa.me/573207211382" target="_blank" rel="noreferrer">WhatsApp</a>
           </div>
         </div>
       </article>
@@ -215,38 +203,38 @@
         <div class="card-body">
           <div class="card-header-row">
             <span class="pill">Alojamientos</span>
-            <span class="rating">Hostel</span>
+            <span class="rating">⭐ 4.8</span>
           </div>
           <h3>Mahalo Hostel Salento</h3>
-          <p>Hostel boutique en el centro de Salento con 11 habitaciones, jacuzzi en suites, desayuno, fogata al aire libre y vista a la montaña. Recepción 24 horas, a 200 metros del Mirador. Desde 2020 ofreciendo hospitalidad quindiana.</p>
+          <p>Hostel con habitaciones tipo tatami, desayuno, fogata y vistas a la montaña. Hospitalidad quindiana desde 2020.</p>
           <div class="meta-row">
             <span>$$$</span>
-            <span>Reservas directas</span>
+            <span>Check-in 3:00 PM / Check-out 12:00 PM</span>
           </div>
           <div class="card-actions" onclick="event.stopPropagation()">
             <a class="btn primary" href="/paginas-pautantes/mahalo-hostel-salento/">Ver página</a>
-            <a class="btn" href="https://www.google.com/maps/search/Calle%202%20%23%206-08%2C%20Salento" target="_blank" rel="noreferrer">Cómo llegar</a>
+            <a class="btn" href="https://www.google.com/maps/search/Calle%202%20%23%206-08%2C%20Salento%2C%20Quind%C3%ADo" target="_blank" rel="noreferrer">Cómo llegar</a>
             <a class="btn whatsapp" href="https://wa.me/573228551504" target="_blank" rel="noreferrer">WhatsApp</a>
           </div>
         </div>
       </article>
     
       <article class="provider-card" onclick="window.location.href='/paginas-pautantes/hotel-la-tia-emiss/'" role="link" tabindex="0" onkeydown="if(event.key==='Enter'){window.location.href='/paginas-pautantes/hotel-la-tia-emiss/'}" style="cursor:pointer" aria-label="Abrir página de Hotel La Tía Emiss">
-        <div class="card-image" style="background-image:url('/imagenes-salento/pueblo.webp')"></div>
+        <div class="card-image" style="background-image:url('/pautas/hotel_tia_emiss/1625430084.webp')"></div>
         <div class="card-body">
           <div class="card-header-row">
             <span class="pill">Alojamientos</span>
             <span class="rating">⭐ 4.4</span>
           </div>
           <h3>Hotel La Tía Emiss</h3>
-          <p>Hotel familiar de arquitectura de colonización antioqueña a dos cuadras del parque principal de Salento. Habitaciones doble, twin, triple y dúplex familiar con Wi-Fi gratis y desayunos destacados por huéspedes.</p>
+          <p>Hotel familiar de arquitectura de colonización antioqueña a 2 cuadras del parque. Habitaciones doble, twin, triple y dúplex con Wi-Fi y desayuno destacado.</p>
           <div class="meta-row">
             <span>$$</span>
-            <span>Reservas directas</span>
+            <span>Check-in 3:00 PM · Check-out 11:00 AM</span>
           </div>
           <div class="card-actions" onclick="event.stopPropagation()">
             <a class="btn primary" href="/paginas-pautantes/hotel-la-tia-emiss/">Ver página</a>
-            <a class="btn" href="https://www.google.com/maps/search/Carrera%204%20%235-38%2C%20Salento" target="_blank" rel="noreferrer">Cómo llegar</a>
+            <a class="btn" href="https://www.google.com/maps/search/Carrera%204%20%235-38%2C%20Salento%2C%20Quind%C3%ADo" target="_blank" rel="noreferrer">Cómo llegar</a>
             <a class="btn whatsapp" href="https://wa.me/573164162726" target="_blank" rel="noreferrer">WhatsApp</a>
           </div>
         </div>

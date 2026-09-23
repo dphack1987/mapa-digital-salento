@@ -59,26 +59,28 @@ import { LODControl, useDetailLevel, adaptDetail, DetailLevel } from './componen
 import { generateAgenticResponse, executeAction, AgentAction } from './services/agenticDonChucho'
 
 const salentoImageGallery = [
-  ['1326163558.webp', 'Paisaje urbano de Salento'],
-  ['1326163759.webp', 'Paisaje de Salento'],
+  ['destinos-75.webp', 'Paisaje del Valle de Cocora y Salento'],
+  ['colombia-palms.webp', 'Palmas de cera del Eje Cafetero'],
+  ['valle-cocora-palmas-2.webp', 'Valle de Cocora con palmas de cera'],
+  ['1326163759.webp', 'Vista panorámica de Salento'],
   ['631026720.webp', 'Arquitectura tradicional de Salento'],
   ['631032744.webp', 'Iglesia y plaza de Salento'],
+  ['1326163558.webp', 'Tejados y paisaje urbano de Salento'],
   ['653410779.webp', 'Palmas de cera del Quindío'],
   ['calle.webp', 'Calle colorida de Salento'],
-  ['destinos-75.webp', 'Destinos turísticos de Salento'],
+  ['pueblo.webp', 'Pueblo de Salento'],
   ['iglesia.webp', 'Iglesia de Salento'],
-  ['images (1).webp', 'Paisaje del destino'],
-  ['images (2).webp', 'Paisaje natural del Quindío'],
+  ['images (1).webp', 'Paisaje natural del Quindío'],
+  ['images (2).webp', 'Montañas y naturaleza del Quindío'],
   ['images.webp', 'Vista de Salento'],
+  ['trucha y patacon.webp', 'Trucha con patacón'],
+  ['Trucha-con-camarones-Salento-Quindio-1024x768.jpeg.webp', 'Trucha con camarones'],
+  ['trucha1.webp', 'Trucha de la cocina salentina'],
+  ['truite-a-la-plancha.webp', 'Trucha a la plancha'],
   ['patacon 3.webp', 'Patacón de la cocina local'],
   ['patacon.webp', 'Patacón tradicional'],
   ['patacon2.webp', 'Plato local con patacón'],
   ['patacon4.webp', 'Gastronomía local'],
-  ['pueblo.webp', 'Pueblo de Salento'],
-  ['trucha y patacon.webp', 'Trucha con patacón'],
-  ['Trucha-con-camarones-Salento-Quindio-1024x768.jpeg.webp', 'Trucha con camarones'],
-  ['trucha1.webp', 'Trucha de la cocina salentina'],
-  ['truite-a-la-plancha.webp', 'Trucha a la plancha']
 ]
 
 const serviceCardImages = {
@@ -252,6 +254,16 @@ function getCountryFlag(country: string): string {
   return flags[country] || 'un'
 }
 
+function placePriority(place: Place): number {
+  // Pautantes con assets en /pautas/ son lo más importante del catálogo
+  const hasPautas = (place.photos || []).some((src) => String(src).startsWith('/pautas/'))
+  if (hasPautas) return 4
+  if (place.isPautante) return 3
+  if (place.actionTarget?.viewUrl || place.actionTarget?.reserveUrl) return 2
+  if (place.verified) return 1
+  return 0
+}
+
 function matchesKeywords(place: Place, keywords: string[]): boolean {
   const searchableText = [
     place.type,
@@ -378,6 +390,7 @@ function App() {
   const [showHotelModal, setShowHotelModal] = useState(false)
   // Estado para Don Chucho IA mejorado
   const [showDonChuchoAI, setShowDonChuchoAI] = useState(false)
+  const [donChuchoLocalOpen, setDonChuchoLocalOpen] = useState(false)
   // Estado para modo AR en mapa
   const [arMapMode, setARMapMode] = useState(false)
   const [userLocation, setUserLocation] = useState<{lat: number; lng: number} | null>(null)
@@ -681,11 +694,7 @@ function App() {
         || (quickFilter === 'pautante' && Boolean(place.isPautante))
       return matchesCategory && matchesSearch && matchesQuick
     })
-    return filtered.sort((a, b) => {
-      const aPriority = a.actionTarget?.viewUrl || a.actionTarget?.reserveUrl ? 2 : a.isPautante ? 1 : 0
-      const bPriority = b.actionTarget?.viewUrl || b.actionTarget?.reserveUrl ? 2 : b.isPautante ? 1 : 0
-      return bPriority - aPriority
-    })
+    return filtered.sort((a, b) => placePriority(b) - placePriority(a))
   }, [activeCategory, search, places, quickFilter])
 
   const internationalMarketsPreview = useMemo(() => {
@@ -711,10 +720,14 @@ function App() {
   }, [places, t])
 
   const featuredPautantes = useMemo(() => {
-    const wanted = ['Hotel La Tía Emiss', 'Finca Don Eduardo Coffee Tour', 'Fonda Boquía', 'Reserva Natural Cascadas de Santa Rita', 'Cabalgatas Cocora Mágica', 'El Recuerdo Coffee Tour']
-    const byName = places.filter(p => p.isPautante && wanted.includes(p.name))
-    const extra = places.filter(p => p.isPautante && !wanted.includes(p.name))
-    return [...byName, ...extra].slice(0, 4)
+    // Prioridad: assets en /pautas/ > orden editorial > resto de pautantes
+    const wanted = ['Cabalgatas Cocora Mágica', 'Moto Aventura 110', 'Hotel La Tía Emiss', 'Finca Don Eduardo Coffee Tour', 'Fonda Boquía', 'Reserva Natural Cascadas de Santa Rita', 'El Recuerdo Coffee Tour']
+    const withPautasAssets = places.filter(p => p.isPautante && (p.photos || []).some(src => String(src).startsWith('/pautas/')))
+    const byName = withPautasAssets.filter(p => wanted.includes(p.name))
+    const byNameRest = withPautasAssets.filter(p => !wanted.includes(p.name))
+    const order = [...byName, ...byNameRest]
+    const rest = places.filter(p => p.isPautante && !withPautasAssets.includes(p))
+    return [...order, ...rest].slice(0, 4)
   }, [places])
 
   const todayPlans = useMemo(() => {
@@ -774,17 +787,13 @@ function App() {
       Tiendas: ['tienda', 'shop', 'comercio', 'mercado', 'venta', 'boutique', 'store', 'souvenir'],
       Experiencias: ['cabalgata', 'caballo', 'equitacion', 'horse', 'ride', 'guia', 'tour', 'ruta', 'senderismo', 'adventure', 'guide', 'experiencia'],
       Eventos: ['evento', 'eventos', 'boda', 'celebracion', 'corporativo', 'matrimonio', 'fiesta', 'salon de eventos', 'reunion'],
-      'Atractivos Turísticos': ['atractivo', 'mirador', 'cascada', 'sendero', 'parque', 'natural', 'reserva', 'turistico', 'vista', 'attraction'],
+      'Atractivos Turísticos': ['atractivo', 'atractivos', 'mirador', 'miradores', 'cascada', 'sendero', 'parque', 'natural', 'reserva', 'turistico', 'vista', 'attraction', 'cabalgata', 'cabalgatas', 'caballo', 'caballos', 'moto', 'motos', 'alquiler de moto', 'minimoto', 'jeep', 'willys', 'cocora', 'iglesia', 'plaza', 'calle real', 'puente', 'palmas', 'oficina', 'terminal'],
       Servicios: ['transporte', 'moto', 'jeep', 'taxi', 'movilidad', 'transfer', 'transport', 'vehicle', 'servicio'],
       Camping: ['camping', 'campamento', 'carpa', 'tienda de campaña', 'glamping', 'al aire libre', 'outdoor', 'campsite', 'cabin']
     }
 
     const result = places.filter((place) => matchesKeywords(place, categoryKeywords[selectedCategoryPage]))
-    return result.sort((a, b) => {
-      const aPriority = a.actionTarget?.viewUrl || a.actionTarget?.reserveUrl ? 2 : a.isPautante ? 1 : 0
-      const bPriority = b.actionTarget?.viewUrl || b.actionTarget?.reserveUrl ? 2 : b.isPautante ? 1 : 0
-      return bPriority - aPriority
-    })
+    return result.sort((a, b) => placePriority(b) - placePriority(a))
   }, [places, selectedCategoryPage])
 
   // Manejar cambio de idioma
@@ -883,13 +892,13 @@ function App() {
         <meta property="og:description" content={helmetDescription} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={helmetCanonical} />
-        <meta property="og:image" content="https://www.salentoalamano.com/imagenes-salento/salento-landscape.webp" />
+        <meta property="og:image" content="https://www.salentoalamano.com/imagenes-salento/destinos-75.webp" />
         <meta property="og:site_name" content="Salento a la Mano" />
         <meta property="og:locale" content="es_CO" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={helmetTitle} />
         <meta name="twitter:description" content={helmetDescription} />
-        <meta name="twitter:image" content="https://www.salentoalamano.com/imagenes-salento/salento-landscape.webp" />
+        <meta name="twitter:image" content="https://www.salentoalamano.com/imagenes-salento/destinos-75.webp" />
         <link rel="alternate" hrefLang="es-CO" href={helmetCanonical} />
         <link rel="alternate" hrefLang="en" href="https://www.salentoalamano.com/en/" />
         <link rel="alternate" hrefLang="de" href="https://www.salentoalamano.com/de/" />
@@ -1014,7 +1023,7 @@ function App() {
 
         <section className="home-hero" id="inicio" aria-labelledby="home-hero-title">
           <div className="home-hero-media">
-            <img src="/imagenes-salento/salento-landscape.webp" alt={t('hero.imgAlt', 'Paisaje de Salento, Quindío')} fetchPriority="high" />
+            <img src="/imagenes-salento/destinos-75.webp" alt={t('hero.imgAlt', 'Paisaje de Salento y el Valle de Cocora, Quindío')} fetchPriority="high" />
             <div className="home-hero-scrim" aria-hidden="true" />
           </div>
           <div className="home-hero-content">
@@ -1539,8 +1548,8 @@ function App() {
               Esta página reúne lo esencial —cómo llegar, qué hacer y cuándo ir— con enlaces directos a nuestras <a href="/paginas-pautantes/calle-real-de-salento/">páginas de pautantes</a> y a las <a href="/landing/valle-de-cocora-guia/">guías extendidas</a> del sitio para que armes un itinerario claro, real y sin vueltas. También encontrarás referencias a <a href="/paginas-pautantes/finca-don-eduardo-coffee-tour/">fincas de coffee tour verificadas</a>, <a href="/paginas-pautantes/valle-de-cocora-sendero-de-entrada-libre/">senderos con entrada libre</a> al Valle de Cocora y opciones de hospedaje y gastronomía con contacto directo por WhatsApp, sin comisiones de intermediarios. La idea es simple: que llegues con expectativas realistas, vuelvas con historias propias y apoyes a los negocios locales que hacen de Salento un destino con identidad. Si es tu primera visita, empieza por las secciones de transporte y actividades; si ya conoces el pueblo, usa los enlaces a categorías y landings para descubrir rincones menos transitados y planes de temporada baja.
             </p>
             <figure className="home-content-figure">
-              <img src="/imagenes-salento/salento-landscape.webp" alt="Vista panorámica del valle y las montañas de Salento, Quindío, al atardecer" loading="lazy" width="1200" height="675" />
-              <figcaption>Paisaje del entorno de Salento, Quindío — foto de archivo Salento a la Mano</figcaption>
+              <img src="/imagenes-salento/colombia-palms.webp" alt="Palmas de cera y paisaje del Valle de Cocora en Salento, Quindío" loading="lazy" width="1200" height="675" />
+              <figcaption>Palmas de cera y valle del entorno de Salento, Quindío — foto de archivo Salento a la Mano</figcaption>
             </figure>
 
             <h2>Cómo llegar a Salento</h2>
@@ -1652,11 +1661,16 @@ function App() {
             <PhotoGallery
               label="Paisajes de Salento"
               photos={[
+                { src: '/imagenes-salento/destinos-75.webp', alt: 'Valle de Cocora y paisaje de Salento' },
+                { src: '/imagenes-salento/colombia-palms.webp', alt: 'Palmas de cera del Eje Cafetero' },
+                { src: '/imagenes-salento/valle-cocora-palmas-2.webp', alt: 'Palmas gigantes en el Valle de Cocora' },
+                { src: '/imagenes-salento/1326163759.webp', alt: 'Vista panorámica de Salento' },
+                { src: '/imagenes-salento/631026720.webp', alt: 'Calle colorida del centro de Salento' },
+                { src: '/imagenes-salento/631032744.webp', alt: 'Iglesia y Plaza de Bolívar' },
                 { src: '/imagenes-salento/1326163558.webp', alt: 'Tejados tradicionales de Salento' },
-                { src: '/imagenes-salento/1326163759.webp', alt: 'Monumento entre palmas en Salento' },
-                { src: '/imagenes-salento/631026720.webp', alt: 'Calle colorida de Salento' },
-                { src: '/imagenes-salento/631032744.webp', alt: 'Iglesia y plaza de Salento' },
-                { src: '/imagenes-salento/653410779.webp', alt: 'Palmas de cera en el Valle de Cocora' },
+                { src: '/imagenes-salento/653410779.webp', alt: 'Palmas de cera del Quindío' },
+                { src: '/imagenes-salento/pueblo.webp', alt: 'El pueblo de Salento' },
+                { src: '/imagenes-salento/calle.webp', alt: 'Calle empedrada del casco histórico' },
               ]}
             />
           </Suspense>
@@ -1783,8 +1797,16 @@ function App() {
         {showReviews && selectedPlaceForReviews && <Reviews placeId={showReviews} placeName={selectedPlaceForReviews.name} placeType={selectedPlaceForReviews.type} onClose={() => setShowReviews(null)} language={language as 'es' | 'en'} />}
         {showSupport && <SupportCenter onClose={() => setShowSupport(false)} language={language as 'es' | 'en'} />}
         {showLandingPage && <DynamicLandingPage slug={showLandingPage} onClose={() => setShowLandingPage(null)} />}
-        {/* Don Chucho IA mejorado - producción */}
-        {showDonChuchoAI && <EnhancedDonChucho />}
+        {/* Don Chucho IA mejorado - producción (fallback al chat local si no hay backend) */}
+        {showDonChuchoAI && (
+          <EnhancedDonChucho
+            onClose={() => setShowDonChuchoAI(false)}
+            onFallback={() => {
+              setShowDonChuchoAI(false)
+              setDonChuchoLocalOpen(true)
+            }}
+          />
+        )}
         {showHotelModal && (
           <HotelInfoModal 
             isOpen={showHotelModal}
@@ -1836,7 +1858,19 @@ function App() {
           <ArrowDown size={14} />
         </button>
       </div>
-      <DonChucho language={language} t={t} places={places} weather={weather} todayEvents={todayEvents}  onOpenEnhanced={() => setShowDonChuchoAI(true)} />
+      <DonChucho
+        language={language}
+        t={t}
+        places={places}
+        weather={weather}
+        todayEvents={todayEvents}
+        open={donChuchoLocalOpen}
+        onOpenChange={setDonChuchoLocalOpen}
+        onOpenEnhanced={() => {
+          setDonChuchoLocalOpen(false)
+          setShowDonChuchoAI(true)
+        }}
+      />
       {isOffline && <div className="offline-status">
         <span className="offline-indicator" />
         {t('offline', 'Modo Offline - Valle de Cocora')}
@@ -1846,8 +1880,13 @@ function App() {
   )
 }
 
-function DonChucho({ language, t, places, weather, todayEvents, onOpenEnhanced }: { language: Language; t: (key: string, fallback?: string) => string; places: Place[]; weather: any; todayEvents: any[]; onOpenEnhanced?: () => void }) {
-  const [open, setOpen] = useState(false)
+function DonChucho({ language, t, places, weather, todayEvents, open: openProp, onOpenChange, onOpenEnhanced }: { language: Language; t: (key: string, fallback?: string) => string; places: Place[]; weather: any; todayEvents: any[]; open?: boolean; onOpenChange?: (open: boolean) => void; onOpenEnhanced?: () => void }) {
+  const [openInternal, setOpenInternal] = useState(false)
+  const open = openProp ?? openInternal
+  const setOpen = (value: boolean) => {
+    if (onOpenChange) onOpenChange(value)
+    setOpenInternal(value)
+  }
   const [question, setQuestion] = useState('')
   const [answer, setAnswer] = useState(t('donChucho.welcome', '¡Hola, pues! ¿Buscando dónde comer una buena trucha o un transporte para el Valle de Cocora? Pregúnteme lo que quiera.'))
   const [suggestions, setSuggestions] = useState<string[]>([])
@@ -2201,7 +2240,14 @@ function DonChucho({ language, t, places, weather, todayEvents, onOpenEnhanced }
           </form>
         </div>
       )}
-      <button className="chucho-trigger" onClick={onOpenEnhanced} aria-label="Abrir asistente Don Chucho">
+      <button
+        className="chucho-trigger"
+        onClick={() => {
+          if (onOpenEnhanced) onOpenEnhanced()
+          else setOpen(!open)
+        }}
+        aria-label="Abrir asistente Don Chucho"
+      >
         <img src="/don-chucho-boton.webp" alt="Don Chucho" className="chucho-button-image" />
         {showGreeting && <span className="chucho-greeting">¡Hola, pues!</span>}
       </button>

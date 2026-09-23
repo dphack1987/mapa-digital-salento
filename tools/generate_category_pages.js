@@ -17,12 +17,12 @@ const catalog = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
 const providers = Array.isArray(catalog.places) ? catalog.places : [];
 
 const categoryMeta = {
-  Alojamientos: { title: 'Alojamientos', description: 'Hoteles, fincas y hospedajes para descansar en Salento', image: '/imagenes-salento/pueblo.jfif' },
+  Alojamientos: { title: 'Alojamientos', description: 'Hoteles, fincas y hospedajes para descansar en Salento', image: '/imagenes-salento/pueblo.webp' },
   Restaurantes: { title: 'Restaurantes', description: 'Sabor local, cafés y rincones para comer bien en Salento', image: '/imagenes-salento/Trucha-con-camarones-Salento-Quindio-1024x768.jpeg.webp' },
-  'Cafés': { title: 'Cafés', description: 'Espacios para tomar café, brunch y momentos tranquilos', image: 'https://images.unsplash.com/photo-1497636577773-f1231844b336?auto=format&fit=crop&w=1200&q=80' },
-  Artesanías: { title: 'Artesanías', description: 'Productos locales, regalos y cultura hecha a mano', image: 'https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1200&q=80' },
-  Tiendas: { title: 'Tiendas', description: 'Comercios locales, souvenirs y compras directas', image: '/imagenes-salento/calle.jfif' },
-  Experiencias: { title: 'Experiencias', description: 'Tour, miradores, senderismo y actividades para vivir Salento', image: '/imagenes-salento/653410779.webp' },
+  'Cafés': { title: 'Cafés', description: 'Espacios para tomar café, brunch y momentos tranquilos', image: '/pautas/coffee-tour-finca-cafetera-don-elias/imagenes/cafe-don-elias.webp' },
+  Artesanías: { title: 'Artesanías', description: 'Productos locales, regalos y cultura hecha a mano', image: '/imagenes-salento/calle.webp' },
+  Tiendas: { title: 'Tiendas', description: 'Comercios locales, souvenirs y compras directas', image: '/imagenes-salento/calle.webp' },
+  Experiencias: { title: 'Experiencias', description: 'Tour, miradores, senderismo y actividades para vivir Salento', image: '/imagenes-salento/destinos-75.webp' },
   Servicios: { title: 'Servicios', description: 'Transporte, movilidad y ayuda rápida para tu visita', image: '/pautas/cootracocora_ltda/willys.webp' },
 };
 
@@ -118,7 +118,10 @@ const CARD_IMAGE_OVERRIDES = {
 };
 
 function cardImageFor(item, category) {
-  return CARD_IMAGE_OVERRIDES[slugify(item.name)] || categoryMeta[category]?.image || 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee';
+  if (CARD_IMAGE_OVERRIDES[slugify(item.name)]) return CARD_IMAGE_OVERRIDES[slugify(item.name)];
+  const photos = providerPhotos(item);
+  if (photos[0]) return photos[0].startsWith('http') ? photos[0] : encodeURI(photos[0]);
+  return categoryMeta[category]?.image || '/imagenes-salento/destinos-75.webp';
 }
 
 function galleryFor(provider) {
@@ -337,41 +340,45 @@ function renderCategoryPage(category, items) {
       .brand-logo { width: 42px; height: 42px; object-fit: contain; border-radius: 50%; }
       .nav-link { background: var(--white); border: 1px solid var(--line); padding: 10px 14px; border-radius: 999px; }
       .hero {
-        display: grid; grid-template-columns: 1.3fr .7fr; gap: 20px; align-items: stretch; margin-bottom: 28px;
+        display: grid; grid-template-columns: 1.25fr .75fr; gap: 0; align-items: stretch; margin-bottom: 28px;
+        background: var(--white); border: 1px solid var(--line); border-radius: 24px; overflow: hidden;
+        box-shadow: 0 18px 40px rgba(39,54,43,.1);
       }
-      .hero-copy, .hero-visual {
-        background: var(--white); border: 1px solid var(--line); border-radius: 22px; overflow: hidden;
-      }
-      .hero-copy { padding: 30px 28px; }
+      .hero-copy { padding: 36px 32px; display: flex; flex-direction: column; justify-content: center; }
       .eyebrow { text-transform: uppercase; letter-spacing: .12em; font-size: 11px; color: var(--coral); font-weight: 700; }
-      h1 { font-size: clamp(2rem, 4vw, 4rem); margin: 12px 0 12px; }
+      h1 { font-size: clamp(2rem, 4vw, 4rem); margin: 12px 0 12px; line-height: .98; }
       .sub { color: #536057; font-size: 1.05rem; line-height: 1.6; }
       .stats { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 20px; }
       .stat { background: #f1eadb; border: 1px solid var(--line); border-radius: 14px; padding: 12px 14px; }
       .hero-visual {
-        background-image: linear-gradient(rgba(0,0,0,.15), rgba(0,0,0,.3)), url('${categoryMeta[category]?.image || 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee'}');
-        background-size: cover; background-position: center; min-height: 260px;
+        background-image: linear-gradient(rgba(15,28,18,.18), rgba(15,28,18,.42)), url('${categoryMeta[category]?.image || '/imagenes-salento/destinos-75.webp'}');
+        background-size: cover; background-position: center; min-height: 280px;
       }
       .provider-grid {
-        display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; margin-top: 24px;
+        display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 18px; margin-top: 24px;
       }
       .empty-category { display: flex; align-items: center; gap: 18px; margin-top: 24px; padding: 24px; border: 1px dashed var(--coral); background: rgba(255,255,255,.7); }
       .empty-category-mark { display: grid; place-items: center; width: 42px; height: 42px; flex: 0 0 42px; border: 1px solid var(--coral); border-radius: 50%; color: var(--coral); font-size: 25px; }
       .empty-category h2 { margin: 0 0 6px; font: 600 22px Fraunces, serif; }
       .empty-category p { margin: 0; color: #59665f; line-height: 1.5; }
       .provider-card {
-        background: var(--white); border: 1px solid var(--line); border-radius: 20px; overflow: hidden; 
+        background: var(--white); border: 1px solid var(--line); border-radius: 20px; overflow: hidden;
+        box-shadow: 0 8px 24px rgba(39,54,43,.06); transition: transform .2s, box-shadow .2s, border-color .2s;
+        display: flex; flex-direction: column;
       }
+      .provider-card:hover { transform: translateY(-4px); box-shadow: 0 16px 32px rgba(39,54,43,.12); border-color: var(--coral); }
       .card-image {
-        height: 150px; background-size: cover; background-position: center; width: 100%;
+        height: 170px; background-size: cover; background-position: center; width: 100%;
+        transition: transform .35s ease;
       }
-      .card-body { padding: 18px; }
+      .provider-card:hover .card-image { transform: scale(1.04); }
+      .card-body { padding: 18px; display: flex; flex-direction: column; flex: 1; }
       .card-header-row, .meta-row, .card-actions { display: flex; justify-content: space-between; gap: 10px; align-items: center; }
       .card-header-row { margin-bottom: 10px; }
       .pill { background: #f3ead6; border-radius: 999px; padding: 6px 10px; font-size: 10px; font-weight: 700; text-transform: uppercase; }
       .rating { font-size: 12px; font-weight: 700; }
       h3 { margin: 8px 0 10px; font-size: 1.35rem; }
-      .card-body p { margin: 0 0 14px; color: #59665f; line-height: 1.5; font-size: 0.96rem; }
+      .card-body p { margin: 0 0 14px; color: #59665f; line-height: 1.5; font-size: 0.96rem; flex: 1; }
       .meta-row { color: #4d5a51; font-size: 12px; margin-bottom: 16px; }
       .btn {
         display: inline-flex; align-items: center; justify-content: center; padding: 10px 12px; border-radius: 10px; border: 1px solid var(--line); font-weight: 700; font-size: 12px;
@@ -380,7 +387,10 @@ function renderCategoryPage(category, items) {
       .btn.whatsapp { background: #25d366; border-color: #25d366; color: #fff; }
       @media (max-width: 760px) {
         .hero { grid-template-columns: 1fr; }
+        .hero-visual { min-height: 180px; order: -1; }
+        .hero-copy { padding: 24px 20px 28px; }
         .topbar { flex-direction: column; align-items: flex-start; }
+        .provider-grid { grid-template-columns: 1fr; }
       }
     </style>
     <link rel="stylesheet" href="/page-theme.css" />
@@ -715,7 +725,10 @@ for (const category of categoryNames) {
 }
 
 // Páginas artesanales que el generador nunca debe sobrescribir (mapa offline a medida)
-const PROTECT = new Set(['camping-cascadas-de-santa-rita']);
+const PROTECT = new Set([
+  'camping-cascadas-de-santa-rita',
+  'reserva-natural-cascadas-de-santa-rita',
+]);
 
 for (const provider of providers) {
   if (PROTECT.has(slugify(provider.name))) continue;
@@ -742,15 +755,20 @@ const indexHtml = `<!DOCTYPE html>
       body { margin: 0; background: #f5f1e8; color: #1f2d26; font-family: 'DM Sans', sans-serif; }
       .brand { display: inline-flex; align-items: center; gap: 10px; font-weight: 700; } .brand-logo { width: 42px; height: 42px; object-fit: contain; border-radius: 50%; }
       .container { max-width: 1100px; margin: 0 auto; padding: 40px 20px 80px; }
-      .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; }
-      .card { background: white; border: 1px solid #d9d0bf; border-radius: 20px; overflow: hidden; }
-      .image { height: 160px; background-size: cover; background-position: center; }
+      .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 18px; }
+      .card { background: white; border: 1px solid #d9d0bf; border-radius: 22px; overflow: hidden; box-shadow: 0 8px 24px rgba(39,54,43,.06); transition: transform .2s, box-shadow .2s; }
+      .card:hover { transform: translateY(-4px); box-shadow: 0 16px 32px rgba(39,54,43,.12); }
+      .image { height: 180px; background-size: cover; background-position: center; transition: transform .35s ease; }
+      .card:hover .image { transform: scale(1.04); }
       .content { padding: 18px; }
       h1 { margin: 0 0 18px; font-size: clamp(2.2rem, 4vw, 3rem); }
       h3 { margin: 0 0 10px; }
       p { margin: 0; color: #59665f; line-height: 1.5; }
       a { text-decoration: none; color: inherit; }
       .btn { display: inline-block; margin-top: 16px; background: #1f2d26; color: white; border-radius: 999px; padding: 10px 14px; font-weight: 700; }
+      .card { display: flex; flex-direction: column; }
+      .image { overflow: hidden; }
+      .card > .image { overflow: hidden; }
     </style>
     <link rel="stylesheet" href="/page-theme.css" />
   </head>

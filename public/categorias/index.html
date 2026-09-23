@@ -3,53 +3,31 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
     <meta name="description" content="Explora categorías de alojamientos, gastronomía, experiencias y servicios locales en Salento, Quindío." />
     <title>Categorías | Salento a la Mano</title>
-    <meta property="og:title" content="Todas las Categorías de Salento | Salento a la Mano" />
-    <meta property="og:description" content="Explora todas las categorías de Salento, Quindío: alojamientos, restaurantes, cafés, experiencias, coffee tours y servicios locales verificados." />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://www.salentoalamano.com/categorias/" />
-    <meta property="og:image" content="https://www.salentoalamano.com/imagenes-salento/pueblo.webp" />
-    <meta property="og:site_name" content="Salento a la Mano" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Categorías de Salento | Salento a la Mano" />
-    <meta name="twitter:description" content="Todas las categorías de Salento: alojamientos, restaurantes, experiencias y más." />
-    <link rel="alternate" hreflang="es-CO" href="https://www.salentoalamano.com/categorias/" />
-    <link rel="alternate" hreflang="x-default" href="https://www.salentoalamano.com/categorias/" />
     <link rel="canonical" href="https://www.salentoalamano.com/categorias/" />
     <style>
       @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap');
       body { margin: 0; background: #f5f1e8; color: #1f2d26; font-family: 'DM Sans', sans-serif; }
       .brand { display: inline-flex; align-items: center; gap: 10px; font-weight: 700; } .brand-logo { width: 42px; height: 42px; object-fit: contain; border-radius: 50%; }
       .container { max-width: 1100px; margin: 0 auto; padding: 40px 20px 80px; }
-      .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; }
-      .card { background: white; border: 1px solid #d9d0bf; border-radius: 20px; overflow: hidden; }
-      .image { height: 160px; background-size: cover; background-position: center; }
+      .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 18px; }
+      .card { background: white; border: 1px solid #d9d0bf; border-radius: 22px; overflow: hidden; box-shadow: 0 8px 24px rgba(39,54,43,.06); transition: transform .2s, box-shadow .2s; }
+      .card:hover { transform: translateY(-4px); box-shadow: 0 16px 32px rgba(39,54,43,.12); }
+      .image { height: 180px; background-size: cover; background-position: center; transition: transform .35s ease; }
+      .card:hover .image { transform: scale(1.04); }
       .content { padding: 18px; }
       h1 { margin: 0 0 18px; font-size: clamp(2.2rem, 4vw, 3rem); }
       h3 { margin: 0 0 10px; }
       p { margin: 0; color: #59665f; line-height: 1.5; }
       a { text-decoration: none; color: inherit; }
       .btn { display: inline-block; margin-top: 16px; background: #1f2d26; color: white; border-radius: 999px; padding: 10px 14px; font-weight: 700; }
+      .card { display: flex; flex-direction: column; }
+      .image { overflow: hidden; }
+      .card > .image { overflow: hidden; }
     </style>
     <link rel="stylesheet" href="/page-theme.css" />
-  
-<!-- Yandex.Metrika counter -->
-<script type="text/javascript" >
-(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
- m[i].l=1*new Date();
- for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}
- k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-(window, document, "script", "https://mc.yandex.ru/metrika/tag.js?id=112528103", "ym");
-
- ym(112528103, 'init', {ssr:true, webvisor:true, clickmap:true,
- ecommerce:true, accurateTrackBounce:true, trackHash:true});
-</script>
-<noscript><div><img src="https://mc.yandex.ru/watch/112528103" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-<!-- /Yandex.Metrika counter -->
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"Categorías | Salento a la Mano","description":"Todas las categorías de Salento, Quindío","url":"https://www.salentoalamano.com/categorias/","inLanguage":"es"}</script>
-</head>
+  </head>
   <body>
     <div class="container">
           <header class="topbar"><a class="brand" href="/"><img src="/logo_salento2026.webp" alt="Salento a la Mano" class="brand-logo"/><span>Salento a la Mano</span></a><a href="/">Volver al inicio</a></header>
@@ -75,7 +53,7 @@
           </a>
         
           <a href="/categorias/cafes.html" class="card">
-            <div class="image" style="background-image:url('https://images.unsplash.com/photo-1497636577773-f1231844b336?auto=format&fit=crop&w=1200&q=80')"></div>
+            <div class="image" style="background-image:url('/pautas/coffee-tour-finca-cafetera-don-elias/imagenes/cafe-don-elias.webp')"></div>
             <div class="content">
               <h3>Cafés</h3>
               <p>Espacios para tomar café, brunch y momentos tranquilos</p>
@@ -84,7 +62,7 @@
           </a>
         
           <a href="/categorias/artesanias.html" class="card">
-            <div class="image" style="background-image:url('https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1200&q=80')"></div>
+            <div class="image" style="background-image:url('/imagenes-salento/calle.webp')"></div>
             <div class="content">
               <h3>Artesanías</h3>
               <p>Productos locales, regalos y cultura hecha a mano</p>
@@ -102,7 +80,7 @@
           </a>
         
           <a href="/categorias/experiencias.html" class="card">
-            <div class="image" style="background-image:url('/imagenes-salento/653410779.webp')"></div>
+            <div class="image" style="background-image:url('/imagenes-salento/destinos-75.webp')"></div>
             <div class="content">
               <h3>Experiencias</h3>
               <p>Tour, miradores, senderismo y actividades para vivir Salento</p>

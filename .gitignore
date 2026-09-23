@@ -9,6 +9,7 @@ test2026/
 
 # Archivos temporales
 *.txt
+!backend/requirements.txt
 ts_errors_current.txt
 pautas_dirs.txt
 pautas_list.txt

@@ -23,10 +23,11 @@ type LocalPlace = Pautante
 
 interface EnhancedDonChuchoProps {
   onFallback?: () => void
+  onClose?: () => void
   existingComponent?: React.ReactNode
 }
 
-function EnhancedDonChucho({ onFallback, existingComponent }: EnhancedDonChuchoProps) {
+function EnhancedDonChucho({ onFallback, onClose, existingComponent }: EnhancedDonChuchoProps) {
   const [message, setMessage] = useState('')
   const [response, setResponse] = useState('')
   const [isLoading, setIsLoading] = useState(false)
@@ -46,35 +47,50 @@ function EnhancedDonChucho({ onFallback, existingComponent }: EnhancedDonChuchoP
   
   const speechSynthRef = useRef<SpeechSynthesis | null>(null)
   const currentUtteranceRef = useRef<SpeechSynthesisUtterance | null>(null)
+  const onFallbackRef = useRef(onFallback)
+  onFallbackRef.current = onFallback
+
+  const goLocal = () => {
+    if (onFallbackRef.current) {
+      onFallbackRef.current()
+      return
+    }
+    if (onClose) onClose()
+  }
 
   useEffect(() => {
+    let cancelled = false
     const checkPythonBackend = async () => {
       try {
         const health = await pythonBackendService.healthCheck()
+        if (cancelled) return
         if (health && health.status === 'healthy') {
           setPythonStatus('online')
         } else {
           setPythonStatus('offline')
           setUsePython(false)
+          onFallbackRef.current?.()
         }
       } catch (err) {
+        if (cancelled) return
         console.warn('[EnhancedDonChucho] Backend no disponible:', err)
         setPythonStatus('offline')
         setUsePython(false)
+        onFallbackRef.current?.()
       }
     }
-    
+
     checkPythonBackend()
-    
+
     // Inicializar síntesis de voz - Don Chucho propio
     if ('speechSynthesis' in window) {
       speechSynthRef.current = window.speechSynthesis
-      
+
       const loadVoices = () => {
         const voices = window.speechSynthesis.getVoices()
         setAvailableVoices(voices)
-        
-        const spanishVoice = voices.find(voice => 
+
+        const spanishVoice = voices.find(voice =>
           voice.lang.includes('es') || voice.lang.includes('es-ES') || voice.lang.includes('es-CO')
         )
         if (spanishVoice) {
@@ -83,9 +99,14 @@ function EnhancedDonChucho({ onFallback, existingComponent }: EnhancedDonChuchoP
           setSelectedVoice(voices[0])
         }
       }
-      
+
       loadVoices()
       window.speechSynthesis.onvoiceschanged = loadVoices
+    }
+
+    return () => {
+      cancelled = true
+      window.speechSynthesis.onvoiceschanged = null
     }
   }, [])
 
@@ -124,6 +145,7 @@ function EnhancedDonChucho({ onFallback, existingComponent }: EnhancedDonChuchoP
       } else {
         if (onFallback) {
           onFallback()
+          return
         }
         setResponse('Estoy procesando tu solicitud con el sistema local. ¿En qué más puedo ayudarte?')
         setLocalPlaces([])
@@ -201,9 +223,27 @@ function EnhancedDonChucho({ onFallback, existingComponent }: EnhancedDonChuchoP
       }
     }
     
-    // Filtro de turistazas para la categoría
+    // Filtro de turistazas para la categoría (place.type -> clave backend)
     if (localPlacesList.length > 0) {
-      const category = localPlacesList[0].type.toLowerCase()
+      const rawType = (localPlacesList[0].type || '').toLowerCase()
+      const typeMap: Record<string, string> = {
+        'alojamientos': 'accommodation',
+        'camping': 'accommodation',
+        'restaurantes': 'food',
+        'restaurante bar': 'food',
+        'cafés': 'food',
+        'cafes': 'food',
+        'coffee tours': 'coffee',
+        'servicios': 'transport',
+        'atractivos turísticos': 'nature',
+        'atractivos turisticos': 'nature',
+        'experiencias': 'nature',
+        'eventos': 'events',
+        'artesanías': 'shopping',
+        'artesanias': 'shopping',
+        'tiendas': 'shopping',
+      }
+      const category = typeMap[rawType] || rawType
       const filter = await pythonBackendService.getTouristTrapFilter(category)
       if (filter.authentic_places && filter.authentic_places.length > 0) {
         setAuthenticPlaces(filter.authentic_places as unknown as LocalPlace[])
@@ -213,7 +253,7 @@ function EnhancedDonChucho({ onFallback, existingComponent }: EnhancedDonChuchoP
 
   const loadNearbyPautantes = async (lat: number, lng: number) => {
     try {
-      const nearby = await pythonBackendService.getNearbyPautantes(lat, lng, 'all', 0.5)
+      const nearby = await pythonBackendService.getNearbyPautantes(lat, lng, 'all', 5)
       setNearbyPlaces(nearby.nearby_pautantes || [])
     } catch (error) {
       console.error('Error cargando nearby pautantes:', error)
@@ -255,13 +295,23 @@ function EnhancedDonChucho({ onFallback, existingComponent }: EnhancedDonChuchoP
     <div className="enhanced-don-chucho">
       <div className="status-indicator">
         <span className={`status ${pythonStatus}`}>
-          {pythonStatus === 'checking' ? 'Verificando...' : 
-           pythonStatus === 'online' ? 'Don Chucho IA Online' : 
+          {pythonStatus === 'checking' ? 'Verificando...' :
+           pythonStatus === 'online' ? 'Don Chucho IA Online' :
            'Don Chucho IA Offline'}
         </span>
         {pythonStatus === 'online' && <span className="zero-click-badge">Zero-Click Access</span>}
         {voiceEnabled && <span className="voice-badge">🔊 Voz Activa</span>}
+        <button type="button" className="enhanced-close" onClick={() => (onClose ? onClose() : goLocal())} aria-label="Cerrar asistente">
+          ✕
+        </button>
       </div>
+
+      {pythonStatus === 'offline' && (
+        <div className="enhanced-offline-banner">
+          <p>El asistente IA no está conectado. Puedes seguir con el asistente local de Don Chucho.</p>
+          <button type="button" onClick={goLocal}>Usar asistente local</button>
+        </div>
+      )}
       
       <div className="chat-container">
         <div className="messages">
