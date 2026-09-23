@@ -25,6 +25,9 @@ public/pautas/*/info-*.jpeg
 # Archivos temporales y backups
 screenshot*.png
 *.backup-*
+*.bak_*
+*.bak
+tools/seo_technical_audit.json
 
 # Python
 __pycache__/
