@@ -85,7 +85,7 @@ const salentoImageGallery = [
 const serviceCardImages = {
   gastronomy: '/imagenes-salento/trucha%20y%20patacon.webp',
   restaurantBar: '/pautas/restaurante_bar_fonda_boquia/imagenes/480508481_1169835038167384_4932382570318530100_n.webp',
-  transport: '/pautas/cootracocora_ltda/willys.webp',
+  transport: '/pautas/cootracocora_ltda/imagenes/willys.webp',
   horseback: '/pautas/cabalgatas_cocora_magica/imagenes/cabalgatas-en-el-valle-de-cocora-6.webp',
   guides: '/imagenes-salento/valle-cocora-palmas-2.webp',
   accommodation: '/pautas/hotel_la_floresta_salento/imagenes/lafloresta-fachada.webp',
@@ -96,7 +96,13 @@ const serviceCardImages = {
 } as const
 
 function providerSlug(name: string) {
-  return name.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')
+  return name.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')
+}
+
+function placePageHref(place: Place): string {
+  if (place.actionTarget?.viewUrl) return place.actionTarget.viewUrl
+  const slug = place.brandSlug || providerSlug(place.name)
+  return `/paginas-pautantes/${slug}/`
 }
 import { placeCtaLabel, markerCtaLabel } from './utils/placeCta'
 import translationService from './services/translationService'
@@ -129,7 +135,6 @@ const Reviews = lazy(() => import('./components/Reviews'))
 const SupportCenter = lazy(() => import('./components/SupportCenter'))
 const DynamicLandingPage = lazy(() => import('./components/DynamicLandingPage'))
 const HotelInfoModal = lazy(() => import('./components/HotelInfoModal'))
-const InteractiveMenu = lazy(() => import('./components/InteractiveMenu'))
 const PhotoGallery = lazy(() => import('./components/PhotoGallery'))
 const QRShare = lazy(() => import('./components/QRShare'))
 const DefensiveSEODashboard = lazy(() => import('./components/DefensiveSEODashboard'))
@@ -139,6 +144,7 @@ const AllyVerification = lazy(() => import('./components/AllyVerification'))
 const ProviderSelectionModal = lazy(() => import('./components/ProviderSelectionModal'))
 const FeatureCards = lazy(() => import('./components/FeatureCards'))
 const FeaturedHomeMenus = lazy(() => import('./components/FeaturedHomeMenus'))
+const HomeBanners = lazy(() => import('./components/HomeBanners'))
 
 function LoadingFallback() {
   return (
@@ -1172,7 +1178,7 @@ function App() {
                   key={place.id}
                   place={adaptPlaceForCompatibility(place)}
                   onAdd={addToCart}
-                  onOpen={() => window.location.assign(`/paginas-pautantes/${providerSlug(place.name)}/`)}
+                  onOpen={() => window.location.assign(placePageHref(place))}
                   onReviews={() => { setShowReviews(String(place.id)); setSelectedPlaceForReviews({ id: String(place.id), name: place.name, type: place.type }) }}
                 />
               ))}
@@ -1188,6 +1194,10 @@ function App() {
           </div>
         ) : selectedPlace ? <PlaceDetail place={selectedPlace} currency={currency} onBack={() => setSelectedPlace(null)} t={t} onReserveHorseback={() => setShowHorsebackRiding(true)} /> : (
           <>
+        <Suspense fallback={<LoadingFallback />}>
+          <HomeBanners />
+        </Suspense>
+
         <Suspense fallback={<LoadingFallback />}>
           <FeaturedHomeMenus places={places} />
         </Suspense>
@@ -1483,6 +1493,50 @@ function App() {
             <p className="authority-note"><Shield size={13} /> {t('authority.note')}</p>
           </div>
 
+        <section className="pautantes-band" id="pautantes" aria-labelledby="pautantes-title">
+          <div className="pautantes-band-inner">
+            <div className="hoy-pautantes-head">
+              <div>
+                <p className="eyebrow">{t('hoy.pautantesEyebrow', 'Negocios locales verificados')}</p>
+                <h2 id="pautantes-title">{t('hoy.pautantesTitle', 'Reserva directo con pautantes')}</h2>
+              </div>
+              <p className="hoy-pautantes-note">{t('hoy.pautantesNote', '✓ WhatsApp directo · Sin comisiones · Información verificada en el catálogo local')}</p>
+            </div>
+            <div className="hoy-pautantes-grid">
+              {featuredPautantes.map((place) => {
+                const href = placePageHref(place)
+                const wa = place.contact?.whatsapp
+                const photo = place.photos?.[0]
+                return (
+                  <article key={place.id} className="hoy-pautante-card">
+                    <div className={`hoy-pautante-media ${photo ? 'has-photo' : place.color || 'sage'}`}>
+                      {photo && <img src={photo} alt={place.name} loading="lazy" />}
+                      {!photo && <span className="hoy-pautante-icon" aria-hidden="true">{place.type === 'Alojamientos' ? '🏨' : place.type === 'Coffee Tours' ? '☕' : place.type === 'Experiencias' ? '🐎' : place.type === 'Camping' ? '⛺' : place.type === 'Restaurantes' || place.type === 'Restaurante Bar' ? '🍽️' : '📍'}</span>}
+                      <span className="hoy-pautante-tag">{place.type}</span>
+                      {place.parentBrand && <span className="hoy-pautante-parent">{place.parentBrand}</span>}
+                    </div>
+                    <div className="hoy-pautante-body">
+                      <h3>{place.name}</h3>
+                      <p>{(place.description || '').slice(0, 110)}{(place.description || '').length > 110 ? '…' : ''}</p>
+                      <div className="hoy-pautante-highlights">
+                        {place.rating && <span>★ {place.rating}</span>}
+                        {place.priceRange && <span>{place.priceRange}</span>}
+                        {place.location?.landmark && <span>{place.location.landmark.slice(0, 28)}</span>}
+                      </div>
+                      <div className="hoy-pautante-actions">
+                        <a className="button primary" href={href} onClick={(e) => { if (!place.actionTarget?.viewUrl) { e.preventDefault(); window.location.assign(href) } }}>{t('hoy.viewPautante', placeCtaLabel(place.type))}</a>
+                        {wa && (
+                          <a className="button" href={`https://wa.me/${wa}`} target="_blank" rel="noreferrer">WhatsApp</a>
+                        )}
+                      </div>
+                    </div>
+                  </article>
+                )
+              })}
+            </div>
+          </div>
+        </section>
+
         <section className="quick-section" id="pedidos">
           <div className="section-heading"><div><p className="eyebrow">{t('nearby')}</p><h2>{t('directory.heading', 'Directorio local')}</h2></div><button className="text-button" onClick={() => { setActiveCategory('Todo'); setSearch(''); setQuickFilter('all'); scrollToSection('pedidos') }}>Ver todo <ArrowRight size={16} /></button></div>
           <div className="directory-search search-box">
@@ -1513,53 +1567,8 @@ function App() {
           </div>
           <div className="directory-intro"><span><MapPin size={16} /> {t('directory.title', 'Directorio local')}</span><small>{filteredPlaces.length} {t('directory.places', 'lugares para descubrir')}</small></div>
           <div className="place-grid">
-            {filteredPlaces.map((place) => <PlaceCard key={place.id} place={adaptPlaceForCompatibility(place)} onAdd={addToCart} onOpen={() => window.location.assign(`/paginas-pautantes/${providerSlug(place.name)}/`)} onReviews={() => { setShowReviews(String(place.id)); setSelectedPlaceForReviews({ id: String(place.id), name: place.name, type: place.type }) }} />)}
+            {filteredPlaces.map((place) => <PlaceCard key={place.id} place={adaptPlaceForCompatibility(place)} onAdd={addToCart} onOpen={() => window.location.assign(placePageHref(place))} onReviews={() => { setShowReviews(String(place.id)); setSelectedPlaceForReviews({ id: String(place.id), name: place.name, type: place.type }) }} />)}
             {filteredPlaces.length === 0 && <div className="empty-state">{t('directory.empty', 'No encontramos ese plan todavía. Prueba con “café”, “artesanía” o “trucha”.')}</div>}
-          </div>
-        </section>
-
-        <section className="pautantes-band" id="pautantes" aria-labelledby="pautantes-title">
-          <div className="pautantes-band-inner">
-            <div className="hoy-pautantes-head">
-              <div>
-                <p className="eyebrow">{t('hoy.pautantesEyebrow', 'Negocios locales verificados')}</p>
-                <h2 id="pautantes-title">{t('hoy.pautantesTitle', 'Reserva directo con pautantes')}</h2>
-              </div>
-              <p className="hoy-pautantes-note">{t('hoy.pautantesNote', '✓ WhatsApp directo · Sin comisiones · Información verificada en el catálogo local')}</p>
-            </div>
-            <div className="hoy-pautantes-grid">
-              {featuredPautantes.map((place) => {
-                const slug = providerSlug(place.name)
-                const href = place.actionTarget?.viewUrl || `/paginas-pautantes/${slug}/`
-                const wa = place.contact?.whatsapp
-                const photo = place.photos?.[0]
-                return (
-                  <article key={place.id} className="hoy-pautante-card">
-                    <div className={`hoy-pautante-media ${photo ? 'has-photo' : place.color || 'sage'}`}>
-                      {photo && <img src={photo} alt={place.name} loading="lazy" />}
-                      {!photo && <span className="hoy-pautante-icon" aria-hidden="true">{place.type === 'Alojamientos' ? '🏨' : place.type === 'Coffee Tours' ? '☕' : place.type === 'Experiencias' ? '🐎' : place.type === 'Camping' ? '⛺' : place.type === 'Restaurantes' || place.type === 'Restaurante Bar' ? '🍽️' : '📍'}</span>}
-                      <span className="hoy-pautante-tag">{place.type}</span>
-                      {place.parentBrand && <span className="hoy-pautante-parent">{place.parentBrand}</span>}
-                    </div>
-                    <div className="hoy-pautante-body">
-                      <h3>{place.name}</h3>
-                      <p>{(place.description || '').slice(0, 110)}{(place.description || '').length > 110 ? '…' : ''}</p>
-                      <div className="hoy-pautante-highlights">
-                        {place.rating && <span>★ {place.rating}</span>}
-                        {place.priceRange && <span>{place.priceRange}</span>}
-                        {place.location?.landmark && <span>{place.location.landmark.slice(0, 28)}</span>}
-                      </div>
-                      <div className="hoy-pautante-actions">
-                        <a className="button primary" href={href} onClick={(e) => { if (!place.actionTarget?.viewUrl) { e.preventDefault(); window.location.assign(href) } }}>{t('hoy.viewPautante', placeCtaLabel(place.type))}</a>
-                        {wa && (
-                          <a className="button" href={`https://wa.me/${wa}`} target="_blank" rel="noreferrer">WhatsApp</a>
-                        )}
-                      </div>
-                    </div>
-                  </article>
-                )
-              })}
-            </div>
           </div>
         </section>
 
@@ -2411,17 +2420,11 @@ function PlaceDetail({ place, currency, onBack, t, onReserveHorseback }: { place
       {place.foodServiceDetails && <div className="detail-sections">
         <Suspense fallback={<LoadingFallback />}>
           <FeatureCards compact />
-          {place.foodServiceDetails.menuHighlights && place.foodServiceDetails.menuHighlights.length > 0 && (
-            <InteractiveMenu
-              placeName={place.name}
-              whatsapp={place.contact.whatsapp}
-              menuHighlights={place.foodServiceDetails.menuHighlights}
-              menuItems={place.foodServiceDetails.menuItems}
-              specialties={place.foodServiceDetails.specialties}
-              currency={currency}
-            />
-          )}
         </Suspense>
+        <div className="detail-menu-cta">
+          <a className="dark-button" href={placePageHref(place)}>{placeCtaLabel(place.type)} <ArrowRight size={15} /></a>
+          <small>La carta completa está en la página del restaurante.</small>
+        </div>
         <InfoList title="Especialidades" items={place.foodServiceDetails.specialties ?? []} />
         <InfoList title="Tipo de cocina" items={place.foodServiceDetails.cuisineType ?? []} />
       </div>}
