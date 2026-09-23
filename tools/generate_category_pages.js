@@ -23,7 +23,7 @@ const categoryMeta = {
   Artesanías: { title: 'Artesanías', description: 'Productos locales, regalos y cultura hecha a mano', image: '/imagenes-salento/calle.webp' },
   Tiendas: { title: 'Tiendas', description: 'Comercios locales, souvenirs y compras directas', image: '/imagenes-salento/calle.webp' },
   Experiencias: { title: 'Experiencias', description: 'Tour, miradores, senderismo y actividades para vivir Salento', image: '/imagenes-salento/destinos-75.webp' },
-  Servicios: { title: 'Servicios', description: 'Transporte, movilidad y ayuda rápida para tu visita', image: '/pautas/cootracocora_ltda/willys.webp' },
+  Servicios: { title: 'Servicios', description: 'Transporte, movilidad y ayuda rápida para tu visita', image: '/pautas/cootracocora_ltda/imagenes/willys.webp' },
 };
 
 const categoryNames = Object.keys(categoryMeta);
@@ -40,7 +40,7 @@ const EXTRA_CATEGORY_CARDS = [
     slug: 'coffee-tours',
     title: 'Coffee Tours',
     description: 'Recorridos por fincas cafeteras y catas del Eje Cafetero',
-    image: '/pautas/coffee-tour-finca-don-eduardo/Plantation.webp',
+    image: '/pautas/coffee-tour-finca-don-eduardo/imagenes/Plantation.webp',
   },
   {
     slug: 'eventos',
@@ -52,7 +52,7 @@ const EXTRA_CATEGORY_CARDS = [
     slug: 'restaurante-bar',
     title: 'Restaurantes Bar',
     description: 'Café-bar, coctelería y ambiente nocturno',
-    image: '/pautas/boki_mall/hotel-mirador-boquia/images (1).webp',
+    image: '/pautas/boki_mall/imagenes/images (1).webp',
   },
   {
     slug: 'camping',
@@ -93,33 +93,33 @@ function brandMark(link = true) {
 }
 
 const PAUTANTE_LOGOS = {
-  'boki-mall-hotel-el-mirador-de-boquia': '/pautas/boki_mall/hotel-mirador-boquia/logo-hotel-mirador-de-boquia.webp',
-  'boki-mall-restaurante-terra': '/pautas/boki_mall/restaurante-terra/terra-restaurante-logo.webp',
-  'boki-mall-barcinales-cafe-bar': '/pautas/boki_mall/barcinales-cafe-bar/barcinales-cafe-bar-logo.webp',
-  'boki-mall-eventos': '/pautas/boki_mall/boki_mall_logo.webp',
+  'boki-mall-hotel-el-mirador-de-boquia': '/pautas/boki_mall/imagenes/logo-hotel-mirador-de-boquia.webp',
+  'boki-mall-restaurante-terra': '/pautas/boki_mall/imagenes/terra-restaurante-logo.webp',
+  'boki-mall-barcinales-cafe-bar': '/pautas/boki_mall/imagenes/barcinales-cafe-bar-logo.webp',
+  'boki-mall-eventos': '/pautas/boki_mall/imagenes/boki_mall_logo.webp',
   'moto-aventura-110': '/pautas/moto_aventura_110/imagenes/logo-moto-aventura-110.webp',
   'reserva-natural-cascadas-de-santa-rita': '/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/logo_cascadas_de_santa_rita.webp',
   'camping-cascadas-de-santa-rita': '/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/logo_cascadas_de_santa_rita.webp',
   'camping-cascadas-santa-rita': '/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/logo_cascadas_de_santa_rita.webp',
   'finca-hotel-el-ocaso': '/pautas/coffee-tour-alojamiento-finca-hotel-el-ocaso/imagenes/logo_ocaso.webp',
   'coffee-tour-alojamiento-finca-hotel-el-ocaso': '/pautas/coffee-tour-alojamiento-finca-hotel-el-ocaso/imagenes/logo_ocaso.webp',
-  'finca-don-eduardo-coffee-tour': '/pautas/coffee-tour-finca-don-eduardo/logo-finca-don-eduardo.webp',
-  'coffee-tour-finca-don-eduardo': '/pautas/coffee-tour-finca-don-eduardo/logo-finca-don-eduardo.webp',
+  'finca-don-eduardo-coffee-tour': '/pautas/coffee-tour-finca-don-eduardo/imagenes/logo-finca-don-eduardo.webp',
+  'coffee-tour-finca-don-eduardo': '/pautas/coffee-tour-finca-don-eduardo/imagenes/logo-finca-don-eduardo.webp',
   'coffee-tour-finca-cafetera-don-elias': '/pautas/coffee-tour-finca-cafetera-don-elias/imagenes/logo-coffe-tour-don-elias.webp',
-  'cootracocora-ltda': '/pautas/cootracocora_ltda/logo-cootracocora.webp',
-  'el-recuerdo-coffee-tour': '/pautas/el_recuerdo_coffee_tour/logo-recuerdo-tour.webp',
+  'cootracocora-ltda': '/pautas/cootracocora_ltda/imagenes/logo-cootracocora.webp',
+  'el-recuerdo-coffee-tour': '/pautas/el_recuerdo_coffee_tour/imagenes/logo-recuerdo-tour.webp',
   'cabalgatas-cocora-magica': '/pautas/cabalgatas_cocora_magica/imagenes/logo-cocora-magica.webp',
   'mahalo-hostel-salento': '/pautas/mahalo_hostel/imagenes/logo-mahalo.webp',
   'mirador-las-manos-de-dios': '/pautas/mirador_mano_de_dios/imagenes/logo-mirador-dios.webp',
-  'parque-mirador-la-vida-es-bella': '/pautas/parque-mirador-la-vida-bella/Logolavidabella.webp',
+  'parque-mirador-la-vida-es-bella': '/pautas/parque-mirador-la-vida-bella/imagenes/Logolavidabella.webp',
   'hotel-la-floresta-salento': '/pautas/hotel_la_floresta_salento/imagenes/images.webp',
   'hotel-camino-nacional-salento': '/pautas/hotel_camino_nacional/imagenes/631033284.webp',
-  'hotel-la-tia-emiss': '/pautas/hotel_tia_emiss/emmis1.jpg',
+  'hotel-la-tia-emiss': '/pautas/hotel_tia_emiss/imagenes/emmis1.jpg',
   'restaurante-don-elias': '/pautas/coffee-tour-finca-cafetera-don-elias/imagenes/logo-coffe-tour-don-elias.webp',
   'finca-cafetera-don-elias': '/pautas/coffee-tour-finca-cafetera-don-elias/imagenes/logo-coffe-tour-don-elias.webp',
   'fonda-boquia': '/pautas/restaurante_bar_fonda_boquia/imagenes/480508481_1169835038167384_4932382570318530100_n.webp',
-  'punto-de-encuentro-jeeps-willys-plaza': '/pautas/cootracocora_ltda/willys.webp',
-  'terminal-de-transporte-de-salento-acceso-peatonal': '/pautas/cootracocora_ltda/willys.webp',
+  'punto-de-encuentro-jeeps-willys-plaza': '/pautas/cootracocora_ltda/imagenes/willys.webp',
+  'terminal-de-transporte-de-salento-acceso-peatonal': '/pautas/cootracocora_ltda/imagenes/willys.webp',
   'calle-real-de-salento': '/imagenes-salento/calle.webp',
   'plaza-de-bolivar-de-salento': '/imagenes-salento/pueblo.webp',
   'iglesia-de-nuestra-senora-del-carmen-de-salento': '/imagenes-salento/pueblo.webp',
@@ -181,7 +181,7 @@ function providerPhotos(provider) {
 
 // Imagen destacada por pautante en tarjetas de categoría (logo oficial del aliado)
 const CARD_IMAGE_OVERRIDES = {
-  'cootracocora-ltda': '/pautas/cootracocora_ltda/logo-cootracocora.webp',
+  'cootracocora-ltda': '/pautas/cootracocora_ltda/imagenes/logo-cootracocora.webp',
 };
 
 function cardImageFor(item, category) {
