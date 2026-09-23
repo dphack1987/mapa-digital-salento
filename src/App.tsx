@@ -273,6 +273,8 @@ function matchesKeywords(place: Place, keywords: string[]): boolean {
     (place as any).experienceDetails?.activityType,
     (place as any).experienceDetails?.meetingPoint,
     (place as any).foodServiceDetails?.cuisineType?.join(' '),
+    (place as any).foodServiceDetails?.specialties?.join(' '),
+    (place as any).foodServiceDetails?.menuHighlights?.join(' '),
     (place as any).commerceDetails?.productTypes?.join(' '),
     (place as any).commerceDetails?.mainProducts?.join(' '),
     (place as any).accommodationDetails?.categoryLabel,
@@ -280,6 +282,47 @@ function matchesKeywords(place: Place, keywords: string[]): boolean {
 
   const normalized = normalizePlaceText(searchableText)
   return keywords.some(keyword => normalized.includes(normalizePlaceText(keyword)))
+}
+
+const CATEGORY_KEYWORDS: Record<Category, string[]> = {
+  Todo: [],
+  Alojamientos: ['alojamiento', 'hotel', 'hostal', 'hospedaje', 'resort', 'lodging', 'cabin', 'cabaña', 'hostel', 'finca hotel'],
+  Restaurantes: ['restaurante', 'gastronomia', 'brunch', 'comida', 'trucha', 'pizza', 'burger', 'fonda', 'cocina'],
+  'Restaurante Bar': ['restaurante bar', 'bar', 'cafe bar', 'cocktail', 'bebida', 'lounge', 'bar-cafe', 'cerveza', 'coctel'],
+  'Cafés': ['cafe', 'cafeteria', 'coffee', 'espresso', 'brunch', 'cafetera'],
+  'Coffee Tours': ['coffee tour', 'tour cafe', 'finca cafetera', 'cafeteria tour', 'coffee farm', 'tour de cafe'],
+  Artesanías: ['artesania', 'artesanias', 'manualidad', 'tejido', 'fibras', 'craft', 'handmade', 'regalo', 'souvenir'],
+  Tiendas: ['tienda', 'shop', 'comercio', 'mercado', 'venta', 'boutique', 'store', 'souvenir'],
+  Experiencias: ['cabalgata', 'caballo', 'equitacion', 'horse', 'ride', 'guia', 'tour', 'ruta', 'senderismo', 'adventure', 'guide', 'experiencia'],
+  Eventos: ['evento', 'eventos', 'boda', 'celebracion', 'corporativo', 'matrimonio', 'fiesta', 'salon de eventos', 'reunion'],
+  'Atractivos Turísticos': ['atractivo', 'atractivos', 'mirador', 'miradores', 'cascada', 'sendero', 'parque', 'natural', 'reserva', 'turistico', 'vista', 'attraction', 'cabalgata', 'cabalgatas', 'caballo', 'caballos', 'moto', 'motos', 'alquiler de moto', 'minimoto', 'jeep', 'willys', 'cocora', 'iglesia', 'plaza', 'calle real', 'puente', 'palmas', 'oficina', 'terminal'],
+  Servicios: ['transporte', 'moto', 'jeep', 'taxi', 'movilidad', 'transfer', 'transport', 'vehicle', 'servicio'],
+  Camping: ['camping', 'campamento', 'carpa', 'tienda de campaña', 'glamping', 'al aire libre', 'outdoor', 'campsite', 'cabin']
+}
+
+function placeMatchesSearch(place: Place, normalizedQuery: string): boolean {
+  if (!normalizedQuery) return true
+  const text = normalizePlaceText([
+    place.name,
+    place.description,
+    place.type,
+    place.tags?.join(' '),
+    place.badge,
+    (place as any).foodServiceDetails?.cuisineType?.join(' '),
+    (place as any).foodServiceDetails?.specialties?.join(' '),
+    (place as any).foodServiceDetails?.menuHighlights?.join(' '),
+  ].filter(Boolean).join(' '))
+  const words = normalizedQuery.split(/\s+/).filter(Boolean)
+  return words.every((word) => {
+    if (text.includes(word)) return true
+    const singular = word.length > 3 && word.endsWith('s') ? word.slice(0, -1) : word
+    if (text.includes(singular)) return true
+    if (singular.length > 3 && word.length > 3) {
+      const stem = singular.slice(0, Math.max(4, singular.length - 2))
+      return stem.length >= 4 && text.includes(stem)
+    }
+    return false
+  })
 }
 
 function initializeAllServicesSafely() {
@@ -672,15 +715,23 @@ function App() {
   }, [loadData])
 
   const filteredPlaces = useMemo(() => {
-    const normalizedSearch = search.toLowerCase().trim()
-    const filtered = places.filter((place) => {
-      const matchesCategory = activeCategory === 'Todo' || place.type === activeCategory
-      const matchesSearch = !normalizedSearch || `${place.name} ${place.description} ${place.tags?.join(' ') || ''}`.toLowerCase().includes(normalizedSearch)
-      const matchesQuick = quickFilter === 'all'
+    const normalizedSearch = search.toLowerCase().trim().normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+    const matchesQuick = (place: Place) =>
+      quickFilter === 'all'
         || (quickFilter === 'whatsapp' && Boolean(place.contact?.whatsapp))
         || (quickFilter === 'pautante' && Boolean(place.isPautante))
-      return matchesCategory && matchesSearch && matchesQuick
-    })
+    const matchesCategory = (place: Place) =>
+      activeCategory === 'Todo'
+        || place.type === activeCategory
+        || matchesKeywords(place, CATEGORY_KEYWORDS[activeCategory] || [])
+    const matchesSearch = (place: Place) => placeMatchesSearch(place, normalizedSearch)
+
+    const filtered = places.filter((place) => matchesCategory(place) && matchesSearch(place) && matchesQuick(place))
+    if (filtered.length === 0 && normalizedSearch && activeCategory !== 'Todo') {
+      return places
+        .filter((place) => matchesSearch(place) && matchesQuick(place))
+        .sort((a, b) => placePriority(b) - placePriority(a))
+    }
     return filtered.sort((a, b) => placePriority(b) - placePriority(a))
   }, [activeCategory, search, places, quickFilter])
 
@@ -763,23 +814,7 @@ function App() {
       return places
     }
 
-    const categoryKeywords: Record<Category, string[]> = {
-      Todo: [],
-      Alojamientos: ['alojamiento', 'hotel', 'hostal', 'hospedaje', 'resort', 'lodging', 'cabin', 'cabaña'],
-      Restaurantes: ['restaurante', 'gastronomia', 'brunch', 'comida', 'pizza', 'burger'],
-      'Restaurante Bar': ['restaurante bar', 'bar', 'cafe bar', 'cocktails', 'bebidas', 'lounge', 'bar-cafe'],
-      'Cafés': ['cafe', 'cafeteria', 'coffee', 'espresso', 'brunch'],
-      'Coffee Tours': ['coffee tour', 'tour cafe', 'finca cafetera', 'cafeteria tour', 'coffee farm', 'tour de cafe'],
-      Artesanías: ['artesania', 'artesanias', 'manualidades', 'tejido', 'fibras', 'craft', 'handmade', 'regalo'],
-      Tiendas: ['tienda', 'shop', 'comercio', 'mercado', 'venta', 'boutique', 'store', 'souvenir'],
-      Experiencias: ['cabalgata', 'caballo', 'equitacion', 'horse', 'ride', 'guia', 'tour', 'ruta', 'senderismo', 'adventure', 'guide', 'experiencia'],
-      Eventos: ['evento', 'eventos', 'boda', 'celebracion', 'corporativo', 'matrimonio', 'fiesta', 'salon de eventos', 'reunion'],
-      'Atractivos Turísticos': ['atractivo', 'atractivos', 'mirador', 'miradores', 'cascada', 'sendero', 'parque', 'natural', 'reserva', 'turistico', 'vista', 'attraction', 'cabalgata', 'cabalgatas', 'caballo', 'caballos', 'moto', 'motos', 'alquiler de moto', 'minimoto', 'jeep', 'willys', 'cocora', 'iglesia', 'plaza', 'calle real', 'puente', 'palmas', 'oficina', 'terminal'],
-      Servicios: ['transporte', 'moto', 'jeep', 'taxi', 'movilidad', 'transfer', 'transport', 'vehicle', 'servicio'],
-      Camping: ['camping', 'campamento', 'carpa', 'tienda de campaña', 'glamping', 'al aire libre', 'outdoor', 'campsite', 'cabin']
-    }
-
-    const result = places.filter((place) => matchesKeywords(place, categoryKeywords[selectedCategoryPage]))
+    const result = places.filter((place) => matchesKeywords(place, CATEGORY_KEYWORDS[selectedCategoryPage] || []))
     return result.sort((a, b) => placePriority(b) - placePriority(a))
   }, [places, selectedCategoryPage])
 
