@@ -1,4 +1,11 @@
-const PYTHON_API_URL = import.meta.env.VITE_PYTHON_API_URL || 'http://localhost:8000'
+const configuredUrl = import.meta.env.VITE_PYTHON_API_URL as string | undefined
+const isDev = import.meta.env.DEV === true || import.meta.env.MODE === 'development'
+const isLocalhost = !configuredUrl || /localhost|127\.0\.0\.1/i.test(configuredUrl)
+// Solo intenta el backend FastAPI si hay URL real de prod, o en dev local
+const PYTHON_API_URL = configuredUrl && !(isLocalhost && !isDev)
+  ? configuredUrl
+  : ''
+const BACKEND_ENABLED = Boolean(PYTHON_API_URL)
 
 interface Pautante {
   name: string
@@ -85,12 +92,15 @@ interface TouristTrapFilterResponse {
 
 class PythonBackendService {
   private baseUrl: string
-  
+  readonly enabled: boolean
+
   constructor(baseUrl: string = PYTHON_API_URL) {
     this.baseUrl = baseUrl
+    this.enabled = BACKEND_ENABLED && Boolean(baseUrl)
   }
-  
+
   async healthCheck(): Promise<any> {
+    if (!this.enabled) return null
     try {
       const response = await fetch(`${this.baseUrl}/health`, {
         signal: typeof AbortSignal !== 'undefined' && 'timeout' in AbortSignal
@@ -99,58 +109,59 @@ class PythonBackendService {
       })
       if (!response.ok) return null
       return await response.json()
-    } catch (error) {
-      console.error('Error conectando con backend Python:', error)
+    } catch {
+      // Backend local ausente en prod/esperado: fallback silencioso
       return null
     }
   }
   
   async sendChatMessage(message: string, userId?: string): Promise<ChatResponse> {
+    if (!this.enabled) return this.getFallbackResponse(message)
     try {
       const response = await fetch(`${this.baseUrl}/api/v1/chat/message`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ message, user_id: userId })
       })
-      
+
       if (!response.ok) {
         throw new Error('Error en backend Python')
       }
-      
+
       return response.json()
-    } catch (error) {
-      console.error('Error en chat Python:', error)
+    } catch {
       return this.getFallbackResponse(message)
     }
   }
-  
+
   async getWhatsAppDirect(pautanteId: number): Promise<WhatsAppDirectResponse> {
+    if (!this.enabled) return { success: false, error: 'Backend no disponible' }
     try {
       const response = await fetch(`${this.baseUrl}/api/v1/pautantes/whatsapp-direct?pautante_id=${pautanteId}`)
       if (!response.ok) {
         throw new Error('Error en WhatsApp directo')
       }
       return response.json()
-    } catch (error) {
-      console.error('Error en WhatsApp directo:', error)
+    } catch {
       return { success: false, error: 'Error de conexión' }
     }
   }
-  
+
   async getNearbyPautantes(lat: number, lng: number, category: string = 'all', radius: number = 0.5): Promise<NearbyPautantesResponse> {
+    if (!this.enabled) return { nearby_pautantes: [], user_location: { lat, lng }, radius_km: radius }
     try {
       const response = await fetch(`${this.baseUrl}/api/v1/pautantes/nearby?lat=${lat}&lng=${lng}&category=${category}&radius=${radius}`)
       if (!response.ok) {
         throw new Error('Error en nearby pautantes')
       }
       return response.json()
-    } catch (error) {
-      console.error('Error en nearby pautantes:', error)
+    } catch {
       return { nearby_pautantes: [], user_location: { lat, lng }, radius_km: radius }
     }
   }
-  
+
   async checkAvailability(pautanteId: number): Promise<AvailabilityResponse> {
+    if (!this.enabled) return { success: false, error: 'Backend no disponible' }
     try {
       const response = await fetch(`${this.baseUrl}/api/v1/pautantes/availability`, {
         method: 'POST',
@@ -161,13 +172,13 @@ class PythonBackendService {
         throw new Error('Error en disponibilidad')
       }
       return response.json()
-    } catch (error) {
-      console.error('Error en disponibilidad:', error)
+    } catch {
       return { success: false, error: 'Error de conexión' }
     }
   }
-  
+
   async getQualityVerification(pautanteId: number): Promise<QualityVerificationResponse> {
+    if (!this.enabled) return { success: false, error: 'Backend no disponible' }
     try {
       const response = await fetch(`${this.baseUrl}/api/v1/pautantes/quality-verification`, {
         method: 'POST',
@@ -178,13 +189,20 @@ class PythonBackendService {
         throw new Error('Error en verificación de calidad')
       }
       return response.json()
-    } catch (error) {
-      console.error('Error en verificación de calidad:', error)
+    } catch {
       return { success: false, error: 'Error de conexión' }
     }
   }
-  
+
   async getTouristTrapFilter(category: string): Promise<TouristTrapFilterResponse> {
+    if (!this.enabled) {
+      return {
+        category,
+        authentic_places: [],
+        tourist_traps_filtered: 0,
+        filter_criteria: 'local',
+      }
+    }
     try {
       const response = await fetch(`${this.baseUrl}/api/v1/pautantes/tourist-trap-filter`, {
         method: 'POST',
@@ -195,13 +213,12 @@ class PythonBackendService {
         throw new Error('Error en filtro de turistazas')
       }
       return response.json()
-    } catch (error) {
-      console.error('Error en filtro de turistazas:', error)
-      return { 
-        category, 
-        authentic_places: [], 
-        tourist_traps_filtered: 0, 
-        filter_criteria: 'error' 
+    } catch {
+      return {
+        category,
+        authentic_places: [],
+        tourist_traps_filtered: 0,
+        filter_criteria: 'error',
       }
     }
   }
