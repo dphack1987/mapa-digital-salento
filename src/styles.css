@@ -6034,3 +6034,61 @@ footer { max-width: 1184px; margin: auto; border-top: 1px solid var(--line); dis
 @media (max-width: 640px) {
   .image-inventory-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
 }
+
+/* Compact directory cards: short text, tight spacing, bold CTA */
+.place-grid .place-image { height: 120px; }
+.place-grid .place-info { padding: 10px 12px 12px; }
+.place-grid .place-topline { display: flex; align-items: center; justify-content: space-between; gap: 6px; font: 700 9px 'DM Mono', monospace; text-transform: uppercase; letter-spacing: .04em; color: #697568; margin-bottom: 2px; }
+.place-grid .place-topline .rating { display: inline-flex; align-items: center; gap: 3px; color: var(--ink); font-size: 11px; letter-spacing: 0; text-transform: none; }
+.place-grid .place-info h3 { margin: 2px 0 4px; font: 600 15px/1.15 Fraunces, serif; }
+.place-grid .place-info > p { font-size: 11px; line-height: 1.35; color: #667164; -webkit-line-clamp: 1; max-height: 1.4em; margin: 0; }
+.place-grid .place-bottom { margin-top: 6px; padding-top: 0; }
+.place-grid .place-price { font-size: 12px; gap: 3px; }
+.place-grid .place-price strong { font: 700 14px Fraunces, serif; color: var(--coral); }
+.place-grid .place-price em { font-size: 10px; color: #70796e; }
+.place-grid .currency-hint { display: none; }
+.place-grid .detail-button {
+  min-height: 44px;
+  margin-top: 10px;
+  padding: 0 14px;
+  border: 0;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--coral) 0%, #e06848 100%);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: .01em;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: 0 8px 18px rgba(231, 108, 82, .38);
+}
+.place-grid .detail-button:hover { background: linear-gradient(135deg, var(--ink) 0%, #2a3d34 100%); border-color: transparent; transform: translateY(-2px); box-shadow: 0 10px 20px rgba(39,54,43,.25); }
+.place-grid .detail-button:active { transform: scale(.97); }
+.place-grid .card-actions-row { margin-top: 8px; gap: 6px; }
+.place-grid .card-actions-row .map-link-button { min-height: 34px; font-size: 10.5px; font-weight: 700; border-radius: 8px; border-color: var(--line); color: var(--ink); background: #f7f3ea; }
+.place-grid .card-actions-row .map-link-button:hover { background: var(--ink); color: #fff; border-color: var(--ink); }
+.place-grid .card-actions-row .reviews-button { min-height: 34px; width: auto; margin-top: 0; padding: 0 10px; border-radius: 8px; font-weight: 700; }
+.place-grid .card-actions-row .contact-btn { width: 34px; height: 34px; border-radius: 8px; border-width: 1.5px; }
+.place-grid .contact-actions { padding-top: 0; gap: 6px; }
+.place-grid .contact-email { display: none !important; }
+.place-grid .place-card { align-self: stretch; }
+.hoy-pautante-media { height: 96px; }
+.hoy-pautante-body { padding: 10px 12px 12px; }
+.hoy-pautante-body h3 { margin: 0 0 4px; font-size: 14px; }
+.hoy-pautante-body > p { margin: 0 0 8px; font-size: 11px; line-height: 1.35; -webkit-line-clamp: 1; }
+.hoy-pautante-highlights { margin-bottom: 8px; gap: 4px; }
+.hoy-pautante-highlights span { padding: 3px 7px; font-size: 9px; }
+.hoy-pautante-actions { gap: 6px; }
+.hoy-pautante-actions .button { min-height: 40px; font-size: 12px; font-weight: 800; border-radius: 10px; }
+.hoy-pautante-actions .button.primary { background: linear-gradient(135deg, var(--coral) 0%, #e06848 100%); border: 0; color: #fff; box-shadow: 0 6px 14px rgba(231,108,82,.35); }
+.hoy-pautante-actions .button.primary:hover { background: linear-gradient(135deg, var(--ink) 0%, #2a3d34 100%); }
+.hoy-pautante-actions .button:not(.primary) { background: #fff; border: 1.5px solid var(--ink); color: var(--ink); }
+@media (max-width: 640px) {
+  .place-grid .place-image { height: 100px !important; }
+  .place-grid .place-info { padding: 8px 10px 10px; }
+  .place-grid .place-info h3 { font-size: 14px; }
+  .place-grid .place-info > p { font-size: 10.5px; -webkit-line-clamp: 1; }
+  .place-grid .detail-button { min-height: 46px; font-size: 13px; border-radius: 10px; }
+  .place-grid .card-actions-row .map-link-button { min-height: 32px; }
+  .place-grid .card-actions-row .contact-btn { width: 32px; height: 32px; }
+}

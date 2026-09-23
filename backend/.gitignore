@@ -10,11 +10,7 @@ __pycache__/
 *.egg-info/
 dist/
 build/
-
-# Python testing
-test_*.py
-*_test.py
-*.json (except requirements.txt)
+.pytest_cache/
 
 # Environment variables
 .env
