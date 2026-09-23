@@ -1,5 +1,6 @@
 import { ArrowRight, Clock3, MapPin, MessageCircle, Star } from 'lucide-react'
 import type { Place } from '../types'
+import { placeCtaLabel } from '../utils/placeCta'
 
 type FeaturedHomeMenusProps = {
   places: Place[]
@@ -16,9 +17,25 @@ function findPlace(places: Place[], id: number): Place | undefined {
 export default function FeaturedHomeMenus({ places }: FeaturedHomeMenusProps) {
   const donElias = findPlace(places, 22)
   const terra = findPlace(places, 28)
-  if (!donElias && !terra) return null
+  // Enriquecer: incluir Fonda Boquía (menú verificado en places.json)
+  const fonda = places.find((p) => p.name === 'Fonda Boquía')
+  if (!donElias && !terra && !fonda) return null
 
-  const cards = [donElias, terra].filter(Boolean) as Place[]
+  // Orden editorial: Don Elías, Terra, Fonda (y cualquier otro con carta si se añade)
+  const preferredIds = [22, 28]
+  const rest = places.filter(
+    (p) =>
+      (p.name === 'Fonda Boquía' || p.foodServiceDetails?.menuItems?.length || p.foodServiceDetails?.menuHighlights?.length) &&
+      (p.type === 'Restaurantes' || p.type === 'Restaurante Bar' || p.type === 'Cafés') &&
+      p.isPautante !== false,
+  )
+  const byPreferred = preferredIds
+    .map((id) => places.find((p) => p.id === id))
+    .filter(Boolean) as Place[]
+  const seen = new Set(byPreferred.map((p) => p.id))
+  const extras = rest.filter((p) => !seen.has(p.id) && (p.id === fonda?.id || p.foodServiceDetails?.menuItems?.length))
+  const cards = [...byPreferred, ...extras].filter(Boolean) as Place[]
+  if (!cards.length) return null
 
   return (
     <section className="home-featured-menus" id="menus-destacados" aria-labelledby="home-featured-menus-title">
@@ -98,7 +115,7 @@ export default function FeaturedHomeMenus({ places }: FeaturedHomeMenusProps) {
                   )}
 
                   <div className="home-featured-menu-actions">
-                    <a className="button primary" href={href}>Ver ficha completa</a>
+                    <a className="button primary" href={href}>{placeCtaLabel(place.type)}</a>
                     {wa && (
                       <a className="button" href={`https://wa.me/${wa}`} target="_blank" rel="noreferrer">
                         <MessageCircle size={15} aria-hidden="true" /> WhatsApp

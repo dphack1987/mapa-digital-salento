@@ -178,7 +178,7 @@ function renderCard(item, index) {
           <h3>${esc(item.name)}</h3>
           <p>${esc(shortDesc(item))}</p>
           <div class="card-actions" onclick="event.stopPropagation()">
-            <a class="btn primary" href="${esc(href)}">Ver ficha</a>
+            <a class="btn primary" href="${esc(href)}">Ver información</a>
             <a class="btn" href="${esc(mapUrl({ name: item.name, location: { address: item.map } }))}" target="_blank" rel="noreferrer">Mapa</a>
             ${wa}
           </div>
