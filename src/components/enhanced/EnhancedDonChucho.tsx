@@ -71,9 +71,8 @@ function EnhancedDonChucho({ onFallback, onClose, existingComponent }: EnhancedD
           setUsePython(false)
           onFallbackRef.current?.()
         }
-      } catch (err) {
+      } catch {
         if (cancelled) return
-        console.warn('[EnhancedDonChucho] Backend no disponible:', err)
         setPythonStatus('offline')
         setUsePython(false)
         onFallbackRef.current?.()
