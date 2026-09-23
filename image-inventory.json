@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-09-23T00:09:50.473Z",
-  "total": 675,
-  "ok": 675,
+  "generatedAt": "2026-09-23T00:16:06.475Z",
+  "total": 685,
+  "ok": 685,
   "broken": 0,
   "fixable": 0,
   "unfixable": 0,
@@ -380,7 +380,7 @@
     {
       "file": "public/categorias/coffee-tours.html",
       "line": 50,
-      "path": "/pautas/coffee-tour-finca-don-eduardo/logo-finca-don-eduardo.webp",
+      "path": "/pautas/coffee-tour-finca-don-eduardo/Plantation.webp",
       "status": "OK",
       "equivalent": null
     },
@@ -422,7 +422,7 @@
     {
       "file": "public/categorias/eventos.html",
       "line": 44,
-      "path": "/pautas/boki_mall/eventos/premio-mejor-hotel-rural-2024.webp",
+      "path": "/imagenes-salento/631032744.webp",
       "status": "OK",
       "equivalent": null
     },
@@ -518,9 +518,44 @@
       "equivalent": null
     },
     {
+      "file": "public/categorias/index.html",
+      "line": 102,
+      "path": "/imagenes-salento/destinos-75.webp",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
+      "file": "public/categorias/index.html",
+      "line": 111,
+      "path": "/pautas/coffee-tour-finca-don-eduardo/Plantation.webp",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
+      "file": "public/categorias/index.html",
+      "line": 120,
+      "path": "/imagenes-salento/631032744.webp",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
+      "file": "public/categorias/index.html",
+      "line": 129,
+      "path": "/pautas/boki_mall/hotel-mirador-boquia/images (1).webp",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
+      "file": "public/categorias/index.html",
+      "line": 138,
+      "path": "/imagenes-salento/destinos-75.webp",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
       "file": "public/categorias/restaurante-bar.html",
       "line": 44,
-      "path": "/pautas/boki_mall/hotel-mirador-boquia/314270821.webp",
+      "path": "/pautas/boki_mall/hotel-mirador-boquia/images (1).webp",
       "status": "OK",
       "equivalent": null
     },
@@ -4621,105 +4656,140 @@
     },
     {
       "file": "tools/generate_category_pages.js",
-      "line": 50,
-      "path": "/logo_salento2026.webp",
+      "line": 37,
+      "path": "/imagenes-salento/destinos-75.webp",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
+      "file": "tools/generate_category_pages.js",
+      "line": 43,
+      "path": "/pautas/coffee-tour-finca-don-eduardo/Plantation.webp",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
+      "file": "tools/generate_category_pages.js",
+      "line": 49,
+      "path": "/imagenes-salento/631032744.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "tools/generate_category_pages.js",
       "line": 55,
-      "path": "/pautas/boki_mall/hotel-mirador-boquia/logo-hotel-mirador-de-boquia.webp",
+      "path": "/pautas/boki_mall/hotel-mirador-boquia/images (1).webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "tools/generate_category_pages.js",
-      "line": 56,
-      "path": "/pautas/boki_mall/restaurante-terra/terra-restaurante-logo.webp",
+      "line": 61,
+      "path": "/imagenes-salento/destinos-75.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "tools/generate_category_pages.js",
-      "line": 57,
-      "path": "/pautas/boki_mall/barcinales-cafe-bar/barcinales-cafe-bar-logo.webp",
-      "status": "OK",
-      "equivalent": null
-    },
-    {
-      "file": "tools/generate_category_pages.js",
-      "line": 58,
-      "path": "/pautas/boki_mall/boki_mall_logo.webp",
-      "status": "OK",
-      "equivalent": null
-    },
-    {
-      "file": "tools/generate_category_pages.js",
-      "line": 59,
-      "path": "/pautas/moto_aventura_110/imagenes/logo-moto-aventura-110.webp",
-      "status": "OK",
-      "equivalent": null
-    },
-    {
-      "file": "tools/generate_category_pages.js",
-      "line": 63,
-      "path": "/pautas/coffee-tour-alojamiento-finca-hotel-el-ocaso/imagenes/logo_ocaso.webp",
-      "status": "OK",
-      "equivalent": null
-    },
-    {
-      "file": "tools/generate_category_pages.js",
-      "line": 64,
-      "path": "/pautas/coffee-tour-finca-don-eduardo/logo-finca-don-eduardo.webp",
-      "status": "OK",
-      "equivalent": null
-    },
-    {
-      "file": "tools/generate_category_pages.js",
-      "line": 65,
-      "path": "/pautas/cootracocora_ltda/logo-cootracocora.webp",
-      "status": "OK",
-      "equivalent": null
-    },
-    {
-      "file": "tools/generate_category_pages.js",
-      "line": 66,
-      "path": "/pautas/el_recuerdo_coffee_tour/logo-recuerdo-tour.webp",
-      "status": "OK",
-      "equivalent": null
-    },
-    {
-      "file": "tools/generate_category_pages.js",
-      "line": 72,
+      "line": 84,
       "path": "/logo_salento2026.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "tools/generate_category_pages.js",
-      "line": 117,
+      "line": 89,
+      "path": "/pautas/boki_mall/hotel-mirador-boquia/logo-hotel-mirador-de-boquia.webp",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
+      "file": "tools/generate_category_pages.js",
+      "line": 90,
+      "path": "/pautas/boki_mall/restaurante-terra/terra-restaurante-logo.webp",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
+      "file": "tools/generate_category_pages.js",
+      "line": 91,
+      "path": "/pautas/boki_mall/barcinales-cafe-bar/barcinales-cafe-bar-logo.webp",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
+      "file": "tools/generate_category_pages.js",
+      "line": 92,
+      "path": "/pautas/boki_mall/boki_mall_logo.webp",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
+      "file": "tools/generate_category_pages.js",
+      "line": 93,
+      "path": "/pautas/moto_aventura_110/imagenes/logo-moto-aventura-110.webp",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
+      "file": "tools/generate_category_pages.js",
+      "line": 97,
+      "path": "/pautas/coffee-tour-alojamiento-finca-hotel-el-ocaso/imagenes/logo_ocaso.webp",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
+      "file": "tools/generate_category_pages.js",
+      "line": 98,
+      "path": "/pautas/coffee-tour-finca-don-eduardo/logo-finca-don-eduardo.webp",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
+      "file": "tools/generate_category_pages.js",
+      "line": 99,
       "path": "/pautas/cootracocora_ltda/logo-cootracocora.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "tools/generate_category_pages.js",
-      "line": 124,
+      "line": 100,
+      "path": "/pautas/el_recuerdo_coffee_tour/logo-recuerdo-tour.webp",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
+      "file": "tools/generate_category_pages.js",
+      "line": 106,
+      "path": "/logo_salento2026.webp",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
+      "file": "tools/generate_category_pages.js",
+      "line": 151,
+      "path": "/pautas/cootracocora_ltda/logo-cootracocora.webp",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
+      "file": "tools/generate_category_pages.js",
+      "line": 158,
       "path": "/imagenes-salento/destinos-75.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "tools/generate_category_pages.js",
-      "line": 354,
+      "line": 388,
       "path": "/imagenes-salento/destinos-75.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "tools/generate_category_pages.js",
-      "line": 777,
+      "line": 811,
       "path": "/logo_salento2026.webp",
       "status": "OK",
       "equivalent": null
