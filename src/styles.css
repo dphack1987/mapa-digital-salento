@@ -1760,6 +1760,8 @@
 .chucho-panel { position: absolute; right: 0; bottom: 58px; width: min(380px, calc(100vw - 32px)); max-width: calc(100vw - 32px); max-height: calc(100vh - 160px); padding: 20px; background: var(--paper); border: 2px solid var(--line); box-shadow: 8px 8px 0 rgba(39,54,43,.15); border-radius: 16px; animation: slideUp 0.3s ease; overflow-y: auto; overflow-x: hidden; }
 .offline-status { position: fixed; z-index: 30; left: 16px; bottom: 18px; display: flex; align-items: center; gap: 7px; color: #6e796d; background: rgba(245,241,232,.92); border: 1px solid var(--line); padding: 8px 10px; font: 9px 'DM Mono'; border-radius: 999px; box-shadow: 0 6px 14px rgba(39,54,43,.05); }
 .chucho-head { display: flex; justify-content: space-between; align-items: start; padding-bottom: 16px; border-bottom: 1px solid var(--line); }
+.chucho-close { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; min-width: 36px; border: 1px solid var(--line); background: #fff; color: var(--ink); border-radius: 8px; cursor: pointer; transition: all 0.2s; flex-shrink: 0; }
+.chucho-close:hover { background: var(--coral); color: #fff; border-color: var(--coral); }
 .chucho-avatar-image { width: 52px; height: 52px; object-fit: contain; border-radius: 16px; margin-right: 12px; padding: 6px; background: linear-gradient(135deg, rgba(232,187,88,.22) 0%, rgba(231,108,82,.18) 100%); border: 1px solid rgba(39,54,43,.08); box-shadow: inset 0 1px 0 rgba(255,255,255,.6); }
 .chucho-head strong, .chucho-head span { display: block; }
 .chucho-head strong { font: 600 22px Fraunces; color: var(--ink); }
@@ -4078,6 +4080,8 @@ footer { max-width: 1184px; margin: auto; border-top: 1px solid var(--line); dis
 .chucho-head > div { flex: 1; }
 .chucho-head strong { font: 600 14px Fraunces; color: var(--ink); display: block; }
 .chucho-head span { font-size: 11px; color: #72796d; }
+.chucho-close { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; min-width: 36px; border: 1px solid var(--line); background: #fff; color: var(--ink); border-radius: 8px; cursor: pointer; transition: all 0.2s; flex-shrink: 0; margin-left: auto; }
+.chucho-close:hover { background: var(--coral); color: #fff; border-color: var(--coral); }
 .chucho-answer { padding: 16px; color: var(--ink); font-size: 13px; line-height: 1.5; display: flex; gap: 8px; align-items: start; }
 .chucho-whatsapp { padding: 0 16px 16px; }
 .whatsapp-button { width: 100%; display: flex; align-items: center; justify-content: center; gap: 8px; padding: 10px; background: #25D366; color: white; border: none; border-radius: 6px; font-size: 12px; font-weight: 600; cursor: pointer; }
@@ -5894,12 +5898,16 @@ footer { max-width: 1184px; margin: auto; border-top: 1px solid var(--line); dis
   border: 1px solid var(--line, #e1ddd0);
   background: #fff;
   color: var(--ink, #27362b);
-  width: 32px;
-  height: 32px;
+  width: 36px;
+  height: 36px;
   border-radius: 8px;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
 }
 .enhanced-close:hover { background: var(--coral, #e76c52); color: #fff; border-color: var(--coral, #e76c52); }
 .enhanced-offline-banner {

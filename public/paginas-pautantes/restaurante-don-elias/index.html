@@ -27,6 +27,7 @@
       @media (max-width:800px) { .hero,.two-col { grid-template-columns:1fr; } .hero-image { min-height:260px; order:-1; } .topbar { align-items:flex-start; flex-direction:column; } .gallery { grid-template-columns:1fr; } }
     </style>
     <link rel="stylesheet" href="/page-theme.css" />
+    <link rel="stylesheet" href="/pautante-theme.css" />
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://www.salentoalamano.com/"},{"@type":"ListItem","position":2,"name":"Restaurantes","item":"/categorias/restaurantes.html"},{"@type":"ListItem","position":3,"name":"Restaurante Don Elías"}]}</script>
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"Restaurant","name":"Restaurante Don Elías","description":"Restaurante en la Finca Don Elías con especialidad en comida tradicional cafetera. Platos preparados con ingredientes locales y recetas familiares.","url":"/paginas-pautantes/restaurante-don-elias/","image":"/pautas/coffee-tour-finca-cafetera-don-elias/imagenes/cafe-don-elias.webp","address":{"@type":"PostalAddress","addressLocality":"Salento","addressRegion":"Quindío","addressCountry":"CO","streetAddress":"Valle de Cocora"},"geo":{"@type":"GeoCoordinates","latitude":4.646,"longitude":-75.5765},"telephone":"+57 315 606 1113","priceRange":"$$","areaServed":{"@type":"City","name":"Salento","containedIn":{"@type":"State","name":"Quindío"}},"aggregateRating":{"@type":"AggregateRating","ratingValue":4.8,"reviewCount":1,"bestRating":5,"worstRating":1},"openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]},"servesCuisine":["Colombiana","Cafetera"],"acceptsReservations":true}</script>
   </head>
@@ -44,9 +45,41 @@
       
       <section class="section"><h2>Conoce la experiencia</h2><div class="two-col"><div><p class="trust">Restaurante en la Finca Don Elías con especialidad en comida tradicional cafetera. Platos preparados con ingredientes locales y recetas familiares.</p><p class="verified">✓ Información verificada en el catálogo local</p></div><div class="facts"><div class="fact"><strong>Ubicación</strong>Valle de Cocora</div><div class="fact"><strong>Referencia</strong>Finca Don Elías</div><div class="fact"><strong>Horario</strong>Durante los tours de café</div></div></div></section>
       <section class="section"><h2>Galería de imágenes</h2><div class="gallery"><img src="/pautas/coffee-tour-finca-cafetera-don-elias/imagenes/cafe-don-elias.webp" alt="Restaurante Don Elías foto 1" loading="lazy"/><img src="/pautas/coffee-tour-finca-cafetera-don-elias/imagenes/484042363_664478162683303_2341224993788835150_n.webp" alt="Restaurante Don Elías foto 2" loading="lazy"/><img src="/pautas/coffee-tour-finca-cafetera-don-elias/imagenes/483101751_664446382686481_2585961616784103288_n.webp" alt="Restaurante Don Elías foto 3" loading="lazy"/></div></section>
+      
+      <section class="section" id="menu-interactivo">
+        <h2>Nuestra carta</h2>
+        <p class="muted" style="margin-top:-8px;margin-bottom:20px">Toca los platos para armar tu pedido. Al final, envíalo por WhatsApp. Sin app ni pasarela de pago.</p>
+        <div class="menu-header">
+          <div class="menu-search"><input type="text" id="menuSearch" placeholder="Buscar opción..." /></div>
+          
+        </div>
+        <div class="menu-tabs" id="menuTabs"></div>
+        <div class="menu-grid" id="menuGrid"></div>
+        <div class="menu-empty" id="menuEmpty" style="display:none"><span>🔍</span>No encontramos opciones con ese nombre.</div>
+      </section>
+      <div class="cart-float" id="cartFloat" role="button" tabindex="0" aria-label="Ver selección">
+        <span class="badge" id="cartBadge">0</span>
+        <span class="total" id="cartTotal">$0</span>
+        <span>Ver pedido →</span>
+      </div>
+      <div class="cart-modal" id="cartModal" role="dialog" aria-modal="true">
+        <div class="cart-panel">
+          <h2>Tu pedido</h2>
+          <div id="cartItems"></div>
+          <div class="cart-total"><span>Total</span><span id="cartModalTotal">$0</span></div>
+          <div class="cart-actions">
+            <button class="send" id="sendWhatsApp">Enviar por WhatsApp</button>
+            <button class="clear" id="clearCart">Vaciar</button>
+            <button class="close" id="closeCart">Seguir explorando</button>
+          </div>
+        </div>
+      </div>
       <section class="section"><h2>Antes de confirmar tu visita</h2><div class="two-col"><div><p class="trust">¿Cuál es el horario de Restaurante Don Elías? Durante los tours de café</p><p class="trust">¿Cuánto cuesta? $$</p><p class="trust">¿Cómo reservo? Contacto directo por WhatsApp, sin intermediarios ni comisiones.</p></div><div class="facts"><div class="fact"><strong>Punto de encuentro</strong>Finca Don Elías</div><div class="fact"><strong>Cómo llegar</strong><a href="https://www.google.com/maps/search/Valle%20de%20Cocora" target="_blank" rel="noreferrer">Abrir en Google Maps</a></div><div class="fact"><strong>Reseñas</strong>Las reseñas se publican en la ficha interactiva del directorio</div></div></div></section>
       <section class="section"><h2>Lo que puedes encontrar</h2><div class="tags"><span class="tag">restaurante</span><span class="tag">comida cafetera</span><span class="tag">finca</span><span class="tag">valle cocora</span></div></section>
       <nav class="bottom-nav" aria-label="Volver" style="display:flex;flex-wrap:wrap;gap:10px;margin-top:28px"><a class="button primary" href="/">Volver al inicio</a><a class="button dark" href="/">Ir a página principal</a><a class="button" href="/categorias/">Ver categorías</a></nav>
     </main>
+    
+    <script src="/pautante-common.js"></script>
+    <script>PautanteCommon.initMenu({"containerId":"menuGrid","items":[{"id":1,"cat":"carta","nombre":"Platos de la casa","precio":0,"desc":"Precio por confirmar con el restaurante","img":"/pautas/coffee-tour-finca-cafetera-don-elias/imagenes/cafe-don-elias.webp"},{"id":2,"cat":"carta","nombre":"Menú local o típico","precio":0,"desc":"Precio por confirmar con el restaurante","img":"/pautas/coffee-tour-finca-cafetera-don-elias/imagenes/484042363_664478162683303_2341224993788835150_n.webp"},{"id":3,"cat":"carta","nombre":"Bebidas y acompañamientos","precio":0,"desc":"Precio por confirmar con el restaurante","img":"/pautas/coffee-tour-finca-cafetera-don-elias/imagenes/483101751_664446382686481_2585961616784103288_n.webp"},{"id":4,"cat":"servicios","nombre":"Reserva o pedido por WhatsApp","precio":0,"desc":"","img":"/pautas/coffee-tour-finca-cafetera-don-elias/imagenes/cafe-don-elias.webp"}],"categories":[{"id":"todas","label":"Todas"},{"id":"carta","label":"En la carta"},{"id":"servicios","label":"Servicios"}],"whatsapp":"","businessName":"Restaurante Don Elías","currency":"COP","showSearch":true,"showCurrency":false,"precioLabel":"c/u"});</script>
   </body>
 </html>

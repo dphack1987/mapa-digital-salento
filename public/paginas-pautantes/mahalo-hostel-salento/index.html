@@ -27,6 +27,7 @@
       @media (max-width:800px) { .hero,.two-col { grid-template-columns:1fr; } .hero-image { min-height:260px; order:-1; } .topbar { align-items:flex-start; flex-direction:column; } .gallery { grid-template-columns:1fr; } }
     </style>
     <link rel="stylesheet" href="/page-theme.css" />
+    <link rel="stylesheet" href="/pautante-theme.css" />
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://www.salentoalamano.com/"},{"@type":"ListItem","position":2,"name":"Alojamientos","item":"/categorias/alojamientos.html"},{"@type":"ListItem","position":3,"name":"Mahalo Hostel Salento"}]}</script>
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"Hotel","name":"Mahalo Hostel Salento","description":"Hostel con habitaciones tipo tatami, desayuno, fogata y vistas a la montaña. Hospitalidad quindiana desde 2020.","url":"/paginas-pautantes/mahalo-hostel-salento/","image":"/pautas/mahalo_hostel/imagenes/151829511_115398783872298_53747583158063699_n.webp","address":{"@type":"PostalAddress","addressLocality":"Salento","addressRegion":"Quindío","addressCountry":"CO","streetAddress":"Calle 2 # 6-08, Salento, Quindío"},"geo":{"@type":"GeoCoordinates","latitude":4.6352,"longitude":-75.5695},"telephone":"+57 322 855 1504","email":"infomahalohostel@gmail.com","priceRange":"$$$","areaServed":{"@type":"City","name":"Salento","containedIn":{"@type":"State","name":"Quindío"}},"aggregateRating":{"@type":"AggregateRating","ratingValue":4.8,"reviewCount":1,"bestRating":5,"worstRating":1},"openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]},"numberOfRooms":11,"amenityFeature":["WiFi gratis","Netflix","Fogata","Juegos de mesa","Desayuno","Jacuzzi en suites"]}</script>
   </head>
@@ -44,9 +45,41 @@
       
       <section class="section"><h2>Conoce la experiencia</h2><div class="two-col"><div><p class="trust">Hostel con habitaciones tipo tatami, desayuno, fogata y vistas a la montaña. Hospitalidad quindiana desde 2020.</p><p class="verified">✓ Información verificada en el catálogo local</p></div><div class="facts"><div class="fact"><strong>Ubicación</strong>Calle 2 # 6-08, Salento, Quindío</div><div class="fact"><strong>Referencia</strong>A 200m del Mirador de Salento y Yo Amo Salento</div><div class="fact"><strong>Horario</strong>Recepción 24 horas. Check-in: 15:00-23:00. Check-out: 06:00-12:00</div></div></div></section>
       <section class="section"><h2>Galería de imágenes</h2><div class="gallery"><img src="/pautas/mahalo_hostel/imagenes/151829511_115398783872298_53747583158063699_n.webp" alt="Mahalo Hostel Salento foto 1" loading="lazy"/><img src="/pautas/mahalo_hostel/imagenes/suitedeluxehab5.webp" alt="Mahalo Hostel Salento foto 2" loading="lazy"/><img src="/pautas/mahalo_hostel/imagenes/suitedeluxeIIhab7.webp" alt="Mahalo Hostel Salento foto 3" loading="lazy"/></div></section>
+      
+      <section class="section" id="menu-interactivo">
+        <h2>Habitaciones y servicios</h2>
+        <p class="muted" style="margin-top:-8px;margin-bottom:20px">Revisa opciones y servicios. Agrega lo que necesites y consulta disponibilidad por WhatsApp.</p>
+        <div class="menu-header">
+          <div class="menu-search"><input type="text" id="menuSearch" placeholder="Buscar opción..." /></div>
+          
+        </div>
+        <div class="menu-tabs" id="menuTabs"></div>
+        <div class="menu-grid" id="menuGrid"></div>
+        <div class="menu-empty" id="menuEmpty" style="display:none"><span>🔍</span>No encontramos opciones con ese nombre.</div>
+      </section>
+      <div class="cart-float" id="cartFloat" role="button" tabindex="0" aria-label="Ver selección">
+        <span class="badge" id="cartBadge">0</span>
+        <span class="total" id="cartTotal">$0</span>
+        <span>Ver pedido →</span>
+      </div>
+      <div class="cart-modal" id="cartModal" role="dialog" aria-modal="true">
+        <div class="cart-panel">
+          <h2>Tu pedido</h2>
+          <div id="cartItems"></div>
+          <div class="cart-total"><span>Total</span><span id="cartModalTotal">$0</span></div>
+          <div class="cart-actions">
+            <button class="send" id="sendWhatsApp">Enviar por WhatsApp</button>
+            <button class="clear" id="clearCart">Vaciar</button>
+            <button class="close" id="closeCart">Seguir explorando</button>
+          </div>
+        </div>
+      </div>
       <section class="section"><h2>Antes de confirmar tu visita</h2><div class="two-col"><div><p class="trust">¿Cuál es el horario de Mahalo Hostel Salento? Recepción 24 horas. Check-in: 15:00-23:00. Check-out: 06:00-12:00</p><p class="trust">¿Cuánto cuesta? Reservar por WhatsApp al +57 322 855 1504. Suite Deluxe desde $250 USD/noche.</p><p class="trust">¿Cómo reservo? Contacto directo por WhatsApp, sin intermediarios ni comisiones.</p></div><div class="facts"><div class="fact"><strong>Punto de encuentro</strong>A 200m del Mirador de Salento y Yo Amo Salento</div><div class="fact"><strong>Cómo llegar</strong><a href="https://www.google.com/maps/search/Calle%202%20%23%206-08%2C%20Salento%2C%20Quind%C3%ADo" target="_blank" rel="noreferrer">Abrir en Google Maps</a></div><div class="fact"><strong>Reseñas</strong>Las reseñas se publican en la ficha interactiva del directorio</div></div></div></section>
       <section class="section"><h2>Lo que puedes encontrar</h2><div class="tags"><span class="tag">hostel</span><span class="tag">hostal</span><span class="tag">jacuzzi</span><span class="tag">mirador</span><span class="tag">centro</span><span class="tag">salento</span><span class="tag">fogata</span><span class="tag">netflix</span><span class="tag">wifi</span><span class="tag">desayuno</span><span class="tag">montaña</span><span class="tag">parejas</span><span class="tag">familias</span></div></section>
       <nav class="bottom-nav" aria-label="Volver" style="display:flex;flex-wrap:wrap;gap:10px;margin-top:28px"><a class="button primary" href="/">Volver al inicio</a><a class="button dark" href="/">Ir a página principal</a><a class="button" href="/categorias/">Ver categorías</a></nav>
     </main>
+    
+    <script src="/pautante-common.js"></script>
+    <script>PautanteCommon.initMenu({"containerId":"menuGrid","items":[{"id":1,"cat":"habitaciones","nombre":"Habitación compartida / privada","precio":0,"desc":"Consultar tarifa directo","img":"/pautas/mahalo_hostel/imagenes/151829511_115398783872298_53747583158063699_n.webp"},{"id":2,"cat":"servicios","nombre":"Áreas comunes y cocina","precio":0,"desc":"","img":"/pautas/mahalo_hostel/imagenes/suitedeluxehab5.webp"},{"id":3,"cat":"servicios","nombre":"Wi-Fi","precio":0,"desc":"","img":"/pautas/mahalo_hostel/imagenes/suitedeluxeIIhab7.webp"}],"categories":[{"id":"todas","label":"Todas"},{"id":"habitaciones","label":"Habitaciones"},{"id":"servicios","label":"Servicios"}],"whatsapp":"573228551504","businessName":"Mahalo Hostel Salento","currency":"COP","showSearch":true,"showCurrency":false,"precioLabel":"por noche"});</script>
   </body>
 </html>

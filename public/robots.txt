@@ -6,7 +6,6 @@ Allow: /
 Crawl-delay: 1
 
 # Paginas prioritarias
-Allow: /estado-actual-salento-hoteles-abiertos-vias-libres-valle-cocora-operando-100
 Allow: /valle-cocora-accesible-100
 Allow: /hoteles-abiertos-salento
 Allow: /vias-salento-libres-acceso
