@@ -137,6 +137,7 @@ const AllyRegistrationForm = lazy(() => import('./components/AllyRegistrationFor
 const AllyVerification = lazy(() => import('./components/AllyVerification'))
 const ProviderSelectionModal = lazy(() => import('./components/ProviderSelectionModal'))
 const FeatureCards = lazy(() => import('./components/FeatureCards'))
+const FeaturedHomeMenus = lazy(() => import('./components/FeaturedHomeMenus'))
 
 function LoadingFallback() {
   return (
@@ -1185,6 +1186,39 @@ function App() {
           </div>
         ) : selectedPlace ? <PlaceDetail place={selectedPlace} currency={currency} onBack={() => setSelectedPlace(null)} t={t} onReserveHorseback={() => setShowHorsebackRiding(true)} /> : (
           <>
+        <Suspense fallback={<LoadingFallback />}>
+          <FeaturedHomeMenus places={places} />
+        </Suspense>
+
+        <section className="direct-orders-banner" id="pedidos-directos" aria-labelledby="direct-orders-title">
+          <div className="direct-orders-copy">
+            <p className="eyebrow">{t('orders.eyebrow', 'Compra local, directo')}</p>
+            <h2 id="direct-orders-title">{t('orders.title', 'Pide, reserva y solicita servicios desde aquí.')}</h2>
+            <p>{t('orders.desc', 'Encuentra negocios de Salento, arma tu pedido o reserva y contacta directamente al comerciante por WhatsApp, sin intermediarios ni comisiones por venta.')}</p>
+            <div className="direct-orders-actions">
+              <button className="dark-button" onClick={() => scrollToSection('pedidos')}><ShoppingBag size={17} /> {t('orders.explore', 'Explorar pedidos')}</button>
+              <button className="outline-button" onClick={() => setShowProviderModal(true)}><MessageCircle size={17} /> {t('orders.find', 'Buscar un servicio')}</button>
+            </div>
+            <small className="cta-microcopy">{t('banner.microcopy')}</small>
+            <div className="trust-strip" aria-label={t('trust.aria')}>
+              <div className="trust-item"><span className="trust-icon"><Shield size={16} /></span><div><strong>{t('trust.t1t')}</strong><small>{t('trust.t1s')}</small></div></div>
+              <div className="trust-item"><span className="trust-icon"><Zap size={16} /></span><div><strong>{t('trust.t2t')}</strong><small>{t('trust.t2s')}</small></div></div>
+              <div className="trust-item"><span className="trust-icon"><Star size={16} /></span><div><strong>{t('trust.t3t')}</strong><small>{t('trust.t3s')}</small></div></div>
+              <div className="trust-item"><span className="trust-icon"><MessageCircle size={16} /></span><div><strong>{t('trust.t4t')}</strong><small>{t('trust.t4s')}</small></div></div>
+            </div>
+            <p className="money-promise"><Heart size={13} /> {t('money.promise')}</p>
+          </div>
+          <div className="direct-orders-points" aria-label={t('orders.aria', 'Beneficios del servicio directo')}>
+            <div><span className="direct-orders-icon"><ShoppingBag size={18} /></span><strong>{t('orders.pedidos', 'Pedidos')}</strong><small>{t('orders.pedidosDesc', 'Comida y productos')}</small></div>
+            <div><span className="direct-orders-icon"><Clock3 size={18} /></span><strong>{t('orders.reservas', 'Reservas')}</strong><small>{t('orders.reservasDesc', 'Experiencias y hospedaje')}</small></div>
+            <div><span className="direct-orders-icon"><Bike size={18} /></span><strong>{t('orders.domicilios', 'Domicilios')}</strong><small>{t('orders.domiciliosDesc', 'Cabecera y alrededores')}</small></div>
+          </div>
+        </section>
+
+        <Suspense fallback={<LoadingFallback />}>
+          <FeatureCards />
+        </Suspense>
+
         <section className="hoy-salento" id="hoy-salento" aria-labelledby="hoy-salento-title">
           <div className="hoy-salento-inner">
             <header className="hoy-salento-header">
@@ -1410,35 +1444,6 @@ function App() {
             </div>
           </section>
         )}
-
-        <section className="direct-orders-banner" id="pedidos-directos" aria-labelledby="direct-orders-title">
-          <div className="direct-orders-copy">
-            <p className="eyebrow">{t('orders.eyebrow', 'Compra local, directo')}</p>
-            <h2 id="direct-orders-title">{t('orders.title', 'Pide, reserva y solicita servicios desde aquí.')}</h2>
-            <p>{t('orders.desc', 'Encuentra negocios de Salento, arma tu pedido o reserva y contacta directamente al comerciante por WhatsApp, sin intermediarios ni comisiones por venta.')}</p>
-            <div className="direct-orders-actions">
-              <button className="dark-button" onClick={() => scrollToSection('pedidos')}><ShoppingBag size={17} /> {t('orders.explore', 'Explorar pedidos')}</button>
-              <button className="outline-button" onClick={() => setShowProviderModal(true)}><MessageCircle size={17} /> {t('orders.find', 'Buscar un servicio')}</button>
-            </div>
-            <small className="cta-microcopy">{t('banner.microcopy')}</small>
-            <div className="trust-strip" aria-label={t('trust.aria')}>
-              <div className="trust-item"><span className="trust-icon"><Shield size={16} /></span><div><strong>{t('trust.t1t')}</strong><small>{t('trust.t1s')}</small></div></div>
-              <div className="trust-item"><span className="trust-icon"><Zap size={16} /></span><div><strong>{t('trust.t2t')}</strong><small>{t('trust.t2s')}</small></div></div>
-              <div className="trust-item"><span className="trust-icon"><Star size={16} /></span><div><strong>{t('trust.t3t')}</strong><small>{t('trust.t3s')}</small></div></div>
-              <div className="trust-item"><span className="trust-icon"><MessageCircle size={16} /></span><div><strong>{t('trust.t4t')}</strong><small>{t('trust.t4s')}</small></div></div>
-            </div>
-            <p className="money-promise"><Heart size={13} /> {t('money.promise')}</p>
-          </div>
-          <div className="direct-orders-points" aria-label={t('orders.aria', 'Beneficios del servicio directo')}>
-            <div><span className="direct-orders-icon"><ShoppingBag size={18} /></span><strong>{t('orders.pedidos', 'Pedidos')}</strong><small>{t('orders.pedidosDesc', 'Comida y productos')}</small></div>
-            <div><span className="direct-orders-icon"><Clock3 size={18} /></span><strong>{t('orders.reservas', 'Reservas')}</strong><small>{t('orders.reservasDesc', 'Experiencias y hospedaje')}</small></div>
-            <div><span className="direct-orders-icon"><Bike size={18} /></span><strong>{t('orders.domicilios', 'Domicilios')}</strong><small>{t('orders.domiciliosDesc', 'Cabecera y alrededores')}</small></div>
-          </div>
-        </section>
-
-          <Suspense fallback={<LoadingFallback />}>
-            <FeatureCards />
-          </Suspense>
 
           <div className="official-info-section">
             <h3>🛡️ {t('official.title', 'Información Oficial')}</h3>

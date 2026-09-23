@@ -34,6 +34,15 @@
 - Bebidas o acompañamientos: precio por confirmar
 - Servicio para turistas y clientes de paso: disponibilidad por confirmar
 
+### Carta destacada (verificada en landing de trucha)
+| Plato / rango | Precio COP | Fuente |
+|---|---|---|
+| Trucha arcoíris | $30.000 - $42.000 | landing/mejor-trucha-salento |
+
+### Pendiente de fuente primaria
+- Carta completa con platos individuales y precios (sitio fincafeteradonelias.com.co no responde; Instagram/TripAdvisor sin carta pública accesible)
+- No inventar platos sin fuente verificable
+
 ### Servicios complementarios
 - Atención en restaurante
 - Consumo local y experiencia gastronómica
