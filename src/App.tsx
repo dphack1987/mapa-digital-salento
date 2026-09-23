@@ -355,7 +355,7 @@ function App() {
       '/registro-aliados.html', '/don-chucho-asistente.html',
       '/restaurantes-salento-abiertos-servicio-gastronomico-operativo.html',
       '/robots.txt', '/sitemap.xml', '/b00529ac43b44c15a0d1a45101a8ac41.txt',
-      '/naver40e1bca2d90dc5fc506dbd5a76c0b4a5.html'
+      '/naver1820d4dce5511b63defe80c50a86ab77.html'
     ]
     const isValid = validPages.includes(path) || validPrefixes.some(p => path.startsWith(p))
       || path.endsWith('.html') || path.endsWith('.xml') || path.endsWith('.txt') || path.endsWith('.webp')
