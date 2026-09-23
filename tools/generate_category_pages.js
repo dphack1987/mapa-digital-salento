@@ -80,6 +80,13 @@ function escapeHtml(value) {
     .replace(/'/g, '&#039;');
 }
 
+function placeCtaLabel(type) {
+  const value = String(type || '');
+  if (/restaurant|gastrono|restaurante|caf[eé]s?\b|café/i.test(value)) return 'Ver menú';
+  if (/alojamiento|hotel|camping|hospedaje|hostal|hostel|finca hotel/i.test(value)) return 'Reservar ya';
+  return 'Ver información';
+}
+
 function brandMark(link = true) {
   const mark = `<img src="/logo_salento2026.webp" alt="Salento a la Mano" class="brand-logo" style="width:64px;height:64px;object-fit:contain;border-radius:50%"/><span>Salento a la Mano</span>`;
   return link ? `<a class="brand" href="/">${mark}</a>` : `<div class="brand">${mark}</div>`;
@@ -354,7 +361,7 @@ function renderCategoryPage(category, items) {
             <span>${escapeHtml(item.timeInfo || 'Reservas directas')}</span>
           </div>
           <div class="card-actions" onclick="event.stopPropagation()">
-            <a class="btn primary" href="/paginas-pautantes/${itemSlug}/">Ver página</a>
+            <a class="btn primary" href="/paginas-pautantes/${itemSlug}/">${placeCtaLabel(item.type || category)}</a>
             <a class="btn" href="${mapUrl}" target="_blank" rel="noreferrer">Cómo llegar</a>
             ${whatsapp ? `<a class="btn whatsapp" href="${whatsapp}" target="_blank" rel="noreferrer">WhatsApp</a>` : ''}
           </div>

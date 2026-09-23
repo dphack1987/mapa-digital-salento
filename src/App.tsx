@@ -98,6 +98,7 @@ const serviceCardImages = {
 function providerSlug(name: string) {
   return name.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')
 }
+import { placeCtaLabel, markerCtaLabel } from './utils/placeCta'
 import translationService from './services/translationService'
 import donChuchoKnowledge from './services/donChuchoKnowledge'
 import internationalSEOService from './services/internationalSEO.service'
@@ -759,14 +760,15 @@ function App() {
   }, [places, t])
 
   const featuredPautantes = useMemo(() => {
-    // Prioridad: assets en /pautas/ > orden editorial > resto de pautantes
+    // Prioridad: assets en /pautas/ > orden editorial > resto de pautantes (todos, sin cortar)
     const wanted = ['Cabalgatas Cocora Mágica', 'Moto Aventura 110', 'Hotel La Tía Emiss', 'Finca Don Eduardo Coffee Tour', 'Fonda Boquía', 'Reserva Natural Cascadas de Santa Rita', 'El Recuerdo Coffee Tour']
     const withPautasAssets = places.filter(p => p.isPautante && (p.photos || []).some(src => String(src).startsWith('/pautas/')))
     const byName = withPautasAssets.filter(p => wanted.includes(p.name))
     const byNameRest = withPautasAssets.filter(p => !wanted.includes(p.name))
     const order = [...byName, ...byNameRest]
     const rest = places.filter(p => p.isPautante && !withPautasAssets.includes(p))
-    return [...order, ...rest].slice(0, 4)
+    // Enriquecer: mostrar TODOS los pautantes (los de /pautas/ primero)
+    return [...order, ...rest]
   }, [places])
 
   const todayPlans = useMemo(() => {
@@ -1548,7 +1550,7 @@ function App() {
                         {place.location?.landmark && <span>{place.location.landmark.slice(0, 28)}</span>}
                       </div>
                       <div className="hoy-pautante-actions">
-                        <a className="button primary" href={href} onClick={(e) => { if (!place.actionTarget?.viewUrl) { e.preventDefault(); window.location.assign(href) } }}>{t('hoy.viewPautante', 'Ver información')}</a>
+                        <a className="button primary" href={href} onClick={(e) => { if (!place.actionTarget?.viewUrl) { e.preventDefault(); window.location.assign(href) } }}>{t('hoy.viewPautante', placeCtaLabel(place.type))}</a>
                         {wa && (
                           <a className="button" href={`https://wa.me/${wa}`} target="_blank" rel="noreferrer">WhatsApp</a>
                         )}
@@ -1743,7 +1745,7 @@ function App() {
                 setSelectedPlace(found)
                 window.scrollTo({ top: 0, behavior: 'smooth' })
               }
-            }}>{/Restaurant|Gastrono|Restaurante/.test(marker.type) ? t('map.viewMenu', 'Ver menú') : t('map.viewInfo', 'Ver información')} <ArrowRight size={13} /></button></Popup></CircleMarker>)}<MapControls /></MapContainer></div>
+            }}>{markerCtaLabel(marker.type) === 'Ver menú' ? t('map.viewMenu', 'Ver menú') : markerCtaLabel(marker.type) === 'Reservar ya' ? t('map.viewReserve', 'Reservar ya') : t('map.viewInfo', 'Ver información')} <ArrowRight size={13} /></button></Popup></CircleMarker>)}<MapControls /></MapContainer></div>
           )}
         </section>
 
@@ -2291,7 +2293,7 @@ function PlaceCard({ place, onOpen, onReviews }: { place: Place; onAdd?: () => v
   const Icon = place.icon
   const stats = reviewsService.getPlaceStats(String(place.id))
   const mapUrl = `https://www.google.com/maps/search/${encodeURIComponent(place.location?.address || `${place.name} Salento`)}`
-  const ctaLabel = 'Ver información'
+  const ctaLabel = placeCtaLabel(place.type)
   const priceFrom = place.priceRange && place.priceRange !== 'Gratis' ? place.priceRange : place.price
 
   return (
