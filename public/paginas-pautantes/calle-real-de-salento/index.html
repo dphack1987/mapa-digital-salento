@@ -3,91 +3,48 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
-    <meta name="description" content="Recorre la Calle Real de Salento: 800 metros de tiendas artesanales, cafés aromáticos, fachadas coloniales con balcones floridos y el mejor souvenir del Eje Cafetero colombiano." />
+    <meta name="description" content="Calle principal de Salento, llena de artesanías, cafés y restaurantes. Desde la plaza hasta la vía al Cocora." />
     <title>Calle Real de Salento | Vive Salento directamente</title>
-    <meta property="og:title" content="Calle Real de Salento: Artesanías y Cultura | Salento a la Mano" />
-    <meta property="og:description" content="Recorre la Calle Real de Salento: 800 metros de tiendas artesanales, cafés aromáticos, fachadas coloniales con balcones floridos y el mejor souvenir del Eje C" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://www.salentoalamano.com/paginas-pautantes/calle-real-de-salento/" />
-    <meta property="og:image" content="https://www.salentoalamano.com/paginas-pautantes/calle-real-de-salento/calle-real-de-salento-terminada.webp" />
-    <meta property="og:site_name" content="Salento a la Mano" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Calle Real de Salento: Artesanías y Cultura | Salento a la Mano" />
-    <meta name="twitter:description" content="Recorre la Calle Real de Salento: 800 metros de tiendas artesanales, cafés aromáticos, fachadas coloniales con balcones floridos y el mejor souvenir del Eje C" />
-    <link rel="alternate" hreflang="es-CO" href="https://www.salentoalamano.com/paginas-pautantes/calle-real-de-salento/" />
-    <link rel="alternate" hreflang="x-default" href="https://www.salentoalamano.com/paginas-pautantes/calle-real-de-salento/" />
     <link rel="canonical" href="https://www.salentoalamano.com/paginas-pautantes/calle-real-de-salento/" />
-    <link rel="stylesheet" href="/pautante-theme.css" />
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap');
+      :root { --paper:#f5f1e8; --ink:#1f2d26; --muted:#59665f; --line:#d9d0bf; --coral:#dd7f5d; --yellow:#e7c77b; --white:#fff; }
+      * { box-sizing:border-box; } body { margin:0; background:var(--paper); color:var(--ink); font-family:'DM Sans',sans-serif; }
+      a { color:inherit; text-decoration:none; } .container { max-width:1180px; margin:0 auto; padding:24px 20px 72px; }
+      .topbar { display:flex; justify-content:space-between; gap:16px; align-items:center; margin-bottom:28px; } .brand { display:inline-flex; align-items:center; gap:10px; font-weight:700; font-size:20px; } .brand-logo { width:42px; height:42px; object-fit:contain; border-radius:50%; }
+      .top-actions,.actions { display:flex; flex-wrap:wrap; gap:10px; } .button { display:inline-flex; align-items:center; justify-content:center; border:1px solid var(--line); border-radius:999px; padding:11px 15px; font-weight:700; font-size:13px; background:var(--white); }
+      .button.primary { background:#25d366; border-color:#25d366; color:#fff; } .button.dark { background:var(--ink); border-color:var(--ink); color:#fff; }
+      .hero { display:grid; grid-template-columns:1.1fr .9fr; gap:24px; align-items:stretch; } .hero-copy,.hero-image,.section { background:var(--white); border:1px solid var(--line); border-radius:24px; }
+      .hero-copy { padding:34px; } .eyebrow { color:var(--coral); text-transform:uppercase; letter-spacing:.12em; font-size:11px; font-weight:700; }
+      h1 { font-size:clamp(2.3rem,5vw,4.8rem); line-height:1.02; margin:14px 0; } .lead { color:var(--muted); line-height:1.7; font-size:1.08rem; max-width:650px; }
+      .hero-image { min-height:360px; background:linear-gradient(rgba(0,0,0,.08),rgba(0,0,0,.25)),url('/imagenes-salento/calle.webp') center/cover; }
+      .highlights { display:flex; flex-wrap:wrap; gap:8px; margin:22px 0; } .highlight,.tag { padding:8px 11px; border:1px solid var(--line); border-radius:999px; background:#f3ead6; font-size:12px; font-weight:700; }
+      .section { padding:26px; margin-top:24px; } h2 { margin:0 0 16px; font-size:1.5rem; } .two-col { display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+      .gallery { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; } .gallery img { width:100%; height:190px; object-fit:cover; border-radius:16px; border:1px solid var(--line); }
+      .facts { display:grid; gap:0; } .fact { padding:13px 0; border-bottom:1px solid var(--line); } .fact strong { display:block; color:var(--muted); font-size:11px; text-transform:uppercase; margin-bottom:5px; }
+      .service-section strong { display:block; color:var(--muted); font-size:11px; text-transform:uppercase; margin:14px 0 6px; } .service-grid { display:grid; grid-template-columns:1fr 1fr; gap:28px; } .service-section ul { margin:6px 0 18px; padding-left:20px; color:var(--muted); line-height:1.8; } .service-section p { color:var(--muted); line-height:1.6; } .muted { color:var(--muted); }
+      .tags { display:flex; flex-wrap:wrap; gap:8px; } .trust { color:var(--muted); line-height:1.6; } .verified { color:#39734b; font-weight:700; }
+      @media (max-width:800px) { .hero,.two-col { grid-template-columns:1fr; } .hero-image { min-height:260px; order:-1; } .topbar { align-items:flex-start; flex-direction:column; } .gallery { grid-template-columns:1fr; } }
+    </style>
     <link rel="stylesheet" href="/page-theme.css" />
-    <style>.hero-image { background:linear-gradient(rgba(0,0,0,.08),rgba(0,0,0,.25)),url('calle-real-de-salento-terminada.webp') center/cover; }</style>
-    <script type="application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://www.salentoalamano.com/"},{"@type":"ListItem","position":2,"name":"Atractivos Turísticos","item":"/categorias/atractivos-turisticos.html"},{"@type":"ListItem","position":3,"name":"Calle Real de Salento"}]}</script>
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"TouristAttraction","name":"Calle Real de Salento","description":"Calle histórica y principal de Salento, conocida por sus arquitectura tradicional, balcones con flores, tiendas de artesanías y cafés. Es el corazón cultural y comercial del municipio.","url":"/paginas-pautantes/calle-real-de-salento/","image":"https://www.salentoalamano.com/logo_salento2026.webp","address":{"@type":"PostalAddress","addressLocality":"Salento","addressRegion":"Quindío","addressCountry":"CO","streetAddress":"Calle Real, Salento, Quindío"},"geo":{"@type":"GeoCoordinates","latitude":4.639,"longitude":-75.5653},"priceRange":"Gratis","areaServed":{"@type":"City","name":"Salento","containedIn":{"@type":"State","name":"Quindío"}},"openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]}}</script>
-  
-<!-- Yandex.Metrika counter -->
-<script type="text/javascript" >
-(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
- m[i].l=1*new Date();
- for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}
- k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-(window, document, "script", "https://mc.yandex.ru/metrika/tag.js?id=112528103", "ym");
-
- ym(112528103, 'init', {ssr:true, webvisor:true, clickmap:true,
- ecommerce:true, accurateTrackBounce:true, trackHash:true});
-</script>
-<noscript><div><img src="https://mc.yandex.ru/watch/112528103" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-<!-- /Yandex.Metrika counter -->
-</head>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://www.salentoalamano.com/"},{"@type":"ListItem","position":2,"name":"Atractivos Turísticos","item":"/categorias/atractivos-turisticos.html"},{"@type":"ListItem","position":3,"name":"Calle Real de Salento"}]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","name":"Calle Real de Salento","description":"Calle principal de Salento, llena de artesanías, cafés y restaurantes. Desde la plaza hasta la vía al Cocora.","url":"/paginas-pautantes/calle-real-de-salento/","image":"/imagenes-salento/calle.webp","address":{"@type":"PostalAddress","addressLocality":"Salento","addressRegion":"Quindío","addressCountry":"CO","streetAddress":"Calle Real, Salento, Quindío"},"geo":{"@type":"GeoCoordinates","latitude":4.639,"longitude":-75.5653},"priceRange":"Gratis","areaServed":{"@type":"City","name":"Salento","containedIn":{"@type":"State","name":"Quindío"}},"aggregateRating":{"@type":"AggregateRating","ratingValue":4.8,"reviewCount":1,"bestRating":5,"worstRating":1},"openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]}}</script>
+  </head>
   <body>
     <main class="container">
       <header class="topbar"><a class="brand" href="/"><img src="/logo_salento2026.webp" alt="Salento a la Mano" class="brand-logo" style="width:64px;height:64px;object-fit:contain;border-radius:50%"/><span>Salento a la Mano</span></a><nav class="top-actions"><a class="button" href="/">Inicio</a><a class="button" href="/categorias/atractivos-turisticos.html">Ver categoría</a></nav></header>
       <section class="hero">
-        <div class="hero-copy"><div class="eyebrow">Atractivos Turísticos · contacto directo</div><h1>Calle Real de Salento</h1><p class="lead">Caminata de 800 metros desde la Plaza de Bolívar hasta el mirador natural, donde artesanos locales, cafeterías con aroma a grano recién tostado y fachadas coloniales pintadas de colores vibrantes te invitan a detener el tiempo y descubrir el verdadero corazón turístico del Quindío.</p>
+        <div class="hero-copy"><div class="eyebrow">Atractivos Turísticos · contacto directo</div><h1>Calle Real de Salento</h1><p class="lead">Calle principal de Salento, llena de artesanías, cafés y restaurantes. Desde la plaza hasta la vía al Cocora.</p>
           <div class="highlights"><span class="highlight">Rango: Gratis</span><span class="highlight">Acceso libre</span></div>
-          <div class="actions"><a class="btn whatsapp" href="https://wa.me/573184520000" target="_blank" rel="noreferrer">WhatsApp</a><a class="button" href="https://www.google.com/maps/search/Calle%20Real%2C%20Salento%2C%20Quind%C3%ADo" target="_blank" rel="noreferrer">Cómo llegar</a></div>
+          <div class="actions"><a class="button" href="https://www.google.com/maps/search/Calle%20Real%2C%20Salento%2C%20Quind%C3%ADo" target="_blank" rel="noreferrer">Cómo llegar</a></div>
         </div><div class="hero-image" aria-label="Calle Real de Salento"></div>
       </section>
       
       
-      <section class="section"><h2>Conoce la experiencia</h2><div class="two-col"><div><p class="verified">✓ Información verificada en el catálogo local</p><p>La Calle Real de Salento no es solo una vía peatonal: es la columna vertebral comercial del municipio donde cada tienda cuenta una historia. Desde los sombreros vueltiao colgados hasta el chocolate caliente en las fachadas, cada rincón refleja la tradición cafetera del Quindío. Los domingos se convierte en una feria al aire libre con música en vivo y artesanos que muestran su oficio en vivo.</p></div><div class="facts"><div class="fact"><strong>Ubicación</strong>Calle Real, Salento, Quindío</div><div class="fact"><strong>Referencia</strong>Centro histórico</div><div class="fact"><strong>Horario</strong>Tiendas: 9:00 AM - 8:00 PM. Restaurantes hasta 10:00 PM</div><div class="fact"><strong>Duración promedio</strong>30-60 minutos caminando</div></div></div></section>
-      <section class="section"><h2>Galería de imágenes</h2><div class="gallery"><div class="gallery-photo"><img src="calle-real-de-salento-terminada.webp" alt="Calle Real de Salento terminada con fachadas coloridas" loading="lazy" /></div><div class="gallery-photo"><img src="calle-real-salento-colombia-colorful-doors.webp" alt="Puertas coloridas en la Calle Real de Salento" loading="lazy" /></div><div class="gallery-photo"><img src="images (1).webp" alt="Tiendas artesanales en la Calle Real" loading="lazy" /></div><div class="gallery-photo"><img src="images (2).webp" alt="Arquitectura colonial en la Calle Real de Salento" loading="lazy" /></div><div class="gallery-photo"><img src="images (3).webp" alt="Calle Real de Salento Quindío" loading="lazy" /></div><div class="gallery-photo"><img src="images (4).webp" alt="Balcones con flores en la Calle Real" loading="lazy" /></div><div class="gallery-photo"><img src="images.webp" alt="Vista de la Calle Real de Salento" loading="lazy" /></div><div class="gallery-photo"><img src="39ddb10569b6743a94ab53f1e81c3c99.webp" alt="Calle Real de Salento Colombia" loading="lazy" /></div><div class="gallery-photo"><img src="Salento-calle-Real-viajar-a-colombia-aventureros-360.webp" alt="Calle Real Salento para viajeros" loading="lazy" /></div><div class="gallery-photo"><img src="tiendas-lo-largo-de-la-famosa-calle-real-en-bella-pequeña-ciudad-salento-colombia-julio-232521511.webp" alt="Tiendas a lo largo de la famosa Calle Real en Salento" loading="lazy" /></div></div></section>
+      <section class="section"><h2>Conoce la experiencia</h2><div class="two-col"><div><p class="trust">Calle principal de Salento, llena de artesanías, cafés y restaurantes. Desde la plaza hasta la vía al Cocora.</p><p class="verified">✓ Información verificada en el catálogo local</p></div><div class="facts"><div class="fact"><strong>Ubicación</strong>Calle Real, Salento, Quindío</div><div class="fact"><strong>Referencia</strong>Centro histórico</div><div class="fact"><strong>Horario</strong>Acceso libre 24 horas</div></div></div></section>
+      <section class="section"><h2>Galería de imágenes</h2><div class="gallery"><img src="/imagenes-salento/calle.webp" alt="Calle Real de Salento foto 1" loading="lazy"/><img src="/imagenes-salento/631026720.webp" alt="Calle Real de Salento foto 2" loading="lazy"/><div class="photo-pending" aria-label="Foto verificada pendiente para Calle Real de Salento"><span>📷</span><strong>Calle Real de Salento</strong><small>Foto verificada pendiente 3/3</small></div></div></section>
       <section class="section"><h2>Antes de confirmar tu visita</h2><div class="two-col"><div><p class="trust">¿Cuál es el horario de Calle Real de Salento? Acceso libre 24 horas</p><p class="trust">¿Cuánto cuesta? Rango Gratis. Confirma la tarifa final con el local.</p><p class="trust">¿Cómo reservo? Contacto directo por WhatsApp, sin intermediarios ni comisiones.</p></div><div class="facts"><div class="fact"><strong>Punto de encuentro</strong>Centro histórico</div><div class="fact"><strong>Cómo llegar</strong><a href="https://www.google.com/maps/search/Calle%20Real%2C%20Salento%2C%20Quind%C3%ADo" target="_blank" rel="noreferrer">Abrir en Google Maps</a></div><div class="fact"><strong>Reseñas</strong>Las reseñas se publican en la ficha interactiva del directorio</div></div></div></section>
       <section class="section"><h2>Lo que puedes encontrar</h2><div class="tags"><span class="tag">calle real</span><span class="tag">historia</span><span class="tag">artesanías</span><span class="tag">centro</span><span class="tag">patrimonio</span></div></section>
-      <section class="section" id="faq">
-        <h2>Preguntas frecuentes</h2>
-        <div class="faq-list">
-          <details class="faq-item"><summary>¿Qué es la Calle Real?</summary><p>La calle principal de Salento, llena de tiendas de artesanías, restaurantes, cafeterías y tiendas de recuerdos. Desde la Plaza de Bolívar hasta la salida al Valle de Cocora.</p></details>
-          <details class="faq-item"><summary>¿Cuánto dura un recorrido?</summary><p>30-60 minutos caminando, parando en tiendas. Más si entras a restaurantes.</p></details>
-          <details class="faq-item"><summary>¿Qué puedo comprar?</summary><p>Mochilas artesanales, hamacas, sombreros vueltiao, café, chocolate, licor de café, artesanías en madera.</p></details>
-          <details class="faq-item"><summary>¿Hay restaurantes?</summary><p>Sí, múltiples opciones: Fonda Boquía, Don Elías, cafeterías, heladerías.</p></details>
-          <details class="faq-item"><summary>¿Horario?</summary><p>Tiendas de 9:00 AM - 8:00 PM. Restaurantes hasta 10:00 PM. Domingos más concurrido.</p></details>
-        </div>
-      </section>
-
-      <section class="section" id="cerca">
-        <h2>Qué hacer cerca</h2>
-        <div class="nearby-grid">
-          <div class="nearby-item"><span class="icon">🏛️</span><h3><a href="/paginas-pautantes/plaza-de-bolivar-de-salento/">Plaza de Bolívar</a></h3><p>inicio de calle</p></div>
-          <div class="nearby-item"><span class="icon">⛪</span><h3><a href="/paginas-pautantes/iglesia-de-nuestra-senora-del-carmen-de-salento/">Iglesia del Carmen</a></h3><p>esquina norte</p></div>
-          <div class="nearby-item"><span class="icon">🔭</span><h3><a href="/paginas-pautantes/mirador-alto-de-la-cruz/">Mirador Alto de la Cruz</a></h3><p>final de calle</p></div>
-          <div class="nearby-item"><span class="icon">🌴</span><h3><a href="/paginas-pautantes/valle-de-cocora-sendero-de-entrada-libre/">Valle de Cocora</a></h3><p>25 min en jeep</p></div>
-        </div>
-      </section>
-
-      <section class="section">
-        <h2>Consejos para tu visita</h2>
-        <div class="two-col">
-          <div class="trust">
-            <p><strong>Calzado:</strong> Calle empedrada, usa zapatos cómodos.</p>
-            <p><strong>Fotos:</strong> Fotos hermosas al atardecer.</p>
-            <p class="verified">✓ Información verificada en el catálogo local</p>
-          </div>
-          <div class="facts">
-            <div class="fact"><strong>Consejo:</strong>Negocia precios en artesanías.</div>
-          </div>
-        </div>
-      </section>
-
       <nav class="bottom-nav" aria-label="Volver" style="display:flex;flex-wrap:wrap;gap:10px;margin-top:28px"><a class="button primary" href="/">Volver al inicio</a><a class="button dark" href="/">Ir a página principal</a><a class="button" href="/categorias/">Ver categorías</a></nav>
     </main>
   </body>

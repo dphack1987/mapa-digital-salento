@@ -71,3 +71,23 @@ button, select { font: inherit; }
   .top-actions, .actions { width: 100%; }
   .top-actions > a, .actions > a { flex: 1 1 auto; min-height: 44px; }
 }
+
+/* Design pass: experiential tourism patterns (Airbnb / GetYourGuide / Lonely Planet) */
+.hero-visual { min-height: 300px; background-size: cover; background-position: center; }
+.hero { align-items: stretch; }
+.provider-grid, .grid { grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 18px; }
+.provider-card, .card { border-radius: 22px; overflow: hidden; transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease; }
+.provider-card:hover, .card:hover { transform: translateY(-4px); box-shadow: 0 16px 32px rgba(39, 54, 43, .12); border-color: var(--coral); }
+.card-image, .image { height: 170px; background-size: cover; background-position: center; transition: transform .35s ease; }
+.provider-card:hover .card-image, .card:hover .image { transform: scale(1.04); }
+.gallery { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+.gallery .gallery-photo:first-child { grid-column: span 2; grid-row: span 2; }
+.gallery .gallery-photo { position: relative; overflow: hidden; border-radius: 16px; aspect-ratio: 4/3; background: #dce5d1; }
+.gallery .gallery-photo img { width: 100%; height: 100%; object-fit: cover; transition: transform .35s ease, filter .25s ease; filter: saturate(.9); }
+.gallery .gallery-photo:hover img { transform: scale(1.07); filter: saturate(1.08); }
+@media (max-width: 800px) {
+  .hero-visual { min-height: 200px; }
+  .gallery { grid-template-columns: repeat(2, 1fr); }
+  .gallery .gallery-photo:first-child { grid-column: span 2; grid-row: span 1; }
+  .provider-grid, .grid { grid-template-columns: 1fr; }
+}

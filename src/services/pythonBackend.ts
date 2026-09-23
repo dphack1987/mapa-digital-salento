@@ -92,8 +92,13 @@ class PythonBackendService {
   
   async healthCheck(): Promise<any> {
     try {
-      const response = await fetch(`${this.baseUrl}/health`)
-      return response.json()
+      const response = await fetch(`${this.baseUrl}/health`, {
+        signal: typeof AbortSignal !== 'undefined' && 'timeout' in AbortSignal
+          ? AbortSignal.timeout(3000)
+          : undefined
+      })
+      if (!response.ok) return null
+      return await response.json()
     } catch (error) {
       console.error('Error conectando con backend Python:', error)
       return null

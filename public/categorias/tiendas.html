@@ -3,20 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
     <meta name="description" content="Comercios locales, souvenirs y compras directas" />
     <title>Tiendas | Salento a la Mano</title>
-    <meta property="og:title" content="Tiendas y Comercios en Salento | Salento a la Mano" />
-    <meta property="og:description" content="Tiendas y comercios en Salento, Quindío: souvenirs, compras locales y los mejores establecimientos del pueblo." />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://www.salentoalamano.com/categorias/tiendas.html" />
-    <meta property="og:image" content="https://www.salentoalamano.com/imagenes-salento/calle.webp" />
-    <meta property="og:site_name" content="Salento a la Mano" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Tiendas y Comercios en Salento | Salento a la Mano" />
-    <meta name="twitter:description" content="Tiendas y compras locales en Salento: souvenirs y comercio directo." />
-    <link rel="alternate" hreflang="es-CO" href="https://www.salentoalamano.com/categorias/tiendas.html" />
-    <link rel="alternate" hreflang="x-default" href="https://www.salentoalamano.com/categorias/tiendas.html" />
     <link rel="canonical" href="https://www.salentoalamano.com/categorias/tiendas.html" />
     
     <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
@@ -46,41 +34,45 @@
       .brand-logo { width: 42px; height: 42px; object-fit: contain; border-radius: 50%; }
       .nav-link { background: var(--white); border: 1px solid var(--line); padding: 10px 14px; border-radius: 999px; }
       .hero {
-        display: grid; grid-template-columns: 1.3fr .7fr; gap: 20px; align-items: stretch; margin-bottom: 28px;
+        display: grid; grid-template-columns: 1.25fr .75fr; gap: 0; align-items: stretch; margin-bottom: 28px;
+        background: var(--white); border: 1px solid var(--line); border-radius: 24px; overflow: hidden;
+        box-shadow: 0 18px 40px rgba(39,54,43,.1);
       }
-      .hero-copy, .hero-visual {
-        background: var(--white); border: 1px solid var(--line); border-radius: 22px; overflow: hidden;
-      }
-      .hero-copy { padding: 30px 28px; }
+      .hero-copy { padding: 36px 32px; display: flex; flex-direction: column; justify-content: center; }
       .eyebrow { text-transform: uppercase; letter-spacing: .12em; font-size: 11px; color: var(--coral); font-weight: 700; }
-      h1 { font-size: clamp(2rem, 4vw, 4rem); margin: 12px 0 12px; }
+      h1 { font-size: clamp(2rem, 4vw, 4rem); margin: 12px 0 12px; line-height: .98; }
       .sub { color: #536057; font-size: 1.05rem; line-height: 1.6; }
       .stats { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 20px; }
       .stat { background: #f1eadb; border: 1px solid var(--line); border-radius: 14px; padding: 12px 14px; }
       .hero-visual {
-        background-image: linear-gradient(rgba(0,0,0,.15), rgba(0,0,0,.3)), url('/imagenes-salento/calle.webp');
-        background-size: cover; background-position: center; min-height: 260px;
+        background-image: linear-gradient(rgba(15,28,18,.18), rgba(15,28,18,.42)), url('/imagenes-salento/calle.webp');
+        background-size: cover; background-position: center; min-height: 280px;
       }
       .provider-grid {
-        display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; margin-top: 24px;
+        display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 18px; margin-top: 24px;
       }
       .empty-category { display: flex; align-items: center; gap: 18px; margin-top: 24px; padding: 24px; border: 1px dashed var(--coral); background: rgba(255,255,255,.7); }
       .empty-category-mark { display: grid; place-items: center; width: 42px; height: 42px; flex: 0 0 42px; border: 1px solid var(--coral); border-radius: 50%; color: var(--coral); font-size: 25px; }
       .empty-category h2 { margin: 0 0 6px; font: 600 22px Fraunces, serif; }
       .empty-category p { margin: 0; color: #59665f; line-height: 1.5; }
       .provider-card {
-        background: var(--white); border: 1px solid var(--line); border-radius: 20px; overflow: hidden; 
+        background: var(--white); border: 1px solid var(--line); border-radius: 20px; overflow: hidden;
+        box-shadow: 0 8px 24px rgba(39,54,43,.06); transition: transform .2s, box-shadow .2s, border-color .2s;
+        display: flex; flex-direction: column;
       }
+      .provider-card:hover { transform: translateY(-4px); box-shadow: 0 16px 32px rgba(39,54,43,.12); border-color: var(--coral); }
       .card-image {
-        height: 150px; background-size: cover; background-position: center; width: 100%;
+        height: 170px; background-size: cover; background-position: center; width: 100%;
+        transition: transform .35s ease;
       }
-      .card-body { padding: 18px; }
+      .provider-card:hover .card-image { transform: scale(1.04); }
+      .card-body { padding: 18px; display: flex; flex-direction: column; flex: 1; }
       .card-header-row, .meta-row, .card-actions { display: flex; justify-content: space-between; gap: 10px; align-items: center; }
       .card-header-row { margin-bottom: 10px; }
       .pill { background: #f3ead6; border-radius: 999px; padding: 6px 10px; font-size: 10px; font-weight: 700; text-transform: uppercase; }
       .rating { font-size: 12px; font-weight: 700; }
       h3 { margin: 8px 0 10px; font-size: 1.35rem; }
-      .card-body p { margin: 0 0 14px; color: #59665f; line-height: 1.5; font-size: 0.96rem; }
+      .card-body p { margin: 0 0 14px; color: #59665f; line-height: 1.5; font-size: 0.96rem; flex: 1; }
       .meta-row { color: #4d5a51; font-size: 12px; margin-bottom: 16px; }
       .btn {
         display: inline-flex; align-items: center; justify-content: center; padding: 10px 12px; border-radius: 10px; border: 1px solid var(--line); font-weight: 700; font-size: 12px;
@@ -89,19 +81,15 @@
       .btn.whatsapp { background: #25d366; border-color: #25d366; color: #fff; }
       @media (max-width: 760px) {
         .hero { grid-template-columns: 1fr; }
+        .hero-visual { min-height: 180px; order: -1; }
+        .hero-copy { padding: 24px 20px 28px; }
         .topbar { flex-direction: column; align-items: flex-start; }
+        .provider-grid { grid-template-columns: 1fr; }
       }
     </style>
     <link rel="stylesheet" href="/page-theme.css" />
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://www.salentoalamano.com/"},{"@type":"ListItem","position":2,"name":"Categorías","item":"https://www.salentoalamano.com/categorias/"},{"@type":"ListItem","position":3,"name":"Tiendas"}]}</script>
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"Tiendas | Salento a la Mano","description":"Comercios locales, souvenirs y compras directas","url":"https://www.salentoalamano.com/categorias/tiendas.html","inLanguage":"es","mainEntity":{"@type":"ItemList","itemListElement":[]}}</script>
-  
-    <!-- Yandex.Metrika counter -->
-    <script type="text/javascript">
-      (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,"script","https://mc.yandex.ru/metrika/tag.js?id=112528103","ym");ym(112528103,'init',{ssr:true,webvisor:true,clickmap:true,ecommerce:"dataLayer",referer:document.referrer,url:location.href,accurateTrackBounce:true,trackLinks:true});
-    </script>
-    <noscript><div><img src="https://mc.yandex.ru/watch/112528103" style="position:absolute;left:-9999px;" alt="" /></div></noscript>
-    <!-- /Yandex.Metrika counter -->
   </head>
   <body>
     <div class="container">
