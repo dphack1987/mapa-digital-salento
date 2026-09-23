@@ -184,7 +184,7 @@
       "photos": [
         "/pautas/boki_mall/imagenes/Hotel_Mirador_de_Boquia_1747081077351.webp",
         "/pautas/boki_mall/imagenes/314270821.webp",
-        "/pautas/boki_mall/imagenes/logo-hotel-mirador-de-boquia.webp"
+        "/pautas/boki_mall/imagenes/logo-hotel-mirador-de-boquia-512.webp"
       ],
       "isPautante": true,
       "parentBrand": "Boki Mall",
@@ -310,7 +310,7 @@
         ]
       },
       "photos": [
-        "/pautas/boki_mall/imagenes/terra-restaurante-logo.webp",
+        "/pautas/boki_mall/imagenes/terra-restaurante-logo-512.webp",
         "/pautas/boki_mall/imagenes/images (1).webp",
         "/pautas/boki_mall/imagenes/Hotel_Mirador_de_Boquia_1747081077351.webp"
       ],
@@ -395,7 +395,7 @@
         ]
       },
       "photos": [
-        "/pautas/boki_mall/imagenes/barcinales-cafe-bar-logo.webp",
+        "/pautas/boki_mall/imagenes/barcinales-cafe-bar-logo-512.webp",
         "/pautas/boki_mall/imagenes/images (1).webp",
         "/pautas/boki_mall/imagenes/314270821.webp"
       ],
@@ -503,7 +503,7 @@
         ]
       },
       "photos": [
-        "/pautas/boki_mall/imagenes/boki_mall_logo.webp",
+        "/pautas/boki_mall/imagenes/boki_mall_logo-512.webp",
         "/pautas/boki_mall/imagenes/images (1).webp",
         "/pautas/boki_mall/imagenes/premio-mejor-hotel-rural-2024.webp"
       ],
@@ -615,7 +615,7 @@
         "/pautas/mirador_mano_de_dios/imagenes/dios2.webp",
         "/pautas/mirador_mano_de_dios/imagenes/dios5.webp",
         "/pautas/mirador_mano_de_dios/imagenes/images.webp",
-        "/pautas/mirador_mano_de_dios/imagenes/logo-mirador-dios.webp"
+        "/pautas/mirador_mano_de_dios/imagenes/logo-mirador-dios-512.webp"
       ],
       "isPautante": true
     },
@@ -1587,10 +1587,10 @@
       "id": 23,
       "name": "Finca Don Eduardo Coffee Tour",
       "type": "Coffee Tours",
-      "description": "Continuación del legado de más de 15 años de Don Eduardo enseñando café en el Quindío. Uno de los tours más completos: historia, finca, proceso completo, procesos orgánicos, tostión artesanal y taza de café. Inglés 9:30 y 14:30; español 10:40 con reserva (mín. 2 personas). $100.000 COP por persona.",
-      "priceRange": "$$$",
+      "description": "Coffee tour con Don Eduardo en Salento: 9:00 a.m.–4:00 p.m., tours cada hora, $50.000 COP por persona. A 4 km a pie; Willys/Jeep desde la plaza $9.000.",
+      "priceRange": "$$",
       "rating": "4.9",
-      "timeInfo": "Lunes a sábado",
+      "timeInfo": "9:00 a.m. – 4:00 p.m. · tours cada hora",
       "badge": "Tour certificado",
       "color": "coral",
       "icon": "Coffee",
@@ -1604,10 +1604,10 @@
         "lat": 4.638,
         "lng": -75.569,
         "address": "Calle 7 # 1 - 04, Salento, Quindío",
-        "landmark": "8 minutos caminando de la plaza principal"
+        "landmark": "4 km a pie desde Salento · Willys/Jeep desde la plaza $9.000"
       },
       "operatingHours": {
-        "notes": "Inglés: Lunes a sábado 9:30 AM y 2:30 PM. Español: Lunes a sábado 10:40 AM con reserva. Mínimo 2 personas para tour en español."
+        "notes": "9:00 a.m. – 4:00 p.m. Tours cada hora. $50.000 COP por persona."
       },
       "tags": [
         "coffee tour",
@@ -1642,9 +1642,9 @@
           "Inglés",
           "Español"
         ],
-        "meetingPoint": "Finca Don Eduardo, Calle 7 # 1 - 04, Salento",
+        "meetingPoint": "Finca Don Eduardo · 4 km a pie o Willys/Jeep desde la plaza ($9.000)",
         "cancellationPolicy": "Consultar política de cancelación",
-        "tariff": "Tour en inglés: $100.000 COP por persona. Tour en español: consultar precio con reserva mínima 2 personas. Tours privados: consultar precio.",
+        "tariff": "$50.000 COP por persona. Horario 9:00 a.m. – 4:00 p.m., tours cada hora.",
         "attractions": [
           "Plantaciones de café",
           "Proceso completo del café",
@@ -2242,7 +2242,7 @@
         "/pautas/mahalo_hostel/imagenes/gal-8-768x1024.webp",
         "/pautas/mahalo_hostel/imagenes/gal-9-768x1024.webp",
         "/pautas/mahalo_hostel/imagenes/FONDO-3.webp",
-        "/pautas/mahalo_hostel/imagenes/logo-mahalo.webp"
+        "/pautas/mahalo_hostel/imagenes/logo-mahalo-512.webp"
       ],
       "actionTarget": {
         "viewUrl": "https://www.salentoalamano.com/paginas-pautantes/mahalo-hostel-salento/"
@@ -2322,7 +2322,7 @@
         ]
       },
       "photos": [
-        "/pautas/parque-mirador-la-vida-bella/imagenes/Logolavidabella.webp",
+        "/pautas/parque-mirador-la-vida-bella/imagenes/Logolavidabella-512.webp",
         "/pautas/parque-mirador-la-vida-bella/imagenes/IMG_0769.webp",
         "/pautas/parque-mirador-la-vida-bella/imagenes/IMG_0777.webp",
         "/pautas/parque-mirador-la-vida-bella/imagenes/IMG_0791.webp",
@@ -2341,10 +2341,10 @@
       "id": 34,
       "name": "El Recuerdo Coffee Tour",
       "type": "Coffee Tours",
-      "description": "Finca en medio de la naturaleza. Tour cada hora de 9am a 4pm, café de especialidad. $50.000 COP por persona. Willys desde la plaza: $9.000.",
+      "description": "Finca en medio de la naturaleza. Tours cada hora de 9:00 a.m. a 4:00 p.m., café de especialidad. $65.000 COP por persona. Willys desde la plaza: $9.000.",
       "priceRange": "$$",
       "rating": "4.8",
-      "timeInfo": "Tours cada hora de 9am a 4pm",
+      "timeInfo": "9:00 a.m. – 4:00 p.m. · tours cada hora",
       "badge": "Coffee Tour",
       "color": "sage",
       "icon": "Coffee",
@@ -2358,7 +2358,7 @@
         "landmark": "Salento rural"
       },
       "operatingHours": {
-        "notes": "Tours cada hora de 9:00 a.m. a 4:00 p.m."
+        "notes": "9:00 a.m. – 4:00 p.m. Tours cada hora. $65.000 COP por persona."
       },
       "tags": [
         "coffee tour",
@@ -2385,7 +2385,7 @@
         "/pautas/el_recuerdo_coffee_tour/imagenes/11.webp",
         "/pautas/el_recuerdo_coffee_tour/imagenes/12.webp",
         "/pautas/el_recuerdo_coffee_tour/imagenes/13.webp",
-        "/pautas/el_recuerdo_coffee_tour/imagenes/logo-recuerdo-tour.webp"
+        "/pautas/el_recuerdo_coffee_tour/imagenes/logo-recuerdo-tour-512.webp"
       ],
       "actionTarget": {
         "viewUrl": "https://www.salentoalamano.com/paginas-pautantes/el-recuerdo-coffee-tour/"
