@@ -50,6 +50,7 @@ Se requieren confirmar:
 - fotos reales del restaurante
 
 ## Pendientes para completar la ficha pública
+- Confirmar si el negocio existe y está activo
 - Dirección exacta
 - Contacto oficial
 - Descripción del menú y experiencia
@@ -58,7 +59,7 @@ Se requieren confirmar:
 
 ## Criterio para pasar a ficha publicada
 La ficha se considerará lista cuando tenga:
-- nombre comercial claro
+- nombre comercial claro y verificado
 - categoría definida
 - ubicación real
 - contacto verificable
