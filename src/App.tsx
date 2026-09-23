@@ -2286,8 +2286,7 @@ function PlaceCard({ place, onOpen, onReviews }: { place: Place; onAdd?: () => v
         <div className="place-topline">
           <span>{place.type}</span>
           <span className="rating">
-            <Star size={13} fill="currentColor" /> {stats.averageRating || place.rating}
-            {stats.totalReviews > 0 && <span className="review-count">({stats.totalReviews})</span>}
+            <Star size={12} fill="currentColor" /> {stats.averageRating || place.rating}
           </span>
         </div>
         <h3>{place.name}</h3>
@@ -2295,13 +2294,10 @@ function PlaceCard({ place, onOpen, onReviews }: { place: Place; onAdd?: () => v
         <div className="place-bottom">
           <span className="place-price">
             <strong>{priceFrom}</strong>
-            {place.time && <em> · <Clock3 size={13} /> {place.time}</em>}
+            {place.time && <em> · {place.time}</em>}
           </span>
         </div>
-        <small className="currency-hint">
-          {priceHintFor(place)}
-        </small>
-        <button className="detail-button" onClick={onOpen}>{ctaLabel} <ArrowRight size={14} /></button>
+        <button className="detail-button" onClick={onOpen}>{ctaLabel} <ArrowRight size={16} /></button>
         <div className="card-actions-row">
           <a className="map-link-button" href={mapUrl} target="_blank" rel="noopener noreferrer" aria-label={`Cómo llegar a ${place.name}`}><MapPin size={14} /> <span className="map-link-label">Cómo llegar</span></a>
           {onReviews && (
@@ -2333,15 +2329,6 @@ function PlaceCard({ place, onOpen, onReviews }: { place: Place; onAdd?: () => v
                 <Phone size={15} />
               </a>
             )}
-            <a
-              href={`mailto:${place.contact.email || ''}`}
-              className="contact-btn email contact-email"
-              aria-label={`Enviar correo a ${place.name}`}
-              onClick={() => analyticsService.trackClick(String(place.id), 'email')}
-              style={{ display: place.contact.email ? undefined : 'none' }}
-            >
-              <Mail size={15} />
-            </a>
           </div>
         </div>
       </div>
