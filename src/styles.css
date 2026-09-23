@@ -28,6 +28,44 @@
   .home-hero-actions .dark-button, .home-hero-actions .outline-button { flex: 1 1 auto; justify-content: center; }
 }
 
+/* Home featured menus — bajo el hero */
+.home-featured-menus { max-width: 1184px; margin: 28px auto 8px; padding: 0 28px; }
+.home-featured-menus-inner { background: var(--white, #fff); border: 1px solid var(--line); border-radius: 24px; padding: 28px; box-shadow: 0 14px 30px rgba(39, 54, 43, .06); }
+.home-featured-menus-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 18px; flex-wrap: wrap; margin-bottom: 20px; }
+.home-featured-menus-header .eyebrow { color: var(--coral); text-transform: uppercase; letter-spacing: .12em; font-size: 11px; font-weight: 700; margin: 0; }
+.home-featured-menus-header h2 { margin: 8px 0 6px; font: 700 clamp(1.6rem, 3vw, 2.2rem)/1.1 Fraunces; color: var(--ink); }
+.home-featured-menus-lead { margin: 0; max-width: 520px; color: #697568; font-size: 14px; line-height: 1.55; }
+.home-featured-menus-all { white-space: nowrap; }
+.home-featured-menus-grid { display: grid; grid-template-columns: 1fr; gap: 18px; }
+@media (min-width: 860px) { .home-featured-menus-grid { grid-template-columns: 1fr 1fr; } }
+.home-featured-menu-card { display: flex; flex-direction: column; border: 1px solid var(--line); border-radius: 18px; overflow: hidden; background: var(--paper, #faf8f3); }
+.home-featured-menu-media { position: relative; min-height: 140px; background: linear-gradient(135deg, #2a3a2e, #56755b); display: grid; place-items: center; }
+.home-featured-menu-media.has-photo { min-height: 160px; }
+.home-featured-menu-media img { width: 100%; height: 160px; object-fit: cover; display: block; }
+.home-featured-menu-emoji { font-size: 42px; }
+.home-featured-menu-badge { position: absolute; top: 12px; left: 12px; padding: 5px 10px; border-radius: 999px; background: var(--yellow); color: var(--ink); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; }
+.home-featured-menu-body { display: flex; flex-direction: column; gap: 10px; padding: 16px 16px 18px; flex: 1; }
+.home-featured-menu-meta { display: flex; flex-wrap: wrap; gap: 10px; color: #697568; font-size: 12px; }
+.home-featured-menu-meta span { display: inline-flex; align-items: center; gap: 4px; }
+.home-featured-menu-body h3 { margin: 0; font: 700 1.35rem/1.15 Fraunces; color: var(--ink); }
+.home-featured-menu-desc { margin: 0; color: #697568; font-size: 13px; line-height: 1.5; }
+.home-featured-menu-list { list-style: none; margin: 4px 0 0; padding: 0; display: grid; gap: 8px; }
+.home-featured-menu-list li { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; padding: 10px 12px; background: #fff; border: 1px solid var(--line); border-radius: 12px; }
+.home-featured-menu-list strong { display: block; font-size: 13px; color: var(--ink); font-weight: 600; line-height: 1.3; }
+.home-featured-menu-list small { display: block; margin-top: 2px; color: #899084; font-size: 11px; line-height: 1.35; }
+.home-featured-menu-price { flex: none; font-weight: 700; font-size: 14px; color: var(--coral); }
+.home-featured-menu-note { background: #f3f0e6 !important; border-style: dashed !important; }
+.home-featured-menu-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: auto; padding-top: 6px; }
+.home-featured-menu-actions .button { display: inline-flex; align-items: center; gap: 6px; min-height: 40px; padding: 0 14px; border-radius: 999px; border: 1px solid var(--line); background: #fff; color: var(--ink); font-size: 13px; font-weight: 700; text-decoration: none; }
+.home-featured-menu-actions .button.primary { background: var(--coral); border-color: var(--coral); color: #fff; }
+.home-featured-menu-actions .button:hover { filter: brightness(.97); }
+@media (max-width: 720px) {
+  .home-featured-menus { padding: 0 16px; margin-top: 18px; }
+  .home-featured-menus-inner { padding: 18px 14px; border-radius: 18px; }
+  .home-featured-menus-header { flex-direction: column; }
+  .home-featured-menu-media img { height: 140px; }
+}
+
 /* Directory search + quick chips (Option B) */
 .directory-search { width: 100%; max-width: none; margin: 0 0 12px; background: #fff; border: 1px solid var(--line); border-radius: 12px; box-shadow: 0 6px 16px rgba(39,54,43,.05); }
 .directory-search input { min-height: 44px; }

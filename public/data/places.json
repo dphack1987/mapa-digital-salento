@@ -1538,7 +1538,8 @@
       "color": "terracotta",
       "icon": "Utensils",
       "contact": {
-        "phone": "+57 315 606 1113"
+        "phone": "+57 315 606 1113",
+        "whatsapp": "573156061113"
       },
       "location": {
         "lat": 4.646,
@@ -1564,11 +1565,13 @@
         ],
         "specialties": [
           "Comida tradicional",
-          "Platos locales"
+          "Platos locales",
+          "Trucha arcoíris"
         ],
         "menuHighlights": [
           "Menú del día",
-          "Comida casera"
+          "Comida casera",
+          "Trucha arcoíris $30.000 - $42.000"
         ],
         "averagePrice": "$$",
         "reservationRequired": true
