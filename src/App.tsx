@@ -317,18 +317,6 @@ function isValidWhatsAppCO(value?: string): boolean {
   return /^57\d{9,10}$/.test((value ?? '').replace(/\D/g, ''))
 }
 
-function priceHintFor(place: Place): string {
-  const tr = (key: string, fallback?: string) => translationService.translate(key, fallback)
-  const verifiedTariff =
-    place.foodServiceDetails?.averagePrice ||
-    place.experienceDetails?.tariff ||
-    place.accommodationDetails?.bookingNotes ||
-    place.transportDetails?.pricingNotes
-  if (verifiedTariff) return verifiedTariff
-  if (place.priceRange === 'Gratis') return tr('price.free', 'Entrada libre')
-  return `${place.priceRange} · ${tr('price.confirm', 'Precio por WhatsApp')}`
-}
-
 function formatTemp(celsius: number): string {
   return `${Math.round(celsius)}°C`
 }
