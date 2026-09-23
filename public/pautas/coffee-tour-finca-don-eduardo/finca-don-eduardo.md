@@ -1,9 +1,12 @@
 # Finca Don Eduardo Coffee Tour
 
+## Descripción verificada (usuario, sep 2026)
+Finca Don Eduardo: todo lo que necesitas saber sobre café. Este proyecto empezó con Don Eduardo y es una continuación a su legado de más de 15 años enseñando a turistas de todo el mundo cómo se cultiva el café en el Quindío. El tour es uno de los recorridos más completos: conocerás la historia, visitarás la finca, verás el proceso completo y entenderás los procesos orgánicos que manejan, terminando con una tostión artesanal y una taza de café. El recorrido lo pueden hacer en inglés (9:30 a.m. y 2:30 p.m.) o en español (10:40 a.m., requiere reserva previa) y tiene un valor de $100.000 COP.
+
 ## Estado
 - Estado actual: publicado con información real verificada
 - Prioridad: alta
-- Verificación: completamente verificada desde sitio oficial
+- Verificación: completamente verificada desde sitio oficial + texto verificado por usuario (sep 2026)
 
 ## Información básica
 - Nombre comercial: Finca Don Eduardo Coffee Tour
@@ -14,6 +17,7 @@
 
 ## Historia
 - Fundada en 2007 por Don Eduardo
+- Legado de más de 15 años enseñando a turistas de todo el mundo cómo se cultiva el café en el Quindío
 - Actualmente gestionada por Timothy Edward Harbour (Tim) y su esposa Cris
 - Tim llegó de Inglaterra en 2004, se enamoró de Salento y Cris
 - Abrieron el primer hostel de Salento: The Plantation House

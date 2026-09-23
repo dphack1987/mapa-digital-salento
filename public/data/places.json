@@ -267,6 +267,46 @@
           "Efectivo",
           "Tarjeta",
           "Transferencia"
+        ],
+        "menuItems": [
+          {
+            "id": "terra-01",
+            "name": "Octopus Stack with Truffle Sauce",
+            "price": 39500,
+            "category": "entradas",
+            "description": "Entrada de pulpo con salsa de trufa",
+            "isSpecialty": true
+          },
+          {
+            "id": "terra-02",
+            "name": "Ceviche-Style Chorizo",
+            "price": 32500,
+            "category": "entradas",
+            "description": "Chorizo al estilo ceviche",
+            "isSpecialty": true
+          },
+          {
+            "id": "terra-03",
+            "name": "Terra Nachos",
+            "price": 37000,
+            "category": "entradas",
+            "description": "Nachos de la casa"
+          },
+          {
+            "id": "terra-04",
+            "name": "Terra Truffle Potato Bowl",
+            "price": 28000,
+            "category": "principales",
+            "description": "Bowl de papa con trufa",
+            "isSpecialty": true
+          },
+          {
+            "id": "terra-05",
+            "name": "House Empanada",
+            "price": 19000,
+            "category": "entradas",
+            "description": "Empanada de la casa"
+          }
         ]
       },
       "photos": [
@@ -1544,7 +1584,7 @@
       "id": 23,
       "name": "Finca Don Eduardo Coffee Tour",
       "type": "Coffee Tours",
-      "description": "Coffee tour en finca familiar. Recorrido por el cafetal, proceso del grano y degustación con transporte Willys opcional.",
+      "description": "Continuación del legado de más de 15 años de Don Eduardo enseñando café en el Quindío. Uno de los tours más completos: historia, finca, proceso completo, procesos orgánicos, tostión artesanal y taza de café. Inglés 9:30 y 14:30; español 10:40 con reserva (mín. 2 personas). $100.000 COP por persona.",
       "priceRange": "$$$",
       "rating": "4.9",
       "timeInfo": "Lunes a sábado",

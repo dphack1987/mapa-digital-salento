@@ -10,9 +10,9 @@
 - Categoría principal: alojamiento / hotel boutique rural (3 estrellas)
 - Dirección: Cra. 5 #10-11, Barrio La Floresta, Salento, Quindío (a 400 m de la plaza, 10 min a pie)
 - Sitio web oficial: https://www.laflorestahotel.com.co/
-- Teléfono: +57 312 868 1808 (en el sitio también figura 312 868 1806)
-- WhatsApp: https://wa.me/573128681808
-- Correo: comercial@laflorestahotel.com.co
+- Teléfono: +57 320 721 1382
+- WhatsApp: https://wa.me/573207211382
+- Correo: info@laflorestahotel.com.co
 - Calificación: Google 4.5/5 (~440 opiniones) · Booking 8.8/10
 - Precio: desde $124.000 COP por noche (web oficial); ~US$62 por OTA
 - Check-in 15:00 / Check-out 12:00 · Recepción 24 horas · Desayuno 7:00–10:00
