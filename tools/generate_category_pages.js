@@ -28,6 +28,40 @@ const categoryMeta = {
 
 const categoryNames = Object.keys(categoryMeta);
 
+// Páginas de categoría especiales (fuera de categoryMeta / places.type)
+const EXTRA_CATEGORY_CARDS = [
+  {
+    slug: 'atractivos-turisticos',
+    title: 'Atractivos Turísticos',
+    description: 'Miradores, cascadas, cabalgatas, motos y el Valle de Cocora',
+    image: '/imagenes-salento/destinos-75.webp',
+  },
+  {
+    slug: 'coffee-tours',
+    title: 'Coffee Tours',
+    description: 'Recorridos por fincas cafeteras y catas del Eje Cafetero',
+    image: '/pautas/coffee-tour-finca-don-eduardo/Plantation.webp',
+  },
+  {
+    slug: 'eventos',
+    title: 'Eventos',
+    description: 'Festivales, celebraciones y agenda cultural de Salento',
+    image: '/imagenes-salento/631032744.webp',
+  },
+  {
+    slug: 'restaurante-bar',
+    title: 'Restaurantes Bar',
+    description: 'Café-bar, coctelería y ambiente nocturno',
+    image: '/pautas/boki_mall/hotel-mirador-boquia/images (1).webp',
+  },
+  {
+    slug: 'camping',
+    title: 'Camping y Glamping',
+    description: 'Aire libre en el Valle de Cocora y cascadas',
+    image: '/imagenes-salento/destinos-75.webp',
+  },
+];
+
 function slugify(value) {
   return String(value)
     .toLowerCase()
@@ -783,6 +817,16 @@ const indexHtml = `<!DOCTYPE html>
             <div class="content">
               <h3>${escapeHtml(categoryMeta[category].title)}</h3>
               <p>${escapeHtml(categoryMeta[category].description)}</p>
+              <span class="btn">Ver categoría</span>
+            </div>
+          </a>
+        `).join('')}
+        ${EXTRA_CATEGORY_CARDS.map((cat) => `
+          <a href="/categorias/${cat.slug}.html" class="card">
+            <div class="image" style="background-image:url('${cat.image}')"></div>
+            <div class="content">
+              <h3>${escapeHtml(cat.title)}</h3>
+              <p>${escapeHtml(cat.description)}</p>
               <span class="btn">Ver categoría</span>
             </div>
           </a>
