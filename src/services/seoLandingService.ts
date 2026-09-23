@@ -487,7 +487,7 @@ class SEOLandingService {
       },
       "contactPoint": {
         "@type": "ContactPoint",
-        "telephone": "+57-300-123-4567",
+        "telephone": "+57 313 716 0977",
         "contactType": "customer service"
       }
     }
@@ -609,7 +609,7 @@ class SEOLandingService {
       "name": "Red de Prestadores Turísticos de Salento",
       "description": "Red oficial de turismo de Salento, Quindío. Información veraz y actualizada sobre destinos, alojamientos y servicios turísticos.",
       "url": this.config.siteUrl,
-      "telephone": "+57 300 1234567",
+      "telephone": "+57 313 716 0977",
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Salento",

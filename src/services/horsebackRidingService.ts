@@ -107,8 +107,8 @@ class HorsebackRidingService {
           }
         ],
         contact: {
-          phone: '+573001234567',
-          whatsapp: '+573001234567',
+          phone: '+57 313 716 0977',
+          whatsapp: '573137160977',
           email: 'cabalgatas@valle.com'
         },
         prices: {
@@ -147,8 +147,8 @@ class HorsebackRidingService {
           }
         ],
         contact: {
-          phone: '+573009876543',
-          whatsapp: '+573009876543',
+          phone: '+57 313 716 0977',
+          whatsapp: '573137160977',
           email: 'info@elarriero.com'
         },
         prices: {

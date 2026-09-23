@@ -517,13 +517,18 @@ function App() {
     const base = 'https://www.salentoalamano.com'
     const cleanPath = (p: string) => p.split('?')[0].split('#')[0]
     const currentPath = typeof window !== 'undefined' ? cleanPath(window.location.pathname) : '/'
+    if (currentPath.startsWith('/paginas-pautantes/') || currentPath.startsWith('/pautantes/')) {
+      if (currentPath.endsWith('.html')) return `${base}${currentPath}`
+      if (currentPath.endsWith('/')) return `${base}${currentPath}`
+      return `${base}${currentPath}/`
+    }
     if (selectedPlace) {
       const slug = selectedPlace.name?.toLowerCase()
         .replace(/[^a-z0-9\s-]/g, '')
         .replace(/\s+/g, '-')
         .replace(/-+/g, '-')
         .trim()
-      return `${base}/pautantes/${selectedPlace.id}-${slug}.html`
+      return `${base}/paginas-pautantes/${slug}/`
     }
     if (selectedCategoryPage && selectedCategoryPage !== 'Todo') {
       const catSlug = selectedCategoryPage.toLowerCase()
@@ -930,13 +935,15 @@ function App() {
         <meta name="twitter:title" content={helmetTitle} />
         <meta name="twitter:description" content={helmetDescription} />
         <meta name="twitter:image" content="https://www.salentoalamano.com/imagenes-salento/destinos-75.webp" />
-        <link rel="alternate" hrefLang="es-CO" href={helmetCanonical} />
-        <link rel="alternate" hrefLang="en" href="https://www.salentoalamano.com/en/" />
-        <link rel="alternate" hrefLang="de" href="https://www.salentoalamano.com/de/" />
-        <link rel="alternate" hrefLang="fr" href="https://www.salentoalamano.com/fr/" />
-        <link rel="alternate" hrefLang="pt-BR" href="https://www.salentoalamano.com/pt/" />
-        <link rel="alternate" hrefLang="it" href="https://www.salentoalamano.com/it/" />
-        <link rel="alternate" hrefLang="x-default" href="https://www.salentoalamano.com/" />
+        {helmetCanonical === 'https://www.salentoalamano.com/' && (<>
+          <link rel="alternate" hrefLang="es-CO" href="https://www.salentoalamano.com/" />
+          <link rel="alternate" hrefLang="en" href="https://www.salentoalamano.com/en/" />
+          <link rel="alternate" hrefLang="de" href="https://www.salentoalamano.com/de/" />
+          <link rel="alternate" hrefLang="fr" href="https://www.salentoalamano.com/fr/" />
+          <link rel="alternate" hrefLang="pt-BR" href="https://www.salentoalamano.com/pt/" />
+          <link rel="alternate" hrefLang="it" href="https://www.salentoalamano.com/it/" />
+          <link rel="alternate" hrefLang="x-default" href="https://www.salentoalamano.com/" />
+        </>)}
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "WebPage",
