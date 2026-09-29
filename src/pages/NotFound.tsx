@@ -107,8 +107,8 @@ const NotFound = () => {
               { icon: '☕', label: 'Coffee Tours', href: '/categorias/coffee-tours.html' },
               { icon: '🌴', label: 'Atractivos', href: '/categorias/atractivos-turisticos.html' },
               { icon: '🗺️', label: 'Mapa interactivo', href: '/mapa-interactivo-salento.html' },
-              { icon: '🥾', label: 'Valle de Cocora', href: '/valle-de-cocora-salento.html' },
-              { icon: '🐟', label: 'Mejor trucha', href: '/mejor-trucha-salento.html' },
+              { icon: '🥾', label: 'Valle de Cocora', href: '/landing/valle-de-cocora-guia/' },
+              { icon: '🐟', label: 'Mejor trucha', href: '/landing/mejor-trucha-salento/' },
               { icon: '❓', label: 'Preguntas frecuentes', href: '/faq-salento-preguntas-frecuentes-turistas-informacion-oficial.html' },
             ].map((item) => (
               <a key={item.href} href={item.href} style={{
