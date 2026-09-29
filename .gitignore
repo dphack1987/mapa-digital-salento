@@ -40,3 +40,6 @@ venv/
 # Backups de canibalizacion y enlaces
 backup-canibalizacion-*/
 backup-enlaces-*/
+
+# Backups de sitemap
+backup-sitemap-*/
