@@ -38,11 +38,11 @@ const prerender = `    <div id="prerender" style="font-family:sans-serif;max-wid
       </ul>
       <h2>Guias turisticas de Salento</h2>
       <ul>
-        <li><a href="/mejor-trucha-salento.html">Mejor trucha en Salento</a></li>
-        <li><a href="/hotel-barato-salento.html">Hotel barato en Salento</a></li>
-        <li><a href="/coffee-tour-salento.html">Coffee tour en Salento</a></li>
-        <li><a href="/valle-de-cocora-salento.html">Valle de Cocora - Guia completa</a></li>
-        <li><a href="/fin-de-semana-salento.html">Fin de semana en Salento</a></li>
+        <li><a href="/landing/mejor-trucha-salento/">Mejor trucha en Salento</a></li>
+        <li><a href="/landing/hotel-barato-salento/">Hotel barato en Salento</a></li>
+        <li><a href="/landing/coffee-tour-salento-precio/">Coffee tour en Salento</a></li>
+        <li><a href="/landing/valle-de-cocora-guia/">Valle de Cocora - Guia completa</a></li>
+        <li><a href="/landing/que-hacer-salento-fin-de-semana/">Fin de semana en Salento</a></li>
         <li><a href="/faq-salento-preguntas-frecuentes-turistas-informacion-oficial.html">Preguntas frecuentes sobre Salento</a></li>
         <li><a href="/seguridad-salento-emergencias.html">Seguridad y emergencias en Salento</a></li>
       </ul>
@@ -64,7 +64,7 @@ const prerender = `    <div id="prerender" style="font-family:sans-serif;max-wid
       <h3>Valle de Cocora y las palmas de cera</h3>
       <p>El sendero clasico rodea el rio Quindio, cruza puentes colgantes y asciende entre niebla hasta el bosque de los Robles. Completa la vuelta en 4 a 6 horas con calzado con agarre y agua. Mas info: <a href="/paginas-pautantes/valle-de-cocora-sendero-de-entrada-libre/">Valle de Cocora entrada libre</a> y <a href="/landing/valle-de-cocora-guia/">guia del Valle de Cocora</a>.</p>
       <h3>Coffee tours en fincas cafeteras</h3>
-      <p>Un coffee tour de media manana ensena siembra, cosecha y cata en fincas familiares. Reserva directa: <a href="/paginas-pautantes/finca-don-eduardo-coffee-tour/">Finca Don Eduardo</a> y <a href="/coffee-tour-salento.html">guia de coffee tours</a>.</p>
+      <p>Un coffee tour de media manana ensena siembra, cosecha y cata en fincas familiares. Reserva directa: <a href="/paginas-pautantes/finca-don-eduardo-coffee-tour/">Finca Don Eduardo</a> y <a href="/landing/coffee-tour-salento-precio/">guia de coffee tours</a>.</p>
       <h3>Calle Real, Plaza de Bolivar y miradores</h3>
       <p>La Calle Real concentra artesanias y heladerias locales. Sube al <a href="/paginas-pautantes/mirador-alto-de-la-cruz/">Alto de la Cruz</a> al atardecer y recorre la <a href="/paginas-pautantes/plaza-de-bolivar-de-salento/">Plaza de Bolivar</a>.</p>
       <h3>Gastronomia local</h3>

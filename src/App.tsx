@@ -386,9 +386,9 @@ function App() {
     const validPages = [
       '/mapa-interactivo-salento.html', '/seguridad-salento-emergencias.html',
       '/faq-salento-preguntas-frecuentes-turistas-informacion-oficial.html',
-      '/mejor-trucha-salento.html', '/hotel-barato-salento.html',
-      '/coffee-tour-salento.html', '/valle-de-cocora-salento.html',
-      '/fin-de-semana-salento.html', '/agenda-eventos-salento.html',
+      '/landing/mejor-trucha-salento/', '/landing/hotel-barato-salento/',
+      '/landing/coffee-tour-salento-precio/', '/landing/valle-de-cocora-guia/',
+      '/landing/que-hacer-salento-fin-de-semana/', '/agenda-eventos-salento.html',
       '/vias-salento-libres-acceso.html', '/hoteles-abiertos-salento.html',
       '/valle-cocora-accesible-100.html', '/conservacion-salento.html',
       '/registro-aliados.html', '/don-chucho-asistente.html',
@@ -1638,7 +1638,7 @@ function App() {
 
             <h3>Coffee tours en fincas cafeteras</h3>
             <p>
-              Un coffee tour de media mañana enseña siembra, cosecha, despulpado y cata, casi siempre en fincas familiares de la zona. Ideal para viajeros que quieren entender el origen del café colombiano más allá de la taza. Reserva directa con pautantes como <a href="/paginas-pautantes/finca-don-eduardo-coffee-tour/">Finca Don Eduardo</a> o explora más opciones en <a href="/coffee-tour-salento.html">la guía de coffee tours</a>.
+              Un coffee tour de media mañana enseña siembra, cosecha, despulpado y cata, casi siempre en fincas familiares de la zona. Ideal para viajeros que quieren entender el origen del café colombiano más allá de la taza. Reserva directa con pautantes como <a href="/paginas-pautantes/finca-don-eduardo-coffee-tour/">Finca Don Eduardo</a> o explora más opciones en <a href="/landing/coffee-tour-salento-precio/">la guía de coffee tours</a>.
             </p>
 
             <h3>Calle Real, Plaza de Bolívar y miradores</h3>
@@ -1687,7 +1687,7 @@ function App() {
             <div className="home-content-cta">
               <h3>¿Listo para armar tu ruta?</h3>
               <p>
-                Explora el <a href="/mapa-interactivo-salento.html">mapa interactivo</a>, filtra por categoría en el directorio de esta misma página o visita directamente las fichas de pautantes con WhatsApp de contacto. Si buscas profundidad, empieza por nuestras guías: <a href="/valle-de-cocora-salento.html">Valle de Cocora</a>, <a href="/faq-salento-preguntas-frecuentes-turistas-informacion-oficial.html">preguntas frecuentes</a> y <a href="/seguridad-salento-emergencias.html">seguridad y emergencias</a>.
+                Explora el <a href="/mapa-interactivo-salento.html">mapa interactivo</a>, filtra por categoría en el directorio de esta misma página o visita directamente las fichas de pautantes con WhatsApp de contacto. Si buscas profundidad, empieza por nuestras guías: <a href="/landing/valle-de-cocora-guia/">Valle de Cocora</a>, <a href="/faq-salento-preguntas-frecuentes-turistas-informacion-oficial.html">preguntas frecuentes</a> y <a href="/seguridad-salento-emergencias.html">seguridad y emergencias</a>.
               </p>
             </div>
           </div>

@@ -36,3 +36,7 @@ __pycache__/
 venv/
 .venv/
 *.egg-info/
+
+# Backups de canibalizacion y enlaces
+backup-canibalizacion-*/
+backup-enlaces-*/
