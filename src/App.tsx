@@ -82,18 +82,66 @@ const salentoImageGallery = [
   ['patacon4.webp', 'Gastronomía local'],
 ]
 
-const serviceCardImages = {
-  gastronomy: '/imagenes-salento/trucha%20y%20patacon.webp',
-  restaurantBar: '/pautas/restaurante_bar_fonda_boquia/imagenes/480508481_1169835038167384_4932382570318530100_n.webp',
-  transport: '/pautas/cootracocora_ltda/imagenes/willys.webp',
-  horseback: '/pautas/cabalgatas_cocora_magica/imagenes/cabalgatas-en-el-valle-de-cocora-6.webp',
-  guides: '/imagenes-salento/valle-cocora-palmas-2.webp',
-  accommodation: '/pautas/hotel_la_floresta_salento/imagenes/lafloresta-fachada.webp',
-  artisan: '/imagenes-salento/calle.webp',
-  commerce: '/imagenes-salento/631026720.webp',
-  events: '/imagenes-salento/631032744.webp',
-  camping: '/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/santa-rita-1.webp'
+const serviceCardImageSets = {
+  gastronomy: [
+    '/pautas/restaurante_bar_fonda_boquia/imagenes/480508481_1169835038167384_4932382570318530100_n.webp',
+    '/pautas/restaurante_bar_fonda_boquia/imagenes/481970368_1182179880266233_2620181488091833302_n.webp',
+    '/pautas/restaurante_bar_fonda_boquia/imagenes/30411747_1017613001720886_1046791999434260480_n.webp',
+    '/pautas/boki_mall/imagenes/images%20(1).webp',
+    '/imagenes-salento/Trucha-con-camarones-Salento-Quindio-1024x768.jpeg.webp'
+  ],
+  restaurantBar: [
+    '/pautas/restaurante_bar_fonda_boquia/fonda-arte-publicitario.jpg',
+    '/pautas/restaurante_bar_fonda_boquia/imagenes/29389126_1005353112946875_6049563033867386880_n.webp',
+    '/pautas/boki_mall/imagenes/images%20(3).webp'
+  ],
+  transport: [
+    '/pautas/cootracocora_ltda/imagenes/willys.webp',
+    '/pautas/cootracocora_ltda/cootracocora-arte-publicitario.jpg'
+  ],
+  horseback: [
+    '/pautas/cabalgatas_cocora_magica/imagenes/cabalgatas-en-el-valle-de-cocora-6.webp',
+    '/pautas/cabalgatas_cocora_magica/imagenes/cabalgatas-valle-del-cocora-2.webp',
+    '/pautas/cabalgatas_cocora_magica/imagenes/Caballos.webp'
+  ],
+  guides: [
+    '/imagenes-salento/valle-cocora-palmas-2.webp',
+    '/pautas/mirador_mano_de_dios/imagenes/dios2.webp',
+    '/pautas/parque-mirador-la-vida-bella/imagenes/IMG_0769.webp',
+    '/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/santa-rita-1.webp'
+  ],
+  accommodation: [
+    '/pautas/hotel_la_floresta_salento/imagenes/lafloresta-fachada.webp',
+    '/pautas/mahalo_hostel/imagenes/hab-1.1.webp',
+    '/pautas/hotel_camino_nacional/imagenes/1326164875.webp',
+    '/pautas/hotel_tia_emiss/imagenes/sala-al-aire-libre-del.jpg',
+    '/pautas/coffee-tour-alojamiento-finca-hotel-el-ocaso/imagenes/foto_casa_ocaso.webp'
+  ],
+  artisan: [
+    '/imagenes-salento/calle.webp',
+    '/imagenes-salento/pueblo.webp',
+    '/imagenes-salento/631026720.webp'
+  ],
+  commerce: [
+    '/imagenes-salento/631026720.webp',
+    '/imagenes-salento/1326163558.webp',
+    '/imagenes-salento/pueblo.webp'
+  ],
+  events: [
+    '/imagenes-salento/631032744.webp',
+    '/pautas/boki_mall/imagenes/images%20(3).webp',
+    '/imagenes-salento/653410779.webp'
+  ],
+  camping: [
+    '/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/santa-rita-1.webp',
+    '/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/monte1.webp',
+    '/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/casa1.webp'
+  ]
 } as const
+
+function rotateServiceImage(set: readonly string[], tick: number): string {
+  return set[tick % set.length]
+}
 
 function providerSlug(name: string) {
   return name.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')
@@ -402,6 +450,15 @@ function App() {
 
   const [activeCategory, setActiveCategory] = useState<Category>('Todo')
   const [cartCount, setCartCount] = useState(0)
+
+  // Rotación de imágenes de las service cards: todos los pautantes reciben el mismo tiempo en pantalla
+  const [serviceTick, setServiceTick] = useState(0)
+  useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+    const id = window.setInterval(() => setServiceTick((prev) => prev + 1), 5000)
+    return () => window.clearInterval(id)
+  }, [])
+
   const [showCart, setShowCart] = useState(false)
   const [search, setSearch] = useState('')
   const [quickFilter, setQuickFilter] = useState<'all' | 'whatsapp' | 'pautante'>('all')
@@ -1294,7 +1351,7 @@ function App() {
 
         <section className="mobile-dashboard" id="servicios">
           <div className="services-grid">
-            <button className="service-card accommodation" style={{ backgroundImage: `url(${serviceCardImages.accommodation})` }} onClick={() => goToCategory('Alojamientos')}>
+            <button className="service-card accommodation" style={{ backgroundImage: `url(${rotateServiceImage(serviceCardImageSets.accommodation, serviceTick + 0)})` }} onClick={() => goToCategory('Alojamientos')}>
               <div className="service-icon">🏨</div>
               <div className="service-content">
                 <h3>{t('services.accommodation', 'Alojamientos')}</h3>
@@ -1306,7 +1363,7 @@ function App() {
               </div>
             </button>
 
-            <button className="service-card gastronomy" style={{ backgroundImage: `url(${serviceCardImages.gastronomy})` }} onClick={() => goToCategory('Restaurantes')}>
+            <button className="service-card gastronomy" style={{ backgroundImage: `url(${rotateServiceImage(serviceCardImageSets.gastronomy, serviceTick + 1)})` }} onClick={() => goToCategory('Restaurantes')}>
               <div className="service-icon">🍽️</div>
               <div className="service-content">
                 <h3>{t('services.gastronomy', 'Gastronomía')}</h3>
@@ -1318,7 +1375,7 @@ function App() {
               </div>
             </button>
 
-            <button className="service-card restaurant-bar" style={{ backgroundImage: `url(${serviceCardImages.restaurantBar})` }} onClick={() => goToCategory('Restaurante Bar')}>
+            <button className="service-card restaurant-bar" style={{ backgroundImage: `url(${rotateServiceImage(serviceCardImageSets.restaurantBar, serviceTick + 2)})` }} onClick={() => goToCategory('Restaurante Bar')}>
               <div className="service-icon">🍸</div>
               <div className="service-content">
                 <h3>{t('services.restaurantBar', 'Restaurante Bar')}</h3>
@@ -1330,7 +1387,7 @@ function App() {
               </div>
             </button>
 
-            <button className="service-card events" style={{ backgroundImage: `url(${serviceCardImages.events})` }} onClick={() => goToCategory('Eventos')}>
+            <button className="service-card events" style={{ backgroundImage: `url(${rotateServiceImage(serviceCardImageSets.events, serviceTick + 3)})` }} onClick={() => goToCategory('Eventos')}>
               <div className="service-icon">🎉</div>
               <div className="service-content">
                 <h3>{t('services.events', 'Eventos')}</h3>
@@ -1342,7 +1399,7 @@ function App() {
               </div>
             </button>
 
-            <button className="service-card horseback-riding featured" style={{ backgroundImage: `url(${serviceCardImages.horseback})` }} onClick={() => goToCategory('Experiencias')}>
+            <button className="service-card horseback-riding featured" style={{ backgroundImage: `url(${rotateServiceImage(serviceCardImageSets.horseback, serviceTick + 4)})` }} onClick={() => goToCategory('Experiencias')}>
               <div className="service-badge">⭐ {t('services.featured', 'ESPECIAL')}</div>
               <div className="service-icon">🐎</div>
               <div className="service-content">
@@ -1355,7 +1412,7 @@ function App() {
               </div>
             </button>
 
-            <button className="service-card guides" style={{ backgroundImage: `url(${serviceCardImages.guides})` }} onClick={() => goToCategory('Atractivos Turísticos')}>
+            <button className="service-card guides" style={{ backgroundImage: `url(${rotateServiceImage(serviceCardImageSets.guides, serviceTick + 5)})` }} onClick={() => goToCategory('Atractivos Turísticos')}>
               <div className="service-icon">🧭</div>
               <div className="service-content">
                 <h3>{t('services.attractions', 'Atractivos Turísticos')}</h3>
@@ -1367,7 +1424,7 @@ function App() {
               </div>
             </button>
 
-            <button className="service-card artisan" style={{ backgroundImage: `url(${serviceCardImages.artisan})` }} onClick={() => goToCategory('Artesanías')}>
+            <button className="service-card artisan" style={{ backgroundImage: `url(${rotateServiceImage(serviceCardImageSets.artisan, serviceTick + 6)})` }} onClick={() => goToCategory('Artesanías')}>
               <div className="service-icon">🎨</div>
               <div className="service-content">
                 <h3>{t('services.crafts', 'Artesanías')}</h3>
@@ -1379,7 +1436,7 @@ function App() {
               </div>
             </button>
 
-            <button className="service-card commerce" style={{ backgroundImage: `url(${serviceCardImages.commerce})` }} onClick={() => goToCategory('Tiendas')}>
+            <button className="service-card commerce" style={{ backgroundImage: `url(${rotateServiceImage(serviceCardImageSets.commerce, serviceTick + 7)})` }} onClick={() => goToCategory('Tiendas')}>
               <div className="service-icon">🛒</div>
               <div className="service-content">
                 <h3>{t('services.shops', 'Tiendas')}</h3>
@@ -1391,7 +1448,7 @@ function App() {
               </div>
             </button>
 
-            <button className="service-card transport" style={{ backgroundImage: `url(${serviceCardImages.transport})` }} onClick={() => goToCategory('Servicios')}>
+            <button className="service-card transport" style={{ backgroundImage: `url(${rotateServiceImage(serviceCardImageSets.transport, serviceTick + 8)})` }} onClick={() => goToCategory('Servicios')}>
               <div className="service-icon">🚖</div>
               <div className="service-content">
                 <h3>{t('services.transport', 'Transporte')}</h3>
@@ -1403,7 +1460,7 @@ function App() {
               </div>
             </button>
 
-            <button className="service-card camping" style={{ backgroundImage: `url(${serviceCardImages.camping})` }} onClick={() => goToCategory('Camping')}>
+            <button className="service-card camping" style={{ backgroundImage: `url(${rotateServiceImage(serviceCardImageSets.camping, serviceTick + 9)})` }} onClick={() => goToCategory('Camping')}>
               <div className="service-icon">⛺</div>
               <div className="service-content">
                 <h3>{t('services.camping', 'Camping')}</h3>
