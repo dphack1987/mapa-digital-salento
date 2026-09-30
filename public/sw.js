@@ -1,4 +1,4 @@
-const CACHE_NAME = 'salento-a-la-mano-v16'
+const CACHE_NAME = 'salento-a-la-mano-v17'
 const CACHE_STRATEGIES = {
   static: ['html', 'css', 'js', 'png', 'jpg', 'jpeg', 'svg', 'webp', 'ico', 'gif'],
   shell: ['html', 'js', 'css']
@@ -41,7 +41,7 @@ const APP_SHELL = [
 
 // Rangos de tiles de Cascadas de Santa Rita para cachear offline
 // Zoom 12-16 cubre Cascadas de Santa Rita + ruta GPS completa + Boquía (~4km radio)
-const TILE_CACHE_NAME = 'salento-tiles-v16'
+const TILE_CACHE_NAME = 'salento-tiles-v17'
 const TILE_URL_TEMPLATE = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
 const TILE_SUBDOMAINS = ['a', 'b', 'c']
 
@@ -78,7 +78,7 @@ function getTileUrls() {
 }
 
 self.addEventListener('install', (event) => {
-    console.log('[SW] Installing service worker v16 - Cascadas de Santa Rita offline tiles')
+    console.log('[SW] Installing service worker v17 - Cascadas de Santa Rita offline tiles')
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
       console.log('[SW] Caching app shell')
@@ -142,7 +142,7 @@ async function cacheTilesInBatches(cache, urls, batchSize) {
 }
 
 self.addEventListener('activate', (event) => {
-  console.log('[SW] Activating service worker v16 - Cascadas de Santa Rita')
+  console.log('[SW] Activating service worker v17 - Cascadas de Santa Rita')
   event.waitUntil(
     caches.keys().then((keys) => {
       return Promise.all(
