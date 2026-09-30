@@ -46,3 +46,7 @@ backup-sitemap-*/
 
 # Backups de og:image
 backup-ogimage-*/
+# Carpetas de trabajo copiadas del backup
+.devin/
+.mobshots/
+.pytest_cache/
