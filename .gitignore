@@ -43,3 +43,6 @@ backup-enlaces-*/
 
 # Backups de sitemap
 backup-sitemap-*/
+
+# Backups de og:image
+backup-ogimage-*/
