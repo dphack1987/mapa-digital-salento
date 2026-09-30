@@ -62,16 +62,16 @@ const salentoImageGallery = [
   ['destinos-75.webp', 'Paisaje del Valle de Cocora y Salento'],
   ['colombia-palms.webp', 'Palmas de cera del Eje Cafetero'],
   ['valle-cocora-palmas-2.webp', 'Valle de Cocora con palmas de cera'],
-  ['1326163759.webp', 'Vista panorámica de Salento'],
+  ['1326163759.webp', 'Palmas de cera entre la niebla del Valle de Cocora'],
   ['631026720.webp', 'Arquitectura tradicional de Salento'],
-  ['631032744.webp', 'Iglesia y plaza de Salento'],
-  ['1326163558.webp', 'Tejados y paisaje urbano de Salento'],
-  ['653410779.webp', 'Palmas de cera del Quindío'],
+  ['631032744.webp', 'Palmas de cera en las laderas del Quindío'],
+  ['1326163558.webp', 'Calle empedrada con casas de colores de Salento'],
+  ['653410779.webp', 'Torre de la iglesia sobre los tejados de Salento'],
   ['calle.webp', 'Calle colorida de Salento'],
   ['pueblo.webp', 'Pueblo de Salento'],
   ['iglesia.webp', 'Iglesia de Salento'],
   ['pueblo.webp', 'Calle del pueblo de Salento'],
-  ['salento-landscape.webp', 'Palmas de cera en el paisaje de Salento'],
+  ['salento-landscape.webp', 'Centro de Salento con casas de colores'],
   ['trucha y patacon.webp', 'Trucha con patacón'],
   ['Trucha-con-camarones-Salento-Quindio-1024x768.jpeg.webp', 'Trucha con camarones'],
   ['trucha1.webp', 'Trucha de la cocina salentina'],
@@ -397,7 +397,6 @@ function App() {
       '/naver1820d4dce5511b63defe80c50a86ab77.html'
     ]
     const isValid = validPages.includes(path) || validPrefixes.some(p => path.startsWith(p))
-      || path.endsWith('.html') || path.endsWith('.xml') || path.endsWith('.txt') || path.endsWith('.webp')
     if (!isValid) setNotFound(true)
   }, [])
 
