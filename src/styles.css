@@ -6234,3 +6234,30 @@ footer { max-width: 1184px; margin: auto; border-top: 1px solid var(--line); dis
   .hoy-pautante-actions .button { min-height: 30px; font-size: 10px; padding: 0 5px; border-radius: 8px; white-space: nowrap; }
   .hoy-pautante-tag { left: 6px; bottom: 6px; font-size: 8px; padding: 3px 6px; }
 }
+
+/* Home: sección café premium */
+.coffee-premium-banner { max-width: 1184px; margin: 34px auto 44px; padding: 28px; background: linear-gradient(135deg, #2b1c12 0%, #4a2f1b 100%); color: #fff; border-radius: 18px; box-shadow: 0 14px 30px rgba(39, 54, 43, .12); scroll-margin-top: 110px; }
+.coffee-premium-inner { display: grid; grid-template-columns: 1.2fr .9fr auto; gap: 26px; align-items: center; }
+.coffee-premium-copy .eyebrow { color: #e8bb58; }
+.coffee-premium-copy h2 { font-size: 34px; line-height: 1.02; margin: 6px 0 8px; color: #fff; }
+.coffee-premium-copy p { color: rgba(255, 255, 255, .82); font-size: 14.5px; line-height: 1.5; margin: 0; }
+.coffee-premium-products { display: flex; flex-direction: column; gap: 8px; }
+.coffee-premium-products span { display: flex; justify-content: space-between; gap: 12px; background: rgba(255, 255, 255, .1); border: 1px solid rgba(255, 255, 255, .18); border-radius: 10px; padding: 9px 13px; font-size: 13px; }
+.coffee-premium-actions { display: flex; flex-direction: column; gap: 9px; }
+.coffee-premium-actions .button { white-space: nowrap; justify-content: center; }
+
+/* Home: paginación del directorio y galería */
+.directory-load-more { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-top: 24px; }
+.load-more-button { display: inline-flex; align-items: center; gap: 8px; padding: 12px 22px; border-radius: 999px; border: 1px solid var(--line); background: var(--ink); color: #fff; font-size: 13.5px; font-weight: 600; cursor: pointer; transition: transform .15s ease, opacity .15s ease; }
+.load-more-button:hover { transform: translateY(-2px); opacity: .92; }
+.load-more-button.ghost { background: transparent; color: var(--ink); }
+.pg-more { display: flex; justify-content: center; margin-top: 16px; }
+
+@media (max-width: 800px) {
+  .coffee-premium-banner { margin: 26px 16px 36px; padding: 22px 18px; }
+  .coffee-premium-inner { grid-template-columns: 1fr; gap: 18px; }
+  .coffee-premium-copy h2 { font-size: 27px; }
+  .coffee-premium-actions { flex-direction: row; flex-wrap: wrap; }
+  .directory-load-more { flex-direction: column; align-items: stretch; }
+  .load-more-button { justify-content: center; }
+}

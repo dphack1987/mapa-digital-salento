@@ -462,6 +462,7 @@ function App() {
   const [showCart, setShowCart] = useState(false)
   const [search, setSearch] = useState('')
   const [quickFilter, setQuickFilter] = useState<'all' | 'whatsapp' | 'pautante'>('all')
+  const [directoryLimit, setDirectoryLimit] = useState(12)
   const [mobileNav, setMobileNav] = useState(false)
   const [language, setLanguage] = useState<Language>(() => {
     try { return translationService.initialize() as Language } catch (e) { console.warn('[init] translation lazy fallback es:', e); return 'es' as Language }
@@ -804,6 +805,10 @@ function App() {
     return filtered.sort((a, b) => placePriority(b) - placePriority(a))
   }, [activeCategory, search, places, quickFilter])
 
+  useEffect(() => {
+    setDirectoryLimit(12)
+  }, [activeCategory, search, quickFilter])
+
   const internationalMarketsPreview = useMemo(() => {
     return internationalSEOService.getInternationalMarkets().slice(0, 8)
   }, [])
@@ -1071,6 +1076,7 @@ function App() {
             <button onClick={() => scrollToSection('servicios')}>{t('nav.services')}</button>
             <button onClick={() => goToCategory('Alojamientos')}>{t('nav.lodging')}</button>
             <button onClick={() => scrollToSection('pedidos')}>{t('nav.directory')}</button>
+            <button onClick={() => scrollToSection('cafe-premium')}>{t('nav.coffeePremium', 'Café premium')}</button>
             <button onClick={() => scrollToSection('mapa')}>{t('nav.map')}</button>
             <button onClick={() => scrollToSection('pautas')}>{t('nav.ads')}</button>
             <button onClick={() => scrollToSection('guia-offline')}>{t('nav.guideOffline')}</button>
@@ -1088,6 +1094,7 @@ function App() {
         <button onClick={() => goToCategory('Restaurantes')}>{t('nav.eat')}</button>
         <button onClick={() => goToCategory('Experiencias')}>{t('nav.see')}</button>
         <button onClick={() => scrollToSection('mapa')}>{t('nav.map')}</button>
+        <button onClick={() => scrollToSection('cafe-premium')}>{t('nav.coffeePremium', 'Café premium')}</button>
         <button onClick={() => goToCategory('Alojamientos')}>{t('nav.book')}</button>
       </nav>
 
@@ -1600,6 +1607,25 @@ function App() {
           </div>
         </section>
 
+        <section className="coffee-premium-banner" id="cafe-premium" aria-labelledby="cafe-premium-title">
+          <div className="coffee-premium-inner">
+            <div className="coffee-premium-copy">
+              <p className="eyebrow">Café · venta directa</p>
+              <h2 id="cafe-premium-title">Café premium de Salento, del productor a tu casa</h2>
+              <p>Catálogo y precios oficiales de las fincas cafeteras. Pedido directo por WhatsApp, sin intermediarios ni comisiones.</p>
+            </div>
+            <div className="coffee-premium-products" role="list">
+              <span role="listitem"><strong>Café Tradicional</strong> $40.000</span>
+              <span role="listitem"><strong>Grano / Molido Premium</strong> $50.000</span>
+              <span role="listitem"><strong>Taza Colombia</strong> $18.000</span>
+            </div>
+            <div className="coffee-premium-actions">
+              <a className="button primary" href="/landing/cafe-premium-salento/">Ver catálogo</a>
+              <a className="button" href="https://wa.me/573156061113?text=Hola%2C%20quiero%20pedir%20café%20de%20Salento" target="_blank" rel="noreferrer">Pedir por WhatsApp</a>
+            </div>
+          </div>
+        </section>
+
         <section className="quick-section" id="pedidos">
           <div className="section-heading"><div><p className="eyebrow">{t('nearby')}</p><h2>{t('directory.heading', 'Directorio local')}</h2></div><button className="text-button" onClick={() => { setActiveCategory('Todo'); setSearch(''); setQuickFilter('all'); scrollToSection('pedidos') }}>Ver todo <ArrowRight size={16} /></button></div>
           <div className="directory-search search-box">
@@ -1630,9 +1656,19 @@ function App() {
           </div>
           <div className="directory-intro"><span><MapPin size={16} /> {t('directory.title', 'Directorio local')}</span><small>{filteredPlaces.length} {t('directory.places', 'lugares para descubrir')}</small></div>
           <div className="place-grid">
-            {filteredPlaces.map((place) => <PlaceCard key={place.id} place={adaptPlaceForCompatibility(place)} onAdd={addToCart} onOpen={() => window.location.assign(placePageHref(place))} onReviews={() => { setShowReviews(String(place.id)); setSelectedPlaceForReviews({ id: String(place.id), name: place.name, type: place.type }) }} />)}
+            {filteredPlaces.slice(0, directoryLimit).map((place) => <PlaceCard key={place.id} place={adaptPlaceForCompatibility(place)} onAdd={addToCart} onOpen={() => window.location.assign(placePageHref(place))} onReviews={() => { setShowReviews(String(place.id)); setSelectedPlaceForReviews({ id: String(place.id), name: place.name, type: place.type }) }} />)}
             {filteredPlaces.length === 0 && <div className="empty-state">{t('directory.empty', 'No encontramos ese plan todavía. Prueba con “café”, “artesanía” o “trucha”.')}</div>}
           </div>
+          {filteredPlaces.length > directoryLimit && (
+            <div className="directory-load-more">
+              <button type="button" className="load-more-button" onClick={() => setDirectoryLimit((limit) => limit + 12)}>
+                Ver más lugares ({filteredPlaces.length - directoryLimit} restantes) <ArrowRight size={16} />
+              </button>
+              <button type="button" className="load-more-button ghost" onClick={() => setDirectoryLimit(filteredPlaces.length)}>
+                Ver los {filteredPlaces.length} lugares
+              </button>
+            </div>
+          )}
         </section>
 
         <section className="home-content-guide" id="guia-salento" aria-labelledby="guia-salento-title">
@@ -1782,6 +1818,7 @@ function App() {
           <Suspense fallback={<LoadingFallback />}>
             <PhotoGallery
               label="Galería de imágenes de Salento"
+              initialLimit={12}
               photos={salentoImageGallery.map(([file, alt]) => ({ src: `/imagenes-salento/${encodeURIComponent(file)}`, alt }))}
             />
           </Suspense>
