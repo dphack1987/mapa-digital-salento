@@ -1,12 +1,12 @@
 # Finca Don Eduardo Coffee Tour
 
-## Descripción verificada (WhatsApp QUINDIO TRAVEL, 15/9/2026)
-Finca Don Eduardo: todo lo que necesitas saber sobre café. Este proyecto empezó con Don Eduardo y es una continuación a su legado de más de 15 años enseñando a turistas de todo el mundo cómo se cultiva el café en el Quindío. El tour es uno de los recorridos más completos: conocerás la historia, visitarás la finca, verás el proceso completo y entenderás los procesos orgánicos que manejan, terminando con una tostión artesanal y una taza de café. Horario 9:00 a.m. – 4:00 p.m., tours cada hora, $50.000 COP por persona. A 4 km a pie desde Salento; Willys/Jeep desde la plaza $9.000.
+## Descripción verificada (actualización 1/10/2026)
+Finca Don Eduardo: todo lo que necesitas saber sobre café. Este proyecto empezó con Don Eduardo y es una continuación a su legado de más de 15 años enseñando a turistas de todo el mundo cómo se cultiva el café en el Quindío. El tour es uno de los recorridos más completos: conocerás la historia, visitarás la finca, verás el proceso completo y entenderás los procesos orgánicos que manejan, terminando con una tostión artesanal y una taza de café. El recorrido lo pueden hacer en inglés (9:30 a.m. y 2:30 p.m.) o en español (10:40 a.m., requiere reserva previa) y tiene un valor de $100.000 COP por persona (~3 horas). A 4 km a pie desde Salento; Willys/Jeep desde la plaza $9.000.
 
 ## Estado
 - Estado actual: publicado con información real verificada
 - Prioridad: alta
-- Verificación: WhatsApp pautante 15/9/2026 (horario, tarifa, transporte)
+- Verificación: datos actualizados con el pautante 1/10/2026 (tarifa $100.000, salidas EN 9:30/14:30, ES 10:40 con reserva previa)
 
 ## Información básica
 - Nombre comercial: Finca Don Eduardo Coffee Tour
@@ -24,7 +24,8 @@ Finca Don Eduardo: todo lo que necesitas saber sobre café. Este proyecto empez�
 - Cultivan 4 variedades de café de alta gama usando técnicas tradicionales y permacultura
 
 ## Servicios principales
-- Coffee Tour (tours cada hora)
+- Coffee Tour en inglés (9:30 a.m. y 2:30 p.m.)
+- Coffee Tour en español (10:40 a.m., requiere reserva previa)
 - Private Tour personalizado
 - Experiencias cafeteras boutique
 - Degustación de café especial
@@ -38,15 +39,15 @@ Finca Don Eduardo: todo lo que necesitas saber sobre café. Este proyecto empez�
 - Tostión y molienda de tu propio café
 - Degustación de café especial fresco
 
-## Precios reales (WhatsApp 15/9/2026)
-- Coffee Tour: $50.000 COP por persona
+## Precios reales (actualización 1/10/2026)
+- Coffee Tour (inglés o español): $100.000 COP por persona
 - Willys/Jeep desde la plaza: $9.000
 - Private Tour: Personalizado (contactar para cotización)
 - Pago con tarjeta: +6% adicional
 
-## Horarios reales (WhatsApp 15/9/2026)
-- Abierto: 9:00 a.m. – 4:00 p.m.
-- Tours cada hora
+## Horarios reales (actualización 1/10/2026)
+- Tour en inglés: 9:30 a.m. y 2:30 p.m. (~3 horas)
+- Tour en español: 10:40 a.m., requiere reserva previa (~3 horas)
 - Distancia: 4 km a pie desde Salento
 
 ## Contacto real

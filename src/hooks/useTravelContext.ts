@@ -151,7 +151,7 @@ export function getContextualMessage(context: TravelContext): string {
     },
     evening: {
       planning: '🌅 Buenas noches! ¿Planeando tu visita a Salento? Te ayudo con alojamiento.',
-      'on-trip': '🌙 Buenas noches! ¿Buscando dónde cenar o明日 qué hacer?',
+      'on-trip': '🌙 Buenas noches! ¿Buscando dónde cenar o qué hacer mañana?',
       'post-trip': '🌙 Buenas noches! ¿Recuerdas tus noches en Salento?'
     },
     night: {

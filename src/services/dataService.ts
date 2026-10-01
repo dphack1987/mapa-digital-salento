@@ -105,7 +105,7 @@ class DataService {
         await offlineStorage.initialize()
       }
 
-      // Intentar cargar desde IndexedDB primero (modo offline优先)
+      // Intentar cargar desde IndexedDB primero (modo offline con prioridad a datos locales)
       if (DATA_CONFIG.useIndexedDB && !navigator.onLine) {
         try {
           const offlinePlaces = await offlineStorage.getPlaces()
