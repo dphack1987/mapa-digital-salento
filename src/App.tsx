@@ -1665,7 +1665,7 @@ function App() {
 
             <h3>Desde Pereira y el aeropuerto Matecaña</h3>
             <p>
-              Desde Pereira se toma bus o van hacia Armenia y conexión a Salento, o un traslado directo de aproximadamente 2 a 2,5 horas. El aeropuato Matecaña (PEI) es una de las entradas más cómodas para vuelos nacionales; desde allí, coordinar transporte compartido o privado reduce tiempos de espera. Consulta antes de salir el estado de vías en nuestras <a href="/vias-salento-libres-acceso.html">actualizaciones de carreteras</a>.
+              Desde Pereira se toma bus o van hacia Armenia y conexión a Salento, o un traslado directo de aproximadamente 2 a 2,5 horas. El aeropuerto Matecaña (PEI) es una de las entradas más cómodas para vuelos nacionales; desde allí, coordinar transporte compartido o privado reduce tiempos de espera. Consulta antes de salir el estado de vías en nuestras <a href="/vias-salento-libres-acceso.html">actualizaciones de carreteras</a>.
             </p>
 
             <h3>En jeep Willys desde la plaza</h3>

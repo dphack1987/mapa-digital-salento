@@ -204,32 +204,32 @@ const guides = [
     sections: {
       es: [
         ['Cómo comparar un coffee tour', 'Revisa duración, idiomas, punto de encuentro, qué incluye y si el precio es por persona. Todas las fincas verificadas permiten contacto directo por WhatsApp, sin intermediarios ni comisiones.'],
-        ['Fincas verificadas en Salento', 'Finca Don Eduardo (3 horas, tours en inglés y español, a 8 minutos caminando de la plaza principal, rango $$$ con tour en inglés de $100.000 COP por persona) · Finca Cafetera Don Elías (rango $$, consultar tarifas actuales) · El Recuerdo Coffee Tour (rango $$, reserva previa por WhatsApp).'],
+        ['Fincas verificadas en Salento', 'Finca Don Eduardo (3 horas, salidas en inglés 9:30 a.m. y 2:30 p.m. o en español 10:40 a.m. con reserva previa, a 4 km caminando de la plaza principal, $100.000 COP por persona) · Finca Cafetera Don Elías (rango $$, consultar tarifas actuales) · El Recuerdo Coffee Tour (rango $$, reserva previa por WhatsApp).'],
         ['Antes de reservar', 'Confirma disponibilidad, tarifa vigente, idioma del tour, punto de encuentro y política de cancelación directamente con la finca.'],
       ],
       en: [
         ['How to compare a coffee tour', 'Check duration, languages, meeting point, what is included and whether the price is per person. Every verified farm offers direct WhatsApp contact with no middlemen or commissions.'],
-        ['Verified farms in Salento', 'Finca Don Eduardo (3 hours, tours in English and Spanish, an 8-minute walk from the main square, $$$ range with the English tour at $100,000 COP per person) · Finca Cafetera Don Elías ($$ range, ask for current rates) · El Recuerdo Coffee Tour ($$ range, advance booking via WhatsApp).'],
+        ['Verified farms in Salento', 'Finca Don Eduardo (3 hours, English departures at 9:30 a.m. and 2:30 p.m. or Spanish departure at 10:40 a.m. with advance booking, a 4 km walk from the main square, $100,000 COP per person) · Finca Cafetera Don Elías ($$ range, ask for current rates) · El Recuerdo Coffee Tour ($$ range, advance booking via WhatsApp).'],
         ['Before booking', 'Confirm availability, current rates, tour language, meeting point and cancellation policy directly with the farm.'],
       ],
       de: [
         ['So vergleichen Sie eine Kaffeetour', 'Prüfen Sie Dauer, Sprachen, Treffpunkt, was inklusive ist und ob der Preis pro Person ist. Jede verifizierte Farm bietet direkten WhatsApp-Kontakt ohne Vermittler oder Provisionen.'],
-        ['Verifizierte Farmen in Salento', 'Finca Don Eduardo (3 Stunden, Touren auf Englisch und Spanisch, 8 Gehminuten vom Hauptplatz, $$$-Bereich mit englischer Tour für $100.000 COP pro Person) · Finca Cafetera Don Elías ($$-Bereich, aktuelle Tarife erfragen) · El Recuerdo Coffee Tour ($$-Bereich, Vorab-Buchung per WhatsApp).'],
+        ['Verifizierte Farmen in Salento', 'Finca Don Eduardo (3 Stunden, englische Touren um 9:30 und 14:30 Uhr oder spanische Tour um 10:40 Uhr mit Voranmeldung, 4 km zu Fuß vom Hauptplatz, $100.000 COP pro Person) · Finca Cafetera Don Elías ($$-Bereich, aktuelle Tarife erfragen) · El Recuerdo Coffee Tour ($$-Bereich, Vorab-Buchung per WhatsApp).'],
         ['Vor der Buchung', 'Bestätigen Sie Verfügbarkeit, aktuelle Tarife, Tour-Sprache, Treffpunkt und Stornierungsbedingungen direkt bei der Farm.'],
       ],
       fr: [
         ['Comment comparer un coffee tour', 'Vérifiez la durée, les langues, le point de rencontre, ce qui est inclus et si le prix est par personne. Chaque finca vérifiée offre un contact WhatsApp direct sans intermédiaires ni commissions.'],
-        ['Fincas vérifiées à Salento', 'Finca Don Eduardo (3 heures, visites en anglais et espagnol, à 8 minutes à pied de la place principale, gamme $$$ avec visite en anglais à $100.000 COP par personne) · Finca Cafetera Don Elías (gamme $$, demandez les tarifs actuels) · El Recuerdo Coffee Tour (gamme $$, réservation à l\'avance par WhatsApp).'],
+        ['Fincas vérifiées à Salento', 'Finca Don Eduardo (3 heures, départs en anglais à 9 h 30 et 14 h 30 ou en espagnol à 10 h 40 avec réservation préalable, à 4 km à pied de la place principale, $100.000 COP par personne) · Finca Cafetera Don Elías (gamme $$, demandez les tarifs actuels) · El Recuerdo Coffee Tour (gamme $$, réservation à l\'avance par WhatsApp).'],
         ['Avant de réserver', 'Confirmez la disponibilité, les tarifs actuels, la langue de la visite, le point de rencontre et la politique d\'annulation directement avec la finca.'],
       ],
       pt: [
         ['Como comparar um coffee tour', 'Verifique duração, idiomas, ponto de encontro, o que está incluído e se o preço é por pessoa. Todas as fazendas verificadas oferecem contato direto por WhatsApp, sem intermediários nem comissões.'],
-        ['Fazendas verificadas em Salento', 'Finca Don Eduardo (3 horas, tours em inglês e espanhol, a 8 minutos a pé da praça principal, faixa $$$ com tour em inglês por $100.000 COP por pessoa) · Finca Cafetera Don Elías (faixa $$, consulte os preços atuais) · El Recuerdo Coffee Tour (faixa $$, reserva antecipada por WhatsApp).'],
+        ['Fazendas verificadas em Salento', 'Finca Don Eduardo (3 horas, saídas em inglês às 9h30 e 14h30 ou em espanhol às 10h40 com reserva antecipada, a 4 km a pé da praça principal, $100.000 COP por pessoa) · Finca Cafetera Don Elías (faixa $$, consulte os preços atuais) · El Recuerdo Coffee Tour (faixa $$, reserva antecipada por WhatsApp).'],
         ['Antes de reservar', 'Confirme disponibilidade, preços vigentes, idioma do tour, ponto de encontro e política de cancelamento diretamente com a fazenda.'],
       ],
       it: [
         ['Come confrontare un coffee tour', 'Controlla durata, lingue, punto d\'incontro, cosa è incluso e se il prezzo è a persona. Ogni fazenda verificata offre contatto diretto via WhatsApp senza intermediari o commissioni.'],
-        ['Fazende verificate a Salento', 'Finca Don Eduardo (3 ore, tour in inglese e spagnolo, a 8 minuti a piedi dalla piazza principale, fascia $$$ con tour in inglese a $100.000 COP a persona) · Finca Cafetera Don Elías (fascia $$, chiedi le tariffe attuali) · El Recuerdo Coffee Tour (fascia $$, prenotazione anticipata via WhatsApp).'],
+        ['Fazende verificate a Salento', 'Finca Don Eduardo (3 ore, partenze in inglese alle 9:30 e 14:30 o in spagnolo alle 10:40 con prenotazione anticipata, a 4 km a piedi dalla piazza principale, $100.000 COP a persona) · Finca Cafetera Don Elías (fascia $$, chiedi le tariffe attuali) · El Recuerdo Coffee Tour (fascia $$, prenotazione anticipata via WhatsApp).'],
         ['Prima di prenotare', 'Conferma disponibilità, tariffe attuali, lingua del tour, punto d\'incontro e politica di cancellazione direttamente con la fazenda.'],
       ],
     },
