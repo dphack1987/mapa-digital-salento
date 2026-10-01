@@ -12,11 +12,13 @@ export type GalleryPhoto = {
 type PhotoGalleryProps = {
   photos: GalleryPhoto[]
   label: string
+  initialLimit?: number
 }
 
-export default function PhotoGallery({ photos, label }: PhotoGalleryProps) {
+export default function PhotoGallery({ photos, label, initialLimit }: PhotoGalleryProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(null)
   const [failed, setFailed] = useState<Set<string>>(new Set())
+  const [showAll, setShowAll] = useState(false)
 
   const markFailed = useCallback((src: string) => {
     setFailed(prev => {
@@ -27,7 +29,8 @@ export default function PhotoGallery({ photos, label }: PhotoGalleryProps) {
     })
   }, [])
 
-  const visiblePhotos = photos.filter(p => !failed.has(p.src))
+  const limitedPhotos = initialLimit && !showAll ? photos.slice(0, initialLimit) : photos
+  const visiblePhotos = limitedPhotos.filter(p => !failed.has(p.src))
 
   const close = useCallback(() => setOpenIndex(null), [])
   const step = useCallback(
@@ -75,6 +78,14 @@ export default function PhotoGallery({ photos, label }: PhotoGalleryProps) {
           </button>
         ))}
       </div>
+
+      {initialLimit && !showAll && photos.length > initialLimit && (
+        <div className="pg-more">
+          <button type="button" className="load-more-button" onClick={() => setShowAll(true)}>
+            {tr('gallery.showAll', 'Ver todas las fotos')} ({photos.length - initialLimit} más)
+          </button>
+        </div>
+      )}
 
       {openIndex !== null && visiblePhotos[openIndex] && (
         <div className="pg-lightbox" role="dialog" aria-modal="true" aria-label={`${label} — ${openIndex + 1} / ${visiblePhotos.length}`} onClick={close}>
