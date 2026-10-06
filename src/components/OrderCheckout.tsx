@@ -131,7 +131,7 @@ export default function OrderCheckout({ items, totalCOP, placeName, whatsapp, on
                 type="tel"
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
-                placeholder="Ej: 313 716 0977"
+                placeholder="Ej: 300 123 4567"
                 autoComplete="tel"
               />
             </label>
