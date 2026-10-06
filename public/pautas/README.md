@@ -24,6 +24,11 @@ Ejemplos de pautantes activos:
 - cabalgatas_cocora_magica
 - mirador_mano_de_dios
 
+Nuevos (2026-10-06):
+- downhill_bike_salento (Downhill Bike Salento — bicicleta, caminatas, cabalgatas)
+- hotel_salento_real (Hotel Salento Real — Calle 3 # 4-31)
+- ruta-navarco (Salento y sus Tesoros — turismo comunitario Navarco)
+
 Recomendaciones:
 - Guardar fotos originales con nombres claros y sin acentos.
 - Mantener una copia de la info verificada en .txt o .md.

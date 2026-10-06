@@ -1053,47 +1053,51 @@
       "id": 17,
       "name": "Finca Cafetera Don Elías",
       "type": "Coffee Tours",
-      "description": "Finca cafetera familiar. Recorrido por el cafetal, proceso del café y degustación de café de especialidad.",
+      "description": "Finca cafetera familiar en Vereda Palestina. Recorrido por el cafetal, proceso del café y degustación de café orgánico. Mismo lugar que el Restaurante Don Elías.",
       "priceRange": "$$",
       "rating": "4.9",
-      "timeInfo": "Tours programados",
+      "timeInfo": "Tours cada hora 9:00–16:00",
       "badge": "Tour auténtico",
       "color": "coral",
       "icon": "Coffee",
       "contact": {
-        "phone": "+57 315 606 1113"
+        "phone": "+57 315 606 1113",
+        "whatsapp": "573156061113",
+        "email": "fincafeteradonelias@gmail.com",
+        "website": "https://fincafeteradonelias.com.co/"
       },
       "location": {
-        "lat": 4.647,
-        "lng": -75.577,
-        "address": "Valle de Cocora",
-        "landmark": "Entrada Valle de Cocora"
+        "lat": 4.6285,
+        "lng": -75.5685,
+        "address": "Vereda Palestina Km 4, Salento, Quindío (631027)",
+        "landmark": "Vía a Vereda Palestina · Cascada de la Abuela y Río Quindío"
       },
       "operatingHours": {
-        "notes": "Tours con reserva previa"
+        "notes": "Todos los días 9:00 a.m. – 4:00 p.m. · salidas cada hora"
       },
       "tags": [
         "coffee tour",
         "finca cafetera",
         "tour de café",
         "experiencia",
-        "valle cocora"
+        "vereda palestina",
+        "café orgánico"
       ],
       "verified": true,
       "active": true,
       "experienceDetails": {
-        "duration": "2-3 horas",
+        "duration": "90 min",
         "difficulty": "Fácil",
-        "groupSize": "Variable",
+        "groupSize": "Grupal o privado",
         "included": [
-          "Tour completo del proceso del café",
-          "Degustación de café",
+          "Tour del proceso del café (siembra a taza)",
+          "Degustación de café orgánico",
           "Recorrido por plantaciones",
-          "Información educativa"
+          "Acceso a Cascada de la Abuela y Río Quindío",
+          "Degustación de frutas de temporada"
         ],
         "notIncluded": [
-          "Transporte",
-          "Comida"
+          "Transporte a la finca"
         ],
         "requirements": [
           "Ropa cómoda",
@@ -1101,11 +1105,12 @@
         ],
         "languages": [
           "Español",
-          "Inglés básico"
+          "Inglés",
+          "Francés"
         ],
-        "meetingPoint": "Finca Don Elías, Valle de Cocora",
-        "cancellationPolicy": "Consultar política de cancelación",
-        "tariff": "Consultar tarifas actuales"
+        "meetingPoint": "Finca Don Elías, Vereda Palestina Km 4, Salento",
+        "cancellationPolicy": "Consultar con la finca",
+        "tariff": "Simultáneo ES/EN $50.000 · ES o EN solo $60.000 (reserva) · Francés $70.000 (reserva)"
       },
       "photos": [
         "/pautas/coffee-tour-finca-cafetera-don-elias/imagenes/cafe-don-elias.webp",
@@ -1114,6 +1119,10 @@
         "/pautas/coffee-tour-finca-cafetera-don-elias/imagenes/681426934_18068473622670095_8170870217327481165_n.webp",
         "/pautas/coffee-tour-finca-cafetera-don-elias/imagenes/658126044_18063985268670095_3075015024937128905_n.webp"
       ],
+      "actionTarget": {
+        "viewUrl": "https://www.salentoalamano.com/paginas-pautantes/finca-cafetera-don-elias/",
+        "reserveUrl": "https://wa.me/573156061113"
+      },
       "isPautante": true
     },
     {
@@ -1530,10 +1539,10 @@
       "id": 22,
       "name": "Restaurante Don Elías",
       "type": "Restaurantes",
-      "description": "Restaurante en la Finca Don Elías con especialidad en comida tradicional cafetera. Platos preparados con ingredientes locales y recetas familiares.",
+      "description": "Restaurante en la Finca Cafetera Don Elías (Vereda Palestina Km 4). Comida tradicional cafetera y trucha arcoíris con productos de la finca. Mismo lugar que el coffee tour.",
       "priceRange": "$$",
       "rating": "4.8",
-      "timeInfo": "Horario del tour",
+      "timeInfo": "Durante los tours de café (9:00–16:00)",
       "badge": "Comida cafetera",
       "color": "terracotta",
       "icon": "Utensils",
@@ -1542,19 +1551,20 @@
         "whatsapp": "573156061113"
       },
       "location": {
-        "lat": 4.646,
-        "lng": -75.5765,
-        "address": "Valle de Cocora",
-        "landmark": "Finca Don Elías"
+        "lat": 4.6285,
+        "lng": -75.5685,
+        "address": "Vereda Palestina Km 4, Salento, Quindío (631027)",
+        "landmark": "Misma finca que el Coffee Tour Don Elías"
       },
       "operatingHours": {
-        "notes": "Durante los tours de café"
+        "notes": "Durante los tours de café · 9:00 a.m. – 4:00 p.m."
       },
       "tags": [
         "restaurante",
         "comida cafetera",
+        "trucha",
         "finca",
-        "valle cocora"
+        "vereda palestina"
       ],
       "verified": true,
       "active": true,
@@ -1564,14 +1574,14 @@
           "Cafetera"
         ],
         "specialties": [
+          "Trucha arcoíris",
           "Comida tradicional",
-          "Platos locales",
-          "Trucha arcoíris"
+          "Platos locales"
         ],
         "menuHighlights": [
-          "Menú del día",
-          "Comida casera",
-          "Trucha arcoíris $30.000 - $42.000"
+          "Trucha arcoíris $30.000 - $42.000",
+          "Comida casera de la finca",
+          "Café de la finca en venta"
         ],
         "averagePrice": "$$",
         "reservationRequired": true
@@ -1581,6 +1591,10 @@
         "/pautas/coffee-tour-finca-cafetera-don-elias/imagenes/484042363_664478162683303_2341224993788835150_n.webp",
         "/pautas/coffee-tour-finca-cafetera-don-elias/imagenes/483101751_664446382686481_2585961616784103288_n.webp"
       ],
+      "actionTarget": {
+        "viewUrl": "https://www.salentoalamano.com/paginas-pautantes/restaurante-don-elias/",
+        "orderUrl": "https://wa.me/573156061113"
+      },
       "isPautante": true
     },
     {
@@ -2471,8 +2485,277 @@
         "viewUrl": "https://www.salentoalamano.com/paginas-pautantes/hotel-la-tia-emiss/"
       },
       "isPautante": true
+    },
+    {
+      "id": 36,
+      "name": "Downhill Bike Salento",
+      "type": "Experiencias",
+      "description": "Empresa de turismo de aventura en Salento: downhill en bicicleta, caminatas guiadas y cabalgatas por paisajes naturales del Quindío.",
+      "priceRange": "$$",
+      "rating": "4.7",
+      "timeInfo": "Reserva previa por WhatsApp",
+      "badge": "Aventura",
+      "color": "green",
+      "icon": "Bike",
+      "contact": {
+        "phone": "+57 315 2545238",
+        "whatsapp": "573152545238",
+        "instagram": "https://www.instagram.com/downhill_bikesalento/",
+        "website": "https://downhillbikesalento.com/"
+      },
+      "location": {
+        "address": "Carrera 3 # 6 - 45, Salento, Quindío",
+        "landmark": "Centro de Salento"
+      },
+      "operatingHours": {
+        "notes": "Tours con reserva previa. Consultar disponibilidad por WhatsApp."
+      },
+      "tags": [
+        "downhill",
+        "bicicleta",
+        "bike",
+        "caminata",
+        "cabalgata",
+        "aventura",
+        "tour carbonera",
+        "salento"
+      ],
+      "verified": true,
+      "active": true,
+      "experienceDetails": {
+        "duration": "Medio día (tour Carbonera)",
+        "difficulty": "Moderada",
+        "groupSize": "Consultar",
+        "included": [
+          "Traslado en vehículo propio",
+          "Descenso en bicicleta 21 km",
+          "Caminata finca La Carbonera",
+          "Snack"
+        ],
+        "notIncluded": [
+          "Alimentación adicional",
+          "Seguro personal"
+        ],
+        "requirements": [
+          "Buen estado de salud",
+          "Ropa cómoda",
+          "Calzado cerrado"
+        ],
+        "languages": [
+          "Español"
+        ],
+        "meetingPoint": "Carrera 3 # 6 - 45, Salento",
+        "cancellationPolicy": "Consultar con el operador",
+        "tariff": "Consultar tarifas directo con el operador"
+      },
+      "tourismDetails": {
+        "attractions": [
+          "Tour downhill en bicicleta",
+          "Tour Carbonera",
+          "Caminatas guiadas",
+          "Cabalgatas por Salento"
+        ],
+        "languages": ["Español"],
+        "guidedAvailable": true,
+        "bestVisitTime": "Mañana",
+        "tips": [
+          "Reservar con anticipación",
+          "Llevar bloqueador solar"
+        ],
+        "includesGuide": true,
+        "meetingPoint": "Carrera 3 # 6 - 45, Salento"
+      },
+      "photos": [
+        "/pautas/downhill_bike_salento/imagenes/downhill-bike-salento-g45.jpg",
+        "/pautas/downhill_bike_salento/imagenes/downhill-bike-salento-g25.jpg",
+        "/pautas/downhill_bike_salento/imagenes/downhill-bike-salento-g36.jpg",
+        "/pautas/downhill_bike_salento/imagenes/downhill-bike-salento-g44.jpg",
+        "/pautas/downhill_bike_salento/imagenes/downhill-bike-salento-14.jpg",
+        "/pautas/downhill_bike_salento/imagenes/downhill-bike-salento-1.jpg",
+        "/pautas/downhill_bike_salento/imagenes/downhill-bike-salento-logo.jpg"
+      ],
+      "actionTarget": {
+        "viewUrl": "https://www.salentoalamano.com/paginas-pautantes/downhill-bike-salento/",
+        "reserveUrl": "https://wa.me/573152545238"
+      },
+      "isPautante": true
+    },
+    {
+      "id": 37,
+      "name": "Hotel Salento Real",
+      "type": "Alojamientos",
+      "description": "Hotel boutique de estilo colonial a 3 cuadras de la plaza. Suites con jacuzzi, desayuno americano incluido, parqueadero privado y recepción 24/7.",
+      "priceRange": "$$$",
+      "rating": "4.8",
+      "timeInfo": "Check-in 3:00 PM · Reservas 24/7",
+      "badge": "Hotel boutique",
+      "color": "yellow",
+      "icon": "Hotel",
+      "contact": {
+        "phone": "+57 316 629 6142",
+        "whatsapp": "573166296142",
+        "email": "reservas@hotelsalentoreal.com",
+        "facebook": "https://www.facebook.com/salentoreal",
+        "instagram": "https://www.instagram.com/hsalentoreal/",
+        "website": "https://www.hotelsalentoreal.com/"
+      },
+      "location": {
+        "lat": 4.639561,
+        "lng": -75.569057,
+        "address": "Calle 3 # 4 - 31, Salento, Quindío",
+        "landmark": "A 3 cuadras de la plaza principal"
+      },
+      "operatingHours": {
+        "notes": "Recepción 24/7 · Check-in 15:00 · Reservas todo el día"
+      },
+      "tags": [
+        "hotel",
+        "alojamiento",
+        "boutique",
+        "colonial",
+        "jacuzzi",
+        "desayuno",
+        "parqueadero",
+        "wifi",
+        "salento"
+      ],
+      "verified": true,
+      "active": true,
+      "accommodationDetails": {
+        "categoryLabel": "Hotel boutique · estilo colonial",
+        "roomTypes": [
+          "Confort",
+          "Twin Confort",
+          "Twin Superior",
+          "Superior Familiar",
+          "Superior con balcón",
+          "Suite Dulima",
+          "Suite Santa Isabel",
+          "Suite Quindú",
+          "Suite Kumanday (jacuzzi)"
+        ],
+        "services": [
+          "Wi-Fi gratuito",
+          "Desayuno americano incluido",
+          "Parqueadero privado sin costo",
+          "Recepción 24/7",
+          "Masajes",
+          "Tours y actividades guiadas",
+          "Transfer aeropuerto (cargo extra)",
+          "Lavandería",
+          "Amenities ecológicos",
+          "Ascensor y rampa",
+          "Cajilla de seguridad",
+          "Custodia de equipaje",
+          "Estación de agua y té"
+        ],
+        "bookingNotes": "Reserva directa con best price · ofertas Book & Save y Advance Purchase",
+        "policies": "Check-in 15:00 · Reservas 24/7 por WhatsApp o web oficial"
+      },
+      "photos": [
+        "/pautas/hotel_salento_real/imagenes/hotel-salento-real-confort.webp",
+        "/pautas/hotel_salento_real/imagenes/hotel-salento-real-suite-kumanday.webp",
+        "/pautas/hotel_salento_real/imagenes/hotel-salento-real-jacuzzi.webp",
+        "/pautas/hotel_salento_real/imagenes/hotel-salento-real-suite-dulima.webp",
+        "/pautas/hotel_salento_real/imagenes/hotel-salento-real-twin-confort.webp",
+        "/pautas/hotel_salento_real/imagenes/hotel-salento-real-superior-balcon.webp",
+        "/pautas/hotel_salento_real/imagenes/hotel-salento-real-logo.svg"
+      ],
+      "actionTarget": {
+        "viewUrl": "https://www.salentoalamano.com/paginas-pautantes/hotel-salento-real/",
+        "reserveUrl": "https://www.hotelsalentoreal.com/"
+      },
+      "isPautante": true
+    },
+    {
+      "id": 38,
+      "name": "Ruta Navarco",
+      "type": "Experiencias",
+      "description": "Recorrido comunitario en Willys por 4 fincas de la vereda Navarco: La Rubiela (queso), La Unión (trapiche y cafetera), La Colina (bienestar) y La Chamberlain (cascada).",
+      "priceRange": "$$$",
+      "rating": "4.9",
+      "timeInfo": "Salida 8:30 a.m. desde Salento",
+      "badge": "Fincas Navarco",
+      "color": "coral",
+      "icon": "Compass",
+      "contact": {
+        "phone": "+57 304 368 5771",
+        "whatsapp": "573043685771",
+        "instagram": "https://www.instagram.com/salentoysustesoros/",
+        "website": "https://salentoysustesoros.co/"
+      },
+      "location": {
+        "address": "Salento → Vereda Navarco",
+        "landmark": "Salida desde Salento en Willys"
+      },
+      "operatingHours": {
+        "notes": "Salida 8:30 a.m. · regreso 5:30 p.m. · máx 8 personas"
+      },
+      "tags": [
+        "fincas navarco",
+        "ruta navarco",
+        "turismo comunitario",
+        "willys",
+        "queso",
+        "trapiche",
+        "cascada chamberlain",
+        "salento"
+      ],
+      "verified": true,
+      "active": true,
+      "experienceDetails": {
+        "duration": "1 día",
+        "difficulty": "Fácil",
+        "groupSize": "Máximo 8 personas",
+        "included": [
+          "Transporte en Willys",
+          "Recorrido por 4 fincas",
+          "Guía local",
+          "Degustaciones",
+          "Almuerzo típico"
+        ],
+        "notIncluded": [
+          "Bebidas alcohólicas"
+        ],
+        "requirements": [
+          "Calzado cómodo"
+        ],
+        "languages": [
+          "Español"
+        ],
+        "meetingPoint": "Salento (punto de salida en Willys)",
+        "cancellationPolicy": "Consultar con el operador",
+        "tariff": "Desde $2.200.000 COP por persona (1 pax) · máx 8 pax"
+      },
+      "tourismDetails": {
+        "attractions": [
+          "Finca La Rubiela — queso artesanal",
+          "Finca La Unión — trapiche y cafetera",
+          "Finca La Colina — bienestar sensorial",
+          "Finca Chamberlain — cascada"
+        ],
+        "languages": ["Español"],
+        "guidedAvailable": true,
+        "bestVisitTime": "Todo el año",
+        "tips": ["Reservar con anticipación"],
+        "includesGuide": true,
+        "meetingPoint": "Salento en Willys"
+      },
+      "photos": [
+        "/pautas/ruta-navarco/salento-tesoros-trapiche.webp",
+        "/pautas/ruta-navarco/salento-tesoros-rubiela.jpeg",
+        "/pautas/ruta-navarco/salento-tesoros-chamberlain.jpeg",
+        "/pautas/ruta-navarco/salento-tesoros-hospedaje.jpeg",
+        "/pautas/ruta-navarco/salento-tesoros-colina.jpeg",
+        "/pautas/ruta-navarco/salento-tesoros-logo.png"
+      ],
+      "actionTarget": {
+        "viewUrl": "https://www.salentoalamano.com/paginas-pautantes/ruta-navarco/",
+        "reserveUrl": "https://api.whatsapp.com/send/?phone=573043685771"
+      },
+      "isPautante": true
     }
   ],
-  "lastUpdated": "2026-09-22",
+  "lastUpdated": "2026-10-06",
   "version": "2.0.0-pautantes-only"
 }

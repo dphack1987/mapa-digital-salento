@@ -1,76 +1,49 @@
 # Restaurante Don Elías
 
 ## Estado
-- Estado actual: ficha con contacto verificado desde sitio oficial de la finca
+- Estado actual: ficha actualizada con ubicación y carta verificadas
 - Prioridad: alta
-- Verificación: contacto y ubicación verificados
+- Verificación: ubicación y contacto verificados (sitio oficial + landing de trucha)
 
 ## Información confirmada
 - Nombre comercial: Restaurante Don Elías
-- Categoría principal: gastronomía / restaurante
-- Tipo de oferta: cocina local y experiencia gastronómica
-- Enfoque: comida local, visita turística y servicio directo
-- Relación: restaurante en la Finca Cafetera Don Elías (misma propiedad)
-- Dirección: Vereda Palestina Km 4, Salento, Quindío, Colombia (631027)
+- Categoría principal: gastronomía / restaurante en finca
+- Relación: **misma propiedad y lugar que el Coffee Tour Finca Don Elías**
+- Dirección: **Vereda Palestina Km 4, Salento, Quindío, Colombia (631027)**
 - Teléfono/WhatsApp: +57 315 606 1113
 - Email: fincafeteradonelias@gmail.com
 - Sitio web (finca): fincafeteradonelias.com.co
-- Horario telefónico: lunes a viernes 9am-5pm
-- Fuente: sitio oficial fincafeteradonelias.com.co/contacto y Trip.com (verificado)
+- Horario: durante los tours de café (9:00 a.m. – 4:00 p.m.)
+- Fuente ubicación: sitio oficial fincafeteradonelias.com.co/contacto ("Vda. Palestina Km 4 de Salento")
+- Nota: NO está en Valle de Cocora (dato erróneo corregido)
 - Nota: el número +57 313 716 0977 pertenece a Fonda Boquía, NO a este restaurante
 
 ## Modelo de pedido directo
-- Canal principal: WhatsApp o contacto directo para pedido o reserva
+- Canal principal: WhatsApp o contacto directo (mismo que coffee tour)
 - Comisión por venta de la plataforma: 0%
-- Rol de Salento a la Mano: visibilidad y conexión directa con el restaurante
-- Cobertura: Salento cabecera y zona cercana de paso o domicilio por confirmar
-- Modalidad: restaurante y gastronomía local
-- Pago: directo con el restaurante según disponibilidad
+- Rol de Salento a la Mano: visibilidad y conexión directa
+- Cobertura: Vereda Palestina / turistas en coffee tour
+- Modalidad: restaurante de finca cafetera
+- Pago: directo en sitio
 
-## Catálogo de servicios y productos
-### Cocina principal
-- Platos de la casa: precio por confirmar
-- Menú local o típico: precio por confirmar
-- Bebidas o acompañamientos: precio por confirmar
-- Servicio para turistas y clientes de paso: disponibilidad por confirmar
-
-### Carta destacada (verificada en landing de trucha)
-| Plato / rango | Precio COP | Fuente |
+## Carta destacada (verificada)
+| Plato / producto | Precio COP | Fuente |
 |---|---|---|
-| Trucha arcoíris | $30.000 - $42.000 | landing/mejor-trucha-salento |
+| Trucha arcoíris | $30.000 – $42.000 | landing/mejor-trucha-salento |
+| Comida tradicional cafetera | por confirmar | finca |
+| Taza Colombia (café) | $18.000 | sitio oficial finca |
+| Café Tradicional (molido o grano) | $40.000 | sitio oficial finca |
+| Café Premium (grano/molido) | $50.000 | sitio oficial finca |
 
 ### Pendiente de fuente primaria
-- Carta completa con platos individuales y precios (sitio fincafeteradonelias.com.co no responde; Instagram/TripAdvisor sin carta pública accesible)
+- Carta completa del restaurante (no publicada en el sitio de la finca)
 - No inventar platos sin fuente verificable
 
-### Servicios complementarios
-- Atención en restaurante
-- Consumo local y experiencia gastronómica
-- Reserva o pedido por confirmar
+## Cómo llegar
+- Misma finca que el coffee tour: Vereda Palestina Km 4
+- Caminando: ~1 hora cuesta abajo desde el centro de Salento
+- Willys/Jeep: desde la plaza (~20 min), ~$4.000–$6.000 COP/persono
 
-## Contacto y datos faltantes
-Confirmado:
-- teléfono/WhatsApp: +57 315 606 1113
-- ubicación: Vereda Palestina Km 4, Salento
-- horario telefónico: Lun-Vie 9am-5pm
-
-Se requieren confirmar:
-- especialidades del menú (precios del restaurante)
-- fotos reales del restaurante
-
-## Pendientes para completar la ficha pública
-- Confirmar si el negocio existe y está activo
-- Dirección exacta
-- Contacto oficial
-- Descripción del menú y experiencia
-- Horarios reales
-- Fotografías de ambiente y platos
-
-## Criterio para pasar a ficha publicada
-La ficha se considerará lista cuando tenga:
-- nombre comercial claro y verificado
-- categoría definida
-- ubicación real
-- contacto verificable
-- descripción útil para turista
-- fotos reales
+## Pendientes
+- Carta completa con más platos y precios
+- Fotos del restaurante y platos (no solo de la finca)

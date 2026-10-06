@@ -150,11 +150,11 @@
       "type": "Turístico",
       "placeId": 17,
       "coord": [
-        4.647,
-        -75.577
+        4.6285,
+        -75.5685
       ],
       "tone": "success",
-      "note": "Finca Cafetera Don Elías"
+      "note": "Vereda Palestina Km 4 · coffee tour y restaurante"
     },
     {
       "id": 19,
@@ -198,11 +198,11 @@
       "type": "Gastronómico",
       "placeId": 22,
       "coord": [
-        4.646,
-        -75.5765
+        4.6285,
+        -75.5685
       ],
       "tone": "warning",
-      "note": "Restaurante Don Elías"
+      "note": "Misma finca que el coffee tour · Vereda Palestina Km 4"
     },
     {
       "id": 100,
@@ -371,8 +371,44 @@
       ],
       "tone": "coral",
       "note": "Mirador Valle de Cocora con casa al revés y columpios"
+    },
+    {
+      "id": 36,
+      "label": "Downhill Bike Salento",
+      "type": "Turístico",
+      "placeId": 36,
+      "coord": [
+        4.6392,
+        -75.5698
+      ],
+      "tone": "green",
+      "note": "Downhill en bicicleta, caminatas y cabalgatas"
+    },
+    {
+      "id": 37,
+      "label": "Hotel Salento Real",
+      "type": "Turístico",
+      "placeId": 37,
+      "coord": [
+        4.639561,
+        -75.569057
+      ],
+      "tone": "primary",
+      "note": "Hotel boutique colonial · suites con jacuzzi"
+    },
+    {
+      "id": 38,
+      "label": "Ruta Navarco",
+      "type": "Turístico",
+      "placeId": 38,
+      "coord": [
+        4.6386,
+        -75.5647
+      ],
+      "tone": "coral",
+      "note": "4 fincas en Willys: Rubiela, La Unión, Colina y Chamberlain"
     }
   ],
-  "lastUpdated": "2026-09-21T00:00:00.000Z",
+  "lastUpdated": "2026-10-06T00:00:00.000Z",
   "version": "2.0.0-pautantes-only"
 }
