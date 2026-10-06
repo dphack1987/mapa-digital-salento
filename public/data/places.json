@@ -754,7 +754,7 @@
       "location": {
         "lat": 4.6372,
         "lng": -75.5708,
-        "address": "Por confirmar",
+        "address": "Carrera 6 #3-46, Salento, Quindío",
         "landmark": "Plaza de Bolívar · 150 m, Calle Real · 300 m"
       },
       "photos": [
@@ -1128,11 +1128,11 @@
       "id": 19,
       "name": "Moto Aventura 110",
       "type": "Servicios",
-      "description": "Transporte en moto para turistas que buscan movilidad rápida y flexible por Salento y alrededores. Servicio especializado para visitantes.",
+      "description": "Pista de minimotocross para niños y adultos en Salento: minimotos 110 cc semiautomáticas con casco, protecciones y póliza incluidos.",
       "priceRange": "$",
       "rating": "4.6",
-      "timeInfo": "Reserva previa",
-      "badge": "Transporte",
+      "timeInfo": "Desde $15.000 · 10 minutos en pista",
+      "badge": "Aventura",
       "color": "yellow",
       "icon": "Bike",
       "contact": {
@@ -1143,50 +1143,43 @@
         "lat": 4.631,
         "lng": -75.5735,
         "address": "Salento",
-        "landmark": "Cerca del centro"
+        "landmark": "Pista en Salento · dirección al confirmar"
       },
       "operatingHours": {
-        "notes": "Horario flexible con reserva"
+        "notes": "Horario por confirmar · disponibilidad por WhatsApp"
       },
       "tags": [
-        "moto",
-        "transporte",
-        "turismo",
-        "movilidad"
+        "minimotocross",
+        "pista",
+        "motos 110cc",
+        "aventura",
+        "niños",
+        "adrenalina"
       ],
       "verified": true,
       "active": true,
-      "transportDetails": {
-        "transportType": "Moto Aventura",
-        "routes": [
-          "Salento - Valle de Cocora",
-          "Salento - Boquía",
-          "Rutas locales"
+      "experienceDetails": {
+        "duration": "10, 15 o 20 minutos en pista",
+        "difficulty": "Fácil",
+        "groupSize": "Individual",
+        "included": [
+          "Casco",
+          "Protecciones",
+          "Póliza de seguro"
         ],
-        "capacity": "1-2 pasajeros",
+        "notIncluded": [],
+        "requirements": [
+          "Estatura mínima 130 cm",
+          "Saber manejar bicicleta",
+          "Pantalón largo",
+          "Zapato cerrado"
+        ],
         "languages": [
           "Español"
         ],
-        "meetingPoint": "Punto acordado en Salento",
-        "pricingNotes": "Consultar tarifas según ruta",
-        "included": [
-          "Transporte",
-          "Casco de seguridad"
-        ],
-        "notIncluded": [
-          "Propinas",
-          "Entradas a atracciones"
-        ],
-        "operatingDays": [
-          "Lunes",
-          "Martes",
-          "Miércoles",
-          "Jueves",
-          "Viernes",
-          "Sábado",
-          "Domingo"
-        ],
-        "advanceBookingRequired": true
+        "meetingPoint": "Pista Moto Aventura 110 en Salento (dirección al confirmar)",
+        "cancellationPolicy": "Confirmar con el operador",
+        "tariff": "10 min: $15.000 · 15 min: $20.000 · 20 min: $25.000"
       },
       "photos": [
         "/pautas/moto_aventura_110/imagenes/1.webp",
