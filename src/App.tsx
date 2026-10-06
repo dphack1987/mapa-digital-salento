@@ -169,6 +169,8 @@ import defensiveSEOGService from './services/defensiveSEOG.service'
 import localBacklinksService from './services/localBacklinks.service'
 import allyRegistrationService from './services/allyRegistration.service'
 import notificationsService from './services/notifications.service'
+// Integración Open Source para turismo
+// Buscando alternativas a OSIRIS específicas para turismo
 
 // Lazy loaded components - optimización de bundle
 const InternationalMarketsDisplay = lazy(() => import('./components/InternationalMarketsDisplay'))

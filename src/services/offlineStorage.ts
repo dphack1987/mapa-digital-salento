@@ -432,6 +432,29 @@ class OfflineStorageService {
   }
 
   /**
+   * Eliminar datos del mapa
+   */
+  async deleteMapData(key: string): Promise<void> {
+    if (!this.db) await this.initialize()
+
+    return new Promise((resolve, reject) => {
+      const transaction = this.db!.transaction([CONFIG.stores.mapData], 'readwrite')
+      const store = transaction.objectStore(CONFIG.stores.mapData)
+      const request = store.delete(key)
+
+      request.onsuccess = () => {
+        console.log(`Deleted map data with key: ${key}`)
+        resolve()
+      }
+
+      request.onerror = () => {
+        console.error('Error deleting map data:', request.error)
+        reject(request.error)
+      }
+    })
+  }
+
+  /**
    * Limpiar datos antiguos (más de 7 días)
    */
   async cleanOldData(): Promise<void> {

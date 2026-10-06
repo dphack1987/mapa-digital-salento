@@ -1,0 +1,909 @@
+/**
+ * Estilos para componentes de integración OSIRIS AI
+ * Archivo separado para no modificar styles.css existente
+ */
+
+/* ==============================
+   SafetyWidget - Panel de Seguridad
+   ============================== */
+
+.safety-widget {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  max-width: 380px;
+  font-family: system-ui, -apple-system, sans-serif;
+  border: 1px solid #e5e7eb;
+}
+
+.safety-widget-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.header-left h4 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.status-indicator {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-weight: 500;
+}
+
+.status-indicator.online {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.status-indicator.offline {
+  background: #fef9c3;
+  color: #854d0e;
+}
+
+.refresh-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  transition: background 0.2s;
+  color: #6b7280;
+}
+
+.refresh-button:hover:not(:disabled) {
+  background: #f3f4f6;
+  color: #1f2937;
+}
+
+.refresh-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.refresh-button .spinning {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.safety-loading {
+  text-align: center;
+  padding: 20px;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.safety-error {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 8px;
+  color: #991b1b;
+  font-size: 13px;
+}
+
+.safety-content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.safety-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #374151;
+}
+
+.safety-safe {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.safe-text {
+  margin: 0;
+  color: #166534;
+  font-weight: 500;
+  font-size: 13px;
+}
+
+.info-text {
+  display: block;
+  margin-top: 4px;
+  color: #15803d;
+  font-size: 11px;
+}
+
+.safety-warning {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.warning-text {
+  margin: 0 0 8px 0;
+  color: #991b1b;
+  font-weight: 500;
+  font-size: 13px;
+}
+
+.earthquake-item {
+  display: flex;
+  gap: 8px;
+  padding: 4px 0;
+  font-size: 12px;
+  align-items: center;
+}
+
+.magnitude-badge {
+  font-weight: 600;
+  color: #dc2626;
+  background: #fee2e2;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 11px;
+}
+
+.location-text {
+  flex: 1;
+  color: #374151;
+}
+
+.weather-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.weather-item {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  font-size: 12px;
+}
+
+.event-type {
+  flex: 1;
+  color: #374151;
+}
+
+.severity-badge {
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.severity-low {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.severity-moderate {
+  background: #fef9c3;
+  color: #854d0e;
+}
+
+.severity-high {
+  background: #fed7aa;
+  color: #9a3412;
+}
+
+.severity-extreme {
+  background: #fecaca;
+  color: #991b1b;
+}
+
+.air-quality-display {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.aqi-value {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.aqi-label {
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.aqi-good {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.aqi-moderate {
+  background: #fef9c3;
+  color: #854d0e;
+}
+
+.aqi-unhealthy {
+  background: #fecaca;
+  color: #991b1b;
+}
+
+.safety-footer {
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px solid #e5e7eb;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.safety-footer small {
+  color: #6b7280;
+  font-size: 11px;
+}
+
+.data-source {
+  color: #9ca3af !important;
+}
+
+/* ==============================
+   Fires Section
+   ============================== */
+
+.fire-item {
+  display: flex;
+  gap: 8px;
+  padding: 4px 0;
+  font-size: 12px;
+  align-items: center;
+}
+
+.fire-brightness {
+  font-weight: 600;
+  color: #dc2626;
+  background: #fee2e2;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 11px;
+}
+
+.fire-type {
+  flex: 1;
+  color: #374151;
+}
+
+/* ==============================
+   News Section
+   ============================== */
+
+.news-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.news-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 8px;
+  background: #f9fafb;
+  border-radius: 6px;
+  font-size: 12px;
+}
+
+.news-title {
+  font-weight: 500;
+  color: #1f2937;
+  line-height: 1.4;
+}
+
+.news-source {
+  font-size: 11px;
+  color: #6b7280;
+}
+
+/* ==============================
+   Tourism Alerts System
+   ============================== */
+
+.tourism-alerts-container {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  max-width: 500px;
+  margin: 16px 0;
+  font-family: system-ui, -apple-system, sans-serif;
+  border: 1px solid #e5e7eb;
+}
+
+.tourism-alerts-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.tourism-alerts-header h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.alert-count {
+  background: #fef3c7;
+  color: #92400e;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.tourism-alerts-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.tourism-alert {
+  border-radius: 8px;
+  padding: 12px;
+  border-left: 4px solid;
+}
+
+.alert-danger {
+  background: #fef2f2;
+  border-left-color: #dc2626;
+}
+
+.alert-warning {
+  background: #fffbeb;
+  border-left-color: #f59e0b;
+}
+
+.alert-info {
+  background: #eff6ff;
+  border-left-color: #3b82f6;
+}
+
+.alert-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.alert-icon {
+  flex-shrink: 0;
+}
+
+.alert-title-group {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.alert-title-group h4 {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.alert-severity {
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.alert-danger .alert-severity {
+  background: #dc2626;
+  color: white;
+}
+
+.alert-warning .alert-severity {
+  background: #f59e0b;
+  color: white;
+}
+
+.alert-info .alert-severity {
+  background: #3b82f6;
+  color: white;
+}
+
+.alert-dismiss {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  color: #6b7280;
+  transition: background 0.2s;
+}
+
+.alert-dismiss:hover {
+  background: #f3f4f6;
+  color: #1f2937;
+}
+
+.alert-description {
+  margin: 0 0 12px 0;
+  font-size: 13px;
+  color: #374151;
+  line-height: 1.5;
+}
+
+.alert-activities {
+  margin-bottom: 12px;
+}
+
+.activities-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: #6b7280;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.activities-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.activity-tag {
+  background: #f3f4f6;
+  color: #374151;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+}
+
+.alert-recommendation {
+  background: rgba(255, 255, 255, 0.5);
+  padding: 8px;
+  border-radius: 6px;
+  font-size: 12px;
+  color: #374151;
+  line-height: 1.4;
+}
+
+.alert-recommendation strong {
+  color: #1f2937;
+}
+
+.alert-footer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 6px;
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.alert-time {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  color: #6b7280;
+}
+
+/* ==============================
+   Earthquake Popup en Mapa
+   ============================== */
+
+.earthquake-popup {
+  min-width: 200px;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+.popup-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.popup-icon {
+  font-size: 16px;
+}
+
+.popup-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.popup-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+}
+
+.popup-row .label {
+  color: #6b7280;
+  font-weight: 500;
+}
+
+.popup-row .value {
+  color: #1f2937;
+  text-align: right;
+}
+
+.popup-row .magnitude {
+  font-weight: 700;
+}
+
+.magnitude-high {
+  color: #dc2626;
+}
+
+.magnitude-medium {
+  color: #ea580c;
+}
+
+.popup-footer {
+  margin-top: 8px;
+  padding-top: 6px;
+  border-top: 1px solid #e5e7eb;
+  text-align: center;
+}
+
+.popup-footer small {
+  color: #9ca3af;
+  font-size: 10px;
+}
+
+/* ==============================
+   Tourism Impact Section (Earthquake Popup)
+   ============================== */
+
+.tourism-impact-section {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid #e5e7eb;
+}
+
+.tourism-impact-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #1f2937;
+  font-size: 13px;
+}
+
+.tourism-icon {
+  font-size: 14px;
+}
+
+.risk-badge {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 8px;
+}
+
+.tourism-impact-text {
+  margin: 0 0 8px 0;
+  font-size: 12px;
+  color: #374151;
+  line-height: 1.4;
+}
+
+.affected-areas {
+  margin-bottom: 8px;
+}
+
+.areas-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: #6b7280;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.affected-areas ul {
+  margin: 0;
+  padding-left: 16px;
+  font-size: 11px;
+  color: #374151;
+}
+
+.affected-areas li {
+  margin-bottom: 2px;
+}
+
+.tourism-recommendation {
+  background: #f9fafb;
+  padding: 8px;
+  border-radius: 6px;
+  margin-bottom: 8px;
+}
+
+.tourism-recommendation strong {
+  display: block;
+  font-size: 11px;
+  color: #1f2937;
+  margin-bottom: 4px;
+}
+
+.tourism-recommendation p {
+  margin: 0;
+  font-size: 11px;
+  color: #374151;
+  line-height: 1.4;
+}
+
+.alternatives {
+  background: #eff6ff;
+  padding: 8px;
+  border-radius: 6px;
+}
+
+.alternatives strong {
+  display: block;
+  font-size: 11px;
+  color: #1f2937;
+  margin-bottom: 4px;
+}
+
+.alternatives ul {
+  margin: 0;
+  padding-left: 16px;
+  font-size: 11px;
+  color: #374151;
+}
+
+.alternatives li {
+  margin-bottom: 2px;
+}
+
+/* ==============================
+   Predictive Suggestions (Fase 3)
+   ============================== */
+
+.predictive-suggestions {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  margin: 16px 0;
+  max-width: 380px;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.predictive-suggestions.loading {
+  padding: 16px;
+}
+
+.suggestions-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  background: #f9fafb;
+  border-bottom: 1px solid #e5e7eb;
+  font-weight: 600;
+  color: #1f2937;
+  font-size: 14px;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.icon-blue {
+  color: #3b82f6;
+}
+
+.icon-green {
+  color: #22c55e;
+}
+
+.icon-yellow {
+  color: #f59e0b;
+}
+
+.icon-red {
+  color: #ef4444;
+}
+
+.suggestions-content {
+  padding: 12px;
+}
+
+.prediction-card {
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 12px;
+}
+
+.prediction-card.highlight {
+  background: #eff6ff;
+  border-color: #bfdbfe;
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+  font-size: 13px;
+  color: #1f2937;
+}
+
+.card-body {
+  font-size: 12px;
+  color: #374151;
+}
+
+.prediction-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 6px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.prediction-item:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.prediction-item .label {
+  color: #6b7280;
+  font-weight: 500;
+}
+
+.prediction-item .value {
+  color: #1f2937;
+  font-weight: 600;
+}
+
+.prediction-reason {
+  margin: 8px 0 0 0;
+  color: #6b7280;
+  font-style: italic;
+  line-height: 1.4;
+}
+
+.risk-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 8px;
+}
+
+.risk-list {
+  margin-top: 8px;
+}
+
+.risk-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.risk-item:last-child {
+  border-bottom: none;
+}
+
+.risk-type {
+  font-weight: 500;
+  color: #374151;
+}
+
+.risk-level {
+  font-weight: 600;
+  font-size: 11px;
+}
+
+.risk-prob {
+  font-size: 11px;
+  color: #6b7280;
+}
+
+.suggestion-text {
+  margin: 0;
+  line-height: 1.5;
+  color: #1f2937;
+}
+
+.prediction-footer {
+  margin-top: 12px;
+  padding-top: 8px;
+  border-top: 1px solid #e5e7eb;
+  text-align: center;
+}
+
+.prediction-footer small {
+  color: #9ca3af;
+  font-size: 10px;
+}
+
+/* ==============================
+   Responsive
+   ============================== */
+
+@media (max-width: 640px) {
+  .safety-widget {
+    max-width: 100%;
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+  }
+
+  .safety-widget-header {
+    padding-bottom: 8px;
+  }
+
+  .header-left h4 {
+    font-size: 14px;
+  }
+}
