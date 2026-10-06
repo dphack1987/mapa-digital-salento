@@ -73,18 +73,6 @@
       "note": "Finca Hotel El Ocaso"
     },
     {
-      "id": 11,
-      "label": "Cabalgatas Valle de Cocora",
-      "type": "Turístico",
-      "placeId": 11,
-      "coord": [
-        4.636,
-        -75.575
-      ],
-      "tone": "success",
-      "note": "Cabalgatas Valle de Cocora (Experiencias)"
-    },
-    {
       "id": 28,
       "label": "Boki Mall - Restaurante Terra",
       "type": "Gastronómico",
@@ -150,8 +138,8 @@
       "type": "Turístico",
       "placeId": 17,
       "coord": [
-        4.6285,
-        -75.5685
+        4.625157,
+        -75.597221
       ],
       "tone": "success",
       "note": "Vereda Palestina Km 4 · coffee tour y restaurante"
@@ -198,8 +186,8 @@
       "type": "Gastronómico",
       "placeId": 22,
       "coord": [
-        4.6285,
-        -75.5685
+        4.625157,
+        -75.597221
       ],
       "tone": "warning",
       "note": "Misma finca que el coffee tour · Vereda Palestina Km 4"
@@ -373,6 +361,30 @@
       "note": "Mirador Valle de Cocora con casa al revés y columpios"
     },
     {
+      "id": 34,
+      "label": "El Recuerdo Coffee Tour",
+      "type": "Turístico",
+      "placeId": 34,
+      "coord": [
+        4.620158,
+        -75.600945
+      ],
+      "tone": "green",
+      "note": "Finca cafetera en Vereda Palestina · 4 km a pie desde Salento"
+    },
+    {
+      "id": 35,
+      "label": "Hotel La Tía Emiss",
+      "type": "Turístico",
+      "placeId": 35,
+      "coord": [
+        4.638923,
+        -75.570628
+      ],
+      "tone": "primary",
+      "note": "Hotel familiar de arquitectura de colonización · Cra 4 #5-38"
+    },
+    {
       "id": 36,
       "label": "Downhill Bike Salento",
       "type": "Turístico",
@@ -402,11 +414,11 @@
       "type": "Turístico",
       "placeId": 38,
       "coord": [
-        4.6386,
-        -75.5647
+        4.6376,
+        -75.5633
       ],
       "tone": "coral",
-      "note": "4 fincas en Willys: Rubiela, La Unión, Colina y Chamberlain"
+      "note": "4 fincas en Willys: Rubiela, La Unión, Colina y Chamberlain · salida desde la plaza"
     }
   ],
   "lastUpdated": "2026-10-06T00:00:00.000Z",

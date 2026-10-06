@@ -76,8 +76,8 @@ class HorsebackRidingService {
     const sampleOperators: HorsebackRidingOperator[] = [
       {
         id: 'OP-001',
-        name: 'Cabalgatas del Valle',
-        location: 'Valle de Cocora',
+        name: 'CocoraTours',
+        location: 'Calle 2 #6-09, Salento',
         rating: 4.8,
         experience: '15 años',
         routes: [
@@ -107,9 +107,9 @@ class HorsebackRidingService {
           }
         ],
         contact: {
-          phone: '+57 313 716 0977',
-          whatsapp: '573137160977',
-          email: 'cabalgatas@valle.com'
+          phone: '+57 313 759 3013',
+          whatsapp: '573137593013',
+          email: 'info@cocoratours.com.co'
         },
         prices: {
           basic: 60000,
@@ -128,8 +128,8 @@ class HorsebackRidingService {
       },
       {
         id: 'OP-002',
-        name: 'Pesebrera El Arriero',
-        location: 'Salento Centro',
+        name: 'Cabalgatas Salento',
+        location: 'Carrera 9 #8-52, Vereda Boquerón, Salento',
         rating: 4.6,
         experience: '20 años',
         routes: [
@@ -147,9 +147,9 @@ class HorsebackRidingService {
           }
         ],
         contact: {
-          phone: '+57 313 716 0977',
-          whatsapp: '573137160977',
-          email: 'info@elarriero.com'
+          phone: '+57 317 375 3089',
+          whatsapp: '573173753089',
+          email: 'cabalgatassalento@gmail.com'
         },
         prices: {
           basic: 55000,

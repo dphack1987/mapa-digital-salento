@@ -88,7 +88,7 @@
         "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/santa-rita-5.webp"
       ],
       "actionTarget": {
-        "viewUrl": "https://www.salentoalamano.com/paginas-pautantes/camping-cascadas-santa-rita/"
+        "viewUrl": "https://www.salentoalamano.com/paginas-pautantes/camping-cascadas-de-santa-rita/"
       },
       "isPautante": true
     },
@@ -539,8 +539,7 @@
       "color": "yellow",
       "icon": "Mountain",
       "contact": {
-        "phone": "+57 320 9876543",
-        "whatsapp": "573209876543"
+        "phone": "+57 315 415 3949"
       },
       "location": {
         "lat": 4.634,
@@ -1067,8 +1066,8 @@
         "website": "https://fincafeteradonelias.com.co/"
       },
       "location": {
-        "lat": 4.6285,
-        "lng": -75.5685,
+        "lat": 4.625157,
+        "lng": -75.597221,
         "address": "Vereda Palestina Km 4, Salento, Quindío (631027)",
         "landmark": "Vía a Vereda Palestina · Cascada de la Abuela y Río Quindío"
       },
@@ -1551,8 +1550,8 @@
         "whatsapp": "573156061113"
       },
       "location": {
-        "lat": 4.6285,
-        "lng": -75.5685,
+        "lat": 4.625157,
+        "lng": -75.597221,
         "address": "Vereda Palestina Km 4, Salento, Quindío (631027)",
         "landmark": "Misma finca que el Coffee Tour Don Elías"
       },
@@ -2368,8 +2367,10 @@
         "email": "cazal16@yahoo.es"
       },
       "location": {
-        "address": "Finca rural, Salento, Quindío",
-        "landmark": "Salento rural"
+        "address": "Vereda Palestina, Salento, Quindío",
+        "landmark": "Finca rural · 4 km a pie desde el centro",
+        "lat": 4.620158,
+        "lng": -75.600945
       },
       "operatingHours": {
         "notes": "9:00 a.m. – 4:00 p.m. Tours cada hora. $65.000 COP por persona."
@@ -2425,7 +2426,9 @@
       },
       "location": {
         "address": "Carrera 4 #5-38, Salento, Quindío",
-        "landmark": "A dos cuadras del parque principal"
+        "landmark": "A dos cuadras del parque principal",
+        "lat": 4.638923,
+        "lng": -75.570628
       },
       "operatingHours": {
         "notes": "Check-in 15:00–22:00 · Check-out hasta 11:00"
@@ -2505,7 +2508,9 @@
       },
       "location": {
         "address": "Carrera 3 # 6 - 45, Salento, Quindío",
-        "landmark": "Centro de Salento"
+        "landmark": "Centro de Salento",
+        "lat": 4.6392,
+        "lng": -75.5698
       },
       "operatingHours": {
         "notes": "Tours con reserva previa. Consultar disponibilidad por WhatsApp."
@@ -2686,7 +2691,9 @@
       },
       "location": {
         "address": "Salento → Vereda Navarco",
-        "landmark": "Salida desde Salento en Willys"
+        "landmark": "Salida desde la plaza principal en Willys",
+        "lat": 4.6386,
+        "lng": -75.5647
       },
       "operatingHours": {
         "notes": "Salida 8:30 a.m. · regreso 5:30 p.m. · máx 8 personas"
