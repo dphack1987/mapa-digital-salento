@@ -1,4 +1,5 @@
 const CACHE_NAME = 'salento-a-la-mano-v17'
+const OSIRIS_CACHE_NAME = 'salento-osiris-v1' // Cache específico para datos de OSIRIS
 const CACHE_STRATEGIES = {
   static: ['html', 'css', 'js', 'png', 'jpg', 'jpeg', 'svg', 'webp', 'ico', 'gif'],
   shell: ['html', 'js', 'css']
@@ -201,6 +202,28 @@ self.addEventListener('fetch', (event) => {
           }).catch(() => new Response('', { status: 204 }))
         })
       )
+    )
+    return
+  }
+
+  // Manejar requests a OSIRIS API (cross-origin) con estrategia Stale While Revalidate
+  if (url.hostname === 'osirisai.live' && url.pathname.startsWith('/api/')) {
+    event.respondWith(
+      caches.open(OSIRIS_CACHE_NAME).then(cache => {
+        return cache.match(request).then(cached => {
+          const fetchPromise = fetch(request).then(networkResponse => {
+            // Solo cachear respuestas exitosas
+            if (networkResponse.ok) {
+              cache.put(request, networkResponse.clone())
+            }
+            return networkResponse
+          }).catch(() => {
+            // Si falla el fetch, retornar caché si existe
+            return cached || new Response('OSIRIS API unavailable', { status: 503 })
+          })
+          return cached || fetchPromise
+        })
+      })
     )
     return
   }

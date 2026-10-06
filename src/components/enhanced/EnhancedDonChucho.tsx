@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import { pythonBackendService } from '../../services/pythonBackend'
+import { getOsirisResponse, getTourismResponse, isTourismQuery, getPredictiveResponse, isPredictiveQuery } from '../../services/donChuchoOsiris'
 
 interface Pautante {
   name: string
@@ -111,9 +112,56 @@ function EnhancedDonChucho({ onFallback, onClose, existingComponent }: EnhancedD
 
   const handleSendMessage = async () => {
     if (!message.trim()) return
-    
+
     setIsLoading(true)
     try {
+      // 1. Primero intentar respuesta predictiva (Fase 3) - Máxima prioridad
+      if (isPredictiveQuery(message)) {
+        const predictiveResponse = await getPredictiveResponse(message, 'es')
+        if (predictiveResponse) {
+          setResponse(predictiveResponse)
+          setLocalPlaces([])
+          setHasLocalPlaces(false)
+
+          if (voiceEnabled && predictiveResponse) {
+            speakResponse(predictiveResponse)
+          }
+          setIsLoading(false)
+          return
+        }
+      }
+
+      // 2. Segundo, intentar respuesta turística mejorada (Fase 2)
+      if (isTourismQuery(message)) {
+        const tourismResponse = await getTourismResponse(message, 'es')
+        if (tourismResponse) {
+          setResponse(tourismResponse)
+          setLocalPlaces([])
+          setHasLocalPlaces(false)
+
+          if (voiceEnabled && tourismResponse) {
+            speakResponse(tourismResponse)
+          }
+          setIsLoading(false)
+          return
+        }
+      }
+
+      // 3. Tercero, intentar respuesta OSIRIS estándar (Fase 1)
+      const osirisResponse = await getOsirisResponse(message, 'es')
+      if (osirisResponse) {
+        setResponse(osirisResponse)
+        setLocalPlaces([])
+        setHasLocalPlaces(false)
+
+        if (voiceEnabled && osirisResponse) {
+          speakResponse(osirisResponse)
+        }
+        setIsLoading(false)
+        return
+      }
+
+      // 4. Si no es OSIRIS, usar backend Python normalmente
       if (usePython && pythonStatus === 'online') {
         const result = await pythonBackendService.sendChatMessage(message)
         setResponse(result.response)
