@@ -1,6 +1,6 @@
 # Mirador Manos de Cocora
 
-![Logo](imagenes/logo-mirador-manos-de-cocora.jpeg)
+![Logo](imagenes/logo-mirador-manos-de-cocora.webp)
 
 ---
 
@@ -42,39 +42,39 @@
 ## 📸 Galería de Imágenes
 
 ### Atracción Principal
-![Deslizadora Tricolor](imagenes/7.-deslizadora-tricolor-nueva-manos-de-cocora-2.png)
+![Deslizadora Tricolor](imagenes/7.-deslizadora-tricolor-nueva-manos-de-cocora-2.webp)
 
 ### Vistas del Mirador
-![Ubicación del Mirador](imagenes/4. ubicacion-manos-de-cocora-7.JPG)
+![Ubicación del Mirador](imagenes/4. ubicacion-manos-de-cocora-7.webp)
 
-![San Pedro Manos de Cocora](imagenes/9.-san-pedro-manos-de-cocora-2.jpg)
+![San Pedro Manos de Cocora](imagenes/9.-san-pedro-manos-de-cocora-2.webp)
 
 ### Spots Fotográficos
-![Colores Manos de Cocora](imagenes/14. colores-manos-de-cocora-1.jpg.jpeg)
+![Colores Manos de Cocora](imagenes/14. colores-manos-de-cocora-1.webp)
 
 ### Experiencia Cultural
-![Paisaje Cultural con Traje](imagenes/5. paisaje-cultural-traje-4.JPG)
+![Paisaje Cultural con Traje](imagenes/5. paisaje-cultural-traje-4.webp)
 
-![Paisaje Cultural con Traje 2](imagenes/5. paisaje-cultural-traje-5.JPG)
+![Paisaje Cultural con Traje 2](imagenes/5. paisaje-cultural-traje-5.webp)
 
 ### Eventos Especiales
-![Día Mundial de la Fotografía 1](imagenes/12.-dia-mundial-fotografia-7.png)
+![Día Mundial de la Fotografía 1](imagenes/12.-dia-mundial-fotografia-7.webp)
 
-![Día Mundial de la Fotografía 2](imagenes/12.-dia-mundial-fotografia-8.png)
+![Día Mundial de la Fotografía 2](imagenes/12.-dia-mundial-fotografia-8.webp)
 
 ### Paisajes del Valle
-![Escapada al Valle de Cocora](imagenes/2. y-si-nos-escapamos-para-el-valle-de-cocora-6.png)
+![Escapada al Valle de Cocora](imagenes/2. y-si-nos-escapamos-para-el-valle-de-cocora-6.webp)
 
-![Davinson Sánchez](imagenes/3.-davinson-sanchez-3.jpg)
+![Davinson Sánchez](imagenes/3.-davinson-sanchez-3.webp)
 
 ### Detalles del Sitio
-![Girasol](imagenes/GIRASOL.jpeg)
+![Girasol](imagenes/GIRASOL.webp)
 
-![Reloj](imagenes/Reloj.jpeg)
+![Reloj](imagenes/Reloj.webp)
 
-![Taquilla](imagenes/Taquilla.jpeg)
+![Taquilla](imagenes/Taquilla.webp)
 
-![Willys Reinas 2026](imagenes/WILLYS- REINAS 2026.jpeg)
+![Willys Reinas 2026](imagenes/WILLYS- REINAS 2026.webp)
 
 ## Características del mirador
 - Vistas panorámicas del Valle del Cocora
