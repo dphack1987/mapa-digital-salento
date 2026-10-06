@@ -132,7 +132,7 @@
 
 ### Recursos Gráficos
 - [x] **logo_salento2026.png** - Branding principal
-- [x] **avatar-don-chucho.png** - Asistente virtual
+- [x] **avatar-don-chucho.webp** - Asistente virtual
 - [x] **don-chucho-boton.png** - UI trigger del asistente
 - [x] **Carpeta salento/** - Imágenes de la región
 - [x] **Carpeta pautas/** - Imágenes de marketing

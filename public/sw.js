@@ -9,7 +9,7 @@ const APP_SHELL = [
   '/index.html',
   '/manifest.webmanifest',
   '/logo_salento2026.webp',
-  '/avatar-don-chucho.png',
+  '/avatar-don-chucho.webp',
   '/don-chucho-boton.webp',
   '/sw.js',
   '/data/places.json',

@@ -91,13 +91,13 @@ const serviceCardImageSets = {
     '/imagenes-salento/Trucha-con-camarones-Salento-Quindio-1024x768.jpeg.webp'
   ],
   restaurantBar: [
-    '/pautas/restaurante_bar_fonda_boquia/fonda-arte-publicitario.jpg',
+    '/pautas/restaurante_bar_fonda_boquia/fonda-arte-publicitario.webp',
     '/pautas/restaurante_bar_fonda_boquia/imagenes/29389126_1005353112946875_6049563033867386880_n.webp',
     '/pautas/boki_mall/imagenes/images%20(3).webp'
   ],
   transport: [
     '/pautas/cootracocora_ltda/imagenes/willys.webp',
-    '/pautas/cootracocora_ltda/cootracocora-arte-publicitario.jpg'
+    '/pautas/cootracocora_ltda/cootracocora-arte-publicitario.webp'
   ],
   horseback: [
     '/pautas/cabalgatas_cocora_magica/imagenes/cabalgatas-en-el-valle-de-cocora-6.webp',
@@ -114,7 +114,7 @@ const serviceCardImageSets = {
     '/pautas/hotel_la_floresta_salento/imagenes/lafloresta-fachada.webp',
     '/pautas/mahalo_hostel/imagenes/hab-1.1.webp',
     '/pautas/hotel_camino_nacional/imagenes/1326164875.webp',
-    '/pautas/hotel_tia_emiss/imagenes/sala-al-aire-libre-del.jpg',
+    '/pautas/hotel_tia_emiss/imagenes/sala-al-aire-libre-del.webp',
     '/pautas/coffee-tour-alojamiento-finca-hotel-el-ocaso/imagenes/foto_casa_ocaso.webp'
   ],
   artisan: [
@@ -2281,7 +2281,7 @@ function DonChucho({ language, t, places, weather, todayEvents, open: openProp, 
       {open && (
         <div className="chucho-panel">
           <div className="chucho-head">
-            <img src="/avatar-don-chucho.png" alt="Don Chucho" className="chucho-avatar-image" />
+            <img src="/avatar-don-chucho.webp" alt="Don Chucho" className="chucho-avatar-image" />
             <div>
               <strong>{t('donChucho.title', 'Don Chucho')}</strong>
               <span>{t('donChucho.subtitle', 'Tu guía local en Salento')}</span>

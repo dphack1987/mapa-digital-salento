@@ -17,7 +17,7 @@ const LOGOS = {
   'fonda-boquia': '/pautas/restaurante_bar_fonda_boquia/imagenes/480508481_1169835038167384_4932382570318530100_n.webp',
   'hotel-camino-nacional-salento': '/pautas/hotel_camino_nacional/imagenes/631033284.webp',
   'hotel-la-floresta-salento': '/pautas/hotel_la_floresta_salento/imagenes/images.webp',
-  'hotel-la-tia-emiss': '/pautas/hotel_tia_emiss/imagenes/emmis1.jpg',
+  'hotel-la-tia-emiss': '/pautas/hotel_tia_emiss/imagenes/emmis1.webp',
   'hotel-salento-real': '/pautas/hotel_salento_real/imagenes/hotel-salento-real-logo.svg',
   'downhill-bike-salento': '/pautas/downhill_bike_salento/imagenes/downhill-bike-salento-logo.webp',
   'ruta-navarco': '/pautas/ruta-navarco/salento-tesoros-logo.webp',
