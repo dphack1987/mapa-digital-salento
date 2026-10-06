@@ -2025,7 +2025,7 @@
     {
       "file": "public/data/places.json",
       "line": 2415,
-      "path": "/pautas/hotel_tia_emiss/emmis1.jpg",
+      "path": "/pautas/hotel_tia_emiss/emmis1.webp",
       "status": "OK",
       "equivalent": null
     },
@@ -2060,7 +2060,7 @@
     {
       "file": "public/data/places.json",
       "line": 2420,
-      "path": "/pautas/hotel_tia_emiss/sala-al-aire-libre-del.jpg",
+      "path": "/pautas/hotel_tia_emiss/sala-al-aire-libre-del.webp",
       "status": "OK",
       "equivalent": null
     },
@@ -2557,7 +2557,7 @@
     {
       "file": "public/manifest.webmanifest",
       "line": 13,
-      "path": "/avatar-don-chucho.png",
+      "path": "/avatar-don-chucho.webp",
       "status": "OK",
       "equivalent": null
     },
@@ -3733,7 +3733,7 @@
     {
       "file": "public/paginas-pautantes/hotel-la-tia-emiss/index.html",
       "line": 47,
-      "path": "/pautas/hotel_tia_emiss/emmis1.jpg",
+      "path": "/pautas/hotel_tia_emiss/emmis1.webp",
       "status": "OK",
       "equivalent": null
     },
@@ -3754,7 +3754,7 @@
     {
       "file": "public/paginas-pautantes/hotel-la-tia-emiss/index.html",
       "line": 83,
-      "path": "/pautas/hotel_tia_emiss/emmis1.jpg",
+      "path": "/pautas/hotel_tia_emiss/emmis1.webp",
       "status": "OK",
       "equivalent": null
     },
@@ -3789,7 +3789,7 @@
     {
       "file": "public/paginas-pautantes/hotel-la-tia-emiss/index.html",
       "line": 83,
-      "path": "/pautas/hotel_tia_emiss/sala-al-aire-libre-del.jpg",
+      "path": "/pautas/hotel_tia_emiss/sala-al-aire-libre-del.webp",
       "status": "OK",
       "equivalent": null
     },
@@ -5126,7 +5126,7 @@
     {
       "file": "public/sw.js",
       "line": 11,
-      "path": "/avatar-don-chucho.png",
+      "path": "/avatar-don-chucho.webp",
       "status": "OK",
       "equivalent": null
     },
@@ -5539,7 +5539,7 @@
     {
       "file": "src/App.tsx",
       "line": 2143,
-      "path": "/avatar-don-chucho.png",
+      "path": "/avatar-don-chucho.webp",
       "status": "OK",
       "equivalent": null
     },

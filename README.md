@@ -185,7 +185,7 @@ Sistema de SEO defensivo para contrarrestar información alarmista:
 ## 🎨 Recursos Gráficos
 
 - ✅ Logo principal: `logo_salento2026.png`
-- ✅ Avatar Don Chucho: `avatar-don-chucho.png`
+- ✅ Avatar Don Chucho: `avatar-don-chucho.webp`
 - ✅ Botón Don Chucho: `don-chucho-boton.png`
 - ✅ Imágenes de Salento en carpeta `public/salento/`
 - ✅ Imágenes de pautas en carpeta `public/pautas/`

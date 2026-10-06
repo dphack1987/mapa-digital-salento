@@ -116,7 +116,7 @@ const galleryPicks = {
   ],
   'hotel-la-tia-emiss': [
     '/pautas/hotel_tia_emiss/imagenes/1662261168.webp',
-    '/pautas/hotel_tia_emiss/imagenes/emmis1.jpg',
+    '/pautas/hotel_tia_emiss/imagenes/emmis1.webp',
     '/pautas/hotel_tia_emiss/imagenes/1625429615.webp',
     '/pautas/hotel_tia_emiss/imagenes/1625429949.webp',
     '/pautas/hotel_tia_emiss/imagenes/1625430062.webp',

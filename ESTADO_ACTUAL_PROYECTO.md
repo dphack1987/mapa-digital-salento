@@ -165,7 +165,7 @@ salento-mapa-turistico/
 | Recurso | Estado | Ubicación | Uso |
 |---------|--------|-----------|-----|
 | **logo_salento2026.png** | ✅ Disponible | public/ | Branding |
-| **avatar-don-chucho.png** | ✅ Disponible | public/ | Asistente |
+| **avatar-don-chucho.webp** | ✅ Disponible | public/ | Asistente |
 | **don-chucho-boton.png** | ✅ Disponible | public/ | UI trigger |
 | **Carpeta salento/** | ✅ Disponible | public/salento/ | Imágenes región |
 | **Carpeta pautas/** | ✅ Disponible | public/pautas/ | Marketing |

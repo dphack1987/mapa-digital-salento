@@ -114,7 +114,7 @@ const PAUTANTE_LOGOS = {
   'parque-mirador-la-vida-es-bella': '/pautas/parque-mirador-la-vida-bella/imagenes/Logolavidabella.webp',
   'hotel-la-floresta-salento': '/pautas/hotel_la_floresta_salento/imagenes/images.webp',
   'hotel-camino-nacional-salento': '/pautas/hotel_camino_nacional/imagenes/631033284.webp',
-  'hotel-la-tia-emiss': '/pautas/hotel_tia_emiss/imagenes/emmis1.jpg',
+  'hotel-la-tia-emiss': '/pautas/hotel_tia_emiss/imagenes/emmis1.webp',
   'hotel-salento-real': '/pautas/hotel_salento_real/imagenes/hotel-salento-real-logo.svg',
   'downhill-bike-salento': '/pautas/downhill_bike_salento/imagenes/downhill-bike-salento-logo.webp',
   'ruta-navarco': '/pautas/ruta-navarco/salento-tesoros-logo.webp',
