@@ -33,13 +33,17 @@
 - Pago: directo con la finca según disponibilidad
 
 ## Tours y tarifas
-| Tour | Duración | Precio |
+Fuente: QUINDIO TRAVEL (tarifario oficial verificado)
+| Tour | Duración | Precio COP |
 |---|---|---|
-| Coffee Tour compartido (inglés/español) | 1h 15min | $18 USD/pax (~$75.000 COP) |
-| Private Tour inglés | 1h 30min | $20 USD/pax |
-| Private Tour francés | 1h 30min | $21 USD/pax |
-| Precio general referencial | -- | ~$60.000-$100.000 COP/persona |
-| Niños menores de 12 años | -- | Gratis |
+| Coffee Tour español + inglés simultáneo | 90 min | $50.000/pax |
+| Coffee Tour en español O en inglés (solo uno) | 90 min | $60.000/pax · requiere reserva |
+| Coffee Tour en francés | 90 min | $70.000/pax · requiere reserva |
+| Tour privado | 90 min | salidas fijas 9:30 · 11:30 · 13:30 · 15:30 |
+
+- Salidas simultáneas cada hora en punto: 09:00 a 16:00
+- Idiomas: español, inglés, francés
+- Nota histórica (sitio oficial, puede variar): ~$18 USD compartido / $20–21 USD privado; niños <12 gratis
 
 ## Horarios
 - Abierto todos los días: 9:00 AM - 4:00 PM

@@ -53,8 +53,17 @@
       "isPartner": true,
       "placeId": 35,
       "url": "/paginas-pautantes/hotel-la-tia-emiss/"
+    },
+    {
+      "id": "hotel_7",
+      "name": "Hotel Salento Real",
+      "address": "Calle 3 # 4 - 31, Salento, Quindío",
+      "phone": "+57 316 629 6142",
+      "isPartner": true,
+      "placeId": 37,
+      "url": "/paginas-pautantes/hotel-salento-real/"
     }
   ],
-  "lastUpdated": "2026-09-22T00:00:00.000Z",
+  "lastUpdated": "2026-10-06T00:00:00.000Z",
   "version": "2.0.0-pautantes-only"
 }
