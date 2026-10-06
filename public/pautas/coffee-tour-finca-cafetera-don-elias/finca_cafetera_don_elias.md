@@ -9,6 +9,7 @@
 - Nombre comercial: Finca Cafetera Don Elías
 - Categoría principal: experiencia cafetera / finca / turismo rural
 - Dirección: Vereda Palestina Km 4, Salento, Quindío, Colombia (631027)
+- Coordenadas: 4.625157, -75.597221 (verificadas: registro de lugar con dirección + teléfono oficial)
 - Sitio web: fincafeteradonelias.com.co
 - Teléfono/WhatsApp: +57 315 606 1113
 - Email: fincafeteradonelias@gmail.com

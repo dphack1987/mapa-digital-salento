@@ -10,6 +10,7 @@
 - Categoría principal: gastronomía / restaurante en finca
 - Relación: **misma propiedad y lugar que el Coffee Tour Finca Don Elías**
 - Dirección: **Vereda Palestina Km 4, Salento, Quindío, Colombia (631027)**
+- Coordenadas: 4.625157, -75.597221 (misma finca que el coffee tour)
 - Teléfono/WhatsApp: +57 315 606 1113
 - Email: fincafeteradonelias@gmail.com
 - Sitio web (finca): fincafeteradonelias.com.co

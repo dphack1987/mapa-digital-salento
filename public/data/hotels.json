@@ -12,7 +12,7 @@
     {
       "id": "hotel_2",
       "name": "Hotel Camino Nacional Salento",
-      "address": "Por confirmar",
+      "address": "Carrera 6 #3-46, Salento, Quindío",
       "phone": "+57 311 3903550",
       "isPartner": true,
       "placeId": 5,
@@ -22,7 +22,7 @@
       "id": "hotel_3",
       "name": "Finca Hotel El Ocaso",
       "address": "Vía rural, Salento",
-      "phone": "",
+      "phone": "+57 313 425 3669",
       "isPartner": true,
       "placeId": 9,
       "url": "/paginas-pautantes/finca-hotel-el-ocaso/"
@@ -62,6 +62,15 @@
       "isPartner": true,
       "placeId": 37,
       "url": "/paginas-pautantes/hotel-salento-real/"
+    },
+    {
+      "id": "hotel_8",
+      "name": "Camping Cascadas de Santa Rita",
+      "address": "Vereda Boquía, Salento, Quindío",
+      "phone": "+57 301 503 8254",
+      "isPartner": true,
+      "placeId": 31,
+      "url": "/paginas-pautantes/camping-cascadas-de-santa-rita/"
     }
   ],
   "lastUpdated": "2026-10-06T00:00:00.000Z",
