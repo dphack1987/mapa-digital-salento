@@ -60,7 +60,7 @@ const BANNERS: HomeBanner[] = [
     eyebrow: 'Coffee tour',
     title: 'Finca Don Eduardo',
     desc: 'Siembra, cata y recorrido por la finca.',
-    href: '/paginas-pautantes/coffee-tour-finca-don-eduardo/',
+    href: '/paginas-pautantes/finca-don-eduardo-coffee-tour/',
     cta: 'Ver página',
     image: '/pautas/coffee-tour-finca-don-eduardo/eduardo-arte-publicitario.webp',
     imageAlt: 'Arte publicitario Finca Don Eduardo',

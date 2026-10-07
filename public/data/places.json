@@ -1595,7 +1595,7 @@
       "id": 23,
       "name": "Finca Don Eduardo Coffee Tour",
       "type": "Coffee Tours",
-      "description": "Coffee tour con Don Eduardo en Salento: $100.000 COP por persona, salidas en inglés 9:30 a.m. y 2:30 p.m. o en español 10:40 a.m. (reserva previa), ~3 horas. A 4 km a pie; Willys/Jeep desde la plaza $9.000.",
+      "description": "Finca Don Eduardo: todo lo que necesitas saber sobre café. Coffee tour de 3 horas en Salento: historia, proceso completo de la finca, tostión artesanal y taza de café. Inglés 9:30 a.m. y 2:30 p.m. (sin reserva) o español 10:40 a.m. (recomendamos reservar). $100.000 COP. A 8 min caminando de la plaza.",
       "priceRange": "$$",
       "rating": "4.9",
       "timeInfo": "Inglés 9:30 a.m. · 2:30 p.m. · Español 10:40 a.m.",
@@ -1612,10 +1612,10 @@
         "lat": 4.638,
         "lng": -75.569,
         "address": "Calle 7 # 1 - 04, Salento, Quindío",
-        "landmark": "4 km a pie desde Salento · Willys/Jeep desde la plaza $9.000"
+        "landmark": "A 8 min caminando de la plaza"
       },
       "operatingHours": {
-        "notes": "Salidas en inglés 9:30 a.m. y 2:30 p.m.; en español 10:40 a.m. (requiere reserva previa). $100.000 COP por persona."
+        "notes": "Salidas en inglés 9:30 a.m. y 2:30 p.m. (sin reserva); en español 10:40 a.m. (recomendamos reservar). $100.000 COP por persona."
       },
       "tags": [
         "coffee tour",
@@ -1632,13 +1632,13 @@
         "difficulty": "Fácil",
         "groupSize": "Variable",
         "included": [
-          "Tour completo del proceso del café",
-          "Degustación de café",
-          "Guía certificado",
-          "Información educativa"
+          "Historia y proceso completo del café",
+          "Recorrido por semillero, cafetal, beneficio y secadero",
+          "Procesos orgánicos de la finca",
+          "Tostión artesanal",
+          "Taza de café"
         ],
         "notIncluded": [
-          "Transporte",
           "Comida",
           "Propinas"
         ],
@@ -1650,9 +1650,9 @@
           "Inglés",
           "Español"
         ],
-        "meetingPoint": "Finca Don Eduardo · 4 km a pie o Willys/Jeep desde la plaza ($9.000)",
+        "meetingPoint": "Finca Don Eduardo · a 8 min caminando de la plaza",
         "cancellationPolicy": "Consultar política de cancelación",
-        "tariff": "$100.000 COP por persona. Salidas en inglés 9:30 a.m. y 2:30 p.m.; en español 10:40 a.m. con reserva previa.",
+        "tariff": "$100.000 COP por persona. Salidas en inglés 9:30 a.m. y 2:30 p.m. (sin reserva); en español 10:40 a.m. (recomendamos reservar).",
         "attractions": [
           "Plantaciones de café",
           "Proceso completo del café",
@@ -1663,10 +1663,11 @@
           "Altitud: 1.800 metros",
           "Tour certificado",
           "Guías bilingües",
-          "Cerca del centro de Salento"
+          "A 8 min caminando de la plaza"
         ]
       },
       "photos": [
+        "/pautas/coffee-tour-finca-don-eduardo/eduardo-arte-publicitario.webp",
         "/pautas/coffee-tour-finca-don-eduardo/imagenes/IMG_0224.webp",
         "/pautas/coffee-tour-finca-don-eduardo/imagenes/IMG_0366.webp",
         "/pautas/coffee-tour-finca-don-eduardo/imagenes/IMG_0372.webp",
