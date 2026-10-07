@@ -1595,7 +1595,7 @@
       "id": 23,
       "name": "Finca Don Eduardo Coffee Tour",
       "type": "Coffee Tours",
-      "description": "Finca Don Eduardo: todo lo que necesitas saber sobre café. Coffee tour de 3 horas en Salento: historia, proceso completo de la finca, tostión artesanal y taza de café. Inglés 9:30 a.m. y 2:30 p.m. (sin reserva) o español 10:40 a.m. (recomendamos reservar). $120.000 COP (en los meses de octubre la tarifa se incrementa por temporada alta). Finca de 7 hectáreas en la Vereda Palestina, a 8 min caminando de la plaza (transporte no incluido).",
+      "description": "Finca Don Eduardo es el sueño de un hombre inglés y su esposa colombiana, quienes fueron los pioneros del turismo en Salento y hoy día sigue funcionando en manos de su hija, una caficultora que ha decidido honrar su historia familiar continuando una de las experiencias de café mejor valoradas de Salento. El recorrido de 3 horas empieza con la historia del café y pasa por todo el proceso de la finca: el semillero, el cafetal, el beneficio, el secadero y finaliza con una tostión artesanal y una taza de café para conocer mejor sus sabores. Nuestros recorridos en inglés (9:30 y 2:30) no requieren reserva; también tenemos el tour en español a las 10:40 y para esta opción recomendamos reservar. Valor: $100.000 COP por persona (~3 horas; en octubre la tarifa se incrementa por temporada alta). Finca de 7 hectáreas en la Vereda Palestina, a 8 min caminando de la plaza (transporte no incluido).",
       "priceRange": "$$",
       "rating": "4.9",
       "timeInfo": "Inglés 9:30 a.m. · 2:30 p.m. · Español 10:40 a.m.",
@@ -1615,7 +1615,7 @@
         "landmark": "Vereda Palestina · a 8 min caminando de la plaza"
       },
       "operatingHours": {
-        "notes": "Salidas en inglés 9:30 a.m. y 2:30 p.m. (sin reserva); en español 10:40 a.m. (recomendamos reservar). $120.000 COP por persona; en octubre la tarifa se incrementa por temporada alta."
+        "notes": "Salidas en inglés 9:30 a.m. y 2:30 p.m. (sin reserva); en español 10:40 a.m. (recomendamos reservar). $100.000 COP por persona; en octubre la tarifa se incrementa por temporada alta."
       },
       "tags": [
         "coffee tour",
@@ -1662,7 +1662,7 @@
         ],
         "meetingPoint": "Finca Don Eduardo · a 8 min caminando de la plaza",
         "cancellationPolicy": "Consultar política de cancelación",
-        "tariff": "$120.000 COP por persona. Salidas en inglés 9:30 a.m. y 2:30 p.m. (sin reserva); en español 10:40 a.m. (recomendamos reservar). En los meses de octubre la tarifa se incrementa por temporada alta.",
+        "tariff": "$100.000 COP por persona. Salidas en inglés 9:30 a.m. y 2:30 p.m. (sin reserva); en español 10:40 a.m. (recomendamos reservar). En los meses de octubre la tarifa se incrementa por temporada alta.",
         "attractions": [
           "Plantaciones de café",
           "Proceso completo del café",
