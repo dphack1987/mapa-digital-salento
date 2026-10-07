@@ -37,13 +37,13 @@
 Fuente: QUINDIO TRAVEL (tarifario oficial verificado)
 | Tour | Duración | Precio COP |
 |---|---|---|
-| Coffee Tour español + inglés simultáneo | 90 min | $50.000/pax |
-| Coffee Tour en español O en inglés (solo uno) | 90 min | $60.000/pax · requiere reserva |
-| Coffee Tour en francés | 90 min | $70.000/pax · requiere reserva |
+| Coffee Tour español + inglés simultáneo | 90 min | $55.000/pax |
+| Coffee Tour en español O en inglés (solo uno) | 90 min | $65.000/pax · requiere reserva |
+| Coffee Tour en francés | 90 min | $75.000/pax · requiere reserva |
 | Tour privado | 90 min | salidas fijas 9:30 · 11:30 · 13:30 · 15:30 |
 
 - Salidas simultáneas cada hora en punto: 09:00 a 16:00
-- Idiomas: español, inglés, francés
+- Idiomas: español, inglés, francés (muy buen nivel)
 - Nota histórica (sitio oficial, puede variar): ~$18 USD compartido / $20–21 USD privado; niños <12 gratis
 
 ## Horarios
@@ -61,6 +61,11 @@ Fuente: QUINDIO TRAVEL (tarifario oficial verificado)
 - Acceso a Cascada de la Abuela y Río Quindío
 
 ## Productos en venta (en la finca)
+Los visitantes pueden comprar el mismo café que se degusta durante el tour. Variedades disponibles según cosecha:
+- Natural
+- Natural Geisha
+- Suelo Lavado (fermentación controlada)
+
 | Producto | Precio COP |
 |---|---|
 | Café Tradicional (molido o grano) | $40.000 |

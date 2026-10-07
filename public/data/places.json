@@ -1109,7 +1109,9 @@
         ],
         "meetingPoint": "Finca Don Elías, Vereda Palestina Km 4, Salento",
         "cancellationPolicy": "Consultar con la finca",
-        "tariff": "Simultáneo ES/EN $50.000 · ES o EN solo $60.000 (reserva) · Francés $70.000 (reserva)"
+        "tariff": "Simultáneo ES/EN $55.000 · ES o EN solo $65.000 (reserva) · Francés $75.000 (reserva)",
+        "privateTours": "09:30 · 11:30 · 13:30 · 15:30",
+        "coffeeProducts": "Pueden comprar el mismo café que se degusta. Variedades disponibles según cosecha: Natural, Natural Geisha, Suelo Lavado (fermentación controlada)"
       },
       "photos": [
         "/pautas/coffee-tour-finca-cafetera-don-elias/imagenes/cafe-don-elias.webp",
