@@ -14,6 +14,10 @@
 ## Descripción del servicio
 Moto Aventura 110 es una pista de minimotocross creada para que niños y adultos disfruten de una experiencia diferente, emocionante y llena de diversión. Contamos con minimotos de 110 cc semiautomáticas, ideales para vivir la adrenalina de conducir en pista. Las motos también pueden utilizarse en modo automático para quienes aún no saben manejar los cambios.
 
+## Capacidad y alcance del recorrido
+- Capacidad: 1 persona por moto
+- Los recorridos se realizan únicamente dentro de la pista (no hay recorridos por Salento ni sus alrededores)
+
 ## Tarifas y tiempos
 - 10 minutos: $15.000
 - 15 minutos: $20.000
