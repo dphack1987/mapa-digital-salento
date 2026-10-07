@@ -1142,10 +1142,10 @@
         "whatsapp": "573234540949"
       },
       "location": {
-        "lat": 4.631,
-        "lng": -75.5735,
-        "address": "Salento",
-        "landmark": "Pista en Salento · dirección al confirmar"
+        "lat": 4.634662,
+        "lng": -75.576945,
+        "address": "Salento, Quindío",
+        "landmark": "Pista en Salento, Quindío"
       },
       "operatingHours": {
         "notes": "Horario por confirmar · disponibilidad por WhatsApp"
@@ -1179,7 +1179,7 @@
         "languages": [
           "Español"
         ],
-        "meetingPoint": "Pista Moto Aventura 110 en Salento (dirección al confirmar)",
+        "meetingPoint": "Pista Moto Aventura 110, Salento, Quindío",
         "cancellationPolicy": "Confirmar con el operador",
         "tariff": "10 min: $15.000 · 15 min: $20.000 · 20 min: $25.000"
       },
