@@ -1,7 +1,7 @@
 # Finca Don Eduardo Coffee Tour
 
 ## Descripción verificada (actualización 7/10/2026)
-Finca Don Eduardo: todo lo que necesitas saber sobre café. Este proyecto empezó con Don Eduardo y es la continuación a su legado de más de 15 años enseñando a turistas de todo el mundo cómo se cultiva el café en el Quindío. El tour es uno de los recorridos más completos: conocerás la historia, visitarás la finca, verás el proceso completo y entenderás los procesos orgánicos que maneja, terminando con una tostión artesanal y una taza de café. El recorrido lo pueden hacer en inglés (9:30 a.m. y 2:30 p.m.) o en español (10:40 a.m., requiere reserva previa) y tiene un valor de $120.000 COP por persona (~3 horas; en octubre la tarifa se incrementa por temporada alta). A 8 min caminando de la plaza.
+Finca Don Eduardo es el sueño de un hombre inglés y su esposa colombiana, quienes fueron los pioneros del turismo en Salento y hoy día sigue funcionando en manos de su hija, una caficultora que ha decidido honrar su historia familiar continuando una de las experiencias de café mejor valoradas de Salento. El recorrido de 3 horas empieza con la historia del café y pasa por todo el proceso de la finca: el semillero, el cafetal, el beneficio, el secadero y finaliza con una tostión artesanal y una taza de café para conocer mejor sus sabores. Nuestros recorridos en inglés (9:30 y 2:30) no requieren reserva; también tenemos el tour en español a las 10:40 y para esta opción recomendamos reservar. Valor: $100.000 COP por persona (~3 horas; en octubre la tarifa se incrementa por temporada alta). A 8 min caminando de la plaza (transporte no incluido).
 
 ## Estado
 - Estado actual: publicado con información real verificada
@@ -58,7 +58,7 @@ Finca Don Eduardo: todo lo que necesitas saber sobre café. Este proyecto empez�
 - ¿Qué lleva incluido el precio? → El precio es por la experiencia que harás, llena de conocimiento, una caminata agradable y café. Muy importante: no se regalan bolsas de café en nuestra experiencia.
 
 ## Precios reales (actualización 7/10/2026)
-- Coffee Tour (inglés o español): $120.000 COP por persona
+- Coffee Tour (inglés o español): $100.000 COP por persona
 - Temporada alta: en los meses de octubre la tarifa se incrementa
 - Private Tour: Personalizado (contactar para cotización)
 - Pago con tarjeta: +6% adicional
