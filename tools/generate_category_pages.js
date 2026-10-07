@@ -835,9 +835,9 @@ const VERIFIED_MENUS = {
     intro: 'Selecciona el tiempo de pista y coordina tu visita por WhatsApp.',
     precioLabel: 'por sesión',
     items: [
-      { cat: 'planes', nombre: '10 minutos en pista', precio: 15000, desc: 'Minimoto 110cc. Incluye casco, protecciones y póliza' },
-      { cat: 'planes', nombre: '15 minutos en pista', precio: 20000, desc: 'Minimoto 110cc. Incluye casco, protecciones y póliza' },
-      { cat: 'planes', nombre: '20 minutos en pista', precio: 25000, desc: 'Minimoto 110cc. Incluye casco, protecciones y póliza' },
+      { cat: 'planes', nombre: '10 minutos en pista', precio: 15000, desc: 'Minimoto 110cc · 1 persona por moto · Incluye casco, protecciones y póliza' },
+      { cat: 'planes', nombre: '15 minutos en pista', precio: 20000, desc: 'Minimoto 110cc · 1 persona por moto · Incluye casco, protecciones y póliza' },
+      { cat: 'planes', nombre: '20 minutos en pista', precio: 25000, desc: 'Minimoto 110cc · 1 persona por moto · Incluye casco, protecciones y póliza' },
       { cat: 'incluye', nombre: 'Casco', precio: 0 },
       { cat: 'incluye', nombre: 'Protecciones', precio: 0 },
       { cat: 'incluye', nombre: 'Póliza de seguro', precio: 0 },
@@ -1046,6 +1046,7 @@ const VERIFIED_MENUS = {
     items: [
       { cat: 'tours', nombre: 'Tour downhill en bicicleta', precio: 0, desc: 'Consulta tarifa y disponibilidad' },
       { cat: 'tours', nombre: 'Tour Carbonera', precio: 0, desc: '21 km en vehículo + 5 km en bicicleta + caminata finca La Carbonera + snack' },
+      { cat: 'tours', nombre: 'La Carbonera Hiking Tour', precio: 0, desc: 'Subida 26 km en vehículo (3.400 msnm) · caminata ~2 h Valle de Palmas de Cera · regreso 8 km + caminata Camino Nacional 4–8 km · incluye almuerzo, guía ES/EN, transporte y seguro' },
       { cat: 'tours', nombre: 'Caminata guiada', precio: 0, desc: 'Alternativa tranquila por rutas naturales' },
       { cat: 'tours', nombre: 'Cabalgata por Salento', precio: 0, desc: 'Recorridos a caballo en Salento y alrededores' },
       { cat: 'servicios', nombre: 'Traslado en vehículo propio', precio: 0 },

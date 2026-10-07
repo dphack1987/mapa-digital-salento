@@ -555,17 +555,17 @@ const knowledgeBase: KnowledgeItem[] = [
   },
   {
     keywords: ['moto aventura 110', 'aventura 110', 'moto aventura'],
-    category: 'transporte',
+    category: 'experiencias',
     answer: {
-      es: 'Moto Aventura 110 es buena referencia para movilidad local en Salento y rutas más flexibles. Útil para explorar zonas cercanas sin depender de rutas fijas. ¿Recorridos, traslado o recomendaciones de ruta?',
-      en: 'Moto Aventura 110 is good for local mobility in Salento and flexible routes. Useful to explore nearby areas without fixed routes. Rides, transfers, or route recommendations?',
-      de: 'Moto Aventura 110 ist gut für lokale Mobilität in Salento und flexiblen Routen. Nützlich, um nahegelegene Gebiete ohne feste Routen zu erkunden. Fahrten, Transfers oder Routenempfehlungen?',
-      fr: 'Moto Aventura 110 est bon pour la mobilité locale à Salento et les itinéraires flexibles. Utile pour explorer les zones à proximité sans itinéraires fixes. Balades, transferts ou recommandations d\'itinéraires ?',
-      pt: 'Moto Aventura 110 é uma boa referência para mobilidade local em Salento e rotas mais flexíveis. Útil para explorar áreas próximas sem depender de rotas fixas. Percursos, transfer ou recomendações de rota?',
-      it: 'Moto Aventura 110 è un buon riferimento per la mobilità locale a Salento e percorsi più flessibili. Utile per esplorare zone vicine senza rotte fisse. Viaggi, transfer o raccomandazioni di percorso?'
+      es: 'Moto Aventura 110 es una pista de minimotocross en Salento: los recorridos son únicamente dentro de la pista, en minimotos de 110 cc. Cada moto lleva 1 persona (casco, protecciones y póliza incluidos). ¿Tiempos, tarifas o cómo reservar?',
+      en: 'Moto Aventura 110 is a minimotocross track in Salento: rides take place only on the track, on 110 cc minimotos. Each bike carries 1 person (helmet, protections and insurance included). Times, rates, or how to book?',
+      de: 'Moto Aventura 110 ist eine Minimoto-Crosspiste in Salento: Die Fahrten finden ausschließlich auf der Strecke statt, mit 110-cc-Minimotos. Pro Motorrad fährt 1 Person (Helm, Protektionen und Versicherung inklusive). Zeiten, Preise oder Reservierung?',
+      fr: 'Moto Aventura 110 est un circuit de minimotocross à Salento : les balades se font uniquement sur la piste, en minimotos de 110 cc. Chaque moto porte 1 personne (casque, protections et assurance inclus). Durées, tarifs ou réservation ?',
+      pt: 'Moto Aventura 110 é uma pista de minimotocross em Salento: os percursos são apenas dentro da pista, em minimotos de 110 cc. Cada moto leva 1 pessoa (capacete, proteções e apólice incluídos). Tempos, preços ou como reservar?',
+      it: 'Moto Aventura 110 è un circuito di minimotocross a Salento: i giri si svolgono solo sulla pista, con minimoto da 110 cc. Ogni moto porta 1 persona (casco, protezioni e polizza inclusi). Tempi, prezzi o come prenotare?'
     },
-    followUp: ['¿Ofrecen traslados?', '¿Cómo contactar?', '¿Qué rutas manejan?'],
-    relatedPlaces: [11]
+    followUp: ['¿Tiempos y tarifas?', '¿Cómo reservar?', '¿Qué se incluye?'],
+    relatedPlaces: [19]
   },
   {
     keywords: ['cabalgatas cocora magica', 'cocora magica', 'cabalgatas salento'],

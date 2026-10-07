@@ -215,7 +215,7 @@ const html = `<!DOCTYPE html>
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
   <meta name="theme-color" content="#f5f1e8" />
   <title>Atractivos Turísticos de Salento, Quindío | Salento a la Mano</title>
-  <meta name="description" content="Los ${count} atractivos de Salento: cabalgatas, alquiler de motos, miradores, senderos, Valle de Cocora e historia. Pautantes prioritarios con información verificada." />
+  <meta name="description" content="Los ${count} atractivos de Salento: cabalgatas, pista de minimotos, miradores, senderos, Valle de Cocora e historia. Pautantes prioritarios con información verificada." />
   <meta property="og:title" content="Atractivos Turísticos de Salento | Salento a la Mano" />
   <meta property="og:description" content="Cabalgatas, motos, miradores, senderos e historia de Salento. Subcategorías y pautantes destacados." />
   <meta property="og:type" content="website" />
@@ -302,7 +302,7 @@ const html = `<!DOCTYPE html>
       <div class="hero-copy">
         <p class="eyebrow">Categoría · con subcategorías</p>
         <h1>Atractivos Turísticos</h1>
-        <p class="sub">Cabalgatas, alquiler de motos, miradores, senderos e historia — pautantes con ficha propia primero.</p>
+        <p class="sub">Cabalgatas, pista de minimotos, miradores, senderos e historia — pautantes con ficha propia primero.</p>
         <div class="stats">
           <div class="stat"><strong>${count}</strong> atractivos</div>
           <div class="stat"><strong>${items.filter((i) => i.pautas || i.pautante).length}</strong> pautantes</div>

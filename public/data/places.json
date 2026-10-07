@@ -1130,7 +1130,7 @@
       "id": 19,
       "name": "Moto Aventura 110",
       "type": "Servicios",
-      "description": "Pista de minimotocross para niños y adultos en Salento: minimotos 110 cc semiautomáticas con casco, protecciones y póliza incluidos.",
+      "description": "Pista de minimotocross para niños y adultos en Salento: minimotos 110 cc semiautomáticas con casco, protecciones y póliza incluidos. 1 persona por moto, recorridos solo dentro de la pista.",
       "priceRange": "$",
       "rating": "4.6",
       "timeInfo": "Desde $15.000 · 10 minutos en pista",
@@ -1163,7 +1163,7 @@
       "experienceDetails": {
         "duration": "10, 15 o 20 minutos en pista",
         "difficulty": "Fácil",
-        "groupSize": "Individual",
+        "groupSize": "1 persona por moto",
         "included": [
           "Casco",
           "Protecciones",
@@ -1595,7 +1595,7 @@
       "id": 23,
       "name": "Finca Don Eduardo Coffee Tour",
       "type": "Coffee Tours",
-      "description": "Finca Don Eduardo: todo lo que necesitas saber sobre café. Coffee tour de 3 horas en Salento: historia, proceso completo de la finca, tostión artesanal y taza de café. Inglés 9:30 a.m. y 2:30 p.m. (sin reserva) o español 10:40 a.m. (recomendamos reservar). $100.000 COP. A 8 min caminando de la plaza.",
+      "description": "Finca Don Eduardo: todo lo que necesitas saber sobre café. Coffee tour de 3 horas en Salento: historia, proceso completo de la finca, tostión artesanal y taza de café. Inglés 9:30 a.m. y 2:30 p.m. (sin reserva) o español 10:40 a.m. (recomendamos reservar). $120.000 COP (en los meses de octubre la tarifa se incrementa por temporada alta). Finca de 7 hectáreas en la Vereda Palestina, a 8 min caminando de la plaza (transporte no incluido).",
       "priceRange": "$$",
       "rating": "4.9",
       "timeInfo": "Inglés 9:30 a.m. · 2:30 p.m. · Español 10:40 a.m.",
@@ -1612,18 +1612,22 @@
         "lat": 4.638,
         "lng": -75.569,
         "address": "Calle 7 # 1 - 04, Salento, Quindío",
-        "landmark": "A 8 min caminando de la plaza"
+        "landmark": "Vereda Palestina · a 8 min caminando de la plaza"
       },
       "operatingHours": {
-        "notes": "Salidas en inglés 9:30 a.m. y 2:30 p.m. (sin reserva); en español 10:40 a.m. (recomendamos reservar). $100.000 COP por persona."
+        "notes": "Salidas en inglés 9:30 a.m. y 2:30 p.m. (sin reserva); en español 10:40 a.m. (recomendamos reservar). $120.000 COP por persona; en octubre la tarifa se incrementa por temporada alta."
       },
       "tags": [
         "coffee tour",
         "finca cafetera",
-        "tour de café",
+        "7 hectáreas de café",
+        "degustación de café",
+        "tercera generación",
+        "tostión artesanal",
+        "Vereda Palestina",
+        "a 8 min de la plaza",
         "inglés",
-        "español",
-        "salento"
+        "español"
       ],
       "verified": true,
       "active": true,
@@ -1640,11 +1644,17 @@
         ],
         "notIncluded": [
           "Comida",
-          "Propinas"
+          "Propinas",
+          "Transporte"
         ],
         "requirements": [
           "Ropa cómoda",
-          "Calzado para caminar"
+          "Calzado para caminar",
+          "Agua",
+          "Repelente para insectos",
+          "Bloqueador / protector solar",
+          "Gorra",
+          "Chaqueta de lluvia"
         ],
         "languages": [
           "Inglés",
@@ -1652,7 +1662,7 @@
         ],
         "meetingPoint": "Finca Don Eduardo · a 8 min caminando de la plaza",
         "cancellationPolicy": "Consultar política de cancelación",
-        "tariff": "$100.000 COP por persona. Salidas en inglés 9:30 a.m. y 2:30 p.m. (sin reserva); en español 10:40 a.m. (recomendamos reservar).",
+        "tariff": "$120.000 COP por persona. Salidas en inglés 9:30 a.m. y 2:30 p.m. (sin reserva); en español 10:40 a.m. (recomendamos reservar). En los meses de octubre la tarifa se incrementa por temporada alta.",
         "attractions": [
           "Plantaciones de café",
           "Proceso completo del café",
@@ -1661,6 +1671,7 @@
         ],
         "highlights": [
           "Altitud: 1.800 metros",
+          "7 hectáreas de café",
           "Tour certificado",
           "Guías bilingües",
           "A 8 min caminando de la plaza"
@@ -2489,7 +2500,7 @@
       "id": 36,
       "name": "Downhill Bike Salento",
       "type": "Experiencias",
-      "description": "Empresa de turismo de aventura en Salento: downhill en bicicleta, caminatas guiadas y cabalgatas por paisajes naturales del Quindío.",
+      "description": "Empresa de turismo de aventura en Salento: downhill en bicicleta, La Carbonera Hiking Tour, caminatas guiadas y cabalgatas por paisajes naturales del Quindío.",
       "priceRange": "$$",
       "rating": "4.7",
       "timeInfo": "Reserva previa por WhatsApp",
@@ -2531,11 +2542,11 @@
           "Traslado en vehículo propio",
           "Descenso en bicicleta 21 km",
           "Caminata finca La Carbonera",
-          "Snack"
+          "Snack",
+          "La Carbonera Hiking Tour: almuerzo, guía (español / inglés), transporte y seguro"
         ],
         "notIncluded": [
-          "Alimentación adicional",
-          "Seguro personal"
+          "Alimentación adicional"
         ],
         "requirements": [
           "Buen estado de salud",
@@ -2543,7 +2554,8 @@
           "Calzado cerrado"
         ],
         "languages": [
-          "Español"
+          "Español",
+          "Inglés"
         ],
         "meetingPoint": "Carrera 3 # 6 - 45, Salento",
         "cancellationPolicy": "Consultar con el operador",
@@ -2553,10 +2565,11 @@
         "attractions": [
           "Tour downhill en bicicleta",
           "Tour Carbonera",
+          "La Carbonera Hiking Tour",
           "Caminatas guiadas",
           "Cabalgatas por Salento"
         ],
-        "languages": ["Español"],
+        "languages": ["Español", "Inglés"],
         "guidedAvailable": true,
         "bestVisitTime": "Mañana",
         "tips": [
