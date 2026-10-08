@@ -474,6 +474,7 @@ function renderCategoryPage(category, items) {
       }
     </style>
     <link rel="stylesheet" href="/page-theme.css" />
+    <meta name="author" content="zenythos 2.0 para quindio travel" />
     ${buildBreadcrumbListSchema([
       { name: 'Inicio', url: 'https://www.salentoalamano.com/' },
       { name: 'Categorías', url: 'https://www.salentoalamano.com/categorias/' },
@@ -509,11 +510,6 @@ function renderCategoryPage(category, items) {
           <div class="eyebrow">Categoría</div>
           <h1>${escapeHtml(categoryMeta[category]?.title || category)}</h1>
           <div class="sub">${escapeHtml(categoryMeta[category]?.description || 'Servicios de Salento')}</div>
-          <div class="stats">
-            <div class="stat"><strong>${items.length}</strong> pautantes</div>
-            <div class="stat"><strong>Directo</strong> con locales</div>
-            <div class="stat"><strong>WhatsApp</strong> en cada ficha</div>
-          </div>
         </div>
         <div class="hero-visual" aria-label="${escapeHtml(category)}"></div>
       </section>
@@ -539,6 +535,7 @@ function renderRedirectStub(provider) {
     <title>${escapeHtml(provider.name)} | Salento a la Mano</title>
     ${canonicalTag(target)}
     <meta name="robots" content="noindex" />
+    <meta name="author" content="zenythos 2.0 para quindio travel" />
     <meta http-equiv="refresh" content="0; url=${target}" />
     <script>window.location.replace(${JSON.stringify(target)});</script>
     <link rel="stylesheet" href="/page-theme.css" />
@@ -1481,6 +1478,7 @@ function renderProviderLandingPage(provider) {
     </style>
     <link rel="stylesheet" href="/page-theme.css" />
     <link rel="stylesheet" href="/pautante-theme.css" />
+    <meta name="author" content="zenythos 2.0 para quindio travel" />
     ${buildBreadcrumbListSchema([
       { name: 'Inicio', url: 'https://www.salentoalamano.com/' },
       { name: categoryLabelFor(category), url: hrefBack },

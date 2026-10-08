@@ -426,12 +426,8 @@ export default function HomeBanners() {
       <div className="home-banners-inner">
         <header className="home-banners-header">
           <div>
-            <p className="eyebrow">Diseños · destacados</p>
-            <h2 id="home-banners-title">Explora y reserva directo</h2>
+            <h2 id="home-banners-title">Pautantes de Salento</h2>
           </div>
-          <p className="home-banners-note">
-            Banners creativos con arte de cada pautante.
-          </p>
         </header>
 
         <div className="home-banners-stage">
