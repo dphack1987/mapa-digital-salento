@@ -97,3 +97,26 @@ button, select { font: inherit; }
   .gallery > img:first-child { grid-column: span 2; grid-row: span 1; }
   .provider-grid, .grid { grid-template-columns: 1fr; }
 }
+
+
+/* Logo de la empresa en el hero: el espacio blanco del hero lleva el logo de cada empresa */
+.hero-image { position: relative; overflow: hidden; }
+.hero-brand {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: clamp(100px, 34%, 158px);
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: contain;
+  background: #fff;
+  border-radius: 50%;
+  padding: 16px;
+  box-shadow: 0 18px 44px rgba(15, 28, 18, .30);
+  border: 1px solid rgba(15, 28, 18, .08);
+  filter: none;
+}
+@media (max-width: 800px) {
+  .hero-brand { width: 116px; padding: 13px; }
+}
