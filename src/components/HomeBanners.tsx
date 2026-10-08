@@ -283,6 +283,90 @@ const BANNERS: HomeBanner[] = [
     tone: 'coral',
     size: 'card',
   },
+  {
+    id: 'green-house',
+    eyebrow: 'Alojamiento',
+    title: 'Hotel Green House',
+    desc: 'Habitaciones familiares en Salento.',
+    href: '/paginas-pautantes/hotel-green-house-salento/',
+    cta: 'Reservar',
+    image: '/pautas/hotel-green-house/imagenes/green-house-banner.webp',
+    imageAlt: 'Banner Hotel Green House Salento',
+    tone: 'green',
+    size: 'card',
+  },
+  {
+    id: 'shalem',
+    eyebrow: 'Restaurante · Bar',
+    title: 'Shalem Restaurante Bar',
+    desc: 'Carta real con fotos de cada plato.',
+    href: '/paginas-pautantes/shalem-restaurante-bar/',
+    cta: 'Ver carta',
+    image: '/pautas/restaurante-bar-shalem/imagenes/shalem-home-banner.webp',
+    imageAlt: 'Shalem Restaurante Bar en Salento',
+    tone: 'coral',
+    size: 'card',
+  },
+  {
+    id: 'manos-cocora',
+    eyebrow: 'Atractivo',
+    title: 'Mirador Manos de Cocora',
+    desc: 'Manos gigantes, deslizadora y paisaje.',
+    href: '/paginas-pautantes/mirador-manos-de-cocora/',
+    cta: 'Explorar',
+    image: '/pautas/mirador-manos-de-cocora/imagenes/7.-deslizadora-tricolor-nueva-manos-de-cocora-2.webp',
+    imageAlt: 'Mirador Manos de Cocora',
+    tone: 'blue',
+    size: 'card',
+  },
+  {
+    id: 'boki-bar',
+    eyebrow: 'Café · Bar',
+    title: 'Boki Mall · Barcinales',
+    desc: 'Café de especialidad en Boquía.',
+    href: '/paginas-pautantes/boki-mall-barcinales-cafe-bar/',
+    cta: 'Ver página',
+    image: '/pautas/boki_mall/imagenes/314270821.webp',
+    imageAlt: 'Barcinales Café Bar de Boki Mall',
+    tone: 'ink',
+    size: 'card',
+  },
+  {
+    id: 'boki-eventos',
+    eyebrow: 'Eventos',
+    title: 'Boki Mall · Eventos',
+    desc: 'Celebraciones y eventos corporativos.',
+    href: '/paginas-pautantes/boki-mall-eventos/',
+    cta: 'Consultar',
+    image: '/pautas/boki_mall/imagenes/images%20(2).webp',
+    imageAlt: 'Espacio de eventos de Boki Mall',
+    tone: 'yellow',
+    size: 'card',
+  },
+  {
+    id: 'boki-hotel',
+    eyebrow: 'Alojamiento',
+    title: 'Hotel El Mirador de Boquía',
+    desc: 'Habitaciones con vista al valle.',
+    href: '/paginas-pautantes/boki-mall-hotel-el-mirador-de-boquia/',
+    cta: 'Reservar',
+    image: '/pautas/boki_mall/imagenes/Hotel_Mirador_de_Boquia_1747081077351.webp',
+    imageAlt: 'Hotel El Mirador de Boquía',
+    tone: 'blue',
+    size: 'card',
+  },
+  {
+    id: 'camping-rita',
+    eyebrow: 'Camping',
+    title: 'Camping Cascadas de Santa Rita',
+    desc: 'Pasadía, camping y habitaciones.',
+    href: '/paginas-pautantes/camping-cascadas-de-santa-rita/',
+    cta: 'Reservar',
+    image: '/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/cascada2.webp',
+    imageAlt: 'Cascadas de Santa Rita',
+    tone: 'green',
+    size: 'card',
+  },
 ]
 
 const ROTATION_MS = 6000
@@ -330,7 +414,7 @@ export default function HomeBanners() {
 
   if (!total) return null
 
-  const visible = [0, 1, 2].map((i) => BANNERS[(offset + i) % total])
+  const visible = [0, 1, 2, 3, 4, 5, 6].map((i) => BANNERS[(offset + i) % total])
   const [feature, ...rest] = visible
 
   return (

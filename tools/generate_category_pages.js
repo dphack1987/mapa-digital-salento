@@ -16,6 +16,11 @@ fs.mkdirSync(providerLandingDir, { recursive: true });
 const catalog = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
 const providers = Array.isArray(catalog.places) ? catalog.places : [];
 
+// Prioridad: los pautantes (con carpeta propia en public/pautas/) van primero en cada categoría
+const esPautante = (item) =>
+  Array.isArray(item.photos) && item.photos.some((p) => typeof p === 'string' && p.startsWith('/pautas/'));
+const porPrioridadPautante = (a, b) => (esPautante(b) ? 1 : 0) - (esPautante(a) ? 1 : 0);
+
 const categoryMeta = {
   Alojamientos: { title: 'Alojamientos', description: 'Hoteles, fincas y hospedajes para descansar en Salento', image: '/imagenes-salento/pueblo.webp' },
   Restaurantes: { title: 'Restaurantes', description: 'Sabor local, cafés y rincones para comer bien en Salento', image: '/imagenes-salento/Trucha-con-camarones-Salento-Quindio-1024x768.jpeg.webp' },
@@ -1509,7 +1514,7 @@ const onlyFilter = new Set(
 
 for (const category of categoryNames) {
   if (onlyFilter.size > 0 && ![...onlyFilter].some((f) => f === slugify(category) || f === `cat:${slugify(category)}`)) continue;
-  const items = providers.filter((item) => item.type === category);
+  const items = providers.filter((item) => item.type === category).sort(porPrioridadPautante);
   const categoryPath = path.join(categoryDir, `${slugify(category)}.html`);
   fs.writeFileSync(categoryPath, renderCategoryPage(category, items));
 }

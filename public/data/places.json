@@ -2380,7 +2380,7 @@
         "lng": -75.600945
       },
       "operatingHours": {
-        "notes": "9:00 a.m. – 4:00 p.m. Tours cada hora. $65.000 COP por persona."
+        "notes": "Solo con reserva previa. $50.000 COP persona (ES/EN) · $65.000 COP (FR)."
       },
       "tags": [
         "coffee tour",
@@ -2393,9 +2393,11 @@
       "verified": true,
       "active": true,
       "experienceDetails": {
-        "duration": "~2 horas",
-        "difficulty": "Fácil",
-        "meetingPoint": "Plaza de Bolívar (transporte Willys) o finca"
+        "duration": "~1.5 horas",
+        "difficulty": "Fácil · finca plana",
+        "meetingPoint": "Plaza de Bolívar (transporte Willys) o finca",
+        "languages": ["Español", "Inglés", "Francés"],
+        "reservationRequired": true
       },
       "photos": [
         "/pautas/el_recuerdo_coffee_tour/imagenes/recuerdo1casa.webp",
