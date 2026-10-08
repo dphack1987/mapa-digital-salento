@@ -3017,6 +3017,22 @@
           "Bandeja paisa $35.000-$45.000",
           "Comida casera $20.000-$35.000"
         ],
+        "menuItems": [
+          { "id": "shalem-01", "name": "Trucha arcoíris frita", "price": 28000, "category": "truchas", "description": "Trucha entera frita con patacón y arroz", "isSpecialty": true },
+          { "id": "shalem-02", "name": "Trucha a la plancha", "price": 28000, "category": "truchas", "description": "Trucha a la plancha con ensalada y patacón", "isSpecialty": true },
+          { "id": "shalem-03", "name": "Trucha al ajillo", "price": 32000, "category": "truchas", "description": "Trucha al ajillo con arroz y patacón", "isSpecialty": true },
+          { "id": "shalem-04", "name": "Trucha con camarones", "price": 42000, "category": "truchas", "description": "Trucha en salsa de camarones", "isSpecialty": true },
+          { "id": "shalem-05", "name": "Tilapia frita", "price": 25000, "category": "pescados", "description": "Tilapia entera frita con patacón y ensalada" },
+          { "id": "shalem-06", "name": "Tilapia al ajillo", "price": 30000, "category": "pescados", "description": "Tilapia al ajillo con arroz y patacón" },
+          { "id": "shalem-07", "name": "Bandeja paisa", "price": 35000, "category": "platos fuertes", "description": "Frijol, arroz, carne molida, chorizo, huevo, patacón, arepa, aguacate", "isSpecialty": true },
+          { "id": "shalem-08", "name": "Bandeja paisa especial", "price": 45000, "category": "platos fuertes", "description": "Bandeja paisa con chicharrón y morcilla", "isSpecialty": true },
+          { "id": "shalem-09", "name": "Sopa de mondongo", "price": 15000, "category": "sopas", "description": "Sopa tradicional de mondongo con verduras" },
+          { "id": "shalem-10", "name": "Sopa de pescado", "price": 18000, "category": "sopas", "description": "Sopa de pescado con vegetales y cilantro" },
+          { "id": "shalem-11", "name": "Patacón con hogao", "price": 8000, "category": "acompañamientos", "description": "Patacón grande con hogao casero" },
+          { "id": "shalem-12", "name": "Limonada natural", "price": 5000, "category": "bebidas", "description": "Limonada natural con panela o azúcar" },
+          { "id": "shalem-13", "name": "Jugo de maracuyá", "price": 6000, "category": "bebidas", "description": "Jugo natural de maracuyá en agua o leche" },
+          { "id": "shalem-14", "name": "Café de la región", "price": 4000, "category": "bebidas", "description": "Café tinto o con leche de grano regional" }
+        ],
         "ambience": "Local climatizado con salón de eventos",
         "seating": "80 personas",
         "reservations": "Recomendadas para grupos",
