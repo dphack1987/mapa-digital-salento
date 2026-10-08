@@ -539,13 +539,15 @@
       "color": "yellow",
       "icon": "Mountain",
       "contact": {
-        "phone": "+57 315 415 3949"
+        "phone": "+57 312 737 7222",
+        "whatsapp": "573127377222",
+        "instagram": "@miradorenlasmanosdedios"
       },
       "location": {
         "lat": 4.634,
         "lng": -75.572,
-        "address": "Ecoparque Tu País, Salento, Quindío",
-        "landmark": "300 metros del cementerio y 800 metros de Bomberos"
+        "address": "Kilómetro 1 vía Palestina, Salento, Quindío",
+        "landmark": "Después del cementerio a 3 cuadras"
       },
       "operatingHours": {
         "monday": "8:00 - 18:00",
