@@ -3,10 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
-    <meta name="theme-color" content="#f5f1e8" />
-    <meta name="description" content="Coffee tours en Salento: fincas cafeteras, precios y reservas directas con operadores locales verificados." />
-    <title>Coffee Tours en Salento, Quindío | Salento a la Mano</title>
+    <meta name="description" content="Recorridos por fincas cafeteras y catas del Eje Cafetero" />
+    <title>Coffee Tours | Salento a la Mano</title>
+    <link rel="canonical" href="https://www.salentoalamano.com/categorias/coffee-tours.html" />
     
     <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
@@ -35,14 +34,13 @@
       .brand-logo { width: 42px; height: 42px; object-fit: contain; border-radius: 50%; }
       .nav-link { background: var(--white); border: 1px solid var(--line); padding: 10px 14px; border-radius: 999px; }
       .hero {
-        display: grid; grid-template-columns: 1.3fr .7fr; gap: 20px; align-items: stretch; margin-bottom: 28px;
+        display: grid; grid-template-columns: 1.25fr .75fr; gap: 0; align-items: stretch; margin-bottom: 28px;
+        background: var(--white); border: 1px solid var(--line); border-radius: 24px; overflow: hidden;
+        box-shadow: 0 18px 40px rgba(39,54,43,.1);
       }
-      .hero-copy, .hero-visual {
-        background: var(--white); border: 1px solid var(--line); border-radius: 22px; overflow: hidden;
-      }
-      .hero-copy { padding: 30px 28px; }
+      .hero-copy { padding: 36px 32px; display: flex; flex-direction: column; justify-content: center; }
       .eyebrow { text-transform: uppercase; letter-spacing: .12em; font-size: 11px; color: var(--coral); font-weight: 700; }
-      h1 { font-size: clamp(2rem, 4vw, 4rem); margin: 12px 0 12px; }
+      h1 { font-size: clamp(2rem, 4vw, 4rem); margin: 12px 0 12px; line-height: .98; }
       .sub { color: #536057; font-size: 1.05rem; line-height: 1.6; }
       .stats { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 20px; }
       .stat { background: #f1eadb; border: 1px solid var(--line); border-radius: 14px; padding: 12px 14px; }
@@ -51,21 +49,30 @@
         background-size: cover; background-position: center; min-height: 280px;
       }
       .provider-grid {
-        display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; margin-top: 24px;
+        display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 18px; margin-top: 24px;
       }
+      .empty-category { display: flex; align-items: center; gap: 18px; margin-top: 24px; padding: 24px; border: 1px dashed var(--coral); background: rgba(255,255,255,.7); }
+      .empty-category-mark { display: grid; place-items: center; width: 42px; height: 42px; flex: 0 0 42px; border: 1px solid var(--coral); border-radius: 50%; color: var(--coral); font-size: 25px; }
+      .empty-category h2 { margin: 0 0 6px; font: 600 22px Fraunces, serif; }
+      .empty-category p { margin: 0; color: #59665f; line-height: 1.5; }
       .provider-card {
-        background: var(--white); border: 1px solid var(--line); border-radius: 20px; overflow: hidden; 
+        background: var(--white); border: 1px solid var(--line); border-radius: 20px; overflow: hidden;
+        box-shadow: 0 8px 24px rgba(39,54,43,.06); transition: transform .2s, box-shadow .2s, border-color .2s;
+        display: flex; flex-direction: column;
       }
+      .provider-card:hover { transform: translateY(-4px); box-shadow: 0 16px 32px rgba(39,54,43,.12); border-color: var(--coral); }
       .card-image {
-        height: 150px; background-size: cover; background-position: center; width: 100%;
+        height: 170px; background-size: cover; background-position: center; width: 100%;
+        transition: transform .35s ease;
       }
-      .card-body { padding: 18px; }
+      .provider-card:hover .card-image { transform: scale(1.04); }
+      .card-body { padding: 18px; display: flex; flex-direction: column; flex: 1; }
       .card-header-row, .meta-row, .card-actions { display: flex; justify-content: space-between; gap: 10px; align-items: center; }
       .card-header-row { margin-bottom: 10px; }
       .pill { background: #f3ead6; border-radius: 999px; padding: 6px 10px; font-size: 10px; font-weight: 700; text-transform: uppercase; }
       .rating { font-size: 12px; font-weight: 700; }
       h3 { margin: 8px 0 10px; font-size: 1.35rem; }
-      .card-body p { margin: 0 0 14px; color: #59665f; line-height: 1.5; font-size: 0.96rem; }
+      .card-body p { margin: 0 0 14px; color: #59665f; line-height: 1.5; font-size: 0.96rem; flex: 1; }
       .meta-row { color: #4d5a51; font-size: 12px; margin-bottom: 16px; }
       .btn {
         display: inline-flex; align-items: center; justify-content: center; padding: 10px 12px; border-radius: 10px; border: 1px solid var(--line); font-weight: 700; font-size: 12px;
@@ -74,50 +81,29 @@
       .btn.whatsapp { background: #25d366; border-color: #25d366; color: #fff; }
       @media (max-width: 760px) {
         .hero { grid-template-columns: 1fr; }
+        .hero-visual { min-height: 180px; order: -1; }
+        .hero-copy { padding: 24px 20px 28px; }
         .topbar { flex-direction: column; align-items: flex-start; }
+        .provider-grid { grid-template-columns: 1fr; }
       }
     </style>
-    <link rel="stylesheet" href="/page-theme.css" />\n    <meta name="author" content="zenythos 2.0 para quindio travel" />
+    <link rel="stylesheet" href="/page-theme.css" />
+    <meta name="author" content="zenythos 2.0 para quindio travel" />
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://www.salentoalamano.com/"},{"@type":"ListItem","position":2,"name":"Categorías","item":"https://www.salentoalamano.com/categorias/"},{"@type":"ListItem","position":3,"name":"Coffee Tours"}]}</script>
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"Coffee Tours | Salento a la Mano","description":"Finca cafeteras, tours de café y experiencias rurales en Salento","url":"https://www.salentoalamano.com/categorias/coffee-tours.html","inLanguage":"es","mainEntity":{"@type":"ItemList","itemListElement":[{"@type":"ListItem","position":1,"name":"Finca Cafetera Don Elías","url":"https://www.salentoalamano.com/paginas-pautantes/finca-cafetera-don-elias/"},{"@type":"ListItem","position":2,"name":"Finca Hotel El Ocaso","url":"https://www.salentoalamano.com/paginas-pautantes/finca-hotel-el-ocaso/"},{"@type":"ListItem","position":3,"name":"Finca Don Eduardo Coffee Tour","url":"https://www.salentoalamano.com/paginas-pautantes/finca-don-eduardo-coffee-tour/"},{"@type":"ListItem","position":4,"name":"El Recuerdo Coffee Tour","url":"https://www.salentoalamano.com/paginas-pautantes/el-recuerdo-coffee-tour/"}]}}</script>
-  
-    <meta property="og:title" content="Coffee Tours en Salento | Salento a la Mano" />
-    <meta property="og:description" content="Coffee tours en Salento, Quindío: recorridos por fincas cafeteras, catas de café especial y experiencias auténticas del Eje Cafetero con reserva directa." />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://www.salentoalamano.com/categorias/coffee-tours.html" />
-    <meta property="og:image" content="https://www.salentoalamano.com/pautas/coffee-tour-finca-don-eduardo/imagenes/Plantation.webp" />
-    <meta property="og:site_name" content="Salento a la Mano" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Coffee Tours en Salento | Salento a la Mano" />
-    <meta name="twitter:description" content="Fincas cafeteras y tours de café en Salento: experiencias verificadas del Eje Cafetero." />
-    <link rel="alternate" hreflang="es-CO" href="https://www.salentoalamano.com/categorias/coffee-tours.html" />
-    <link rel="alternate" hreflang="x-default" href="https://www.salentoalamano.com/categorias/coffee-tours.html" />
-    <link rel="canonical" href="https://www.salentoalamano.com/categorias/coffee-tours.html" />
-  
-    <!-- Yandex.Metrika counter -->
-    <script type="text/javascript">
-      (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,"script","https://mc.yandex.ru/metrika/tag.js?id=112528103","ym");ym(112528103,'init',{ssr:true,webvisor:true,clickmap:true,ecommerce:"dataLayer",referer:document.referrer,url:location.href,accurateTrackBounce:true,trackLinks:true});
-    </script>
-    <noscript><div><img src="https://mc.yandex.ru/watch/112528103" style="position:absolute;left:-9999px;" alt="" /></div></noscript>
-    <!-- /Yandex.Metrika counter -->
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"Coffee Tours | Salento a la Mano","description":"Recorridos por fincas cafeteras y catas del Eje Cafetero","url":"https://www.salentoalamano.com/categorias/coffee-tours.html","inLanguage":"es","mainEntity":{"@type":"ItemList","itemListElement":[{"@type":"ListItem","position":1,"name":"Finca Cafetera Don Elías","url":"https://www.salentoalamano.com/paginas-pautantes/finca-cafetera-don-elias/"},{"@type":"ListItem","position":2,"name":"Finca Don Eduardo Coffee Tour","url":"https://www.salentoalamano.com/paginas-pautantes/finca-don-eduardo-coffee-tour/"},{"@type":"ListItem","position":3,"name":"El Recuerdo Coffee Tour","url":"https://www.salentoalamano.com/paginas-pautantes/el-recuerdo-coffee-tour/"},{"@type":"ListItem","position":4,"name":"Ruta Navarco","url":"https://www.salentoalamano.com/paginas-pautantes/ruta-navarco/"}]}}</script>
   </head>
   <body>
     <div class="container">
       <div class="topbar">
-        <a class="brand" href="/index.html"><img src="/logo_salento2026.webp" alt="Salento a la Mano" class="brand-logo"/><span>Salento a la Mano</span></a>
-        <nav class="top-actions"><a class="nav-link" href="/">Inicio</a><a class="nav-link" href="/index.html">Volver al inicio</a></nav>
+        <a class="brand" href="/"><img src="/logo_salento2026.webp" alt="Salento a la Mano" class="brand-logo" style="width:64px;height:64px;object-fit:contain;border-radius:50%"/><span>Salento a la Mano</span></a>
+        <nav class="top-actions"><a class="nav-link" href="/">Inicio</a><a class="nav-link" href="/">Volver al inicio</a></nav>
       </div>
 
       <section class="hero">
         <div class="hero-copy">
           <div class="eyebrow">Categoría</div>
           <h1>Coffee Tours</h1>
-          <div class="sub">Finca cafeteras, tours de café y experiencias rurales</div>
-          <div class="stats">
-            <div class="stat"><strong>4</strong> fincas cafeteras</div>
-            <div class="stat"><strong>Directo</strong> con locales</div>
-            <div class="stat"><strong>WhatsApp</strong> en cada ficha</div>
-          </div>
+          <div class="sub">Recorridos por fincas cafeteras y catas del Eje Cafetero</div>
         </div>
         <div class="hero-visual" aria-label="Coffee Tours"></div>
       </section>
@@ -125,62 +111,42 @@
       <div class="provider-grid">
         
       <article class="provider-card" onclick="window.location.href='/paginas-pautantes/finca-cafetera-don-elias/'" role="link" tabindex="0" onkeydown="if(event.key==='Enter'){window.location.href='/paginas-pautantes/finca-cafetera-don-elias/'}" style="cursor:pointer" aria-label="Abrir página de Finca Cafetera Don Elías">
-        <div class="card-image" style="background-image:url('/pautas/coffee-tour-finca-don-eduardo/imagenes/finca-don-eduardo-1.webp')"></div>
+        <div class="card-image" style="background-image:url('/pautas/coffee-tour-finca-cafetera-don-elias/imagenes/cafe-don-elias.webp')"></div>
         <div class="card-body">
           <div class="card-header-row">
-            <span class="pill">Coffee Tour</span>
-            <span class="rating">⭐ 4.8</span>
+            <span class="pill">Coffee Tours</span>
+            <span class="rating">⭐ 4.9</span>
           </div>
           <h3>Finca Cafetera Don Elías</h3>
-          <p>Finca tradicional de café en Vereda Palestina que ofrece recorridos guiados por cultivos, explicación del proceso artesanal y degustación con enfoque en la historia y la producción cafetera de la región.</p>
+          <p>Finca cafetera familiar en Vereda Palestina. Recorrido por el cafetal, proceso del café y degustación de café orgánico. Mismo lugar que el Restaurante Don Elías.</p>
           <div class="meta-row">
             <span>$$</span>
-            <span>Visitas de 1.5 a 3 horas</span>
+            <span>Tours cada hora 9:00–16:00</span>
           </div>
           <div class="card-actions" onclick="event.stopPropagation()">
-            <a class="btn primary" href="/paginas-pautantes/finca-cafetera-don-elias/">Ver menú</a>
-            <a class="btn" href="https://www.google.com/maps/search/Vereda%20Palestina%2C%20km%204%2C%20Salento%2C%20Quind%C3%ADo" target="_blank" rel="noreferrer">Cómo llegar</a>
-          </div>
-        </div>
-      </article>
-    
-      <article class="provider-card" onclick="window.location.href='/paginas-pautantes/finca-hotel-el-ocaso/'" role="link" tabindex="0" onkeydown="if(event.key==='Enter'){window.location.href='/paginas-pautantes/finca-hotel-el-ocaso/'}" style="cursor:pointer" aria-label="Abrir página de Finca Hotel El Ocaso">
-        <div class="card-image" style="background-image:url('/pautas/coffee-tour-alojamiento-finca-hotel-el-ocaso/imagenes/foto_casa_ocaso.webp')"></div>
-        <div class="card-body">
-          <div class="card-header-row">
-            <span class="pill">Coffee Tour</span>
-            <span class="rating">⭐ 4.7</span>
-          </div>
-          <h3>Finca Hotel El Ocaso</h3>
-          <p>Finca hotel con experiencia cafetera completa: hospedaje, tours guiados, gastronomía local y vistas panorámicas del valle de Salento.</p>
-          <div class="meta-row">
-            <span>$$$</span>
-            <span>Hospedaje + Tour</span>
-          </div>
-          <div class="card-actions" onclick="event.stopPropagation()">
-            <a class="btn primary" href="/paginas-pautantes/finca-hotel-el-ocaso/">Reservar ya</a>
-            <a class="btn" href="https://www.google.com/maps/search/Vereda%20Palestina%2C%20Salento%2C%20Quind%C3%ADo" target="_blank" rel="noreferrer">Cómo llegar</a>
+            <a class="btn primary" href="/paginas-pautantes/finca-cafetera-don-elias/">Ver información</a>
+            <a class="btn" href="https://www.google.com/maps/search/Vereda%20Palestina%20Km%204%2C%20Salento%2C%20Quind%C3%ADo%20(631027)" target="_blank" rel="noreferrer">Cómo llegar</a>
+            <a class="btn whatsapp" href="https://wa.me/573156061113" target="_blank" rel="noreferrer">WhatsApp</a>
           </div>
         </div>
       </article>
     
       <article class="provider-card" onclick="window.location.href='/paginas-pautantes/finca-don-eduardo-coffee-tour/'" role="link" tabindex="0" onkeydown="if(event.key==='Enter'){window.location.href='/paginas-pautantes/finca-don-eduardo-coffee-tour/'}" style="cursor:pointer" aria-label="Abrir página de Finca Don Eduardo Coffee Tour">
-        <div class="card-image" style="background-image:url('/pautas/coffee-tour-finca-don-eduardo/imagenes/IMG_0224.webp')"></div>
+        <div class="card-image" style="background-image:url('/pautas/coffee-tour-finca-don-eduardo/eduardo-arte-publicitario.webp')"></div>
         <div class="card-body">
           <div class="card-header-row">
-            <span class="pill">Coffee Tour</span>
+            <span class="pill">Coffee Tours</span>
             <span class="rating">⭐ 4.9</span>
           </div>
           <h3>Finca Don Eduardo Coffee Tour</h3>
-          <p>Experiencia cafetera tradicional con tours guiados, recorridos por cultivos, explicación del proceso del café y degustación de diferentes tipos de café.</p>
+          <p>Finca Don Eduardo es el sueño de un hombre inglés y su esposa colombiana, quienes fueron los pioneros del turismo en Salento y hoy día sigue funcionando en manos de su hija, una caficultora que ha decidido honrar su historia familiar continuando una de las experiencias de café mejor valoradas de Salento. El recorrido de 3 horas empieza con la historia del café y pasa por todo el proceso de la finca: el semillero, el cafetal, el beneficio, el secadero y finaliza con una tostión artesanal y una taza de café para conocer mejor sus sabores. Nuestros recorridos en inglés (9:30 y 2:30) no requieren reserva; también tenemos el tour en español a las 10:40 y para esta opción recomendamos reservar. Valor: $100.000 COP por persona (~3 horas; en octubre la tarifa se incrementa por temporada alta). Finca de 7 hectáreas en la Vereda Palestina, a 8 min caminando de la plaza (transporte no incluido).</p>
           <div class="meta-row">
             <span>$$</span>
-            <span>Visitas guiadas</span>
+            <span>Inglés 9:30 a.m. · 2:30 p.m. · Español 10:40 a.m.</span>
           </div>
           <div class="card-actions" onclick="event.stopPropagation()">
             <a class="btn primary" href="/paginas-pautantes/finca-don-eduardo-coffee-tour/">Ver información</a>
-            <a class="btn" href="https://fincadoneduardocoffeetour.com" target="_blank" rel="noreferrer">Sitio web</a>
-            <a class="btn" href="https://www.google.com/maps/search/Calle%207%20%23%201%20-%2004%20Salento" target="_blank" rel="noreferrer">Cómo llegar</a>
+            <a class="btn" href="https://www.google.com/maps/search/Calle%207%20%23%201%20-%2004%2C%20Salento%2C%20Quind%C3%ADo" target="_blank" rel="noreferrer">Cómo llegar</a>
             <a class="btn whatsapp" href="https://wa.me/573154097039" target="_blank" rel="noreferrer">WhatsApp</a>
           </div>
         </div>
@@ -190,19 +156,40 @@
         <div class="card-image" style="background-image:url('/pautas/el_recuerdo_coffee_tour/imagenes/recuerdo1casa.webp')"></div>
         <div class="card-body">
           <div class="card-header-row">
-            <span class="pill">Coffee Tour</span>
+            <span class="pill">Coffee Tours</span>
             <span class="rating">⭐ 4.8</span>
           </div>
           <h3>El Recuerdo Coffee Tour</h3>
-          <p>Finca en medio de la naturaleza donde se respira café. Tour cada hora de 9am a 4pm, café de especialidad y experiencia auténtica del Eje Cafetero. Incluye transporte Willys desde la plaza.</p>
+          <p>Finca en medio de la naturaleza. Tours cada hora de 9:00 a.m. a 4:00 p.m., café de especialidad. $65.000 COP por persona. Willys desde la plaza: $9.000.</p>
           <div class="meta-row">
             <span>$$</span>
-            <span>Tours cada hora</span>
+            <span>9:00 a.m. – 4:00 p.m. · tours cada hora</span>
           </div>
           <div class="card-actions" onclick="event.stopPropagation()">
             <a class="btn primary" href="/paginas-pautantes/el-recuerdo-coffee-tour/">Ver información</a>
-            <a class="btn" href="https://www.google.com/maps/search/Salento+Quindío+Finca+El+Recuerdo" target="_blank" rel="noreferrer">Cómo llegar</a>
+            <a class="btn" href="https://www.google.com/maps/search/Vereda%20Palestina%2C%20Salento%2C%20Quind%C3%ADo" target="_blank" rel="noreferrer">Cómo llegar</a>
             <a class="btn whatsapp" href="https://wa.me/573103764672" target="_blank" rel="noreferrer">WhatsApp</a>
+          </div>
+        </div>
+      </article>
+    
+      <article class="provider-card" onclick="window.location.href='/paginas-pautantes/ruta-navarco/'" role="link" tabindex="0" onkeydown="if(event.key==='Enter'){window.location.href='/paginas-pautantes/ruta-navarco/'}" style="cursor:pointer" aria-label="Abrir página de Ruta Navarco">
+        <div class="card-image" style="background-image:url('/pautas/ruta-navarco/salento-tesoros-trapiche.webp')"></div>
+        <div class="card-body">
+          <div class="card-header-row">
+            <span class="pill">Experiencias</span>
+            <span class="rating">⭐ 4.9</span>
+          </div>
+          <h3>Ruta Navarco</h3>
+          <p>Ruta Comunitaria Navarco y sus Tesoros: recorrido en Willys por 4 fincas de la vereda Navarco: La Rubiela (queso artesanal), La Unión (trapiche y cafetera), La Colina (bienestar sensorial) y La Chamberlain (cascada).</p>
+          <div class="meta-row">
+            <span>$$$</span>
+            <span>Salida 8:30 a.m. desde Salento</span>
+          </div>
+          <div class="card-actions" onclick="event.stopPropagation()">
+            <a class="btn primary" href="/paginas-pautantes/ruta-navarco/">Ver información</a>
+            <a class="btn" href="https://www.google.com/maps/search/Salento%20%E2%86%92%20Vereda%20Navarco" target="_blank" rel="noreferrer">Cómo llegar</a>
+            <a class="btn whatsapp" href="https://wa.me/573043685771" target="_blank" rel="noreferrer">WhatsApp</a>
           </div>
         </div>
       </article>
@@ -212,4 +199,3 @@
     </div>
   </body>
 </html>
-
