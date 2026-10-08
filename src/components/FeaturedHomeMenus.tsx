@@ -1,4 +1,4 @@
-import { ArrowRight, Clock3, MapPin, MessageCircle, Star } from 'lucide-react'
+import { ArrowRight, Clock3, MapPin, MessageCircle, Star, Utensils, ShoppingBag, Coffee } from 'lucide-react'
 import type { Place } from '../types'
 import { placeCtaLabel } from '../utils/placeCta'
 
@@ -10,6 +10,23 @@ function hasPautasAsset(place: Place): boolean {
   return (place.photos || []).some((src) => String(src).startsWith('/pautas/'))
 }
 
+function getMenuItems(place: Place) {
+  const items: Array<{name: string; price: number; category?: string}> = []
+  if (place.foodServiceDetails?.menuItems?.length) {
+    items.push(...place.foodServiceDetails.menuItems.slice(0, 6).map(m => ({ name: m.name, price: m.price, category: m.category })))
+  }
+  if (place.foodServiceDetails?.menuHighlights?.length && items.length < 6) {
+    const highlights = place.foodServiceDetails.menuHighlights.slice(0, 6 - items.length)
+    highlights.forEach(h => {
+      const match = h.match(/^(.+?)\s+\$?([\d.,]+)/)
+      if (match) {
+        items.push({ name: match[1].trim(), price: parseInt(match[2].replace(/[.,]/g, '')) })
+      }
+    })
+  }
+  return items
+}
+
 export default function FeaturedHomeMenus({ places }: FeaturedHomeMenusProps) {
   const candidates = places.filter(
     (p) =>
@@ -18,7 +35,6 @@ export default function FeaturedHomeMenus({ places }: FeaturedHomeMenusProps) {
   )
   if (!candidates.length) return null
 
-  // Prioridad comercial: pautantes con assets en /pautas/ primero; luego el resto
   const preferredIds = [22, 28]
   const pautasAssets = candidates.filter((p) => p.isPautante && hasPautasAsset(p))
   const pautasPreferred = preferredIds
@@ -48,7 +64,8 @@ export default function FeaturedHomeMenus({ places }: FeaturedHomeMenusProps) {
             const href = place.actionTarget?.viewUrl || `/paginas-pautantes/${slug}/`
             const wa = place.contact?.whatsapp
             const photo = place.photos?.[0]
-            const itemCount = place.foodServiceDetails?.menuItems?.length || 0
+            const menuItems = getMenuItems(place)
+            const hasMenu = menuItems.length > 0
 
             return (
               <article key={place.id} className="home-featured-menu-card">
@@ -70,14 +87,25 @@ export default function FeaturedHomeMenus({ places }: FeaturedHomeMenusProps) {
                   </div>
                   <h3><a href={href}>{place.name}</a></h3>
                   <p className="home-featured-menu-desc">{place.description}</p>
-                  <p className="home-featured-menu-hint">
-                    {itemCount > 0
-                      ? `Carta con ${itemCount} platos en su página`
-                      : 'Carta completa en su página'}
-                  </p>
+
+                  {hasMenu && (
+                    <div className="home-featured-menu-card-list">
+                      <h4><Utensils size={14} aria-hidden="true" /> Menú destacado</h4>
+                      <ul>
+                        {menuItems.map((item, idx) => (
+                          <li key={idx}>
+                            <span className="menu-item-name">{item.name}</span>
+                            <span className="menu-item-price">${item.price.toLocaleString('es-CO')}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
 
                   <div className="home-featured-menu-actions">
-                    <a className="button primary" href={href}>{placeCtaLabel(place.type)}</a>
+                    <a className="button primary" href={href}>
+                      {placeCtaLabel(place.type)}
+                    </a>
                     {wa && (
                       <a className="button" href={`https://wa.me/${wa}`} target="_blank" rel="noreferrer">
                         <MessageCircle size={15} aria-hidden="true" /> WhatsApp
