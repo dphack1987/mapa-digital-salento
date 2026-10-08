@@ -31,11 +31,23 @@
       .hero-image { min-height:360px; background:linear-gradient(rgba(0,0,0,.08),rgba(0,0,0,.25)),url('/pautas/coffee-tour-finca-don-eduardo/eduardo-arte-publicitario.webp') center/cover; }
       .highlights { display:flex; flex-wrap:wrap; gap:8px; margin:22px 0; } .highlight,.tag { padding:8px 11px; border:1px solid var(--line); border-radius:999px; background:#f3ead6; font-size:12px; font-weight:700; }
       .section { padding:26px; margin-top:24px; } h2 { margin:0 0 16px; font-size:1.5rem; } .two-col { display:grid; grid-template-columns:1fr 1fr; gap:24px; }
-      .gallery { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; } .gallery img { width:100%; height:190px; object-fit:cover; border-radius:16px; border:1px solid var(--line); }
+      
       .facts { display:grid; gap:0; } .fact { padding:13px 0; border-bottom:1px solid var(--line); } .fact strong { display:block; color:var(--muted); font-size:11px; text-transform:uppercase; margin-bottom:5px; }
       .service-section strong { display:block; color:var(--muted); font-size:11px; text-transform:uppercase; margin:14px 0 6px; } .service-grid { display:grid; grid-template-columns:1fr 1fr; gap:28px; } .service-section ul { margin:6px 0 18px; padding-left:20px; color:var(--muted); line-height:1.8; } .service-section p { color:var(--muted); line-height:1.6; } .muted { color:var(--muted); }
       .tags { display:flex; flex-wrap:wrap; gap:8px; } .trust { color:var(--muted); line-height:1.6; } .verified { color:#39734b; font-weight:700; }
-      @media (max-width:800px) { .hero,.two-col { grid-template-columns:1fr; } .hero-image { min-height:260px; order:-1; } .topbar { align-items:flex-start; flex-direction:column; } .gallery { grid-template-columns:1fr; } }
+      @media (max-width:800px) { .hero,.two-col { grid-template-columns:1fr; } .hero-image { min-height:260px; order:-1; } .topbar { align-items:flex-start; flex-direction:column; } }
+      
+      /* Lightbox */
+      .lightbox { position:fixed; inset:0; background:rgba(31,45,38,.95); display:none; align-items:center; justify-content:center; z-index:2000; padding:20px; }
+      .lightbox.open { display:flex; }
+      .lightbox img { max-width:90vw; max-height:85vh; object-fit:contain; border-radius:8px; box-shadow:0 20px 60px rgba(0,0,0,.5); }
+      .lightbox-close, .lightbox-prev, .lightbox-next { position:absolute; background:rgba(255,255,255,.15); border:none; color:#fff; font-size:28px; width:56px; height:56px; border-radius:50%; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:background .2s; }
+      .lightbox-close:hover, .lightbox-prev:hover, .lightbox-next:hover { background:rgba(255,255,255,.3); }
+      .lightbox-close { top:20px; right:20px; font-size:32px; width:48px; height:48px; }
+      .lightbox-prev { left:20px; top:50%; transform:translateY(-50%); }
+      .lightbox-next { right:20px; top:50%; transform:translateY(-50%); }
+      .lightbox-caption { position:absolute; bottom:20px; left:50%; transform:translateX(-50%); color:#fff; text-align:center; max-width:80%; font-size:14px; padding:8px 16px; background:rgba(31,45,38,.7); border-radius:999px; }
+      @media (max-width:600px) { .lightbox-prev, .lightbox-next { width:44px; height:44px; font-size:22px; } .lightbox-close { width:40px; height:40px; font-size:26px; } }
     </style>
     <link rel="stylesheet" href="/page-theme.css" />
     <link rel="stylesheet" href="/pautante-theme.css" />
@@ -55,7 +67,19 @@
       <section class="section service-section"><h2>Plan de la experiencia</h2><div class="service-grid"><div><strong>Incluye</strong><ul><li>Historia y proceso completo del café</li><li>Recorrido por semillero, cafetal, beneficio y secadero</li><li>Procesos orgánicos de la finca</li><li>Tostión artesanal</li><li>Taza de café</li></ul><strong>Qué llevar</strong><ul><li>Ropa cómoda</li><li>Calzado para caminar</li><li>Agua</li><li>Repelente para insectos</li><li>Bloqueador / protector solar</li><li>Gorra</li><li>Chaqueta de lluvia</li></ul></div><div><strong>Duración</strong><p>3 horas</p><strong>Dificultad</strong><p>Fácil</p><strong>Punto de encuentro</strong><p>Finca Don Eduardo · a 8 min caminando de la plaza</p><strong>Idiomas</strong><p>Inglés, Español</p><strong>Tarifas verificadas</strong><p>$100.000 COP por persona. Salidas en inglés 9:30 a.m. y 2:30 p.m. (sin reserva); en español 10:40 a.m. (recomendamos reservar). Ten en cuenta que la tarifa se incrementa en los meses de octubre por temporada alta.</p></div></div><div class="actions"><a class="button primary" href="https://wa.me/573154097039">Reservar experiencia</a></div></section>
       
       <section class="section"><h2>La experiencia en Finca Don Eduardo</h2><div class="two-col"><div><p class="trust">Finca Don Eduardo es el sueño de un hombre inglés y su esposa colombiana, quienes fueron los pioneros del turismo en Salento y hoy día sigue funcionando en manos de su hija, una caficultora que ha decidido honrar su historia familiar continuando una de las experiencias de café mejor valoradas de Salento.</p><p class="trust">El recorrido de 3 horas empieza con la historia del café y pasa por todo el proceso de la finca: el semillero, el cafetal, el beneficio y el secadero, y finaliza con una tostión artesanal y una taza de café para conocer mejor sus sabores.</p><p class="trust">Nuestros recorridos en inglés (9:30 y 2:30) no requieren reserva; también tenemos el tour en español a las 10:40 y para esta opción recomendamos reservar.</p><p class="verified">✓ Información verificada en el catálogo local</p></div><div class="facts"><div class="fact"><strong>Ubicación</strong>Calle 7 # 1 - 04 · Vereda Palestina, Salento, Quindío</div><div class="fact"><strong>Referencia</strong>A 8 min caminando de la plaza</div><div class="fact"><strong>Horario</strong>Inglés 9:30 a.m. y 2:30 p.m. (sin reserva); español 10:40 a.m. (recomendamos reservar). $100.000 COP por persona.</div></div></div></section>
-      <section class="section"><h2>Galería de imágenes</h2><div class="gallery"><img src="/pautas/coffee-tour-finca-don-eduardo/eduardo-arte-publicitario.webp" alt="Finca Don Eduardo Coffee Tour arte oficial" loading="lazy"/><img src="/pautas/coffee-tour-finca-don-eduardo/imagenes/IMG_0224.webp" alt="Finca Don Eduardo Coffee Tour foto 1" loading="lazy"/><img src="/pautas/coffee-tour-finca-don-eduardo/imagenes/IMG_0366.webp" alt="Finca Don Eduardo Coffee Tour foto 2" loading="lazy"/><img src="/pautas/coffee-tour-finca-don-eduardo/imagenes/IMG_0372.webp" alt="Finca Don Eduardo Coffee Tour foto 3" loading="lazy"/><img src="/pautas/coffee-tour-finca-don-eduardo/imagenes/IMG_9320.webp" alt="Finca Don Eduardo Coffee Tour foto 4" loading="lazy"/><img src="/pautas/coffee-tour-finca-don-eduardo/imagenes/IMG_9326.webp" alt="Finca Don Eduardo Coffee Tour foto 5" loading="lazy"/><img src="/pautas/coffee-tour-finca-don-eduardo/imagenes/IMG_9360_1.webp" alt="Finca Don Eduardo Coffee Tour foto 6" loading="lazy"/></div></section>
+      <section class="section"><h2>Galería de imágenes</h2><div class="gallery" id="gallery">
+  <img src="/pautas/coffee-tour-finca-don-eduardo/eduardo-arte-publicitario.webp" alt="Finca Don Eduardo Coffee Tour - Arte oficial" loading="eager"/>
+  <img src="/pautas/coffee-tour-finca-don-eduardo/imagenes/IMG_0224.webp" alt="Finca Don Eduardo Coffee Tour - Finca y proceso" loading="lazy"/>
+  <img src="/pautas/coffee-tour-finca-don-eduardo/imagenes/IMG_0366.webp" alt="Finca Don Eduardo Coffee Tour - Tostión artesanal" loading="lazy"/>
+  <img src="/pautas/coffee-tour-finca-don-eduardo/imagenes/IMG_0372.webp" alt="Finca Don Eduardo Coffee Tour - Degustación" loading="lazy"/>
+  <img src="/pautas/coffee-tour-finca-don-eduardo/imagenes/IMG_9320.webp" alt="Finca Don Eduardo Coffee Tour - Plantaciones" loading="lazy"/>
+  <img src="/pautas/coffee-tour-finca-don-eduardo/imagenes/IMG_9326.webp" alt="Finca Don Eduardo Coffee Tour - Vista panorámica" loading="lazy"/>
+  <img src="/pautas/coffee-tour-finca-don-eduardo/imagenes/IMG_9360_1.webp" alt="Finca Don Eduardo Coffee Tour - Detalle proceso" loading="lazy"/>
+  <img src="/pautas/coffee-tour-finca-don-eduardo/imagenes/IMG_0736.webp" alt="Finca Don Eduardo Coffee Tour - Semillero" loading="lazy"/>
+  <img src="/pautas/coffee-tour-finca-don-eduardo/imagenes/IMG_3229.webp" alt="Finca Don Eduardo Coffee Tour - Beneficio" loading="lazy"/>
+  <img src="/pautas/coffee-tour-finca-don-eduardo/imagenes/IMG_8454.webp" alt="Finca Don Eduardo Coffee Tour - Secadero" loading="lazy"/>
+  <img src="/pautas/coffee-tour-finca-don-eduardo/imagenes/IMG_9079.webp" alt="Finca Don Eduardo Coffee Tour - Taza final" loading="lazy"/>
+</div></section>
       
       <section class="section" id="menu-interactivo">
         <h2>Tours y experiencias</h2>
@@ -103,8 +127,9 @@
       <section class="section"><h2>Lo que puedes encontrar</h2><div class="tags"><span class="tag">coffee tour</span><span class="tag">finca cafetera</span><span class="tag">7 hectáreas de café</span><span class="tag">degustación de café</span><span class="tag">tercera generación</span><span class="tag">tostión artesanal</span><span class="tag">Vereda Palestina</span><span class="tag">a 8 min de la plaza</span><span class="tag">inglés</span><span class="tag">español</span></div></section>
       <nav class="bottom-nav" aria-label="Volver" style="display:flex;flex-wrap:wrap;gap:10px;margin-top:28px"><a class="button primary" href="/">Volver al inicio</a><a class="button dark" href="/">Ir a página principal</a><a class="button" href="/categorias/">Ver categorías</a></nav>
     </main>
-    
+
     <script src="/pautante-common.js"></script>
     <script>PautanteCommon.initMenu({"containerId":"menuGrid","items":[{"id":1,"cat":"tours","nombre":"English Coffee Tour","precio":100000,"desc":"3 horas · Lun–sáb 9:30 AM y 2:30 PM · sin reserva","img":"/pautas/coffee-tour-finca-don-eduardo/imagenes/IMG_0224.webp"},{"id":2,"cat":"tours","nombre":"Recorrido en Español","precio":100000,"desc":"3 horas · Lun–sáb 10:40 AM · requiere reserva previa · mín. 2 personas","img":"/pautas/coffee-tour-finca-don-eduardo/imagenes/IMG_0366.webp"},{"id":3,"cat":"cotizar","nombre":"Private Tour personalizado","precio":0,"desc":"Cotización directa · pago con tarjeta +6%","img":"/pautas/coffee-tour-finca-don-eduardo/imagenes/IMG_0372.webp"},{"id":4,"cat":"incluye","nombre":"Historia y proceso del café","precio":0,"desc":"","img":"/pautas/coffee-tour-finca-don-eduardo/imagenes/IMG_0736.webp"},{"id":5,"cat":"incluye","nombre":"Visita a plantación","precio":0,"desc":"","img":"/pautas/coffee-tour-finca-don-eduardo/imagenes/IMG_3229.webp"},{"id":6,"cat":"incluye","nombre":"Tostión y molienda del propio café","precio":0,"desc":"","img":"/pautas/coffee-tour-finca-don-eduardo/imagenes/IMG_8454.webp"},{"id":7,"cat":"incluye","nombre":"Degustación de café especial","precio":0,"desc":"","img":"/pautas/coffee-tour-finca-don-eduardo/imagenes/IMG_9079.webp"}],"categories":[{"id":"todas","label":"Todas"},{"id":"tours","label":"Tours"},{"id":"cotizar","label":"Cotizar"},{"id":"incluye","label":"Incluye"}],"whatsapp":"573154097039","businessName":"Finca Don Eduardo Coffee Tour","currency":"COP","showSearch":true,"showCurrency":true,"precioLabel":"por persona"});</script>
+    <script src="/lightbox.js"></script>
   </body>
 </html>
