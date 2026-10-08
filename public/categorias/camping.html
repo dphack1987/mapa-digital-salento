@@ -1,157 +1,122 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>\n    <meta name="author" content="zenythos 2.0 para quindio travel" />
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
-    <meta name="description" content="Camping y glamping en Salento, Quindío. Descubre los mejores sitios para acampar en el Valle de Cocora y alrededores con equipamiento completo y naturaleza.">
-    <title>Camping y Glamping en Salento | Salento a la Mano</title>
-    <meta property="og:title" content="Camping y Aventura en Salento | Salento a la Mano" />
-    <meta property="og:description" content="Camping y glamping en Salento, Quindío: acampada, cabañas rústicas y experiencias al aire libre en el Valle de Cocora." />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://www.salentoalamano.com/categorias/camping.html" />
-    <meta property="og:image" content="https://www.salentoalamano.com/imagenes-salento/653410779.webp" />
-    <meta property="og:site_name" content="Salento a la Mano" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Camping y Aventura en Salento | Salento a la Mano" />
-    <meta name="twitter:description" content="Camping, glamping y cabañas en Salento: aventura al aire libre." />
-    <link rel="alternate" hreflang="es-CO" href="https://www.salentoalamano.com/categorias/camping.html" />
-    <link rel="canonical" href="https://www.salentoalamano.com/categorias/camping.html">
-    <link rel="alternate" hreflang="es" href="https://www.salentoalamano.com/categorias/camping.html">
-    <link rel="alternate" hreflang="x-default" href="https://www.salentoalamano.com/categorias/camping.html">
-    <link rel="stylesheet" href="/page-theme.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Aire libre en el Valle de Cocora y cascadas" />
+    <title>Camping y Glamping | Salento a la Mano</title>
+    <link rel="canonical" href="https://www.salentoalamano.com/categorias/camping.html" />
+    
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" />
+
     <style>
-      .provider-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; margin-top: 24px; }
-      .provider-card { background: var(--white); border: 1px solid var(--line); border-radius: 20px; overflow: hidden; }
-      .card-body { padding: 18px; }
+      :root {
+        --paper: #f5f1e8;
+        --ink: #1f2d26;
+        --line: #d9d0bf;
+        --coral: #dd7f5d;
+        --green: #5a7d63;
+        --yellow: #e7c77b;
+        --white: #fff;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0; font-family: 'DM Sans', sans-serif; background: var(--paper); color: var(--ink);
+      }
+      a { color: inherit; text-decoration: none; }
+      .container { max-width: 1100px; margin: 0 auto; padding: 32px 20px 80px; }
+      .topbar { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-bottom: 24px; }
+      .brand { font-size: 20px; font-weight: 700; }
+      .brand { display: inline-flex; align-items: center; gap: 10px; }
+      .brand-logo { width: 42px; height: 42px; object-fit: contain; border-radius: 50%; }
+      .nav-link { background: var(--white); border: 1px solid var(--line); padding: 10px 14px; border-radius: 999px; }
+      .hero {
+        display: grid; grid-template-columns: 1.25fr .75fr; gap: 0; align-items: stretch; margin-bottom: 28px;
+        background: var(--white); border: 1px solid var(--line); border-radius: 24px; overflow: hidden;
+        box-shadow: 0 18px 40px rgba(39,54,43,.1);
+      }
+      .hero-copy { padding: 36px 32px; display: flex; flex-direction: column; justify-content: center; }
+      .eyebrow { text-transform: uppercase; letter-spacing: .12em; font-size: 11px; color: var(--coral); font-weight: 700; }
+      h1 { font-size: clamp(2rem, 4vw, 4rem); margin: 12px 0 12px; line-height: .98; }
+      .sub { color: #536057; font-size: 1.05rem; line-height: 1.6; }
+      .stats { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 20px; }
+      .stat { background: #f1eadb; border: 1px solid var(--line); border-radius: 14px; padding: 12px 14px; }
+      .hero-visual {
+        background-image: linear-gradient(rgba(15,28,18,.18), rgba(15,28,18,.42)), url('/imagenes-salento/destinos-75.webp');
+        background-size: cover; background-position: center; min-height: 280px;
+      }
+      .provider-grid {
+        display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 18px; margin-top: 24px;
+      }
+      .empty-category { display: flex; align-items: center; gap: 18px; margin-top: 24px; padding: 24px; border: 1px dashed var(--coral); background: rgba(255,255,255,.7); }
+      .empty-category-mark { display: grid; place-items: center; width: 42px; height: 42px; flex: 0 0 42px; border: 1px solid var(--coral); border-radius: 50%; color: var(--coral); font-size: 25px; }
+      .empty-category h2 { margin: 0 0 6px; font: 600 22px Fraunces, serif; }
+      .empty-category p { margin: 0; color: #59665f; line-height: 1.5; }
+      .provider-card {
+        background: var(--white); border: 1px solid var(--line); border-radius: 20px; overflow: hidden;
+        box-shadow: 0 8px 24px rgba(39,54,43,.06); transition: transform .2s, box-shadow .2s, border-color .2s;
+        display: flex; flex-direction: column;
+      }
+      .provider-card:hover { transform: translateY(-4px); box-shadow: 0 16px 32px rgba(39,54,43,.12); border-color: var(--coral); }
+      .card-image {
+        height: 170px; background-size: cover; background-position: center; width: 100%;
+        transition: transform .35s ease;
+      }
+      .provider-card:hover .card-image { transform: scale(1.04); }
+      .card-body { padding: 18px; display: flex; flex-direction: column; flex: 1; }
       .card-header-row, .meta-row, .card-actions { display: flex; justify-content: space-between; gap: 10px; align-items: center; }
       .card-header-row { margin-bottom: 10px; }
       .pill { background: #f3ead6; border-radius: 999px; padding: 6px 10px; font-size: 10px; font-weight: 700; text-transform: uppercase; }
       .rating { font-size: 12px; font-weight: 700; }
-      .provider-card h3 { margin: 8px 0 10px; font-size: 1.35rem; }
-      .card-body p { margin: 0 0 14px; color: #59665f; line-height: 1.5; font-size: 0.96rem; }
+      h3 { margin: 8px 0 10px; font-size: 1.35rem; }
+      .card-body p { margin: 0 0 14px; color: #59665f; line-height: 1.5; font-size: 0.96rem; flex: 1; }
       .meta-row { color: #4d5a51; font-size: 12px; margin-bottom: 16px; }
-      .btn { display: inline-flex; align-items: center; justify-content: center; padding: 10px 12px; border-radius: 10px; border: 1px solid var(--line); font-weight: 700; font-size: 12px; background: var(--white); }
+      .btn {
+        display: inline-flex; align-items: center; justify-content: center; padding: 10px 12px; border-radius: 10px; border: 1px solid var(--line); font-weight: 700; font-size: 12px;
+      }
       .btn.primary { background: var(--ink); color: var(--white); border-color: var(--ink); }
       .btn.whatsapp { background: #25d366; border-color: #25d366; color: #fff; }
+      @media (max-width: 760px) {
+        .hero { grid-template-columns: 1fr; }
+        .hero-visual { min-height: 180px; order: -1; }
+        .hero-copy { padding: 24px 20px 28px; }
+        .topbar { flex-direction: column; align-items: flex-start; }
+        .provider-grid { grid-template-columns: 1fr; }
+      }
     </style>
-
-    <!-- Yandex.Metrika counter -->
-    <script type="text/javascript">
-      (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,"script","https://mc.yandex.ru/metrika/tag.js?id=112528103","ym");ym(112528103,'init',{ssr:true,webvisor:true,clickmap:true,ecommerce:"dataLayer",referer:document.referrer,url:location.href,accurateTrackBounce:true,trackLinks:true});
-    </script>
-    <noscript><div><img src="https://mc.yandex.ru/watch/112528103" style="position:absolute;left:-9999px;" alt="" /></div></noscript>
-    <!-- /Yandex.Metrika counter -->
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"Camping | Salento a la Mano","description":"Camping y glamping en Salento, Quindío","url":"https://www.salentoalamano.com/categorias/camping.html","inLanguage":"es","mainEntity":{"@type":"ItemList","itemListElement":[{"@type":"ListItem","position":1,"name":"Camping Cascadas de Santa Rita","url":"https://www.salentoalamano.com/paginas-pautantes/camping-cascadas-de-santa-rita/"},{"@type":"ListItem","position":2,"name":"Reserva Natural Cascadas de Santa Rita","url":"https://www.salentoalamano.com/paginas-pautantes/reserva-natural-cascadas-de-santa-rita/"}]}}</script>
+    <link rel="stylesheet" href="/page-theme.css" />
+    <meta name="author" content="zenythos 2.0 para quindio travel" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://www.salentoalamano.com/"},{"@type":"ListItem","position":2,"name":"Categorías","item":"https://www.salentoalamano.com/categorias/"},{"@type":"ListItem","position":3,"name":"Camping y Glamping"}]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"Camping y Glamping | Salento a la Mano","description":"Aire libre en el Valle de Cocora y cascadas","url":"https://www.salentoalamano.com/categorias/camping-y-glamping.html","inLanguage":"es","mainEntity":{"@type":"ItemList","itemListElement":[]}}</script>
   </head>
-<body>
-    <header class="topbar">
-        <a class="brand" href="/">
-            <img src="/logo_salento2026.webp" alt="Salento a la Mano" class="brand-logo">
-            <span>Salento a la Mano</span>
-        </a>
-        <nav class="top-actions">
-            <a class="nav-link" href="/">Inicio</a>
-            <a class="nav-link" href="/">Volver al inicio</a>
-        </nav>
-    </header>
+  <body>
+    <div class="container">
+      <div class="topbar">
+        <a class="brand" href="/"><img src="/logo_salento2026.webp" alt="Salento a la Mano" class="brand-logo" style="width:64px;height:64px;object-fit:contain;border-radius:50%"/><span>Salento a la Mano</span></a>
+        <nav class="top-actions"><a class="nav-link" href="/">Inicio</a><a class="nav-link" href="/">Volver al inicio</a></nav>
+      </div>
 
-    <main class="container">
-        <div class="hero" style="display:grid;grid-template-columns:1.25fr .75fr;gap:0;align-items:stretch;margin-bottom:28px;background:#fff;border:1px solid #d9d0bf;border-radius:24px;overflow:hidden;box-shadow:0 18px 40px rgba(39,54,43,.1);">
-            <div class="hero-copy" style="padding:36px 32px;display:flex;flex-direction:column;justify-content:center;">
-                <div class="eyebrow" style="text-transform:uppercase;letter-spacing:.12em;font-size:11px;color:#dd7f5d;font-weight:700;">Categoría</div>
-                <h1 style="font-size:clamp(2rem,4vw,4rem);margin:12px 0;line-height:.98;">Camping y Glamping en Salento</h1>
-                <p class="sub" style="color:#536057;font-size:1.05rem;line-height:1.6;margin:0;">Experiencias al aire libre en el corazón del eje cafetero. Desde carpas básicas hasta glamping de lujo con todas las comodidades.</p>
-                <div class="stats" style="display:flex;gap:16px;flex-wrap:wrap;margin-top:20px;">
-                    <div class="stat" style="background:#f1eadb;border:1px solid #d9d0bf;border-radius:14px;padding:12px 14px;"><strong>2</strong> pautantes</div>
-                    <div class="stat" style="background:#f1eadb;border:1px solid #d9d0bf;border-radius:14px;padding:12px 14px;"><strong>Cocora</strong> y cascadas</div>
-                    <div class="stat" style="background:#f1eadb;border:1px solid #d9d0bf;border-radius:14px;padding:12px 14px;"><strong>WhatsApp</strong> directo</div>
-                </div>
-            </div>
-            <div class="hero-visual" aria-label="Camping en Salento" style="background-image:linear-gradient(rgba(15,28,18,.18), rgba(15,28,18,.42)), url('/imagenes-salento/destinos-75.webp');background-size:cover;background-position:center;min-height:280px;"></div>
+      <section class="hero">
+        <div class="hero-copy">
+          <div class="eyebrow">Categoría</div>
+          <h1>Camping y Glamping</h1>
+          <div class="sub">Aire libre en el Valle de Cocora y cascadas</div>
         </div>
+        <div class="hero-visual" aria-label="Camping y Glamping"></div>
+      </section>
 
-        <div class="benefits-grid">
-            <div class="benefit-card">
-                <span class="benefit-icon">⛺</span>
-                <h3>Camping Tradicional</h3>
-                <p>Zonas de acampada equipadas con baños, duchas y áreas comunes para los amantes de la naturaleza.</p>
-            </div>
-            <div class="benefit-card">
-                <span class="benefit-icon">🌟</span>
-                <h3>Glamping</h3>
-                <p>Experiencia de lujo al aire libre con tiendas tipo domo, camas cómodas y servicios premium.</p>
-            </div>
-            <div class="benefit-card">
-                <span class="benefit-icon">🏕️</span>
-                <h3>Cabañas Rústicas</h3>
-                <p>Alojamiento en estructuras de madera con instalaciones básicas para una experiencia auténtica.</p>
-            </div>
-        </div>
-
-        <div class="info-section">
-            <h2>¿Por qué hacer camping en Salento?</h2>
-            <ul class="info-list">
-                <li><strong>Valle de Cocora:</strong> Despierta rodeado de palmas de cera de 60 metros de altura.</li>
-                <li><strong>Conexión natural:</strong> Desconéctate de la ciudad y reconecta con la naturaleza.</li>
-                <li><strong>Economía:</strong> Opción de hospedaje más económica para viajeros con presupuesto limitado.</li>
-                <li><strong>Experiencia única:</strong> Noches estrelladas en uno de los destinos más hermosos de Colombia.</li>
-            </ul>
-        </div>
-
-        <div class="provider-grid">
-            <article class="provider-card" onclick="window.location.href='/paginas-pautantes/camping-cascadas-de-santa-rita/'" role="link" tabindex="0" onkeydown="if(event.key==='Enter'){window.location.href='/paginas-pautantes/camping-cascadas-de-santa-rita/'}" style="cursor:pointer" aria-label="Abrir página de Camping Cascadas de Santa Rita">
-                <div class="card-body">
-                    <div class="card-header-row">
-                        <span class="pill">Camping</span>
-                        <span class="rating">⭐ 4.6</span>
-                    </div>
-                    <h3>Camping Cascadas de Santa Rita</h3>
-                    <p>Zona de camping en la Reserva Natural: carpas propias y glamping básico cerca de la cascada principal. Baños, fogata y senderos. $28.000 por persona por noche.</p>
-                    <div class="meta-row">
-                        <span>$28.000 / noche</span>
-                        <span>Vereda Boquía</span>
-                    </div>
-                    <div class="card-actions" onclick="event.stopPropagation()">
-                        <a class="btn primary" href="/paginas-pautantes/camping-cascadas-de-santa-rita/">Ver información</a>
-                        <a class="btn" href="/paginas-pautantes/camping-cascadas-de-santa-rita/">Conocer</a>
-                        <a class="btn whatsapp" href="https://wa.me/573015038254" target="_blank" rel="noreferrer">WhatsApp</a>
-                    </div>
-                </div>
-            </article>
-            <article class="provider-card" onclick="window.location.href='/paginas-pautantes/reserva-natural-cascadas-de-santa-rita/'" role="link" tabindex="0" onkeydown="if(event.key==='Enter'){window.location.href='/paginas-pautantes/reserva-natural-cascadas-de-santa-rita/'}" style="cursor:pointer" aria-label="Abrir página de Reserva Natural Cascadas de Santa Rita">
-                <div class="card-body">
-                    <div class="card-header-row">
-                        <span class="pill">Atractivo + Camping</span>
-                        <span class="rating">⭐ 4.7</span>
-                    </div>
-                    <h3>Reserva Natural Cascadas de Santa Rita</h3>
-                    <p>Cascada de 20 m con piscina natural y sendero de 4.8 km. Pasadía $11.000, camping $28.000 por noche y habitación $140.000 por pareja. Contacto directo.</p>
-                    <div class="meta-row">
-                        <span>Pasadía $11.000</span>
-                        <span>3-4 horas caminata</span>
-                    </div>
-                    <div class="card-actions" onclick="event.stopPropagation()">
-                        <a class="btn primary" href="/paginas-pautantes/reserva-natural-cascadas-de-santa-rita/">Ver información</a>
-                        <a class="btn" href="/paginas-pautantes/reserva-natural-cascadas-de-santa-rita/">Conocer</a>
-                        <a class="btn whatsapp" href="https://wa.me/573015038254" target="_blank" rel="noreferrer">WhatsApp</a>
-                    </div>
-                </div>
-            </article>
-        </div>
-
-        <div class="cta-section">
-            <h2>Encuentra tu lugar de camping</h2>
-            <p>Explora las opciones disponibles en el mapa y contacta directamente con los operadores.</p>
-            <a href="/" class="cta-button">Ver en el mapa</a>
-        </div>
-        <nav class="bottom-nav" aria-label="Volver" style="display:flex;flex-wrap:wrap;gap:10px;margin-top:28px"><a class="button primary" href="/">Volver al inicio</a><a class="button dark" href="/">Ir a página principal</a><a class="button" href="/categorias/">Ver categorías</a></nav>
-    </main>
-
-    <footer class="footer">
-        <p>© 2026 Salento a la Mano. Guía turística de Salento, Quindío.</p>
-    </footer>
-</body>
+      <div class="provider-grid">
+        
+        
+      <section class="empty-category" aria-live="polite">
+        <span class="empty-category-mark">+</span>
+        <div><h2>Próximamente en Camping y Glamping</h2><p>Esta categoría ya está lista para recibir pautantes locales. Estamos preparando la información, fotos, horarios y contactos verificados.</p></div>
+        <a class="btn primary" href="/index.html#pautas">Publicar mi servicio</a>
+      </section>
+      </div>
+    </div>
+  </body>
 </html>
-
-

@@ -33,6 +33,12 @@ const categoryMeta = {
 
 const categoryNames = Object.keys(categoryMeta);
 
+// Mapeo de proveedores a categorías adicionales (cross-category)
+const CROSS_CATEGORY_MAP = {
+  'ruta-navarco': ['coffee-tours'],
+  'ruta comunitaria navarco y sus tesoros': ['coffee-tours'],
+};
+
 // Páginas de categoría especiales (fuera de categoryMeta / places.type)
 const EXTRA_CATEGORY_CARDS = [
   {
@@ -201,7 +207,7 @@ function cardImageFor(item, category) {
   if (CARD_IMAGE_OVERRIDES[slugify(item.name)]) return CARD_IMAGE_OVERRIDES[slugify(item.name)];
   const photos = providerPhotos(item);
   if (photos[0]) return photos[0].startsWith('http') ? photos[0] : encodeURI(photos[0]);
-  return categoryMeta[category]?.image || '/imagenes-salento/destinos-75.webp';
+  return meta?.image || '/imagenes-salento/destinos-75.webp';
 }
 
 function galleryFor(provider) {
@@ -352,9 +358,10 @@ function buildSchemaJsonLd(provider) {
   return `<script type="application/ld+json">${JSON.stringify(data)}</script>`;
 }
 
-function renderCategoryPage(category, items) {
-  const pageTitle = `${categoryMeta[category]?.title || category} | Salento a la Mano`;
-  const categorySlug = slugify(category);
+function renderCategoryPage(category, items, extraCat = null) {
+  const meta = extraCat || categoryMeta[category] || { title: category, description: `Servicios de ${category}`, image: '/imagenes-salento/destinos-75.webp' };
+  const pageTitle = `${meta.title} | Salento a la Mano`;
+  const categorySlug = extraCat ? extraCat.slug : slugify(category);
   const cards = items.map((item) => {
     const itemSlug = slugify(item.name);
     const whatsapp = whatsappUrl(item.contact?.whatsapp);
@@ -385,7 +392,7 @@ function renderCategoryPage(category, items) {
   const emptyState = items.length === 0 ? `
       <section class="empty-category" aria-live="polite">
         <span class="empty-category-mark">+</span>
-        <div><h2>Próximamente en ${escapeHtml(categoryMeta[category]?.title || category)}</h2><p>Esta categoría ya está lista para recibir pautantes locales. Estamos preparando la información, fotos, horarios y contactos verificados.</p></div>
+        <div><h2>Próximamente en ${escapeHtml(meta?.title || category)}</h2><p>Esta categoría ya está lista para recibir pautantes locales. Estamos preparando la información, fotos, horarios y contactos verificados.</p></div>
         <a class="btn primary" href="/index.html#pautas">Publicar mi servicio</a>
       </section>` : '';
 
@@ -394,7 +401,7 @@ function renderCategoryPage(category, items) {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="${escapeHtml(categoryMeta[category]?.description || pageTitle)}" />
+    <meta name="description" content="${escapeHtml(meta?.description || pageTitle)}" />
     <title>${pageTitle}</title>
     ${canonicalTag(`/categorias/${categorySlug}.html`)}
     ${FONTS_LINK}
@@ -431,7 +438,7 @@ function renderCategoryPage(category, items) {
       .stats { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 20px; }
       .stat { background: #f1eadb; border: 1px solid var(--line); border-radius: 14px; padding: 12px 14px; }
       .hero-visual {
-        background-image: linear-gradient(rgba(15,28,18,.18), rgba(15,28,18,.42)), url('${categoryMeta[category]?.image || '/imagenes-salento/destinos-75.webp'}');
+        background-image: linear-gradient(rgba(15,28,18,.18), rgba(15,28,18,.42)), url('${meta?.image || '/imagenes-salento/destinos-75.webp'}');
         background-size: cover; background-position: center; min-height: 280px;
       }
       .provider-grid {
@@ -478,13 +485,13 @@ function renderCategoryPage(category, items) {
     ${buildBreadcrumbListSchema([
       { name: 'Inicio', url: 'https://www.salentoalamano.com/' },
       { name: 'Categorías', url: 'https://www.salentoalamano.com/categorias/' },
-      { name: categoryMeta[category]?.title || category },
+      { name: meta?.title || category },
     ])}
     <script type="application/ld+json">${JSON.stringify({
       '@context': 'https://schema.org',
       '@type': 'CollectionPage',
-      name: `${categoryMeta[category]?.title || category} | Salento a la Mano`,
-      description: categoryMeta[category]?.description || 'Directorio de servicios locales en Salento, Quindío.',
+      name: `${meta?.title || category} | Salento a la Mano`,
+      description: meta?.description || 'Directorio de servicios locales en Salento, Quindío.',
       url: `https://www.salentoalamano.com/categorias/${slugify(category)}.html`,
       inLanguage: 'es',
       mainEntity: {
@@ -508,8 +515,8 @@ function renderCategoryPage(category, items) {
       <section class="hero">
         <div class="hero-copy">
           <div class="eyebrow">Categoría</div>
-          <h1>${escapeHtml(categoryMeta[category]?.title || category)}</h1>
-          <div class="sub">${escapeHtml(categoryMeta[category]?.description || 'Servicios de Salento')}</div>
+          <h1>${escapeHtml(meta?.title || category)}</h1>
+          <div class="sub">${escapeHtml(meta?.description || 'Servicios de Salento')}</div>
         </div>
         <div class="hero-visual" aria-label="${escapeHtml(category)}"></div>
       </section>
@@ -1516,9 +1523,21 @@ const onlyFilter = new Set(
 
 for (const category of categoryNames) {
   if (onlyFilter.size > 0 && ![...onlyFilter].some((f) => f === slugify(category) || f === `cat:${slugify(category)}`)) continue;
-  const items = providers.filter((item) => item.type === category).sort(porPrioridadPautante);
+  let items = providers.filter((item) => item.type === category);
+  const extra = providers.filter((item) => CROSS_CATEGORY_MAP[slugify(item.name)]?.includes(category));
+  items = [...items, ...extra].sort(porPrioridadPautante);
   const categoryPath = path.join(categoryDir, `${slugify(category)}.html`);
   fs.writeFileSync(categoryPath, renderCategoryPage(category, items));
+}
+
+// Extra category pages (from EXTRA_CATEGORY_CARDS)
+for (const extraCat of EXTRA_CATEGORY_CARDS) {
+  if (onlyFilter.size > 0 && ![...onlyFilter].some((f) => f === extraCat.slug || f === `cat:${extraCat.slug}`)) continue;
+  let items = providers.filter((item) => item.type === extraCat.title || item.type === extraCat.slug);
+  const extra = providers.filter((item) => CROSS_CATEGORY_MAP[slugify(item.name)]?.includes(extraCat.slug));
+  items = [...items, ...extra].sort(porPrioridadPautante);
+  const categoryPath = path.join(categoryDir, `${extraCat.slug}.html`);
+  fs.writeFileSync(categoryPath, renderCategoryPage(extraCat.title, items, extraCat));
 }
 
 // Páginas artesanales que el generador nunca debe sobrescribir (mapa offline a medida)
@@ -1606,3 +1625,4 @@ fs.writeFileSync(indexPath, indexHtml);
 } // end if onlyFilter empty (categorias index solo en regeneración completa)
 
 console.log(`Se generaron páginas de categoría y fichas de pautantes${onlyFilter.size > 0 ? ` (filtro: ${[...onlyFilter].join(', ')})` : ''}.`);
+
