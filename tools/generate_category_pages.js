@@ -112,6 +112,10 @@ const PAUTANTE_LOGOS = {
   'coffee-tour-finca-don-eduardo': '/pautas/coffee-tour-finca-don-eduardo/imagenes/logo-finca-don-eduardo.webp',
   'coffee-tour-finca-cafetera-don-elias': '/pautas/coffee-tour-finca-cafetera-don-elias/imagenes/logo-coffe-tour-don-elias.webp',
   'cootracocora-ltda': '/pautas/cootracocora_ltda/imagenes/logo-cootracocora.webp',
+  'los-barranqueros-hotel': '/pautas/hotel-barranqueros/logo-barranqueros-salento.webp',
+  'hotel-green-house-salento': '/pautas/hotel-green-house/imagenes/logo-green-house.webp',
+  'mirador-manos-de-cocora': '/pautas/mirador-manos-de-cocora/imagenes/logo-mirador-manos-de-cocora.webp',
+  'shalem-restaurante-bar': '/pautas/restaurante-bar-shalem/imagenes/logo-shalem.webp',
   'el-recuerdo-coffee-tour': '/pautas/el_recuerdo_coffee_tour/imagenes/logo-recuerdo-tour.webp',
   'cabalgatas-cocora-magica': '/pautas/cabalgatas_cocora_magica/imagenes/logo-cocora-magica.webp',
   'mahalo-hostel-salento': '/pautas/mahalo_hostel/imagenes/logo-mahalo.webp',
@@ -255,7 +259,7 @@ function buildSchemaJsonLd(provider) {
   const whatsapp = provider.contact?.whatsapp ? `+57${String(provider.contact.whatsapp).replace(/\D/g, '')}` : undefined;
   const email = provider.contact?.email || undefined;
   const priceRange = provider.priceRange || '$$';
-  const ratingValue = provider.rating ? String(provider.rating).replace(/[^\d.]/g, '') : '4.8';
+  const ratingValue = provider.rating ? String(provider.rating).replace(/[^\d.]/g, '') : '';
   const address = {
     '@type': 'PostalAddress',
     addressLocality: 'Salento',
@@ -361,7 +365,7 @@ function renderCategoryPage(category, items) {
         <div class="card-body">
           <div class="card-header-row">
             <span class="pill">${escapeHtml(item.type || category)}</span>
-            <span class="rating">⭐ ${escapeHtml(item.rating || '4.8')}</span>
+            ${item.rating ? `<span class="rating">⭐ ${escapeHtml(item.rating)}</span>` : ''}
           </div>
           <h3>${escapeHtml(item.name)}</h3>
           <p>${escapeHtml(item.description || 'Servicio de Salento')}</p>
@@ -633,7 +637,7 @@ function renderProviderPage(provider) {
             <div>
               <div class="meta">
                 <span class="pill">${escapeHtml(categoryLabelFor(category))}</span>
-                <span class="pill">⭐ ${escapeHtml(provider.rating || '4.8')}</span>
+                ${provider.rating ? `<span class="pill">⭐ ${escapeHtml(provider.rating)}</span>` : ''}
               </div>
               <h1 class="provider-name">${escapeHtml(provider.name)}</h1>
             </div>
@@ -1530,10 +1534,13 @@ for (const provider of providers) {
   if (PROTECT.has(slugify(provider.name))) continue;
   if (onlyFilter.size > 0 && !onlyFilter.has(slugify(provider.name))) continue;
   const providerPath = path.join(providerDir, `${slugify(provider.name)}.html`);
-  fs.writeFileSync(providerPath, renderRedirectStub(provider));
+  if (!fs.existsSync(providerPath)) fs.writeFileSync(providerPath, renderRedirectStub(provider));
   const landingPath = path.join(providerLandingDir, slugify(provider.name), 'index.html');
-  fs.mkdirSync(path.dirname(landingPath), { recursive: true });
-  fs.writeFileSync(landingPath, renderProviderLandingPage(provider));
+  // Fichas artesanales: solo se generan si NO existen (nunca sobrescribir ediciones manuales)
+  if (!fs.existsSync(landingPath)) {
+    fs.mkdirSync(path.dirname(landingPath), { recursive: true });
+    fs.writeFileSync(landingPath, renderProviderLandingPage(provider));
+  }
 }
 
 if (onlyFilter.size === 0) {

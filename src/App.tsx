@@ -95,6 +95,12 @@ const serviceCardImageSets = {
     '/pautas/restaurante_bar_fonda_boquia/imagenes/29389126_1005353112946875_6049563033867386880_n.webp',
     '/pautas/boki_mall/imagenes/images%20(3).webp'
   ],
+  coffeeTour: [
+    '/pautas/coffee-tour-finca-cafetera-don-elias/imagenes/cafe-don-elias.webp',
+    '/pautas/coffee-tour-finca-don-eduardo/imagenes/Plantation.webp',
+    '/pautas/el_recuerdo_coffee_tour/imagenes/recuerdo1casa.webp',
+    '/pautas/coffee-tour-alojamiento-finca-hotel-el-ocaso/imagenes/foto_casa_ocaso.webp'
+  ],
   transport: [
     '/pautas/cootracocora_ltda/imagenes/willys.webp',
     '/pautas/cootracocora_ltda/cootracocora-arte-publicitario.webp'
@@ -1384,6 +1390,19 @@ function App() {
               </div>
             </button>
 
+            <button className="service-card coffee-tour" style={{ backgroundImage: `url(${rotateServiceImage(serviceCardImageSets.coffeeTour, serviceTick + 10)})` }} onClick={() => goToCategory('Coffee Tours')}>
+              <div className="service-badge">☕ {t('services.coffeeTourBadge', 'ESPECIAL')}</div>
+              <div className="service-icon">☕</div>
+              <div className="service-content">
+                <h3>{t('services.coffeeTour', 'Coffee Tour')}</h3>
+                <p>{t('services.coffeeTourDesc', 'Fincas y tours de café')}</p>
+              </div>
+              <div className="service-info">
+                <span className="provider-count">{places.filter(p => p.type === 'Coffee Tours').length} {t('services.coffeeTourCount', 'coffee tours')}</span>
+                <ChevronRight size={16} />
+              </div>
+            </button>
+
             <button className="service-card restaurant-bar" style={{ backgroundImage: `url(${rotateServiceImage(serviceCardImageSets.restaurantBar, serviceTick + 2)})` }} onClick={() => goToCategory('Restaurante Bar')}>
               <div className="service-icon">🍸</div>
               <div className="service-content">
@@ -1617,9 +1636,9 @@ function App() {
               <p>Catálogo y precios oficiales de las fincas cafeteras. Pedido directo por WhatsApp, sin intermediarios ni comisiones.</p>
             </div>
             <div className="coffee-premium-products" role="list">
-              <span role="listitem"><strong>Café Tradicional</strong> $40.000</span>
-              <span role="listitem"><strong>Grano / Molido Premium</strong> $50.000</span>
-              <span role="listitem"><strong>Taza Colombia</strong> $18.000</span>
+              <span role="listitem"><strong>Tradicional · Don Elías</strong> $40.000</span>
+              <span role="listitem"><strong>250 g · El Ocaso</strong> $28.000</span>
+              <span role="listitem"><strong>De la finca · El Recuerdo</strong> Consultar</span>
             </div>
             <div className="coffee-premium-actions">
               <a className="button primary" href="/landing/cafe-premium-salento/">Ver catálogo</a>
