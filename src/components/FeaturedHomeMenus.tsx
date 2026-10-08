@@ -35,14 +35,10 @@ export default function FeaturedHomeMenus({ places }: FeaturedHomeMenusProps) {
       <div className="home-featured-menus-inner">
         <header className="home-featured-menus-header">
           <div>
-            <p className="eyebrow">Sabores locales · carta destacada</p>
-            <h2 id="home-featured-menus-title">Menú de la casa, sin rodeos.</h2>
-            <p className="home-featured-menus-lead">
-              Pautantes de Salento y Boquía. Entra a cada página para ver su carta completa y pedir o reservar directo por WhatsApp.
-            </p>
+            <h2 id="home-featured-menus-title">Restaurantes con carta</h2>
           </div>
           <a className="outline-button home-featured-menus-all" href="/categorias/restaurantes.html">
-            Ver todos los restaurantes <ArrowRight size={16} />
+            Ver todos <ArrowRight size={16} />
           </a>
         </header>
 

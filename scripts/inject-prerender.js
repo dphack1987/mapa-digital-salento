@@ -92,6 +92,8 @@ html = html.replace(/<link rel="canonical" href="[^"]*\?[^"]*"\s*\/?>/g, '<link 
 // Fix meta tags for Naver/SEO
 html = html.replace(/<title>.*?<\/title>/, '<title>Salento a la Mano - Guía Turística 2026</title>');
 html = html.replace(/<meta name="description" content="[^"]*"/, '<meta name="description" content="Guía de Salento, Quindío. Hoteles, restaurantes, coffee tours y mapa interactivo."');
+html = html.replace(/<meta name="author" content="[^"]*"/, '<meta name="author" content="zenythos 2.0 para quindio travel"');
+html = html.replace(/<meta name="citation_author" content="[^"]*"/, '<meta name="citation_author" content="zenythos 2.0 para quindio travel"');
 html = html.replace(/<meta property="og:title" content="[^"]*"/, '<meta property="og:title" content="Salento a la Mano | Guía Turística 2026"');
 html = html.replace(/<meta property="og:description" content="[^"]*"/, '<meta property="og:description" content="Hoteles, restaurantes, coffee tours y mapa de Salento. Reserva directa."');
 html = html.replace(/<meta name="naver-site-verification" content="[^"]*"/, '<meta name="naver-site-verification" content="932c1bd7459fb55347b5f347de3831588dfc7c4c"');
