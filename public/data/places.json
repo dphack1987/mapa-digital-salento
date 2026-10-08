@@ -1206,13 +1206,14 @@
       "color": "coral",
       "icon": "Compass",
       "contact": {
-        "phone": "Por confirmar"
+        "phone": "+57 313 759 3013",
+        "whatsapp": "573137593013"
       },
       "location": {
         "lat": 4.6315,
         "lng": -75.5738,
-        "address": "Valle de Cocora",
-        "landmark": "Entrada Valle de Cocora"
+        "address": "Calle 2 #6-09, Salento (oficina CocoraTours, frente al Hotel Mahalo)",
+        "landmark": "Frente al Hotel Mahalo, entrada Valle de Cocora"
       },
       "operatingHours": {
         "notes": "Salidas programadas con reserva"
