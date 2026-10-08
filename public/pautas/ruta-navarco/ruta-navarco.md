@@ -1,14 +1,14 @@
-# Ruta Navarco — Salento y sus Tesoros
+# Ruta Comunitaria Navarco y sus Tesoros
 
 ## Estado
 - Estado actual: ficha creada a partir de portafolio PDF + sitio oficial
 - Prioridad: alta
 - Verificación: verificada (PDF de portafolio agencia + salentoysustesoros.co)
-- Fuente PDF: Portafolio Salento y sus Tesoros - Precios agencia.pdf
+- Fuente PDF: Portafolio Ruta Comunitaria Navarco - Precios agencia.pdf
 - Fuente web: https://salentoysustesoros.co/
 
 ## Información confirmada
-- Nombre comercial: Ruta Comunitaria Navarco y sus Tesoros (Salento y sus Tesoros)
+- Nombre comercial: Ruta Comunitaria Navarco y sus Tesoros
 - Categoría principal: experiencias / turismo comunitario
 - Operador: iniciativa comunitaria ligada a Acodrés Capítulo Quindío
 - Salida: Salento, Quindío (en Willys)
