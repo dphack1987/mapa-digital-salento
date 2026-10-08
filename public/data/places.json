@@ -386,6 +386,12 @@
           "Tapas gourmet",
           "Postres caseros"
         ],
+        "menuHighlights": [
+          "Cafés de especialidad $8.000-$15.000",
+          "Cócteles artesanales $18.000-$28.000",
+          "Postres artesanales $12.000-$20.000",
+          "Tapas gourmet $15.000-$30.000"
+        ],
         "ambience": "Relajado y elegante vanguardista",
         "seating": "40 personas",
         "reservations": "No requeridas",
@@ -2992,6 +2998,34 @@
       ],
       "verified": true,
       "active": true,
+      "foodServiceDetails": {
+        "cuisineType": [
+          "Colombiana",
+          "Trucha",
+          "Tilapia",
+          "Bandeja paisa"
+        ],
+        "specialties": [
+          "Trucha arcoíris",
+          "Tilapia",
+          "Bandeja paisa",
+          "Comida típica colombiana"
+        ],
+        "menuHighlights": [
+          "Trucha arcoíris $28.000-$42.000",
+          "Tilapia $25.000-$35.000",
+          "Bandeja paisa $35.000-$45.000",
+          "Comida casera $20.000-$35.000"
+        ],
+        "ambience": "Local climatizado con salón de eventos",
+        "seating": "80 personas",
+        "reservations": "Recomendadas para grupos",
+        "paymentMethods": [
+          "Efectivo",
+          "Tarjeta",
+          "Transferencia"
+        ]
+      },
       "photos": [
         "/pautas/restaurante-bar-shalem/imagenes/shalem-home-banner.webp",
         "/pautas/restaurante-bar-shalem/imagenes/shalem-restaurante-1.webp",
