@@ -51,3 +51,8 @@
 - Horarios: verificado (check-in 15:00, check-out 12:00)
 - Fotos: 11 imágenes reales en public/pautas/hotel_la_floresta_salento/imagenes/
 - Listo para publicación
+
+## Verificación tarifas (5/10/2026)
+- Doble estándar: tarifa directa verificada $124.000 COP
+- Suite con jacuzzi y paquete café: sin tarifa publicada → precio null, desc con nota de consulta
+

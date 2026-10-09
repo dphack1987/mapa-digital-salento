@@ -38,7 +38,8 @@
       @media (max-width:800px) { .hero,.two-col { grid-template-columns:1fr; } .hero-image { min-height:260px; order:-1; } .topbar { align-items:flex-start; flex-direction:column; } .gallery { grid-template-columns:1fr; } }
     </style>
     <link rel="stylesheet" href="/page-theme.css" />
-    <link rel="stylesheet" href="/pautante-theme.css" />\n    <meta name="author" content="zenythos 2.0 para quindio travel" />
+    <link rel="stylesheet" href="/pautante-theme.css" />
+    <meta name="author" content="zenythos 2.0 para quindio travel" />
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://www.salentoalamano.com/"},{"@type":"ListItem","position":2,"name":"Restaurantes","item":"https://www.salentoalamano.com/categorias/restaurantes.html"},{"@type":"ListItem","position":3,"name":"Restaurante Don Elías"}]}</script>
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"Restaurant","name":"Restaurante Don Elías","description":"Restaurante en la Finca Cafetera Don Elías (Vereda Palestina Km 4): comida cafetera y trucha arcoíris con productos de la finca, junto al coffee tour.","url":"https://www.salentoalamano.com/paginas-pautantes/restaurante-don-elias/","image":"https://www.salentoalamano.com/pautas/coffee-tour-finca-cafetera-don-elias/imagenes/cafe-don-elias.webp","address":{"@type":"PostalAddress","addressLocality":"Salento","addressRegion":"Quindío","addressCountry":"CO","streetAddress":"Vereda Palestina Km 4, Salento, Quindío (631027)"},"geo":{"@type":"GeoCoordinates","latitude":4.625157,"longitude":-75.597221},"telephone":"+57 315 606 1113","priceRange":"$$","areaServed":{"@type":"City","name":"Salento","containedIn":{"@type":"State","name":"Quindío"}},"aggregateRating":{"@type":"AggregateRating","ratingValue":4.8,"reviewCount":1,"bestRating":5,"worstRating":1},"openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]},"servesCuisine":["Colombiana","Cafetera"],"acceptsReservations":true}</script>
   </head>
@@ -47,10 +48,42 @@
       <header class="topbar"><a class="brand" href="/"><img src="/logo_salento2026.webp" alt="Salento a la Mano" class="brand-logo" style="width:64px;height:64px;object-fit:contain;border-radius:50%"/><span>Salento a la Mano</span><span aria-hidden="true" style="opacity:.4">×</span><img src="/pautas/coffee-tour-finca-cafetera-don-elias/imagenes/logo-coffe-tour-don-elias.webp" alt="Logo pautante" class="brand-logo" style="width:64px;height:64px;object-fit:contain;border-radius:50%;border:1px solid var(--line)" /></a><nav class="top-actions"><a class="button" href="/">Inicio</a><a class="button" href="/categorias/restaurantes.html">Ver categoría</a></nav></header>
       <section class="hero">
         <div class="hero-copy"><div class="eyebrow">Restaurantes · contacto directo</div><h1>Restaurante Don Elías</h1><p class="lead">Restaurante en la Finca Cafetera Don Elías (Vereda Palestina Km 4): comida cafetera y trucha arcoíris con productos de la finca, junto al coffee tour.</p>
-          <div class="highlights"><span class="highlight">Rango: $$</span><span class="highlight">Durante los tours de café (9:00–16:00)</span></div>
-          <div class="actions"><a class="button primary" href="https://wa.me/573156061113" target="_blank" rel="noreferrer">Reservar por WhatsApp</a><a class="button dark" href="tel:+573156061113">Llamar ahora</a><a class="button" href="https://www.google.com/maps/search/Vereda%20Palestina%20Km%204%2C%20Salento%2C%20Quind%C3%ADo%20(631027)" target="_blank" rel="noreferrer">Cómo llegar</a></div>
+          <div class="highlights"><span class="highlight">Desde $18.000</span><span class="highlight">Durante los tours de café (9:00–16:00)</span></div>
+          <div class="actions"><a class="button buy" href="#menu-interactivo">Ver precios y reservar</a><a class="button primary" href="https://wa.me/573156061113" target="_blank" rel="noreferrer">Reservar por WhatsApp</a><a class="button dark" href="tel:+573156061113">Llamar ahora</a><a class="button" href="https://www.google.com/maps/search/Vereda%20Palestina%20Km%204%2C%20Salento%2C%20Quind%C3%ADo%20(631027)" target="_blank" rel="noreferrer">Cómo llegar</a></div>
         </div><div class="hero-image" aria-label="Restaurante Don Elías"><img class="hero-brand" src="/pautas/coffee-tour-finca-cafetera-don-elias/imagenes/logo-coffe-tour-don-elias.webp" alt="Logo Restaurante Don Elías" /></div>
       </section>
+      <section class="section" id="menu-interactivo">
+        <h2>Restaurante en la finca</h2>
+        <p class="muted" style="margin-top:-8px;margin-bottom:20px">Mismo lugar que el coffee tour. Toca los platos para armar tu consulta o pedido por WhatsApp.</p>
+        <div class="menu-header">
+          <div class="menu-search"><input type="text" id="menuSearch" placeholder="Buscar opción..." /></div>
+          <div class="currency-switch" role="group" aria-label="Moneda">
+            <button data-cur="COP" class="active">COP</button>
+            <button data-cur="USD">USD</button>
+            <button data-cur="EUR">EUR</button>
+          </div>
+        </div>
+        <div class="menu-tabs" id="menuTabs"></div>
+        <div class="menu-grid" id="menuGrid"></div>
+        <div class="menu-empty" id="menuEmpty" style="display:none"><span>🔍</span>No encontramos opciones con ese nombre.</div>
+      </section>
+      <div class="cart-float" id="cartFloat" role="button" tabindex="0" aria-label="Ver selección">
+        <span class="badge" id="cartBadge">0</span>
+        <span class="total" id="cartTotal">$0</span>
+        <span>Ver pedido →</span>
+      </div>
+      <div class="cart-modal" id="cartModal" role="dialog" aria-modal="true">
+        <div class="cart-panel">
+          <h2>Tu pedido</h2>
+          <div id="cartItems"></div>
+          <div class="cart-total"><span>Total</span><span id="cartModalTotal">$0</span></div>
+          <div class="cart-actions">
+            <button class="send" id="sendWhatsApp">Enviar por WhatsApp</button>
+            <button class="clear" id="clearCart">Vaciar</button>
+            <button class="close" id="closeCart">Seguir explorando</button>
+          </div>
+        </div>
+      </div>
       
       <section class="section service-section"><h2>Carta, precios y pedidos</h2><div class="service-grid"><div><strong>Especialidades</strong><ul><li>Trucha arcoíris</li><li>Comida tradicional</li><li>Platos locales</li></ul><strong>En la carta</strong><ul><li>Trucha arcoíris $30.000 - $42.000</li><li>Comida casera de la finca</li><li>Café de la finca en venta</li></ul></div><div><strong>Precio promedio</strong><p>$$</p><strong>Tipo de cocina</strong><ul><li>Colombiana</li><li>Cafetera</li></ul><p class="muted">Confirma si hay domicilio o recogida.</p></div></div><div class="actions"><a class="button primary" href="https://wa.me/573156061113">Consultar carta y reservar</a></div></section>
       
@@ -95,6 +128,7 @@
     </main>
     
     <script src="/pautante-common.js"></script>
-    <script>PautanteCommon.initMenu({"containerId":"menuGrid","items":[{"id":1,"cat":"trucha","nombre":"Trucha arcoíris","precio":30000,"desc":"Desde $30.000 · hasta $42.000 según preparación","img":"/pautas/coffee-tour-finca-cafetera-don-elias/imagenes/cafe-don-elias.webp"},{"id":2,"cat":"trucha","nombre":"Trucha preparación especial","precio":42000,"desc":"Hasta $42.000 · confirmar carta en sitio","img":"/pautas/coffee-tour-finca-cafetera-don-elias/imagenes/484042363_664478162683303_2341224993788835150_n.webp"},{"id":3,"cat":"cocina","nombre":"Comida tradicional cafetera","precio":0,"desc":"Platos caseros con productos de la finca · consultar precio","img":"/pautas/coffee-tour-finca-cafetera-don-elias/imagenes/483101751_664446382686481_2585961616784103288_n.webp"},{"id":4,"cat":"cafe","nombre":"Café de la finca","precio":18000,"desc":"Taza Colombia $18.000 · café premium desde $40.000","img":"/pautas/coffee-tour-finca-cafetera-don-elias/imagenes/cafe-don-elias.webp"}],"categories":[{"id":"todas","label":"Todas"},{"id":"trucha","label":"Trucha"},{"id":"cocina","label":"Cocina"},{"id":"cafe","label":"Café"}],"whatsapp":"573156061113","businessName":"Restaurante Don Elías","currency":"COP","showSearch":true,"showCurrency":true,"precioLabel":"c/u"});</script>
-  </body>
+    <script>PautanteCommon.initMenu({"containerId":"menuGrid","items":[{"id":1,"cat":"trucha","nombre":"Trucha arcoíris","precio":30000,"desc":"Desde $30.000 · hasta $42.000 según preparación","img":"/pautas/coffee-tour-finca-cafetera-don-elias/imagenes/cafe-don-elias.webp"},{"id":2,"cat":"trucha","nombre":"Trucha preparación especial","precio":42000,"desc":"Hasta $42.000 · confirmar carta en sitio","img":"/pautas/coffee-tour-finca-cafetera-don-elias/imagenes/484042363_664478162683303_2341224993788835150_n.webp"},{"id":3,"cat":"cocina","nombre":"Comida tradicional cafetera","precio":null,"desc":"Platos caseros con productos de la finca · consultar precio","img":"/pautas/coffee-tour-finca-cafetera-don-elias/imagenes/483101751_664446382686481_2585961616784103288_n.webp"},{"id":4,"cat":"cafe","nombre":"Café de la finca","precio":18000,"desc":"Taza Colombia $18.000 · café premium desde $40.000","img":"/pautas/coffee-tour-finca-cafetera-don-elias/imagenes/cafe-don-elias.webp"}],"categories":[{"id":"todas","label":"Todas"},{"id":"trucha","label":"Trucha"},{"id":"cocina","label":"Cocina"},{"id":"cafe","label":"Café"}],"whatsapp":"573156061113","businessName":"Restaurante Don Elías","currency":"COP","showSearch":true,"showCurrency":true,"precioLabel":"c/u"});</script>
+    <script src="/quick-nav.js" defer></script>
+</body>
 </html>

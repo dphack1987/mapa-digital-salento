@@ -57,3 +57,7 @@ La ficha se considerará lista cuando tenga:
 - fotos reales del hotel (mínimo 6: hero + 4 habitaciones + logo)
 - descripción para turista
 - initMenu con categorías habitaciones + servicios
+## Verificación tarifas (5/10/2026)
+- Web oficial greenhousesalento.com sin precios publicados; sin OTA con tarifa verificable
+- Decisión: precio null → Consultar precio
+

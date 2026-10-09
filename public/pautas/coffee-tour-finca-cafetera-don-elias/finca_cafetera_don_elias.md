@@ -1,9 +1,9 @@
 # Finca Cafetera Don Elías
 
 ## Estado
-- Estado actual: ficha publicada con información verificada desde sitio oficial
+- Estado actual: ficha publicada con información verificada
 - Prioridad: alta
-- Verificación: completamente verificada
+- Verificación: pautante directo 5/10/2026 (tarifas de tours, café, idiomas y salidas) + sitio oficial (historia, productos)
 
 ## Información confirmada
 - Nombre comercial: Finca Cafetera Don Elías
@@ -34,17 +34,17 @@
 - Pago: directo con la finca según disponibilidad
 
 ## Tours y tarifas
-Fuente: QUINDIO TRAVEL (tarifario oficial verificado)
+Fuente: pautante directo QUINDIO TRAVEL 5/10/2026 (verificado)
 | Tour | Duración | Precio COP |
 |---|---|---|
-| Coffee Tour español + inglés simultáneo | 90 min | $55.000/pax |
-| Coffee Tour en español O en inglés (solo uno) | 90 min | $65.000/pax · requiere reserva |
-| Coffee Tour en francés | 90 min | $75.000/pax · requiere reserva |
-| Tour privado | 90 min | salidas fijas 9:30 · 11:30 · 13:30 · 15:30 |
+| Coffee Tour español + inglés simultáneo | 90 min | $50.000/pax |
+| Coffee Tour en español O en inglés (solo uno) | 90 min | $60.000/pax · requiere reserva |
+| Coffee Tour en francés | 90 min | $70.000/pax · requiere reserva |
+| Tour privado | 90 min | salidas fijas 9:30 · 11:30 · 13:30 · 15:30 · consultar tarifa |
 
 - Salidas simultáneas cada hora en punto: 09:00 a 16:00
 - Idiomas: español, inglés, francés (muy buen nivel)
-- Nota histórica (sitio oficial, puede variar): ~$18 USD compartido / $20–21 USD privado; niños <12 gratis
+- Ubicación: vereda Palestina Km 4 de Salento
 
 ## Horarios
 - Abierto todos los días: 9:00 AM - 4:00 PM

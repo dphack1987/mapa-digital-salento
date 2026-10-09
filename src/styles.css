@@ -2205,7 +2205,7 @@
 .mobile-header { background: var(--paper); padding: 10px 12px; border-bottom: 2px solid var(--line); }
 .identity-header { margin-bottom: 8px; }
 .brand-mobile { display: flex; align-items: center; gap: 14px; margin-bottom: 8px; }
-.mobile-logo { width: 120px; height: 120px; object-fit: contain; flex-shrink: 0; filter: drop-shadow(0 2px 8px rgba(0,0,0,0.15)); }
+.mobile-logo { width: 120px; height: 120px; object-fit: contain; flex-shrink: 0; border-radius: 50%; transform: scale(1.08); mix-blend-mode: multiply; }
 @media (min-width: 768px) { .mobile-logo { width: 140px; height: 140px; } }
 .brand-text h1 { font: 600 18px Fraunces; color: var(--ink); margin: 0; line-height: 1.15; }
 .brand-text .brand-domain { font: 700 13px 'DM Mono', monospace; color: var(--green); margin: 2px 0; letter-spacing: 0.5px; background: rgba(86,117,91,0.08); padding: 2px 8px; border-radius: 4px; display: inline-block; }

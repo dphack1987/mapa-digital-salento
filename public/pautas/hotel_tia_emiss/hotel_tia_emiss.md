@@ -40,3 +40,8 @@
 ## Pendientes (el pautante aporta)
 - Tarifas por tipo de habitación (tarifa exacta por fecha)
 - Confirmación de servicios adicionales (parqueadero, desayuno incluido sí/no)
+
+## Verificación tarifas (5/10/2026)
+- Referencia OTA: desde ~US$62/noche (sitio de reservas)
+- Decisión: precio null → Consultar precio; desc con referencia OTA
+

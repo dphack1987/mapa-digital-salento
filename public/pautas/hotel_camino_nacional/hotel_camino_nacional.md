@@ -91,3 +91,8 @@ El Hotel Camino Nacional Salento ofrece una ubicación central con fácil acceso
 ## Pendientes para completar la ficha pública
 - Fotos reales del hotel, habitaciones, baño y zonas comunes
 - Enlace de ubicación en Google Maps u OpenStreetMap
+
+## Verificación tarifas (5/10/2026)
+- Sin tarifa pública OTA ni web oficial (hotel de paso central Cra 6 #3-46)
+- Decisión: precio null → Consultar precio
+

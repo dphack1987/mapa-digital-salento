@@ -66,3 +66,8 @@
 - Tarifas por tipo de habitación (rango COP o USD)
 - Políticas de cancelación exactas
 - Confirmación de check-in / check-out
+
+## Verificación tarifas (5/10/2026)
+- Referencia OTA: ~US$59–72/noche (Agoda/Kayak) ≈ $245.000–$295.000 COP
+- Decisión: precio null → Consultar precio; desc con referencia OTA
+

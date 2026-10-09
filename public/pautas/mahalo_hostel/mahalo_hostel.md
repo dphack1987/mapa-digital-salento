@@ -29,3 +29,8 @@
 ## Pendientes (el pautante aporta)
 - Fuente oficial verificable (sitio web o redes) para confirmar tarifas y servicios
 - Fotos en formato webp trackeadas para la galería
+
+## Verificación tarifas (5/10/2026)
+- Referencia OTA: suites desde ~€33 · camas compartidas desde ~US$9
+- Decisión: precio null → Consultar precio; desc con referencia OTA
+
