@@ -3,7 +3,7 @@
 ## Estado
 - Estado actual: ficha publicada con información verificada
 - Prioridad: alta
-- Verificación: pautante directo 5/10/2026 (tarifas de tours, café, idiomas y salidas) + sitio oficial (historia, productos)
+- Verificación: QUINDIO TRAVEL (operador) 7/10/2026 — tarifas y horarios actualizados + sitio oficial (historia, productos)
 
 ## Información confirmada
 - Nombre comercial: Finca Cafetera Don Elías
@@ -34,15 +34,16 @@
 - Pago: directo con la finca según disponibilidad
 
 ## Tours y tarifas
-Fuente: pautante directo QUINDIO TRAVEL 5/10/2026 (verificado)
+Fuente: QUINDIO TRAVEL (operador) 7/10/2026 (verificado por WhatsApp)
 | Tour | Duración | Precio COP |
 |---|---|---|
-| Coffee Tour español + inglés simultáneo | 90 min | $50.000/pax |
-| Coffee Tour en español O en inglés (solo uno) | 90 min | $60.000/pax · requiere reserva |
-| Coffee Tour en francés | 90 min | $70.000/pax · requiere reserva |
-| Tour privado | 90 min | salidas fijas 9:30 · 11:30 · 13:30 · 15:30 · consultar tarifa |
+| Coffee Tour español + inglés simultáneo | 90 min | $55.000/pax · salidas cada hora 9:00–16:00 (en punto) |
+| Coffee Tour en español O en inglés (solo uno) | 90 min | $65.000/pax · requiere reserva |
+| Coffee Tour en francés | 90 min | $75.000/pax · requiere reserva · muy buen nivel |
+| Tour privado | 90 min | salidas 9:30 · 11:30 · 13:30 · 15:30 · consultar tarifa (no publicada) |
 
-- Salidas simultáneas cada hora en punto: 09:00 a 16:00
+- Salidas del tour simultáneo ES+EN: cada hora en punto, 09:00 a 16:00
+- Salidas de tour privado: 9:30 · 11:30 · 13:30 · 15:30
 - Idiomas: español, inglés, francés (muy buen nivel)
 - Ubicación: vereda Palestina Km 4 de Salento
 
@@ -61,10 +62,10 @@ Fuente: pautante directo QUINDIO TRAVEL 5/10/2026 (verificado)
 - Acceso a Cascada de la Abuela y Río Quindío
 
 ## Productos en venta (en la finca)
-Los visitantes pueden comprar el mismo café que se degusta durante el tour. Variedades disponibles según cosecha:
+Los visitantes pueden comprar el mismo café que se degusta durante el tour. Variedades disponibles según cosecha (confirmado 7/10/2026):
 - Natural
 - Natural Geisha
-- Suelo Lavado (fermentación controlada)
+- Sule lavado (fermentación controlada)
 
 | Producto | Precio COP |
 |---|---|
