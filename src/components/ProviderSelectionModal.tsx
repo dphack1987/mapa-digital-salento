@@ -20,6 +20,7 @@ import {
   ChevronRight
 } from 'lucide-react'
 import { Place, Category } from '../types'
+import InteractiveMenu from './InteractiveMenu'
 
 function providerSlug(name: string) {
   return name.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')
@@ -340,6 +341,14 @@ function ProviderSelectionModal({ isOpen, onClose, category, places, onDirectOrd
         {provider.foodServiceDetails && (
           <div className="detail-section food-section">
             <h3>{language === 'es' ? '🍽️ Información de Restaurante' : '🍽️ Restaurant Info'}</h3>
+            <InteractiveMenu
+              placeName={provider.name}
+              whatsapp={provider.contact?.whatsapp}
+              menuHighlights={provider.foodServiceDetails.menuHighlights ?? []}
+              menuItems={provider.foodServiceDetails.menuItems}
+              specialties={provider.foodServiceDetails.specialties ?? []}
+              currency="COP"
+            />
             <div className="food-details">
               <div className="detail-row">
                 <span className="detail-label">{language === 'es' ? 'Tipo de cocina:' : 'Cuisine type:'}</span>
@@ -348,14 +357,6 @@ function ProviderSelectionModal({ isOpen, onClose, category, places, onDirectOrd
               <div className="detail-row">
                 <span className="detail-label">{language === 'es' ? 'Precio promedio:' : 'Average price:'}</span>
                 <span>{provider.foodServiceDetails.averagePrice || language === 'es' ? 'No disponible' : 'Not available'}</span>
-              </div>
-              <div className="detail-row">
-                <span className="detail-label">{language === 'es' ? 'Especialidades:' : 'Specialties:'}</span>
-                <span>{provider.foodServiceDetails.specialties?.join(', ') || language === 'es' ? 'No disponible' : 'Not available'}</span>
-              </div>
-              <div className="detail-row">
-                <span className="detail-label">{language === 'es' ? 'Servicios:' : 'Services:'}</span>
-                <span>{provider.foodServiceDetails.menuHighlights?.join(', ') || language === 'es' ? 'No disponible' : 'Not available'}</span>
               </div>
             </div>
           </div>

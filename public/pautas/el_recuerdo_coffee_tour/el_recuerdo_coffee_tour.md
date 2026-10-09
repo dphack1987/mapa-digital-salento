@@ -1,9 +1,9 @@
 # El Recuerdo Coffee Tour Salento
 
 ## Estado
-- Estado actual: ficha publicada con información verificada por WhatsApp
+- Estado actual: ficha publicada con información verificada
 - Prioridad: alta
-- Verificación: WhatsApp QUINDIO TRAVEL 15/9/2026 (horario, tarifa, transporte)
+- Verificación: pautante directo 9/10/2026 (tarifas por idioma, duración, dificultad e idiomas) + WhatsApp QUINDIO TRAVEL 15/9/2026 (horario y transporte)
 
 ## Información confirmada
 - Nombre comercial: El Recuerdo Coffee Tour
@@ -14,10 +14,14 @@
 - Correo: cazal16@yahoo.es
 - Ubicación: finca rural, Salento, Quindío (4 km a pie desde Salento)
 
-## Horarios y tarifas (WhatsApp 15/9/2026)
+## Horarios y tarifas (verificado 9/10/2026)
 - Horario: 9:00 a.m. – 4:00 p.m.
 - Visitas cada hora
-- Tarifa: $65.000 COP por persona
+- Duración: 1.5 horas
+- Dificultad: fácil (finca plana)
+- Idiomas: español, inglés y francés (francés solo con reserva previa)
+- Tarifa español/inglés: $50.000 COP por persona
+- Tarifa francés (requiere reserva previa): $65.000 COP por persona
 - Transporte: Willys/Jeep desde la plaza principal $9.000
 - Distancia: 4 km a pie desde Salento
 

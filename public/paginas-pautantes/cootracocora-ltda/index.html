@@ -27,7 +27,8 @@
       @media (max-width:800px) { .hero,.two-col { grid-template-columns:1fr; } .hero-image { min-height:260px; order:-1; } .topbar { align-items:flex-start; flex-direction:column; } .gallery { grid-template-columns:1fr; } }
     </style>
     <link rel="stylesheet" href="/page-theme.css" />
-    <link rel="stylesheet" href="/pautante-theme.css" />\n    <meta name="author" content="zenythos 2.0 para quindio travel" />
+    <link rel="stylesheet" href="/pautante-theme.css" />
+    <meta name="author" content="zenythos 2.0 para quindio travel" />
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://www.salentoalamano.com/"},{"@type":"ListItem","position":2,"name":"Servicios","item":"/categorias/servicios.html"},{"@type":"ListItem","position":3,"name":"Cootracocora LTDA"}]}</script>
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","name":"Cootracocora LTDA","description":"Transporte público en jeeps Willys de Salento al Valle de Cocora. Salidas desde la plaza de 6:00 a.m. a 9:00 p.m., desde $3.600 COP por persona.","url":"/paginas-pautantes/cootracocora-ltda/","image":"/pautas/cootracocora_ltda/imagenes/willys.webp","address":{"@type":"PostalAddress","addressLocality":"Salento","addressRegion":"Quindío","addressCountry":"CO","streetAddress":"Plaza principal de Salento - Terminal de Transporte Público Jeep Willys"},"geo":{"@type":"GeoCoordinates","latitude":4.6386,"longitude":-75.5647},"telephone":"+57 310 437 2944","priceRange":"$","areaServed":{"@type":"City","name":"Salento","containedIn":{"@type":"State","name":"Quindío"}},"openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]},"additionalType":"TourOperator"}</script>
   </head>
@@ -36,10 +37,42 @@
       <header class="topbar"><a class="brand" href="/"><img src="/logo_salento2026.webp" alt="Salento a la Mano" class="brand-logo" style="width:64px;height:64px;object-fit:contain;border-radius:50%"/><span>Salento a la Mano</span><span aria-hidden="true" style="opacity:.4">×</span><img src="/pautas/cootracocora_ltda/imagenes/logo-cootracocora.webp" alt="Logo pautante" class="brand-logo" style="width:64px;height:64px;object-fit:contain;border-radius:50%;border:1px solid var(--line)" /></a><nav class="top-actions"><a class="button" href="/">Inicio</a><a class="button" href="/categorias/servicios.html">Ver categoría</a></nav></header>
       <section class="hero">
         <div class="hero-copy"><div class="eyebrow">Servicios · contacto directo</div><h1>Cootracocora LTDA</h1><p class="lead">Transporte público en jeeps Willys de Salento al Valle de Cocora. Salidas desde la plaza de 6:00 a.m. a 9:00 p.m., desde $3.600 COP por persona.</p>
-          <div class="highlights"><span class="highlight">Rango: $</span><span class="highlight">Lun-dom 6:00 a.m. - 9:00 p.m.</span></div>
-          <div class="actions"><a class="button primary" href="https://wa.me/573104372944" target="_blank" rel="noreferrer">Reservar por WhatsApp</a><a class="button dark" href="tel:+573104372944">Llamar ahora</a><a class="button" href="https://www.google.com/maps/search/Plaza%20principal%20de%20Salento%20-%20Terminal%20de%20Transporte%20P%C3%BAblico%20Jeep%20Willys" target="_blank" rel="noreferrer">Cómo llegar</a></div>
+          <div class="highlights"><span class="highlight">Desde $3.600</span><span class="highlight">Lun-dom 6:00 a.m. - 9:00 p.m.</span></div>
+          <div class="actions"><a class="button buy" href="#menu-interactivo">Ver precios y reservar</a><a class="button primary" href="https://wa.me/573104372944" target="_blank" rel="noreferrer">Reservar por WhatsApp</a><a class="button dark" href="tel:+573104372944">Llamar ahora</a><a class="button" href="https://www.google.com/maps/search/Plaza%20principal%20de%20Salento%20-%20Terminal%20de%20Transporte%20P%C3%BAblico%20Jeep%20Willys" target="_blank" rel="noreferrer">Cómo llegar</a></div>
         </div><div class="hero-image" aria-label="Cootracocora LTDA"><img class="hero-brand" src="/pautas/cootracocora_ltda/imagenes/logo-cootracocora.webp" alt="Logo Cootracocora LTDA" /></div>
       </section>
+      <section class="section" id="menu-interactivo">
+        <h2>Rutas y tarifas</h2>
+        <p class="muted" style="margin-top:-8px;margin-bottom:20px">Selecciona la ruta y coordina el transporte directo por WhatsApp.</p>
+        <div class="menu-header">
+          <div class="menu-search"><input type="text" id="menuSearch" placeholder="Buscar opción..." /></div>
+          <div class="currency-switch" role="group" aria-label="Moneda">
+            <button data-cur="COP" class="active">COP</button>
+            <button data-cur="USD">USD</button>
+            <button data-cur="EUR">EUR</button>
+          </div>
+        </div>
+        <div class="menu-tabs" id="menuTabs"></div>
+        <div class="menu-grid" id="menuGrid"></div>
+        <div class="menu-empty" id="menuEmpty" style="display:none"><span>🔍</span>No encontramos opciones con ese nombre.</div>
+      </section>
+      <div class="cart-float" id="cartFloat" role="button" tabindex="0" aria-label="Ver selección">
+        <span class="badge" id="cartBadge">0</span>
+        <span class="total" id="cartTotal">$0</span>
+        <span>Ver pedido →</span>
+      </div>
+      <div class="cart-modal" id="cartModal" role="dialog" aria-modal="true">
+        <div class="cart-panel">
+          <h2>Tu pedido</h2>
+          <div id="cartItems"></div>
+          <div class="cart-total"><span>Total</span><span id="cartModalTotal">$0</span></div>
+          <div class="cart-actions">
+            <button class="send" id="sendWhatsApp">Enviar por WhatsApp</button>
+            <button class="clear" id="clearCart">Vaciar</button>
+            <button class="close" id="closeCart">Seguir explorando</button>
+          </div>
+        </div>
+      </div>
       
       
       <section class="section"><h2>Conoce la experiencia</h2><div class="two-col"><div><p class="trust">Transporte público en jeeps Willys de Salento al Valle de Cocora. Salidas desde la plaza de 6:00 a.m. a 9:00 p.m., desde $3.600 COP por persona.</p><p class="verified">✓ Información verificada en el catálogo local</p></div><div class="facts"><div class="fact"><strong>Ubicación</strong>Plaza principal de Salento - Terminal de Transporte Público Jeep Willys</div><div class="fact"><strong>Referencia</strong>Plaza de Bolívar, Salento</div><div class="fact"><strong>Horario</strong>Lunes a domingo 6:00 a.m. - 9:00 p.m.</div></div></div></section>
@@ -84,5 +117,6 @@
     
     <script src="/pautante-common.js"></script>
     <script>PautanteCommon.initMenu({"containerId":"menuGrid","items":[{"id":1,"cat":"rutas","nombre":"Salento → Valle de Cocora → Salento (compartido)","precio":3600,"desc":"Jeep Willys · desde $3.600 · tarifa exacta según ruta y temporada","img":"/pautas/cootracocora_ltda/imagenes/willys.webp"},{"id":2,"cat":"servicios","nombre":"Salidas al completar cupo","precio":0,"desc":"Lun–dom 6:00 AM–9:00 PM · Plaza / Terminal Jeep Willys","img":"/pautas/cootracocora_ltda/imagenes/info-transcocora.webp"}],"categories":[{"id":"todas","label":"Todas"},{"id":"rutas","label":"Rutas"},{"id":"servicios","label":"Servicios"}],"whatsapp":"573104372944","businessName":"Cootracocora LTDA","currency":"COP","showSearch":true,"showCurrency":true,"precioLabel":"por persona"});</script>
-  </body>
+    <script src="/quick-nav.js" defer></script>
+</body>
 </html>

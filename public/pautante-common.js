@@ -7,6 +7,7 @@ var PautanteCommon = (function() {
   var SIMBOLOS = { COP: '$', USD: 'US$', EUR: '\u20AC' };
 
   function fmt(precio, moneda, baseCurrency) {
+    if (precio === null || precio === undefined) return 'Consultar precio';
     if (precio === 0) return 'Incluido';
     baseCurrency = baseCurrency || 'COP';
     if (moneda === baseCurrency) {
@@ -19,6 +20,8 @@ var PautanteCommon = (function() {
     return SIMBOLOS[moneda] + convertido;
   }
 
+  function esConsultar(precio) { return precio === null || precio === undefined; }
+
   function countCarrito(carrito) {
     return Object.values(carrito).reduce(function(sum, qty) { return sum + qty; }, 0);
   }
@@ -26,7 +29,7 @@ var PautanteCommon = (function() {
   function totalCarrito(carrito, items) {
     return Object.keys(carrito).reduce(function(sum, id) {
       var p = items.find(function(x) { return x.id === Number(id); });
-      return sum + (p ? p.precio * carrito[id] : 0);
+      return sum + (p ? (p.precio || 0) * carrito[id] : 0);
     }, 0);
   }
 
@@ -52,8 +55,9 @@ var PautanteCommon = (function() {
       container.innerHTML = itemList.map(function(id) {
         var qty = carrito[id];
         var p = items.find(function(x) { return x.id === Number(id); });
-        var priceText = p.precio > 0 ? fmt(p.precio * qty, moneda, baseCurrency) : 'Incluido';
-        return '<div class="cart-item"><div class="info"><strong>' + p.nombre + '</strong><small>' + (p.precio > 0 ? fmt(p.precio, moneda, baseCurrency) + ' ' + (p.precioLabel || 'c/u') : 'Incluido') + '</small></div><div class="qty"><button data-action="dec" data-id="' + p.id + '">\u2212</button><span>' + qty + '</span><button data-action="inc" data-id="' + p.id + '">+</button></div><div class="item-total">' + priceText + '</div></div>';
+        var priceText = p.precio > 0 ? fmt(p.precio * qty, moneda, baseCurrency) : fmt(p.precio, moneda, baseCurrency);
+        var unitText = p.precio > 0 ? fmt(p.precio, moneda, baseCurrency) + ' ' + (p.precioLabel || 'c/u') : fmt(p.precio, moneda, baseCurrency);
+        return '<div class="cart-item"><div class="info"><strong>' + p.nombre + '</strong><small>' + unitText + '</small></div><div class="qty"><button data-action="dec" data-id="' + p.id + '">\u2212</button><span>' + qty + '</span><button data-action="inc" data-id="' + p.id + '">+</button></div><div class="item-total">' + priceText + '</div></div>';
       }).join('');
     }
     var total = totalCarrito(carrito, items);
@@ -67,7 +71,7 @@ var PautanteCommon = (function() {
     itemList.forEach(function(id) {
       var qty = carrito[id];
       var p = items.find(function(x) { return x.id === Number(id); });
-      msg += '\u2022 ' + p.nombre + ' x' + qty + (p.precio > 0 ? ' \u2014 ' + fmt(p.precio * qty, moneda, baseCurrency) : ' \u2014 Incluido') + '\n';
+      msg += '\u2022 ' + p.nombre + ' x' + qty + (p.precio > 0 ? ' \u2014 ' + fmt(p.precio * qty, moneda, baseCurrency) : ' \u2014 ' + fmt(p.precio, moneda, baseCurrency)) + '\n';
     });
     var total = totalCarrito(carrito, items);
     if (total > 0) msg += '\n*Total: ' + fmt(total, moneda, baseCurrency) + '*\n';
@@ -144,9 +148,19 @@ var PautanteCommon = (function() {
           ? '<img class="menu-card-img" src="' + p.img + '" alt="' + p.nombre + '" loading="lazy"/>'
           : '<div class="menu-card-emoji">' + (p.emoji || '\uD83C\uDF7D\uFE0F') + '</div>';
         var controls = qty > 0
-          ? '<div class="qty-ctrl"><button data-action="dec" data-id="' + p.id + '">\u2212</button><span>' + qty + '</span><button data-action="inc" data-id="' + p.id + '">+</button></div>'
-          : '<button class="add-btn" data-action="inc" data-id="' + p.id + '" aria-label="Agregar ' + p.nombre + '">+</button>';
-        return '<article class="menu-card">' + img + '<div class="menu-card-body"><span class="cat-tag">' + p.cat + '</span><h3>' + p.nombre + '</h3><p class="desc">' + (p.desc || '') + '</p><div class="footer"><span class="price">' + fmt(p.precio, moneda) + (precioLabel ? ' <small>' + precioLabel + '</small>' : '') + '</span>' + controls + '</div></div></article>';
+          ? '<div class="qty-ctrl"><button data-action="dec" data-id="' + p.id + '">−</button><span>' + qty + '</span><button data-action="inc" data-id="' + p.id + '">+</button></div>'
+          : '<button class="add-btn" data-action="inc" data-id="' + p.id + '" aria-label="Agregar ' + p.nombre + '">Agregar</button>';
+        var label = '';
+        if (p.precio > 0) {
+          if (p.pl) label = p.pl;
+          else if (precioLabel === 'por noche') label = (p.cat === 'habitaciones') ? 'por noche' : ((p.cat === 'tours' || p.cat === 'planes' || p.cat === 'coffee-tour') ? 'por persona' : '');
+          else if (precioLabel === 'por persona') label = (p.cat === 'habitaciones') ? 'por noche' : ((p.cat === 'productos' || p.cat === 'cafe') ? 'c/u' : 'por persona');
+          else label = precioLabel || '';
+        }
+        var priceHtml = esConsultar(p.precio)
+          ? '<span class="price consult">Consultar precio</span>'
+          : '<span class="price">' + fmt(p.precio, moneda) + (label ? ' <small>' + label + '</small>' : '') + '</span>';
+        return '<article class="menu-card">' + img + '<div class="menu-card-body"><span class="cat-tag">' + p.cat + '</span><h3>' + p.nombre + '</h3><p class="desc">' + (p.desc || '') + '</p><div class="footer">' + priceHtml + controls + '</div></div></article>';
       }).join('');
     }
 

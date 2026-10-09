@@ -20,7 +20,7 @@ const NotFound = () => {
           justifyContent: 'center',
           marginBottom: 40
         }}>
-          <img src="/logo_salento2026.webp" alt="Salento a la Mano" style={{ height: 40 }} />
+          <img src="/logo_salento2026.webp" alt="Salento a la Mano" style={{ height: 40, width: 40, objectFit: 'contain', borderRadius: '50%', mixBlendMode: 'multiply' }} />
           <span style={{
             fontFamily: "'Fraunces', serif",
             fontSize: '1.2rem',

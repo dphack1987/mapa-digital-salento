@@ -201,6 +201,7 @@ const ProviderSelectionModal = lazy(() => import('./components/ProviderSelection
 const FeatureCards = lazy(() => import('./components/FeatureCards'))
 const FeaturedHomeMenus = lazy(() => import('./components/FeaturedHomeMenus'))
 const HomeBanners = lazy(() => import('./components/HomeBanners'))
+const InteractiveMenu = lazy(() => import('./components/InteractiveMenu'))
 
 function LoadingFallback() {
   return (
@@ -2538,17 +2539,24 @@ function PlaceDetail({ place, currency, onBack, t, onReserveHorseback }: { place
         <InfoList title="Lugares cercanos" items={place.accommodationDetails.nearby ?? []} />
         <InfoList title="Horarios y políticas" items={place.accommodationDetails.policies ?? []} />
       </div>}
-      {place.foodServiceDetails && <div className="detail-sections">
-        <Suspense fallback={<LoadingFallback />}>
-          <FeatureCards compact />
-        </Suspense>
-        <div className="detail-menu-cta">
-          <a className="dark-button" href={placePageHref(place)}>{placeCtaLabel(place.type)} <ArrowRight size={15} /></a>
-          <small>La carta completa está en la página del restaurante.</small>
+      {place.foodServiceDetails && (
+        <div className="detail-sections">
+          <Suspense fallback={<LoadingFallback />}>
+            <InteractiveMenu
+              placeName={place.name}
+              whatsapp={place.contact.whatsapp}
+              menuHighlights={place.foodServiceDetails.menuHighlights ?? []}
+              menuItems={place.foodServiceDetails.menuItems}
+              specialties={place.foodServiceDetails.specialties ?? []}
+              currency={currency}
+            />
+          </Suspense>
+          <div className="detail-menu-cta">
+            <a className="dark-button" href={placePageHref(place)}>{placeCtaLabel(place.type)} <ArrowRight size={15} /></a>
+            <small>La carta completa está en la página del restaurante.</small>
+          </div>
         </div>
-        <InfoList title="Especialidades" items={place.foodServiceDetails.specialties ?? []} />
-        <InfoList title="Tipo de cocina" items={place.foodServiceDetails.cuisineType ?? []} />
-      </div>}
+      )}
       {place.experienceDetails && <div className="detail-sections">
         {place.type === 'Experiencias' && onReserveHorseback && (
           <button className="dark-button" onClick={onReserveHorseback}>Reservar experiencia <ArrowRight size={14} /></button>

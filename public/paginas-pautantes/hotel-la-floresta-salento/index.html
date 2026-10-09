@@ -38,7 +38,8 @@
       @media (max-width:800px) { .hero,.two-col { grid-template-columns:1fr; } .hero-image { min-height:260px; order:-1; } .topbar { align-items:flex-start; flex-direction:column; } .gallery { grid-template-columns:1fr; } }
     </style>
     <link rel="stylesheet" href="/page-theme.css" />
-    <link rel="stylesheet" href="/pautante-theme.css" />\n    <meta name="author" content="zenythos 2.0 para quindio travel" />
+    <link rel="stylesheet" href="/pautante-theme.css" />
+    <meta name="author" content="zenythos 2.0 para quindio travel" />
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://www.salentoalamano.com/"},{"@type":"ListItem","position":2,"name":"Alojamientos","item":"https://www.salentoalamano.com/categorias/alojamientos.html"},{"@type":"ListItem","position":3,"name":"Hotel La Floresta Salento"}]}</script>
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"Hotel","name":"Hotel La Floresta Salento","description":"Hotel a 400 m de la plaza con terrazas panorámicas, jardín y habitaciones acogedoras. Ideal para parejas y familias.","url":"https://www.salentoalamano.com/paginas-pautantes/hotel-la-floresta-salento/","image":"https://www.salentoalamano.com/pautas/hotel_la_floresta_salento/imagenes/lafloresta-fachada.webp","address":{"@type":"PostalAddress","addressLocality":"Salento","addressRegion":"Quindío","addressCountry":"CO","streetAddress":"Salento, Quindío"},"geo":{"@type":"GeoCoordinates","latitude":4.6372,"longitude":-75.5705},"telephone":"+57 320 721 1382","email":"info@laflorestahotel.com.co","priceRange":"$$","areaServed":{"@type":"City","name":"Salento","containedIn":{"@type":"State","name":"Quindío"}},"aggregateRating":{"@type":"AggregateRating","ratingValue":4.6,"reviewCount":1,"bestRating":5,"worstRating":1},"openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]},"numberOfRooms":2,"amenityFeature":["Desayuno incluido","Wi-Fi gratis"]}</script>
   </head>
@@ -47,10 +48,42 @@
       <header class="topbar"><a class="brand" href="/"><img src="/logo_salento2026.webp" alt="Salento a la Mano" class="brand-logo" style="width:64px;height:64px;object-fit:contain;border-radius:50%"/><span>Salento a la Mano</span><span aria-hidden="true" style="opacity:.4">×</span><img src="/pautas/hotel_la_floresta_salento/imagenes/images.webp" alt="Logo pautante" class="brand-logo" style="width:64px;height:64px;object-fit:contain;border-radius:50%;border:1px solid var(--line)" /></a><nav class="top-actions"><a class="button" href="/">Inicio</a><a class="button" href="/categorias/alojamientos.html">Ver categoría</a></nav></header>
       <section class="hero">
         <div class="hero-copy"><div class="eyebrow">Alojamientos · contacto directo</div><h1>Hotel La Floresta Salento</h1><p class="lead">Hotel a 400 m de la plaza con terrazas panorámicas, jardín y habitaciones acogedoras. Ideal para parejas y familias.</p>
-          <div class="highlights"><span class="highlight">Hotel · hospedaje cómodo en Salento</span><span class="highlight">Rango: $$</span><span class="highlight">Reservas directas</span></div>
-          <div class="actions"><a class="button primary" href="https://wa.me/573207211382" target="_blank" rel="noreferrer">Reservar por WhatsApp</a><a class="button dark" href="tel:+573207211382">Llamar ahora</a><a class="button" href="https://www.google.com/maps/search/Salento%2C%20Quind%C3%ADo" target="_blank" rel="noreferrer">Cómo llegar</a><a class="button" href="https://www.laflorestahotel.com.co/" target="_blank" rel="noreferrer">Sitio oficial</a></div>
+          <div class="highlights"><span class="highlight">Hotel · hospedaje cómodo en Salento</span><span class="highlight">Desde $124.000</span><span class="highlight">Reservas directas</span></div>
+          <div class="actions"><a class="button buy" href="#menu-interactivo">Ver precios y reservar</a><a class="button primary" href="https://wa.me/573207211382" target="_blank" rel="noreferrer">Reservar por WhatsApp</a><a class="button dark" href="tel:+573207211382">Llamar ahora</a><a class="button" href="https://www.google.com/maps/search/Salento%2C%20Quind%C3%ADo" target="_blank" rel="noreferrer">Cómo llegar</a><a class="button" href="https://www.laflorestahotel.com.co/" target="_blank" rel="noreferrer">Sitio oficial</a></div>
         </div><div class="hero-image" aria-label="Hotel La Floresta Salento"><img class="hero-brand" src="/pautas/hotel_la_floresta_salento/imagenes/images.webp" alt="Logo Hotel La Floresta Salento" /></div>
       </section>
+      <section class="section" id="menu-interactivo">
+        <h2>Habitaciones y servicios</h2>
+        <p class="muted" style="margin-top:-8px;margin-bottom:20px">Revisa opciones y servicios. Agrega lo que necesites y consulta disponibilidad por WhatsApp.</p>
+        <div class="menu-header">
+          <div class="menu-search"><input type="text" id="menuSearch" placeholder="Buscar opción..." /></div>
+          <div class="currency-switch" role="group" aria-label="Moneda">
+            <button data-cur="COP" class="active">COP</button>
+            <button data-cur="USD">USD</button>
+            <button data-cur="EUR">EUR</button>
+          </div>
+        </div>
+        <div class="menu-tabs" id="menuTabs"></div>
+        <div class="menu-grid" id="menuGrid"></div>
+        <div class="menu-empty" id="menuEmpty" style="display:none"><span>🔍</span>No encontramos opciones con ese nombre.</div>
+      </section>
+      <div class="cart-float" id="cartFloat" role="button" tabindex="0" aria-label="Ver selección">
+        <span class="badge" id="cartBadge">0</span>
+        <span class="total" id="cartTotal">$0</span>
+        <span>Ver pedido →</span>
+      </div>
+      <div class="cart-modal" id="cartModal" role="dialog" aria-modal="true">
+        <div class="cart-panel">
+          <h2>Tu pedido</h2>
+          <div id="cartItems"></div>
+          <div class="cart-total"><span>Total</span><span id="cartModalTotal">$0</span></div>
+          <div class="cart-actions">
+            <button class="send" id="sendWhatsApp">Enviar por WhatsApp</button>
+            <button class="clear" id="clearCart">Vaciar</button>
+            <button class="close" id="closeCart">Seguir explorando</button>
+          </div>
+        </div>
+      </div>
       
       <section class="section service-section"><h2>Hospedaje y reservas</h2><div class="service-grid"><div><strong>Tipos de habitación</strong><ul><li>Doble</li><li>Triple</li></ul><strong>Comodidades</strong><ul><li>Desayuno incluido</li><li>Wi-Fi gratis</li></ul></div><div><strong>Check-in</strong><p>15:00</p><strong>Check-out</strong><p>12:00</p><strong>Servicios incluidos</strong><ul><li>Wi-Fi</li><li>Desayuno</li><li>Parqueadero</li></ul><strong>Tarifas verificadas</strong><p>Confirmar directamente con el hotel para disponibilidad y precios exactos.</p></div></div><div class="actions"><a class="button primary" href="https://wa.me/573207211382">Consultar disponibilidad</a></div></section>
       
@@ -95,6 +128,7 @@
     </main>
     
     <script src="/pautante-common.js"></script>
-    <script>PautanteCommon.initMenu({"containerId":"menuGrid","items":[{"id":1,"cat":"habitaciones","nombre":"Habitación estándar / doble / triple / cuádruple / familiar","precio":131500,"desc":"Desde $124.000–$139.000/noche","img":"/pautas/hotel_la_floresta_salento/imagenes/lafloresta-fachada.webp"},{"id":2,"cat":"habitaciones","nombre":"Suite con jacuzzi (queen/king)","precio":0,"desc":"Tarifa superior · consultar","img":"/pautas/hotel_la_floresta_salento/imagenes/floresta1.webp"},{"id":3,"cat":"habitaciones","nombre":"Paquete parejas con masajes","precio":0,"desc":"Consultar disponibilidad y precio por WhatsApp","img":"/pautas/hotel_la_floresta_salento/imagenes/floresta2.webp"},{"id":4,"cat":"servicios","nombre":"Coffee Spa","precio":0,"desc":"Masajes, faciales, aromaterapia, body wraps","img":"/pautas/hotel_la_floresta_salento/imagenes/floresta3.webp"},{"id":5,"cat":"servicios","nombre":"Desayuno con vista (7:00–10:00)","precio":0,"desc":"","img":"/pautas/hotel_la_floresta_salento/imagenes/floresta4.webp"},{"id":6,"cat":"servicios","nombre":"Gimnasio y zona de hamacas","precio":0,"desc":"","img":"/pautas/hotel_la_floresta_salento/imagenes/floresta5.webp"},{"id":7,"cat":"servicios","nombre":"Coworking con internet","precio":0,"desc":"","img":"/pautas/hotel_la_floresta_salento/imagenes/floresta-habitacion.webp"},{"id":8,"cat":"servicios","nombre":"Parqueadero, Wi-Fi, recepción 24h","precio":0,"desc":"","img":"/pautas/hotel_la_floresta_salento/imagenes/floresta-spa.webp"},{"id":9,"cat":"servicios","nombre":"Talleres de cocina y avistamiento de aves","precio":0,"desc":"","img":"/pautas/hotel_la_floresta_salento/imagenes/floresta-mirador.webp"}],"categories":[{"id":"todas","label":"Todas"},{"id":"habitaciones","label":"Habitaciones"},{"id":"servicios","label":"Servicios"}],"whatsapp":"573207211382","businessName":"Hotel La Floresta Salento","currency":"COP","showSearch":true,"showCurrency":true,"precioLabel":"por noche"});</script>
-  </body>
+    <script>PautanteCommon.initMenu({"containerId":"menuGrid","items":[{"id":1,"cat":"habitaciones","nombre":"Habitación estándar / doble / triple / cuádruple / familiar","precio":124000,"desc":"Estándar / doble / triple / cuádruple / familiar · desde $124.000 COP por noche (temporada puede variar)","img":"/pautas/hotel_la_floresta_salento/imagenes/lafloresta-fachada.webp"},{"id":2,"cat":"habitaciones","nombre":"Suite con jacuzzi (queen/king)","precio":null,"desc":"Suite con jacuzzi (queen/king) · tarifa superior · consultar con el hotel","img":"/pautas/hotel_la_floresta_salento/imagenes/floresta1.webp"},{"id":3,"cat":"habitaciones","nombre":"Paquete parejas con masajes","precio":null,"desc":"Consultar disponibilidad y precio por WhatsApp","img":"/pautas/hotel_la_floresta_salento/imagenes/floresta2.webp"},{"id":4,"cat":"servicios","nombre":"Coffee Spa","precio":0,"desc":"Masajes, faciales, aromaterapia, body wraps","img":"/pautas/hotel_la_floresta_salento/imagenes/floresta3.webp"},{"id":5,"cat":"servicios","nombre":"Desayuno con vista (7:00–10:00)","precio":0,"desc":"","img":"/pautas/hotel_la_floresta_salento/imagenes/floresta4.webp"},{"id":6,"cat":"servicios","nombre":"Gimnasio y zona de hamacas","precio":0,"desc":"","img":"/pautas/hotel_la_floresta_salento/imagenes/floresta5.webp"},{"id":7,"cat":"servicios","nombre":"Coworking con internet","precio":0,"desc":"","img":"/pautas/hotel_la_floresta_salento/imagenes/floresta-habitacion.webp"},{"id":8,"cat":"servicios","nombre":"Parqueadero, Wi-Fi, recepción 24h","precio":0,"desc":"","img":"/pautas/hotel_la_floresta_salento/imagenes/floresta-spa.webp"},{"id":9,"cat":"servicios","nombre":"Talleres de cocina y avistamiento de aves","precio":0,"desc":"","img":"/pautas/hotel_la_floresta_salento/imagenes/floresta-mirador.webp"}],"categories":[{"id":"todas","label":"Todas"},{"id":"habitaciones","label":"Habitaciones"},{"id":"servicios","label":"Servicios"}],"whatsapp":"573207211382","businessName":"Hotel La Floresta Salento","currency":"COP","showSearch":true,"showCurrency":true,"precioLabel":"por noche"});</script>
+    <script src="/quick-nav.js" defer></script>
+</body>
 </html>

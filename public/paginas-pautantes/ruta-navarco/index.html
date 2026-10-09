@@ -38,7 +38,8 @@
       @media (max-width:800px) { .hero,.two-col { grid-template-columns:1fr; } .hero-image { min-height:260px; order:-1; } .topbar { align-items:flex-start; flex-direction:column; } .gallery { grid-template-columns:1fr; } }
     </style>
     <link rel="stylesheet" href="/page-theme.css" />
-    <link rel="stylesheet" href="/pautante-theme.css" />\n    <meta name="author" content="zenythos 2.0 para quindio travel" />
+    <link rel="stylesheet" href="/pautante-theme.css" />
+    <meta name="author" content="zenythos 2.0 para quindio travel" />
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://www.salentoalamano.com/"},{"@type":"ListItem","position":2,"name":"Experiencias","item":"https://www.salentoalamano.com/categorias/experiencias.html"},{"@type":"ListItem","position":3,"name":"Ruta Comunitaria Navarco y sus Tesoros"}]}</script>
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"TouristAttraction","name":"Ruta Comunitaria Navarco y sus Tesoros","description":"Ruta Comunitaria Navarco y sus Tesoros: recorrido en Willys por 4 fincas de la vereda Navarco: La Rubiela (queso artesanal), La Unión (trapiche y cafetera), La Colina (bienestar sensorial) y La Chamberlain (cascada).","url":"https://www.salentoalamano.com/paginas-pautantes/ruta-navarco/","image":"https://www.salentoalamano.com/pautas/ruta-navarco/salento-tesoros-trapiche.webp","address":{"@type":"PostalAddress","addressLocality":"Salento","addressRegion":"Quindío","addressCountry":"CO","streetAddress":"Salento → Vereda Navarco"},"geo":{"@type":"GeoCoordinates","latitude":4.6371,"longitude":-75.5706},"telephone":"+57 304 368 5771","priceRange":"$$$","areaServed":{"@type":"City","name":"Salento","containedIn":{"@type":"State","name":"Quindío"}},"aggregateRating":{"@type":"AggregateRating","ratingValue":4.9,"reviewCount":1,"bestRating":5,"worstRating":1},"openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]},"touristType":["Local","Internacional"],"duration":"1 día","availableLanguage":["Español"]}</script>
   </head>
@@ -47,10 +48,38 @@
       <header class="topbar"><a class="brand" href="/"><img src="/logo_salento2026.webp" alt="Salento a la Mano" class="brand-logo" style="width:64px;height:64px;object-fit:contain;border-radius:50%"/><span>Salento a la Mano</span><span aria-hidden="true" style="opacity:.4">×</span><img src="/pautas/ruta-navarco/logo-ruta-navarco.jpeg" alt="Logo Ruta Navarco" class="brand-logo" style="width:64px;height:64px;object-fit:contain;border-radius:50%;border:1px solid var(--line)" /></a><nav class="top-actions"><a class="button" href="/">Inicio</a><a class="button" href="/categorias/experiencias.html">Ver categoría</a></nav></header>
       <section class="hero">
         <div class="hero-copy"><div class="eyebrow">Experiencias · contacto directo</div><h1>Ruta Comunitaria Navarco y sus Tesoros</h1><p class="lead">Recorrido en Willys por 4 fincas de la vereda Navarco: La Rubiela (queso artesanal), La Unión (trapiche y cafetera), La Colina (bienestar sensorial) y La Chamberlain (cascada).</p>
-          <div class="highlights"><span class="highlight">Duración: 1 día</span><span class="highlight">Rango: $$$</span><span class="highlight">Salida 8:30 a.m. desde Salento</span></div>
-          <div class="actions"><a class="button primary" href="https://wa.me/573043685771" target="_blank" rel="noreferrer">Reservar por WhatsApp</a><a class="button dark" href="tel:+573043685771">Llamar ahora</a><a class="button" href="https://www.google.com/maps/search/Salento%20%E2%86%92%20Vereda%20Navarco" target="_blank" rel="noreferrer">Cómo llegar</a><a class="button" href="https://salentoysustesoros.co/" target="_blank" rel="noreferrer">Sitio oficial</a></div>
+          <div class="highlights"><span class="highlight">Duración: 1 día</span><span class="highlight">Desde $455.000 c/u en grupo</span><span class="highlight">Salida 8:30 a.m. desde Salento</span></div>
+          <div class="actions"><a class="button buy" href="#menu-interactivo">Ver precios y reservar</a><a class="button primary" href="https://wa.me/573043685771" target="_blank" rel="noreferrer">Reservar por WhatsApp</a><a class="button dark" href="tel:+573043685771">Llamar ahora</a><a class="button" href="https://www.google.com/maps/search/Salento%20%E2%86%92%20Vereda%20Navarco" target="_blank" rel="noreferrer">Cómo llegar</a><a class="button" href="https://salentoysustesoros.co/" target="_blank" rel="noreferrer">Sitio oficial</a></div>
         </div><div class="hero-image" aria-label="Ruta Comunitaria Navarco y sus Tesoros"><img class="hero-brand" src="/pautas/ruta-navarco/logo-ruta-navarco.jpeg" alt="Logo Ruta Comunitaria Navarco y sus Tesoros" /></div>
       </section>
+      
+      <section class="section" id="menu-interactivo">
+        <h2>Tarifas por tamaño de grupo</h2>
+        <p class="muted" style="margin-top:-8px;margin-bottom:20px">Precio por persona según número de personas. Elige tu grupo y envía tu solicitud por WhatsApp.</p>
+        <div class="menu-header">
+          <div class="menu-search"><input type="text" id="menuSearch" placeholder="Buscar opción..." /></div>
+        </div>
+        <div class="menu-tabs" id="menuTabs"></div>
+        <div class="menu-grid" id="menuGrid"></div>
+        <div class="menu-empty" id="menuEmpty" style="display:none"><span>🍽️</span>No encontramos opciones con ese nombre.</div>
+      </section>
+      <div class="cart-float" id="cartFloat" role="button" tabindex="0" aria-label="Ver selección">
+        <span class="badge" id="cartBadge">0</span>
+        <span class="total" id="cartTotal">$0</span>
+        <span>Ver pedido</span>
+      </div>
+      <div class="cart-modal" id="cartModal" role="dialog" aria-modal="true">
+        <div class="cart-panel">
+          <h2>Tu pedido</h2>
+          <div id="cartItems"></div>
+          <div class="cart-total"><span>Total</span><span id="cartModalTotal">$0</span></div>
+          <div class="cart-actions">
+            <button class="send" id="sendWhatsApp">Enviar por WhatsApp</button>
+            <button class="clear" id="clearCart">Vaciar</button>
+            <button class="close" id="closeCart">Seguir explorando</button>
+          </div>
+        </div>
+      </div>
       
 <section class="section service-section"><h2>Plan de la experiencia</h2><div class="service-grid"><div><strong>Incluye</strong><ul><li>Transporte en Willys</li><li>Recorrido por 4 fincas de la vereda Navarco</li><li>Guía local</li><li>Degustaciones: queso artesanal, café, trapiche, bienestar</li><li>Almuerzo típico campesino</li></ul><strong>Qué llevar</strong><ul><li>Calzado cómodo para caminar</li><li>Ropa para clima variable</li><li>Protector solar y repelente</li></ul></div><div><strong>Duración</strong><p>1 día completo</p><strong>Dificultad</strong><p>Fácil</p><strong>Punto de encuentro</strong><p>Salento (punto de salida en Willys desde la plaza)</p><strong>Idiomas</strong><p>Español</p><strong>Tarifas verificadas</strong><p>Desde $2.200.000 COP por persona (1 pax) · máx 8 pax</p></div></div><div class="actions"><a class="button primary" href="https://wa.me/573043685771">Reservar experiencia</a></div></section>
        
@@ -60,5 +89,8 @@
       <section class="section"><h2>Lo que puedes encontrar</h2><div class="tags"><span class="tag">ruta comunitaria navarco</span><span class="tag">fincas navarco</span><span class="tag">turismo comunitario</span><span class="tag">willys</span><span class="tag">queso artesanal</span><span class="tag">trapiche</span><span class="tag">cafetera</span><span class="tag">bienestar sensorial</span><span class="tag">cascada chamberlain</span><span class="tag">salento</span></div></section>
       <nav class="bottom-nav" aria-label="Volver" style="display:flex;flex-wrap:wrap;gap:10px;margin-top:28px"><a class="button primary" href="/">Volver al inicio</a><a class="button dark" href="/">Ir a página principal</a><a class="button" href="/categorias/">Ver categorías</a></nav>
     </main>
-  </body>
+    <script src="/pautante-common.js"></script>
+    <script>PautanteCommon.initMenu({"containerId":"menuGrid","items":[{"id":1,"cat":"grupos","nombre":"Ruta completa · 1 persona","precio":2200000,"desc":"Recorrido privado por las 4 fincas · salida 8:30 a.m. · regreso 5:30 p.m.","img":"/pautas/ruta-navarco/salento-tesoros-1.webp"},{"id":2,"cat":"grupos","nombre":"Ruta completa · 2 personas","precio":1100000,"desc":"Precio por persona · grupo de 2 · almuerzo típico incluido","img":"/pautas/ruta-navarco/salento-tesoros-rubiela.webp"},{"id":3,"cat":"grupos","nombre":"Ruta completa · 3 personas","precio":733333,"desc":"Precio por persona · grupo de 3 · almuerzo típico incluido","img":"/pautas/ruta-navarco/salento-tesoros-trapiche.webp"},{"id":4,"cat":"grupos","nombre":"Ruta completa · 4 personas","precio":550000,"desc":"Precio por persona · grupo de 4 · almuerzo típico incluido","img":"/pautas/ruta-navarco/salento-tesoros-colina.webp"},{"id":5,"cat":"grupos","nombre":"Ruta completa · 5 personas","precio":512000,"desc":"Precio por persona · grupo de 5 · almuerzo típico incluido","img":"/pautas/ruta-navarco/salento-tesoros-chamberlain.webp"},{"id":6,"cat":"grupos","nombre":"Ruta completa · 6 personas","precio":486667,"desc":"Precio por persona · grupo de 6 · almuerzo típico incluido","img":"/pautas/ruta-navarco/salento-tesoros-hospedaje.webp"},{"id":7,"cat":"grupos","nombre":"Ruta completa · 7 personas","precio":468571,"desc":"Precio por persona · grupo de 7 · almuerzo típico incluido","img":"/pautas/ruta-navarco/salento-tesoros-1.webp"},{"id":8,"cat":"grupos","nombre":"Ruta completa · 8 personas","precio":455000,"desc":"Precio por persona · grupo máximo (8) · almuerzo típico incluido","img":"/pautas/ruta-navarco/salento-tesoros-trapiche.webp"}],"categories":[{"id":"todas","label":"Todas"},{"id":"grupos","label":"Por grupo"}],"whatsapp":"573043685771","businessName":"Ruta Comunitaria Navarco","currency":"COP","showSearch":false,"showCurrency":true,"precioLabel":"por persona"});</script>
+    <script src="/quick-nav.js" defer></script>
+</body>
 </html>

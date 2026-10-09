@@ -1,9 +1,9 @@
 # Cabalgatas Cocora Mágica
 
 ## Estado
-- Estado actual: ficha parcial — nombre no verificado como negocio activo
+- Estado actual: ficha publicada con tarifas verificadas del operador
 - Prioridad: alta
-- Verificación: parcialmente verificada (posible relación con "Cocora Magic" en TripAdvisor)
+- Verificación: página oficial CocoraTours 5/10/2026 (tarifas 2026); oficina y WhatsApp coinciden con el operador de esta ficha
 
 ## Información confirmada
 - Nombre comercial: Cabalgatas Cocora Mágica (nombre no encontrado como negocio verificado)
@@ -34,7 +34,19 @@
 - Caballeriza: Caballeriza La Esperanza, Km 11 vía Valle del Cocora
 - Calificación: Google 4.9, Viator 4.8
 - Tours: paseos por el Valle, fincas cafeteras, passeos de día completo
-- Precios: desde $110.000-$200.000 COP por cabalgata
+
+### Tarifas oficiales CocoraTours (verificadas 5/10/2026)
+| Cabalgata | Duración | Precio COP |
+|---|---|---|
+| Mocambo | 50 min | $60.000 |
+| Barcinales | 1.2 h | $100.000 |
+| Río Boquerón (corta) | 2 h | $110.000 |
+| Mirador Sestillal | 2.5 h | $130.000 |
+| Fincas cafeteras + tour del café | 3.5 h | $145.000 |
+| Bosques Mágicos + Cascada Santa Rita | 3–4 h | $190.000 |
+| Fincas, bosque y río Boquerón | 4.5 h | $200.000 |
+
+Pasaportes Valle del Cocora (Km 11): Familiar $190.000 · Aventura $250.000 · Colibrí $400.000 · Pasadia $550.000 · Mixta 4 puntos $145.000 (3.5 h)
 
 ### Cabalgatas Salento
 - Facebook: facebook.com/Cabalgatasalento
