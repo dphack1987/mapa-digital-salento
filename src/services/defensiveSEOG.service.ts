@@ -335,6 +335,9 @@ class DefensiveSEOGService {
         <li>✅ Hotel Camino Nacional: Abierto</li>
         <li>✅ Finca Hotel El Ocaso: Operativo</li>
         <li>✅ Hotel Salento Real: Disponible</li>
+        <li>✅ Hotel Boutique Palmas de Salento: Disponible</li>
+        <li>✅ Los Barranqueros Hotel: Abierto</li>
+        <li>✅ Hotel Green House Salento: Operativo</li>
       </ul>
 
       <h3>🏡 Hostales</h3>

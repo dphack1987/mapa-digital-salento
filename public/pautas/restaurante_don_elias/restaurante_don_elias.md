@@ -48,3 +48,4 @@
 ## Pendientes
 - Carta completa con más platos y precios
 - Fotos del restaurante y platos (no solo de la finca)
+- Nota 13/10/2026: se sumaron 3 fotos de la finca (mismo lugar) a imagenes/: restaurante-don-elias-cafe.webp, restaurante-don-elias-finca-1.webp, restaurante-don-elias-finca-2.webp

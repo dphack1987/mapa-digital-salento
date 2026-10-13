@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Postres artesanales, dulces típicos y lácteos en Salento: arroz con leche, arequipe, quesos y panadería tradicional" />
+    <title>Postres y Dulces Típicos | Salento a la Mano</title>
+    <link rel="canonical" href="https://www.salentoalamano.com/categorias/postres-y-dulces-tipicos.html" />
+    
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" />
+
+    <style>
+      :root {
+        --paper: #f5f1e8;
+        --ink: #1f2d26;
+        --line: #d9d0bf;
+        --coral: #dd7f5d;
+        --green: #5a7d63;
+        --yellow: #e7c77b;
+        --white: #fff;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0; font-family: 'DM Sans', sans-serif; background: var(--paper); color: var(--ink);
+      }
+      a { color: inherit; text-decoration: none; }
+      .container { max-width: 1100px; margin: 0 auto; padding: 32px 20px 80px; }
+      .topbar { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-bottom: 24px; }
+      .brand { font-size: 20px; font-weight: 700; }
+      .brand { display: inline-flex; align-items: center; gap: 10px; }
+      .brand-logo { width: 42px; height: 42px; object-fit: contain; border-radius: 50%; }
+      .nav-link { background: var(--white); border: 1px solid var(--line); padding: 10px 14px; border-radius: 999px; }
+      .hero {
+        display: grid; grid-template-columns: 1.25fr .75fr; gap: 0; align-items: stretch; margin-bottom: 28px;
+        background: var(--white); border: 1px solid var(--line); border-radius: 24px; overflow: hidden;
+        box-shadow: 0 18px 40px rgba(39,54,43,.1);
+      }
+      .hero-copy { padding: 36px 32px; display: flex; flex-direction: column; justify-content: center; }
+      .eyebrow { text-transform: uppercase; letter-spacing: .12em; font-size: 11px; color: var(--coral); font-weight: 700; }
+      h1 { font-size: clamp(2rem, 4vw, 4rem); margin: 12px 0 12px; line-height: .98; }
+      .sub { color: #536057; font-size: 1.05rem; line-height: 1.6; }
+      .hero-visual {
+        background: linear-gradient(160deg,#f3ead6 0%,#e7c77b 55%,#dd7f5d 100%);
+        display: flex; align-items: center; justify-content: center; min-height: 280px; font-size: 96px;
+      }
+      .provider-grid {
+        display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 18px; margin-top: 24px;
+      }
+      .provider-card {
+        background: var(--white); border: 1px solid var(--line); border-radius: 20px; overflow: hidden;
+        box-shadow: 0 8px 24px rgba(39,54,43,.06); transition: transform .2s, box-shadow .2s, border-color .2s;
+        display: flex; flex-direction: column;
+      }
+      .provider-card:hover { transform: translateY(-4px); box-shadow: 0 16px 32px rgba(39,54,43,.12); border-color: var(--coral); }
+      .card-image {
+        height: 170px; background-size: cover; background-position: center; width: 100%;
+        transition: transform .35s ease;
+      }
+      .provider-card:hover .card-image { transform: scale(1.04); }
+      .card-body { padding: 18px; display: flex; flex-direction: column; flex: 1; }
+      .card-header-row, .meta-row, .card-actions { display: flex; justify-content: space-between; gap: 10px; align-items: center; }
+      .card-header-row { margin-bottom: 10px; }
+      .pill { background: #f3ead6; border-radius: 999px; padding: 6px 10px; font-size: 10px; font-weight: 700; text-transform: uppercase; }
+      .rating { font-size: 12px; font-weight: 700; }
+      h3 { margin: 8px 0 10px; font-size: 1.35rem; }
+      .card-body p { margin: 0 0 14px; color: #59665f; line-height: 1.5; font-size: 0.96rem; flex: 1; }
+      .meta-row { color: #4d5a51; font-size: 12px; margin-bottom: 16px; }
+      .btn {
+        display: inline-flex; align-items: center; justify-content: center; padding: 10px 12px; border-radius: 10px; border: 1px solid var(--line); font-weight: 700; font-size: 12px;
+      }
+      .btn.primary { background: var(--ink); color: var(--white); border-color: var(--ink); }
+      .btn.whatsapp { background: #25d366; border-color: #25d366; color: #fff; }
+      @media (max-width: 760px) {
+        .hero { grid-template-columns: 1fr; }
+        .hero-visual { min-height: 180px; order: -1; }
+        .hero-copy { padding: 24px 20px 28px; }
+        .topbar { flex-direction: column; align-items: flex-start; }
+        .provider-grid { grid-template-columns: 1fr; }
+      }
+    </style>
+    <link rel="stylesheet" href="/page-theme.css" />
+    <meta name="author" content="zenythos 2.0 para quindio travel" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://www.salentoalamano.com/"},{"@type":"ListItem","position":2,"name":"Categorías","item":"https://www.salentoalamano.com/categorias/"},{"@type":"ListItem","position":3,"name":"Postres y Dulces Típicos"}]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"Postres y Dulces Típicos | Salento a la Mano","description":"Postres artesanales, dulces típicos y lácteos en Salento: arroz con leche, arequipe, quesos y panadería tradicional","url":"https://www.salentoalamano.com/categorias/postres-y-dulces-tipicos.html","inLanguage":"es","mainEntity":{"@type":"ItemList","itemListElement":[{"@type":"ListItem","position":1,"name":"La Vaca Original","url":"https://www.salentoalamano.com/paginas-pautantes/la-vaca-original/"}]}}</script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="topbar">
+        <a class="brand" href="/"><img src="/logo_salento2026.webp" alt="Salento a la Mano" class="brand-logo" style="width:64px;height:64px;object-fit:contain;border-radius:50%"/><span>Salento a la Mano</span></a>
+        <nav class="top-actions"><a class="nav-link" href="/">Inicio</a><a class="nav-link" href="/categorias/">Todas las categorías</a></nav>
+      </div>
+
+      <section class="hero">
+        <div class="hero-copy">
+          <div class="eyebrow">Categoría</div>
+          <h1>Postres y Dulces Típicos</h1>
+          <div class="sub">Postres artesanales, dulces típicos y lácteos: arroz con leche, arequipe, quesos y panadería tradicional</div>
+        </div>
+        <div class="hero-visual" aria-label="Postres y Dulces Típicos">🍯</div>
+      </section>
+
+      <div class="provider-grid">
+        
+        <article class="provider-card" onclick="window.location.href='/paginas-pautantes/la-vaca-original/'" role="link" tabindex="0" onkeydown="if(event.key==='Enter'){window.location.href='/paginas-pautantes/la-vaca-original/'}" style="cursor:pointer" aria-label="Abrir página de La Vaca Original">
+          <div class="card-image" style="background:linear-gradient(160deg,#f3ead6,#e7c77b 55%,#dd7f5d);display:flex;align-items:center;justify-content:center;font-size:48px">🐄</div>
+          <div class="card-body">
+            <div class="card-header-row">
+              <span class="pill">Postres y Dulces</span>
+              <span class="rating">⭐ 4.3</span>
+            </div>
+            <h3>La Vaca Original</h3>
+            <p>Parador de postres y lácteos a la entrada de Salento en la Autopista del Café, frente a La Posada Alemana: arroz con leche, arequipe, quesos artesanales y panadería, con vaca gigante sobre el mirador.</p>
+            <div class="meta-row">
+              <span>Postres y lácteos</span>
+              <span>Lun-dom 7:00 a.m. - 8:30 p.m.</span>
+            </div>
+            <div class="card-actions" onclick="event.stopPropagation()">
+              <a class="btn primary" href="/paginas-pautantes/la-vaca-original/">Ver productos</a>
+              <a class="btn" href="https://www.google.com/maps/search/4.657303,-75.600725" target="_blank" rel="noreferrer">Cómo llegar</a>
+              <a class="btn" href="tel:+573022621694">Llamar</a>
+            </div>
+          </div>
+        </article>
+        
+      </div>
+    </div>
+    <script src="/quick-nav.js" defer></script>
+</body>
+</html>

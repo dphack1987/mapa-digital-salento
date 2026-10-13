@@ -1204,25 +1204,27 @@
       "id": 20,
       "name": "Cabalgatas Cocora Mágica",
       "type": "Experiencias",
-      "description": "Cabalgatas por el campo y la vía al Valle de Cocora. Recorridos para principiantes y experimentados, con guía local.",
-      "priceRange": "$$",
+      "description": "Operador de cabalgatas en Salento (Cocora Magic): Mirador Navarco, Barcinales, Río Boquerón, Río montaña y bosque, Coffee Tour Finca Las Acacias, Cascada Santarrita y Carbonera. Guía, tickets, seguro y casco incluidos.",
+      "priceRange": "$120.000–$480.000 COP",
       "rating": "4.9",
-      "timeInfo": "Reserva previa",
+      "timeInfo": "Salidas diarias con reserva",
       "badge": "⭐ ESPECIAL",
       "color": "coral",
       "icon": "Compass",
       "contact": {
-        "phone": "+57 313 759 3013",
-        "whatsapp": "573137593013"
+        "phone": "+57 322 334 7153",
+        "whatsapp": "573223347153",
+        "website": "https://www.cocoramagic.com/",
+        "instagram": "https://www.instagram.com/cocoramagic/"
       },
       "location": {
         "lat": 4.6315,
         "lng": -75.5738,
-        "address": "Calle 2 #6-09, Salento (oficina CocoraTours, frente al Hotel Mahalo)",
-        "landmark": "Frente al Hotel Mahalo, entrada Valle de Cocora"
+        "address": "Centro de Salento, Quindío (punto de encuentro al reservar)",
+        "landmark": "Salidas hacia el Valle de Cocora"
       },
       "operatingHours": {
-        "notes": "Salidas programadas con reserva"
+        "notes": "Salidas diarias con reserva · cancelación gratis hasta 24 h antes"
       },
       "tags": [
         "cabalgatas",
@@ -1235,18 +1237,22 @@
       "active": true,
       "horsebackRidingDetails": {
         "trails": [
-          "Valle de Cocora",
-          "Miradores",
-          "Rutas panorámicas"
+          "Mirador Navarco",
+          "Mirador Barcinales",
+          "Río Boquerón",
+          "Río, montaña y bosque",
+          "Coffee Tour Finca Las Acacias",
+          "Cascada Santarrita (Boquía, río Quindío)",
+          "Carbonera – Santuario de Palmas de Cera"
         ],
         "horseBreeds": [
           "Caballos criollos",
           "Caballos de paso"
         ],
         "guidesCount": "Por confirmar",
-        "difficulty": "Moderada",
-        "minAge": 12,
-        "maxWeightKg": 90,
+        "difficulty": "Fácil a moderada según tour",
+        "minAge": 8,
+        "maxWeightKg": 100,
         "safetyGearIncluded": true,
         "safetyGearList": [
           "Casco",
@@ -2484,7 +2490,7 @@
           "Equipaje",
           "Traslado aeropuerto (pago)"
         ],
-        "bookingNotes": "Desde ~$61 USD · tarifa a confirmar por WhatsApp",
+        "bookingNotes": "Desde $196.141 COP/noche (2 huéspedes, co-quindio.co 13/10/2026, -10% web) · tarifa a confirmar por WhatsApp",
         "policies": "Check-in 15:00–22:00 · Check-out 07:00–11:00 · No fumador"
       },
       "photos": [
@@ -3053,8 +3059,243 @@
         "reserveUrl": "https://wa.me/573234661964"
       },
       "isPautante": true
+    },
+    {
+      "id": 44,
+      "name": "Hotel Boutique Palmas de Salento",
+      "type": "Alojamientos",
+      "description": "Hotel boutique en el Barrio Boquerón con desayuno casero incluido, terraza con vistas a las montañas, jacuzzi y parqueadero gratis. A 5 min caminando de la plaza.",
+      "priceRange": "$$",
+      "rating": "4.6",
+      "timeInfo": "Check-out hasta 11:00 · Reservas directas",
+      "badge": "Vistas a la montaña",
+      "color": "green",
+      "icon": "Hotel",
+      "contact": {
+        "phone": "+57 320 311 8328",
+        "email": "hotelbpalmasdesalento@outlook.com",
+        "facebook": "https://facebook.com/146750995846597",
+        "website": "http://www.hotelpalmasdesalento.com/"
+      },
+      "location": {
+        "lat": 4.634388,
+        "lng": -75.569879,
+        "address": "Cra. 10 # 7-38, Barrio Boquerón, Salento, Quindío",
+        "landmark": "5-7 min caminando de la plaza principal"
+      },
+      "operatingHours": {
+        "notes": "Check-out hasta 11:00 · Reservas por teléfono o correo"
+      },
+      "tags": [
+        "hotel",
+        "boutique",
+        "alojamiento",
+        "desayuno",
+        "jacuzzi",
+        "terraza",
+        "vistas",
+        "salento"
+      ],
+      "verified": true,
+      "active": true,
+      "accommodationDetails": {
+        "categoryLabel": "Hotel boutique · desayuno incluido",
+        "roomTypes": [
+          "Doble con baño privado",
+          "Cuádruple con balcón",
+          "Triple Confort",
+          "Familiar con vistas a la montaña",
+          "Familiar con baño privado"
+        ],
+        "services": [
+          "Desayuno casero incluido",
+          "Wi-Fi gratuito",
+          "Parqueadero privado gratis",
+          "Terraza con vistas a las montañas",
+          "Jacuzzi",
+          "Masajes",
+          "Lobby con chimenea",
+          "Café y té 24/7 de cortesía",
+          "Coworking",
+          "Transfer aeropuerto (cargo extra)",
+          "Pet friendly"
+        ],
+        "bookingNotes": "Reserva directa por teléfono o correo · mejor tarifa sin comisiones",
+        "policies": "Check-out hasta 11:00"
+      },
+      "photos": [
+        "/pautas/hotel_boutique_palmas_de_salento/imagenes/hotel-boutique-palmas-de-salento-1.webp",
+        "/pautas/hotel_boutique_palmas_de_salento/imagenes/hotel-boutique-palmas-de-salento-2.webp",
+        "/pautas/hotel_boutique_palmas_de_salento/imagenes/hotel-boutique-palmas-de-salento-3.webp",
+        "/pautas/hotel_boutique_palmas_de_salento/imagenes/hotel-boutique-palmas-de-salento-4.webp",
+        "/pautas/hotel_boutique_palmas_de_salento/imagenes/hotel-boutique-palmas-de-salento-5.webp",
+        "/pautas/hotel_boutique_palmas_de_salento/imagenes/hotel-boutique-palmas-de-salento-6.webp",
+        "/pautas/hotel_boutique_palmas_de_salento/imagenes/hotel-boutique-palmas-de-salento-7.webp",
+        "/pautas/hotel_boutique_palmas_de_salento/imagenes/hotel-boutique-palmas-de-salento-8.webp"
+      ],
+      "actionTarget": {
+        "viewUrl": "https://www.salentoalamano.com/paginas-pautantes/hotel-boutique-palmas-de-salento/",
+        "reserveUrl": "tel:+573203118328"
+      },
+      "isPautante": true
+    },
+    {
+      "id": 45,
+      "name": "Restaurante La Casona",
+      "type": "Restaurantes",
+      "description": "Restaurante colombiano frente a la plaza principal de Salento: trucha gratinada, carnes y pollo gratinado, buen café y limonada a precios amigables.",
+      "priceRange": "$",
+      "rating": "4.3",
+      "timeInfo": "Lun-vie 8:00 a.m. - 7:00 p.m.",
+      "badge": "Frente a la plaza",
+      "color": "yellow",
+      "icon": "Utensils",
+      "contact": {
+        "phone": "+57 312 866 0910",
+        "whatsapp": "573128660910",
+        "email": "lacasonasalento@gmail.com",
+        "facebook": "https://facebook.com/659941907466598",
+        "website": "https://restaurante-la-casona.ueniweb.com/"
+      },
+      "location": {
+        "lat": 4.6376352,
+        "lng": -75.5699512,
+        "address": "Cra. 6 # 5-42, Salento, Quindío",
+        "landmark": "Frente a la plaza principal · junto a la Iglesia del Carmen"
+      },
+      "operatingHours": {
+        "notes": "Lun-vie 8:00 a.m. - 7:00 p.m. · confirmar fin de semana"
+      },
+      "tags": [
+        "restaurante",
+        "trucha",
+        "gratinados",
+        "cocina colombiana",
+        "café",
+        "centro"
+      ],
+      "verified": true,
+      "active": true,
+      "foodServiceDetails": {
+        "cuisineType": [
+          "Colombiana",
+          "Trucha",
+          "Pescados",
+          "Gratinados"
+        ],
+        "specialties": [
+          "Trucha gratinada",
+          "Carne de res gratinada",
+          "Lomo de cerdo gratinado",
+          "Filete de pollo gratinado",
+          "Dorada"
+        ],
+        "menuHighlights": [
+          "Trucha gratinada (consultar tarifa)",
+          "Carne de res gratinada (consultar tarifa)",
+          "Lomo de cerdo gratinado (consultar tarifa)",
+          "Filete de pollo gratinado (consultar tarifa)"
+        ],
+        "ambience": "Comida casera frente a la plaza",
+        "reservations": "Recomendadas en fin de semana",
+        "paymentMethods": [
+          "Efectivo",
+          "Tarjeta"
+        ]
+      },
+      "photos": [
+        "/pautas/restaurante_la_casona/imagenes/restaurante-la-casona-1.webp",
+        "/pautas/restaurante_la_casona/imagenes/restaurante-la-casona-2.webp",
+        "/pautas/restaurante_la_casona/imagenes/restaurante-la-casona-3.webp",
+        "/pautas/restaurante_la_casona/imagenes/restaurante-la-casona-4.webp",
+        "/pautas/restaurante_la_casona/imagenes/restaurante-la-casona-5.webp",
+        "/pautas/restaurante_la_casona/imagenes/restaurante-la-casona-6.webp",
+        "/pautas/restaurante_la_casona/imagenes/restaurante-la-casona-7.webp",
+        "/pautas/restaurante_la_casona/imagenes/restaurante-la-casona-8.webp"
+      ],
+      "actionTarget": {
+        "viewUrl": "https://www.salentoalamano.com/paginas-pautantes/restaurante-la-casona/",
+        "reserveUrl": "https://wa.me/573128660910"
+      },
+      "isPautante": true
+    },
+    {
+      "id": 46,
+      "name": "La Vaca Original",
+      "type": "Postres y Dulces Típicos",
+      "description": "Parador de postres y lácteos a la entrada de Salento en la Autopista del Café, frente a La Posada Alemana: arroz con leche, arequipe, 3 leches, merengón, quesos artesanales y panadería. Con vaca gigante sobre el mirador.",
+      "priceRange": "$",
+      "rating": "4.3",
+      "timeInfo": "Lun-dom 7:00 a.m. - 8:30 p.m.",
+      "badge": "Entrada a Salento",
+      "color": "yellow",
+      "icon": "Utensils",
+      "contact": {
+        "phone": "+57 302 262 1694",
+        "facebook": "https://www.facebook.com/Lavacaoriginal"
+      },
+      "location": {
+        "lat": 4.657303,
+        "lng": -75.600725,
+        "address": "Autopista del Café (vía Armenia-Pereira), Km 11, vereda San Antonio, salida Arrayanal, entrada a Salento",
+        "landmark": "Frente a las ruinas de La Posada Alemana · vaca gigante sobre el mirador"
+      },
+      "operatingHours": {
+        "notes": "Lunes a domingo 7:00 a.m. - 8:30 p.m."
+      },
+      "tags": [
+        "postres",
+        "lacteos",
+        "arroz con leche",
+        "parador",
+        "autopista del cafe",
+        "entrada salento",
+        "panaderia"
+      ],
+      "verified": true,
+      "active": true,
+      "foodServiceDetails": {
+        "cuisineType": [
+          "Postres",
+          "Lácteos",
+          "Panadería"
+        ],
+        "specialties": [
+          "Arroz con leche",
+          "Dulce cortado",
+          "Arequipe",
+          "Postre de maracuyá",
+          "3 leches",
+          "Merengón",
+          "Fresas con crema",
+          "Obleas",
+          "Kumis",
+          "Yogurt",
+          "Quesos artesanales",
+          "Aguapanela con queso",
+          "Pan de bono",
+          "Buñuelos"
+        ],
+        "menuHighlights": [
+          "Arroz con leche (reseñas 5/5)",
+          "Dulce cortado",
+          "Aguapanela con queso",
+          "Quesos artesanales"
+        ],
+        "ambience": "Parador de carretera con mirador y vaca gigante",
+        "reservations": "No requiere; parador de paso",
+        "paymentMethods": [
+          "Efectivo"
+        ]
+      },
+      "photos": [],
+      "actionTarget": {
+        "viewUrl": "https://www.salentoalamano.com/paginas-pautantes/la-vaca-original/",
+        "reserveUrl": "tel:+573022621694"
+      },
+      "isPautante": true
     }
   ],
-  "lastUpdated": "2026-10-08",
+  "lastUpdated": "2026-10-13",
   "version": "2.0.0-pautantes-only"
 }

@@ -29,6 +29,11 @@ Nuevos (2026-10-06):
 - hotel_salento_real (Hotel Salento Real — Calle 3 # 4-31)
 - ruta-navarco (Salento y sus Tesoros — turismo comunitario Navarco)
 
+Nuevos (2026-10-13):
+- hotel_boutique_palmas_de_salento (Hotel Boutique Palmas de Salento — Cra. 10 #7-38, Boquerón)
+- restaurante_la_casona (Restaurante La Casona — Cra. 6 #5-42, frente a la plaza)
+- la_vaca_original (La Vaca Original — parador de postres y lácteos, Autopista del Café Km 11, vereda San Antonio, salida Arrayanal; integrada al sitio 13/10/2026)
+
 Recomendaciones:
 - Guardar fotos originales con nombres claros y sin acentos.
 - Mantener una copia de la info verificada en .txt o .md.

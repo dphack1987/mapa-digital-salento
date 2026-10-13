@@ -419,8 +419,44 @@
       ],
       "tone": "coral",
       "note": "4 fincas en Willys: Rubiela, La Unión, Colina y Chamberlain · salida desde la plaza"
+    },
+    {
+      "id": 44,
+      "label": "Hotel Boutique Palmas de Salento",
+      "type": "Turístico",
+      "placeId": 44,
+      "coord": [
+        4.634388,
+        -75.569879
+      ],
+      "tone": "primary",
+      "note": "Hotel boutique en Boquerón · desayuno incluido · terraza con vistas"
+    },
+    {
+      "id": 45,
+      "label": "Restaurante La Casona",
+      "type": "Gastronómico",
+      "placeId": 45,
+      "coord": [
+        4.6376352,
+        -75.5699512
+      ],
+      "tone": "secondary",
+      "note": "Restaurante colombiano frente a la plaza · trucha gratinada"
+    },
+    {
+      "id": 46,
+      "label": "La Vaca Original",
+      "type": "Gastronómico",
+      "placeId": 46,
+      "coord": [
+        4.657303,
+        -75.600725
+      ],
+      "tone": "secondary",
+      "note": "Parador de postres y lácteos · Autopista del Café Km 11 · frente a La Posada Alemana"
     }
   ],
-  "lastUpdated": "2026-10-06T00:00:00.000Z",
+  "lastUpdated": "2026-10-13T00:00:00.000Z",
   "version": "2.0.0-pautantes-only"
 }

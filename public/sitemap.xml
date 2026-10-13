@@ -38,6 +38,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.salentoalamano.com/categorias/postres-y-dulces-tipicos.html</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.salentoalamano.com/categorias/restaurante-bar.html</loc>
     <lastmod>2026-09-21</lastmod>
     <changefreq>weekly</changefreq>
@@ -1148,6 +1154,22 @@
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
-</urlset>\n</urlset>
-
-
+</urlset>\n  <url>
+    <loc>https://www.salentoalamano.com/paginas-pautantes/hotel-boutique-palmas-de-salento/</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.salentoalamano.com/paginas-pautantes/restaurante-la-casona/</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.salentoalamano.com/paginas-pautantes/la-vaca-original/</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+</urlset>

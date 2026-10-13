@@ -71,8 +71,17 @@
       "isPartner": true,
       "placeId": 31,
       "url": "/paginas-pautantes/camping-cascadas-de-santa-rita/"
+    },
+    {
+      "id": "hotel_9",
+      "name": "Hotel Boutique Palmas de Salento",
+      "address": "Cra. 10 # 7-38, Barrio Boquerón, Salento, Quindío",
+      "phone": "+57 320 311 8328",
+      "isPartner": true,
+      "placeId": 44,
+      "url": "/paginas-pautantes/hotel-boutique-palmas-de-salento/"
     }
   ],
-  "lastUpdated": "2026-10-06T00:00:00.000Z",
+  "lastUpdated": "2026-10-13T00:00:00.000Z",
   "version": "2.0.0-pautantes-only"
 }
