@@ -16,8 +16,10 @@
 - Calificación: 4.4/5 (~15 opiniones TripAdvisor)
 - Habitaciones: doble matrimonial (2 pax), twin (4 pax), triple (6 pax), dúplex familiar (8 pax)
 - Servicios: Wi-Fi gratis, desayuno destacado, jardín y terraza, patio en habitaciones, TV plana, no fumador, mascotas permitidas, recepción, equipaje, traslado aeropuerto (pago)
-- Check-in: 15:00–22:00 · Check-out: hasta 11:00
-- Tarifa referencia: desde ~$61 USD (confirmar directo)
+- Check-in: 15:00–22:00 · Check-out: hasta 11:00 (confirmado en co-quindio.co 13/10/2026)
+- Habitaciones totales: 23 (fuente: co-quindio.co)
+- Desayuno: americano cada mañana, con café temprano para huéspedes (co-quindio.co)
+- Tarifa referencia: desde COP 196.141/noche, 2 huéspedes (co-quindio.co, consulta 13/10/2026 para 14–15 oct 2026; −10% reservando en su web)
 - Propuesta: hotel familiar de arquitectura de colonización antioqueña cerca del parque, desayunos destacados por huéspedes
 - Página: /paginas-pautantes/hotel-la-tia-emiss/
 - Fotos: 13 imágenes en public/pautas/hotel_tia_emiss/ (trackeadas)
@@ -41,7 +43,8 @@
 - Tarifas por tipo de habitación (tarifa exacta por fecha)
 - Confirmación de servicios adicionales (parqueadero, desayuno incluido sí/no)
 
-## Verificación tarifas (5/10/2026)
-- Referencia OTA: desde ~US$62/noche (sitio de reservas)
-- Decisión: precio null → Consultar precio; desc con referencia OTA
+## Verificación tarifas
+- 5/10/2026: referencia OTA desde ~US$62/noche
+- 13/10/2026: co-quindio.co (sitio de reservas del hotel, no oficial, -10% vs Booking) muestra desde COP 196.141/noche (2 huéspedes, 14–15 oct 2026); valoración 8.3/10
+- Decisión: precio null → Consultar precio; desc con referencia COP
 
