@@ -2524,7 +2524,7 @@
       "id": 36,
       "name": "Downhill Bike Salento",
       "type": "Experiencias",
-      "description": "Empresa de turismo de aventura en Salento: downhill en bicicleta, La Carbonera Hiking Tour, caminatas guiadas y cabalgatas por paisajes naturales del Quindío.",
+      "description": "Downhill en bicicleta desde la montaña (3.600 msnm) hasta Salento: 26 km de descenso, caminata por el Valle de Palmas en La Carbonera y descanso con café. También hiking y cabalgatas.",
       "priceRange": "$$",
       "rating": "4.7",
       "timeInfo": "Reserva previa por WhatsApp",
@@ -2559,14 +2559,16 @@
       "verified": true,
       "active": true,
       "experienceDetails": {
-        "duration": "Medio día (tour Carbonera)",
+        "duration": "Medio día",
         "difficulty": "Moderada",
         "groupSize": "Consultar",
         "included": [
-          "Traslado en vehículo propio",
-          "Descenso en bicicleta 21 km",
-          "Caminata finca La Carbonera",
-          "Snack",
+          "Subida 20 km en camioneta hasta la parte alta",
+          "Primer descenso 6 km en bicicleta hasta La Carbonera",
+          "Caminata ecológica por el Valle de Palmas",
+          "Bocadillo, snack, café caliente y botella de agua",
+          "Ascenso final al punto más alto (3.600 msnm)",
+          "Gran descenso final 20 km en bicicleta hasta Salento",
           "La Carbonera Hiking Tour: almuerzo, guía (español / inglés), transporte y seguro"
         ],
         "notIncluded": [
@@ -2604,6 +2606,7 @@
         "meetingPoint": "Carrera 3 # 6 - 45, Salento"
       },
       "photos": [
+        "/pautas/downhill_bike_salento/imagenes/arte-downhill.webp",
         "/pautas/downhill_bike_salento/imagenes/downhill-bike-salento-g45.webp",
         "/pautas/downhill_bike_salento/imagenes/downhill-bike-salento-g25.webp",
         "/pautas/downhill_bike_salento/imagenes/downhill-bike-salento-g36.webp",

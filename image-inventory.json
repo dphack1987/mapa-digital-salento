@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-10-14T17:04:07.600Z",
-  "total": 1653,
-  "ok": 1653,
+  "generatedAt": "2026-10-14T17:21:35.740Z",
+  "total": 1655,
+  "ok": 1655,
   "broken": 0,
   "fixable": 0,
   "unfixable": 0,
@@ -786,7 +786,7 @@
     {
       "file": "public/categorias/experiencias.html",
       "line": 135,
-      "path": "/pautas/downhill_bike_salento/imagenes/downhill-bike-salento-g45.webp",
+      "path": "/pautas/downhill_bike_salento/imagenes/arte-downhill.webp",
       "status": "OK",
       "equivalent": null
     },
@@ -2465,385 +2465,392 @@
     },
     {
       "file": "public/data/places.json",
-      "line": 2607,
-      "path": "/pautas/downhill_bike_salento/imagenes/downhill-bike-salento-g45.webp",
-      "status": "OK",
-      "equivalent": null
-    },
-    {
-      "file": "public/data/places.json",
-      "line": 2608,
-      "path": "/pautas/downhill_bike_salento/imagenes/downhill-bike-salento-g25.webp",
-      "status": "OK",
-      "equivalent": null
-    },
-    {
-      "file": "public/data/places.json",
       "line": 2609,
-      "path": "/pautas/downhill_bike_salento/imagenes/downhill-bike-salento-g36.webp",
+      "path": "/pautas/downhill_bike_salento/imagenes/arte-downhill.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
       "line": 2610,
-      "path": "/pautas/downhill_bike_salento/imagenes/downhill-bike-salento-g44.webp",
+      "path": "/pautas/downhill_bike_salento/imagenes/downhill-bike-salento-g45.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
       "line": 2611,
-      "path": "/pautas/downhill_bike_salento/imagenes/downhill-bike-salento-14.webp",
+      "path": "/pautas/downhill_bike_salento/imagenes/downhill-bike-salento-g25.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
       "line": 2612,
-      "path": "/pautas/downhill_bike_salento/imagenes/downhill-bike-salento-1.webp",
+      "path": "/pautas/downhill_bike_salento/imagenes/downhill-bike-salento-g36.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
       "line": 2613,
+      "path": "/pautas/downhill_bike_salento/imagenes/downhill-bike-salento-g44.webp",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
+      "file": "public/data/places.json",
+      "line": 2614,
+      "path": "/pautas/downhill_bike_salento/imagenes/downhill-bike-salento-14.webp",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
+      "file": "public/data/places.json",
+      "line": 2615,
+      "path": "/pautas/downhill_bike_salento/imagenes/downhill-bike-salento-1.webp",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
+      "file": "public/data/places.json",
+      "line": 2616,
       "path": "/pautas/downhill_bike_salento/imagenes/downhill-bike-salento-logo.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 2694,
+      "line": 2697,
       "path": "/pautas/hotel_salento_real/imagenes/hotel-salento-real-confort.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 2695,
+      "line": 2698,
       "path": "/pautas/hotel_salento_real/imagenes/hotel-salento-real-suite-kumanday.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 2696,
+      "line": 2699,
       "path": "/pautas/hotel_salento_real/imagenes/hotel-salento-real-jacuzzi.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 2697,
+      "line": 2700,
       "path": "/pautas/hotel_salento_real/imagenes/hotel-salento-real-suite-dulima.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 2698,
+      "line": 2701,
       "path": "/pautas/hotel_salento_real/imagenes/hotel-salento-real-twin-confort.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 2699,
+      "line": 2702,
       "path": "/pautas/hotel_salento_real/imagenes/hotel-salento-real-superior-balcon.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 2700,
+      "line": 2703,
       "path": "/pautas/hotel_salento_real/imagenes/hotel-salento-real-logo.svg",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 2785,
+      "line": 2788,
       "path": "/pautas/ruta-navarco/salento-tesoros-trapiche.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 2786,
+      "line": 2789,
       "path": "/pautas/ruta-navarco/salento-tesoros-rubiela.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 2787,
+      "line": 2790,
       "path": "/pautas/ruta-navarco/salento-tesoros-chamberlain.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 2788,
+      "line": 2791,
       "path": "/pautas/ruta-navarco/salento-tesoros-hospedaje.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 2789,
+      "line": 2792,
       "path": "/pautas/ruta-navarco/salento-tesoros-colina.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 2790,
+      "line": 2793,
       "path": "/pautas/ruta-navarco/salento-tesoros-logo.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 2833,
+      "line": 2836,
       "path": "/pautas/cootracocora_ltda/imagenes/willys.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 2834,
+      "line": 2837,
       "path": "/pautas/cootracocora_ltda/imagenes/info-transcocora.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 2835,
+      "line": 2838,
       "path": "/pautas/cootracocora_ltda/cootracocora-arte-publicitario.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 2878,
+      "line": 2881,
       "path": "/pautas/hotel-barranqueros/image-salento-los-barranqueros-hotel-1.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 2879,
+      "line": 2882,
       "path": "/pautas/hotel-barranqueros/image-salento-los-barranqueros-hotel-2.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 2880,
+      "line": 2883,
       "path": "/pautas/hotel-barranqueros/image-salento-los-barranqueros-hotel-3.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 2881,
+      "line": 2884,
       "path": "/pautas/hotel-barranqueros/image-salento-los-barranqueros-hotel-4.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 2924,
+      "line": 2927,
       "path": "/pautas/hotel-green-house/imagenes/green-house-banner.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 2925,
+      "line": 2928,
       "path": "/pautas/hotel-green-house/imagenes/green-house-hab-1.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 2926,
+      "line": 2929,
       "path": "/pautas/hotel-green-house/imagenes/green-house-hab-2.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 2927,
+      "line": 2930,
       "path": "/pautas/hotel-green-house/imagenes/green-house-hab-3.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 2969,
+      "line": 2972,
       "path": "/pautas/mirador-manos-de-cocora/imagenes/7.-deslizadora-tricolor-nueva-manos-de-cocora-2.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 2970,
+      "line": 2973,
       "path": "/pautas/mirador-manos-de-cocora/imagenes/4. ubicacion-manos-de-cocora-7.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 2971,
+      "line": 2974,
       "path": "/pautas/mirador-manos-de-cocora/imagenes/9.-san-pedro-manos-de-cocora-2.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 2972,
+      "line": 2975,
       "path": "/pautas/mirador-manos-de-cocora/imagenes/14. colores-manos-de-cocora-1.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 3059,
+      "line": 3062,
       "path": "/pautas/restaurante-bar-shalem/imagenes/shalem-home-banner.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 3060,
+      "line": 3063,
       "path": "/pautas/restaurante-bar-shalem/imagenes/shalem-restaurante-1.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 3061,
+      "line": 3064,
       "path": "/pautas/restaurante-bar-shalem/imagenes/shalem-restaurante-2.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 3062,
+      "line": 3065,
       "path": "/pautas/restaurante-bar-shalem/imagenes/shalem-bar-1.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 3134,
+      "line": 3137,
       "path": "/pautas/hotel_boutique_palmas_de_salento/imagenes/hotel-boutique-palmas-de-salento-1.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 3135,
+      "line": 3138,
       "path": "/pautas/hotel_boutique_palmas_de_salento/imagenes/hotel-boutique-palmas-de-salento-2.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 3136,
+      "line": 3139,
       "path": "/pautas/hotel_boutique_palmas_de_salento/imagenes/hotel-boutique-palmas-de-salento-3.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 3137,
+      "line": 3140,
       "path": "/pautas/hotel_boutique_palmas_de_salento/imagenes/hotel-boutique-palmas-de-salento-4.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 3138,
+      "line": 3141,
       "path": "/pautas/hotel_boutique_palmas_de_salento/imagenes/hotel-boutique-palmas-de-salento-5.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 3139,
+      "line": 3142,
       "path": "/pautas/hotel_boutique_palmas_de_salento/imagenes/hotel-boutique-palmas-de-salento-6.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 3140,
+      "line": 3143,
       "path": "/pautas/hotel_boutique_palmas_de_salento/imagenes/hotel-boutique-palmas-de-salento-7.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 3141,
+      "line": 3144,
       "path": "/pautas/hotel_boutique_palmas_de_salento/imagenes/hotel-boutique-palmas-de-salento-8.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 3214,
+      "line": 3217,
       "path": "/pautas/restaurante_la_casona/imagenes/restaurante-la-casona-1.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 3215,
+      "line": 3218,
       "path": "/pautas/restaurante_la_casona/imagenes/restaurante-la-casona-2.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 3216,
+      "line": 3219,
       "path": "/pautas/restaurante_la_casona/imagenes/restaurante-la-casona-3.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 3217,
+      "line": 3220,
       "path": "/pautas/restaurante_la_casona/imagenes/restaurante-la-casona-4.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 3218,
+      "line": 3221,
       "path": "/pautas/restaurante_la_casona/imagenes/restaurante-la-casona-5.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 3219,
+      "line": 3222,
       "path": "/pautas/restaurante_la_casona/imagenes/restaurante-la-casona-6.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 3220,
+      "line": 3223,
       "path": "/pautas/restaurante_la_casona/imagenes/restaurante-la-casona-7.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 3221,
+      "line": 3224,
       "path": "/pautas/restaurante_la_casona/imagenes/restaurante-la-casona-8.webp",
       "status": "OK",
       "equivalent": null
@@ -4258,7 +4265,7 @@
     {
       "file": "public/paginas-pautantes/downhill-bike-salento/index.html",
       "line": 31,
-      "path": "/pautas/downhill_bike_salento/imagenes/downhill-bike-salento-g45.webp",
+      "path": "/pautas/downhill_bike_salento/imagenes/arte-downhill.webp",
       "status": "OK",
       "equivalent": null
     },
@@ -4285,77 +4292,84 @@
     },
     {
       "file": "public/paginas-pautantes/downhill-bike-salento/index.html",
-      "line": 73,
+      "line": 85,
+      "path": "/pautas/downhill_bike_salento/imagenes/arte-downhill.webp",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
+      "file": "public/paginas-pautantes/downhill-bike-salento/index.html",
+      "line": 85,
       "path": "/pautas/downhill_bike_salento/imagenes/downhill-bike-salento-g45.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/paginas-pautantes/downhill-bike-salento/index.html",
-      "line": 73,
+      "line": 85,
       "path": "/pautas/downhill_bike_salento/imagenes/downhill-bike-salento-g25.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/paginas-pautantes/downhill-bike-salento/index.html",
-      "line": 73,
+      "line": 85,
       "path": "/pautas/downhill_bike_salento/imagenes/downhill-bike-salento-g36.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/paginas-pautantes/downhill-bike-salento/index.html",
-      "line": 73,
+      "line": 85,
       "path": "/pautas/downhill_bike_salento/imagenes/downhill-bike-salento-14.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/paginas-pautantes/downhill-bike-salento/index.html",
-      "line": 73,
+      "line": 85,
       "path": "/pautas/downhill_bike_salento/imagenes/downhill-bike-salento-g44.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/paginas-pautantes/downhill-bike-salento/index.html",
-      "line": 73,
+      "line": 85,
       "path": "/pautas/downhill_bike_salento/imagenes/downhill-bike-salento-1.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/paginas-pautantes/downhill-bike-salento/index.html",
-      "line": 99,
-      "path": "/pautas/downhill_bike_salento/imagenes/downhill-bike-salento-g45.webp",
+      "line": 111,
+      "path": "/pautas/downhill_bike_salento/imagenes/arte-downhill.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/paginas-pautantes/downhill-bike-salento/index.html",
-      "line": 99,
+      "line": 111,
       "path": "/pautas/downhill_bike_salento/imagenes/downhill-bike-salento-g25.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/paginas-pautantes/downhill-bike-salento/index.html",
-      "line": 99,
+      "line": 111,
       "path": "/pautas/downhill_bike_salento/imagenes/downhill-bike-salento-g36.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/paginas-pautantes/downhill-bike-salento/index.html",
-      "line": 99,
+      "line": 111,
       "path": "/pautas/downhill_bike_salento/imagenes/downhill-bike-salento-g44.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/paginas-pautantes/downhill-bike-salento/index.html",
-      "line": 99,
+      "line": 111,
       "path": "/pautas/downhill_bike_salento/imagenes/downhill-bike-salento-14.webp",
       "status": "OK",
       "equivalent": null
@@ -8955,7 +8969,7 @@
     {
       "file": "src/components/HomeBanners.tsx",
       "line": 245,
-      "path": "/pautas/downhill_bike_salento/imagenes/downhill-bike-salento-g45.webp",
+      "path": "/pautas/downhill_bike_salento/imagenes/arte-downhill.webp",
       "status": "OK",
       "equivalent": null
     },
