@@ -7,7 +7,7 @@
       "description": "Camping dentro de la Reserva Cascadas de Santa Rita. Áreas de fogata, baños y acceso a senderos y cascadas.",
       "priceRange": "$",
       "rating": "4.6",
-      "timeInfo": "Pernoctada disponible",
+      "timeInfo": "Camping y habitaciones · check-in 2:00 PM",
       "badge": "Naturaleza",
       "color": "mustard",
       "icon": "Flame",
@@ -90,7 +90,8 @@
       "actionTarget": {
         "viewUrl": "https://www.salentoalamano.com/paginas-pautantes/camping-cascadas-de-santa-rita/"
       },
-      "isPautante": true
+      "isPautante": true,
+      "viewUrl": "/paginas-pautantes/camping-cascadas-de-santa-rita/"
     },
     {
       "id": 13,
@@ -633,7 +634,7 @@
       "description": "Reserva con cascadas, senderos y pozos naturales. Caminata fácil en plena naturaleza del Quindío.",
       "priceRange": "$",
       "rating": "4.7",
-      "timeInfo": "3-4 horas caminata",
+      "timeInfo": "3-4 horas · visita diurna",
       "badge": "Naturaleza",
       "color": "green",
       "icon": "Mountain",
@@ -741,7 +742,8 @@
         "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/WhatsApp Image 2026-09-07 at 08.38.38.webp",
         "/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/f16.webp"
       ],
-      "isPautante": true
+      "isPautante": true,
+      "viewUrl": "/paginas-pautantes/reserva-natural-cascadas-de-santa-rita/"
     },
     {
       "id": 5,
