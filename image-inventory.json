@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-10-14T23:00:02.403Z",
-  "total": 1695,
-  "ok": 1695,
+  "generatedAt": "2026-10-14T23:18:44.464Z",
+  "total": 1694,
+  "ok": 1694,
   "broken": 0,
   "fixable": 0,
   "unfixable": 0,
@@ -3664,13 +3664,6 @@
       "file": "public/manifest.webmanifest",
       "line": 13,
       "path": "/avatar-don-chucho.webp",
-      "status": "OK",
-      "equivalent": null
-    },
-    {
-      "file": "public/moto-aventura-110.html",
-      "line": 16,
-      "path": "/logo_salento2026.webp",
       "status": "OK",
       "equivalent": null
     },
