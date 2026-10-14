@@ -158,7 +158,7 @@ const BANNERS: HomeBanner[] = [
     desc: 'Cabalgata por el Valle de Cocora.',
     href: '/paginas-pautantes/cabalgatas-cocora-magica/',
     cta: 'Reservar',
-    image: '/pautas/cabalgatas_cocora_magica/imagenes/cabalgatas-en-el-valle-de-cocora-6.webp',
+    image: '/pautas/cabalgatas_cocora_magica/imagenes/cabalgata-rio.webp',
     imageAlt: 'Cabalgatas en el Valle de Cocora',
     tone: 'green',
     size: 'card',
