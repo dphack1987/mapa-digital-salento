@@ -206,7 +206,8 @@
           "slug": "boki-mall-eventos",
           "path": "/paginas-pautantes/boki-mall-eventos/"
         }
-      ]
+      ],
+      "viewUrl": "/paginas-pautantes/boki-mall-hotel-el-mirador-de-boquia/"
     },
     {
       "id": 28,
@@ -333,7 +334,8 @@
           "slug": "boki-mall-eventos",
           "path": "/paginas-pautantes/boki-mall-eventos/"
         }
-      ]
+      ],
+      "viewUrl": "/paginas-pautantes/boki-mall-restaurante-terra/"
     },
     {
       "id": 29,
@@ -424,7 +426,8 @@
           "slug": "boki-mall-eventos",
           "path": "/paginas-pautantes/boki-mall-eventos/"
         }
-      ]
+      ],
+      "viewUrl": "/paginas-pautantes/boki-mall-barcinales-cafe-bar/"
     },
     {
       "id": 30,
@@ -532,7 +535,8 @@
           "slug": "boki-mall-barcinales-cafe-bar",
           "path": "/paginas-pautantes/boki-mall-barcinales-cafe-bar/"
         }
-      ]
+      ],
+      "viewUrl": "/paginas-pautantes/boki-mall-eventos/"
     },
     {
       "id": 14,
@@ -625,7 +629,8 @@
         "/pautas/mirador_mano_de_dios/imagenes/images.webp",
         "/pautas/mirador_mano_de_dios/imagenes/logo-mirador-dios-512.webp"
       ],
-      "isPautante": true
+      "isPautante": true,
+      "viewUrl": "/paginas-pautantes/mirador-las-manos-de-dios/"
     },
     {
       "id": 15,
@@ -875,7 +880,8 @@
         "capacity": "Por confirmar",
         "bookingNotes": "Las tarifas no fueron incluidas en la información recibida. Deben confirmarse directamente con el hotel según fecha, número de huéspedes, tipo de habitación y temporada."
       },
-      "isPautante": true
+      "isPautante": true,
+      "viewUrl": "/paginas-pautantes/hotel-camino-nacional-salento/"
     },
     {
       "id": 9,
@@ -973,7 +979,8 @@
         "capacity": "Máximo 20 huéspedes",
         "bookingNotes": "Las tarifas varían según temporada y tipo de habitación. Confirmar directamente para disponibilidad y precios exactos."
       },
-      "isPautante": true
+      "isPautante": true,
+      "viewUrl": "/paginas-pautantes/finca-hotel-el-ocaso/"
     },
     {
       "id": 16,
@@ -1059,7 +1066,8 @@
         "/pautas/hotel_la_floresta_salento/imagenes/floresta-bar.webp",
         "/pautas/hotel_la_floresta_salento/imagenes/logo-la-floresta.webp"
       ],
-      "isPautante": true
+      "isPautante": true,
+      "viewUrl": "/paginas-pautantes/hotel-la-floresta-salento/"
     },
     {
       "id": 17,
@@ -1138,7 +1146,8 @@
         "viewUrl": "https://www.salentoalamano.com/paginas-pautantes/finca-cafetera-don-elias/",
         "reserveUrl": "https://www.fincafedonelias.com/"
       },
-      "isPautante": true
+      "isPautante": true,
+      "viewUrl": "/paginas-pautantes/finca-cafetera-don-elias/"
     },
     {
       "id": 19,
@@ -1204,7 +1213,8 @@
         "/pautas/moto_aventura_110/imagenes/4.webp",
         "/pautas/moto_aventura_110/imagenes/5.webp"
       ],
-      "isPautante": true
+      "isPautante": true,
+      "viewUrl": "/paginas-pautantes/moto-aventura-110/"
     },
     {
       "id": 20,
@@ -1293,7 +1303,8 @@
         "/pautas/cabalgatas_cocora_magica/imagenes/cabalgata-rio.webp",
         "/pautas/cabalgatas_cocora_magica/imagenes/cruzando-rio.webp"
       ],
-      "isPautante": true
+      "isPautante": true,
+      "viewUrl": "/paginas-pautantes/cabalgatas-cocora-magica/"
     },
     {
       "id": 21,
@@ -1548,7 +1559,8 @@
         "/pautas/restaurante_bar_fonda_boquia/imagenes/481961056_1182180233599531_8927232009685756092_n.webp",
         "/pautas/restaurante_bar_fonda_boquia/imagenes/65375183_1331615080320675_8125305373516103680_n.webp"
       ],
-      "isPautante": true
+      "isPautante": true,
+      "viewUrl": "/paginas-pautantes/fonda-boquia/"
     },
     {
       "id": 22,
@@ -1616,7 +1628,8 @@
         "viewUrl": "https://www.salentoalamano.com/paginas-pautantes/restaurante-don-elias/",
         "orderUrl": "https://wa.me/573117737987"
       },
-      "isPautante": true
+      "isPautante": true,
+      "viewUrl": "/paginas-pautantes/restaurante-don-elias/"
     },
     {
       "id": 23,
@@ -1717,7 +1730,8 @@
         "/pautas/coffee-tour-finca-don-eduardo/imagenes/IMG_9326.webp",
         "/pautas/coffee-tour-finca-don-eduardo/imagenes/IMG_9360_1.webp"
       ],
-      "isPautante": true
+      "isPautante": true,
+      "viewUrl": "/paginas-pautantes/finca-don-eduardo-coffee-tour/"
     },
     {
       "id": 100,
@@ -1754,7 +1768,8 @@
         "/imagenes-salento/calle.webp",
         "/imagenes-salento/631026720.webp"
       ],
-      "isPautante": true
+      "isPautante": true,
+      "viewUrl": "/paginas-pautantes/calle-real-de-salento/"
     },
     {
       "id": 101,
@@ -1791,7 +1806,8 @@
         "/imagenes-salento/pueblo.webp",
         "/imagenes-salento/631032744.webp"
       ],
-      "isPautante": true
+      "isPautante": true,
+      "viewUrl": "/paginas-pautantes/plaza-de-bolivar-de-salento/"
     },
     {
       "id": 102,
@@ -1828,7 +1844,8 @@
         "/imagenes-salento/salento-landscape.webp",
         "/imagenes-salento/653410779.webp"
       ],
-      "isPautante": true
+      "isPautante": true,
+      "viewUrl": "/paginas-pautantes/mirador-alto-de-la-cruz/"
     },
     {
       "id": 103,
@@ -1865,7 +1882,8 @@
         "/imagenes-salento/iglesia.webp",
         "/imagenes-salento/1326163759.webp"
       ],
-      "isPautante": true
+      "isPautante": true,
+      "viewUrl": "/paginas-pautantes/iglesia-de-nuestra-senora-del-carmen-de-salento/"
     },
     {
       "id": 104,
@@ -1902,7 +1920,8 @@
         "/imagenes-salento/valle-cocora-palmas-2.webp",
         "/imagenes-salento/653410779.webp"
       ],
-      "isPautante": true
+      "isPautante": true,
+      "viewUrl": "/paginas-pautantes/valle-de-cocora-sendero-de-entrada-libre/"
     },
     {
       "id": 105,
@@ -1939,7 +1958,8 @@
         "/imagenes-salento/salento-landscape.webp",
         "/imagenes-salento/colombia-palms.webp"
       ],
-      "isPautante": true
+      "isPautante": true,
+      "viewUrl": "/paginas-pautantes/mirador-del-condor-salento/"
     },
     {
       "id": 108,
@@ -1976,7 +1996,8 @@
         "/imagenes-salento/destinos-75.webp",
         "/imagenes-salento/calle.webp"
       ],
-      "isPautante": true
+      "isPautante": true,
+      "viewUrl": "/paginas-pautantes/puente-de-boquia-sendero-cercano/"
     },
     {
       "id": 109,
@@ -2013,7 +2034,8 @@
         "/imagenes-salento/colombia-palms.webp",
         "/imagenes-salento/653410779.webp"
       ],
-      "isPautante": true
+      "isPautante": true,
+      "viewUrl": "/paginas-pautantes/sendero-de-las-palmas-entrada-libre-valle/"
     },
     {
       "id": 110,
@@ -2050,7 +2072,8 @@
         "/imagenes-salento/631026720.webp",
         "/imagenes-salento/1326163558.webp"
       ],
-      "isPautante": true
+      "isPautante": true,
+      "viewUrl": "/paginas-pautantes/recorrido-cultural-casco-historico/"
     },
     {
       "id": 111,
@@ -2087,7 +2110,8 @@
         "/imagenes-salento/pueblo.webp",
         "/imagenes-salento/1326163759.webp"
       ],
-      "isPautante": true
+      "isPautante": true,
+      "viewUrl": "/paginas-pautantes/oficina-de-informacion-turistica-de-salento/"
     },
     {
       "id": 112,
@@ -2123,7 +2147,8 @@
       "photos": [
         "/imagenes-salento/destinos-75.webp"
       ],
-      "isPautante": true
+      "isPautante": true,
+      "viewUrl": "/paginas-pautantes/terminal-de-transporte-de-salento-acceso-peatonal/"
     },
     {
       "id": 113,
@@ -2160,7 +2185,8 @@
         "/imagenes-salento/pueblo.webp",
         "/imagenes-salento/destinos-75.webp"
       ],
-      "isPautante": true
+      "isPautante": true,
+      "viewUrl": "/paginas-pautantes/punto-de-encuentro-jeeps-willys-plaza/"
     },
     {
       "id": 32,
@@ -2294,7 +2320,8 @@
       "actionTarget": {
         "viewUrl": "https://www.salentoalamano.com/paginas-pautantes/mahalo-hostel-salento/"
       },
-      "isPautante": true
+      "isPautante": true,
+      "viewUrl": "/paginas-pautantes/mahalo-hostel-salento/"
     },
     {
       "id": 33,
@@ -2382,7 +2409,8 @@
       "actionTarget": {
         "viewUrl": "https://www.salentoalamano.com/paginas-pautantes/parque-mirador-la-vida-es-bella/"
       },
-      "isPautante": true
+      "isPautante": true,
+      "viewUrl": "/paginas-pautantes/parque-mirador-la-vida-es-bella/"
     },
     {
       "id": 34,
@@ -2446,7 +2474,8 @@
       "actionTarget": {
         "viewUrl": "https://www.salentoalamano.com/paginas-pautantes/el-recuerdo-coffee-tour/"
       },
-      "isPautante": true
+      "isPautante": true,
+      "viewUrl": "/paginas-pautantes/el-recuerdo-coffee-tour/"
     },
     {
       "id": 35,
@@ -2528,7 +2557,8 @@
       "actionTarget": {
         "viewUrl": "https://www.salentoalamano.com/paginas-pautantes/hotel-la-tia-emiss/"
       },
-      "isPautante": true
+      "isPautante": true,
+      "viewUrl": "/paginas-pautantes/hotel-la-tia-emiss/"
     },
     {
       "id": 36,
@@ -2632,7 +2662,8 @@
         "viewUrl": "https://www.salentoalamano.com/paginas-pautantes/downhill-bike-salento/",
         "reserveUrl": "https://wa.me/573152545238"
       },
-      "isPautante": true
+      "isPautante": true,
+      "viewUrl": "/paginas-pautantes/downhill-bike-salento/"
     },
     {
       "id": 37,
@@ -2719,7 +2750,8 @@
         "viewUrl": "https://www.salentoalamano.com/paginas-pautantes/hotel-salento-real/",
         "reserveUrl": "https://www.hotelsalentoreal.com/"
       },
-      "isPautante": true
+      "isPautante": true,
+      "viewUrl": "/paginas-pautantes/hotel-salento-real/"
     },
     {
       "id": 38,
@@ -2813,7 +2845,8 @@
         "viewUrl": "https://www.salentoalamano.com/paginas-pautantes/ruta-navarco/",
         "reserveUrl": "https://api.whatsapp.com/send/?phone=573043685771"
       },
-      "isPautante": true
+      "isPautante": true,
+      "viewUrl": "/paginas-pautantes/ruta-navarco/"
     },
     {
       "id": 39,
@@ -2858,7 +2891,8 @@
         "viewUrl": "https://www.salentoalamano.com/paginas-pautantes/cootracocora-ltda/",
         "reserveUrl": "https://wa.me/573104372944"
       },
-      "isPautante": true
+      "isPautante": true,
+      "viewUrl": "/paginas-pautantes/cootracocora-ltda/"
     },
     {
       "id": 40,
@@ -2905,7 +2939,8 @@
         "viewUrl": "https://www.salentoalamano.com/paginas-pautantes/los-barranqueros-hotel/",
         "reserveUrl": "https://wa.me/573024433793"
       },
-      "isPautante": true
+      "isPautante": true,
+      "viewUrl": "/paginas-pautantes/los-barranqueros-hotel/"
     },
     {
       "id": 41,
@@ -2951,7 +2986,8 @@
         "viewUrl": "https://www.salentoalamano.com/paginas-pautantes/hotel-green-house-salento/",
         "reserveUrl": "https://wa.me/573128674073"
       },
-      "isPautante": true
+      "isPautante": true,
+      "viewUrl": "/paginas-pautantes/hotel-green-house-salento/"
     },
     {
       "id": 42,
@@ -2996,7 +3032,8 @@
         "viewUrl": "https://www.salentoalamano.com/paginas-pautantes/mirador-manos-de-cocora/",
         "reserveUrl": "https://wa.me/573215452739"
       },
-      "isPautante": true
+      "isPautante": true,
+      "viewUrl": "/paginas-pautantes/mirador-manos-de-cocora/"
     },
     {
       "id": 43,
@@ -3176,7 +3213,8 @@
         "viewUrl": "https://www.salentoalamano.com/paginas-pautantes/shalem-restaurante-bar/",
         "reserveUrl": "https://wa.me/573234661964"
       },
-      "isPautante": true
+      "isPautante": true,
+      "viewUrl": "/paginas-pautantes/shalem-restaurante-bar/"
     },
     {
       "id": 44,
@@ -3256,7 +3294,8 @@
         "viewUrl": "https://www.salentoalamano.com/paginas-pautantes/hotel-boutique-palmas-de-salento/",
         "reserveUrl": "tel:+573203118328"
       },
-      "isPautante": true
+      "isPautante": true,
+      "viewUrl": "/paginas-pautantes/hotel-boutique-palmas-de-salento/"
     },
     {
       "id": 45,
@@ -3338,7 +3377,8 @@
         "viewUrl": "https://www.salentoalamano.com/paginas-pautantes/restaurante-la-casona/",
         "reserveUrl": "https://wa.me/573128660910"
       },
-      "isPautante": true
+      "isPautante": true,
+      "viewUrl": "/paginas-pautantes/restaurante-la-casona/"
     },
     {
       "id": 46,
@@ -3414,7 +3454,8 @@
         "viewUrl": "https://www.salentoalamano.com/paginas-pautantes/la-vaca-original/",
         "reserveUrl": "tel:+573022621694"
       },
-      "isPautante": true
+      "isPautante": true,
+      "viewUrl": "/paginas-pautantes/la-vaca-original/"
     }
   ],
   "lastUpdated": "2026-10-13",

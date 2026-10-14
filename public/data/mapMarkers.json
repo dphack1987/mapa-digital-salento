@@ -455,6 +455,66 @@
       ],
       "tone": "secondary",
       "note": "Parador de postres y lácteos · Autopista del Café Km 11 · frente a La Posada Alemana"
+    },
+    {
+      "id": 114,
+      "label": "Cootracocora LTDA",
+      "type": "Servicio",
+      "placeId": 39,
+      "coord": [
+        4.6386,
+        -75.5647
+      ],
+      "tone": "info",
+      "note": "Cootracocora LTDA"
+    },
+    {
+      "id": 115,
+      "label": "Los Barranqueros Hotel",
+      "type": "Alojamiento",
+      "placeId": 40,
+      "coord": [
+        4.635789,
+        -75.571056
+      ],
+      "tone": "success",
+      "note": "Los Barranqueros Hotel"
+    },
+    {
+      "id": 116,
+      "label": "Hotel Green House Salento",
+      "type": "Alojamiento",
+      "placeId": 41,
+      "coord": [
+        4.641124,
+        -75.570782
+      ],
+      "tone": "success",
+      "note": "Hotel Green House Salento"
+    },
+    {
+      "id": 117,
+      "label": "Mirador Manos de Cocora",
+      "type": "Turístico",
+      "placeId": 42,
+      "coord": [
+        4.638998,
+        -75.484789
+      ],
+      "tone": "success",
+      "note": "Mirador Manos de Cocora"
+    },
+    {
+      "id": 118,
+      "label": "Shalem Restaurante Bar",
+      "type": "Gastronómico",
+      "placeId": 43,
+      "coord": [
+        4.638204,
+        -75.570928
+      ],
+      "tone": "warning",
+      "note": "Shalem Restaurante Bar"
     }
   ],
   "lastUpdated": "2026-10-13T00:00:00.000Z",
