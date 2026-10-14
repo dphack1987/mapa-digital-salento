@@ -10,6 +10,6 @@
   "icons": [
     { "src": "/logo_salento2026.webp", "sizes": "192x192", "type": "image/png" },
     { "src": "/logo_salento2026.webp", "sizes": "512x512", "type": "image/png" },
-    { "src": "/avatar-don-chucho.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" }
+    { "src": "/avatar-don-chucho.webp", "sizes": "192x192", "type": "image/webp", "purpose": "any maskable" }
   ]
 }

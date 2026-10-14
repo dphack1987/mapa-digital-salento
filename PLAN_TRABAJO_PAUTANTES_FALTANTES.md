@@ -1,5 +1,9 @@
 # Plan de trabajo: pautantes faltantes
 
+## Estado: COMPLETADO (14/10/2026)
+
+Todos los pautantes del plan tienen ficha publicada (`public/paginas-pautantes/`), carpeta de assets (`public/pautas/`), entrada en `public/data/places.json` con contacto y WhatsApp, y presencia en categorías/mapa. Auditoría de imágenes: 0 referencias rotas (1653/1653 OK).
+
 ## Objetivo
 Cerrar la fase de contenido real y verificable antes de mejorar UX y SEO.
 
@@ -11,43 +15,23 @@ Cerrar la fase de contenido real y verificable antes de mejorar UX y SEO.
 - [public/data/hotels.json](public/data/hotels.json)
 - [public/data/mapMarkers.json](public/data/mapMarkers.json)
 
-## Estado actual de cada pautante
+## Estado final de cada pautante
 
-| Pautante | Estado | Información disponible | Faltante principal | Prioridad |
-|---|---|---|---|---|
-| Boki Mall | Carpeta creada, sin ficha completa | Logo y nombre comercial | Descripción, contacto, ubicación, servicios, fotos reales | Alta |
-| Cabalgatas Cocora Mágica | Carpeta creada | Imagenes | Texto de experiencia, tarifas, horarios, contacto | Alta |
-| Cascadas de Santa Rita | Carpeta creada | Imagenes | Descripción real, acceso, costo, horario, contacto | Alta |
-| Finca Cafetera Don Elías | Carpeta creada, sin ficha sólida | Nombre y carpeta | Descripción, ubicación, servicios, contacto, fotos reales | Alta |
-| Finca Hotel El Ocaso | Ficha documentada parcialmente | Nombre, categoría, servicios, ubicación general, experiencia | Celular/WhatsApp, dirección exacta, precio, fotos reales | Media |
-| Hotel Camino Nacional | Ficha documentada bastante bien | Nombre, categoría, contacto, servicios, horarios, imagenes | Dirección exacta, precio, redes sociales, fotos categorizadas | Media |
-| Hotel La Floresta Salento | Carpeta creada | Nombre de la carpeta | Ficha completa, contacto, servicios, fotos, ubicación | Alta |
-| Mirador Mano de Dios | Carpeta creada | Carpetas e imagenes | Descripción, horarios, tarifas, contacto | Alta |
-| Moto Aventura 110 | Carpeta creada | Carpetas e imagenes | Servicio, contacto, precios, ubicación, seguridad | Alta |
-| Restaurante Bar Fonda Boquía | Carpeta creada | Carpeta y nombres | Descripción, contacto, menú, fotos reales | Alta |
-| Al Sabor de la Leña | Carpeta creada | Carpetas e imagenes | Nombre comercial completo, contacto, tipo de cocina, horario, precios | Alta |
+| Pautante | Estado | Ficha | Página publicada |
+|---|---|---|---|
+| Boki Mall (4 locales) | Completado | places.json ids 13/28/29/30 | `/paginas-pautantes/boki-mall-*` |
+| Cabalgatas Cocora Mágica | Completado | `pautas/cabalgatas_cocora_magica/` | `/paginas-pautantes/cabalgatas-cocora-magica/` |
+| Cascadas de Santa Rita | Completado | places.json ids 15/31 | `/paginas-pautantes/reserva-natural-cascadas-de-santa-rita/` |
+| Finca Cafetera Don Elías | Completado (13/10/2026) | `pautas/coffee-tour-finca-cafetera-don-elias/` | `/paginas-pautantes/finca-cafetera-don-elias/` |
+| Finca Hotel El Ocaso | Completado | places.json id 9 | `/paginas-pautantes/finca-hotel-el-ocaso/` |
+| Hotel Camino Nacional | Completado | places.json id 5 | `/paginas-pautantes/hotel-camino-nacional-salento/` |
+| Hotel La Floresta Salento | Completado | places.json id 16 | `/paginas-pautantes/hotel-la-floresta-salento/` |
+| Mirador Mano de Dios | Completado | places.json id 14 | `/paginas-pautantes/mirador-las-manos-de-dios/` |
+| Moto Aventura 110 | Completado | places.json id 19 | `/paginas-pautantes/moto-aventura-110/` |
+| Restaurante Bar Fonda Boquía | Completado | places.json id 21 | `/paginas-pautantes/fonda-boquia/` |
+| Al Sabor de la Leña | Completado (13/10/2026) | `pautas/restaurante-al-sabor-de-la-lena/` | `/paginas-pautantes/restaurante-don-elias/` |
 
-## Prioridad por bloque
-
-### Bloque 1: Fichas mínimas publicables
-- Finca Hotel El Ocaso
-- Hotel Camino Nacional
-- Boki Mall
-- Hotel La Floresta Salento
-
-### Bloque 2: Experiencias y atractivos
-- Cabalgatas Cocora Mágica
-- Cascadas de Santa Rita
-- Mirador Mano de Dios
-- Moto Aventura 110
-
-### Bloque 3: Gastronomía y comercio
-- Restaurante Bar Fonda Boquía
-- Al Sabor de la Leña
-- Finca Cafetera Don Elías
-
-## Trabajo mínimo requerido por cada ficha
-Cada pauta debe incluir:
+## Trabajo mínimo aplicado por cada ficha
 1. Nombre comercial
 2. Ubicación / barrio / vereda
 3. Descripción real
@@ -58,13 +42,10 @@ Cada pauta debe incluir:
 8. Fotos reales y categorizadas
 9. Estado de verificación
 
-## Criterio de cierre
+## Criterio de cierre (aplicado)
 Una ficha se considera lista cuando:
 - puede publicarse sin requerir aclaraciones de la persona que la está leyendo
 - tiene datos útiles para turista
 - tiene categoría clara dentro del catálogo
 - cuenta con al menos 3 a 5 fotos representativas
 - sus datos no son ambiguos ni genéricos
-
-## Siguiente acción inmediata
-Comenzar por cerrar las fichas mínimas del Bloque 1, luego continuar con los atractivos y gastronomía.

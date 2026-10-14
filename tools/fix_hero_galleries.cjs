@@ -46,8 +46,8 @@ const galleryPicks = {
     '/pautas/boki_mall/imagenes/boki_mall_logo-512.webp',
   ],
   'cabalgatas-cocora-magica': [
-    '/pautas/cabalgatas_cocora_magica/imagenes/cabalgatas-en-el-valle-de-cocora-6.webp',
-    '/pautas/cabalgatas_cocora_magica/imagenes/cabalgatas-valle-del-cocora-2.webp',
+    '/pautas/cabalgatas_cocora_magica/imagenes/cabalgata-rio.webp',
+    '/pautas/cabalgatas_cocora_magica/imagenes/cruzando-rio.webp',
     '/pautas/cabalgatas_cocora_magica/imagenes/logo-cocora-magica-512.webp',
   ],
   'calle-real-de-salento': [

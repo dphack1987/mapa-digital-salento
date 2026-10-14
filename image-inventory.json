@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-10-14T15:56:45.111Z",
+  "generatedAt": "2026-10-14T17:04:07.600Z",
   "total": 1653,
-  "ok": 1637,
-  "broken": 16,
-  "fixable": 5,
-  "unfixable": 11,
+  "ok": 1653,
+  "broken": 0,
+  "fixable": 0,
+  "unfixable": 0,
   "references": [
     {
       "file": "AYUDA_VENTAS_SALENTO_A_LA_MANO.html",
@@ -114,8 +114,8 @@
     {
       "file": "backup-enlaces-20260929-170013/App.tsx",
       "line": 89,
-      "path": "/pautas/cabalgatas_cocora_magica/imagenes/cabalgatas-en-el-valle-de-cocora-6.webp",
-      "status": "MISSING",
+      "path": "/pautas/cabalgatas_cocora_magica/imagenes/cabalgata-rio.webp",
+      "status": "OK",
       "equivalent": null
     },
     {
@@ -275,9 +275,9 @@
     {
       "file": "backup-enlaces-20260929-170013/App.tsx",
       "line": 2189,
-      "path": "/avatar-don-chucho.png",
-      "status": "FIXABLE",
-      "equivalent": "/avatar-don-chucho.webp"
+      "path": "/avatar-don-chucho.webp",
+      "status": "OK",
+      "equivalent": null
     },
     {
       "file": "backup-enlaces-20260929-170013/App.tsx",
@@ -1298,7 +1298,7 @@
       "file": "public/data/places.json",
       "line": 625,
       "path": "/pautas/mirador_mano_de_dios/imagenes/logo-mirador-dios-512.webp",
-      "status": "MISSING",
+      "status": "OK",
       "equivalent": null
     },
     {
@@ -1752,15 +1752,15 @@
     {
       "file": "public/data/places.json",
       "line": 1288,
-      "path": "/pautas/cabalgatas_cocora_magica/imagenes/cabalgatas-en-el-valle-de-cocora-6.webp",
-      "status": "MISSING",
+      "path": "/pautas/cabalgatas_cocora_magica/imagenes/cabalgata-rio.webp",
+      "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
       "line": 1289,
-      "path": "/pautas/cabalgatas_cocora_magica/imagenes/cabalgatas-valle-del-cocora-2.webp",
-      "status": "MISSING",
+      "path": "/pautas/cabalgatas_cocora_magica/imagenes/cruzando-rio.webp",
+      "status": "OK",
       "equivalent": null
     },
     {
@@ -3509,9 +3509,9 @@
     {
       "file": "public/manifest.webmanifest",
       "line": 13,
-      "path": "/avatar-don-chucho.png",
-      "status": "FIXABLE",
-      "equivalent": "/avatar-don-chucho.webp"
+      "path": "/avatar-don-chucho.webp",
+      "status": "OK",
+      "equivalent": null
     },
     {
       "file": "public/moto-aventura-110.html",
@@ -6170,8 +6170,8 @@
       "file": "public/paginas-pautantes/mirador-las-manos-de-dios/index.html",
       "line": 91,
       "path": "/pautas/mirador_mano_de_dios/imagenes/foto-willys-mirador.webp",
-      "status": "FIXABLE",
-      "equivalent": "/pautas/mirador_mano_de_dios/imagenes/foto-willys-mirador.jpeg"
+      "status": "OK",
+      "equivalent": null
     },
     {
       "file": "public/paginas-pautantes/mirador-las-manos-de-dios/index.html",
@@ -6191,15 +6191,15 @@
       "file": "public/paginas-pautantes/mirador-las-manos-de-dios/index.html",
       "line": 91,
       "path": "/pautas/mirador_mano_de_dios/imagenes/puerta-mirador.webp",
-      "status": "FIXABLE",
-      "equivalent": "/pautas/mirador_mano_de_dios/imagenes/puerta-mirador.jpeg"
+      "status": "OK",
+      "equivalent": null
     },
     {
       "file": "public/paginas-pautantes/mirador-las-manos-de-dios/index.html",
       "line": 91,
       "path": "/pautas/mirador_mano_de_dios/imagenes/atardecer-mirador.webp",
-      "status": "FIXABLE",
-      "equivalent": "/pautas/mirador_mano_de_dios/imagenes/atardecer-mirador.jpeg"
+      "status": "OK",
+      "equivalent": null
     },
     {
       "file": "public/paginas-pautantes/mirador-las-manos-de-dios/index.html",
@@ -6359,7 +6359,7 @@
       "file": "public/paginas-pautantes/moto-aventura-110/index.html",
       "line": 77,
       "path": "/pautas/moto_aventura_110/imagenes/logo-moto-aventura-110-512.webp",
-      "status": "MISSING",
+      "status": "OK",
       "equivalent": null
     },
     {
@@ -8535,15 +8535,15 @@
     {
       "file": "src/App.tsx",
       "line": 109,
-      "path": "/pautas/cabalgatas_cocora_magica/imagenes/cabalgatas-en-el-valle-de-cocora-6.webp",
-      "status": "MISSING",
+      "path": "/pautas/cabalgatas_cocora_magica/imagenes/cabalgata-rio.webp",
+      "status": "OK",
       "equivalent": null
     },
     {
       "file": "src/App.tsx",
       "line": 110,
-      "path": "/pautas/cabalgatas_cocora_magica/imagenes/cabalgatas-valle-del-cocora-2.webp",
-      "status": "MISSING",
+      "path": "/pautas/cabalgatas_cocora_magica/imagenes/cruzando-rio.webp",
+      "status": "OK",
       "equivalent": null
     },
     {
@@ -8906,8 +8906,8 @@
     {
       "file": "src/components/HomeBanners.tsx",
       "line": 161,
-      "path": "/pautas/cabalgatas_cocora_magica/imagenes/cabalgatas-en-el-valle-de-cocora-6.webp",
-      "status": "MISSING",
+      "path": "/pautas/cabalgatas_cocora_magica/imagenes/cabalgata-rio.webp",
+      "status": "OK",
       "equivalent": null
     },
     {
@@ -9690,15 +9690,15 @@
     {
       "file": "tools/fix_hero_galleries.cjs",
       "line": 49,
-      "path": "/pautas/cabalgatas_cocora_magica/imagenes/cabalgatas-en-el-valle-de-cocora-6.webp",
-      "status": "MISSING",
+      "path": "/pautas/cabalgatas_cocora_magica/imagenes/cabalgata-rio.webp",
+      "status": "OK",
       "equivalent": null
     },
     {
       "file": "tools/fix_hero_galleries.cjs",
       "line": 50,
-      "path": "/pautas/cabalgatas_cocora_magica/imagenes/cabalgatas-valle-del-cocora-2.webp",
-      "status": "MISSING",
+      "path": "/pautas/cabalgatas_cocora_magica/imagenes/cruzando-rio.webp",
+      "status": "OK",
       "equivalent": null
     },
     {
@@ -10454,7 +10454,7 @@
       "file": "tools/fix_hero_galleries.cjs",
       "line": 194,
       "path": "/pautas/moto_aventura_110/imagenes/logo-moto-aventura-110-512.webp",
-      "status": "MISSING",
+      "status": "OK",
       "equivalent": null
     },
     {

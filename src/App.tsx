@@ -106,8 +106,8 @@ const serviceCardImageSets = {
     '/pautas/cootracocora_ltda/cootracocora-arte-publicitario.webp'
   ],
   horseback: [
-    '/pautas/cabalgatas_cocora_magica/imagenes/cabalgatas-en-el-valle-de-cocora-6.webp',
-    '/pautas/cabalgatas_cocora_magica/imagenes/cabalgatas-valle-del-cocora-2.webp',
+    '/pautas/cabalgatas_cocora_magica/imagenes/cabalgata-rio.webp',
+    '/pautas/cabalgatas_cocora_magica/imagenes/cruzando-rio.webp',
     '/pautas/cabalgatas_cocora_magica/imagenes/Caballos.webp'
   ],
   guides: [
