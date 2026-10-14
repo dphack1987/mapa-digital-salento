@@ -37,6 +37,7 @@ const categoryNames = Object.keys(categoryMeta);
 const CROSS_CATEGORY_MAP = {
   'ruta-navarco': ['coffee-tours'],
   'ruta comunitaria navarco y sus tesoros': ['coffee-tours'],
+  'camping-cascadas-de-santa-rita': ['Alojamientos', 'alojamientos'],
 };
 
 // Páginas de categoría especiales (fuera de categoryMeta / places.type)
@@ -1553,7 +1554,7 @@ for (const category of categoryNames) {
 // Extra category pages (from EXTRA_CATEGORY_CARDS)
 for (const extraCat of EXTRA_CATEGORY_CARDS) {
   if (onlyFilter.size > 0 && ![...onlyFilter].some((f) => f === extraCat.slug || f === `cat:${extraCat.slug}`)) continue;
-  let items = providers.filter((item) => item.type === extraCat.title || item.type === extraCat.slug);
+  let items = providers.filter((item) => item.type === extraCat.title || String(item.type || '').toLowerCase() === extraCat.slug.toLowerCase());
   const extra = providers.filter((item) => CROSS_CATEGORY_MAP[slugify(item.name)]?.includes(extraCat.slug));
   items = [...items, ...extra].sort(porPrioridadPautante);
   const categoryPath = path.join(categoryDir, `${extraCat.slug}.html`);

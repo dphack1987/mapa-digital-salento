@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
-  <url>
+    <url>
     <loc>https://www.salentoalamano.com/</loc>
     <lastmod>2026-09-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>https://www.salentoalamano.com/imagenes-salento/1326163558.webp</image:loc>
-      <image:title>Salento a la Mano - Guía Turística Oficial 2026</image:title>
+    <image:loc>https://www.salentoalamano.com/imagenes-salento/1326163558.webp</image:loc>
+    <image:title>Salento a la Mano - Guía Turística Oficial 2026</image:title>
     </image:image>
     <xhtml:link rel="alternate" hreflang="es-CO" href="https://www.salentoalamano.com/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.salentoalamano.com/en/" />
@@ -17,8 +17,6 @@
     <xhtml:link rel="alternate" hreflang="it" href="https://www.salentoalamano.com/it/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.salentoalamano.com/" />
   </url>
-
-  <!-- Categorías -->
   <url>
     <loc>https://www.salentoalamano.com/categorias/</loc>
     <lastmod>2026-09-21</lastmod>
@@ -103,8 +101,6 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
-
-  <!-- Páginas de pautantes -->
   <url>
     <loc>https://www.salentoalamano.com/paginas-pautantes/boki-mall-hotel-el-mirador-de-boquia/</loc>
     <lastmod>2026-09-21</lastmod>
@@ -339,8 +335,6 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
-
-  <!-- Páginas defensivas y especiales -->
   <url>
     <loc>https://www.salentoalamano.com/faq-salento-preguntas-frecuentes-turistas-informacion-oficial</loc>
     <lastmod>2026-09-21</lastmod>
@@ -401,8 +395,6 @@
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
-
-  <!-- Landing pages -->
   <url>
     <loc>https://www.salentoalamano.com/landing/mejor-trucha-salento/</loc>
     <lastmod>2026-09-21</lastmod>
@@ -439,8 +431,6 @@
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
-
-  <!-- Idiomas - Español -->
   <url>
     <loc>https://www.salentoalamano.com/es/</loc>
     <lastmod>2026-09-21</lastmod>
@@ -532,8 +522,6 @@
     <xhtml:link rel="alternate" hreflang="it" href="https://www.salentoalamano.com/it/guias/experiencia-salento-llegada-a-salida.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.salentoalamano.com/es/guias/experiencia-salento-llegada-a-salida.html" />
   </url>
-
-  <!-- Idiomas - Inglés -->
   <url>
     <loc>https://www.salentoalamano.com/en/</loc>
     <lastmod>2026-09-21</lastmod>
@@ -625,8 +613,6 @@
     <xhtml:link rel="alternate" hreflang="it" href="https://www.salentoalamano.com/it/guias/experiencia-salento-llegada-a-salida.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.salentoalamano.com/es/guias/experiencia-salento-llegada-a-salida.html" />
   </url>
-
-  <!-- Idiomas - Alemán -->
   <url>
     <loc>https://www.salentoalamano.com/de/</loc>
     <lastmod>2026-09-21</lastmod>
@@ -718,8 +704,6 @@
     <xhtml:link rel="alternate" hreflang="it" href="https://www.salentoalamano.com/it/guias/experiencia-salento-llegada-a-salida.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.salentoalamano.com/es/guias/experiencia-salento-llegada-a-salida.html" />
   </url>
-
-  <!-- Idiomas - Francés -->
   <url>
     <loc>https://www.salentoalamano.com/fr/</loc>
     <lastmod>2026-09-21</lastmod>
@@ -811,8 +795,6 @@
     <xhtml:link rel="alternate" hreflang="it" href="https://www.salentoalamano.com/it/guias/experiencia-salento-llegada-a-salida.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.salentoalamano.com/es/guias/experiencia-salento-llegada-a-salida.html" />
   </url>
-
-  <!-- Idiomas - Portugués -->
   <url>
     <loc>https://www.salentoalamano.com/pt/</loc>
     <lastmod>2026-09-21</lastmod>
@@ -904,8 +886,6 @@
     <xhtml:link rel="alternate" hreflang="it" href="https://www.salentoalamano.com/it/guias/experiencia-salento-llegada-a-salida.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.salentoalamano.com/es/guias/experiencia-salento-llegada-a-salida.html" />
   </url>
-
-  <!-- Idiomas - Italiano -->
   <url>
     <loc>https://www.salentoalamano.com/it/</loc>
     <lastmod>2026-09-21</lastmod>
@@ -997,8 +977,6 @@
     <xhtml:link rel="alternate" hreflang="it" href="https://www.salentoalamano.com/it/guias/experiencia-salento-llegada-a-salida.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.salentoalamano.com/es/guias/experiencia-salento-llegada-a-salida.html" />
   </url>
-
-  <!-- Conservación -->
   <url>
     <loc>https://www.salentoalamano.com/conservacion-salento.html</loc>
     <lastmod>2026-09-21</lastmod>
@@ -1077,8 +1055,6 @@
     <xhtml:link rel="alternate" hreflang="it" href="https://www.salentoalamano.com/it/conservacion-salento.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.salentoalamano.com/conservacion-salento.html" />
   </url>
-
-  <!-- Recursos -->
   <url>
     <loc>https://www.salentoalamano.com/recursos/insignia-aliado-verificado.html</loc>
     <lastmod>2026-09-21</lastmod>
@@ -1096,17 +1072,8 @@
     <lastmod>2026-10-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
-  </url><url>
-    <loc>https://www.salentoalamano.com/salento-seguro-turismo.html</loc>
-    <lastmod>2026-10-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>\n  <url>
-    <loc>https://www.salentoalamano.com/paginas-pautantes/hotel-green-house-salento/</loc>
-    <lastmod>2026-10-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>\n  <url>
+  </url>
+  <url>
     <loc>https://www.salentoalamano.com/salento-seguro-turismo.html</loc>
     <lastmod>2026-10-08</lastmod>
     <changefreq>weekly</changefreq>
@@ -1119,42 +1086,6 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.salentoalamano.com/estado-actual-salento-hoteles-abiertos-vias-libres-valle-cocora-operando-100.html</loc>
-    <lastmod>2026-10-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.salentoalamano.com/landing-estado-actual-salento-2026.html</loc>
-    <lastmod>2026-10-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-</urlset>\n</urlset>  <url>
-    <loc>https://www.salentoalamano.com/salento-seguro-turismo.html</loc>
-    <lastmod>2026-10-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.salentoalamano.com/paginas-pautantes/hotel-green-house-salento/</loc>
-    <lastmod>2026-10-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.salentoalamano.com/estado-actual-salento-hoteles-abiertos-vias-libres-valle-cocora-operando-100.html</loc>
-    <lastmod>2026-10-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.salentoalamano.com/landing-estado-actual-salento-2026.html</loc>
-    <lastmod>2026-10-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-</urlset>\n  <url>
     <loc>https://www.salentoalamano.com/paginas-pautantes/hotel-boutique-palmas-de-salento/</loc>
     <lastmod>2026-10-13</lastmod>
     <changefreq>weekly</changefreq>
@@ -1169,6 +1100,36 @@
   <url>
     <loc>https://www.salentoalamano.com/paginas-pautantes/la-vaca-original/</loc>
     <lastmod>2026-10-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.salentoalamano.com/paginas-pautantes/caminata-ecologica-calle-real-alto-de-la-cruz/</loc>
+    <lastmod>2026-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.salentoalamano.com/paginas-pautantes/coffee-tour-alojamiento-finca-hotel-el-ocaso/</loc>
+    <lastmod>2026-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.salentoalamano.com/paginas-pautantes/coffee-tour-finca-cafetera-don-elias/</loc>
+    <lastmod>2026-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.salentoalamano.com/paginas-pautantes/coffee-tour-finca-don-eduardo/</loc>
+    <lastmod>2026-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.salentoalamano.com/paginas-pautantes/parque-principal-de-salento/</loc>
+    <lastmod>2026-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
