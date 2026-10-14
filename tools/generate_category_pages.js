@@ -116,6 +116,8 @@ const PAUTANTE_LOGOS = {
   'boki-mall-eventos': '/pautas/boki_mall/imagenes/boki_mall_logo.webp',
   'moto-aventura-110': '/pautas/moto_aventura_110/imagenes/logo-moto-aventura-110.webp',
   'reserva-natural-cascadas-de-santa-rita': '/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/logo_cascadas_de_santa_rita.webp',
+  'mirador-manos-de-cocora': '/pautas/mirador-manos-de-cocora/imagenes/logo-mirador-manos-de-cocora.webp',
+  'shalem-restaurante-bar': '/pautas/restaurante-bar-shalem/imagenes/logo-shalem.webp',
   'camping-cascadas-de-santa-rita': '/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/logo_cascadas_de_santa_rita.webp',
   'camping-cascadas-santa-rita': '/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/logo_cascadas_de_santa_rita.webp',
   'finca-hotel-el-ocaso': '/pautas/coffee-tour-alojamiento-finca-hotel-el-ocaso/imagenes/logo_ocaso.webp',
@@ -861,6 +863,19 @@ const VERIFIED_MENUS = {
       { cat: 'servicios', nombre: 'Almuerzo', precio: 18000 },
       { cat: 'servicios', nombre: 'Trucha', precio: 28000 },
       { cat: 'servicios', nombre: 'Parqueadero', precio: 0, desc: 'Gratis para moto y carro' },
+    ],
+  },
+  'mirador-manos-de-cocora': {
+    heading: 'Entrada y experiencias',
+    intro: 'Elige tu entrada o experiencia fotográfica y coordina tu visita por WhatsApp.',
+    precioLabel: 'por persona',
+    items: [
+      { cat: 'planes', nombre: 'Entrada mirador', precio: 20000, desc: 'Acceso a los 18 puntos fotográficos con vistas al Valle de Cocora' },
+      { cat: 'planes', nombre: 'Deslizadora arcoíris', precio: 10000, desc: 'Tobogán tricolor Deslizadora Tricolor (adición a la entrada)' },
+      { cat: 'planes', nombre: 'Entrada + deslizadora', precio: 30000, desc: 'Combo: entrada al mirador más deslizadora arcoíris' },
+      { cat: 'fotos', nombre: 'Fotografía digital', precio: 16000, desc: 'Fotos digitales enviadas por WhatsApp' },
+      { cat: 'fotos', nombre: 'Foto impresa con marco', precio: 25000, desc: 'Impresión con marco souvenir' },
+      { cat: 'cotizar', nombre: 'Pasaporte agencias', precio: 0, desc: 'Tarifas para agencias: consultar por WhatsApp' },
     ],
   },
   'moto-aventura-110': {
