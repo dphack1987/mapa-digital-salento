@@ -31,23 +31,18 @@
 - Recorridos a caballo por Salento y alrededores
 - Traslado en vehículo desde el punto de partida
 
-## Tour Carbonera en bicicleta (destacado)
-Datos según sitio oficial:
-- Subida de 21 km en vehículo hasta la parte más alta del recorrido
-- Descenso de 5 km en bicicleta hasta la finca La Carbonera
-- Caminata de aprox. 40 minutos (paisaje y palma de cera)
-- Snack de descanso
-- Regreso: 5 km en vehículo + 21 km en bicicleta hasta el punto de partida
-
-Datos según volante de referencia del operador (imagenes/inforeference.jpeg):
+## Tour downhill en bicicleta (destacado) — confirmado por el cliente (2026-10-14)
+Recorrido vigente publicado en la página:
 - Subida de 20 km en camioneta hasta la parte alta de la montaña
-- Primer descenso de 6 km en bicicleta hasta la finca La Carbonera
-- Caminata ecológica por el Valle de Palmas hasta la finca
-- Descanso: bocadillo, snack, taza de café caliente y botella de agua
+- Primer descenso de 6 km en bicicleta hasta la Finca La Carbonera
+- Caminata ecológica por el imponente Valle de Palmas hasta llegar a la finca
+- Descanso y recarga: bocadillo, snack, taza de café caliente y botella de agua
 - Ascenso final en camioneta hasta el punto más alto (3.600 msnm)
 - Gran descenso final de 20 km en bicicleta hasta el municipio de Salento
 
-> Pendiente de confirmar con el operador cuál es la versión vigente de distancias (21/5 vs 20/6) y la altitud (3.400 vs 3.600 msnm).
+Total en bicicleta: 26 km. Experiencia entre naturaleza, adrenalina y paisajes inolvidables.
+
+> Histórico: el sitio oficial (2026-10-06) mostraba una versión con 21 km de subida y descensos de 5 + 21 km; el cliente confirmó el 14/10/2026 la versión anterior (20/6 + 3.600 msnm + 20 km final), ya publicada.
 
 ## La Carbonera Hiking Tour (caminata) — info del cliente (2026-10-07)
 - Ascenso en vehículo: 26 km hasta una altitud máxima de 3.400 msnm
