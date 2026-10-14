@@ -67,12 +67,12 @@ const galleryPicks = {
     '/pautas/el_recuerdo_coffee_tour/imagenes/13.webp',
   ],
   'finca-cafetera-don-elias': [
+    '/pautas/coffee-tour-finca-cafetera-don-elias/imagenes/cafe-don-elias.webp',
     '/pautas/coffee-tour-finca-cafetera-don-elias/imagenes/724493520_18074799854670095_3547519742275705982_n.webp',
     '/pautas/coffee-tour-finca-cafetera-don-elias/imagenes/692728292_18069951644670095_2829106976592801887_n.webp',
     '/pautas/coffee-tour-finca-cafetera-don-elias/imagenes/681426934_18068473622670095_8170870217327481165_n.webp',
     '/pautas/coffee-tour-finca-cafetera-don-elias/imagenes/658126044_18063985268670095_3075015024937128905_n.webp',
-    '/pautas/coffee-tour-finca-cafetera-don-elias/imagenes/logo-coffe-tour-don-elias-512.webp',
-    '/pautas/coffee-tour-finca-cafetera-don-elias/imagenes/cafe-don-elias.webp',
+    '/pautas/coffee-tour-finca-cafetera-don-elias/imagenes/650822077_18061683614670095_2701097746563127300_n.webp',
   ],
   'finca-don-eduardo-coffee-tour': [
     '/pautas/coffee-tour-finca-don-eduardo/imagenes/IMG_9320.webp',
@@ -251,12 +251,12 @@ const galleryPicks = {
     '/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/cascada2.webp',
   ],
   'restaurante-don-elias': [
-    '/pautas/coffee-tour-finca-cafetera-don-elias/imagenes/724493520_18074799854670095_3547519742275705982_n.webp',
-    '/pautas/coffee-tour-finca-cafetera-don-elias/imagenes/692728292_18069951644670095_2829106976592801887_n.webp',
-    '/pautas/coffee-tour-finca-cafetera-don-elias/imagenes/681426934_18068473622670095_8170870217327481165_n.webp',
-    '/pautas/coffee-tour-finca-cafetera-don-elias/imagenes/658126044_18063985268670095_3075015024937128905_n.webp',
-    '/pautas/coffee-tour-finca-cafetera-don-elias/imagenes/logo-coffe-tour-don-elias-512.webp',
-    '/pautas/coffee-tour-finca-cafetera-don-elias/imagenes/cafe-don-elias.webp',
+    '/pautas/restaurante-al-sabor-de-la-lena/imagenes/portada-don-elias.webp',
+    '/pautas/restaurante-al-sabor-de-la-lena/imagenes/comida-colombiana.webp',
+    '/pautas/restaurante-al-sabor-de-la-lena/imagenes/plato3.jpeg',
+    '/pautas/restaurante-al-sabor-de-la-lena/imagenes/plato7.jpeg',
+    '/pautas/restaurante-al-sabor-de-la-lena/imagenes/plato8.jpeg',
+    '/pautas/restaurante-al-sabor-de-la-lena/imagenes/restaurante-don-elias-finca-2.webp',
   ],
   'sendero-de-las-palmas-entrada-libre-valle': [
     '/imagenes-salento/colombia-palms.webp',

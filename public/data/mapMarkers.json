@@ -142,7 +142,7 @@
         -75.597221
       ],
       "tone": "success",
-      "note": "Vereda Palestina Km 4 · coffee tour y restaurante"
+      "note": "Vereda Palestina Km 4 · coffee tour y restaurante Al Sabor de la Leña"
     },
     {
       "id": 19,
@@ -182,7 +182,7 @@
     },
     {
       "id": 22,
-      "label": "Restaurante Don Elías",
+      "label": "Al Sabor de la Leña",
       "type": "Gastronómico",
       "placeId": 22,
       "coord": [

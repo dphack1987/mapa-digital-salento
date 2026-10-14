@@ -73,13 +73,18 @@ const EXTRA_CATEGORY_CARDS = [
   },
 ];
 
+const SLUG_ALIASES = {
+  'al-sabor-de-la-lena': 'restaurante-don-elias',
+};
+
 function slugify(value) {
-  return String(value)
+  const base = String(value)
     .toLowerCase()
     .normalize('NFD')
     .replace(/[\u0300-\u036f]/g, '')
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/(^-|-$)/g, '');
+  return SLUG_ALIASES[base] || base;
 }
 
 function escapeHtml(value) {
@@ -134,7 +139,8 @@ const PAUTANTE_LOGOS = {
   'downhill-bike-salento': '/pautas/downhill_bike_salento/imagenes/downhill-bike-salento-logo.webp',
   'ruta-navarco': '/pautas/ruta-navarco/salento-tesoros-logo.webp',
   'salento-y-sus-tesoros': '/pautas/ruta-navarco/salento-tesoros-logo.webp',
-  'restaurante-don-elias': '/pautas/coffee-tour-finca-cafetera-don-elias/imagenes/logo-coffe-tour-don-elias.webp',
+  'restaurante-don-elias': '/pautas/restaurante-al-sabor-de-la-lena/imagenes/logo-restaurante-don-elias.webp',
+  'al-sabor-de-la-lena': '/pautas/restaurante-al-sabor-de-la-lena/imagenes/logo-restaurante-don-elias.webp',
   'finca-cafetera-don-elias': '/pautas/coffee-tour-finca-cafetera-don-elias/imagenes/logo-coffe-tour-don-elias.webp',
   'fonda-boquia': '/pautas/restaurante_bar_fonda_boquia/imagenes/480508481_1169835038167384_4932382570318530100_n.webp',
   'punto-de-encuentro-jeeps-willys-plaza': '/pautas/cootracocora_ltda/imagenes/willys.webp',
@@ -899,12 +905,12 @@ const VERIFIED_MENUS = {
   },
   'finca-cafetera-don-elias': {
     heading: 'Tours y productos',
-    intro: 'Elige el tour o el café para llevar y envía tu solicitud por WhatsApp.',
+    intro: 'Elige el tour o el café para llevar. Reserva los tours en la página web y consulta el café por WhatsApp.',
     precioLabel: 'por persona',
     items: [
-      { cat: 'tours', nombre: 'Coffee Tour ES + EN simultáneo', precio: 50000, desc: '90 min · salidas cada hora 9:00–16:00' },
-      { cat: 'tours', nombre: 'Coffee Tour en español o inglés', precio: 60000, desc: '90 min · requiere reserva · salidas cada hora' },
-      { cat: 'tours', nombre: 'Coffee Tour en francés', precio: 70000, desc: '90 min · requiere reserva · salidas cada hora' },
+      { cat: 'tours', nombre: 'Coffee Tour ES + EN simultáneo', precio: 55000, desc: '90 min · salidas cada hora 9:00–16:00 (en punto)' },
+      { cat: 'tours', nombre: 'Coffee Tour en español o inglés', precio: 65000, desc: '90 min · requiere reserva vía página web: www.fincafedonelias.com' },
+      { cat: 'tours', nombre: 'Coffee Tour en francés', precio: 75000, desc: '90 min · francés (muy buen nivel) · requiere reserva vía página web: www.fincafedonelias.com' },
       { cat: 'tours', nombre: 'Tour privado (salidas fijas)', precio: 0, desc: '9:30 · 11:30 · 13:30 · 15:30 · confirmar tarifa' },
       { cat: 'productos', nombre: 'Café Tradicional (molido o grano)', precio: 40000 },
       { cat: 'productos', nombre: 'Café Grano Premium', precio: 50000 },
@@ -919,12 +925,12 @@ const VERIFIED_MENUS = {
   },
   'coffee-tour-finca-cafetera-don-elias': {
     heading: 'Tours y productos',
-    intro: 'Elige el tour o el café para llevar y envía tu solicitud por WhatsApp.',
+    intro: 'Elige el tour o el café para llevar. Reserva los tours en la página web y consulta el café por WhatsApp.',
     precioLabel: 'por persona',
     items: [
-      { cat: 'tours', nombre: 'Coffee Tour ES + EN simultáneo', precio: 50000, desc: '90 min · salidas cada hora 9:00–16:00' },
-      { cat: 'tours', nombre: 'Coffee Tour en español o inglés', precio: 60000, desc: '90 min · requiere reserva · salidas cada hora' },
-      { cat: 'tours', nombre: 'Coffee Tour en francés', precio: 70000, desc: '90 min · requiere reserva · salidas cada hora' },
+      { cat: 'tours', nombre: 'Coffee Tour ES + EN simultáneo', precio: 55000, desc: '90 min · salidas cada hora 9:00–16:00 (en punto)' },
+      { cat: 'tours', nombre: 'Coffee Tour en español o inglés', precio: 65000, desc: '90 min · requiere reserva vía página web: www.fincafedonelias.com' },
+      { cat: 'tours', nombre: 'Coffee Tour en francés', precio: 75000, desc: '90 min · francés (muy buen nivel) · requiere reserva vía página web: www.fincafedonelias.com' },
       { cat: 'tours', nombre: 'Tour privado (salidas fijas)', precio: 0, desc: '9:30 · 11:30 · 13:30 · 15:30 · confirmar tarifa' },
       { cat: 'productos', nombre: 'Café Tradicional (molido o grano)', precio: 40000 },
       { cat: 'productos', nombre: 'Café Grano Premium', precio: 50000 },
@@ -1101,15 +1107,16 @@ const VERIFIED_MENUS = {
     ],
   },
   'restaurante-don-elias': {
-    heading: 'Restaurante en la finca',
-    intro: 'Mismo lugar que el coffee tour. Toca los platos para armar tu consulta o pedido por WhatsApp.',
+    heading: 'Menú del restaurante',
+    intro: 'Mismo lugar que el coffee tour. Toca los platos para armar tu pedido por WhatsApp.',
     precioLabel: 'c/u',
     items: [
-      { cat: 'trucha', nombre: 'Trucha arcoíris', precio: 30000, desc: 'Desde $30.000 · hasta $42.000 según preparación' },
-      { cat: 'trucha', nombre: 'Trucha preparación especial', precio: 42000, desc: 'Hasta $42.000 · confirmar carta en sitio' },
-      { cat: 'cocina', nombre: 'Comida tradicional cafetera', precio: 0, desc: 'Platos caseros con productos de la finca · consultar precio' },
-      { cat: 'cafe', nombre: 'Café de la finca', precio: 18000, desc: 'Taza Colombia $18.000 · café premium desde $40.000' },
-      { cat: 'servicios', nombre: 'Pedido o reserva por WhatsApp', precio: 0, desc: 'Mismo contacto que el coffee tour' },
+      { cat: 'almuerzos', nombre: 'Menú del día', precio: 20000, desc: 'Desde $20.000 · consultar opciones del día' },
+      { cat: 'almuerzos', nombre: 'Platos de olla y sancocho', precio: 0, desc: 'Comida casera con productos de la finca · consultar precio' },
+      { cat: 'almuerzos', nombre: 'Opción vegetariana', precio: 0, desc: 'Comida vegetariana disponible · consultar precio' },
+      { cat: 'desayunos', nombre: 'Desayunos', precio: 0, desc: 'Servidos hasta las 10:30 a.m. · consultar precio' },
+      { cat: 'cafe', nombre: 'Taza Colombia', precio: 18000, desc: 'Taza de café de la finca $18.000' },
+      { cat: 'servicios', nombre: 'Pedido o reserva por WhatsApp', precio: 0, desc: 'WhatsApp +57 311 773 7987 · abierto 08:00–15:00' },
     ],
   },
   'boki-mall-restaurante-terra': {

@@ -78,16 +78,19 @@ function item(cfg, id) {
   console.log('OK cabalgatas');
 }
 
-// 4) Don Elías — tarifas ya correctas en página (50/60/70k); tour privado a consultar
+// 4) Don Elías — tarifas 55/65/75k (QUINDIO TRAVEL 7/10/2026); reservas de tour vía web
 {
   const { file, html } = readPage('finca-cafetera-don-elias');
   const out = patchMenu(html, cfg => {
     const es = item(cfg, 1);
-    es.desc = '90 min · español e inglés simultáneo · salidas cada hora 9:00–16:00';
+    es.precio = 55000;
+    es.desc = '90 min · español e inglés simultáneo · salidas cada hora 9:00–16:00 (en punto)';
     const solo = item(cfg, 2);
-    solo.desc = '90 min · solo español o solo inglés · requiere reserva previa';
+    solo.precio = 65000;
+    solo.desc = '90 min · solo español o solo inglés · requiere reserva vía página web: www.fincafedonelias.com';
     const fr = item(cfg, 3);
-    fr.desc = '90 min · francés (muy buen nivel) · requiere reserva previa';
+    fr.precio = 75000;
+    fr.desc = '90 min · francés (muy buen nivel) · requiere reserva vía página web: www.fincafedonelias.com';
     const priv = item(cfg, 4);
     priv.precio = null;
     priv.desc = '90 min · salidas fijas 9:30 · 11:30 · 13:30 · 15:30 · consultar tarifa';
@@ -209,12 +212,14 @@ for (const [slug, spec] of Object.entries(consultPages)) {
   console.log('OK barranqueros');
 }
 
-// 10) Restaurante Don Elías — comida tradicional a consultar
+// 10) Al Sabor de la Leña — comida de campo colombiana desde $20.000
 {
   const { file, html } = readPage('restaurante-don-elias');
   const out = patchMenu(html, cfg => {
-    const it = cfg.items.find(x => x.precio === 0);
-    if (it) { it.precio = null; it.desc = 'Platos caseros con productos de la finca · consultar precio'; }
+    const menu = cfg.items.find(x => x.id === 1);
+    if (menu) { menu.precio = 20000; menu.desc = 'Desde $20.000 · consultar opciones del día'; }
+    const casero = cfg.items.find(x => x.cat === 'cocina' || x.cat === 'almuerzos');
+    if (casero) { casero.precio = null; casero.desc = 'Comida casera con productos de la finca · consultar precio'; }
   });
   writePage(file, out);
   console.log('OK restaurante-don-elias');

@@ -32,7 +32,7 @@ const LOGOS = {
   'puente-de-boquia-sendero-cercano': '/imagenes-salento/destinos-75.webp',
   'punto-de-encuentro-jeeps-willys-plaza': '/pautas/cootracocora_ltda/imagenes/willys.webp',
   'recorrido-cultural-casco-historico': '/imagenes-salento/pueblo.webp',
-  'restaurante-don-elias': '/pautas/coffee-tour-finca-cafetera-don-elias/imagenes/logo-coffe-tour-don-elias.webp',
+  'restaurante-don-elias': '/pautas/restaurante-al-sabor-de-la-lena/imagenes/logo-restaurante-don-elias.webp',
   'sendero-de-las-palmas-entrada-libre-valle': '/imagenes-salento/destinos-75.webp',
   'terminal-de-transporte-de-salento-acceso-peatonal': '/pautas/cootracocora_ltda/imagenes/willys.webp',
   'valle-de-cocora-sendero-de-entrada-libre': '/imagenes-salento/destinos-75.webp',

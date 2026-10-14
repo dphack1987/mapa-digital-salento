@@ -17,6 +17,8 @@
 - TripAdvisor: 4.7/5 (301 reseñas) — #1 de 13 Monumentos y Lugares en Salento, Travelers' Choice 2026
 - Tipo de oferta: recorrido cafetero, finca y experiencia local
 - Enfoque: turismo rural y educación cafetera en la zona de Salento
+- Relación: mismo lugar que el restaurante **Al Sabor de la Leña** (comida de campo colombiana)
+- Reservas: vía página web **www.fincafedonelias.com** (13/10/2026, indicación del cliente); WhatsApp para consultas
 
 ## Historia
 - Fundada alrededor de 1985 por Don Elías
@@ -38,8 +40,8 @@ Fuente: QUINDIO TRAVEL (operador) 7/10/2026 (verificado por WhatsApp)
 | Tour | Duración | Precio COP |
 |---|---|---|
 | Coffee Tour español + inglés simultáneo | 90 min | $55.000/pax · salidas cada hora 9:00–16:00 (en punto) |
-| Coffee Tour en español O en inglés (solo uno) | 90 min | $65.000/pax · requiere reserva |
-| Coffee Tour en francés | 90 min | $75.000/pax · requiere reserva · muy buen nivel |
+| Coffee Tour en español O en inglés (solo uno) | 90 min | $65.000/pax · requiere reserva vía página web: www.fincafedonelias.com |
+| Coffee Tour en francés | 90 min | $75.000/pax · requiere reserva vía página web: www.fincafedonelias.com · muy buen nivel |
 | Tour privado | 90 min | salidas 9:30 · 11:30 · 13:30 · 15:30 · consultar tarifa (no publicada) |
 
 - Salidas del tour simultáneo ES+EN: cada hora en punto, 09:00 a 16:00
@@ -65,7 +67,7 @@ Fuente: QUINDIO TRAVEL (operador) 7/10/2026 (verificado por WhatsApp)
 Los visitantes pueden comprar el mismo café que se degusta durante el tour. Variedades disponibles según cosecha (confirmado 7/10/2026):
 - Natural
 - Natural Geisha
-- Sule lavado (fermentación controlada)
+- Suave lavado (fermentación controlada)
 
 | Producto | Precio COP |
 |---|---|

@@ -19,7 +19,7 @@ Ejemplos de pautantes activos:
 - cascadas_de_santa_rita
 
 - finca_cafetera_don_elias
-- restaurante_don_elias
+- restaurante-al-sabor-de-la-lena
 - moto_aventura_110
 - cabalgatas_cocora_magica
 - mirador_mano_de_dios
