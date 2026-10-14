@@ -80,8 +80,26 @@
       "isPartner": true,
       "placeId": 44,
       "url": "/paginas-pautantes/hotel-boutique-palmas-de-salento/"
+    },
+    {
+      "id": "hotel_10",
+      "name": "Los Barranqueros Hotel",
+      "address": "Calle 7 # 8-1, Salento, Quindío",
+      "phone": "+57 302 443 3793",
+      "isPartner": true,
+      "placeId": 40,
+      "url": "/paginas-pautantes/los-barranqueros-hotel/"
+    },
+    {
+      "id": "hotel_11",
+      "name": "Hotel Green House Salento",
+      "address": "Cra. 4 #3-13, Salento, Quindío",
+      "phone": "+57 312 867 4073",
+      "isPartner": true,
+      "placeId": 41,
+      "url": "/paginas-pautantes/hotel-green-house-salento/"
     }
   ],
-  "lastUpdated": "2026-10-13T00:00:00.000Z",
+  "lastUpdated": "2026-10-14T22:30:00.000Z",
   "version": "2.0.0-pautantes-only"
 }
