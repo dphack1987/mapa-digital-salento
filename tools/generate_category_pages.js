@@ -849,8 +849,8 @@ const VERIFIED_MENUS = {
     ],
   },
   'reserva-natural-cascadas-de-santa-rita': {
-    heading: 'Entrada y servicios',
-    intro: 'Elige el plan o lo que quieras incluir y envía tu solicitud por WhatsApp.',
+    heading: 'Reserva tu visita y servicios',
+    intro: 'Elige tu plan de visita o estadía (camping y habitaciones), arma tu reserva y envíala por WhatsApp para confirmar disponibilidad.',
     precioLabel: 'por persona',
     items: [
       { cat: 'planes', nombre: 'Pasadía', precio: 11000, desc: 'Senderismo, piscina natural, cascadas y segunda cascada/mirador' },
