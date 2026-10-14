@@ -96,7 +96,7 @@ const serviceCardImageSets = {
     '/pautas/boki_mall/imagenes/images%20(3).webp'
   ],
   coffeeTour: [
-    '/pautas/coffee-tour-finca-cafetera-don-elias/imagenes/cafe-don-elias.webp',
+    '/pautas/coffee-tour-finca-cafetera-don-elias/imagenes/724493520_18074799854670095_3547519742275705982_n.webp',
     '/pautas/coffee-tour-finca-don-eduardo/imagenes/Plantation.webp',
     '/pautas/el_recuerdo_coffee_tour/imagenes/recuerdo1casa.webp',
     '/pautas/coffee-tour-alojamiento-finca-hotel-el-ocaso/imagenes/foto_casa_ocaso.webp'
@@ -1637,7 +1637,7 @@ function App() {
               <p>Catálogo y precios oficiales de las fincas cafeteras. Pedido directo por WhatsApp, sin intermediarios ni comisiones.</p>
             </div>
             <div className="coffee-premium-products" role="list">
-              <span role="listitem"><strong>Tradicional · Don Elías</strong> $40.000</span>
+              <span role="listitem"><strong>Tradicional 250 g · Don Elías</strong> $40.000</span>
               <span role="listitem"><strong>250 g · El Ocaso</strong> $28.000</span>
               <span role="listitem"><strong>De la finca · El Recuerdo</strong> Consultar</span>
             </div>
@@ -1713,17 +1713,17 @@ function App() {
 
             <h2>Cómo llegar a Salento</h2>
             <p>
-              Salento no tiene aeropuerto comercial propio: se llega por carretera desde los puertos aéreos del Eje Cafetero o desde grandes ciudades. La última milla, desde Armenia o Filadelfia, se resuelve en bus intermunicipal, en taxi o en el tradicional jeep. Abajo, las tres rutas más usadas por viajeros y locales.
+              Salento no tiene aeropuerto comercial propio: la puerta aérea más cercana es el aeropuerto El Edén, en Armenia, y desde allí se llega por carretera en unos 45 a 60 minutos. También se llega por carretera desde los demás puertos aéreos del Eje Cafetero o desde grandes ciudades. Abajo, las rutas más usadas por viajeros y locales, con el aeropuerto El Edén como primera opción.
+            </p>
+
+            <h3>Desde el aeropuerto El Edén (Armenia)</h3>
+            <p>
+              El aeropuerto El Edén (AXM), en Armenia, es la puerta aérea más cercana a Salento: unos 45 a 60 minutos por carretera. La opción más directa es el traslado privado en taxi desde el aeropuerto hasta Salento, con un costo aproximado de $180.000; también puedes tomar transporte hacia el terminal de Armenia y continuar en bus intermunicipal, que dura entre 30 y 45 minutos. Consulta antes de salir el estado de vías en nuestras <a href="/vias-salento-libres-acceso.html">actualizaciones de carreteras</a>.
             </p>
 
             <h3>Desde Armenia en bus o transporte local</h3>
             <p>
               Desde el terminal de Armenia el trayecto dura entre 30 y 45 minutos según el tráfico de fin de semana. Hay buses y combis frecuentes durante el día; el último regreso conviene confirmarlo en terminal porque varía en temporada alta. Si viajas con maleta grande, reserva espacio con anticipación o considera un traslado privado. Enlace útil: <a href="/landing/hotel-barato-salento/">hoteles y hospedaje económico en Salento</a>.
-            </p>
-
-            <h3>Desde Pereira y el aeropuerto Matecaña</h3>
-            <p>
-              Desde Pereira se toma bus o van hacia Armenia y conexión a Salento, o un traslado directo de aproximadamente 2 a 2,5 horas. El aeropuerto Matecaña (PEI) es una de las entradas más cómodas para vuelos nacionales; desde allí, coordinar transporte compartido o privado reduce tiempos de espera. Consulta antes de salir el estado de vías en nuestras <a href="/vias-salento-libres-acceso.html">actualizaciones de carreteras</a>.
             </p>
 
             <h3>En jeep Willys desde la plaza</h3>
@@ -1762,7 +1762,7 @@ function App() {
 
             <h3>Gastronomía local y vida nocturna</h3>
             <p>
-              Prueba trucha arcoíris, patacones, arepas de queso, sancocho y el café de la región. Para reservar o pedir sin intermediarios, usa las fichas de <a href="/categorias/restaurantes.html">restaurantes en Salento</a> y destinos como <a href="/paginas-pautantes/restaurante-don-elias/">Restaurante Don Elías</a>, <a href="/paginas-pautantes/fonda-boquia/">Fonda Boquia</a> o el complejo <a href="/paginas-pautantes/boki-mall-restaurante-terra/">Boki Mall · Restaurante Terra</a>. La noche es tranquila: bares con música en vivo y terrazas, sin el ruido de las grandes ciudades. Más ideas en <a href="/landing/mejor-trucha-salento/">dónde comer la mejor trucha</a>.
+              Prueba trucha arcoíris, patacones, arepas de queso, sancocho y el café de la región. Para reservar o pedir sin intermediarios, usa las fichas de <a href="/categorias/restaurantes.html">restaurantes en Salento</a> y destinos como <a href="/paginas-pautantes/restaurante-don-elias/">Al Sabor de la Leña</a>, <a href="/paginas-pautantes/fonda-boquia/">Fonda Boquia</a> o el complejo <a href="/paginas-pautantes/boki-mall-restaurante-terra/">Boki Mall · Restaurante Terra</a>. La noche es tranquila: bares con música en vivo y terrazas, sin el ruido de las grandes ciudades. Más ideas en <a href="/landing/mejor-trucha-salento/">dónde comer la mejor trucha</a>.
             </p>
             <figure className="home-content-figure">
               <img src="/imagenes-salento/valle-cocora-palmas-2.webp" alt="Palmas de cera gigantes en el Valle de Cocora, árbol nacional de Colombia, entre neblina" loading="lazy" width="1200" height="800" />

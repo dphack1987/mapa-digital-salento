@@ -25,7 +25,7 @@ Cerrar la fase de contenido real y verificable antes de mejorar UX y SEO.
 | Mirador Mano de Dios | Carpeta creada | Carpetas e imagenes | Descripción, horarios, tarifas, contacto | Alta |
 | Moto Aventura 110 | Carpeta creada | Carpetas e imagenes | Servicio, contacto, precios, ubicación, seguridad | Alta |
 | Restaurante Bar Fonda Boquía | Carpeta creada | Carpeta y nombres | Descripción, contacto, menú, fotos reales | Alta |
-| Restaurante Don Elías | Carpeta creada | Carpetas e imagenes | Nombre comercial completo, contacto, tipo de cocina, horario, precios | Alta |
+| Al Sabor de la Leña | Carpeta creada | Carpetas e imagenes | Nombre comercial completo, contacto, tipo de cocina, horario, precios | Alta |
 
 ## Prioridad por bloque
 
@@ -43,7 +43,7 @@ Cerrar la fase de contenido real y verificable antes de mejorar UX y SEO.
 
 ### Bloque 3: Gastronomía y comercio
 - Restaurante Bar Fonda Boquía
-- Restaurante Don Elías
+- Al Sabor de la Leña
 - Finca Cafetera Don Elías
 
 ## Trabajo mínimo requerido por cada ficha

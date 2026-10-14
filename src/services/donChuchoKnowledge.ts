@@ -28,12 +28,12 @@ const knowledgeBase: KnowledgeItem[] = [
     keywords: ['trucha', 'trucha arcoiris', 'trucha al ajillo', 'trucha frita', 'trucha horno'],
     category: 'gastronomia',
     answer: {
-      es: '¡La trucha arcoíris es el plato estrella de Salento! Te la preparan al ajillo, frita con patacones, al horno con hierbas, o en salsa de frutos rojos. La más famosa es en La Fogata. También en Brunch de la Plaza y Don Elías. ¿Cómo la prefieres?',
-      en: 'Rainbow trout is the star dish of Salento! They prepare it garlic-style, fried with patacones, baked with herbs, or in red fruit sauce. The most famous is at La Fogata. Also at Brunch de la Plaza and Don Elías. How do you prefer it?',
-      de: 'Die Regenbogenforelle ist das Star-Gericht von Salento! Sie wird in Knoblauchsoße, gebraten mit Patacones, im Ofen mit Kräutern oder in Fruchtsoße zubereitet. Das berühmteste gibt es bei La Fogata, auch bei Brunch de la Plaza und Don Elías. Wie möchten Sie sie haben?',
-      fr: 'La truite arc-en-ciel est le plat phare de Salento ! On la prépare à l\'ail, frite avec des patacones, au four aux herbes, ou en sauce de fruits rouges. La plus connue est à La Fogata. Aussi au Brunch de la Plaza et chez Don Elías. Comment la préférez-vous ?',
-      pt: 'A truta arco-íris é o prato estrela de Salento! Ela é preparada ao alho, frita com patacones, assada com ervas, ou em molho de frutas vermelhas. A mais famosa é na La Fogata. Também no Brunch de la Plaza e no Don Elías. Como você prefere?',
-      it: 'La trota iridea è il piatto stella di Salento! La preparano all\'aglio, fritta con patacones, al forno con erbe, o in salsa di frutti di bosco. La più famosa è da La Fogata. Anche al Brunch de la Plaza e da Don Elías. Come la preferite?'
+      es: '¡La trucha arcoíris es el plato estrella de Salento! Te la preparan al ajillo, frita con patacones, al horno con hierbas, o en salsa de frutos rojos. La más famosa es en La Fogata. También en Brunch de la Plaza. ¿Cómo la prefieres?',
+      en: 'Rainbow trout is the star dish of Salento! They prepare it garlic-style, fried with patacones, baked with herbs, or in red fruit sauce. The most famous is at La Fogata. Also at Brunch de la Plaza. How do you prefer it?',
+      de: 'Die Regenbogenforelle ist das Star-Gericht von Salento! Sie wird in Knoblauchsoße, gebraten mit Patacones, im Ofen mit Kräutern oder in Fruchtsoße zubereitet. Das berühmteste gibt es bei La Fogata, auch bei Brunch de la Plaza. Wie möchten Sie sie haben?',
+      fr: 'La truite arc-en-ciel est le plat phare de Salento ! On la prépare à l\'ail, frite avec des patacones, au four aux herbes, ou en sauce de fruits rouges. La plus connue est à La Fogata. Aussi au Brunch de la Plaza. Comment la préférez-vous ?',
+      pt: 'A truta arco-íris é o prato estrela de Salento! Ela é preparada ao alho, frita com patacones, assada com ervas, ou em molho de frutas vermelhas. A mais famosa é na La Fogata. Também no Brunch de la Plaza. Como você prefere?',
+      it: 'La trota iridea è il piatto stella di Salento! La preparano all\'aglio, fritta con patacones, al forno con erbe, o in salsa di frutti di bosco. La più famosa è da La Fogata. Anche al Brunch de la Plaza. Come la preferite?'
     },
     followUp: ['¿Al ajillo o frita?', '¿Con patacones?', '¿Dónde probarla mejor?'],
     relatedPlaces: [1, 4, 9]
@@ -526,32 +526,32 @@ const knowledgeBase: KnowledgeItem[] = [
     relatedPlaces: [15]
   },
   {
-    keywords: ['finca cafetera don elias', 'finca don elias', 'don elias salento'],
+    keywords: ['finca cafetera don elias', 'finca don elias', 'don elias salento', 'coffee tour don elias'],
     category: 'turismo',
     answer: {
-      es: 'La Finca Cafetera Don Elías es ideal para entender el café de verdad, desde la plantación hasta la taza. Experiencia auténtica y educativa. Ubicada en Vereda Palestina Km 4 de Salento. Tours 90 min, salidas cada hora 09:00-16:00. Pueden comprar el mismo café que se degusta: Natural, Natural Geisha, Suelo Lavado (fermentación controlada). Idiomas: español, inglés y francés de muy buen nivel. Reserva recomendada, ¡se llena rápido!',
-      en: 'Don Elías Coffee Farm is ideal to understand coffee from plant to cup. Authentic and educational experience. Located at Vereda Palestina Km 4, Salento. 90 min tours, hourly departures 09:00-16:00. You can buy the same coffee you taste: Natural, Natural Geisha, Washed (controlled fermentation). Languages: Spanish, English, and French at excellent level. Reservation recommended, fills up fast!',
-      de: 'Die Kaffee-Farm Don Elías ist ideal, um Kaffee von der Pflanze bis zur Tasse zu verstehen. Authentisches und lehrreiches Erlebnis. Vereda Palestina Km 4, Salento. 90 Min. Touren, stündliche Abfahrten 09:00-16:00. Sie können denselben Kaffee kaufen, den Sie verkosten: Natural, Natural Geisha, Washed (kontrollierte Fermentation). Sprachen: Spanisch, Englisch und Französisch auf hohem Niveau. Reservierung empfohlen, füllt sich schnell!',
-      fr: 'La Finca Cafetera Don Elías est idéale pour comprendre le café de la plante à la tasse. Expérience authentique et éducative. Située à Vereda Palestina Km 4, Salento. Tours de 90 min, départs toutes les heures 09:00-16:00. Vous pouvez acheter le même café que vous dégustez : Naturel, Natural Geisha, Lavé (fermentation contrôlée). Langues : espagnol, anglais et français de très bon niveau. Réservation recommandée, se remplit vite !',
-      pt: 'A Finca Cafetera Don Elías é ideal para entender o café de verdade, da plantação até a xícara. Experiência autêntica e educativa. Localizada em Vereda Palestina Km 4, Salento. Tours de 90 min, saídas a cada hora 09:00-16:00. Podem comprar o mesmo café que degustam: Natural, Natural Geisha, Lavado (fermentação controlada). Idiomas: espanhol, inglês e francês de muito bom nível. Reserva recomendada, enche rápido!',
-      it: 'La Finca Cafetera Don Elías è ideale per capire il caffè dalla pianta alla tazza. Esperienza autentica e formativa. Situata a Vereda Palestina Km 4, Salento. Tour di 90 min, partenze orarie 09:00-16:00. Puoi acquistare lo stesso caffè che assaggi: Natural, Natural Geisha, Lavato (fermentazione controllata). Lingue: spagnolo, inglese e francese di ottimo livello. Prenotazione consigliata, si riempie in fretta!'
+      es: 'La Finca Cafetera Don Elías es ideal para entender el café de verdad, desde la plantación hasta la taza. Experiencia auténtica y educativa. Ubicada en Vereda Palestina Km 4 de Salento. Tours 90 min, salidas cada hora 09:00-16:00. Pueden comprar el mismo café que se degusta: Natural, Natural Geisha y Suave lavado (fermentación controlada). Nuestro café es orgánico y hacemos despachos dentro de Colombia. Idiomas: español, inglés y francés de muy buen nivel. Reserva vía página web en www.fincafedonelias.com, ¡se llena rápido!',
+      en: 'Don Elías Coffee Farm is ideal to understand coffee from plant to cup. Authentic and educational experience. Located at Vereda Palestina Km 4, Salento. 90 min tours, hourly departures 09:00-16:00. You can buy the same coffee you taste: Natural, Natural Geisha and Suave washed (controlled fermentation). Our coffee is organic and we ship within Colombia. Languages: Spanish, English, and French at excellent level. Book via our website www.fincafedonelias.com, fills up fast!',
+      de: 'Die Kaffee-Farm Don Elías ist ideal, um Kaffee von der Pflanze bis zur Tasse zu verstehen. Authentisches und lehrreiches Erlebnis. Vereda Palestina Km 4, Salento. 90 Min. Touren, stündliche Abfahrten 09:00-16:00. Sie können denselben Kaffee kaufen, den Sie verkosten: Natural, Natural Geisha und Suave gewaschen (kontrollierte Fermentation). Unser Kaffee ist biologisch und wir versenden innerhalb Kolumbiens. Sprachen: Spanisch, Englisch und Französisch auf hohem Niveau. Reservierung über unsere Website www.fincafedonelias.com, füllt sich schnell!',
+      fr: 'La Finca Cafetera Don Elías est idéale pour comprendre le café de la plante à la tasse. Expérience authentique et éducative. Située à Vereda Palestina Km 4, Salento. Tours de 90 min, départs toutes les heures 09:00-16:00. Vous pouvez acheter le même café que vous dégustez : Naturel, Natural Geisha et Suave lavé (fermentation contrôlée). Notre café est biologique et nous livrons en Colombie. Langues : espagnol, anglais et français de très bon niveau. Réservation via notre site www.fincafedonelias.com, se remplit vite !',
+      pt: 'A Finca Cafetera Don Elías é ideal para entender o café de verdade, da plantação até a xícara. Experiência autêntica e educativa. Localizada em Vereda Palestina Km 4, Salento. Tours de 90 min, saídas a cada hora 09:00-16:00. Podem comprar o mesmo café que degustam: Natural, Natural Geisha e Suave lavado (fermentação controlada). Nosso café é orgânico e fazemos envios dentro da Colômbia. Idiomas: espanhol, inglês e francês de muito bom nível. Reserva via site www.fincafedonelias.com, enche rápido!',
+      it: 'La Finca Cafetera Don Elías è ideale per capire il caffè dalla pianta alla tazza. Esperienza autentica e formativa. Situata a Vereda Palestina Km 4, Salento. Tour di 90 min, partenze orarie 09:00-16:00. Puoi acquistare lo stesso caffè che assaggi: Natural, Natural Geisha e Suave lavato (fermentazione controllata). Il nostro caffè è biologico e spediamo in Colombia. Lingue: spagnolo, inglese e francese di ottimo livello. Prenotazione via sito www.fincafedonelias.com, si riempie in fretta!'
     },
     followUp: ['¿Es recomendable reservar?', '¿Qué incluye?', '¿Cuánto dura?'],
-    relatedPlaces: [8]
+    relatedPlaces: [17]
   },
   {
-    keywords: ['restaurante don elias', 'don elias restaurante'],
+    keywords: ['al sabor de la leña', 'al sabor de la lena', 'sabor de la leña', 'comida de campo al sabor de la leña'],
     category: 'comida',
     answer: {
-      es: 'Restaurante Don Elías se destaca por su propuesta local y experiencia gastronómica. Si buscas comer bien sin perder la esencia del pueblo, es una gran referencia. ¿Cocina típica, menú para parejas o reservar?',
-      en: 'Restaurant Don Elías stands out for its local proposal and gastronomic experience. A great reference for good food without losing the town\'s essence. Typical cuisine, couple menu, or reservation?',
-      de: 'Das Restaurant Don Elías zeichnet sich durch sein lokales Angebot und sein gastronomisches Erlebnis aus. Eine großartige Referenz für gutes Essen, ohne die Essenz des Dorfes zu verlieren. Traditionelle Küche, Paarmenü oder Reservierung?',
-      fr: 'Le restaurant Don Elías se distingue par sa proposition locale et son expérience gastronomique. Une excellente référence pour bien manger sans perdre l\'essence du village. Cuisine typique, menu couple ou réservation ?',
-      pt: 'O Restaurante Don Elías se destaca por sua proposta local e experiência gastronômica. Se você quer comer bem sem perder a essência da cidade, é uma ótima referência. Cozinha típica, menu para casais ou reservar?',
-      it: 'Il Ristorante Don Elías si distingue per la proposta locale e l\'esperienza gastronomica. Un ottimo riferimento per mangiare bene senza perdere l\'essenza del villaggio. Cucina tipica, menu per coppie o prenotare?'
+      es: 'Al Sabor de la Leña, en la Finca Cafetera Don Elías (Vereda Palestina Km 4), sirve comida de campo colombiana: desayunos hasta las 10:30 a.m. y almuerzos hasta las 2:30 p.m., con opciones vegetarianas. Abierto todos los días de 8:00 a.m. a 3:00 p.m., desde $20.000. Reservas por WhatsApp al +57 311 773 7987. ¿Almuerzo, desayuno o vegetariano?',
+      en: 'Al Sabor de la Leña, at Finca Cafetera Don Elías (Vereda Palestina Km 4), serves Colombian country cooking: breakfast until 10:30 a.m. and lunch until 2:30 p.m., with vegetarian options. Open daily 8:00 a.m. – 3:00 p.m., from COP 20,000. Reservations by WhatsApp +57 311 773 7987. Lunch, breakfast or vegetarian?',
+      de: 'Al Sabor de la Leña, in der Finca Cafetera Don Elías (Vereda Palestina Km 4), serviert kolumbianische Landküche: Frühstück bis 10:30 Uhr und Mittagessen bis 14:30 Uhr, mit vegetarischen Optionen. Täglich geöffnet 8:00–15:00 Uhr, ab 20.000 COP. Reservierung per WhatsApp +57 311 773 7987. Mittagessen, Frühstück oder vegetarisch?',
+      fr: 'Al Sabor de la Leña, à la Finca Cafetera Don Elías (Vereda Palestina Km 4), sert une cuisine de campagne colombienne : petit-déjeuner jusqu\'à 10h30 et déjeuner jusqu\'à 14h30, avec options végétariennes. Ouvert tous les jours de 8h00 à 15h00, à partir de 20 000 COP. Réservation par WhatsApp +57 311 773 7987. Déjeuner, petit-déjeuner ou végétarien ?',
+      pt: 'Al Sabor de la Leña, na Finca Cafetera Don Elías (Vereda Palestina Km 4), serve cozinha de campo colombiana: café da manhã até 10h30 e almoço até 14h30, com opções vegetarianas. Aberto todos os dias das 8h00 às 15h00, a partir de COP 20.000. Reservas por WhatsApp +57 311 773 7987. Almoço, café da manhã ou vegetariano?',
+      it: 'Al Sabor de la Leña, nella Finca Cafetera Don Elías (Vereda Palestina Km 4), propone cucina di campagna colombiana: colazione fino alle 10:30 e pranzo fino alle 14:30, con opzioni vegetariane. Aperto tutti i giorni dalle 8:00 alle 15:00, da 20.000 COP. Prenotazioni via WhatsApp +57 311 773 7987. Pranzo, colazione o vegetariano?'
     },
-    followUp: ['¿Cocina típica?', '¿Reservar?', '¿Precio aproximado?'],
-    relatedPlaces: [9]
+    followUp: ['¿Tienen opciones vegetarianas?', '¿Cómo reservar?', '¿Precio aproximado?'],
+    relatedPlaces: [22]
   },
   {
     keywords: ['moto aventura 110', 'aventura 110', 'moto aventura'],

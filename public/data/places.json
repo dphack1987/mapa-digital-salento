@@ -1060,7 +1060,7 @@
       "id": 17,
       "name": "Finca Cafetera Don Elías",
       "type": "Coffee Tours",
-      "description": "Finca cafetera familiar en Vereda Palestina. Recorrido por el cafetal, proceso del café y degustación de café orgánico. Mismo lugar que el Restaurante Don Elías.",
+      "description": "Finca cafetera familiar en Vereda Palestina. Recorrido por el cafetal, proceso del café y degustación de café orgánico. Mismo lugar que el restaurante Al Sabor de la Leña.",
       "priceRange": "$$",
       "rating": "4.9",
       "timeInfo": "Tours cada hora 9:00–16:00",
@@ -1077,7 +1077,8 @@
         "lat": 4.625157,
         "lng": -75.597221,
         "address": "Vereda Palestina Km 4, Salento, Quindío (631027)",
-        "landmark": "Vía a Vereda Palestina · Cascada de la Abuela y Río Quindío"
+        "landmark": "A 500 m de la Escuela Palestina",
+        "distance": "4.8 km de Salento"
       },
       "operatingHours": {
         "notes": "Todos los días 9:00 a.m. – 4:00 p.m. · salidas cada hora"
@@ -1117,20 +1118,20 @@
         ],
         "meetingPoint": "Finca Don Elías, Vereda Palestina Km 4, Salento",
         "cancellationPolicy": "Consultar con la finca",
-        "tariff": "Simultáneo ES/EN $55.000 · ES o EN solo $65.000 (reserva) · Francés $75.000 (reserva)",
+        "tariff": "Simultáneo ES/EN $55.000 · ES o EN solo $65.000 (reserva vía web) · Francés $75.000 (reserva vía web) · reservas en www.fincafedonelias.com",
         "privateTours": "09:30 · 11:30 · 13:30 · 15:30",
-        "coffeeProducts": "Pueden comprar el mismo café que se degusta. Variedades disponibles según cosecha: Natural, Natural Geisha, Suelo Lavado (fermentación controlada)"
+        "coffeeProducts": "Pueden comprar el mismo café que se degusta. Variedades disponibles según cosecha: Natural, Natural Geisha, Suave lavado (fermentación controlada). Café orgánico · despachos dentro de Colombia · preguntar por Geisha, Premium y Natural"
       },
       "photos": [
-        "/pautas/coffee-tour-finca-cafetera-don-elias/imagenes/cafe-don-elias.webp",
         "/pautas/coffee-tour-finca-cafetera-don-elias/imagenes/724493520_18074799854670095_3547519742275705982_n.webp",
+        "/pautas/coffee-tour-finca-cafetera-don-elias/imagenes/650822077_18061683614670095_2701097746563127300_n.webp",
         "/pautas/coffee-tour-finca-cafetera-don-elias/imagenes/692728292_18069951644670095_2829106976592801887_n.webp",
         "/pautas/coffee-tour-finca-cafetera-don-elias/imagenes/681426934_18068473622670095_8170870217327481165_n.webp",
         "/pautas/coffee-tour-finca-cafetera-don-elias/imagenes/658126044_18063985268670095_3075015024937128905_n.webp"
       ],
       "actionTarget": {
         "viewUrl": "https://www.salentoalamano.com/paginas-pautantes/finca-cafetera-don-elias/",
-        "reserveUrl": "https://wa.me/573156061113"
+        "reserveUrl": "https://www.fincafedonelias.com/"
       },
       "isPautante": true
     },
@@ -1546,32 +1547,34 @@
     },
     {
       "id": 22,
-      "name": "Restaurante Don Elías",
+      "name": "Al Sabor de la Leña",
       "type": "Restaurantes",
-      "description": "Restaurante en la Finca Cafetera Don Elías (Vereda Palestina Km 4). Comida tradicional cafetera y trucha arcoíris con productos de la finca. Mismo lugar que el coffee tour.",
+      "description": "Restaurante Al Sabor de la Leña en la Finca Cafetera Don Elías (Vereda Palestina Km 4). Comida de campo colombiana, desayunos y almuerzos con productos de la finca. Mismo lugar que el coffee tour.",
       "priceRange": "$$",
       "rating": "4.8",
-      "timeInfo": "Durante los tours de café (9:00–16:00)",
-      "badge": "Comida cafetera",
+      "timeInfo": "Abierto 08:00–15:00 · desayunos hasta 10:30 · almuerzos hasta 14:30",
+      "badge": "Comida de campo",
       "color": "terracotta",
       "icon": "Utensils",
       "contact": {
-        "phone": "+57 315 606 1113",
-        "whatsapp": "573156061113"
+        "phone": "+57 311 773 7987",
+        "whatsapp": "573117737987"
       },
       "location": {
         "lat": 4.625157,
         "lng": -75.597221,
         "address": "Vereda Palestina Km 4, Salento, Quindío (631027)",
-        "landmark": "Misma finca que el Coffee Tour Don Elías"
+        "landmark": "Misma finca que el Coffee Tour Don Elías",
+        "distance": "4.8 km de Salento"
       },
       "operatingHours": {
-        "notes": "Durante los tours de café · 9:00 a.m. – 4:00 p.m."
+        "notes": "Todos los días 08:00 a.m. – 3:00 p.m. · desayunos hasta 10:30 a.m. · almuerzos hasta 2:30 p.m."
       },
       "tags": [
         "restaurante",
-        "comida cafetera",
-        "trucha",
+        "comida de campo",
+        "comida colombiana",
+        "vegetariana",
         "finca",
         "vereda palestina"
       ],
@@ -1580,29 +1583,33 @@
       "foodServiceDetails": {
         "cuisineType": [
           "Colombiana",
-          "Cafetera"
+          "Comida de campo"
         ],
         "specialties": [
-          "Trucha arcoíris",
-          "Comida tradicional",
-          "Platos locales"
+          "Comida de campo colombiana",
+          "Desayunos",
+          "Almuerzos",
+          "Comida vegetariana"
         ],
         "menuHighlights": [
-          "Trucha arcoíris $30.000 - $42.000",
-          "Comida casera de la finca",
-          "Café de la finca en venta"
+          "Menú del día $20.000",
+          "Taza Colombia $18.000",
+          "Café Tradicional 250 g $40.000"
         ],
         "averagePrice": "$$",
-        "reservationRequired": true
+        "reservationRequired": true,
+        "reservationChannel": "WhatsApp"
       },
       "photos": [
-        "/pautas/coffee-tour-finca-cafetera-don-elias/imagenes/cafe-don-elias.webp",
-        "/pautas/coffee-tour-finca-cafetera-don-elias/imagenes/484042363_664478162683303_2341224993788835150_n.webp",
-        "/pautas/coffee-tour-finca-cafetera-don-elias/imagenes/483101751_664446382686481_2585961616784103288_n.webp"
+        "/pautas/restaurante-al-sabor-de-la-lena/imagenes/portada-don-elias.webp",
+        "/pautas/restaurante-al-sabor-de-la-lena/imagenes/comida-colombiana.webp",
+        "/pautas/restaurante-al-sabor-de-la-lena/imagenes/menu-del-dia.webp",
+        "/pautas/restaurante-al-sabor-de-la-lena/imagenes/plato7.jpeg",
+        "/pautas/restaurante-al-sabor-de-la-lena/imagenes/restaurante-don-elias-finca-2.webp"
       ],
       "actionTarget": {
         "viewUrl": "https://www.salentoalamano.com/paginas-pautantes/restaurante-don-elias/",
-        "orderUrl": "https://wa.me/573156061113"
+        "orderUrl": "https://wa.me/573117737987"
       },
       "isPautante": true
     },
