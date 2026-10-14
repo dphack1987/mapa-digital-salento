@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-14T23:18:44.464Z",
+  "generatedAt": "2026-10-14T23:25:19.442Z",
   "total": 1694,
   "ok": 1694,
   "broken": 0,
@@ -2801,203 +2801,203 @@
     },
     {
       "file": "public/data/places.json",
-      "line": 3232,
+      "line": 3234,
       "path": "/pautas/restaurante-bar-shalem/imagenes/shalem-home-banner.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 3233,
+      "line": 3235,
       "path": "/pautas/restaurante-bar-shalem/imagenes/shalem-restaurante-1.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 3234,
+      "line": 3236,
       "path": "/pautas/restaurante-bar-shalem/imagenes/shalem-restaurante-2.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 3235,
+      "line": 3237,
       "path": "/pautas/restaurante-bar-shalem/imagenes/shalem-bar-1.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 3236,
+      "line": 3238,
       "path": "/pautas/restaurante-bar-shalem/imagenes/shalem-plato-trucha.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 3237,
+      "line": 3239,
       "path": "/pautas/restaurante-bar-shalem/imagenes/shalem-plato-bandeja.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 3238,
+      "line": 3240,
       "path": "/pautas/restaurante-bar-shalem/imagenes/shalem-plato-carne.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 3239,
+      "line": 3241,
       "path": "/pautas/restaurante-bar-shalem/imagenes/shalem-plato-sopa.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 3240,
+      "line": 3242,
       "path": "/pautas/restaurante-bar-shalem/imagenes/shalem-bar-2.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 3241,
+      "line": 3243,
       "path": "/pautas/restaurante-bar-shalem/imagenes/shalem-plato-limonada.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 3314,
+      "line": 3318,
       "path": "/pautas/hotel_boutique_palmas_de_salento/imagenes/hotel-boutique-palmas-de-salento-1.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 3315,
+      "line": 3319,
       "path": "/pautas/hotel_boutique_palmas_de_salento/imagenes/hotel-boutique-palmas-de-salento-2.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 3316,
+      "line": 3320,
       "path": "/pautas/hotel_boutique_palmas_de_salento/imagenes/hotel-boutique-palmas-de-salento-3.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 3317,
+      "line": 3321,
       "path": "/pautas/hotel_boutique_palmas_de_salento/imagenes/hotel-boutique-palmas-de-salento-4.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 3318,
+      "line": 3322,
       "path": "/pautas/hotel_boutique_palmas_de_salento/imagenes/hotel-boutique-palmas-de-salento-5.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 3319,
+      "line": 3323,
       "path": "/pautas/hotel_boutique_palmas_de_salento/imagenes/hotel-boutique-palmas-de-salento-6.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 3320,
+      "line": 3324,
       "path": "/pautas/hotel_boutique_palmas_de_salento/imagenes/hotel-boutique-palmas-de-salento-7.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 3321,
+      "line": 3325,
       "path": "/pautas/hotel_boutique_palmas_de_salento/imagenes/hotel-boutique-palmas-de-salento-8.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 3322,
+      "line": 3326,
       "path": "/pautas/hotel_boutique_palmas_de_salento/imagenes/logo-hotel-palmas-de-salento.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 3396,
+      "line": 3400,
       "path": "/pautas/restaurante_la_casona/imagenes/arte-la-casona.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 3397,
+      "line": 3401,
       "path": "/pautas/restaurante_la_casona/imagenes/restaurante-la-casona-1.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 3398,
+      "line": 3402,
       "path": "/pautas/restaurante_la_casona/imagenes/restaurante-la-casona-2.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 3399,
+      "line": 3403,
       "path": "/pautas/restaurante_la_casona/imagenes/restaurante-la-casona-3.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 3400,
+      "line": 3404,
       "path": "/pautas/restaurante_la_casona/imagenes/restaurante-la-casona-4.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 3401,
+      "line": 3405,
       "path": "/pautas/restaurante_la_casona/imagenes/restaurante-la-casona-5.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 3402,
+      "line": 3406,
       "path": "/pautas/restaurante_la_casona/imagenes/restaurante-la-casona-6.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 3403,
+      "line": 3407,
       "path": "/pautas/restaurante_la_casona/imagenes/restaurante-la-casona-7.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 3404,
+      "line": 3408,
       "path": "/pautas/restaurante_la_casona/imagenes/restaurante-la-casona-8.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 3405,
+      "line": 3409,
       "path": "/pautas/restaurante_la_casona/imagenes/logo-la-casona.webp",
       "status": "OK",
       "equivalent": null

@@ -3058,7 +3058,9 @@
           "Español"
         ],
         "tariff": "Entrada: $20.000. Deslizadora arcoíris: $10.000. Fotos digitales: $16.000. Foto impresa con marco: $25.000"
-      }
+      },
+      "category": "atractivos-turisticos",
+      "slug": "mirador-manos-de-cocora"
     },
     {
       "id": 43,
@@ -3245,7 +3247,9 @@
         "reserveUrl": "https://wa.me/573234661964"
       },
       "isPautante": true,
-      "viewUrl": "/paginas-pautantes/shalem-restaurante-bar/"
+      "viewUrl": "/paginas-pautantes/shalem-restaurante-bar/",
+      "category": "restaurante-bar",
+      "slug": "shalem-restaurante-bar"
     },
     {
       "id": 44,
