@@ -3025,15 +3025,40 @@
       "photos": [
         "/pautas/mirador-manos-de-cocora/imagenes/7.-deslizadora-tricolor-nueva-manos-de-cocora-2.webp",
         "/pautas/mirador-manos-de-cocora/imagenes/4. ubicacion-manos-de-cocora-7.webp",
+        "/pautas/mirador-manos-de-cocora/imagenes/14. colores-manos-de-cocora-1.webp",
+        "/pautas/mirador-manos-de-cocora/imagenes/5. paisaje-cultural-traje-4.webp",
         "/pautas/mirador-manos-de-cocora/imagenes/9.-san-pedro-manos-de-cocora-2.webp",
-        "/pautas/mirador-manos-de-cocora/imagenes/14. colores-manos-de-cocora-1.webp"
+        "/pautas/mirador-manos-de-cocora/imagenes/12.-dia-mundial-fotografia-7.webp",
+        "/pautas/mirador-manos-de-cocora/imagenes/2. y-si-nos-escapamos-para-el-valle-de-cocora-6.webp",
+        "/pautas/mirador-manos-de-cocora/imagenes/5. paisaje-cultural-traje-5.webp",
+        "/pautas/mirador-manos-de-cocora/imagenes/GIRASOL.webp"
       ],
       "actionTarget": {
         "viewUrl": "https://www.salentoalamano.com/paginas-pautantes/mirador-manos-de-cocora/",
         "reserveUrl": "https://wa.me/573215452739"
       },
       "isPautante": true,
-      "viewUrl": "/paginas-pautantes/mirador-manos-de-cocora/"
+      "viewUrl": "/paginas-pautantes/mirador-manos-de-cocora/",
+      "experienceDetails": {
+        "included": [
+          "18 puntos fotográficos con vistas al Valle de Cocora",
+          "Deslizadora Tricolor (tobogán arcoíris)",
+          "Fotografías digitales e impresas",
+          "Pasaporte de entrada general"
+        ],
+        "requirements": [
+          "Calzado cómodo",
+          "Cámara o celular cargado",
+          "Efectivo para la entrada"
+        ],
+        "duration": "1-2 horas",
+        "difficulty": "Fácil",
+        "meetingPoint": "Valle de Cocora — Romerales, segundo mirador independiente",
+        "languages": [
+          "Español"
+        ],
+        "tariff": "Entrada: $20.000. Deslizadora arcoíris: $10.000. Fotos digitales: $16.000. Foto impresa con marco: $25.000"
+      }
     },
     {
       "id": 43,
@@ -3207,7 +3232,13 @@
         "/pautas/restaurante-bar-shalem/imagenes/shalem-home-banner.webp",
         "/pautas/restaurante-bar-shalem/imagenes/shalem-restaurante-1.webp",
         "/pautas/restaurante-bar-shalem/imagenes/shalem-restaurante-2.webp",
-        "/pautas/restaurante-bar-shalem/imagenes/shalem-bar-1.webp"
+        "/pautas/restaurante-bar-shalem/imagenes/shalem-bar-1.webp",
+        "/pautas/restaurante-bar-shalem/imagenes/shalem-plato-trucha.webp",
+        "/pautas/restaurante-bar-shalem/imagenes/shalem-plato-bandeja.webp",
+        "/pautas/restaurante-bar-shalem/imagenes/shalem-plato-carne.webp",
+        "/pautas/restaurante-bar-shalem/imagenes/shalem-plato-sopa.webp",
+        "/pautas/restaurante-bar-shalem/imagenes/shalem-bar-2.webp",
+        "/pautas/restaurante-bar-shalem/imagenes/shalem-plato-limonada.webp"
       ],
       "actionTarget": {
         "viewUrl": "https://www.salentoalamano.com/paginas-pautantes/shalem-restaurante-bar/",
