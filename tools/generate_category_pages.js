@@ -127,7 +127,7 @@ const PAUTANTE_LOGOS = {
   'coffee-tour-finca-cafetera-don-elias': '/pautas/coffee-tour-finca-cafetera-don-elias/imagenes/logo-coffe-tour-don-elias.webp',
   'cootracocora-ltda': '/pautas/cootracocora_ltda/imagenes/logo-cootracocora.webp',
   'los-barranqueros-hotel': '/pautas/hotel-barranqueros/logo-barranqueros-salento.webp',
-  'hotel-green-house-salento': '/pautas/hotel-green-house/imagenes/logo-green-house.webp',
+  'hotel-green-house-salento': '/pautas/hotel-green-house/imagenes/logo-green-house-real.jpg',
   'mirador-manos-de-cocora': '/pautas/mirador-manos-de-cocora/imagenes/logo-mirador-manos-de-cocora.webp',
   'shalem-restaurante-bar': '/pautas/restaurante-bar-shalem/imagenes/logo-shalem.webp',
   'el-recuerdo-coffee-tour': '/pautas/el_recuerdo_coffee_tour/imagenes/logo-recuerdo-tour.webp',
