@@ -88,6 +88,10 @@ El Hotel Camino Nacional Salento ofrece una ubicación central con fácil acceso
 - No se admiten mascotas
 - Propiedad para no fumadores
 
+## Fotos
+- 11 fotos webp de habitaciones/zonas comunes en imagenes/ (números de archivo)
+- Arte promocional del aliado (actualizado 15/10/2026): imagenes/arte-hotel-camino-nacional.webp (logo + fachada + servicios bilingües + contacto Cra 6 #3-46, WhatsApp/cel 311 3903550) — desde JPEG original del aliado
+
 ## Pendientes para completar la ficha pública
 - Fotos reales del hotel, habitaciones, baño y zonas comunes
 - Enlace de ubicación en Google Maps u OpenStreetMap

@@ -58,7 +58,8 @@ Importante: la cooperativa no publica tarifas oficiales ni horarios en internet
 - imagenes/info-transcocora.webp — infografía de servicio
 - imagenes/logo-cootracocora.webp — logo
 - imagenes/logo-cootracocora-512.webp — logo 512px
-- cootracocora-arte-publicitario.webp — arte publicitario
+- cootracocora-arte-publicitario.webp — arte publicitario (actualizado 15/10/2026 desde imagenes/artecootracoocora.jpeg del aliado: logo + foto Willys + rutas Boquía-Salento-Cocora + WhatsApp 310 4372944)
+- imagenes/artecootracoocora.jpeg — original JPEG del arte del aliado (fuente del webp)
 - PENDIENTE: fotos del Instagram oficial (guardar manualmente en _incoming/cootracocora/
   y luego convertir a webp e integrar a la galería)
 
