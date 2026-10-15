@@ -86,6 +86,11 @@ Los visitantes pueden comprar el mismo café que se degusta durante el tour. Var
 ## Redes sociales
 - Facebook, Instagram, TikTok (listados en su página de contacto)
 
+## Fotos de producto
+- Café Premium (molido o grano): bolsa blanca 484042363_664478162683303_2341224993788835150_n.webp
+- Café Natural Premium: cafe-natural-premium.webp (recibida del cliente 2026-10-15, convertida de cafenatural.jpg)
+- Taza Colombia: taza-cafe-colombia.webp (en pautas/restaurante-al-sabor-de-la-lena/imagenes/)
+
 ## Pendientes para completar la ficha pública
 - Fotos reales de la finca y experiencias
 - Enlace de ubicación en Google Maps
