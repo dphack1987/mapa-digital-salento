@@ -60,6 +60,7 @@
 ## Fotos
 - 8 fotos reales del negocio descargadas (Sluurpy/Tripadvisor, 13/10/2026) y convertidas a webp
 - Archivos: imagenes/restaurante-la-casona-1.webp … -8.webp
+- Arte promocional del aliado (15/10/2026): imagenes/arte-la-casona.webp (fachada + nombre + WhatsApp 321 898 2293) e imagenes/logo-la-casona.webp (banner logo) — desde JPEG originales del aliado
 - El sitio oficial solo usa imágenes stock de Shutterstock (no se publican, regla del proyecto)
 - Ideal recibir fotos propias del aliado para reemplazar/sumar
 
