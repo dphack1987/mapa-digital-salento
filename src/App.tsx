@@ -474,7 +474,18 @@ function App() {
   const [directoryLimit, setDirectoryLimit] = useState(12)
   const [mobileNav, setMobileNav] = useState(false)
   const [language, setLanguage] = useState<Language>(() => {
-    try { return translationService.initialize() as Language } catch (e) { console.warn('[init] translation lazy fallback es:', e); return 'es' as Language }
+    try {
+      // First check URL path for locale (e.g., /en/, /de/)
+      if (typeof window !== 'undefined') {
+        const path = window.location.pathname
+        const localeMatch = path.match(/^\/(en|de|fr|pt|it)\//)
+        if (localeMatch) {
+          const localeCode = localeMatch[1].toUpperCase()
+          return localeCode as Language
+        }
+      }
+      return translationService.initialize() as Language
+    } catch (e) { console.warn('[init] translation lazy fallback es:', e); return 'es' as Language }
   })
   const [currency, setCurrency] = useState<Currency>('COP')
   const [selectedPlace, setSelectedPlace] = useState<Place | null>(null)
@@ -902,10 +913,18 @@ function App() {
     return result.sort((a, b) => placePriority(b) - placePriority(a))
   }, [places, selectedCategoryPage])
 
-  // Manejar cambio de idioma
+  // Manejar cambio de idioma — actualiza URL para SEO y shareability
   function handleLanguageChange(newLanguage: Language) {
     setLanguage(newLanguage)
     translationService.setLanguage(newLanguage as any)
+    // Update URL to reflect language (SPA-friendly, no full navigation)
+    const localeMap: Record<string, string> = {
+      ES: '/', EN: '/en/', DE: '/de/', FR: '/fr/', PT: '/pt/', IT: '/it/'
+    }
+    const newPath = localeMap[newLanguage] || '/'
+    if (typeof window !== 'undefined' && window.location.pathname !== newPath) {
+      window.history.replaceState(null, '', newPath)
+    }
   }
 
   function addToCart() {
