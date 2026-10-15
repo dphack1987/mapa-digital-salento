@@ -356,12 +356,12 @@ export const LOCALES_ALL: Record<I18nLocale, {
   xDefault?: boolean
 }> = {
   ES: { code: 'ES', hreflang: 'es-CO', inLanguage: 'es', ogLocale: 'es_CO', label: 'Español (Colombia)', isDefault: true, xDefault: true },
-  EN: { code: 'EN', hreflang: 'en-US', inLanguage: 'en', ogLocale: 'en_US', label: 'English (US)' },
+  EN: { code: 'EN', hreflang: 'en', inLanguage: 'en', ogLocale: 'en_US', label: 'English' },
   EN_GB: { code: 'EN_GB', hreflang: 'en-GB', inLanguage: 'en', ogLocale: 'en_GB', label: 'English (UK)' },
-  DE: { code: 'DE', hreflang: 'de-DE', inLanguage: 'de', ogLocale: 'de_DE', label: 'Deutsch' },
-  FR: { code: 'FR', hreflang: 'fr-FR', inLanguage: 'fr', ogLocale: 'fr_FR', label: 'Français' },
+  DE: { code: 'DE', hreflang: 'de', inLanguage: 'de', ogLocale: 'de_DE', label: 'Deutsch' },
+  FR: { code: 'FR', hreflang: 'fr', inLanguage: 'fr', ogLocale: 'fr_FR', label: 'Français' },
   PT: { code: 'PT', hreflang: 'pt-BR', inLanguage: 'pt', ogLocale: 'pt_BR', label: 'Português (Brasil)' },
-  IT: { code: 'IT', hreflang: 'it-IT', inLanguage: 'it', ogLocale: 'it_IT', label: 'Italiano' },
+  IT: { code: 'IT', hreflang: 'it', inLanguage: 'it', ogLocale: 'it_IT', label: 'Italiano' },
   ZH: { code: 'ZH', hreflang: 'zh-CN', inLanguage: 'zh', ogLocale: 'zh_CN', label: '简体中文' },
   JA: { code: 'JA', hreflang: 'ja-JP', inLanguage: 'ja', ogLocale: 'ja_JP', label: '日本語' },
   KO: { code: 'KO', hreflang: 'ko-KR', inLanguage: 'ko', ogLocale: 'ko_KR', label: '한국어' },

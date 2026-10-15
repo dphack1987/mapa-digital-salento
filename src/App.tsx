@@ -604,7 +604,7 @@ function App() {
         .trim()
       return `${base}/categorias/${catSlug}.html`
     }
-    if (currentPath === '/' || currentPath === '') return `${base}/`
+    if (currentPath === '/' || currentPath === '' || currentPath === '/index.html') return `${base}/`
     if (currentPath.endsWith('/')) return `${base}${currentPath}`
     if (currentPath.endsWith('.html')) return `${base}${currentPath}`
     return `${base}${currentPath.replace(/\/$/, '')}/`

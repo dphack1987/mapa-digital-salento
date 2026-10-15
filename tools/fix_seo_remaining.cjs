@@ -8,7 +8,7 @@ es = es.replace(
   'href="https://www.salentoalamano.com/"><link rel="alternate" hreflang="es-CO" href="https://www.salentoalamano.com/" />'
 );
 es = es.replace(
-  'hreflang="x-default" href="https://www.salentoalamano.com/es/">',
+  'hreflang="x-default" href="https://www.salentoalamano.com/">',
   'hreflang="x-default" href="https://www.salentoalamano.com/">'
 );
 if (es !== before) {

@@ -50,8 +50,15 @@ jobs:
       - name: Copy CNAME to dist (dominio personalizado desde raíz)
         run: cp CNAME dist/
 
-      - name: "SPA fallback para GitHub Pages"
-        run: cp dist/index.html dist/404.html
+      - name: Ensure 404.html has noindex (not a copy of homepage)
+        run: |
+          if [ -f "public/404.html" ]; then
+            cp public/404.html dist/404.html
+          else
+            cat > dist/404.html << 'EOF'
+          <!DOCTYPE html><html lang="es"><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow"><link rel="canonical" href="https://www.salentoalamano.com/"><title>Página no encontrada</title></head><body><h1>404</h1><p><a href="/">Volver al inicio</a></p></body></html>
+          EOF
+          fi
       
       - name: Setup Pages
         uses: actions/configure-pages@v5
