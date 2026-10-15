@@ -2977,10 +2977,12 @@
       "verified": true,
       "active": true,
       "photos": [
-        "/pautas/hotel-green-house/imagenes/green-house-banner.webp",
+        "/pautas/hotel-green-house/imagenes/green-house-real-1.jpg",
         "/pautas/hotel-green-house/imagenes/green-house-hab-1.webp",
         "/pautas/hotel-green-house/imagenes/green-house-hab-2.webp",
-        "/pautas/hotel-green-house/imagenes/green-house-hab-3.webp"
+        "/pautas/hotel-green-house/imagenes/green-house-hab-3.webp",
+        "/pautas/hotel-green-house/imagenes/green-house-jacuzzi.webp",
+        "/pautas/hotel-green-house/imagenes/green-house-terraza.webp"
       ],
       "actionTarget": {
         "viewUrl": "https://www.salentoalamano.com/paginas-pautantes/hotel-green-house-salento/",
