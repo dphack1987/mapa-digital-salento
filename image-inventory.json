@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-10-15T00:52:41.580Z",
-  "total": 1695,
-  "ok": 1695,
+  "generatedAt": "2026-10-15T01:12:11.555Z",
+  "total": 1697,
+  "ok": 1697,
   "broken": 0,
   "fixable": 0,
   "unfixable": 0,
@@ -2718,7 +2718,7 @@
     {
       "file": "public/data/places.json",
       "line": 2980,
-      "path": "/pautas/hotel-green-house/imagenes/green-house-banner.webp",
+      "path": "/pautas/hotel-green-house/imagenes/green-house-real-1.jpg",
       "status": "OK",
       "equivalent": null
     },
@@ -2745,266 +2745,280 @@
     },
     {
       "file": "public/data/places.json",
-      "line": 3026,
-      "path": "/pautas/mirador-manos-de-cocora/imagenes/7.-deslizadora-tricolor-nueva-manos-de-cocora-2.webp",
+      "line": 2984,
+      "path": "/pautas/hotel-green-house/imagenes/green-house-jacuzzi.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 3027,
-      "path": "/pautas/mirador-manos-de-cocora/imagenes/4. ubicacion-manos-de-cocora-7.webp",
+      "line": 2985,
+      "path": "/pautas/hotel-green-house/imagenes/green-house-terraza.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
       "line": 3028,
-      "path": "/pautas/mirador-manos-de-cocora/imagenes/14. colores-manos-de-cocora-1.webp",
+      "path": "/pautas/mirador-manos-de-cocora/imagenes/7.-deslizadora-tricolor-nueva-manos-de-cocora-2.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
       "line": 3029,
-      "path": "/pautas/mirador-manos-de-cocora/imagenes/5. paisaje-cultural-traje-4.webp",
+      "path": "/pautas/mirador-manos-de-cocora/imagenes/4. ubicacion-manos-de-cocora-7.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
       "line": 3030,
-      "path": "/pautas/mirador-manos-de-cocora/imagenes/9.-san-pedro-manos-de-cocora-2.webp",
+      "path": "/pautas/mirador-manos-de-cocora/imagenes/14. colores-manos-de-cocora-1.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
       "line": 3031,
-      "path": "/pautas/mirador-manos-de-cocora/imagenes/12.-dia-mundial-fotografia-7.webp",
+      "path": "/pautas/mirador-manos-de-cocora/imagenes/5. paisaje-cultural-traje-4.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
       "line": 3032,
-      "path": "/pautas/mirador-manos-de-cocora/imagenes/2. y-si-nos-escapamos-para-el-valle-de-cocora-6.webp",
+      "path": "/pautas/mirador-manos-de-cocora/imagenes/9.-san-pedro-manos-de-cocora-2.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
       "line": 3033,
-      "path": "/pautas/mirador-manos-de-cocora/imagenes/5. paisaje-cultural-traje-5.webp",
+      "path": "/pautas/mirador-manos-de-cocora/imagenes/12.-dia-mundial-fotografia-7.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
       "line": 3034,
+      "path": "/pautas/mirador-manos-de-cocora/imagenes/2. y-si-nos-escapamos-para-el-valle-de-cocora-6.webp",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
+      "file": "public/data/places.json",
+      "line": 3035,
+      "path": "/pautas/mirador-manos-de-cocora/imagenes/5. paisaje-cultural-traje-5.webp",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
+      "file": "public/data/places.json",
+      "line": 3036,
       "path": "/pautas/mirador-manos-de-cocora/imagenes/GIRASOL.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 3234,
+      "line": 3236,
       "path": "/pautas/restaurante-bar-shalem/imagenes/shalem-home-banner.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 3235,
+      "line": 3237,
       "path": "/pautas/restaurante-bar-shalem/imagenes/shalem-restaurante-1.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 3236,
+      "line": 3238,
       "path": "/pautas/restaurante-bar-shalem/imagenes/shalem-restaurante-2.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 3237,
+      "line": 3239,
       "path": "/pautas/restaurante-bar-shalem/imagenes/shalem-bar-1.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 3238,
+      "line": 3240,
       "path": "/pautas/restaurante-bar-shalem/imagenes/shalem-plato-trucha.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 3239,
+      "line": 3241,
       "path": "/pautas/restaurante-bar-shalem/imagenes/shalem-plato-bandeja.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 3240,
+      "line": 3242,
       "path": "/pautas/restaurante-bar-shalem/imagenes/shalem-plato-carne.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 3241,
+      "line": 3243,
       "path": "/pautas/restaurante-bar-shalem/imagenes/shalem-plato-sopa.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 3242,
+      "line": 3244,
       "path": "/pautas/restaurante-bar-shalem/imagenes/shalem-bar-2.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 3243,
+      "line": 3245,
       "path": "/pautas/restaurante-bar-shalem/imagenes/shalem-plato-limonada.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 3318,
+      "line": 3320,
       "path": "/pautas/hotel_boutique_palmas_de_salento/imagenes/hotel-boutique-palmas-de-salento-1.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 3319,
+      "line": 3321,
       "path": "/pautas/hotel_boutique_palmas_de_salento/imagenes/hotel-boutique-palmas-de-salento-2.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 3320,
+      "line": 3322,
       "path": "/pautas/hotel_boutique_palmas_de_salento/imagenes/hotel-boutique-palmas-de-salento-3.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 3321,
+      "line": 3323,
       "path": "/pautas/hotel_boutique_palmas_de_salento/imagenes/hotel-boutique-palmas-de-salento-4.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 3322,
+      "line": 3324,
       "path": "/pautas/hotel_boutique_palmas_de_salento/imagenes/hotel-boutique-palmas-de-salento-5.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 3323,
+      "line": 3325,
       "path": "/pautas/hotel_boutique_palmas_de_salento/imagenes/hotel-boutique-palmas-de-salento-6.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 3324,
+      "line": 3326,
       "path": "/pautas/hotel_boutique_palmas_de_salento/imagenes/hotel-boutique-palmas-de-salento-7.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 3325,
+      "line": 3327,
       "path": "/pautas/hotel_boutique_palmas_de_salento/imagenes/hotel-boutique-palmas-de-salento-8.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 3326,
+      "line": 3328,
       "path": "/pautas/hotel_boutique_palmas_de_salento/imagenes/logo-hotel-palmas-de-salento.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 3400,
+      "line": 3402,
       "path": "/pautas/restaurante_la_casona/imagenes/arte-la-casona.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 3401,
+      "line": 3403,
       "path": "/pautas/restaurante_la_casona/imagenes/restaurante-la-casona-1.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 3402,
+      "line": 3404,
       "path": "/pautas/restaurante_la_casona/imagenes/restaurante-la-casona-2.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 3403,
+      "line": 3405,
       "path": "/pautas/restaurante_la_casona/imagenes/restaurante-la-casona-3.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 3404,
+      "line": 3406,
       "path": "/pautas/restaurante_la_casona/imagenes/restaurante-la-casona-4.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 3405,
+      "line": 3407,
       "path": "/pautas/restaurante_la_casona/imagenes/restaurante-la-casona-5.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 3406,
+      "line": 3408,
       "path": "/pautas/restaurante_la_casona/imagenes/restaurante-la-casona-6.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 3407,
+      "line": 3409,
       "path": "/pautas/restaurante_la_casona/imagenes/restaurante-la-casona-7.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 3408,
+      "line": 3410,
       "path": "/pautas/restaurante_la_casona/imagenes/restaurante-la-casona-8.webp",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/data/places.json",
-      "line": 3409,
+      "line": 3411,
       "path": "/pautas/restaurante_la_casona/imagenes/logo-la-casona.webp",
       "status": "OK",
       "equivalent": null
@@ -5315,14 +5329,14 @@
     {
       "file": "public/paginas-pautantes/hotel-green-house-salento/index.html",
       "line": 20,
-      "path": "/pautas/hotel-green-house/imagenes/green-house-banner.webp",
+      "path": "/pautas/hotel-green-house/imagenes/green-house-real-1.jpg",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/paginas-pautantes/hotel-green-house-salento/index.html",
       "line": 33,
-      "path": "/pautas/hotel-green-house/imagenes/green-house-banner.webp",
+      "path": "/pautas/hotel-green-house/imagenes/green-house-real-1.jpg",
       "status": "OK",
       "equivalent": null
     },
@@ -5350,7 +5364,7 @@
     {
       "file": "public/paginas-pautantes/hotel-green-house-salento/index.html",
       "line": 75,
-      "path": "/pautas/hotel-green-house/imagenes/green-house-banner.webp",
+      "path": "/pautas/hotel-green-house/imagenes/green-house-real-1.jpg",
       "status": "OK",
       "equivalent": null
     },
