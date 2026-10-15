@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-10-14T23:25:19.442Z",
-  "total": 1694,
-  "ok": 1694,
+  "generatedAt": "2026-10-15T00:52:41.580Z",
+  "total": 1695,
+  "ok": 1695,
   "broken": 0,
   "fixable": 0,
   "unfixable": 0,
@@ -920,6 +920,13 @@
       "file": "public/categorias/restaurante-bar.html",
       "line": 98,
       "path": "/logo_salento2026.webp",
+      "status": "OK",
+      "equivalent": null
+    },
+    {
+      "file": "public/categorias/restaurante-bar.html",
+      "line": 124,
+      "path": "/pautas/restaurante-bar-shalem/imagenes/shalem-home-banner.webp",
       "status": "OK",
       "equivalent": null
     },
@@ -5329,14 +5336,14 @@
     {
       "file": "public/paginas-pautantes/hotel-green-house-salento/index.html",
       "line": 37,
-      "path": "/pautas/hotel-green-house/imagenes/logo-green-house.webp",
+      "path": "/pautas/hotel-green-house/imagenes/logo-green-house-real.jpg",
       "status": "OK",
       "equivalent": null
     },
     {
       "file": "public/paginas-pautantes/hotel-green-house-salento/index.html",
       "line": 42,
-      "path": "/pautas/hotel-green-house/imagenes/logo-green-house.webp",
+      "path": "/pautas/hotel-green-house/imagenes/logo-green-house-real.jpg",
       "status": "OK",
       "equivalent": null
     },
@@ -11433,7 +11440,7 @@
     {
       "file": "tools/generate_category_pages.js",
       "line": 130,
-      "path": "/pautas/hotel-green-house/imagenes/logo-green-house.webp",
+      "path": "/pautas/hotel-green-house/imagenes/logo-green-house-real.jpg",
       "status": "OK",
       "equivalent": null
     },
