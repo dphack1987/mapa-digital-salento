@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react'
 import { ArrowRight } from 'lucide-react'
 
 type HomeBanner = {
@@ -17,7 +16,7 @@ type HomeBanner = {
 /** Espacio creativo bajo el hero.
  *  Imágenes: *-arte-publicitario.webp en cada carpeta de public/pautas/.
  *  No borres entradas; solo reemplaza rutas/textos si hace falta.
- *  Los banners rotan solos para que todos los pautantes tengan el mismo tiempo en pantalla. */
+ *  Todos los pautantes se muestran siempre (sin rotación); tarjetas compactas en grilla vertical. */
 const BANNERS: HomeBanner[] = [
   {
     id: 'ocaso',
@@ -369,8 +368,6 @@ const BANNERS: HomeBanner[] = [
   },
 ]
 
-const ROTATION_MS = 6000
-
 function BannerCard({ banner, size }: { banner: HomeBanner; size: 'hero' | 'card' }) {
   const isHero = size === 'hero'
   return (
@@ -402,20 +399,9 @@ function BannerCard({ banner, size }: { banner: HomeBanner; size: 'hero' | 'card
 }
 
 export default function HomeBanners() {
-  const total = BANNERS.length
-  const [offset, setOffset] = useState(0)
+  if (!BANNERS.length) return null
 
-  useEffect(() => {
-    if (total <= 3) return
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
-    const id = window.setInterval(() => setOffset((prev) => (prev + 1) % total), ROTATION_MS)
-    return () => window.clearInterval(id)
-  }, [total])
-
-  if (!total) return null
-
-  const visible = [0, 1, 2, 3, 4, 5, 6].map((i) => BANNERS[(offset + i) % total])
-  const [feature, ...rest] = visible
+  const [feature, ...rest] = BANNERS
 
   return (
     <section
@@ -435,7 +421,7 @@ export default function HomeBanners() {
           {rest.length > 0 && (
             <div className="home-banners-grid">
               {rest.map((b) => (
-                <BannerCard key={`${offset}-${b.id}`} banner={b} size="card" />
+                <BannerCard key={b.id} banner={b} size="card" />
               ))}
             </div>
           )}
