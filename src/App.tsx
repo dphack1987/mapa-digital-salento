@@ -1656,7 +1656,7 @@ function App() {
               <p>Catálogo y precios oficiales de las fincas cafeteras. Pedido directo por WhatsApp, sin intermediarios ni comisiones.</p>
             </div>
             <div className="coffee-premium-products" role="list">
-              <span role="listitem"><strong>Tradicional 250 g · Don Elías</strong> $40.000</span>
+              <span role="listitem"><strong>Café Premium · Don Elías</strong> $50.000</span>
               <span role="listitem"><strong>250 g · El Ocaso</strong> $28.000</span>
               <span role="listitem"><strong>De la finca · El Recuerdo</strong> Consultar</span>
             </div>
