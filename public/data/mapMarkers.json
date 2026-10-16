@@ -13,18 +13,6 @@
       "note": "Camping y habitaciones en Boquía"
     },
     {
-      "id": 13,
-      "label": "Boki Mall - Hotel El Mirador de Boquía",
-      "type": "Turístico",
-      "placeId": 13,
-      "coord": [
-        4.642,
-        -75.565
-      ],
-      "tone": "primary",
-      "note": "Boki Mall - Hotel El Mirador de Boquía"
-    },
-    {
       "id": 14,
       "label": "Mirador Las Manos de Dios",
       "type": "Turístico",
@@ -71,42 +59,6 @@
       ],
       "tone": "primary",
       "note": "Finca Hotel El Ocaso"
-    },
-    {
-      "id": 28,
-      "label": "Boki Mall - Restaurante Terra",
-      "type": "Gastronómico",
-      "placeId": 28,
-      "coord": [
-        4.642,
-        -75.565
-      ],
-      "tone": "primary",
-      "note": "Restaurante Gourmet Boki Mall"
-    },
-    {
-      "id": 29,
-      "label": "Boki Mall - Barcinales Café - Bar",
-      "type": "Gastronómico",
-      "placeId": 29,
-      "coord": [
-        4.642,
-        -75.565
-      ],
-      "tone": "info",
-      "note": "Café-Bar Boki Mall"
-    },
-    {
-      "id": 30,
-      "label": "Boki Mall - Eventos",
-      "type": "Turístico",
-      "placeId": 30,
-      "coord": [
-        4.642,
-        -75.565
-      ],
-      "tone": "success",
-      "note": "Eventos y Operador Turístico Boki Mall"
     },
     {
       "id": 20,
@@ -371,18 +323,6 @@
       ],
       "tone": "green",
       "note": "Finca cafetera en Vereda Palestina · 4 km a pie desde Salento"
-    },
-    {
-      "id": 35,
-      "label": "Hotel La Tía Emiss",
-      "type": "Turístico",
-      "placeId": 35,
-      "coord": [
-        4.638923,
-        -75.570628
-      ],
-      "tone": "primary",
-      "note": "Hotel familiar de arquitectura de colonización · Cra 4 #5-38"
     },
     {
       "id": 36,

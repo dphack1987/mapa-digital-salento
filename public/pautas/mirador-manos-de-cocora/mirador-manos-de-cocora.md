@@ -95,7 +95,7 @@
 - Nota: Los precios pueden variar según temporada
 
 ## Contacto
-- Cel: 3215452739
+- Cel: 3108962995
 - Instagram: @manosdecocora
 
 ## Contexto del Valle del Cocora

@@ -27,13 +27,10 @@ const prerender = `    <div id="prerender" style="font-family:sans-serif;max-wid
       <ul>
         <li><a href="/paginas-pautantes/fonda-boquia/index.html">Fonda Boquía - Restaurante tradicional en Salento</a></li>
         <li><a href="/paginas-pautantes/restaurante-don-elias/index.html">Al Sabor de la Leña - restaurante en Salento</a></li>
-        <li><a href="/paginas-pautantes/boki-mall-restaurante-terra/index.html">Restaurante Terra en Salento</a></li>
-        <li><a href="/paginas-pautantes/boki-mall-barcinales-cafe-bar/index.html">Barcinales Cafe Bar en Salento</a></li>
         <li><a href="/paginas-pautantes/finca-cafetera-don-elias/index.html">Finca Cafetera Don Elías - Coffee Tour en Salento</a></li>
         <li><a href="/paginas-pautantes/finca-don-eduardo-coffee-tour/index.html">Finca Don Eduardo - Coffee Tour en Salento</a></li>
         <li><a href="/paginas-pautantes/hotel-la-floresta-salento/index.html">Hotel La Floresta en Salento</a></li>
         <li><a href="/paginas-pautantes/hotel-camino-nacional-salento/index.html">Hotel Camino Nacional en Salento</a></li>
-        <li><a href="/paginas-pautantes/boki-mall-hotel-el-mirador-de-boquia/index.html">Hotel El Mirador de Boquía en Salento</a></li>
         <li><a href="/paginas-pautantes/camping-cascadas-de-santa-rita/index.html">Camping Cascadas de Santa Rita en Salento</a></li>
       </ul>
       <h2>Guías turísticas de Salento</h2>
@@ -69,7 +66,7 @@ const prerender = `    <div id="prerender" style="font-family:sans-serif;max-wid
       <h3>Calle Real, Plaza de Bolívar y miradores</h3>
       <p>La Calle Real concentra artesanías y heladerías locales. Sube al <a href="/paginas-pautantes/mirador-alto-de-la-cruz/">Alto de la Cruz</a> al atardecer y recorre la <a href="/paginas-pautantes/plaza-de-bolivar-de-salento/">Plaza de Bolívar</a>.</p>
       <h3>Gastronomía local</h3>
-      <p>Prueba trucha arcoíris, patacones y café de la región. Reserva sin intermediarios en <a href="/categorias/restaurantes.html">restaurantes</a>, <a href="/paginas-pautantes/fonda-boquia/">Fonda Boquía</a> o <a href="/paginas-pautantes/boki-mall-restaurante-terra/">Boki Mall Terra</a>. Comida de campo colombiana en <a href="/paginas-pautantes/restaurante-don-elias/">Al Sabor de la Leña</a>. Más ideas: <a href="/landing/mejor-trucha-salento/">mejor trucha en Salento</a>.</p>
+      <p>Prueba trucha arcoíris, patacones y café de la región. Reserva sin intermediarios en <a href="/categorias/restaurantes.html">restaurantes</a>, <a href="/paginas-pautantes/fonda-boquia/">Fonda Boquía</a>. Comida de campo colombiana en <a href="/paginas-pautantes/restaurante-don-elias/">Al Sabor de la Leña</a>. Más ideas: <a href="/landing/mejor-trucha-salento/">mejor trucha en Salento</a>.</p>
       <h2>Mejores épocas para visitar Salento</h2>
       <h3>Diciembre a marzo: temporada seca</h3>
       <p>Mañanas más despejadas para el Valle de Cocora y miradores. Alta temporada: reserva alojamiento con anticipación. Ver <a href="/landing/hotel-barato-salento/">hoteles</a>.</p>

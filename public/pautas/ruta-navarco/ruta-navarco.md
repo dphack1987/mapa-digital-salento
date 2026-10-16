@@ -69,7 +69,7 @@
 Nota: precios de venta público. Confirmar vigencia con el operador.
 
 ## Contacto
-- Reservas WhatsApp: +57 304 368 5771
+- Reservas WhatsApp: +57 315 571 0783
 - Instagram: @salentoysustesoros
 - Sitio: https://salentoysustesoros.co/
 
