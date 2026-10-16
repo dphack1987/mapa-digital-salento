@@ -484,20 +484,6 @@ const knowledgeBase: KnowledgeItem[] = [
     relatedPlaces: [5]
   },
   {
-    keywords: ['boki mall', 'boki mall boquía', 'hotel boki', 'boki'],
-    category: 'hospedaje',
-    answer: {
-      es: 'Boki Mall en Boquía es de lo más completo: hotel, restaurante, café bar y vistas. Ideal si quieres combinar descanso con buena comida y ambiente más exclusivo. ¿Reservar, cómo llegar o comparar?',
-      en: 'Boki Mall in Boquía is one of the most complete: hotel, restaurant, coffee bar and views. Ideal to combine rest with good food. Do you want to book, directions, or compare?',
-      de: 'Boki Mall in Boquía ist eines der umfassendsten: Hotel, Restaurant, Café-Bar und Aussichten. Ideal, um Erholung mit gutem Essen und exklusiverem Ambiente zu verbinden. Reservieren, Anreise oder vergleichen?',
-      fr: 'Boki Mall à Boquía est l\'un des plus complets : hôtel, restaurant, café-bar et vues. Idéal pour combiner repos et bonne nourriture dans une ambiance plus exclusive. Réserver, s\'y rendre ou comparer ?',
-      pt: 'Boki Mall em Boquía é dos mais completos: hotel, restaurante, café bar e vistas. Ideal se você quer combinar descanso com boa comida e ambiente mais exclusivo. Reservar, como chegar ou comparar?',
-      it: 'Boki Mall a Boquía è uno dei più completi: hotel, ristorante, café-bar e viste. Ideale per combinare riposo con buon cibo e atmosfera più esclusiva. Prenotare, come arrivare o confrontare?'
-    },
-    followUp: ['¿Ver disponibilidad?', '¿Ubicación en Boquía?', '¿Hotel o restaurante?'],
-    relatedPlaces: [13]
-  },
-  {
     keywords: ['mirador las manos de dios', 'las manos de dios', 'manos de dios'],
     category: 'turismo',
     answer: {
@@ -706,15 +692,15 @@ const knowledgeBase: KnowledgeItem[] = [
     keywords: ['boquía', 'vereda', 'zona rural', 'campos', 'finca'],
     category: 'turismo',
     answer: {
-      es: 'Boquía es la vereda rural de Salento, a 5 minutos del pueblo. Boki Mall, Cascada Santa Rita y fincas cafeteras. Donde se vive la verdadera cultura rural del Quindío.',
-      en: 'Boquía is Salento\'s rural vereda, 5 minutes from town. Boki Mall, Santa Rita Waterfall and coffee farms. Where you experience the true rural culture of Quindío.',
-      de: 'Boquía ist die ländliche Vereda von Salento, 5 Minuten vom Dorf entfernt. Boki Mall, Santa-Rita-Wasserfall und Kaffeebauernhöfe. Wo man die wahre ländliche Kultur des Quindío erlebt.',
-      fr: 'Boquía est la vereda rurale de Salento, à 5 minutes du village. Boki Mall, cascade Santa Rita et plantations de café. Là où l\'on vit la véritable culture rurale du Quindío.',
-      pt: 'Boquía é a vereda rural de Salento, a 5 minutos da cidade. Boki Mall, Cachoeira Santa Rita e fazendas de café. Onde se vive a verdadeira cultura rural do Quindío.',
-      it: 'Boquía è la vereda rurale di Salento, a 5 minuti dal villaggio. Boki Mall, Cascata Santa Rita e fattorie di caffè. Dove si vive la vera cultura rurale del Quindío.'
+      es: 'Boquía es la vereda rural de Salento, a 5 minutos del pueblo. Cascada Santa Rita y fincas cafeteras. Donde se vive la verdadera cultura rural del Quindío.',
+      en: 'Boquía is Salento\'s rural vereda, 5 minutes from town. Santa Rita Waterfall and coffee farms. Where you experience the true rural culture of Quindío.',
+      de: 'Boquía ist die ländliche Vereda von Salento, 5 Minuten vom Dorf entfernt. Santa-Rita-Wasserfall und Kaffeebauernhöfe. Wo man die wahre ländliche Kultur des Quindío erlebt.',
+      fr: 'Boquía est la vereda rurale de Salento, à 5 minutes du village. Cascade Santa Rita et plantations de café. Là où l\'on vit la véritable culture rurale du Quindío.',
+      pt: 'Boquía é a vereda rural de Salento, a 5 minutos da cidade. Cachoeira Santa Rita e fazendas de café. Onde se vive a verdadeira cultura rural do Quindío.',
+      it: 'Boquía è la vereda rurale di Salento, a 5 minuti dal villaggio. Cascata Santa Rita e fattorie di caffè. Dove si vive la vera cultura rurale del Quindío.'
     },
-    followUp: ['¿Boki Mall?', '¿Cascada Santa Rita?', '¿Fincas cafeteras?'],
-    relatedPlaces: [13, 15]
+    followUp: ['¿Cascada Santa Rita?', '¿Fincas cafeteras?', '¿Cómo llegar?'],
+    relatedPlaces: [15]
   },
   // ═══════════════════════════════════════════════════════════
   // DEFENSIVOS
@@ -731,7 +717,7 @@ const knowledgeBase: KnowledgeItem[] = [
       it: 'Tranquillo, amico! Girano voci false là fuori, ma qui tutto funziona. Salento è sicuro e al 100% operativo - i Jeeps circolano, i ristoranti aprono, gli ostelli sono disponibili. Venite tranquillo!'
     },
     followUp: ['¿Qué puedo hacer hoy?', '¿Necesito reservar?', '¿Cómo llegar seguro?'],
-    relatedPlaces: [5, 13],
+    relatedPlaces: [5],
     isDefensive: true,
     urgency: 'high',
     defensiveActions: ['Ver estado oficial', 'Contactar hostales', 'Planificar itinerario'],

@@ -102,7 +102,7 @@ const newPlaces = [
     badge: '18 puntos fotográficos',
     color: 'coral',
     icon: 'Mountain',
-    contact: { phone: '+57 321 545 2739', whatsapp: '573215452739' },
+    contact: { phone: '+57 310 896 2995', whatsapp: '573108962995' },
     location: { lat: 4.638998, lng: -75.484789, address: 'Valle del Cocora, Salento, Quindío', landmark: 'Valle de Cocora · segundo mirador independiente' },
     operatingHours: { notes: 'Acceso durante el día · confirmar condiciones por WhatsApp' },
     tags: ['mirador', 'valle de cocora', 'fotos', 'deslizadora tricolor', 'paisaje'],
@@ -116,7 +116,7 @@ const newPlaces = [
     ],
     actionTarget: {
       viewUrl: 'https://www.salentoalamano.com/paginas-pautantes/mirador-manos-de-cocora/',
-      reserveUrl: 'https://wa.me/573215452739'
+      reserveUrl: 'https://wa.me/573108962995'
     },
     isPautante: true
   },

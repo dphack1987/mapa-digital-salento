@@ -87,13 +87,11 @@ const serviceCardImageSets = {
     '/pautas/restaurante_bar_fonda_boquia/imagenes/480508481_1169835038167384_4932382570318530100_n.webp',
     '/pautas/restaurante_bar_fonda_boquia/imagenes/481970368_1182179880266233_2620181488091833302_n.webp',
     '/pautas/restaurante_bar_fonda_boquia/imagenes/30411747_1017613001720886_1046791999434260480_n.webp',
-    '/pautas/boki_mall/imagenes/images%20(1).webp',
     '/imagenes-salento/Trucha-con-camarones-Salento-Quindio-1024x768.jpeg.webp'
   ],
   restaurantBar: [
     '/pautas/restaurante_bar_fonda_boquia/fonda-arte-publicitario.webp',
-    '/pautas/restaurante_bar_fonda_boquia/imagenes/29389126_1005353112946875_6049563033867386880_n.webp',
-    '/pautas/boki_mall/imagenes/images%20(3).webp'
+    '/pautas/restaurante_bar_fonda_boquia/imagenes/29389126_1005353112946875_6049563033867386880_n.webp'
   ],
   coffeeTour: [
     '/pautas/coffee-tour-finca-cafetera-don-elias/imagenes/724493520_18074799854670095_3547519742275705982_n.webp',
@@ -120,7 +118,6 @@ const serviceCardImageSets = {
     '/pautas/hotel_la_floresta_salento/imagenes/lafloresta-fachada.webp',
     '/pautas/mahalo_hostel/imagenes/hab-1.1.webp',
     '/pautas/hotel_camino_nacional/imagenes/1326164875.webp',
-    '/pautas/hotel_tia_emiss/imagenes/sala-al-aire-libre-del.webp',
     '/pautas/coffee-tour-alojamiento-finca-hotel-el-ocaso/imagenes/foto_casa_ocaso.webp'
   ],
   artisan: [
@@ -135,7 +132,6 @@ const serviceCardImageSets = {
   ],
   events: [
     '/imagenes-salento/631032744.webp',
-    '/pautas/boki_mall/imagenes/images%20(3).webp',
     '/imagenes-salento/653410779.webp'
   ],
   camping: [
@@ -853,7 +849,7 @@ function App() {
 
   const featuredPautantes = useMemo(() => {
     // Prioridad: assets en /pautas/ > orden editorial > resto de pautantes (todos, sin cortar)
-    const wanted = ['Cabalgatas Cocora Mágica', 'Moto Aventura 110', 'Hotel La Tía Emiss', 'Finca Don Eduardo Coffee Tour', 'Fonda Boquía', 'Reserva Natural Cascadas de Santa Rita', 'El Recuerdo Coffee Tour']
+    const wanted = ['Cabalgatas Cocora Mágica', 'Moto Aventura 110', 'Finca Don Eduardo Coffee Tour', 'Fonda Boquía', 'Reserva Natural Cascadas de Santa Rita', 'El Recuerdo Coffee Tour']
     const withPautasAssets = places.filter(p => p.isPautante && (p.photos || []).some(src => String(src).startsWith('/pautas/')))
     const byName = withPautasAssets.filter(p => wanted.includes(p.name))
     const byNameRest = withPautasAssets.filter(p => !wanted.includes(p.name))
@@ -1781,7 +1777,7 @@ function App() {
 
             <h3>Gastronomía local y vida nocturna</h3>
             <p>
-              Prueba trucha arcoíris, patacones, arepas de queso, sancocho y el café de la región. Para reservar o pedir sin intermediarios, usa las fichas de <a href="/categorias/restaurantes.html">restaurantes en Salento</a> y destinos como <a href="/paginas-pautantes/restaurante-don-elias/">Al Sabor de la Leña</a>, <a href="/paginas-pautantes/fonda-boquia/">Fonda Boquia</a> o el complejo <a href="/paginas-pautantes/boki-mall-restaurante-terra/">Boki Mall · Restaurante Terra</a>. La noche es tranquila: bares con música en vivo y terrazas, sin el ruido de las grandes ciudades. Más ideas en <a href="/landing/mejor-trucha-salento/">dónde comer la mejor trucha</a>.
+              Prueba trucha arcoíris, patacones, arepas de queso, sancocho y el café de la región. Para reservar o pedir sin intermediarios, usa las fichas de <a href="/categorias/restaurantes.html">restaurantes en Salento</a> y destinos como <a href="/paginas-pautantes/restaurante-don-elias/">Al Sabor de la Leña</a> o <a href="/paginas-pautantes/fonda-boquia/">Fonda Boquia</a>. La noche es tranquila: bares con música en vivo y terrazas, sin el ruido de las grandes ciudades. Más ideas en <a href="/landing/mejor-trucha-salento/">dónde comer la mejor trucha</a>.
             </p>
             <figure className="home-content-figure">
               <img src="/imagenes-salento/valle-cocora-palmas-2.webp" alt="Palmas de cera gigantes en el Valle de Cocora, árbol nacional de Colombia, entre neblina" loading="lazy" width="1200" height="800" />

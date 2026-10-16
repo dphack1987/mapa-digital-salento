@@ -1,15 +1,6 @@
 {
   "hotels": [
     {
-      "id": "hotel_1",
-      "name": "Boki Mall - Hotel El Mirador de Boquía",
-      "address": "Vereda Boquía, vía principal a Salento, Quindío",
-      "phone": "+57 310 5692491",
-      "isPartner": true,
-      "placeId": 13,
-      "url": "/paginas-pautantes/boki-mall-hotel-el-mirador-de-boquia/"
-    },
-    {
       "id": "hotel_2",
       "name": "Hotel Camino Nacional Salento",
       "address": "Carrera 6 #3-46, Salento, Quindío",
@@ -44,15 +35,6 @@
       "isPartner": true,
       "placeId": 32,
       "url": "/paginas-pautantes/mahalo-hostel-salento/"
-    },
-    {
-      "id": "hotel_6",
-      "name": "Hotel La Tía Emiss",
-      "address": "Carrera 4 #5-38, Salento, Quindío",
-      "phone": "+57 316 4162726",
-      "isPartner": true,
-      "placeId": 35,
-      "url": "/paginas-pautantes/hotel-la-tia-emiss/"
     },
     {
       "id": "hotel_7",

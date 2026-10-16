@@ -19,7 +19,6 @@ Cerrar la fase de contenido real y verificable antes de mejorar UX y SEO.
 
 | Pautante | Estado | Ficha | Página publicada |
 |---|---|---|---|
-| Boki Mall (4 locales) | Completado | places.json ids 13/28/29/30 | `/paginas-pautantes/boki-mall-*` |
 | Cabalgatas Cocora Mágica | Completado | `pautas/cabalgatas_cocora_magica/` | `/paginas-pautantes/cabalgatas-cocora-magica/` |
 | Cascadas de Santa Rita | Completado | places.json ids 15/31 | `/paginas-pautantes/reserva-natural-cascadas-de-santa-rita/` |
 | Finca Cafetera Don Elías | Completado (13/10/2026) | `pautas/coffee-tour-finca-cafetera-don-elias/` | `/paginas-pautantes/finca-cafetera-don-elias/` |

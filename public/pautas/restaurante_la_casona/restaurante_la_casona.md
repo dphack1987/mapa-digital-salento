@@ -11,7 +11,7 @@
 - Categoría principal: gastronomía / restaurante colombiano
 - Dirección: Carrera 6 # 5-42, frente a la plaza principal, Salento, Quindío, 630004
 - Coordenadas: 4.6376352, -75.5699512
-- Teléfono / WhatsApp: +57 312 8660910
+- Teléfono / WhatsApp: +57 321 8982293
 - Correo: lacasonasalento@gmail.com
 - Sitio web: https://restaurante-la-casona.ueniweb.com/
 - Facebook: https://facebook.com/659941907466598

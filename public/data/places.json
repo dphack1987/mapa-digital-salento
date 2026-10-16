@@ -94,451 +94,6 @@
       "viewUrl": "/paginas-pautantes/camping-cascadas-de-santa-rita/"
     },
     {
-      "id": 13,
-      "name": "Boki Mall - Hotel El Mirador de Boquía",
-      "type": "Alojamientos",
-      "description": "Complejo hotelero en Boquía: hospedaje, restaurante, bar y eventos. Premio al mejor hotel rural de Salento 2024. RNT #91079.",
-      "priceRange": "$$$",
-      "rating": "4.9",
-      "timeInfo": "Reservas directas",
-      "badge": "Premio 2024",
-      "color": "sage",
-      "icon": "Hotel",
-      "contact": {
-        "phone": "+57 311 222 5312",
-        "whatsapp": "573112225312",
-        "email": "reservas@bokimall.com",
-        "website": "https://www.bokimall.com/"
-      },
-      "location": {
-        "lat": 4.642,
-        "lng": -75.565,
-        "address": "Km 5, vía principal a Salento, Vereda Boquía",
-        "landmark": "400 metros después del puente de Boquía"
-      },
-      "operatingHours": {
-        "notes": "Hotel 24 horas. Restaurante Terra: 7:00 a.m. - 9:00 p.m. Barcinales Café: horario variable según programación del establecimiento."
-      },
-      "tags": [
-        "hotel",
-        "restaurante",
-        "café",
-        "eventos",
-        "boquía",
-        "premio mejor hotel",
-        "experiencias",
-        "salento"
-      ],
-      "verified": true,
-      "active": true,
-      "accommodationDetails": {
-        "categoryLabel": "Hotel rural premium · Mall de experiencias en Boquía",
-        "stars": 4,
-        "roomTypes": [
-          "Suite",
-          "Doble",
-          "Familiar"
-        ],
-        "services": [
-          "Hotel El Mirador de Boquía",
-          "Restaurante Terra",
-          "Barcinales Café - Bar",
-          "Zona de eventos",
-          "Boki Travel operador logístico",
-          "Paquetes turísticos",
-          "Wi-Fi",
-          "Parqueadero"
-        ],
-        "roomFeatures": [
-          "Vistas panorámicas",
-          "Lujo tradicional",
-          "Balcones",
-          "Baños privados",
-          "Calefacción",
-          "Aire acondicionado"
-        ],
-        "nearby": [
-          "Salento centro · 5 min en carro",
-          "Valle de Cocora · 15 min en carro",
-          "Río Quindío · cercano",
-          "Fincas cafeteras",
-          "Miradores"
-        ],
-        "policies": [
-          "Check-in: 15:00",
-          "Check-out: 12:00",
-          "Reservas requeridas",
-          "Eventos con reserva previa"
-        ],
-        "checkIn": "15:00",
-        "checkOut": "12:00",
-        "amenities": [
-          "Desayuno incluido",
-          "Restaurante en sitio",
-          "Café bar",
-          "Eventos",
-          "Paquetes turísticos"
-        ],
-        "capacity": "9 habitaciones",
-        "bookingNotes": "Premio al mejor hotel rural de Salento 2024. Operador logístico Boki Travel para experiencias turísticas. RNT: #91079"
-      },
-      "photos": [
-        "/pautas/boki_mall/imagenes/Hotel_Mirador_de_Boquia_1747081077351.webp",
-        "/pautas/boki_mall/imagenes/314270821.webp",
-        "/pautas/boki_mall/imagenes/logo-hotel-mirador-de-boquia-512.webp"
-      ],
-      "isPautante": true,
-      "parentBrand": "Boki Mall",
-      "brandSlug": "boki-mall-hotel-el-mirador-de-boquia",
-      "siblingBrands": [
-        {
-          "name": "Restaurante Terra",
-          "slug": "boki-mall-restaurante-terra",
-          "path": "/paginas-pautantes/boki-mall-restaurante-terra/"
-        },
-        {
-          "name": "Barcinales Café - Bar",
-          "slug": "boki-mall-barcinales-cafe-bar",
-          "path": "/paginas-pautantes/boki-mall-barcinales-cafe-bar/"
-        },
-        {
-          "name": "Eventos",
-          "slug": "boki-mall-eventos",
-          "path": "/paginas-pautantes/boki-mall-eventos/"
-        }
-      ],
-      "viewUrl": "/paginas-pautantes/boki-mall-hotel-el-mirador-de-boquia/"
-    },
-    {
-      "id": 28,
-      "name": "Boki Mall - Restaurante Terra",
-      "type": "Restaurantes",
-      "description": "Restaurante del Boki Mall con cocina de autor y producto local en entorno rural de Boquía.",
-      "priceRange": "$$",
-      "rating": "4.8",
-      "timeInfo": "7:00 a.m. - 9:00 p.m.",
-      "badge": "Gourmet",
-      "color": "coral",
-      "icon": "Utensils",
-      "contact": {
-        "phone": "+57 311 222 5312",
-        "whatsapp": "573112225312",
-        "email": "reservas@bokimall.com",
-        "website": "https://bokimall.com/terra-restaurante-en-salento/"
-      },
-      "location": {
-        "lat": 4.642,
-        "lng": -75.565,
-        "address": "Km 5, vía principal a Salento, Vereda Boquía",
-        "landmark": "Dentro de Boki Mall"
-      },
-      "operatingHours": {
-        "notes": "Desayuno: 7:00 a.m. - 10:00 a.m. Almuerzo: 12:00 p.m. - 3:00 p.m. Cena: 6:00 p.m. - 9:00 p.m."
-      },
-      "tags": [
-        "restaurante",
-        "gourmet",
-        "trucha",
-        "platillos",
-        "colombiana",
-        "boki mall",
-        "boquía",
-        "salento",
-        "terra"
-      ],
-      "verified": true,
-      "active": true,
-      "parentBrand": "Boki Mall",
-      "foodServiceDetails": {
-        "cuisineType": [
-          "Colombiana tradicional",
-          "Platos gourmet",
-          "Trucha arcoíris",
-          "Fusion cafetera"
-        ],
-        "specialties": [
-          "Trucha arcoíris en diferentes preparaciones",
-          "Platos típicos del Quindío",
-          "Cafés de especialidad",
-          "Postres tradicionales"
-        ],
-        "ambience": "Elegante con vistas panorámicas",
-        "seating": "80 personas",
-        "reservations": "Recomendadas para grupos y cenas",
-        "paymentMethods": [
-          "Efectivo",
-          "Tarjeta",
-          "Transferencia"
-        ],
-        "menuItems": [
-          {
-            "id": "terra-01",
-            "name": "Octopus Stack with Truffle Sauce",
-            "price": 39500,
-            "category": "entradas",
-            "description": "Entrada de pulpo con salsa de trufa",
-            "isSpecialty": true
-          },
-          {
-            "id": "terra-02",
-            "name": "Ceviche-Style Chorizo",
-            "price": 32500,
-            "category": "entradas",
-            "description": "Chorizo al estilo ceviche",
-            "isSpecialty": true
-          },
-          {
-            "id": "terra-03",
-            "name": "Terra Nachos",
-            "price": 37000,
-            "category": "entradas",
-            "description": "Nachos de la casa"
-          },
-          {
-            "id": "terra-04",
-            "name": "Terra Truffle Potato Bowl",
-            "price": 28000,
-            "category": "principales",
-            "description": "Bowl de papa con trufa",
-            "isSpecialty": true
-          },
-          {
-            "id": "terra-05",
-            "name": "House Empanada",
-            "price": 19000,
-            "category": "entradas",
-            "description": "Empanada de la casa"
-          }
-        ]
-      },
-      "photos": [
-        "/pautas/boki_mall/imagenes/terra-restaurante-logo-512.webp",
-        "/pautas/boki_mall/imagenes/images (1).webp",
-        "/pautas/boki_mall/imagenes/Hotel_Mirador_de_Boquia_1747081077351.webp"
-      ],
-      "isPautante": true,
-      "brandSlug": "boki-mall-restaurante-terra",
-      "siblingBrands": [
-        {
-          "name": "Hotel El Mirador de Boquía",
-          "slug": "boki-mall-hotel-el-mirador-de-boquia",
-          "path": "/paginas-pautantes/boki-mall-hotel-el-mirador-de-boquia/"
-        },
-        {
-          "name": "Barcinales Café - Bar",
-          "slug": "boki-mall-barcinales-cafe-bar",
-          "path": "/paginas-pautantes/boki-mall-barcinales-cafe-bar/"
-        },
-        {
-          "name": "Eventos",
-          "slug": "boki-mall-eventos",
-          "path": "/paginas-pautantes/boki-mall-eventos/"
-        }
-      ],
-      "viewUrl": "/paginas-pautantes/boki-mall-restaurante-terra/"
-    },
-    {
-      "id": 29,
-      "name": "Boki Mall - Barcinales Café - Bar",
-      "type": "Restaurante Bar",
-      "description": "Café de especialidad, pasteles artesanales y ambiente tranquilo en el Boki Mall de Boquía.",
-      "priceRange": "$",
-      "rating": "4.7",
-      "timeInfo": "Horario variable",
-      "badge": "Café-Bar",
-      "color": "yellow",
-      "icon": "Utensils",
-      "contact": {
-        "phone": "+57 311 222 5312",
-        "whatsapp": "573112225312",
-        "email": "reservas@bokimall.com",
-        "website": "https://bokimall.com/barcinales-cafe-bar-en-salento/"
-      },
-      "location": {
-        "lat": 4.642,
-        "lng": -75.565,
-        "address": "Km 5, vía principal a Salento, Vereda Boquía",
-        "landmark": "Dentro de Boki Mall"
-      },
-      "operatingHours": {
-        "notes": "Horario variable según programación de eventos y entretenimiento. Generalmente 4:00 p.m. - 11:00 p.m."
-      },
-      "tags": [
-        "café",
-        "bar",
-        "cócteles",
-        "lounge",
-        "cafetería",
-        "boki mall",
-        "boquía",
-        "salento",
-        "barcinales"
-      ],
-      "verified": true,
-      "active": true,
-      "parentBrand": "Boki Mall",
-      "foodServiceDetails": {
-        "cuisineType": [
-          "Cafés de especialidad",
-          "Cócteles artesanales",
-          "Snacks y tapas"
-        ],
-        "specialties": [
-          "Cafés de origen local",
-          "Cócteles con ingredientes colombianos",
-          "Tapas gourmet",
-          "Postres caseros"
-        ],
-        "menuHighlights": [
-          "Cafés de especialidad $8.000-$15.000",
-          "Cócteles artesanales $18.000-$28.000",
-          "Postres artesanales $12.000-$20.000",
-          "Tapas gourmet $15.000-$30.000"
-        ],
-        "ambience": "Relajado y elegante vanguardista",
-        "seating": "40 personas",
-        "reservations": "No requeridas",
-        "paymentMethods": [
-          "Efectivo",
-          "Tarjeta"
-        ]
-      },
-      "photos": [
-        "/pautas/boki_mall/imagenes/barcinales-cafe-bar-logo-512.webp",
-        "/pautas/boki_mall/imagenes/images (1).webp",
-        "/pautas/boki_mall/imagenes/314270821.webp"
-      ],
-      "isPautante": true,
-      "brandSlug": "boki-mall-barcinales-cafe-bar",
-      "siblingBrands": [
-        {
-          "name": "Hotel El Mirador de Boquía",
-          "slug": "boki-mall-hotel-el-mirador-de-boquia",
-          "path": "/paginas-pautantes/boki-mall-hotel-el-mirador-de-boquia/"
-        },
-        {
-          "name": "Restaurante Terra",
-          "slug": "boki-mall-restaurante-terra",
-          "path": "/paginas-pautantes/boki-mall-restaurante-terra/"
-        },
-        {
-          "name": "Eventos",
-          "slug": "boki-mall-eventos",
-          "path": "/paginas-pautantes/boki-mall-eventos/"
-        }
-      ],
-      "viewUrl": "/paginas-pautantes/boki-mall-barcinales-cafe-bar/"
-    },
-    {
-      "id": 30,
-      "name": "Boki Mall - Eventos",
-      "type": "Eventos",
-      "description": "Eventos y celebraciones en el Boki Mall de Boquía. Espacios versátiles para grupos, con gastronomía y hospedaje en el mismo lugar.",
-      "priceRange": "$$",
-      "rating": "4.8",
-      "timeInfo": "Con cita previa",
-      "badge": "Servicios Premium",
-      "color": "purple",
-      "icon": "Bell",
-      "contact": {
-        "phone": "+57 311 222 5312",
-        "whatsapp": "573112225312",
-        "email": "reservas@bokimall.com",
-        "website": "https://bokimall.com/salon-de-eventos-eje-cafetero/"
-      },
-      "location": {
-        "lat": 4.642,
-        "lng": -75.565,
-        "address": "Km 5, vía principal a Salento, Vereda Boquía",
-        "landmark": "Dentro de Boki Mall"
-      },
-      "operatingHours": {
-        "notes": "Atención con cita previa. Horario flexible según eventos."
-      },
-      "tags": [
-        "eventos",
-        "bodas",
-        "corporativos",
-        "celebraciones",
-        "salon de eventos",
-        "boki mall",
-        "boquía",
-        "salento",
-        "eje cafetero"
-      ],
-      "verified": true,
-      "active": true,
-      "parentBrand": "Boki Mall",
-      "experienceDetails": {
-        "duration": "Variable según evento",
-        "difficulty": "N/A",
-        "groupSize": "10-200 personas según evento",
-        "included": [
-          "Organización completa del evento",
-          "Decoración básica del espacio",
-          "Catering según paquete seleccionado",
-          "Música y entretenimiento",
-          "Coordinación logística"
-        ],
-        "notIncluded": [
-          "Decoración adicional personalizada",
-          "Fotografía profesional",
-          "Transporte de invitados"
-        ],
-        "requirements": [
-          "Reserva con anticipación mínima",
-          "Depósito para confirmación",
-          "Lista de invitados",
-          "Preferencias específicas"
-        ],
-        "languages": [
-          "Español",
-          "Inglés básico"
-        ],
-        "meetingPoint": "Boki Mall, Boquía",
-        "cancellationPolicy": "Política de cancelación según tipo de evento",
-        "tariff": "Cotización personalizada según requerimientos",
-        "attractions": [
-          "Espacios múltiples dentro del complejo",
-          "Vistas panorámicas",
-          "Ambiente cafetero",
-          "Cercanía a Salento y Valle de Cocora"
-        ],
-        "services": [
-          "Organización de bodas",
-          "Eventos corporativos",
-          "Cumpleaños y celebraciones",
-          "Catering personalizado",
-          "Coordinación completa"
-        ]
-      },
-      "photos": [
-        "/pautas/boki_mall/imagenes/boki_mall_logo-512.webp",
-        "/pautas/boki_mall/imagenes/images (1).webp",
-        "/pautas/boki_mall/imagenes/premio-mejor-hotel-rural-2024.webp"
-      ],
-      "isPautante": true,
-      "brandSlug": "boki-mall-eventos",
-      "siblingBrands": [
-        {
-          "name": "Hotel El Mirador de Boquía",
-          "slug": "boki-mall-hotel-el-mirador-de-boquia",
-          "path": "/paginas-pautantes/boki-mall-hotel-el-mirador-de-boquia/"
-        },
-        {
-          "name": "Restaurante Terra",
-          "slug": "boki-mall-restaurante-terra",
-          "path": "/paginas-pautantes/boki-mall-restaurante-terra/"
-        },
-        {
-          "name": "Barcinales Café - Bar",
-          "slug": "boki-mall-barcinales-cafe-bar",
-          "path": "/paginas-pautantes/boki-mall-barcinales-cafe-bar/"
-        }
-      ],
-      "viewUrl": "/paginas-pautantes/boki-mall-eventos/"
-    },
-    {
       "id": 14,
       "name": "Mirador Las Manos de Dios",
       "type": "Atractivos Turísticos",
@@ -2479,89 +2034,6 @@
       "viewUrl": "/paginas-pautantes/el-recuerdo-coffee-tour/"
     },
     {
-      "id": 35,
-      "name": "Hotel La Tía Emiss",
-      "type": "Alojamientos",
-      "description": "Hotel familiar de arquitectura de colonización antioqueña a 2 cuadras del parque. Habitaciones doble, twin, triple y dúplex con Wi-Fi y desayuno destacado.",
-      "priceRange": "$$",
-      "rating": "4.4",
-      "timeInfo": "Check-in 3:00 PM · Check-out 11:00 AM",
-      "badge": "Hotel",
-      "color": "yellow",
-      "icon": "Hotel",
-      "contact": {
-        "phone": "+57 316 4162726",
-        "whatsapp": "573164162726",
-        "email": "tiaemiss@gmail.com",
-        "facebook": "https://www.facebook.com/latiaemiss"
-      },
-      "location": {
-        "address": "Carrera 4 #5-38, Salento, Quindío",
-        "landmark": "A dos cuadras del parque principal",
-        "lat": 4.638923,
-        "lng": -75.570628
-      },
-      "operatingHours": {
-        "notes": "Check-in 15:00–22:00 · Check-out hasta 11:00"
-      },
-      "tags": [
-        "hotel",
-        "alojamiento",
-        "familiar",
-        "wifi",
-        "desayuno",
-        "jardín",
-        "terraza",
-        "parque",
-        "salento"
-      ],
-      "verified": true,
-      "active": true,
-      "accommodationDetails": {
-        "categoryLabel": "Hotel familiar · colonización antioqueña",
-        "roomTypes": [
-          "Doble matrimonial (2 pax)",
-          "Twin (4 pax)",
-          "Triple (6 pax)",
-          "Dúplex familiar (8 pax)"
-        ],
-        "services": [
-          "Wi-Fi gratis",
-          "Desayuno destacado",
-          "Jardín y terraza",
-          "Patio en habitaciones",
-          "TV plana",
-          "No fumador",
-          "Mascotas permitidas",
-          "Recepción",
-          "Equipaje",
-          "Traslado aeropuerto (pago)"
-        ],
-        "bookingNotes": "Desde $196.141 COP/noche (2 huéspedes, co-quindio.co 13/10/2026, -10% web) · tarifa a confirmar por WhatsApp",
-        "policies": "Check-in 15:00–22:00 · Check-out 07:00–11:00 · No fumador"
-      },
-      "photos": [
-        "/pautas/hotel_tia_emiss/imagenes/1625430084.webp",
-        "/pautas/hotel_tia_emiss/imagenes/1662261168.webp",
-        "/pautas/hotel_tia_emiss/imagenes/emmis1.webp",
-        "/pautas/hotel_tia_emiss/imagenes/1625429615.webp",
-        "/pautas/hotel_tia_emiss/imagenes/1625429949.webp",
-        "/pautas/hotel_tia_emiss/imagenes/1625430062.webp",
-        "/pautas/hotel_tia_emiss/imagenes/1625430071.webp",
-        "/pautas/hotel_tia_emiss/imagenes/sala-al-aire-libre-del.webp",
-        "/pautas/hotel_tia_emiss/imagenes/1625430107.webp",
-        "/pautas/hotel_tia_emiss/imagenes/1625429971.webp",
-        "/pautas/hotel_tia_emiss/imagenes/1625429973.webp",
-        "/pautas/hotel_tia_emiss/imagenes/1625430113.webp",
-        "/pautas/hotel_tia_emiss/imagenes/1625430117.webp"
-      ],
-      "actionTarget": {
-        "viewUrl": "https://www.salentoalamano.com/paginas-pautantes/hotel-la-tia-emiss/"
-      },
-      "isPautante": true,
-      "viewUrl": "/paginas-pautantes/hotel-la-tia-emiss/"
-    },
-    {
       "id": 36,
       "name": "Downhill Bike Salento",
       "type": "Experiencias",
@@ -2766,8 +2238,8 @@
       "color": "coral",
       "icon": "Compass",
       "contact": {
-        "phone": "+57 304 368 5771",
-        "whatsapp": "573043685771",
+        "phone": "+57 315 571 0783",
+        "whatsapp": "573155710783",
         "instagram": "https://www.instagram.com/salentoysustesoros/",
         "website": "https://salentoysustesoros.co/"
       },
@@ -2844,7 +2316,7 @@
       ],
       "actionTarget": {
         "viewUrl": "https://www.salentoalamano.com/paginas-pautantes/ruta-navarco/",
-        "reserveUrl": "https://api.whatsapp.com/send/?phone=573043685771"
+        "reserveUrl": "https://api.whatsapp.com/send/?phone=573155710783"
       },
       "isPautante": true,
       "viewUrl": "/paginas-pautantes/ruta-navarco/"
@@ -3006,8 +2478,8 @@
       "color": "coral",
       "icon": "Mountain",
       "contact": {
-        "phone": "+57 321 545 2739",
-        "whatsapp": "573215452739"
+        "phone": "+57 310 896 2995",
+        "whatsapp": "573108962995"
       },
       "location": {
         "lat": 4.638998,
@@ -3040,7 +2512,7 @@
       ],
       "actionTarget": {
         "viewUrl": "https://www.salentoalamano.com/paginas-pautantes/mirador-manos-de-cocora/",
-        "reserveUrl": "https://wa.me/573215452739"
+        "reserveUrl": "https://wa.me/573108962995"
       },
       "isPautante": true,
       "viewUrl": "/paginas-pautantes/mirador-manos-de-cocora/",
@@ -3349,8 +2821,8 @@
       "color": "yellow",
       "icon": "Utensils",
       "contact": {
-        "phone": "+57 312 866 0910",
-        "whatsapp": "573128660910",
+        "phone": "+57 321 898 2293",
+        "whatsapp": "573218982293",
         "email": "lacasonasalento@gmail.com",
         "facebook": "https://facebook.com/659941907466598",
         "website": "https://restaurante-la-casona.ueniweb.com/"
@@ -3415,7 +2887,7 @@
       ],
       "actionTarget": {
         "viewUrl": "https://www.salentoalamano.com/paginas-pautantes/restaurante-la-casona/",
-        "reserveUrl": "https://wa.me/573128660910"
+        "reserveUrl": "https://wa.me/573218982293"
       },
       "isPautante": true,
       "viewUrl": "/paginas-pautantes/restaurante-la-casona/"
@@ -3432,7 +2904,7 @@
       "color": "yellow",
       "icon": "Utensils",
       "contact": {
-        "phone": "+57 302 262 1694",
+        "phone": "+57 324 613 7580",
         "facebook": "https://www.facebook.com/Lavacaoriginal"
       },
       "location": {
@@ -3492,7 +2964,7 @@
       "photos": [],
       "actionTarget": {
         "viewUrl": "https://www.salentoalamano.com/paginas-pautantes/la-vaca-original/",
-        "reserveUrl": "tel:+573022621694"
+        "reserveUrl": "tel:+573246137580"
       },
       "isPautante": true,
       "viewUrl": "/paginas-pautantes/la-vaca-original/"
