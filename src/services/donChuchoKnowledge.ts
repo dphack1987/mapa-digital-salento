@@ -11,6 +11,7 @@ interface KnowledgeItem {
     fr: string
     pt: string
     it: string
+    zh?: string  // chino simplificado opcional
   }
   followUp?: string[]
   relatedPlaces?: number[]

@@ -2,7 +2,7 @@
 export type Category = 'Todo' | 'Alojamientos' | 'Restaurantes' | 'Restaurante Bar' | 'Cafés' | 'Coffee Tours' | 'Artesanías' | 'Tiendas' | 'Experiencias' | 'Eventos' | 'Atractivos Turísticos' | 'Servicios' | 'Camping'
 
 // String literal type para idiomas (evita inconsistencias de tipos)
-export type Language = 'es' | 'en' | 'fr' | 'de' | 'pt' | 'it';
+export type Language = 'es' | 'en' | 'fr' | 'de' | 'pt' | 'it' | 'zh';
 
 // Objeto de idioma para compatibilidad con código existente
 export const LanguageConst = {
@@ -11,7 +11,8 @@ export const LanguageConst = {
   fr: 'fr',
   de: 'de',
   pt: 'pt',
-  it: 'it'
+  it: 'it',
+  zh: 'zh'
 } as const;
 
 export type Currency = 'COP' | 'USD' | 'EUR'

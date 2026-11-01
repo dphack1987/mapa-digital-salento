@@ -563,6 +563,18 @@ function App() {
 
   const isEnglish = language === 'en'
 
+  // Mapeo de locales para Open Graph y hreflang
+  const localeMap: Record<string, string> = {
+    es: 'es_CO',
+    en: 'en_US',
+    de: 'de_DE',
+    fr: 'fr_FR',
+    pt: 'pt_BR',
+    it: 'it_IT',
+    zh: 'zh_CN'
+  }
+  const currentLocale = localeMap[language] || 'es_CO'
+
   const helmetTitle = useMemo(() => {
     try {
       if (selectedPlace) {
@@ -956,7 +968,7 @@ function App() {
     translationService.setLanguage(newLanguage as any)
     // Update URL to reflect language (SPA-friendly, no full navigation)
     const localeMap: Record<string, string> = {
-      ES: '/', EN: '/en/', DE: '/de/', FR: '/fr/', PT: '/pt/', IT: '/it/'
+      ES: '/', EN: '/en/', DE: '/de/', FR: '/fr/', PT: '/pt/', IT: '/it/', ZH: '/zh/'
     }
     const newPath = localeMap[newLanguage] || '/'
     if (typeof window !== 'undefined' && window.location.pathname !== newPath) {
@@ -1069,7 +1081,7 @@ function App() {
         <meta property="og:image" content={ogImage} />
         <meta property="og:image:alt" content={selectedPlace?.name || 'Salento a la Mano - Mapa turístico de Salento, Quindío'} />
         <meta property="og:site_name" content="Salento a la Mano" />
-        <meta property="og:locale" content="es_CO" />
+        <meta property="og:locale" content={currentLocale} />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={helmetTitle} />
         <meta name="twitter:description" content={helmetDescription} />
@@ -1082,6 +1094,7 @@ function App() {
           <link rel="alternate" hrefLang="fr" href="https://www.salentoalamano.com/fr/" />
           <link rel="alternate" hrefLang="pt-BR" href="https://www.salentoalamano.com/pt/" />
           <link rel="alternate" hrefLang="it" href="https://www.salentoalamano.com/it/" />
+          <link rel="alternate" hrefLang="zh-CN" href="https://www.salentoalamano.com/zh/" />
           <link rel="alternate" hrefLang="x-default" href="https://www.salentoalamano.com/" />
         </>)}
         <script type="application/ld+json">{JSON.stringify({
@@ -1090,7 +1103,7 @@ function App() {
           "name": helmetTitle,
           "description": helmetDescription,
           "url": helmetCanonical,
-          "inLanguage": "es",
+          "inLanguage": language,
           "isPartOf": { "@type": "WebSite", "name": "Salento a la Mano", "url": "https://www.salentoalamano.com/" }
         })}</script>
         {/* Schema.org dinámico para SEO - Agregado para WSA 2026 */}
@@ -1150,6 +1163,7 @@ function App() {
               <option value={LanguageConst.de}>DE</option>
               <option value={LanguageConst.pt}>PT</option>
               <option value={LanguageConst.it}>IT</option>
+              <option value={LanguageConst.zh}>中文</option>
             </select>
             <select aria-label="Cambiar moneda" value={currency} onChange={(event) => setCurrency(event.target.value as Currency)}><option value="COP">COP</option><option value="USD">USD</option><option value="EUR">EUR</option></select>
           </div>
