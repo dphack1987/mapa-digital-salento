@@ -171,6 +171,8 @@ import defensiveSEOGService from './services/defensiveSEOG.service'
 import localBacklinksService from './services/localBacklinks.service'
 import allyRegistrationService from './services/allyRegistration.service'
 import notificationsService from './services/notifications.service'
+import ga4Service from './services/ga4Service'
+import schemaService from './services/schemaService'
 // Integración Open Source para turismo
 // Buscando alternativas a OSIRIS específicas para turismo
 
@@ -398,6 +400,7 @@ function initializeAllServicesSafely() {
   try { internationalSEOService.initialize() } catch (e: any) { console.warn('[init] internationalSEOService:', e?.message || e) }
   try { allyRegistrationService.initialize() } catch (e: any) { console.warn('[init] allyRegistrationService:', e?.message || e) }
   try { notificationsService.initialize() } catch (e: any) { console.warn('[init] notificationsService:', e?.message || e) }
+  try { ga4Service.initialize() } catch (e: any) { console.warn('[init] ga4Service:', e?.message || e) }
   try {
     hotelQRService.initializeWithHotels([
       { id: '5', name: 'Hotel Camino Nacional' },
@@ -429,6 +432,13 @@ function App() {
   useEffect(() => {
     const prerender = document.getElementById('prerender')
     if (prerender) prerender.style.display = 'none'
+  }, [])
+
+  // GA4 Page View Tracking - Agregado para WSA 2026
+  useEffect(() => {
+    const path = window.location.pathname
+    const title = document.title
+    ga4Service.trackPageView(path, title)
   }, [])
 
   const [notFound, setNotFound] = useState(false)
@@ -617,8 +627,49 @@ function App() {
     return `${base}${currentPath.replace(/\/$/, '')}/`
   }, [selectedPlace, selectedCategoryPage])
 
-  // Función para manejar acciones del modal de pautantes
-  const handleProviderAction = (providerId: number, action: 'reserve' | 'order' | 'contact') => {
+  // Schema.org dinámico para SEO - Agregado para WSA 2026
+  const dynamicSchema = useMemo(() => {
+    if (selectedPlace) {
+      return schemaService.generatePlaceSchema(selectedPlace, language)
+    }
+    if (selectedCategoryPage && selectedCategoryPage !== 'Todo') {
+      return schemaService.generateCategorySchema(selectedCategoryPage, places)
+    }
+    return null
+  }, [selectedPlace, selectedCategoryPage, language, places])
+
+  // Open Graph dinámico para SEO - Agregado para WSA 2026
+  const ogImage = useMemo(() => {
+    if (selectedPlace && selectedPlace.photos && selectedPlace.photos.length > 0) {
+      return selectedPlace.photos[0]
+    }
+    if (selectedCategoryPage) {
+      // Imágenes por categoría
+      const categoryImages: Record<string, string> = {
+        'Alojamientos': '/imagenes-salento/1326163558.webp',
+        'Restaurantes': '/imagenes-salento/trucha y patacon.webp',
+        'Cafés': '/imagenes-salento/destinos-75.webp',
+        'Coffee Tours': '/pautas/coffee-tour-finca-cafetera-don-elias/imagenes/724493520_18074799854670095_3547519742275705982_n.webp',
+        'Experiencias': '/imagenes-salento/valle-cocora-palmas-2.webp',
+      }
+      return categoryImages[selectedCategoryPage] || '/imagenes-salento/destinos-75.webp'
+    }
+    return 'https://www.salentoalamano.com/imagenes-salento/destinos-75.webp'
+  }, [selectedPlace, selectedCategoryPage])
+
+  const handleProviderSelect = useCallback((providerId: number) => {
+    const provider = places.find(p => p.id === providerId)
+    if (provider) {
+      setSelectedPlace(provider)
+    }
+  }, [places])
+  
+  // Función helper para obtener traducciones
+  const t = (key: string, fallback?: string) => translationService.translate(key, fallback)
+
+  // Funciones que dependen de 't' - movidas aquí después de su declaración
+  // Función para manejar acciones del modal de pautantes - useCallback para performance
+  const handleProviderAction = useCallback((providerId: number, action: 'reserve' | 'order' | 'contact') => {
     const provider = places.find(p => p.id === providerId)
     if (!provider) return
     if (!isValidWhatsAppCO(provider?.contact?.whatsapp)) {
@@ -645,17 +696,10 @@ function App() {
         }
         break
     }
-  }
+  }, [places, t])
 
-  const handleProviderSelect = (providerId: number) => {
-    const provider = places.find(p => p.id === providerId)
-    if (provider) {
-      setSelectedPlace(provider)
-    }
-  }
-
-  // Pedidos directos por WhatsApp con datos de hotel (flujo de domicilios a hotel)
-  function handleDirectOrder(category: string, hotelInfo?: { name: string; room: string }) {
+  // Pedidos directos por WhatsApp con datos de hotel (flujo de domicilios a hotel) - useCallback para performance
+  const handleDirectOrder = useCallback((category: string, hotelInfo?: { name: string; room: string }) => {
     const deliveryCategories = ['restaurantes', 'supermercados']
 
     // Si es una categoría que requiere entrega a hotel y no hay info de hotel, mostrar modal
@@ -690,19 +734,16 @@ function App() {
       // Sin número válido — no enviar
       alert(t('wa.noContact'))
     }
-  }
+  }, [places, t])
 
-  // Manejar el envío del modal de hotel
-  const handleHotelInfoSubmit = (hotelInfo: { name: string; room: string; phone?: string }) => {
+  // Manejar el envío del modal de hotel - useCallback para performance
+  const handleHotelInfoSubmit = useCallback((hotelInfo: { name: string; room: string; phone?: string }) => {
     if (pendingOrderCategory) {
       handleDirectOrder(pendingOrderCategory, hotelInfo)
       setPendingOrderCategory(null)
     }
     setShowHotelModal(false)
-  }
-  
-  // Función helper para obtener traducciones
-  const t = (key: string, fallback?: string) => translationService.translate(key, fallback)
+  }, [pendingOrderCategory, handleDirectOrder])
 
   // Función para cargar datos - movida fuera del useEffect y con useCallback
   const loadData = useCallback(async () => {
@@ -909,8 +950,8 @@ function App() {
     return result.sort((a, b) => placePriority(b) - placePriority(a))
   }, [places, selectedCategoryPage])
 
-  // Manejar cambio de idioma — actualiza URL para SEO y shareability
-  function handleLanguageChange(newLanguage: Language) {
+  // Manejar cambio de idioma — actualiza URL para SEO y shareability - useCallback para performance
+  const handleLanguageChange = useCallback((newLanguage: Language) => {
     setLanguage(newLanguage)
     translationService.setLanguage(newLanguage as any)
     // Update URL to reflect language (SPA-friendly, no full navigation)
@@ -921,37 +962,49 @@ function App() {
     if (typeof window !== 'undefined' && window.location.pathname !== newPath) {
       window.history.replaceState(null, '', newPath)
     }
-  }
+    // GA4 Tracking - Agregado para WSA 2026
+    ga4Service.trackLanguageChange(newLanguage, language)
+  }, [language])
 
-  function addToCart() {
+  const addToCart = useCallback(() => {
     setCartCount((count) => count + 1)
-  }
+  }, [])
 
-  function scrollToSection(id: string) {
+  const scrollToSection = useCallback((id: string) => {
     const element = document.getElementById(id)
     if (element) {
       element.scrollIntoView({ behavior: 'smooth', block: 'start' })
     }
     setMobileNav(false)
-  }
+  }, [])
 
-  function searchService(term: string) {
+  const searchService = useCallback((term: string) => {
     setActiveCategory('Todo')
     setSelectedCategoryPage(null)
     setSelectedPlace(null)
     setSearch(term)
     setQuickFilter('all')
     setTimeout(() => scrollToSection('pedidos'), 0)
-  }
+    // GA4 Tracking - Agregado para WSA 2026
+    ga4Service.trackSearch(term, 0, 'all')
+  }, [scrollToSection])
 
-  function applyHeroFilter(category: Category, term: string, filter: 'all' | 'whatsapp' | 'pautante' = 'all') {
+  const applyHeroFilter = useCallback((category: Category, term: string, filter: 'all' | 'whatsapp' | 'pautante' = 'all') => {
     setActiveCategory(category)
     setSelectedCategoryPage(null)
     setSelectedPlace(null)
     setSearch(term)
     setQuickFilter(filter)
     setTimeout(() => scrollToSection('pedidos'), 0)
-  }
+    // GA4 Tracking - Agregado para WSA 2026
+    ga4Service.trackCategoryFilter(category)
+  }, [scrollToSection])
+
+  // GA4 Tracking wrapper para categoría - Agregado para WSA 2026 - useCallback para performance
+  const handleCategoryChange = useCallback((category: Category) => {
+    setActiveCategory(category)
+    ga4Service.trackCategoryFilter(category)
+  }, [])
 
   function scrollToHome() {
     window.scrollTo({ top: 0, behavior: 'smooth' })
@@ -1013,13 +1066,15 @@ function App() {
         <meta property="og:description" content={helmetDescription} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={helmetCanonical} />
-        <meta property="og:image" content="https://www.salentoalamano.com/imagenes-salento/destinos-75.webp" />
+        <meta property="og:image" content={ogImage} />
+        <meta property="og:image:alt" content={selectedPlace?.name || 'Salento a la Mano - Mapa turístico de Salento, Quindío'} />
         <meta property="og:site_name" content="Salento a la Mano" />
         <meta property="og:locale" content="es_CO" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={helmetTitle} />
         <meta name="twitter:description" content={helmetDescription} />
-        <meta name="twitter:image" content="https://www.salentoalamano.com/imagenes-salento/destinos-75.webp" />
+        <meta name="twitter:image" content={ogImage} />
+        <meta name="twitter:image:alt" content={selectedPlace?.name || 'Salento a la Mano - Mapa turístico de Salento, Quindío'} />
         {helmetCanonical === 'https://www.salentoalamano.com/' && (<>
           <link rel="alternate" hrefLang="es-CO" href="https://www.salentoalamano.com/" />
           <link rel="alternate" hrefLang="en" href="https://www.salentoalamano.com/en/" />
@@ -1038,6 +1093,12 @@ function App() {
           "inLanguage": "es",
           "isPartOf": { "@type": "WebSite", "name": "Salento a la Mano", "url": "https://www.salentoalamano.com/" }
         })}</script>
+        {/* Schema.org dinámico para SEO - Agregado para WSA 2026 */}
+        {dynamicSchema && (
+          <script type="application/ld+json">
+            {schemaService.schemaToString(dynamicSchema)}
+          </script>
+        )}
       </Helmet>
       <header className="mobile-header site-header">
         <div className="identity-header">
@@ -1685,7 +1746,7 @@ function App() {
           </div>
           <div className="category-row">
             {(['Todo', 'Alojamientos', 'Restaurantes', 'Restaurante Bar', 'Cafés', 'Coffee Tours', 'Artesanías', 'Tiendas', 'Experiencias', 'Eventos', 'Atractivos Turísticos', 'Servicios', 'Camping'] as Category[]).map((category) => (
-              <button key={category} className={activeCategory === category ? 'category active' : 'category'} onClick={() => setActiveCategory(category)}>
+              <button key={category} className={activeCategory === category ? 'category active' : 'category'} onClick={() => handleCategoryChange(category)}>
                 {category === 'Todo' && <Sparkles size={17} />}{category === 'Alojamientos' && <Hotel size={17} />}{category === 'Restaurantes' && <Utensils size={17} />}{category === 'Restaurante Bar' && <MessageSquare size={17} />}{category === 'Cafés' && <Coffee size={17} />}{category === 'Coffee Tours' && <Coffee size={17} />}{category === 'Artesanías' && <ShoppingBasket size={17} />}{category === 'Tiendas' && <Store size={17} />}{category === 'Experiencias' && <Compass size={17} />}{category === 'Eventos' && <Bell size={17} />}{category === 'Atractivos Turísticos' && <Mountain size={17} />}{category === 'Servicios' && <Bike size={17} />}{category === 'Camping' && <Flame size={17} />}
                 {t(`categories.${category}`)}
               </button>
