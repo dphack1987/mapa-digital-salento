@@ -28,6 +28,21 @@
   .home-hero-actions .dark-button, .home-hero-actions .outline-button { flex: 1 1 auto; justify-content: center; }
 }
 
+/* Nominación WSA 2026 — destacado bajo el hero */
+.wsa-nomination { max-width: 1184px; margin: 24px auto 8px; padding: 0 28px; }
+.wsa-nomination-inner { display: grid; grid-template-columns: minmax(0, 300px) minmax(0, 1fr); gap: 24px; align-items: center; background: linear-gradient(135deg, #fdf8ec 0%, #f3e6c8 100%); border: 1px solid rgba(176,140,58,.35); border-radius: 24px; padding: 20px; box-shadow: 0 14px 30px rgba(39,54,43,.08); }
+.wsa-nomination-media { border-radius: 18px; overflow: hidden; box-shadow: 0 10px 24px rgba(39,54,43,.15); }
+.wsa-nomination-media img { display: block; width: 100%; height: auto; }
+.wsa-nomination-body .eyebrow { color: var(--coral); text-transform: uppercase; letter-spacing: .12em; font-size: 11px; font-weight: 700; margin: 0; }
+.wsa-nomination-body h2 { margin: 8px 0 0; font: 700 clamp(1.5rem, 3vw, 2rem)/1.1 Fraunces; color: var(--ink); }
+.wsa-nomination-body p { margin: 12px 0 0; color: #4d5a4f; font-size: 14px; line-height: 1.6; max-width: 56ch; }
+.wsa-nomination-note { font-weight: 700; color: var(--ink); }
+@media (max-width: 720px) {
+  .wsa-nomination { padding: 0 16px; margin-top: 16px; }
+  .wsa-nomination-inner { grid-template-columns: 1fr; gap: 16px; padding: 14px; }
+  .wsa-nomination-media { max-width: 320px; margin: 0 auto; }
+}
+
 /* Home banners creativos — bajo el hero (arte-publicitario) */
 .home-banners { max-width: 1184px; margin: 24px auto 8px; padding: 0 28px; overflow-x: clip; }
 .home-banners-inner { background: var(--white, #fff); border: 1px solid var(--line); border-radius: 24px; padding: 20px; box-shadow: 0 14px 30px rgba(39, 54, 43, .06); overflow-x: clip; }

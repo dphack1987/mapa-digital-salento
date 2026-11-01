@@ -1363,6 +1363,27 @@ function App() {
           </div>
         ) : selectedPlace ? <PlaceDetail place={selectedPlace} currency={currency} onBack={() => setSelectedPlace(null)} t={t} onReserveHorseback={() => setShowHorsebackRiding(true)} /> : (
           <>
+        <section className="wsa-nomination" id="wsa-nominacion" aria-labelledby="wsa-nomination-title">
+          <div className="wsa-nomination-inner">
+            <div className="wsa-nomination-media">
+              <img
+                src="/imagenes-salento/nominacion-wsa-2026.webp"
+                alt={t('wsa.imgAlt', 'Sello oficial de nominación de Salento a la Mano a los WSA 2026')}
+                width={1024}
+                height={1024}
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div className="wsa-nomination-body">
+              <p className="eyebrow">{t('wsa.eyebrow', 'Orgullo local · WSA 2026')}</p>
+              <h2 id="wsa-nomination-title">{t('wsa.title', 'Nominados a los World Summit Awards 2026')}</h2>
+              <p>{t('wsa.desc', 'Salento a la Mano fue nominado por Colombia en la categoría Negocios y Comercio de los WSA 2026, el certamen de innovación digital más importante del mundo.')}</p>
+              <p className="wsa-nomination-note">{t('wsa.note', 'Tecnología hecha en el Quindío para el mundo.')}</p>
+            </div>
+          </div>
+        </section>
+
         <Suspense fallback={<LoadingFallback />}>
           <HomeBanners />
         </Suspense>
