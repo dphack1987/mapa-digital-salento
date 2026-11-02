@@ -26,7 +26,8 @@ class GA4Service {
 
   /**
    * Inicializa Google Analytics 4
-   * Carga el script gtag.js si no está presente
+   * El script gtag.js ya está cargado en index.html (GTM + GA4 directo)
+   * Solo marcamos como inicializado y verificamos que gtag esté disponible
    */
   initialize(measurementId?: string) {
     if (this.initialized) {
@@ -45,11 +46,14 @@ class GA4Service {
       return
     }
 
-    // Cargar script gtag.js dinámicamente
-    this.loadGtagScript()
-
-    this.initialized = true
-    console.log('[GA4] Inicializado con ID:', this.measurementId)
+    // Verificar que gtag esté disponible (cargado por GTM + GA4 en index.html)
+    if (typeof window !== 'undefined' && window.gtag) {
+      this.initialized = true
+      console.log('[GA4] Inicializado con ID:', this.measurementId, '(gtag cargado por GTM + GA4 directo)')
+    } else {
+      console.warn('[GA4] gtag no disponible en window. Verificar que los scripts estén cargados en index.html')
+      this.enabled = false
+    }
   }
 
   /**
