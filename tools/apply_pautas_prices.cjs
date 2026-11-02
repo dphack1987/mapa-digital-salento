@@ -146,13 +146,8 @@ function item(cfg, id) {
 const consultPages = {
   'hotel-salento-real': { rooms: [1,2,3,4,5,6,7], serviciosKeepZero: [8,9,10,11,12] },
   'mahalo-hostel-salento': { rooms: [1,2,3,4,5,6,7,8,9,10,11], serviciosKeepZero: [12,13,14,15,16,17,18,19] },
-  'hotel-la-tia-emiss': { rooms: [1,2,3,4], serviciosKeepZero: [5,6,7,8] },
   'hotel-camino-nacional-salento': { rooms: [1,2,3,4], serviciosKeepZero: [5,6,7,8,9] },
-  'boki-mall-hotel-el-mirador-de-boquia': { rooms: [1], serviciosKeepZero: [2,3,4,5,6,7] },
-  'downhill-bike-salento': { rooms: [1,2,3,4,5], serviciosKeepZero: [6] },
-  'boki-mall-barcinales-cafe-bar': { rooms: [1,2], serviciosKeepZero: [3] },
-  'boki-mall-eventos': { rooms: [1,2], serviciosKeepZero: [3] },
-  'boki-mall-restaurante-terra': { rooms: [1,2,3,4], serviciosKeepZero: [5] }
+  'downhill-bike-salento': { rooms: [1,2,3,4,5], serviciosKeepZero: [6] }
 };
 for (const [slug, spec] of Object.entries(consultPages)) {
   const { file, html } = readPage(slug);

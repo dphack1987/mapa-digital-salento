@@ -101,6 +101,13 @@ if (!/hreflang="it"/i.test(html) && !/hrefLang="it"/.test(html)) {
     '$1\n    <link rel="alternate" hreflang="it" href="https://www.salentoalamano.com/it/" />'
   );
 }
+// Asegurar hreflang zh-CN en homepage
+if (!/hreflang="zh-CN"/i.test(html) && !/hrefLang="zh-CN"/.test(html)) {
+  html = html.replace(
+    /(<link rel="alternate" hreflang="it"[^>]*>)/,
+    '$1\n    <link rel="alternate" hreflang="zh-CN" href="https://www.salentoalamano.com/zh/" />'
+  );
+}
 
 fs.writeFileSync(distPath, html, 'utf8');
 console.log('Prerender + meta tags injected into dist/index.html');

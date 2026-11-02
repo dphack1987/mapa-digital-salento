@@ -11,10 +11,10 @@ const path = require('node:path')
 const root = path.resolve(__dirname, '..')
 
 function ctaForHref(href) {
-  if (/restaurant|terra|fonda|restaurante|barcinales|cafetera-don-elias/i.test(href) && !/hotel|hostel|alojamiento|camping|ocaso|floresta/i.test(href)) {
+  if (/restaurant|fonda|restaurante|cafetera-don-elias/i.test(href) && !/hotel|hostel|alojamiento|camping|ocaso|floresta/i.test(href)) {
     return 'Ver menú'
   }
-  if (/alojamiento|hotel|hostel|camping|ocaso|floresta|camino-nacional|tia-emiss|mahalo|mirador-de-boquia|mirador-boquia|santa-rita/i.test(href)) {
+  if (/alojamiento|hotel|hostel|camping|ocaso|floresta|camino-nacional|mahalo|santa-rita/i.test(href)) {
     return 'Reservar ya'
   }
   return 'Ver información'

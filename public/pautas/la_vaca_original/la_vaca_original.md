@@ -17,7 +17,7 @@
   - Fuente: The Places Review (sep. 2025): dessert stand a mitad de camino Armenia→Salento con vaca gigante
   - Confirmación de proximidad: Posada Alemana coords 4.656945, -75.599084 (directorio de lugares) — a ~200 m de La Vaca Original (4.657303, -75.600725)
 - Coordenadas: 4.657303, -75.600725 (Google Maps/directorio de lugares)
-- Teléfono: +57 324 613 7580 (mismo número corporativo de la sede Km 18 La Elvira — confirma que es la misma marca)
+- Teléfono: +57 324 613 7580 (listado para la sede Autopista del Café/Arrayanal en el directorio de lugares exa.ai)
 - Horario (directorio de lugares): lunes a domingo 7:00 a.m. – 8:30 p.m.
 - Calificación pública: 4.3/5 (238 reseñas, directorio de lugares)
 - Dato curioso verificado: gran instalación de una vaca sobre el mirador de la montaña (The Places Review)
@@ -28,7 +28,7 @@
 - Nota: el directorio AiYellow la lista como "Lacteos La Vaca"; el nombre comercial público de la sede es "La Vaca Original Autopista del Café"
 
 ## Modelo de servicio directo
-- Canal principal: teléfono +57 324 613 7580 (mismo corporativo de la marca); WhatsApp pendiente confirmar
+- Canal principal: teléfono +57 324 613 7580 (listado para la sede); WhatsApp pendiente confirmar
 - Comisión por venta de la plataforma: 0%
 - Rol de Salento a la Mano: visibilidad y conexión directa
 - Cobertura: entrada a Salento (Autopista del Café, vía Armenia-Pereira), turistas en tránsito
@@ -59,7 +59,7 @@
 ## Pendientes para completar la ficha pública (el pautante aporta)
 - Carta con precios COP de la sede de Salento (los de Rappi Cali no aplican)
 - Fotos reales del local y de los postres
-- WhatsApp específico de la sede (el +57 324 613 7580 es el corporativo)
+- WhatsApp específico de la sede (el +57 324 613 7580 es el teléfono público listado)
 - Confirmar si hay servicio de comida salada además de postres
 
 ## Búsqueda realizada (13/10/2026)
@@ -69,7 +69,7 @@
 - Gobierno del Quindío (obras vía Arrayanal-Salento): confirma "parador de postres La Vaca Original" como hito de la entrada de Salento
 - The Places Review (sep. 2025): confirma parador a mitad de camino Armenia→Salento con vaca gigante, arroz con leche y panadería
 - Facebook/Instagram de la marca: bloqueados/inaccesibles desde el entorno de búsqueda
-- Conclusión: sede de Salento IDENTIFICADA y verificada con múltiples fuentes; es la misma marca que la sede Km 18 (mismo teléfono corporativo)
+- Conclusión: sede de Salento IDENTIFICADA y verificada con múltiples fuentes; misma marca (Lácteos La Vaca Original S.A.S.) que las sedes del Valle del Cauca
 
 ## Criterio para pasar a ficha publicada
 La ficha se considerará lista cuando tenga:

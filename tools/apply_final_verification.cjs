@@ -55,8 +55,6 @@ patch('finca-cafetera-don-elias', cfg => {
 const hotelRefs = {
   'hotel-salento-real': 'Consultar tarifa directa · referencia OTA ~US$59–72/noche (Agoda/Kayak)',
   'mahalo-hostel-salento': 'Consultar tarifa directa · referencia OTA: suites desde ~€33 · camas compartidas desde ~US$9',
-  'hotel-la-tia-emiss': 'Consultar tarifa directa · referencia OTA desde ~US$62/noche',
-  'boki-mall-hotel-el-mirador-de-boquia': 'Consultar tarifa directa · referencia OTA desde ~US$83/noche',
   'hotel-camino-nacional-salento': 'Consultar tarifa directa · hotel central Cra 6 #3-46 · sin tarifa pública'
 };
 for (const [slug, ref] of Object.entries(hotelRefs)) {
@@ -72,7 +70,7 @@ patch('hotel-la-floresta-salento', cfg => {
 });
 
 // 4) Limpieza precioLabel huérfano
-for (const slug of ['boki-mall-eventos', 'downhill-bike-salento']) {
+for (const slug of ['downhill-bike-salento']) {
   patch(slug, cfg => { cfg.precioLabel = ''; });
 }
 

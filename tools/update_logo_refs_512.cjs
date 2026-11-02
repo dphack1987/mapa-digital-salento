@@ -2,11 +2,6 @@ const fs = require('fs');
 const path = require('path');
 
 const logos = [
-  'barcinales-cafe-bar-logo.webp',
-  'boki_mall_logo.webp',
-  'logo boki.webp',
-  'logo-hotel-mirador-de-boquia.webp',
-  'terra-restaurante-logo.webp',
   'logo-cocora-magica.webp',
   'logo_ocaso.webp',
   'logo-coffe-tour-don-elias.webp',

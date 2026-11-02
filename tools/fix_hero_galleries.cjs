@@ -3,48 +3,12 @@ const path = require('path');
 
 // Pages whose hero is a logo (white box) -> replace with a real photo
 const heroLogoFixes = {
-  'boki-mall-barcinales-cafe-bar': '/pautas/boki_mall/imagenes/314270821.webp',
-  'boki-mall-eventos': '/pautas/boki_mall/imagenes/premio-mejor-hotel-rural-2024.webp',
-  'boki-mall-restaurante-terra': '/pautas/boki_mall/imagenes/Hotel_Mirador_de_Boquia_1747081077351.webp',
   'parque-mirador-la-vida-es-bella': '/pautas/parque-mirador-la-vida-bella/imagenes/IMG_0769.webp',
-  'boki-mall-hotel-el-mirador-de-boquia': null, // already a photo
 };
 
 // Extra gallery photos per page dir (from pautas imagenes/ or imagenes-salento)
 // Goal: at least 4 imgs (prefer 6 when available)
 const galleryPicks = {
-  'boki-mall-barcinales-cafe-bar': [
-    '/pautas/boki_mall/imagenes/images%20(1).webp',
-    '/pautas/boki_mall/imagenes/314270821.webp',
-    '/pautas/boki_mall/imagenes/Hotel_Mirador_de_Boquia_1747081077351.webp',
-    '/pautas/boki_mall/imagenes/terra-restaurante-logo-512.webp',
-    '/pautas/boki_mall/imagenes/barcinales-cafe-bar-logo-512.webp',
-    '/pautas/boki_mall/imagenes/premio-mejor-hotel-rural-2024.webp',
-  ],
-  'boki-mall-eventos': [
-    '/pautas/boki_mall/imagenes/images%20(1).webp',
-    '/pautas/boki_mall/imagenes/314270821.webp',
-    '/pautas/boki_mall/imagenes/Hotel_Mirador_de_Boquia_1747081077351.webp',
-    '/pautas/boki_mall/imagenes/premio-mejor-hotel-rural-2024.webp',
-    '/pautas/boki_mall/imagenes/boki_mall_logo-512.webp',
-    '/pautas/boki_mall/imagenes/terra-restaurante-logo-512.webp',
-  ],
-  'boki-mall-hotel-el-mirador-de-boquia': [
-    '/pautas/boki_mall/imagenes/images%20(1).webp',
-    '/pautas/boki_mall/imagenes/314270821.webp',
-    '/pautas/boki_mall/imagenes/logo-hotel-mirador-de-boquia-512.webp',
-    '/pautas/boki_mall/imagenes/premio-mejor-hotel-rural-2024.webp',
-    '/pautas/boki_mall/imagenes/boki_mall_logo-512.webp',
-    '/pautas/boki_mall/imagenes/terra-restaurante-logo-512.webp',
-  ],
-  'boki-mall-restaurante-terra': [
-    '/pautas/boki_mall/imagenes/images%20(1).webp',
-    '/pautas/boki_mall/imagenes/Hotel_Mirador_de_Boquia_1747081077351.webp',
-    '/pautas/boki_mall/imagenes/314270821.webp',
-    '/pautas/boki_mall/imagenes/premio-mejor-hotel-rural-2024.webp',
-    '/pautas/boki_mall/imagenes/terra-restaurante-logo-512.webp',
-    '/pautas/boki_mall/imagenes/boki_mall_logo-512.webp',
-  ],
   'cabalgatas-cocora-magica': [
     '/pautas/cabalgatas_cocora_magica/imagenes/cabalgata-rio.webp',
     '/pautas/cabalgatas_cocora_magica/imagenes/cruzando-rio.webp',
@@ -113,14 +77,6 @@ const galleryPicks = {
     '/pautas/hotel_la_floresta_salento/imagenes/floresta-habitacion.webp',
     '/pautas/hotel_la_floresta_salento/imagenes/floresta-mirador.webp',
     '/pautas/hotel_la_floresta_salento/imagenes/floresta-bar.webp',
-  ],
-  'hotel-la-tia-emiss': [
-    '/pautas/hotel_tia_emiss/imagenes/1662261168.webp',
-    '/pautas/hotel_tia_emiss/imagenes/emmis1.webp',
-    '/pautas/hotel_tia_emiss/imagenes/1625429615.webp',
-    '/pautas/hotel_tia_emiss/imagenes/1625429949.webp',
-    '/pautas/hotel_tia_emiss/imagenes/1625430062.webp',
-    '/pautas/hotel_tia_emiss/imagenes/1625430071.webp',
   ],
   'hotel-salento-real': [
     '/pautas/hotel_salento_real/imagenes/hotel-salento-real-confort.webp',

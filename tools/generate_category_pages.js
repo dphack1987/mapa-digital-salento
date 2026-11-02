@@ -64,7 +64,7 @@ const EXTRA_CATEGORY_CARDS = [
     slug: 'restaurante-bar',
     title: 'Restaurantes Bar',
     description: 'Café-bar, coctelería y ambiente nocturno',
-    image: '/pautas/boki_mall/imagenes/images (1).webp',
+    image: '/pautas/restaurante_bar_fonda_boquia/fonda-arte-publicitario.webp',
   },
   {
     slug: 'camping',
@@ -110,10 +110,6 @@ function brandMark(link = true) {
 }
 
 const PAUTANTE_LOGOS = {
-  'boki-mall-hotel-el-mirador-de-boquia': '/pautas/boki_mall/imagenes/logo-hotel-mirador-de-boquia.webp',
-  'boki-mall-restaurante-terra': '/pautas/boki_mall/imagenes/terra-restaurante-logo.webp',
-  'boki-mall-barcinales-cafe-bar': '/pautas/boki_mall/imagenes/barcinales-cafe-bar-logo.webp',
-  'boki-mall-eventos': '/pautas/boki_mall/imagenes/boki_mall_logo.webp',
   'moto-aventura-110': '/pautas/moto_aventura_110/imagenes/logo-moto-aventura-110.webp',
   'reserva-natural-cascadas-de-santa-rita': '/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/logo_cascadas_de_santa_rita.webp',
   'mirador-manos-de-cocora': '/pautas/mirador-manos-de-cocora/imagenes/logo-mirador-manos-de-cocora.webp',
@@ -139,7 +135,6 @@ const PAUTANTE_LOGOS = {
   'hotel-camino-nacional-salento': '/pautas/hotel_camino_nacional/imagenes/631033284.webp',
   'hotel-boutique-palmas-de-salento': '/pautas/hotel_boutique_palmas_de_salento/imagenes/logo-hotel-palmas-de-salento.webp',
   'restaurante-la-casona': '/pautas/restaurante_la_casona/imagenes/logo-la-casona.webp',
-  'hotel-la-tia-emiss': '/pautas/hotel_tia_emiss/imagenes/emmis1.webp',
   'hotel-salento-real': '/pautas/hotel_salento_real/imagenes/hotel-salento-real-logo.svg',
   'downhill-bike-salento': '/pautas/downhill_bike_salento/imagenes/downhill-bike-salento-logo.webp',
   'ruta-navarco': '/pautas/ruta-navarco/salento-tesoros-logo.webp',
@@ -1053,21 +1048,6 @@ const VERIFIED_MENUS = {
       { cat: 'servicios', nombre: 'Desayuno en habitación disponible', precio: 0 },
     ],
   },
-  'hotel-la-tia-emiss': {
-    heading: 'Habitaciones y servicios',
-    intro: 'Revisa opciones y servicios. Agrega lo que necesites y consulta disponibilidad por WhatsApp.',
-    precioLabel: 'por noche',
-    items: [
-      { cat: 'habitaciones', nombre: 'Doble matrimonial (2 pax)', precio: 0, desc: 'Desde ~$61 USD · confirmar tarifa directo' },
-      { cat: 'habitaciones', nombre: 'Twin (4 pax)', precio: 0, desc: 'Confirmar tarifa directo' },
-      { cat: 'habitaciones', nombre: 'Triple (6 pax)', precio: 0, desc: 'Confirmar tarifa directo' },
-      { cat: 'habitaciones', nombre: 'Dúplex familiar (8 pax)', precio: 0, desc: 'Confirmar tarifa directo' },
-      { cat: 'servicios', nombre: 'Wi-Fi gratis', precio: 0 },
-      { cat: 'servicios', nombre: 'Desayuno destacado', precio: 0 },
-      { cat: 'servicios', nombre: 'Jardín y terraza', precio: 0 },
-      { cat: 'servicios', nombre: 'Mascotas permitidas', precio: 0 },
-    ],
-  },
   'hotel-salento-real': {
     heading: 'Habitaciones y servicios',
     intro: 'Revisa habitaciones y servicios. Reserva directa con best price por WhatsApp o web oficial.',
@@ -1135,52 +1115,6 @@ const VERIFIED_MENUS = {
       { cat: 'desayunos', nombre: 'Desayunos', precio: 0, desc: 'Servidos hasta las 10:30 a.m. · consultar precio' },
       { cat: 'cafe', nombre: 'Taza Colombia', precio: 18000, desc: 'Taza de café de la finca $18.000' },
       { cat: 'servicios', nombre: 'Pedido o reserva por WhatsApp', precio: 0, desc: 'WhatsApp +57 311 773 7987 · abierto 08:00–15:00' },
-    ],
-  },
-  'boki-mall-restaurante-terra': {
-    heading: 'Restaurante Terra',
-    intro: 'Toca las opciones para armar tu consulta o reserva. Al final, envíalo por WhatsApp.',
-    precioLabel: 'c/u',
-    items: [
-      { cat: 'carta', nombre: 'Platos vegetarianos', precio: 0, desc: 'Consultar disponibilidad y precio' },
-      { cat: 'carta', nombre: 'Platos veganos', precio: 0, desc: 'Consultar disponibilidad y precio' },
-      { cat: 'carta', nombre: 'Opciones libres de gluten', precio: 0, desc: 'Consultar disponibilidad y precio' },
-      { cat: 'carta', nombre: 'Menú especial para niños', precio: 0, desc: 'Consultar disponibilidad y precio' },
-      { cat: 'servicios', nombre: 'Reserva recomendada (fines de semana)', precio: 0, desc: 'Horario 7:00 AM–9:00 PM' },
-    ],
-  },
-  'boki-mall-barcinales-cafe-bar': {
-    heading: 'Café y bar',
-    intro: 'Toca las opciones para armar tu consulta. Al final, envíalo por WhatsApp.',
-    precioLabel: 'c/u',
-    items: [
-      { cat: 'bebidas', nombre: 'Café de especialidad', precio: 0, desc: 'Consultar carta en sitio' },
-      { cat: 'bebidas', nombre: 'Cócteles', precio: 0, desc: 'Consultar carta en sitio' },
-      { cat: 'servicios', nombre: 'Zona de eventos y celebraciones privadas', precio: 0 },
-    ],
-  },
-  'boki-mall-eventos': {
-    heading: 'Eventos y celebraciones',
-    intro: 'Selecciona lo que necesites y envía tu solicitud por WhatsApp.',
-    precioLabel: 'consultar',
-    items: [
-      { cat: 'planes', nombre: 'Celebraciones privadas', precio: 0, desc: 'Cotizar con Boki Mall' },
-      { cat: 'planes', nombre: 'Eventos corporativos', precio: 0, desc: 'Cotizar con Boki Mall' },
-      { cat: 'servicios', nombre: 'Espacio con ambiente cafetero', precio: 0 },
-    ],
-  },
-  'boki-mall-hotel-el-mirador-de-boquia': {
-    heading: 'Habitaciones y servicios',
-    intro: 'Revisa opciones y servicios. Agrega lo que necesites y consulta disponibilidad por WhatsApp.',
-    precioLabel: 'por noche',
-    items: [
-      { cat: 'habitaciones', nombre: 'Habitación (9 opciones con nombre)', precio: 0, desc: 'Check-in 15:00 · check-out 12:00 · consultar tarifa' },
-      { cat: 'servicios', nombre: 'Desayuno incluido en algunas tarifas', precio: 0 },
-      { cat: 'servicios', nombre: 'Parqueadero privado gratuito', precio: 0 },
-      { cat: 'servicios', nombre: 'Wi-Fi, agua caliente, TV por cable', precio: 0 },
-      { cat: 'servicios', nombre: 'Pet Friendly y room service', precio: 0 },
-      { cat: 'servicios', nombre: 'Estación de café gratuita', precio: 0 },
-      { cat: 'servicios', nombre: 'Traslado al aeropuerto (costo adicional)', precio: 0 },
     ],
   },
   'el-recuerdo-coffee-tour': {
