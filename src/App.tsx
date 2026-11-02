@@ -200,6 +200,7 @@ const ProviderSelectionModal = lazy(() => import('./components/ProviderSelection
 const FeatureCards = lazy(() => import('./components/FeatureCards'))
 const FeaturedHomeMenus = lazy(() => import('./components/FeaturedHomeMenus'))
 const HomeBanners = lazy(() => import('./components/HomeBanners'))
+const ServiceBanners = lazy(() => import('./components/ServiceBanners'))
 const InteractiveMenu = lazy(() => import('./components/InteractiveMenu'))
 
 function LoadingFallback() {
@@ -1404,6 +1405,10 @@ function App() {
 
         <Suspense fallback={<LoadingFallback />}>
           <HomeBanners />
+        </Suspense>
+
+        <Suspense fallback={<LoadingFallback />}>
+          <ServiceBanners />
         </Suspense>
 
         <Suspense fallback={<LoadingFallback />}>

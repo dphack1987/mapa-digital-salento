@@ -6611,4 +6611,25 @@ footer { max-width: 1184px; margin: auto; border-top: 1px solid var(--line); dis
   .coffee-premium-actions { flex-direction: row; flex-wrap: wrap; }
   .directory-load-more { flex-direction: column; align-items: stretch; }
   .load-more-button { justify-content: center; }
+
+/* Service Banners */
+.service-banners { max-width: 1184px; margin: 56px auto; padding: 0 28px; }
+.service-banners-header { margin-bottom: 24px; }
+.service-banners-header h2 { font: 600 32px Fraunces; color: var(--ink); margin: 0; }
+.service-banners-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+.service-banner-card { display: block; text-decoration: none; color: inherit; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; transition: transform 0.2s, box-shadow 0.2s; }
+.service-banner-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.1); }
+.service-banner-image { width: 100%; height: 180px; object-fit: cover; }
+.service-banner-content { padding: 20px; }
+.service-banner-content h3 { font: 600 18px Fraunces; color: var(--ink); margin: 0 0 8px; }
+.service-banner-content p { font-size: 13px; color: #70796e; line-height: 1.5; margin: 0 0 16px; }
+.service-banner-cta { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 600; color: var(--coral); }
+.service-banner-cta:hover { color: var(--ink); }
+
+@media (max-width: 800px) {
+  .service-banners { margin: 40px 16px; padding: 0; }
+  .service-banners-header h2 { font-size: 24px; }
+  .service-banners-grid { grid-template-columns: 1fr; }
+  .service-banner-image { height: 200px; }
+}
 }
