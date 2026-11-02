@@ -37,7 +37,7 @@ const knowledgeBase: KnowledgeItem[] = [
       it: 'La trota iridea è il piatto stella di Salento! La preparano all\'aglio, fritta con patacones, al forno con erbe, o in salsa di frutti di bosco. La più famosa è da La Fogata. Anche al Brunch de la Plaza. Come la preferite?'
     },
     followUp: ['¿Al ajillo o frita?', '¿Con patacones?', '¿Dónde probarla mejor?'],
-    relatedPlaces: [1, 4, 9]
+    relatedPlaces: [9, 21]
   },
   {
     keywords: ['sancocho', 'sancocho gallina', 'sopa', 'caldo'],
@@ -90,7 +90,7 @@ const knowledgeBase: KnowledgeItem[] = [
       it: 'Il caffè del Quindío è patrimonio! Viene coltivato tra 1.200 e 2.000 metri. Note di cioccolato, caramello e frutta. Per un caffè specialità andate al Café de Altura o al Brunch de la Plaza. Il tinto della piazza è un rituale sacro.'
     },
     followUp: ['¿Método de preparación?', '¿Café de altura?', '¿Dónde comprar grano?'],
-    relatedPlaces: [1, 6]
+    relatedPlaces: [17, 34]
   },
   {
     keywords: ['sudado', 'sudado montañero', 'cocido', 'guiso'],
@@ -221,7 +221,7 @@ const knowledgeBase: KnowledgeItem[] = [
       it: 'L\'architettura bahareque è l\'anima di Salento. Case con strutura di guadua e fango, tetti di palme, balconi di legno con fiori. Ogni casa è un\'opera d\'arte. La Calle Real è un museo vivente.'
     },
     followUp: ['¿Calle Real?', '¿Guadua?', '¿Dónde ver las más bonitas?'],
-    relatedPlaces: [2]
+    relatedPlaces: [100]
   },
   {
     keywords: ['armenia', 'ciudad milagro', 'capital', 'quindío'],
@@ -566,7 +566,7 @@ const knowledgeBase: KnowledgeItem[] = [
       it: 'Cabalgatas Cocora Mágica è un\'opzione per vivere la Valle di Cocora in modo diverso. Esperienza, paesaggio e proposta tradizionale. Include cavalcata con cavalli addestrati. Orario o adatto alle famiglie?'
     },
     followUp: ['¿Incluye transporte?', '¿Es buena para familias?', '¿Cuánto dura?'],
-    relatedPlaces: [10]
+    relatedPlaces: [20]
   },
   {
     keywords: ['fonda boquía', 'boquía restaurante', 'fonda salento'],
@@ -580,7 +580,7 @@ const knowledgeBase: KnowledgeItem[] = [
       it: 'La Fonda Boquía è utile per mangiare bene nella zona rurale di Salento. Sapore casalingo e locale. Pranzo, piatti tipici o vicino alla cascata?'
     },
     followUp: ['¿Platos típicos?', '¿Buena para almuerzo?', '¿Cerca de la cascada?'],
-    relatedPlaces: [12]
+    relatedPlaces: [21]
   },
   {
     keywords: ['cocora', 'valle', 'palmas', 'caballo', 'senderismo', 'hike'],
@@ -594,7 +594,7 @@ const knowledgeBase: KnowledgeItem[] = [
       it: 'La Valle di Cocora è pura magia! Andate con Guías del Cocora - conoscono ogni sentiero. Possono procurarvi Willys o cavalli. Partite presto (ore 8), portate acqua. La passeggiata è di 3-4 ore di pura bellezza con palme di cera alte fino a 60 metri.'
     },
     followUp: ['¿Willys o caballo?', '¿Necesitas guía?', '¿Grupo grande?'],
-    relatedPlaces: [3, 8]
+    relatedPlaces: [104, 113]
   },
   {
     keywords: ['mirador', 'cruz', 'vista', 'paisaje', 'alto de la cruz'],
@@ -687,7 +687,7 @@ const knowledgeBase: KnowledgeItem[] = [
       it: 'Trekking per tutti! Santa Rita a Boquía (4,8 km, moderato), Valle di Cocora (facile), passeggiate attraverso le fattorie di caffè. Tutte con guide disponibili. Che livello di difficoltà preferite?'
     },
     followUp: ['¿Fácil o moderado?', '¿Con guía o solo?', '¿Duración preferida?'],
-    relatedPlaces: [11, 15]
+    relatedPlaces: [15, 104]
   },
   {
     keywords: ['boquía', 'vereda', 'zona rural', 'campos', 'finca'],
@@ -736,7 +736,7 @@ const knowledgeBase: KnowledgeItem[] = [
       it: 'Non è vero! Le strade per Salento sono completamente operative. Il percorso da Armenia (45 min) e Pereira (1 ora) è in buone condizioni. I Jeeps partono ogni 30 minuti per la Valle di Cocora.'
     },
     followUp: ['¿Cómo llegar desde Armenia?', '¿Ruta desde Pereira?', '¿Transporte disponible?'],
-    relatedPlaces: [10],
+    relatedPlaces: [113],
     isDefensive: true,
     urgency: 'high',
     defensiveActions: ['Ver reporte de vías', 'Consultar carreteras', 'Planificar ruta'],
@@ -754,7 +754,7 @@ const knowledgeBase: KnowledgeItem[] = [
       it: 'Niente di più lontano dalla realtà! Salento è vibrante di vita e turismo. Ristoranti pieni, caffè aperti, artigianato aperto, strade piene di visitatori. Il villaggio è più vivo che mai!'
     },
     followUp: ['¿Restaurantes disponibles?', '¿Actividades hoy?', '¿Hoteles disponibles?'],
-    relatedPlaces: [1, 2, 5],
+    relatedPlaces: [5, 32, 45],
     isDefensive: true,
     urgency: 'medium',
     defensiveActions: ['Ver directorio', 'Contactar comercios', 'Revisar disponibilidad'],
@@ -772,7 +772,7 @@ const knowledgeBase: KnowledgeItem[] = [
       it: 'La Valle di Cocora è sicura e magica! Migliaia la visitano quotidianamente senza problemi. Sentieri segnalati, guide certificate, servizi di emergenza. Una delle destinazioni più sicure della Colombia!'
     },
     followUp: ['¿Cabalgatas disponibles?', '¿Mejor hora?', '¿Guías recomendados?'],
-    relatedPlaces: [11, 15],
+    relatedPlaces: [104, 20],
     isDefensive: true,
     urgency: 'high',
     defensiveActions: ['Ver estado oficial', 'Reservar con guías', 'Revisar clima'],
@@ -790,7 +790,7 @@ const knowledgeBase: KnowledgeItem[] = [
       it: 'Assolutamente no! Non c\'è nessuna crisi, emergenza o disastro a Salento. È una destinazione turistica normale e pacifica. La comunità è calma, le attività operative. Siamo qui per accogliervi!'
     },
     followUp: ['¿Planes disponibles?', '¿Restaurantes abiertos?', '¿Hoteles disponibles?'],
-    relatedPlaces: [1, 4, 5],
+    relatedPlaces: [5, 111],
     isDefensive: true,
     urgency: 'high',
     defensiveActions: ['Ver reporte oficial', 'Contactar autoridades', 'Consultar boletines'],
