@@ -6613,23 +6613,27 @@ footer { max-width: 1184px; margin: auto; border-top: 1px solid var(--line); dis
   .load-more-button { justify-content: center; }
 
 /* Service Banners */
-.service-banners { max-width: 1184px; margin: 56px auto; padding: 0 28px; }
-.service-banners-header { margin-bottom: 24px; }
-.service-banners-header h2 { font: 600 32px Fraunces; color: var(--ink); margin: 0; }
-.service-banners-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-.service-banner-card { display: block; text-decoration: none; color: inherit; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; transition: transform 0.2s, box-shadow 0.2s; }
-.service-banner-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.1); }
-.service-banner-image { width: 100%; height: 180px; object-fit: cover; }
-.service-banner-content { padding: 20px; }
-.service-banner-content h3 { font: 600 18px Fraunces; color: var(--ink); margin: 0 0 8px; }
-.service-banner-content p { font-size: 13px; color: #70796e; line-height: 1.5; margin: 0 0 16px; }
-.service-banner-cta { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 600; color: var(--coral); }
-.service-banner-cta:hover { color: var(--ink); }
+.service-banners { max-width: 1184px; margin: 80px auto 40px; padding: 0 28px; }
+.service-banners-header { margin-bottom: 32px; text-align: center; }
+.service-banners-header h2 { font: 600 28px Fraunces; color: var(--ink); margin: 0; }
+.service-banners-grid { display: flex; flex-direction: column; gap: 32px; }
+.service-banner-card { display: flex; align-items: center; text-decoration: none; color: inherit; border: 1px solid var(--line); border-radius: 16px; overflow: hidden; transition: transform 0.3s, box-shadow 0.3s; background: var(--paper); }
+.service-banner-card:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(0,0,0,0.08); }
+.service-banner-image { width: 320px; height: 200px; object-fit: cover; flex-shrink: 0; }
+.service-banner-content { padding: 32px; flex: 1; display: flex; flex-direction: column; justify-content: center; }
+.service-banner-content h3 { font: 600 22px Fraunces; color: var(--ink); margin: 0 0 12px; }
+.service-banner-content p { font-size: 14px; color: #70796e; line-height: 1.6; margin: 0 0 20px; max-width: 500px; }
+.service-banner-cta { display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; background: var(--coral); color: white; border-radius: 8px; font-size: 13px; font-weight: 600; transition: background 0.2s; }
+.service-banner-cta:hover { background: var(--ink); }
 
 @media (max-width: 800px) {
-  .service-banners { margin: 40px 16px; padding: 0; }
-  .service-banners-header h2 { font-size: 24px; }
-  .service-banners-grid { grid-template-columns: 1fr; }
-  .service-banner-image { height: 200px; }
+  .service-banners { margin: 48px 16px 32px; padding: 0; }
+  .service-banners-header h2 { font-size: 22px; }
+  .service-banners-grid { gap: 24px; }
+  .service-banner-card { flex-direction: column; }
+  .service-banner-image { width: 100%; height: 180px; }
+  .service-banner-content { padding: 24px; }
+  .service-banner-content h3 { font-size: 18px; }
+  .service-banner-content p { font-size: 13px; }
 }
 }
