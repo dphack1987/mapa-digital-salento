@@ -2377,33 +2377,45 @@ function DonChucho({ language, t, places, weather, todayEvents, open: openProp, 
       }
 
       const knowledgeAnswer = donChuchoKnowledge.getAnswer(enrichedQuery, kbLang)
-      const naturalAnswer = decorateDonChuchoReply(text, knowledgeAnswer)
-      const adaptedAnswer = adaptDetail(naturalAnswer, detailLevel)
-      const isDefensive = donChuchoKnowledge.isDefensiveResponse(text)
-      const defensiveActions = donChuchoKnowledge.getDefensiveActions(text)
-      setAnswer(adaptedAnswer)
-      setConversationHistory(prev => [...prev, { role: 'assistant', text: adaptedAnswer }])
+      if (knowledgeAnswer) {
+        const naturalAnswer = decorateDonChuchoReply(text, knowledgeAnswer)
+        const adaptedAnswer = adaptDetail(naturalAnswer, detailLevel)
+        const isDefensive = donChuchoKnowledge.isDefensiveResponse(text)
+        const defensiveActions = donChuchoKnowledge.getDefensiveActions(text)
+        setAnswer(adaptedAnswer)
+        setConversationHistory(prev => [...prev, { role: 'assistant', text: adaptedAnswer }])
 
-      if (isDefensive) {
-        const actionSuggestions = defensiveActions.includes('redirect_routes_landing')
-          ? ['Estado de vías', 'Hoteles disponibles', 'Valle de Cocora']
-          : ['Ver servicios', 'Contactar comercios', 'Planear visita']
-        setSuggestions(isEnglish ? ['Official info', 'Available services', 'Plan visit'] : actionSuggestions)
-      } else {
-        const followUpSuggestions = donChuchoKnowledge.getFollowUpSuggestions(text, kbLang)
-        setSuggestions(followUpSuggestions.length > 0 ? followUpSuggestions : buildNaturalSuggestions(text, false))
-      }
-
-      const relatedPlaceIds = donChuchoKnowledge.getRelatedPlaces(text)
-      if (relatedPlaceIds.length > 0) {
-        const relatedPlaces = places.filter(p => relatedPlaceIds.includes(p.id))
-        if (relatedPlaces.length > 0) {
-          const placeNames = relatedPlaces.map(p => p.name).join(', ')
-          setAnswer(adaptedAnswer + ` ${t('donChucho.relatedPlaces', 'Lugares relacionados:')} ${placeNames}`)
-          setRelatedPlace(relatedPlaces[0])
+        if (isDefensive) {
+          const actionSuggestions = defensiveActions.includes('redirect_routes_landing')
+            ? ['Estado de vías', 'Hoteles disponibles', 'Valle de Cocora']
+            : ['Ver servicios', 'Contactar comercios', 'Planear visita']
+          setSuggestions(isEnglish ? ['Official info', 'Available services', 'Plan visit'] : actionSuggestions)
+        } else {
+          const followUpSuggestions = donChuchoKnowledge.getFollowUpSuggestions(text, kbLang)
+          setSuggestions(followUpSuggestions.length > 0 ? followUpSuggestions : buildNaturalSuggestions(text, false))
         }
+
+        const relatedPlaceIds = donChuchoKnowledge.getRelatedPlaces(text)
+        if (relatedPlaceIds.length > 0) {
+          const relatedPlaces = places.filter(p => relatedPlaceIds.includes(p.id))
+          if (relatedPlaces.length > 0) {
+            const placeNames = relatedPlaces.map(p => p.name).join(', ')
+            setAnswer(adaptedAnswer + ` ${t('donChucho.relatedPlaces', 'Lugares relacionados:')} ${placeNames}`)
+            setRelatedPlace(relatedPlaces[0])
+          }
+        }
+        setIsTyping(false)
+        return
       }
+
+      // Fallback si no hay respuesta en base de conocimiento
+      const fallbackAnswer = isEnglish 
+        ? "I'm your local guide. Ask me about food, hotels, tours, or anything about Salento!"
+        : "Soy tu guía local de Salento. Pregúntame sobre comida, hoteles, tours o cualquier cosa sobre Salento!"
+      setAnswer(fallbackAnswer)
+      setSuggestions(['Gastronomía', 'Hoteles', 'Coffee tours', 'Transporte'])
       setIsTyping(false)
+      setConversationHistory(prev => [...prev, { role: 'assistant', text: fallbackAnswer }])
     }, 500)
   }
 
