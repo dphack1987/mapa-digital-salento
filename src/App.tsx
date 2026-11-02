@@ -1980,6 +1980,23 @@ function App() {
           </Suspense>
         </section>
 
+        <section className="secondary-service-banners">
+          <a href="/servicios/pedidos-domicilio.html" className="secondary-banner">
+            <img src="/banners/banner-domicilios.jpg" alt="Pedidos a Domicilio" />
+            <div className="secondary-banner-content">
+              <h3>Pedidos a Domicilio</h3>
+              <p>Pide directamente a restaurantes y comercios sin intermediarios</p>
+            </div>
+          </a>
+          <a href="/servicios/transporte-salento.html" className="secondary-banner">
+            <img src="/banners/banner-servicio-transporte.jpg" alt="Servicio de Transporte" />
+            <div className="secondary-banner-content">
+              <h3>Servicio de Transporte</h3>
+              <p>Jeeps Willys, buses y transporte turístico</p>
+            </div>
+          </a>
+        </section>
+
         <section className="map-section" id="mapa">
           <div className="map-copy"><p className="eyebrow">{t('map.eyebrow', 'Orienta tu paseo')}</p><h2>{t('map')}</h2><p>{t('map.desc', 'Descubre rutas a pie, lugares favoritos y recomendaciones de quienes hacen de Salento su casa.')}</p>
           

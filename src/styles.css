@@ -6636,4 +6636,21 @@ footer { max-width: 1184px; margin: auto; border-top: 1px solid var(--line); dis
   .service-banner-content h3 { font-size: 18px; }
   .service-banner-content p { font-size: 13px; }
 }
+
+/* Secondary Service Banners */
+.secondary-service-banners { max-width: 1184px; margin: 48px auto; padding: 0 28px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+.secondary-banner { display: block; text-decoration: none; color: inherit; border: 1px solid var(--line); border-radius: 16px; overflow: hidden; transition: transform 0.3s, box-shadow 0.3s; position: relative; }
+.secondary-banner:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(0,0,0,0.08); }
+.secondary-banner img { width: 100%; height: 200px; object-fit: cover; }
+.secondary-banner-content { position: absolute; bottom: 0; left: 0; right: 0; padding: 24px; background: linear-gradient(transparent, rgba(39,54,43,0.9)); color: white; }
+.secondary-banner-content h3 { font: 600 18px Fraunces; margin: 0 0 8px; }
+.secondary-banner-content p { font-size: 13px; margin: 0; opacity: 0.9; }
+
+@media (max-width: 800px) {
+  .secondary-service-banners { margin: 32px 16px; padding: 0; grid-template-columns: 1fr; }
+  .secondary-banner img { height: 180px; }
+  .secondary-banner-content { padding: 20px; }
+  .secondary-banner-content h3 { font-size: 16px; }
+  .secondary-banner-content p { font-size: 12px; }
+}
 }

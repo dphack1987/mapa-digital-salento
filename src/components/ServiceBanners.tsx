@@ -9,15 +9,8 @@ type ServiceBanner = {
   cta: string
 }
 
-const SERVICE_BANNERS: ServiceBanner[] = [
-  {
-    id: 'domicilios',
-    title: 'Pedidos a Domicilio',
-    description: 'Pide directamente a restaurantes y comercios sin intermediarios. WhatsApp directo.',
-    image: '/banners/banner-domicilios.jpg',
-    href: '/servicios/pedidos-domicilio.html',
-    cta: 'Ver Servicios'
-  },
+// Banners principales para el home (solo 2 para no saturar)
+const HOME_BANNERS: ServiceBanner[] = [
   {
     id: 'realidad-aumentada',
     title: 'Realidad Aumentada',
@@ -33,6 +26,18 @@ const SERVICE_BANNERS: ServiceBanner[] = [
     image: '/banners/banner-reservas.jpg',
     href: '/servicios/reservas-hoteles.html',
     cta: 'Ver Hoteles'
+  }
+]
+
+// Banners adicionales para otras páginas
+const SECONDARY_BANNERS: ServiceBanner[] = [
+  {
+    id: 'domicilios',
+    title: 'Pedidos a Domicilio',
+    description: 'Pide directamente a restaurantes y comercios sin intermediarios. WhatsApp directo.',
+    image: '/banners/banner-domicilios.jpg',
+    href: '/servicios/pedidos-domicilio.html',
+    cta: 'Ver Servicios'
   },
   {
     id: 'transporte',
@@ -51,7 +56,39 @@ export default function ServiceBanners() {
         <h2>Nuestros Servicios</h2>
       </div>
       <div className="service-banners-grid">
-        {SERVICE_BANNERS.map((banner) => (
+        {HOME_BANNERS.map((banner) => (
+          <a
+            key={banner.id}
+            className="service-banner-card"
+            href={banner.href}
+            aria-label={`${banner.title} - ${banner.cta}`}
+          >
+            <img
+              src={banner.image}
+              alt={banner.title}
+              className="service-banner-image"
+              loading="lazy"
+            />
+            <div className="service-banner-content">
+              <h3>{banner.title}</h3>
+              <p>{banner.description}</p>
+              <span className="service-banner-cta">
+                {banner.cta} <ArrowRight size={16} />
+              </span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </section>
+  )
+}
+
+// Componente para banners secundarios (para usar en otras páginas)
+export function SecondaryServiceBanners() {
+  return (
+    <section className="service-banners secondary" aria-label="Más servicios">
+      <div className="service-banners-grid">
+        {SECONDARY_BANNERS.map((banner) => (
           <a
             key={banner.id}
             className="service-banner-card"
