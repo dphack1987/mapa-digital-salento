@@ -1242,6 +1242,18 @@ function App() {
               <SocialProofTicker />
             </Suspense>
 
+            {/* Banner promocional de función AR */}
+            <div className="ar-promo-banner">
+              <div className="ar-promo-content">
+                <span className="ar-promo-badge">🎯 NUEVO</span>
+                <h3>Realidad Aumentada en Salento</h3>
+                <p>Apunta tu celular y descubre lugares turísticos en tiempo real con brújula inteligente</p>
+              </div>
+              <button className="ar-promo-button" onClick={() => scrollToSection('mapa')}>
+                Probar AR ahora
+              </button>
+            </div>
+
             <form className="home-hero-search search-box" onSubmit={(e) => { e.preventDefault(); searchService(search) }} role="search">
               <Search size={17} aria-hidden="true" />
               <input

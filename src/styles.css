@@ -6407,6 +6407,78 @@ footer { max-width: 1184px; margin: auto; border-top: 1px solid var(--line); dis
 .empty-state { grid-column: 1 / -1; padding: 18px 16px !important; margin: 0; border: 1px dashed var(--line); border-radius: 12px; background: #faf7f1; color: #70796e; font-size: 12.5px; line-height: 1.45; }
 .pautantes-band { margin-top: 4px !important; margin-bottom: 24px !important; }
 .pautantes-band-inner { padding: 18px 16px !important; }
+
+/* AR Promo Banner */
+.ar-promo-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 20px;
+  background: linear-gradient(135deg, rgba(231, 108, 82, 0.1) 0%, rgba(39, 54, 43, 0.05) 100%);
+  border: 1px solid rgba(231, 108, 82, 0.3);
+  border-radius: 12px;
+  margin: 20px 0;
+  animation: fadeIn 0.5s ease;
+}
+
+.ar-promo-content {
+  flex: 1;
+}
+
+.ar-promo-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  background: var(--coral);
+  color: white;
+  font-size: 11px;
+  font-weight: 600;
+  border-radius: 20px;
+  margin-bottom: 8px;
+}
+
+.ar-promo-banner h3 {
+  font: 600 18px Fraunces;
+  color: var(--ink);
+  margin: 0 0 4px;
+}
+
+.ar-promo-banner p {
+  font-size: 13px;
+  color: #72796d;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.ar-promo-button {
+  padding: 10px 20px;
+  background: var(--coral);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.ar-promo-button:hover {
+  background: #d95a3d;
+  transform: scale(1.05);
+}
+
+@media (max-width: 480px) {
+  .ar-promo-banner {
+    flex-direction: column;
+    text-align: center;
+    padding: 16px;
+  }
+
+  .ar-promo-button {
+    width: 100%;
+  }
+}
 .hoy-pautantes-head { gap: 8px; margin-bottom: 4px; }
 .hoy-pautantes-note { font-size: 11px !important; }
 .home-content-guide { margin-top: 8px; }
