@@ -200,7 +200,6 @@ const ProviderSelectionModal = lazy(() => import('./components/ProviderSelection
 const FeatureCards = lazy(() => import('./components/FeatureCards'))
 const FeaturedHomeMenus = lazy(() => import('./components/FeaturedHomeMenus'))
 const HomeBanners = lazy(() => import('./components/HomeBanners'))
-const ServiceBanners = lazy(() => import('./components/ServiceBanners'))
 const InteractiveMenu = lazy(() => import('./components/InteractiveMenu'))
 
 function LoadingFallback() {
@@ -1408,10 +1407,6 @@ function App() {
         </Suspense>
 
         <Suspense fallback={<LoadingFallback />}>
-          <ServiceBanners />
-        </Suspense>
-
-        <Suspense fallback={<LoadingFallback />}>
           <FeaturedHomeMenus places={places} />
         </Suspense>
 
@@ -1513,6 +1508,14 @@ function App() {
               </div>
             </button>
 
+            <a href="/servicios/reservas-hoteles.html" className="service-card-banner">
+              <img src="/banners/banner-reservas.jpg" alt="Reservas de Hoteles" />
+              <div className="service-card-banner-content">
+                <h3>🏨 Reserva Hoteles Directo</h3>
+                <p>Sin comisiones, WhatsApp directo</p>
+              </div>
+            </a>
+
             <button className="service-card gastronomy" style={{ backgroundImage: `url(${rotateServiceImage(serviceCardImageSets.gastronomy, serviceTick + 1)})` }} onClick={() => goToCategory('Restaurantes')}>
               <div className="service-icon">🍽️</div>
               <div className="service-content">
@@ -1524,6 +1527,14 @@ function App() {
                 <ChevronRight size={16} />
               </div>
             </button>
+
+            <a href="/servicios/pedidos-domicilio.html" className="service-card-banner">
+              <img src="/banners/banner-domicilios.jpg" alt="Pedidos a Domicilio" />
+              <div className="service-card-banner-content">
+                <h3>🚚 Pedidos a Domicilio</h3>
+                <p>Directo del comercio, sin intermediarios</p>
+              </div>
+            </a>
 
             <button className="service-card coffee-tour" style={{ backgroundImage: `url(${rotateServiceImage(serviceCardImageSets.coffeeTour, serviceTick + 10)})` }} onClick={() => goToCategory('Coffee Tours')}>
               <div className="service-badge">☕ {t('services.coffeeTourBadge', 'ESPECIAL')}</div>
@@ -1622,6 +1633,14 @@ function App() {
                 <ChevronRight size={16} />
               </div>
             </button>
+
+            <a href="/servicios/transporte-salento.html" className="service-card-banner">
+              <img src="/banners/banner-servicio-transporte.jpg" alt="Servicio de Transporte" />
+              <div className="service-card-banner-content">
+                <h3>🚙 Servicio de Transporte</h3>
+                <p>Jeeps Willys, buses y transporte turístico</p>
+              </div>
+            </a>
 
             <button className="service-card camping" style={{ backgroundImage: `url(${rotateServiceImage(serviceCardImageSets.camping, serviceTick + 9)})` }} onClick={() => goToCategory('Camping')}>
               <div className="service-icon">⛺</div>
@@ -1980,23 +1999,6 @@ function App() {
           </Suspense>
         </section>
 
-        <section className="secondary-service-banners">
-          <a href="/servicios/pedidos-domicilio.html" className="secondary-banner">
-            <img src="/banners/banner-domicilios.jpg" alt="Pedidos a Domicilio" />
-            <div className="secondary-banner-content">
-              <h3>Pedidos a Domicilio</h3>
-              <p>Pide directamente a restaurantes y comercios sin intermediarios</p>
-            </div>
-          </a>
-          <a href="/servicios/transporte-salento.html" className="secondary-banner">
-            <img src="/banners/banner-servicio-transporte.jpg" alt="Servicio de Transporte" />
-            <div className="secondary-banner-content">
-              <h3>Servicio de Transporte</h3>
-              <p>Jeeps Willys, buses y transporte turístico</p>
-            </div>
-          </a>
-        </section>
-
         <section className="map-section" id="mapa">
           <div className="map-copy"><p className="eyebrow">{t('map.eyebrow', 'Orienta tu paseo')}</p><h2>{t('map')}</h2><p>{t('map.desc', 'Descubre rutas a pie, lugares favoritos y recomendaciones de quienes hacen de Salento su casa.')}</p>
           
@@ -2008,6 +2010,14 @@ function App() {
           </div>
           
           <div className="map-legend"><span><i className="legend-dot coral" />{t('map.favorites', 'Favoritos locales')}</span><span><i className="legend-dot green" />{t('map.discover', 'Para descubrir')}</span></div></div>
+
+          <a href="/servicios/realidad-aumentada.html" className="map-section-banner">
+            <img src="/banners/banner-realidad-aumentada.jpg" alt="Realidad Aumentada" />
+            <div className="map-section-banner-content">
+              <h3>🎯 Prueba la Realidad Aumentada</h3>
+              <p>Apunta tu celular y descubre lugares turísticos en tiempo real</p>
+            </div>
+          </a>
           
           <div className="map-visual" aria-label="Mapa interactivo de Salento con lugares destacados"><MapContainer center={[4.65746762702703, -75.5727757405405]} zoom={16} scrollWheelZoom={false} className="leaflet-map"><TileLayer attribution="&copy; OpenStreetMap" url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />{visibleMarkers.map((marker) => <CircleMarker key={marker.label} center={marker.coord} radius={10} pathOptions={{ color: marker.tone === 'green' ? '#56755b' : marker.tone === 'yellow' ? '#ba8a25' : '#e76c52', fillColor: marker.tone === 'green' ? '#56755b' : marker.tone === 'yellow' ? '#e8bb58' : '#e76c52', fillOpacity: 0.9 }}><Popup><strong>{marker.label}</strong><br /><span>{marker.type} · Salento</span><br /><button className="popup-action" onClick={() => {
               const found = marker.placeId != null ? places.find((p) => p.id === marker.placeId) : undefined
