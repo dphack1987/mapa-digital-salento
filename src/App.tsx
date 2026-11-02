@@ -3,8 +3,8 @@ import { Helmet } from 'react-helmet-async'
 import NotFound from './pages/NotFound'
 import { CircleMarker, MapContainer, Popup, TileLayer, useMap } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css'
-// AR Map Controller para realidad aumentada básica
-import ARMapController from './components/map/ARMapController'
+// AR real: cámara + brújula (realidad aumentada geoespacial)
+import ARCameraView from './components/ar/ARCameraView'
 import './components/map/ARMapControllerApp.css'
 import {
   ArrowDown,
@@ -1969,25 +1969,27 @@ function App() {
           
           <div className="map-legend"><span><i className="legend-dot coral" />{t('map.favorites', 'Favoritos locales')}</span><span><i className="legend-dot green" />{t('map.discover', 'Para descubrir')}</span></div></div>
           
-          {arMapMode ? (
-            <div className="map-visual ar-map-visual" aria-label="Mapa AR interactivo de Salento con realidad aumentada">
-              <ARMapController 
-                places={places} 
-                userLocation={userLocation || undefined}
-                onPlaceSelect={(place) => {
-                  setSelectedPlace(place)
-                  window.scrollTo({ top: 0, behavior: 'smooth' })
-                }}
-              />
-            </div>
-          ) : (
-            <div className="map-visual" aria-label="Mapa interactivo de Salento con lugares destacados"><MapContainer center={[4.65746762702703, -75.5727757405405]} zoom={16} scrollWheelZoom={false} className="leaflet-map"><TileLayer attribution="&copy; OpenStreetMap" url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />{visibleMarkers.map((marker) => <CircleMarker key={marker.label} center={marker.coord} radius={10} pathOptions={{ color: marker.tone === 'green' ? '#56755b' : marker.tone === 'yellow' ? '#ba8a25' : '#e76c52', fillColor: marker.tone === 'green' ? '#56755b' : marker.tone === 'yellow' ? '#e8bb58' : '#e76c52', fillOpacity: 0.9 }}><Popup><strong>{marker.label}</strong><br /><span>{marker.type} · Salento</span><br /><button className="popup-action" onClick={() => {
+          <div className="map-visual" aria-label="Mapa interactivo de Salento con lugares destacados"><MapContainer center={[4.65746762702703, -75.5727757405405]} zoom={16} scrollWheelZoom={false} className="leaflet-map"><TileLayer attribution="&copy; OpenStreetMap" url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />{visibleMarkers.map((marker) => <CircleMarker key={marker.label} center={marker.coord} radius={10} pathOptions={{ color: marker.tone === 'green' ? '#56755b' : marker.tone === 'yellow' ? '#ba8a25' : '#e76c52', fillColor: marker.tone === 'green' ? '#56755b' : marker.tone === 'yellow' ? '#e8bb58' : '#e76c52', fillOpacity: 0.9 }}><Popup><strong>{marker.label}</strong><br /><span>{marker.type} · Salento</span><br /><button className="popup-action" onClick={() => {
               const found = marker.placeId != null ? places.find((p) => p.id === marker.placeId) : undefined
               if (found) {
                 setSelectedPlace(found)
                 window.scrollTo({ top: 0, behavior: 'smooth' })
               }
             }}>{markerCtaLabel(marker.type) === 'Ver menú' ? t('map.viewMenu', 'Ver menú') : markerCtaLabel(marker.type) === 'Reservar ya' ? t('map.viewReserve', 'Reservar ya') : t('map.viewInfo', 'Ver información')} <ArrowRight size={13} /></button></Popup></CircleMarker>)}<MapControls /></MapContainer></div>
+          {arMapMode && (
+            <ARCameraView
+              places={places}
+              userLocation={userLocation}
+              onRequestLocation={requestUserLocation}
+              onClose={() => {
+                setARMapMode(false)
+                setUserLocation(null)
+              }}
+              onPlaceSelect={(place) => {
+                setSelectedPlace(place)
+                window.scrollTo({ top: 0, behavior: 'smooth' })
+              }}
+            />
           )}
         </section>
 
