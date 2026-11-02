@@ -1,9 +1,10 @@
-// Componente para compartir la página mediante QR code
+// Componente para compartir la página mediante QR code y redes sociales
 // Facilita el acceso rápido y compartición del sitio
 
 import { useState, useEffect } from 'react'
 import { Share2, Download, Copy, X, QrCode } from 'lucide-react'
 import qrCodeGenerator from '../services/qrCodeGenerator'
+import SocialShareButtons from './SocialShareButtons'
 
 interface QRShareProps {
   onClose?: () => void
@@ -139,7 +140,7 @@ const QRShare: React.FC<QRShareProps> = ({
               </div>
 
               <div className="qr-share-actions">
-                <button 
+                <button
                   className="share-action-button"
                   onClick={handleCopyToClipboard}
                   disabled={copied}
@@ -147,17 +148,17 @@ const QRShare: React.FC<QRShareProps> = ({
                   <Copy size={18} />
                   {copied ? '¡Copiado!' : 'Copiar URL'}
                 </button>
-                
-                <button 
+
+                <button
                   className="share-action-button"
                   onClick={handleDownload}
                 >
                   <Download size={18} />
                   Descargar QR
                 </button>
-                
+
                 {typeof navigator.share === "function" && (
-                  <button 
+                  <button
                     className="share-action-button"
                     onClick={handleShare}
                   >
@@ -165,6 +166,15 @@ const QRShare: React.FC<QRShareProps> = ({
                     Compartir
                   </button>
                 )}
+              </div>
+
+              <div className="social-share-section">
+                <h4>Compartir en redes sociales:</h4>
+                <SocialShareButtons
+                  url={url}
+                  title={title}
+                  description={description}
+                />
               </div>
 
               <div className="qr-share-tips">

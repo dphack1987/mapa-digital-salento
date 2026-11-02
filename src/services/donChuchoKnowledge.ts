@@ -893,5 +893,21 @@ class DonChuchoKnowledge {
   }
 }
 
+// Función de búsqueda simple para uso directo en componentes
+export function searchLocalKnowledge(query: string, language: 'es' | 'en' | 'de' | 'fr' | 'pt' | 'it' = 'es'): KnowledgeItem | null {
+  const normalizedQuery = query.toLowerCase()
+  
+  for (const item of knowledgeBase) {
+    for (const keyword of item.keywords) {
+      const normalizedKeyword = keyword.toLowerCase()
+      if (normalizedQuery.includes(normalizedKeyword) || normalizedKeyword.includes(normalizedQuery)) {
+        return item
+      }
+    }
+  }
+  
+  return null
+}
+
 export const donChuchoKnowledge = new DonChuchoKnowledge()
 export default donChuchoKnowledge

@@ -390,6 +390,16 @@ class GA4Service {
   }
 
   /**
+   * Track social share
+   * @param platform - Plataforma de compartición (facebook, twitter, whatsapp, linkedin, email)
+   */
+  trackSocialShare(platform: string) {
+    this.trackEvent('social_share', {
+      platform: platform
+    })
+  }
+
+  /**
    * Cleanup
    */
   cleanup() {

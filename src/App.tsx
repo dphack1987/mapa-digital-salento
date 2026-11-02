@@ -191,6 +191,7 @@ const DynamicLandingPage = lazy(() => import('./components/DynamicLandingPage'))
 const HotelInfoModal = lazy(() => import('./components/HotelInfoModal'))
 const PhotoGallery = lazy(() => import('./components/PhotoGallery'))
 const QRShare = lazy(() => import('./components/QRShare'))
+const SocialProofTicker = lazy(() => import('./components/SocialProofTicker'))
 const DefensiveSEODashboard = lazy(() => import('./components/DefensiveSEODashboard'))
 const AllyBacklinksDashboard = lazy(() => import('./components/AllyBacklinksDashboard'))
 const AllyRegistrationForm = lazy(() => import('./components/AllyRegistrationForm'))
@@ -1236,6 +1237,11 @@ function App() {
               })()}
             </h1>
             <p className="home-hero-lead">{t('hero.lead', 'Mapa, directorio local y WhatsApp directo con negocios verificados. Sin comisiones, sin intermediarios.')}</p>
+
+            <Suspense fallback={null}>
+              <SocialProofTicker />
+            </Suspense>
+
             <form className="home-hero-search search-box" onSubmit={(e) => { e.preventDefault(); searchService(search) }} role="search">
               <Search size={17} aria-hidden="true" />
               <input

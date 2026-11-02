@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { pythonBackendService } from '../../services/pythonBackend'
 import { getOsirisResponse, getTourismResponse, isTourismQuery, getPredictiveResponse, isPredictiveQuery } from '../../services/donChuchoOsiris'
+import { searchLocalKnowledge } from '../../services/donChuchoKnowledge'
 
 interface Pautante {
   name: string
@@ -32,8 +33,8 @@ function EnhancedDonChucho({ onFallback, onClose, existingComponent }: EnhancedD
   const [message, setMessage] = useState('')
   const [response, setResponse] = useState('')
   const [isLoading, setIsLoading] = useState(false)
-  const [usePython, setUsePython] = useState(true)
-  const [pythonStatus, setPythonStatus] = useState<'checking' | 'online' | 'offline'>('checking')
+  const [usePython, setUsePython] = useState(false) // Iniciamos en false para usar local primero
+  const [pythonStatus, setPythonStatus] = useState<'checking' | 'online' | 'offline'>('offline')
   const [localPlaces, setLocalPlaces] = useState<LocalPlace[]>([])
   const [hasLocalPlaces, setHasLocalPlaces] = useState(false)
   const [userLocation, setUserLocation] = useState<{lat: number; lng: number} | null>(null)
@@ -60,23 +61,18 @@ function EnhancedDonChucho({ onFallback, onClose, existingComponent }: EnhancedD
   }
 
   useEffect(() => {
-    let cancelled = false
+    // Intentar verificar backend Python en background, pero no bloquear
     const checkPythonBackend = async () => {
       try {
         const health = await pythonBackendService.healthCheck()
-        if (cancelled) return
         if (health && health.status === 'healthy') {
           setPythonStatus('online')
+          setUsePython(true)
         } else {
           setPythonStatus('offline')
-          setUsePython(false)
-          onFallbackRef.current?.()
         }
       } catch {
-        if (cancelled) return
         setPythonStatus('offline')
-        setUsePython(false)
-        onFallbackRef.current?.()
       }
     }
 
@@ -105,7 +101,6 @@ function EnhancedDonChucho({ onFallback, onClose, existingComponent }: EnhancedD
     }
 
     return () => {
-      cancelled = true
       window.speechSynthesis.onvoiceschanged = null
     }
   }, [])
@@ -161,7 +156,21 @@ function EnhancedDonChucho({ onFallback, onClose, existingComponent }: EnhancedD
         return
       }
 
-      // 4. Si no es OSIRIS, usar backend Python normalmente
+      // 4. Cuarto, usar base de conocimiento local como fallback principal
+      const localKnowledge = searchLocalKnowledge(message, 'es')
+      if (localKnowledge) {
+        setResponse(localKnowledge.answer.es)
+        setLocalPlaces([])
+        setHasLocalPlaces(false)
+
+        if (voiceEnabled && localKnowledge.answer.es) {
+          speakResponse(localKnowledge.answer.es)
+        }
+        setIsLoading(false)
+        return
+      }
+
+      // 5. Si todo falla, usar backend Python si está disponible
       if (usePython && pythonStatus === 'online') {
         const result = await pythonBackendService.sendChatMessage(message)
         setResponse(result.response)
@@ -190,18 +199,15 @@ function EnhancedDonChucho({ onFallback, onClose, existingComponent }: EnhancedD
           checkLocalPlacesTruth(result.pautantes)
         }
       } else {
-        if (onFallback) {
-          onFallback()
-          return
-        }
-        setResponse('Estoy procesando tu solicitud con el sistema local. ¿En qué más puedo ayudarte?')
+        // Fallback final: respuesta genérica del sistema local
+        setResponse('Soy Don Chucho, tu guía local de Salento. Puedo ayudarte con hoteles, restaurantes, coffee tours, transporte y experiencias. ¿Qué necesitas saber?')
         setLocalPlaces([])
         setHasLocalPlaces(false)
       }
     } catch (error) {
       console.error('Error:', error)
-      setResponse('Hubo un error de conexión. Por favor intenta de nuevo.')
-      setUsePython(false)
+      // Fallback a respuesta local en caso de error
+      setResponse('Soy Don Chucho, tu guía local de Salento. Estoy aquí para ayudarte con información verificada sobre hoteles, restaurantes, tours y experiencias. ¿En qué puedo ayudarte?')
       setLocalPlaces([])
       setHasLocalPlaces(false)
     } finally {
