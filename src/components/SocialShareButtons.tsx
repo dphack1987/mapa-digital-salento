@@ -2,7 +2,7 @@
 // Facilita la compartición directa en Facebook, Twitter, WhatsApp, LinkedIn
 
 import { Facebook, Twitter, MessageCircle, Linkedin, Mail } from 'lucide-react'
-import { trackSocialShare } from '../services/ga4Service'
+import ga4Service from '../services/ga4Service'
 
 interface SocialShareButtonsProps {
   url?: string
@@ -37,7 +37,7 @@ const SocialShareButtons: React.FC<SocialShareButtonsProps> = ({
     if (link) {
       window.open(link, '_blank', 'width=600,height=400')
       // Track en GA4
-      trackSocialShare(platform)
+      ga4Service.trackSocialShare(platform)
     }
   }
 
