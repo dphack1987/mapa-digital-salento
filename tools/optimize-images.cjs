@@ -3,7 +3,8 @@
  *  A) raster no-webp (jpg/png/jfif/avif) -> webp, con actualización de referencias
  *     y borrado del original solo si quedan 0 referencias viejas.
  *  B) webp >250KB -> recomprimir in situ (mismo nombre, sin tocar referencias).
- * Uso: node tools/optimize-images.cjs [--dry]
+ * Uso: node tools/optimize-images.cjs [--dry] [subcarpeta-de-public]
+ *  Ej: node tools/optimize-images.cjs public/banners
  */
 const fs = require('fs');
 const path = require('path');
@@ -13,6 +14,12 @@ const sharp = require('sharp');
 const ROOT = path.join(__dirname, '..');
 const PUBLIC = path.join(ROOT, 'public');
 const DRY = process.argv.includes('--dry');
+const FILTERS = process.argv.slice(2).filter((a) => !a.startsWith('--'));
+const matchFilter = (f) => {
+  if (FILTERS.length === 0) return true;
+  const norm = f.split(path.sep).join('/');
+  return FILTERS.some((x) => norm.includes(x));
+};
 const RASTER_RE = /(\.(jpe?g|png|jfif|avif))+$/i;
 const SKIP_CONVERT = /favicon|apple-touch|android-chrome|safari-pinned|site\.webmanifest|\.ico$/i;
 const TEXT_EXT = /\.(html|json|tsx?|js|cjs|mjs|css|md|txt|xml|svg)$/i;
@@ -38,8 +45,8 @@ function refFiles() {
 }
 
 const files = walk(PUBLIC);
-const rasters = files.filter(f => RASTER_RE.test(f) && !f.endsWith('.webp') && !SKIP_CONVERT.test(path.basename(f)));
-const bigWebp = files.filter(f => /\.webp$/i.test(f) && fs.statSync(f).size > BIG_WEBP);
+const rasters = files.filter(f => matchFilter(f) && RASTER_RE.test(f) && !f.endsWith('.webp') && !SKIP_CONVERT.test(path.basename(f)));
+const bigWebp = files.filter(f => matchFilter(f) && /\.webp$/i.test(f) && fs.statSync(f).size > BIG_WEBP);
 
 async function convertOne(oldPath, refs) {
   const oldName = path.basename(oldPath);
