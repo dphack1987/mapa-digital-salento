@@ -6637,23 +6637,11 @@ footer { max-width: 1184px; margin: auto; border-top: 1px solid var(--line); dis
 .map-section-banner-content h3 { font: 600 18px Fraunces; margin: 0 0 6px; }
 .map-section-banner-content p { font-size: 13px; margin: 0; opacity: 0.9; }
 
-/* Service Card Banner */
-.service-card-banner { display: block; text-decoration: none; color: inherit; border: 1px solid var(--line); border-radius: 16px; overflow: hidden; position: relative; transition: transform 0.3s, box-shadow 0.3s; }
-.service-card-banner:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(0,0,0,0.08); }
-.service-card-banner img { width: 100%; height: 140px; object-fit: cover; }
-.service-card-banner-content { position: absolute; bottom: 0; left: 0; right: 0; padding: 16px; background: linear-gradient(transparent, rgba(39,54,43,0.9)); color: white; }
-.service-card-banner-content h3 { font: 600 15px Fraunces; margin: 0 0 4px; }
-.service-card-banner-content p { font-size: 12px; margin: 0; opacity: 0.9; }
-
 @media (max-width: 800px) {
   .map-section-banner { margin: 20px 0; }
   .map-section-banner img { height: 160px; }
   .map-section-banner-content { padding: 16px; }
   .map-section-banner-content h3 { font-size: 16px; }
   .map-section-banner-content p { font-size: 12px; }
-  .service-card-banner img { height: 120px; }
-  .service-card-banner-content { padding: 14px; }
-  .service-card-banner-content h3 { font-size: 14px; }
-  .service-card-banner-content p { font-size: 11px; }
 }
 }

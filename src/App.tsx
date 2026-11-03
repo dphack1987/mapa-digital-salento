@@ -1508,14 +1508,6 @@ function App() {
               </div>
             </button>
 
-            <a href="/servicios/reservas-hoteles.html" className="service-card-banner">
-              <img src="/banners/banner-reservas.jpg" alt="Reservas de Hoteles" />
-              <div className="service-card-banner-content">
-                <h3>🏨 Reserva Hoteles Directo</h3>
-                <p>Sin comisiones, WhatsApp directo</p>
-              </div>
-            </a>
-
             <button className="service-card gastronomy" style={{ backgroundImage: `url(${rotateServiceImage(serviceCardImageSets.gastronomy, serviceTick + 1)})` }} onClick={() => goToCategory('Restaurantes')}>
               <div className="service-icon">🍽️</div>
               <div className="service-content">
@@ -1527,14 +1519,6 @@ function App() {
                 <ChevronRight size={16} />
               </div>
             </button>
-
-            <a href="/servicios/pedidos-domicilio.html" className="service-card-banner">
-              <img src="/banners/banner-domicilios.jpg" alt="Pedidos a Domicilio" />
-              <div className="service-card-banner-content">
-                <h3>🚚 Pedidos a Domicilio</h3>
-                <p>Directo del comercio, sin intermediarios</p>
-              </div>
-            </a>
 
             <button className="service-card coffee-tour" style={{ backgroundImage: `url(${rotateServiceImage(serviceCardImageSets.coffeeTour, serviceTick + 10)})` }} onClick={() => goToCategory('Coffee Tours')}>
               <div className="service-badge">☕ {t('services.coffeeTourBadge', 'ESPECIAL')}</div>
@@ -1633,14 +1617,6 @@ function App() {
                 <ChevronRight size={16} />
               </div>
             </button>
-
-            <a href="/servicios/transporte-salento.html" className="service-card-banner">
-              <img src="/banners/banner-servicio-transporte.jpg" alt="Servicio de Transporte" />
-              <div className="service-card-banner-content">
-                <h3>🚙 Servicio de Transporte</h3>
-                <p>Jeeps Willys, buses y transporte turístico</p>
-              </div>
-            </a>
 
             <button className="service-card camping" style={{ backgroundImage: `url(${rotateServiceImage(serviceCardImageSets.camping, serviceTick + 9)})` }} onClick={() => goToCategory('Camping')}>
               <div className="service-icon">⛺</div>
