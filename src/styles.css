@@ -6206,11 +6206,11 @@ footer { max-width: 1184px; margin: auto; border-top: 1px solid var(--line); dis
 
 /* Home long-form content guide (SEO) */
 .home-content-guide { max-width: 1184px; margin: 72px auto; padding: 48px 28px 56px; background: #fff; border-top: 3px solid var(--coral); border-bottom: 1px solid var(--line); }
-.home-content-guide-inner { max-width: 820px; }
+.home-content-guide-inner { max-width: 860px; }
 .home-content-guide .eyebrow { color: var(--coral); font: 11px 'DM Mono'; text-transform: uppercase; letter-spacing: .12em; margin: 0 0 12px; }
-.home-content-guide h2 { font: 600 clamp(1.75rem, 3vw, 2.35rem)/1.1 Fraunces, Georgia, serif; margin: 48px 0 16px; color: var(--ink); }
+.home-content-guide h2 { font: 600 clamp(1.75rem, 3vw, 2.35rem)/1.1 Fraunces, Georgia, serif; margin: 56px 0 20px; color: var(--ink); }
 .home-content-guide h2:first-of-type { margin-top: 8px; }
-.home-content-guide h3 { font: 600 1.2rem/1.25 Fraunces, Georgia, serif; margin: 32px 0 10px; color: var(--ink); }
+.home-content-guide h3 { font: 600 1.2rem/1.25 Fraunces, Georgia, serif; margin: 40px 0 12px; color: var(--ink); }
 .home-content-guide p, .home-content-guide li { font-size: 1.05rem; line-height: 1.7; color: #3d463f; margin: 0 0 14px; }
 .home-content-lead { font-size: 1.1rem !important; color: var(--ink) !important; }
 .home-content-guide a { color: var(--coral); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
@@ -6218,7 +6218,7 @@ footer { max-width: 1184px; margin: auto; border-top: 1px solid var(--line); dis
 .home-content-figure { margin: 28px 0; }
 .home-content-figure img { width: 100%; height: auto; display: block; border: 1px solid var(--line); }
 .home-content-figure figcaption { font: 11px 'DM Mono'; color: #697568; margin-top: 8px; }
-.home-content-cta { margin-top: 40px; padding: 24px 0 0; border-top: 1px dashed var(--line); }
+.home-content-cta { margin-top: 40px; padding: 28px; border-top: 1px dashed var(--line); background: var(--paper); border: 1px solid var(--line); border-radius: 16px; }
 .home-content-cta h3 { margin-top: 0; }
 .pautantes-band + .home-content-guide { margin-top: 40px; }
 .home-content-guide + .principles-strip { margin-top: 48px; }
@@ -6611,6 +6611,7 @@ footer { max-width: 1184px; margin: auto; border-top: 1px solid var(--line); dis
   .coffee-premium-actions { flex-direction: row; flex-wrap: wrap; }
   .directory-load-more { flex-direction: column; align-items: stretch; }
   .load-more-button { justify-content: center; }
+}
 
 /* Secondary Service Banners */
 .secondary-service-banners { max-width: 1184px; margin: 48px auto; padding: 0 28px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
@@ -6632,16 +6633,15 @@ footer { max-width: 1184px; margin: auto; border-top: 1px solid var(--line); dis
 /* Map Section Banner */
 .map-section-banner { display: block; text-decoration: none; color: inherit; border: 1px solid var(--line); border-radius: 16px; overflow: hidden; margin: 24px 0; position: relative; transition: transform 0.3s, box-shadow 0.3s; }
 .map-section-banner:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(0,0,0,0.08); }
-.map-section-banner img { width: 100%; height: 180px; object-fit: cover; }
+.map-section-banner img { width: 100%; height: auto; display: block; }
 .map-section-banner-content { position: absolute; bottom: 0; left: 0; right: 0; padding: 20px; background: linear-gradient(transparent, rgba(39,54,43,0.9)); color: white; }
 .map-section-banner-content h3 { font: 600 18px Fraunces; margin: 0 0 6px; }
 .map-section-banner-content p { font-size: 13px; margin: 0; opacity: 0.9; }
 
 @media (max-width: 800px) {
   .map-section-banner { margin: 20px 0; }
-  .map-section-banner img { height: 160px; }
+  .map-section-banner img { height: auto; }
   .map-section-banner-content { padding: 16px; }
   .map-section-banner-content h3 { font-size: 16px; }
   .map-section-banner-content p { font-size: 12px; }
-}
 }
