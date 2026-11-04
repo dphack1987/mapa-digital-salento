@@ -163,10 +163,8 @@ class PythonBackendService {
   async checkAvailability(pautanteId: number): Promise<AvailabilityResponse> {
     if (!this.enabled) return { success: false, error: 'Backend no disponible' }
     try {
-      const response = await fetch(`${this.baseUrl}/api/v1/pautantes/availability`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ pautante_id: pautanteId })
+      const response = await fetch(`${this.baseUrl}/api/v1/pautantes/availability?pautante_id=${encodeURIComponent(pautanteId)}`, {
+        method: 'POST'
       })
       if (!response.ok) {
         throw new Error('Error en disponibilidad')
@@ -180,10 +178,8 @@ class PythonBackendService {
   async getQualityVerification(pautanteId: number): Promise<QualityVerificationResponse> {
     if (!this.enabled) return { success: false, error: 'Backend no disponible' }
     try {
-      const response = await fetch(`${this.baseUrl}/api/v1/pautantes/quality-verification`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ pautante_id: pautanteId })
+      const response = await fetch(`${this.baseUrl}/api/v1/pautantes/quality-verification?pautante_id=${encodeURIComponent(pautanteId)}`, {
+        method: 'POST'
       })
       if (!response.ok) {
         throw new Error('Error en verificación de calidad')
@@ -204,10 +200,8 @@ class PythonBackendService {
       }
     }
     try {
-      const response = await fetch(`${this.baseUrl}/api/v1/pautantes/tourist-trap-filter`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ category })
+      const response = await fetch(`${this.baseUrl}/api/v1/pautantes/tourist-trap-filter?category=${encodeURIComponent(category)}`, {
+        method: 'POST'
       })
       if (!response.ok) {
         throw new Error('Error en filtro de turistazas')

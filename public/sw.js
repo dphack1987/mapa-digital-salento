@@ -1,4 +1,4 @@
-const CACHE_NAME = 'salento-a-la-mano-v17'
+const CACHE_NAME = 'salento-a-la-mano-v18'
 const CACHE_STRATEGIES = {
   static: ['html', 'css', 'js', 'png', 'jpg', 'jpeg', 'svg', 'webp', 'ico', 'gif'],
   shell: ['html', 'js', 'css']
@@ -40,37 +40,46 @@ const APP_SHELL = [
   '/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/foto1.webp'
 ]
 
-// Rangos de tiles de Cascadas de Santa Rita para cachear offline
-// Zoom 12-16 cubre Cascadas de Santa Rita + ruta GPS completa + Boquía (~4km radio)
-const TILE_CACHE_NAME = 'salento-tiles-v17'
+// Tiles de Cascadas de Santa Rita para cachear offline.
+// Solo el bounding box del GPX + 1 tile de margen, zooms 14-16, un subdominio.
+// Evita descargar cientos de miles de tiles en la primera visita.
+const TILE_CACHE_NAME = 'salento-tiles-v18'
 const TILE_URL_TEMPLATE = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
-const TILE_SUBDOMAINS = ['a', 'b', 'c']
+const TILE_SUBDOMAINS = ['a']
+const TILE_BOUNDS = { north: 4.664209, south: 4.646949, west: -75.580899, east: -75.568804 }
+
+function lonToTileX(lon, z) {
+  return Math.floor(((lon + 180) / 360) * Math.pow(2, z))
+}
+
+function latToTileY(lat, z) {
+  const rad = (lat * Math.PI) / 180
+  return Math.floor(
+    ((1 - Math.log(Math.tan(rad) + 1 / Math.cos(rad)) / Math.PI) / 2) *
+      Math.pow(2, z)
+  )
+}
 
 function getTileUrls() {
   const urls = []
-  // Centro exacto basado en análisis GPX: lat 4.65746762702703, lng -75.5727757405405
-  // Tile coords at zoom 12: x=1133, y=795 (aproximado para centro GPS)
-  // Rango GPS real: Lat 4.646949 a 4.664209, Lon -75.580899 a -75.568804
-  // Rango extendido para cubrir ruta completa GPX con margen
-  const centerTileX = 1133
-  const centerTileY = 795
-  const range = 6 // 6 tiles en cada dirección = 13x13 = 169 tiles por zoom (cobertura completa ruta GPS + margen)
-  
-  for (let z = 12; z <= 16; z++) {
-    const scale = Math.pow(2, z - 12)
-    const cx = centerTileX * scale
-    const cy = centerTileY * scale
-    const r = range * scale
-    
-    for (let x = cx - r; x <= cx + r; x++) {
-      for (let y = cy - r; y <= cy + r; y++) {
+  const margin = 1
+
+  for (let z = 14; z <= 16; z++) {
+    const minX = lonToTileX(TILE_BOUNDS.west, z) - margin
+    const maxX = lonToTileX(TILE_BOUNDS.east, z) + margin
+    const minY = latToTileY(TILE_BOUNDS.north, z) - margin
+    const maxY = latToTileY(TILE_BOUNDS.south, z) + margin
+
+    for (let x = minX; x <= maxX; x++) {
+      for (let y = minY; y <= maxY; y++) {
         for (const s of TILE_SUBDOMAINS) {
-          const url = TILE_URL_TEMPLATE
-            .replace('{s}', s)
-            .replace('{z}', String(z))
-            .replace('{x}', String(x))
-            .replace('{y}', String(y))
-          urls.push(url)
+          urls.push(
+            TILE_URL_TEMPLATE
+              .replace('{s}', s)
+              .replace('{z}', String(z))
+              .replace('{x}', String(x))
+              .replace('{y}', String(y))
+          )
         }
       }
     }
@@ -79,7 +88,7 @@ function getTileUrls() {
 }
 
 self.addEventListener('install', (event) => {
-    console.log('[SW] Installing service worker v17 - Cascadas de Santa Rita offline tiles')
+    console.log('[SW] Installing service worker v18 - Cascadas de Santa Rita offline tiles')
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
       console.log('[SW] Caching app shell')
@@ -143,7 +152,7 @@ async function cacheTilesInBatches(cache, urls, batchSize) {
 }
 
 self.addEventListener('activate', (event) => {
-  console.log('[SW] Activating service worker v17 - Cascadas de Santa Rita')
+  console.log('[SW] Activating service worker v18 - Cascadas de Santa Rita')
   event.waitUntil(
     caches.keys().then((keys) => {
       return Promise.all(
@@ -212,10 +221,15 @@ self.addEventListener('fetch', (event) => {
   // Determinar estrategia según tipo de recurso
   const extension = url.pathname.split('.').pop()?.toLowerCase() || ''
   const isAPI = url.pathname.includes('/data/')
-  
+  const isNavigation =
+    request.mode === 'navigate' ||
+    (request.headers.get('accept') || '').includes('text/html')
+
   let strategy = 'cache-first'
-  
-  if (isAPI) {
+
+  if (isNavigation) {
+    strategy = 'network-first'
+  } else if (isAPI) {
     strategy = 'network-first'
   } else if (CACHE_STRATEGIES.static.includes(extension)) {
     strategy = 'cache-first'
@@ -233,7 +247,15 @@ self.addEventListener('fetch', (event) => {
           }
           return response
         })
-        .catch(() => caches.match(request))
+        .catch(async () => {
+          const cached = await caches.match(request)
+          if (cached) return cached
+          if (isNavigation) {
+            const fallback = await caches.match('/index.html')
+            if (fallback) return fallback
+          }
+          return new Response('Offline', { status: 503 })
+        })
     )
   } else {
     event.respondWith(

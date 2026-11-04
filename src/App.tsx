@@ -437,13 +437,6 @@ function App() {
     if (prerender) prerender.style.display = 'none'
   }, [])
 
-  // GA4 Page View Tracking - Agregado para WSA 2026
-  useEffect(() => {
-    const path = window.location.pathname
-    const title = document.title
-    ga4Service.trackPageView(path, title)
-  }, [])
-
   const [notFound, setNotFound] = useState(false)
   useEffect(() => {
     const path = window.location.pathname
