@@ -89,7 +89,7 @@ const knowledgeBase: KnowledgeItem[] = [
     followUp: ['¿Con ají?', '¿Solo de papa?', '¿Cuánto cuestan?']
   },
   {
-    keywords: ['café', 'café especial', 'café origen', 'tinto', 'cafetería'],
+    keywords: ['café', 'café especial', 'café origen', 'tinto', 'cafetería', 'coffee tour', 'coffee tours'],
     category: 'cafe',
     answer: {
       es: '¡El café del Quindío es patrimonio! Se cultiva entre 1.200 y 2.000 metros. Notas de chocolate, caramelo y frutas. Para vivir la experiencia del café reserva un coffee tour: Finca Don Eduardo, Finca Cafetera Don Elías, El Recuerdo Coffee Tour o Finca Hotel El Ocaso. Para café de especialidad ve a Café Jesús Martín o Brunch de Salento. El tinto de la plaza es ritual sagrado.',
@@ -155,7 +155,7 @@ const knowledgeBase: KnowledgeItem[] = [
     followUp: ['¿Dónde probarlas?', '¿Solo en restaurantes?', '¿Con café?']
   },
   {
-    keywords: ['masamorra', 'mazamorra', 'maíz', 'desayuno tradicional'],
+    keywords: ['masamorra', 'mazamorra', 'maíz', 'desayuno', 'desayuno tradicional'],
     category: 'gastronomia',
     answer: {
       es: 'La mazamorra es desayuno o postre. Maíz pelado cocido con panela derretida, servido caliente. Es cocina ancestral antioqueña, reconfortante en días fríos. Algunas la prefieren con bocadillo de guayaba.',
@@ -168,7 +168,7 @@ const knowledgeBase: KnowledgeItem[] = [
     followUp: ['¿Desayuno o postre?', '¿Con leche?', '¿Dónde probarla?']
   },
   {
-    keywords: ['historia', 'fundación', 'origen', 'cuándo fundaron'],
+    keywords: ['historia', 'fundación', 'origen', 'cuándo fundaron', 'fundó', 'fundaron', 'cuándo se fundó'],
     category: 'historia',
     answer: {
       es: '¡Salento tiene historia pa\' rato! Fundado en 1842, es el municipio más antiguo del Quindío. Sus casas de bahareque con tejados altos y colores vivos cuentan historias de cafeteros que construyeron este paraíso.',
@@ -403,7 +403,7 @@ const knowledgeBase: KnowledgeItem[] = [
     followUp: ['¿Dónde se ve?', '¿Cómo participar?', '¿Qué llevan los jeeps?']
   },
   {
-    keywords: ['fiestas', 'celebración', 'feria', 'evento cultural'],
+    keywords: ['fiestas', 'celebración', 'feria', 'evento cultural', 'evento', 'eventos'],
     category: 'festivales',
     answer: {
       es: 'El Quindío tiene eventos todo el año. Festival del Café (junio), Yipao (octubre), Fiestas de Armenia (octubre), fiestas patronales municipales. Cada pueblo celebra sus tradiciones con música y gastronomía.',
@@ -416,7 +416,7 @@ const knowledgeBase: KnowledgeItem[] = [
     followUp: ['¿Próximo evento?', '¿En qué pueblo?', '¿Qué incluyen?']
   },
   {
-    keywords: ['qué llevar', 'equipaje', 'ropa', 'mochila', 'preparar'],
+    keywords: ['qué llevar', 'equipaje', 'ropa', 'mochila', 'preparar', 'llevo', 'llevar', 'qué llevo', 'maleta', 'maletas'],
     category: 'consejos',
     answer: {
       es: 'Para Salento lleva: ropa ligera en capas (18-24°C), zapatos de senderismo impermeables, protector solar, repelente, cámara, cargador portátil, chaqueta impermeable y botella reutilizable. Gorra para el sol.',
@@ -565,7 +565,7 @@ const knowledgeBase: KnowledgeItem[] = [
     relatedPlaces: [19]
   },
   {
-    keywords: ['cabalgatas cocora magica', 'cocora magica', 'cabalgatas salento'],
+    keywords: ['cabalgatas cocora magica', 'cocora magica', 'cabalgatas salento', 'cabalgatas', 'caballo'],
     category: 'turismo',
     answer: {
       es: 'Cabalgatas Cocora Mágica es opción para vivir el Valle de Cocora de forma distinta. Experiencia, paisaje y propuesta tradicional. Incluye recorrido con caballos entrenados. ¿Horario o recomendado para familias?',
@@ -620,7 +620,7 @@ const knowledgeBase: KnowledgeItem[] = [
     followUp: ['¿Cómo llegar?', '¿Mejor hora?', '¿Difícil el acceso?']
   },
   {
-    keywords: ['transporte', 'bus', 'willys', 'jeep', 'taxi', 'armenia'],
+    keywords: ['transporte', 'bus', 'willys', 'jeep', 'jeeps', 'taxi', 'armenia', 'muevo', 'movilidad', 'por el pueblo', 'desplazarme'],
     category: 'transporte',
     answer: {
       es: 'Para moverte: buses al terminal de Armenia (45 min). Para el Valle de Cocora, los Willys salen del parque cada 30 min. Taxis y mototaxis en el centro para algo más rápido. ¿Para dónde vas?',
@@ -633,7 +633,7 @@ const knowledgeBase: KnowledgeItem[] = [
     followUp: ['¿A dónde vas?', '¿Cuántas personas?', '¿Presupuesto?']
   },
   {
-    keywords: ['emergencia', 'help', 'ayuda', 'médico', 'policía', 'cruz roja'],
+    keywords: ['emergencia', 'help', 'ayuda', 'médico', 'policía', 'cruz roja', 'enfermo', 'enfermedad', 'me siento mal', 'doctor', 'hospital', 'hospitales', 'clínica'],
     category: 'emergencias',
     answer: {
       es: 'Emergencias: marca 123 (Policía, Bomberos, Ambulancia). Cruz Roja: 132. Hospital más cercano en Armenia (39 km). Farmacias en el centro para cosas menores. ¿Qué tipo de emergencia?',
@@ -646,7 +646,7 @@ const knowledgeBase: KnowledgeItem[] = [
     followUp: ['¿Tipo de emergencia?', '¿Dirección específica?']
   },
   {
-    keywords: ['dinero', 'cambio', 'atm', 'banco', 'efectivo'],
+    keywords: ['dinero', 'cambio', 'atm', 'banco', 'efectivo', 'cajero', 'cajeros', 'sacar dinero', 'retiro', 'plata'],
     category: 'general',
     answer: {
       es: 'Hay cajeros en el centro pero a veces se quedan sin efectivo. Trae suficiente dinero. Algunos hoteles como Camino Nacional pueden hacer cambio de divisas. ¿Necesitas cambio específico?',
@@ -717,7 +717,7 @@ const knowledgeBase: KnowledgeItem[] = [
   // DEFENSIVOS
   // ═══════════════════════════════════════════════════════════
   {
-    keywords: ['peligro', 'inseguro', 'no vengas', 'alarmante', 'cierre', 'riesgo'],
+    keywords: ['peligro', 'inseguro', 'no vengas', 'alarmante', 'cierre', 'riesgo', 'seguro', 'es seguro', 'tranquilo'],
     category: 'defensivo',
     answer: {
       es: '¡Tranquilo, hermano! Por ahí corren rumores falsos, pero acá en el pueblo todo está en marcha. Salento está seguro y operativo al 100% - los Jeeps van, los restaurantes abren, y los hostales tienen disponibilidad. ¡Ven con tranquilidad!',
@@ -805,6 +805,122 @@ const knowledgeBase: KnowledgeItem[] = [
     urgency: 'high',
     defensiveActions: ['Ver reporte oficial', 'Contactar autoridades', 'Consultar boletines'],
     sources: ['Gobernación del Quindío', 'Alcaldía de Salento', 'Defensa Civil']
+  },
+  // ═══════════════════════════════════════════════════════════
+  // HOSPEDAJE
+  // ═══════════════════════════════════════════════════════════
+  {
+    keywords: ['hospedaje', 'hostal', 'hostales', 'hotel', 'hoteles', 'dónde dormir', 'dormir', 'duermo', 'duerme', 'airbnb', 'camping', 'posada', 'alojamiento', 'dónde me hospedo', 'dormitorio'],
+    category: 'hospedaje',
+    answer: {
+      es: 'Para dormir en Salento tienes de todo: hostales y hoteles boutique en el centro del pueblo, fincas hoteleras con vista al valle (¡la experiencia más mágica!), y el Camping en las Cascadas de Santa Rita para los más aventureros. Te recomiendo reservar con anticipación, sobre todo en temporada alta (diciembre-marzo). ¿Quieres que te ayude con opciones según tu presupuesto?',
+      en: 'For sleeping in Salento you have everything: hostels and boutique hotels in the town center, farm hotels with valley views (the most magical experience!), and the Camping at Santa Rita Waterfalls for the adventurous. I recommend booking in advance, especially in high season (December-March). Want help with options for your budget?',
+      de: 'Zum Übernachten in Salento gibt es alles: Hostels und Boutique-Hotels im Stadtzentrum, Bauernhöfe mit Talblick (das magischste Erlebnis!) und der Campingplatz an den Santa-Rita-Wasserfällen für Abenteurer. Ich empfehle, im Voraus zu buchen, besonders in der Hochsaison (Dezember-März). Brauchen Sie Hilfe nach Budget?',
+      fr: 'Pour dormir à Salento, il y en a pour tous les goûts : auberges et hôtels boutiques au centre, fermes-hôtels avec vue sur la vallée (l\'expérience la plus magique !) et le camping aux Cascades de Santa Rita pour les aventuriers. Je recommande de réserver à l\'avance, surtout en haute saison (décembre-mars). Besoin d\'aide selon votre budget ?',
+      pt: 'Para dormir em Salento tem de tudo: hostels e hotéis boutique no centro da cidade, fazendas-hotel com vista para o vale (a experiência mais mágica!) e o Camping nas Cachoeiras de Santa Rita para os mais aventureiros. Recomendo reservar com antecedência, especialmente na alta temporada (dezembro-março). Quer ajuda com opções para o seu orçamento?',
+      it: 'Per dormire a Salento c\'è di tutto: ostelli e hotel boutique nel centro, agriturismi con vista sulla valle (l\'esperienza più magica!) e il campeggio alle Cascate di Santa Rita per gli più avventurosi. Consiglio di prenotare in anticipo, soprattutto in alta stagione (dicembre-marzo). Serve aiuto con opzioni per il tuo budget?'
+    },
+    followUp: ['¿Hoteles con vista?', '¿Fincas cafeteras?', '¿Cómo reservar?'],
+    relatedPlaces: [5, 15]
+  },
+  // ═══════════════════════════════════════════════════════════
+  // CÓMO LLEGAR / UBICACIÓN
+  // ═══════════════════════════════════════════════════════════
+  {
+    keywords: ['cómo llego', 'como llego', 'llego a salento', 'llegar a salento', 'ubicación', 'dónde queda', 'donde queda', 'lejos de bogotá', 'distancia', 'kilómetros', 'cuánto está'],
+    category: 'transporte',
+    answer: {
+      es: 'Salento queda en las montañas del Quindío, a 1.895 metros de altura. Desde Armenia son 45 minutos por carretera pavimentada (buses cada hora desde el terminal), desde Pereira una hora y media, y desde Bogotá unas 9-10 horas por la vía al Llano o en avión hasta Armenia/Pereira. ¡El camino ya es parte de la aventura con esas vistas de montaña!',
+      en: 'Salento sits in the mountains of Quindío, at 1,895 meters. From Armenia it\'s 45 minutes on paved road (hourly buses from the terminal), from Pereira an hour and a half, and from Bogotá about 9-10 hours via the Llano road or by plane to Armenia/Pereira. The journey is part of the adventure with those mountain views!',
+      de: 'Salento liegt in den Bergen des Quindío, auf 1.895 Metern Höhe. Von Armenia sind es 45 Minuten auf gepflasterter Straße (stündliche Busse vom Terminal), von Pereira anderthalb Stunden und von Bogotá etwa 9-10 Stunden über die Llano-Straße oder per Flugzeug nach Armenia/Pereira. Der Weg ist mit diesen Bergblicken schon Teil des Abenteuers!',
+      fr: 'Salento se trouve dans les montagnes du Quindío, à 1 895 mètres d\'altitude. Depuis Armenia, 45 minutes par route pavée (bus toutes les heures depuis le terminal), depuis Pereira une heure et demie, et depuis Bogotá environ 9-10 heures par la route du Llano ou en avion vers Armenia/Pereira. Le trajet fait déjà partie de l\'aventure avec ces vues de montagne !',
+      pt: 'Salento fica nas montanhas do Quindío, a 1.895 metros de altitude. De Armenia são 45 minutos por estrada pavimentada (ônibus a cada hora do terminal), de Pereira uma hora e meia, e de Bogotá cerca de 9-10 horas pela estrada do Llano ou de avião para Armenia/Pereira. O caminho já faz parte da aventura com essas vistas de montanha!',
+      it: 'Salento si trova nelle montagne del Quindío, a 1.895 metri di altitudine. Da Armenia sono 45 minuti su strada asfaltata (bus ogni ora dal terminal), da Pereira un\'ora e mezza, e da Bogotá circa 9-10 ore via la strada del Llano o in aereo per Armenia/Pereira. Il viaggio è già parte dell\'avventura con quelle viste di montagna!'
+    },
+    followUp: ['¿Cómo llego desde Armenia?', '¿Hay buses?', '¿Cuál es la mejor ruta?'],
+    relatedPlaces: [113]
+  },
+  // ═══════════════════════════════════════════════════════════
+  // QUÉ HACER / VISITAR
+  // ═══════════════════════════════════════════════════════════
+  {
+    keywords: ['qué hacer', 'que hacer', 'qué puedo hacer', 'que puedo hacer', 'visitar', 'actividades', 'planes', 'cosas que hacer', 'qué recomiendas', 'recomiendas hacer'],
+    category: 'turismo',
+    answer: {
+      es: 'En Salento no te aburres ni un segundo: cabalgatas entre palmas de cera en el Valle de Cocora, caminatas a las Cascadas de Santa Rita, tours cafeteros por las fincas, miradores con vistas de postal como el Alto de la Cruz, canopy y rafting para los aventureros, y el pueblo lleno de cafés, arte y sonrisas. ¿Tienes 1 día o una semana? ¡Te armo el plan perfecto!',
+      en: 'In Salento you will never be bored: horseback rides among wax palms in the Valle de Cocora, hikes to Santa Rita Waterfalls, coffee tours through the farms, postcard viewpoints like Alto de la Cruz, canopy and rafting for adventurers, and a town full of coffee, art and smiles. One day or a week? I\'ll build the perfect plan!',
+      de: 'In Salento wird Ihnen nie langweilig: Reitausflüge zwischen Wachspalmen im Valle de Cocora, Wanderungen zu den Santa-Rita-Wasserfällen, Kaffeetouren durch die Farmen, Postkarten-Aussichtspunkte wie der Alto de la Cruz, Canopy und Rafting für Abenteurer, und ein Dorf voller Kaffee, Kunst und Lächeln. Ein Tag oder eine Woche? Ich baue Ihnen den perfekten Plan!',
+      fr: 'À Salento, on ne s\'ennuie jamais : balades à cheval parmi les palmiers à cire dans la Vallée de Cocora, randonnées aux Cascades de Santa Rita, tours du café dans les fermes, belvédères carte postale comme l\'Alto de la Cruz, tyrolienne et rafting pour les aventuriers, et un village plein de café, d\'art et de sourires. Un jour ou une semaine ? Je vous construis le plan parfait !',
+      pt: 'Em Salento você nunca vai se entediar: cavalgadas entre palmeiras de cera no Vale de Cocora, trilhas para as Cachoeiras de Santa Rita, tours de café pelas fazendas, mirantes de postal como o Alto de la Cruz, tirolesa e rafting para os aventureiros, e a cidade cheia de café, arte e sorrisos. Um dia ou uma semana? Monto o plano perfeito!',
+      it: 'A Salento non ci si annoia mai: escursioni a cavallo tra palme da cera nella Valle de Cocora, trekking alle Cascate di Santa Rita, tour del caffè nelle fattorie, belvedere da cartolina come l\'Alto de la Cruz, tirolesa e rafting per gli avventurosi, e un paese pieno di caffè, arte e sorrisi. Un giorno o una settimana? Ti preparo il piano perfetto!'
+    },
+    followUp: ['¿Cabalgatas?', '¿Cascadas?', '¿Coffee tours?', '¿Qué hago hoy?'],
+    relatedPlaces: [104, 15, 20]
+  },
+  // ═══════════════════════════════════════════════════════════
+  // RESTAURANTES / COMIDA GENERAL
+  // ═══════════════════════════════════════════════════════════
+  {
+    keywords: ['restaurante', 'restaurantes', 'dónde como', 'comida', 'comer', 'menú', 'almuerzo', 'cena', 'desayuno', 'vegano', 'vegetariano', 'opciones vegetarianas'],
+    category: 'gastronomia',
+    answer: {
+      es: 'En Salento comes como un rey: la trucha arcoíris es la reina indiscutible, pero también están el sancocho de gallina, las arepas de chócolo, el sudado montañero y los buñuelos con natilla. Hay restaurantes en la plaza principal, fondas de barrio con comida casera y los mesones de las fincas cafeteras con vista al valle. ¡Pregunta por el menú del día, sale buenísimo!',
+      en: 'In Salento you eat like royalty: rainbow trout is the undisputed queen, but there\'s also hen sancocho, chócolo arepas, mountain sudado and buñuelos with natilla. There are restaurants on the main square, neighborhood diners with home cooking and farm restaurants with valley views. Ask for the daily menu, it\'s great value!',
+      de: 'In Salento isst man wie ein König: Die Regenbogenforelle ist die unangefochtene Königin, aber es gibt auch Hähnchensancocho, Chócolo-Arepas, Bergsudado und Buñuelos mit Natilla. Es gibt Restaurants am Hauptplatz,Neighborhood-Lokale mit Hausmannskost und Bauernhof-Restaurants mit Talblick. Fragen Sie nach dem Tagesmenü, es lohnt sich!',
+      fr: 'À Salento, on mange comme un roi : la truite arc-en-ciel est la reine incontestée, mais il y a aussi le sancocho de poule, les arepas de chócolo, le sudado montañero et les buñuelos avec natilla. Il y a des restaurants sur la place principale, des gargotes de quartier à la cuisine maison et des restaurants de fermes avec vue sur la vallée. Demandez le menu du jour, c\'est très avantageux !',
+      pt: 'Em Salento você come como um rei: a truta arco-íris é a rainha incontestável, mas também tem sancocho de galinha, arepas de chócolo, sudado montanheiro e buñuelos com natilla. Há restaurantes na praça principal, fondas de bairro com comida caseira e restaurantes de fazendas com vista para o vale. Pergunte pelo cardápio do dia, vale muito a pena!',
+      it: 'A Salento si mangia come un re: la trota iridea è la regina indiscussa, ma ci sono anche il sancocho di gallina, le arepas di chócolo, il sudado montañero e i buñuelos con natilla. Ci sono ristoranti sulla piazza principale, trattorie di quartiere con cibo casalingo e ristoranti di fattoria con vista sulla valle. Chiedi il menù del giorno, conviene molto!'
+    },
+    followUp: ['¿Dónde como trucha?', '¿Comida típica?', '¿Desayuno?'],
+    relatedPlaces: [45, 21]
+  },
+  // ═══════════════════════════════════════════════════════════
+  // MUSEOS
+  // ═══════════════════════════════════════════════════════════
+  {
+    keywords: ['museo', 'museos'],
+    category: 'turismo',
+    answer: {
+      es: 'Si te gusta la cultura, Salento tiene sorpresas: el Museo de la Historia de Salento cuenta la historia del pueblo y del café, y en Armenia (a 45 min) está el famoso Museo del Oro Quimbaya con piezas precolombinas espectaculares. También hay galerías de arte y tiendas de artesanías por todo el centro. ¡La cultura cafetera se vive en cada rincón!',
+      en: 'If you love culture, Salento has surprises: the Salento History Museum tells the story of the town and coffee, and in Armenia (45 min away) there\'s the famous Quimbaya Gold Museum with spectacular pre-Columbian pieces. There are also art galleries and craft shops all over downtown. Coffee culture is lived in every corner!',
+      de: 'Wenn Sie Kultur mögen, hat Salento Überraschungen: Das Museum der Geschichte von Salento erzählt die Geschichte der Stadt und des Kaffees, und in Armenia (45 Min. entfernt) gibt es das berühmte Quimbaya-Goldmuseum mit spektakulären prähistorischen Stücken. Es gibt auch Kunstgalerien und Kunsthandwerksläden im ganzen Zentrum. Kaffeekultur erlebt man in jeder Ecke!',
+      fr: 'Si vous aimez la culture, Salento a des surprises : le Musée de l\'Histoire de Salento raconte l\'histoire de la ville et du café, et à Armenia (à 45 min) se trouve le célèbre Musée de l\'Or Quimbaya avec des pièces précolombiennes spectaculaires. Il y a aussi des galeries d\'art et des boutiques d\'artisanat dans tout le centre. La culture du café se vit à chaque coin !',
+      pt: 'Se você gosta de cultura, Salento tem surpresas: o Museu da História de Salento conta a história da cidade e do café, e em Armenia (a 45 min) está o famoso Museu do Ouro Quimbaya com peças pré-colombianas espetaculares. Também há galerias de arte e lojas de artesanato por todo o centro. A cultura do café se vive em cada canto!',
+      it: 'Se ami la cultura, Salento ha sorprese: il Museo della Storia di Salento racconta la storia della città e del caffè, e ad Armenia (a 45 min) c\'è il famoso Museo dell\'Oro Quimbaya con pezzi precolombiani spettacolari. Ci sono anche gallerie d\'arte e negozi di artigianato in tutto il centro. La cultura del caffè si vive in ogni angolo!'
+    },
+    followUp: ['¿Museo del Oro?', '¿Armenia?', '¿Arte local?'],
+    relatedPlaces: []
+  },
+  // ═══════════════════════════════════════════════════════════
+  // SALUDO / IDENTIDAD / UBICACIÓN GENERAL
+  // ═══════════════════════════════════════════════════════════
+  {
+    keywords: ['hola', 'buenas', 'buenos días', 'buenas tardes', 'buenas noches', 'gracias', 'quién eres', 'que eres', 'qué eres', 'cómo te llamas', 'qué sabes', 'háblame', 'háblame de', 'info', 'información'],
+    category: 'general',
+    answer: {
+      es: '¡Bienvenido a Salento, hermano! Soy Don Chucho, arriero quindiano y tu guía local. Este pueblo de montaña es una joya del Eje Cafetero: café de especialidad, el Valle de Cocora con sus palmas de cera, cascadas, calidez de gente paisa y paisajes que parecen pintados. ¿En qué te ayudo hoy: hospedaje, comida, tours o rutas?',
+      en: 'Welcome to Salento, friend! I\'m Don Chucho, a Quindío muleteer and your local guide. This mountain town is a jewel of the Coffee Axis: specialty coffee, the Valle de Cocora with its wax palms, waterfalls, warm paisa people and landscapes that look painted. How can I help today: lodging, food, tours or routes?',
+      de: 'Willkommen in Salento, Freund! Ich bin Don Chucho, ein Quindío-Lastträger und Ihr lokaler Führer. Diese Bergstadt ist ein Juwel der Kaffeeachse: Spezialitätenkaffee, das Valle de Cocora mit seinen Wachspalmen, Wasserfälle, herzliche Paisa-Menschen und Landschaften wie gemalt. Wobei kann ich heute helfen: Unterkunft, Essen, Touren oder Routen?',
+      fr: 'Bienvenue à Salento, ami ! Je suis Don Chucho, un muletier du Quindío et votre guide local. Cette ville de montagne est un joyau de l\'Axe du Café : café de spécialité, la Vallée de Cocora avec ses palmiers à cire, des cascades, des gens chaleureux et des paysages peints. Comment puis-je aider aujourd\'hui : hébergement, nourriture, tours ou itinéraires ?',
+      pt: 'Bem-vindo a Salento, amigo! Sou Don Chucho, um tropeiro do Quindío e seu guia local. Esta cidade de montanha é uma joia do Eixo Cafeeiro: café de especialidade, o Vale de Cocora com suas palmeiras de cera, cachoeiras, gente acolhedora e paisagens que parecem pintadas. Em que posso ajudar hoje: hospedagem, comida, tours ou rotas?',
+      it: 'Benvenuto a Salento, amico! Sono Don Chucho, un mulattiere del Quindío e la tua guida locale. Questa città di montagna è una gemma dell\'Asse del Caffè: caffè di specialità, la Valle de Cocora con le sue palme da cera, cascate, gente calorosa e paesaggi dipinti. Come posso aiutarti oggi: alloggio, cibo, tour o percorsi?'
+    },
+    followUp: ['¿Qué puedo hacer?', '¿Dónde como?', '¿Cómo llego?'],
+    relatedPlaces: []
+  },
+  {
+    keywords: ['dónde queda salento', 'salento queda', 'en qué departamento', 'qué es salento', 'pueblo salento', 'cuánto está de', 'a cuántos km'],
+    category: 'general',
+    answer: {
+      es: 'Salento es un pueblo del departamento del Quindío, en el corazón del Eje Cafetero colombiano. Queda a 45 minutos de Armenia (la capital), a 1 hora de Pereira y a unas 9-10 horas de Bogotá por carretera. Está a 1.895 metros de altura entre montañas verdes — de ahí su clima fresco y sus vistas increíbles.',
+      en: 'Salento is a town in the Quindío department, in the heart of Colombia\'s Coffee Axis. It\'s 45 minutes from Armenia (the capital), 1 hour from Pereira and about 9-10 hours from Bogotá by road. It sits at 1,895 meters among green mountains — hence its cool climate and incredible views.',
+      de: 'Salento ist eine Stadt im Departamento Quindío, im Herzen der kolumbianischen Kaffeeachse. Sie liegt 45 Minuten von Armenia (der Hauptstadt), 1 Stunde von Pereira und etwa 9-10 Stunden von Bogotá entfernt. Auf 1.895 Metern zwischen grünen Bergen — daher das kühle Klima und die unglaublichen Ausblicke.',
+      fr: 'Salento est une ville du département du Quindío, au cœur de l\'Axe du Café colombien. Elle se trouve à 45 minutes d\'Armenia (la capitale), 1 heure de Pereira et environ 9-10 heures de Bogotá par la route. À 1 895 mètres d\'altitude entre montagnes vertes — d\'où son climat frais et ses vues incroyables.',
+      pt: 'Salento é uma cidade do departamento do Quindío, no coração do Eixo Cafeeiro colombiano. Fica a 45 minutos de Armenia (a capital), 1 hora de Pereira e cerca de 9-10 horas de Bogotá de carro. Está a 1.895 metros de altitude entre montanhas verdes — daí seu clima fresco e suas vistas incríveis.',
+      it: 'Salento è una città del dipartimento del Quindío, nel cuore dell\'Asse del Caffè colombiano. Si trova a 45 minuti da Armenia (la capitale), 1 ora da Pereira e circa 9-10 ore da Bogotá in auto. È a 1.895 metri tra montagne verdi — da qui il clima fresco e le viste incredibili.'
+    },
+    followUp: ['¿Cómo llego?', '¿Qué es el Quindío?', '¿Clima?'],
+    relatedPlaces: []
   }
 ]
 
@@ -877,7 +993,10 @@ class DonChuchoKnowledge {
       const queryWords = normalizedQuery.split(/\s+/)
 
       for (const keyword of item.keywords) {
-        const normalizedKeyword = keyword.toLowerCase()
+        const normalizedKeyword = keyword
+          .toLowerCase()
+          .normalize('NFD')
+          .replace(/[\u0300-\u036f]/g, '')
         if (normalizedQuery.includes(normalizedKeyword)) {
           score += 12
           if (normalizedQuery === normalizedKeyword) {
@@ -885,11 +1004,10 @@ class DonChuchoKnowledge {
           }
         }
         for (const word of queryWords) {
-          if (normalizedKeyword.includes(word)) {
+          if (normalizedKeyword === word) {
+            score += 9
+          } else if (word.length >= 4 && normalizedKeyword.includes(word)) {
             score += 3
-            if (normalizedKeyword === word) {
-              score += 6
-            }
           }
         }
       }

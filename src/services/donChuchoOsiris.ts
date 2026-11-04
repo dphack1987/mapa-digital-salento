@@ -142,8 +142,9 @@ export const OsirisEnhancedResponses = {
 /** Detecta si una pregunta es sobre el clima */
 export function shouldUseOsirisData(query: string): boolean {
   const keywords = [
-    'clima', 'weather', 'lluvia', 'tormenta', 'temperatura',
-    'pronóstico', 'pronostico', 'forecast', 'weather forecast'
+    'clima', 'weather', 'lluvia', 'llover', 'lloviendo', 'tormenta',
+    'temperatura', 'pronóstico', 'pronostico', 'forecast', 'weather forecast',
+    'hace calor', 'hace frío', 'hace frio'
   ];
   const lowerQuery = query.toLowerCase();
   return keywords.some(keyword => lowerQuery.includes(keyword));
@@ -155,7 +156,7 @@ export async function getOsirisResponse(query: string, language: string = 'es'):
 
   const lowerQuery = query.toLowerCase();
 
-  if (lowerQuery.includes('clima') || lowerQuery.includes('weather') || lowerQuery.includes('lluvia') || lowerQuery.includes('tormenta') || lowerQuery.includes('temperatura') || lowerQuery.includes('pronóstico') || lowerQuery.includes('pronostico') || lowerQuery.includes('forecast')) {
+  if (lowerQuery.includes('clima') || lowerQuery.includes('weather') || lowerQuery.includes('lluvia') || lowerQuery.includes('llover') || lowerQuery.includes('lloviendo') || lowerQuery.includes('tormenta') || lowerQuery.includes('temperatura') || lowerQuery.includes('pronóstico') || lowerQuery.includes('pronostico') || lowerQuery.includes('forecast') || lowerQuery.includes('hace calor') || lowerQuery.includes('hace frío') || lowerQuery.includes('hace frio')) {
     return await OsirisEnhancedResponses.clima(language);
   }
 

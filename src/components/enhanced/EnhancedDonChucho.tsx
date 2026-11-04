@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { pythonBackendService } from '../../services/pythonBackend'
 import { getOsirisResponse } from '../../services/donChuchoOsiris'
-import { searchLocalKnowledge } from '../../services/donChuchoKnowledge'
+import { donChuchoKnowledge } from '../../services/donChuchoKnowledge'
 import type { Language } from '../../types'
 
 const SPEECH_LOCALES: Record<Language, string> = {
@@ -173,7 +173,7 @@ function EnhancedDonChucho({ language, t, onFallback, onClose, existingComponent
       }
 
       // 2. Segundo, usar base de conocimiento local como fallback principal
-      const localKnowledge = searchLocalKnowledge(userMessage, knowledgeLanguage)
+      const localKnowledge = donChuchoKnowledge.findAnswer(userMessage, knowledgeLanguage)
       if (localKnowledge) {
         const localAnswer = language === 'zh'
           ? localKnowledge.answer.zh
