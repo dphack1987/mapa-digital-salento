@@ -3,6 +3,14 @@
 
 import React, { useState, useEffect, useRef, useCallback } from 'react'
 import { Mic, MicOff, Volume2 } from 'lucide-react'
+import type { Language } from '../types'
+
+// Locales BCP-47 recomendados para reconocimiento y síntesis de voz,
+// uno por cada idioma soportado por la aplicación.
+export const SPEECH_LOCALES: Record<Language, string> = {
+  es: 'es-CO', en: 'en-US', fr: 'fr-FR', de: 'de-DE', pt: 'pt-BR', it: 'it-IT', zh: 'zh-CN',
+  ja: 'ja-JP', ko: 'ko-KR', th: 'th-TH', vi: 'vi-VN', id: 'id-ID', ms: 'ms-MY', 'en-gb': 'en-GB'
+}
 
 interface VoiceInputProps {
   onTranscript: (text: string) => void
@@ -161,10 +169,17 @@ export function useSpeechSynthesis() {
     utterance.pitch = 1.0
     utterance.volume = 1.0
     
-    // Buscar voz en español de Colombia
-    const colombianVoice = voices.find(v => v.lang === 'es-CO') ||
-                          voices.find(v => v.lang.startsWith('es'))
-    if (colombianVoice) utterance.voice = colombianVoice
+    // Seleccionar la voz que mejor coincida con el idioma solicitado.
+    // Prioridad: coincidencia exacta (ej. es-CO) → mismo locale base (ej. es)
+    // → cualquier variante de ese idioma (ej. es-MX). Si no hay, se omite
+    // y el navegador usa su voz por defecto para `utterance.lang`.
+    const requested = (lang || 'es-CO').toLowerCase()
+    const base = requested.split('-')[0]
+    const matchedVoice =
+      voices.find(v => v.lang.toLowerCase() === requested) ||
+      voices.find(v => v.lang.toLowerCase().replace('_', '-') === requested) ||
+      voices.find(v => v.lang.toLowerCase().split('-')[0] === base)
+    if (matchedVoice) utterance.voice = matchedVoice
     
     utterance.onstart = () => setIsSpeaking(true)
     utterance.onend = () => setIsSpeaking(false)

@@ -1,4 +1,4 @@
-import { useMemo, useState, useEffect, useCallback, lazy, Suspense } from 'react'
+import { useMemo, useState, useEffect, useCallback, useRef, lazy, Suspense } from 'react'
 import { Helmet } from 'react-helmet-async'
 import NotFound from './pages/NotFound'
 import { CircleMarker, MapContainer, Popup, TileLayer, useMap } from 'react-leaflet'
@@ -46,7 +46,9 @@ import {
   Share2,
   Link,
   Building2,
-  ChevronRight
+  ChevronRight,
+  Volume2,
+  VolumeX
 } from 'lucide-react'
 import { Category, Language, Place, MapMarker, Hotel as HotelType, LanguageConst, Currency } from './types'
 import dataService from './services/dataService'
@@ -54,7 +56,7 @@ import { useTravelContext, getContextualMessage } from './hooks/useTravelContext
 // Integración de Don Chucho IA mejorado
 import EnhancedDonChucho from './components/enhanced/EnhancedDonChucho'
 import { GenerativeUI, detectIntent, UserIntent } from './components/GenerativeUI'
-import { VoiceInput, useSpeechSynthesis } from './components/VoiceInput'
+import { VoiceInput, useSpeechSynthesis, SPEECH_LOCALES } from './components/VoiceInput'
 import { useDetailLevel, adaptDetail } from './components/LODControl'
 import { generateAgenticResponse, executeAction, AgentAction } from './services/agenticDonChucho'
 
@@ -915,8 +917,10 @@ function App() {
     const byNameRest = withPautasAssets.filter(p => !wanted.includes(p.name))
     const order = [...byName, ...byNameRest]
     const rest = places.filter(p => p.isPautante && !withPautasAssets.includes(p))
-    // Enriquecer: mostrar TODOS los pautantes (los de /pautas/ primero)
-    return [...order, ...rest]
+    // Home: mostrar un top curado (los de /pautas/ primero) para no saturar.
+    // El resto de pautantes se descubre en el Directorio local con el filtro "Verificados".
+    const HOME_PAUTANTES_LIMIT = 8
+    return [...order, ...rest].slice(0, HOME_PAUTANTES_LIMIT)
   }, [places])
 
   const todayPlans = useMemo(() => {
@@ -1781,6 +1785,11 @@ function App() {
                 )
               })}
             </div>
+            <div className="directory-load-more">
+              <button type="button" className="load-more-button ghost" onClick={() => { setActiveCategory('Todo'); setSearch(''); setQuickFilter('pautante'); scrollToSection('pedidos') }}>
+                Ver todos los negocios verificados <ArrowRight size={16} />
+              </button>
+            </div>
           </div>
         </section>
 
@@ -2253,13 +2262,15 @@ function DonChucho({ language, t, places, weather, todayEvents, open: openProp, 
   const [currentIntent, setCurrentIntent] = useState<UserIntent>('general-info')
   const [pendingActions, setPendingActions] = useState<AgentAction[]>([])
   const isEnglish = language === 'en'
-  const kbLang = language as 'es' | 'en' | 'de' | 'fr' | 'pt' | 'it'
+  const kbLang: Language = language
   
   // Nuevos hooks para UX avanzado
   const travelContext = useTravelContext()
   const { speak, stop: stopSpeaking, isSpeaking } = useSpeechSynthesis()
   const [detailLevel] = useDetailLevel()
   const [showGenerativeUI, setShowGenerativeUI] = useState(false)
+  const [speechOn, setSpeechOn] = useState(true)
+  const messagesRef = useRef<HTMLDivElement | null>(null)
 
   const quickActionsLabels: Record<string, { label: string; emoji: string; category: string }[]> = {
     es: [
@@ -2319,6 +2330,21 @@ function DonChucho({ language, t, places, weather, todayEvents, open: openProp, 
       setAnswer(contextualGreeting)
     }
   }, [weather, todayEvents, isEnglish, travelContext])
+
+  // Lectura en voz alta de la última respuesta del asistente (texto → voz).
+  // Se controla con `speechOn` y respeta el idioma activo de la interfaz.
+  // El ref evita repetir la lectura cuando cambian dependencias no ligadas
+  // al contenido (p. ej. cuando el navegador termina de cargar las voces).
+  const spokenCountRef = useRef(0)
+  useEffect(() => {
+    if (!speechOn) return
+    if (conversationHistory.length <= spokenCountRef.current) return
+    const last = conversationHistory[conversationHistory.length - 1]
+    spokenCountRef.current = conversationHistory.length
+    if (last && last.role === 'assistant' && last.text.trim()) {
+      speak(last.text, SPEECH_LOCALES[language])
+    }
+  }, [conversationHistory, speechOn, language, speak])
 
   function decorateDonChuchoReply(text: string, baseReply: string): string {
     const query = text.toLowerCase()
@@ -2437,6 +2463,7 @@ function DonChucho({ language, t, places, weather, todayEvents, open: openProp, 
         setPendingActions(agenticResponse.actions)
         setSuggestions(agenticResponse.followUp || [])
         setIsTyping(false)
+        setQuestion('')
         setConversationHistory(prev => [...prev, { role: 'assistant', text: naturalAnswer }])
         return
       }
@@ -2451,6 +2478,7 @@ function DonChucho({ language, t, places, weather, todayEvents, open: openProp, 
           setAnswer(adaptedAnswer)
           setSuggestions(items.slice(0, 3).map(i => i.keywords[0]))
           setIsTyping(false)
+          setQuestion('')
           setConversationHistory(prev => [...prev, { role: 'assistant', text: adaptedAnswer }])
           return
         }
@@ -2462,6 +2490,7 @@ function DonChucho({ language, t, places, weather, todayEvents, open: openProp, 
         setAnswer(weatherAnswer)
         setSuggestions([t('donChucho.sugValle', '¿Para el valle?'), t('donChucho.sugClothes', '¿Qué ropa llevar?'), t('donChucho.sugBestTime', '¿Mejor hora?')])
         setIsTyping(false)
+        setQuestion('')
         setConversationHistory(prev => [...prev, { role: 'assistant', text: weatherAnswer }])
         return
       }
@@ -2473,6 +2502,7 @@ function DonChucho({ language, t, places, weather, todayEvents, open: openProp, 
         setAnswer(eventAnswer)
         setSuggestions([t('donChucho.sugDetails', '¿Más detalles?'), t('donChucho.sugWhere', '¿Dónde son?'), t('donChucho.sugTimes', '¿Horarios?')])
         setIsTyping(false)
+        setQuestion('')
         setConversationHistory(prev => [...prev, { role: 'assistant', text: eventAnswer }])
         return
       }
@@ -2515,6 +2545,7 @@ function DonChucho({ language, t, places, weather, todayEvents, open: openProp, 
           }
         }
         setIsTyping(false)
+        setQuestion('')
         return
       }
 
@@ -2525,6 +2556,7 @@ function DonChucho({ language, t, places, weather, todayEvents, open: openProp, 
       setAnswer(fallbackAnswer)
       setSuggestions(['Gastronomía', 'Hoteles', 'Coffee tours', 'Transporte'])
       setIsTyping(false)
+      setQuestion('')
       setConversationHistory(prev => [...prev, { role: 'assistant', text: fallbackAnswer }])
     }, 500)
   }
@@ -2547,12 +2579,25 @@ function DonChucho({ language, t, places, weather, todayEvents, open: openProp, 
               <strong>{t('donChucho.title', 'Don Chucho')}</strong>
               <span>{t('donChucho.subtitle', 'Tu guía local en Salento')}</span>
             </div>
+            <button
+              className="chucho-close"
+              onClick={() => {
+                setSpeechOn(prev => {
+                  if (prev) stopSpeaking()
+                  return !prev
+                })
+              }}
+              aria-label={speechOn ? t('donChucho.mute', 'Silenciar voz') : t('donChucho.unmute', 'Activar voz')}
+              aria-pressed={speechOn}
+            >
+              {speechOn ? <Volume2 size={18} /> : <VolumeX size={18} />}
+            </button>
             <button className="chucho-close" onClick={() => setOpen(false)} aria-label={t('donChucho.close', 'Cerrar asistente')}>
               <X size={18} />
             </button>
           </div>
 
-          <div className="chucho-messages">
+          <div className="chucho-messages" ref={messagesRef} aria-live="polite" role="log">
             {conversationHistory.length === 0 && showQuickActions && (
               <div className="chucho-quick-actions">
                 <p className="chucho-quick-title">{isEnglish ? 'What interests you?' : '¿Qué te interesa?'}</p>
@@ -2634,7 +2679,7 @@ function DonChucho({ language, t, places, weather, todayEvents, open: openProp, 
           )}
 
           <form className="chucho-input-form" onSubmit={(event) => { event.preventDefault(); if (question.trim()) { setConversationHistory(prev => [...prev, { role: 'user', text: question }]); ask(question, true); setQuestion('') } }}>
-            <VoiceInput onTranscript={(text) => { setQuestion(text); if (text.trim()) { setConversationHistory(prev => [...prev, { role: 'user', text }]); ask(text, true) } }} language={language === 'es' ? 'es-CO' : language === 'en' ? 'en-US' : `${language}-CO`} />
+            <VoiceInput onTranscript={(text) => { setQuestion(text); if (text.trim()) { setConversationHistory(prev => [...prev, { role: 'user', text }]); ask(text, true) } }} language={SPEECH_LOCALES[language]} />
             <input value={question} onChange={(event) => setQuestion(event.target.value)} placeholder={t('donChucho.placeholder', 'Escribe tu pregunta...')} />
             <button aria-label="Enviar pregunta"><Send size={15} /></button>
           </form>
@@ -2896,7 +2941,7 @@ function Cart({ count, currency, onClose, onAdd, hotels }: { count: number; curr
     }
   }
 
-  return <div className="cart-overlay" onClick={onClose}><aside className="cart-drawer" onClick={(event) => event.stopPropagation()}>{submitted ? <div className="order-success"><div className="success-mark"><Bike size={28} /></div><p className="eyebrow">Pedido recibido</p><h2>Ya vamos en camino.</h2><p>{isOffline ? 'Pedido guardado en modo offline. Se sincronizará cuando haya conexión.' : 'Se abrió WhatsApp con el pedido listo para enviar al comercio.'}</p>{isOffline && syncStatus.pending > 0 && <p className="cart-footnote">{syncStatus.pending} pedidos pendientes de sincronización</p>}<strong className="order-code">PEDIDO #SAL-024</strong><button className="checkout-button" onClick={onClose}>Volver a explorar <ArrowRight size={18} /></button></div> : <><div className="drawer-head"><div><p className="eyebrow">Tu selección</p><h2>{checkout ? '¿Dónde te lo llevamos?' : 'Mi pedido'}</h2></div><button className="icon-button" onClick={onClose} aria-label="Cerrar pedido"><X size={20} /></button></div>{isOffline && <div className="offline-warning"><span>⚠️</span>Modo offline activo. El pedido se guardará y sincronizará cuando haya conexión.</div>}{checkout ? <form className="checkout-form" onSubmit={submitOrder}><label>Hotel aliado<select name="hotel" required defaultValue=""><option value="" disabled>Selecciona tu hospedaje</option>{hotels.map(hotel => <option key={hotel.id} value={hotel.name}>{hotel.name}</option>)}</select></label><label>Habitación<input name="room" required placeholder="Ej. 204" /></label><label>Celular de contacto<input name="phone" required type="tel" placeholder="300 000 0000" /></label><label>Indicaciones para llegar<textarea name="directions" placeholder="Recepción, cabaña o punto de encuentro" rows={3} /></label><div className="delivery-note"><Bike size={19} /><span><strong>Pago al recibir</strong><br />El domicilio se confirma contigo antes de salir.</span></div><button className="checkout-button" type="submit">{isOffline ? 'Guardar pedido (offline)' : 'Enviar pedido por WhatsApp'} <MessageSquare size={18} /></button><button className="back-button" type="button" onClick={() => setCheckout(false)}>Volver al resumen</button></form> : <><div className="cart-place"><div className="mini-thumb terracotta"><Coffee size={24} /></div><div><strong>Brunch de la Plaza</strong><span>Arepa de chocolo · Café filtrado</span></div><div className="quantity"><button aria-label="Restar"><Minus size={13} /></button><span>1</span><button onClick={onAdd} aria-label="Sumar"><Plus size={13} /></button></div></div><div className="cart-place"><div className="mini-thumb sage"><ShoppingBasket size={24} /></div><div><strong>Canasto Quindiano</strong><span>Selección de café local</span></div><div className="quantity"><button aria-label="Restar"><Minus size={13} /></button><span>1</span><button onClick={onAdd} aria-label="Sumar"><Plus size={13} /></button></div></div><div className="delivery-note"><Bike size={19} /><span><strong>Entrega en tu hospedaje</strong><br />Calcularemos la tarifa al confirmar tu dirección.</span></div><div className="cart-total"><span>Total estimado</span><strong>{formatPrice(48000, currency)}</strong></div><button className="checkout-button" onClick={() => setCheckout(true)}>Continuar con el pedido <ArrowRight size={18} /></button><p className="cart-footnote">{count} productos seleccionados · Pago al recibir</p></>}</>}</aside></div>
+  return <div className="cart-overlay" onClick={onClose}><aside className="cart-drawer" onClick={(event) => event.stopPropagation()}>{submitted ? <div className="order-success"><div className="success-mark"><Bike size={28} /></div><p className="eyebrow">Pedido recibido</p><h2>Ya vamos en camino.</h2><p>{isOffline ? 'Pedido guardado en modo offline. Se sincronizará cuando haya conexión.' : 'Se abrió WhatsApp con el pedido listo para enviar al comercio.'}</p>{isOffline && syncStatus.pending > 0 && <p className="cart-footnote">{syncStatus.pending} pedidos pendientes de sincronización</p>}<strong className="order-code">PEDIDO #SAL-024</strong><button className="checkout-button" onClick={onClose}>Volver a explorar <ArrowRight size={18} /></button></div> : <><div className="drawer-head"><div><p className="eyebrow">Tu selección</p><h2>{checkout ? '¿Dónde te lo llevamos?' : 'Mi pedido'}</h2></div><button className="icon-button" onClick={onClose} aria-label="Cerrar pedido"><X size={20} /></button></div>{isOffline && <div className="offline-warning"><span>⚠️</span>Modo offline activo. El pedido se guardará y sincronizará cuando haya conexión.</div>}{checkout ? <form className="checkout-form" onSubmit={submitOrder}><label>Hotel aliado<select name="hotel" required defaultValue=""><option value="" disabled>Selecciona tu hospedaje</option>{hotels.map(hotel => <option key={hotel.id} value={hotel.name}>{hotel.name}</option>)}</select></label><label>Habitación<input name="room" required placeholder="Ej. 204" /></label><label>Celular de contacto<input name="phone" required type="tel" placeholder="300 000 0000" /></label><label>Indicaciones para llegar<textarea name="directions" placeholder="Recepción, cabaña o punto de encuentro" rows={3} /></label><div className="delivery-note"><Bike size={19} /><span><strong>Pago al recibir</strong><br />El domicilio se confirma contigo antes de salir.</span></div><button className="checkout-button" type="submit">{isOffline ? 'Guardar pedido (offline)' : 'Enviar pedido por WhatsApp'} <MessageSquare size={18} /></button><button className="back-button" type="button" onClick={() => setCheckout(false)}>Volver al resumen</button></form> : <><div className="cart-place"><div className="mini-thumb terracotta"><Coffee size={24} /></div><div><strong>Brunch de Salento</strong><span>Arepa de chocolo · Café filtrado</span></div><div className="quantity"><button aria-label="Restar"><Minus size={13} /></button><span>1</span><button onClick={onAdd} aria-label="Sumar"><Plus size={13} /></button></div></div><div className="cart-place"><div className="mini-thumb sage"><ShoppingBasket size={24} /></div><div><strong>Canasto Quindiano</strong><span>Selección de café local</span></div><div className="quantity"><button aria-label="Restar"><Minus size={13} /></button><span>1</span><button onClick={onAdd} aria-label="Sumar"><Plus size={13} /></button></div></div><div className="delivery-note"><Bike size={19} /><span><strong>Entrega en tu hospedaje</strong><br />Calcularemos la tarifa al confirmar tu dirección.</span></div><div className="cart-total"><span>Total estimado</span><strong>{formatPrice(48000, currency)}</strong></div><button className="checkout-button" onClick={() => setCheckout(true)}>Continuar con el pedido <ArrowRight size={18} /></button><p className="cart-footnote">{count} productos seleccionados · Pago al recibir</p></>}</>}</aside></div>
 }
 
 

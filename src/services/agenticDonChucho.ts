@@ -30,35 +30,36 @@ export function parseActionIntent(text: string, language: Language): {
   
   // Intenciones de navegación
   const navigatePatterns = [
-    /como llego|cómo llego|how do i get|directions|ir a|llevame|llévame/,
-    /direccion|dirección|ubicación|dónde queda|where is|location/,
-    /mapa|map|ruta|route/
+    /como llego|cómo llego|como llegar|cómo llegar|how do i get|directions|ir a|llevame|llévame/,
+    /wie komme ich|anfahrt|bring mich|comment aller|comment se rendre|itinéraire|emmen|come arriv|indicazioni|portami|como chegar|onde fica|levar-me/,
+    /direccion|dirección|ubicación|dónde queda|where is|location|wo ist|où est|dove si trova/,
+    /mapa|map|ruta|route|karte|carte|mappa/
   ]
   
   // Intenciones de contacto
   const contactPatterns = [
-    /llamar|call|teléfono|phone|celular/,
-    /whatsapp|escribir|write|mensaje|message/,
-    /contacto|contact|reservar|book|reserva/
+    /llamar|call|teléfono|phone|celular|anrufen|telefon|handy|appeler|téléphone|chiamare|telefono|ligar/,
+    /whatsapp|escribir|write|mensaje|message|nachricht|schreiben|écrire|messaggio|scrivere|mensagem/,
+    /contacto|contact|reservar|book|reserva|kontakt|contatto|contato/
   ]
   
   // Intenciones de pedido
   const orderPatterns = [
-    /pedir|ordenar|order|domicilio|delivery/,
+    /pedir|ordenar|order|domicilio|delivery|bestellen|bestellung|lieferung|commander|livraison|ordinare|consegna|entrega/,
     /enviar|send|traer|bring/
   ]
   
   // Intenciones de compartir
   const sharePatterns = [
-    /compartir|share|enviar a|send to/,
-    /guardar|save|favorito|favorite|favoritos/
+    /compartir|share|enviar a|send to|teilen|partager|condividi|compartilhar/,
+    /guardar|save|favorito|favorite|favoritos|speichern|favorit|enregistrer|favori|salva|preferito|salvar/
   ]
   
   // Intenciones de tours
   const tourPatterns = [
-    /reservar tour|book tour|agendar|schedule/,
-    /tour del café|coffee tour|cabalgata|horseback/,
-    /experiencia|experience|actividad|activity/
+    /reservar tour|book tour|agendar|schedule|tour buchen|réserver un tour|prenota tour|reservar um tour/,
+    /tour del café|coffee tour|cabalgata|horseback|kaffeetour|ausritt|tour du café|balade à cheval|tour del caffè|cavalcata|passeio a cavalo/,
+    /experiencia|experience|actividad|activity|erlebnis|expérience|esperienza|experiência/
   ]
   
   for (const pattern of navigatePatterns) {
@@ -92,7 +93,7 @@ export function generateActions(
   language: Language
 ): AgentAction[] {
   const actions: AgentAction[] = []
-  const isEn = language === 'en'
+  const isEn = language === 'en' || language === 'en-gb'
   
   switch (intent) {
     case 'navigate':
@@ -233,7 +234,6 @@ export function generateAgenticResponse(
   places: Place[],
   language: Language
 ): AgentResponse {
-  const isEn = language === 'en'
   const lower = text.toLowerCase()
   const { wantsAction, actionType, confidence } = parseActionIntent(text, language)
   
@@ -248,6 +248,97 @@ export function generateAgenticResponse(
   
   const actions = generateActions(actionType, places, mentionedPlace || null, language)
   
+  // Textos localizados para los 6 idiomas con cobertura humana.
+  // El resto de idiomas cae al idioma base (español) según la política del proyecto.
+  interface AgentPhrases {
+    navigatePlace: (n: string) => string
+    navigateMap: string
+    followNavigate: string
+    contactPlace: (n: string) => string
+    contactAsk: string
+    orderPlace: (n: string) => string
+    orderAsk: string
+    sharePlace: (n: string) => string
+    tourPlace: (n: string) => string
+    tourAsk: string
+  }
+  const phrasesByLang: Partial<Record<Language, AgentPhrases>> = {
+    es: {
+      navigatePlace: (n) => `Abriendo ruta a ${n}...`,
+      navigateMap: 'Abriendo mapa de Salento...',
+      followNavigate: '¿Necesitas otras instrucciones?',
+      contactPlace: (n) => `Conectándote con ${n}...`,
+      contactAsk: '¿Con cuál lugar quieres contactar?',
+      orderPlace: (n) => `Abriendo pedido con ${n}...`,
+      orderAsk: '¿De cuál restaurante quieres pedir?',
+      sharePlace: (n) => `Compartiendo ${n}...`,
+      tourPlace: (n) => `Abriendo reserva de tour en ${n}...`,
+      tourAsk: '¿Qué tour te interesa?'
+    },
+    en: {
+      navigatePlace: (n) => `Opening directions to ${n}...`,
+      navigateMap: 'Opening map of Salento...',
+      followNavigate: 'Need other directions?',
+      contactPlace: (n) => `Connecting you with ${n}...`,
+      contactAsk: 'Which place do you want to contact?',
+      orderPlace: (n) => `Opening order with ${n}...`,
+      orderAsk: 'Which restaurant do you want to order from?',
+      sharePlace: (n) => `Sharing ${n}...`,
+      tourPlace: (n) => `Opening tour reservation at ${n}...`,
+      tourAsk: 'Which tour interests you?'
+    },
+    de: {
+      navigatePlace: (n) => `Route nach ${n} wird geöffnet...`,
+      navigateMap: 'Karte von Salento wird geöffnet...',
+      followNavigate: 'Brauchst du weitere Wegbeschreibungen?',
+      contactPlace: (n) => `Verbindung mit ${n} wird hergestellt...`,
+      contactAsk: 'Welchen Ort möchtest du kontaktieren?',
+      orderPlace: (n) => `Bestellung bei ${n} wird geöffnet...`,
+      orderAsk: 'Bei welchem Restaurant möchtest du bestellen?',
+      sharePlace: (n) => `${n} wird geteilt...`,
+      tourPlace: (n) => `Tour-Buchung bei ${n} wird geöffnet...`,
+      tourAsk: 'Welche Tour interessiert dich?'
+    },
+    fr: {
+      navigatePlace: (n) => `Ouverture de l'itinéraire vers ${n}...`,
+      navigateMap: 'Ouverture de la carte de Salento...',
+      followNavigate: 'Besoin d\'autres indications ?',
+      contactPlace: (n) => `Mise en relation avec ${n}...`,
+      contactAsk: 'Quel lieu voulez-vous contacter ?',
+      orderPlace: (n) => `Ouverture de la commande avec ${n}...`,
+      orderAsk: 'De quel restaurant voulez-vous commander ?',
+      sharePlace: (n) => `Partage de ${n}...`,
+      tourPlace: (n) => `Ouverture de la réservation de tour à ${n}...`,
+      tourAsk: 'Quel tour vous intéresse ?'
+    },
+    pt: {
+      navigatePlace: (n) => `Abrindo rota para ${n}...`,
+      navigateMap: 'Abrindo mapa de Salento...',
+      followNavigate: 'Precisa de outras instruções?',
+      contactPlace: (n) => `Conectando você com ${n}...`,
+      contactAsk: 'Com qual lugar você quer falar?',
+      orderPlace: (n) => `Abrindo pedido com ${n}...`,
+      orderAsk: 'De qual restaurante você quer pedir?',
+      sharePlace: (n) => `Compartilhando ${n}...`,
+      tourPlace: (n) => `Abrindo reserva de tour em ${n}...`,
+      tourAsk: 'Qual tour te interessa?'
+    },
+    it: {
+      navigatePlace: (n) => `Apertura del percorso verso ${n}...`,
+      navigateMap: 'Apertura della mappa di Salento...',
+      followNavigate: 'Ti servono altre indicazioni?',
+      contactPlace: (n) => `Ti metto in contatto con ${n}...`,
+      contactAsk: 'Quale luogo vuoi contattare?',
+      orderPlace: (n) => `Apertura dell\'ordine con ${n}...`,
+      orderAsk: 'Da quale ristorante vuoi ordinare?',
+      sharePlace: (n) => `Condivisione di ${n}...`,
+      tourPlace: (n) => `Apertura della prenotazione del tour presso ${n}...`,
+      tourAsk: 'Quale tour ti interessa?'
+    }
+  }
+  // `en-gb` reutiliza los textos en inglés; el resto sin cobertura cae al base (español).
+  const p = phrasesByLang[language] || (language === 'en-gb' ? phrasesByLang.en! : phrasesByLang.es!)
+  
   // Generar texto de respuesta
   let responseText = ''
   const followUp: string[] = []
@@ -255,33 +346,33 @@ export function generateAgenticResponse(
   switch (actionType) {
     case 'navigate':
       responseText = mentionedPlace
-        ? (isEn ? `Opening directions to ${mentionedPlace.name}...` : `Abriendo ruta a ${mentionedPlace.name}...`)
-        : (isEn ? 'Opening map of Salento...' : 'Abriendo mapa de Salento...')
-      followUp.push(isEn ? 'Need other directions?' : '¿Necesitas otras instrucciones?')
+        ? p.navigatePlace(mentionedPlace.name)
+        : p.navigateMap
+      followUp.push(p.followNavigate)
       break
       
     case 'contact':
       responseText = mentionedPlace
-        ? (isEn ? `Connecting you with ${mentionedPlace.name}...` : `Conectándote con ${mentionedPlace.name}...`)
-        : (isEn ? 'Which place do you want to contact?' : '¿Con cuál lugar quieres contactar?')
+        ? p.contactPlace(mentionedPlace.name)
+        : p.contactAsk
       break
       
     case 'order':
       responseText = mentionedPlace
-        ? (isEn ? `Opening order with ${mentionedPlace.name}...` : `Abriendo pedido con ${mentionedPlace.name}...`)
-        : (isEn ? 'Which restaurant do you want to order from?' : '¿De cuál restaurante quieres pedir?')
+        ? p.orderPlace(mentionedPlace.name)
+        : p.orderAsk
       break
       
     case 'share':
       responseText = mentionedPlace
-        ? (isEn ? `Sharing ${mentionedPlace.name}...` : `Compartiendo ${mentionedPlace.name}...`)
+        ? p.sharePlace(mentionedPlace.name)
         : ''
       break
       
     case 'tour':
       responseText = mentionedPlace
-        ? (isEn ? `Opening tour reservation at ${mentionedPlace.name}...` : `Abriendo reserva de tour en ${mentionedPlace.name}...`)
-        : (isEn ? 'Which tour interests you?' : '¿Qué tour te interesa?')
+        ? p.tourPlace(mentionedPlace.name)
+        : p.tourAsk
       break
   }
   

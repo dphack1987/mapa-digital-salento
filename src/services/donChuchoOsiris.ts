@@ -10,6 +10,21 @@ import osirisTourismEngine from './osirisTourismEngine';
 import tourismPredictor from './tourismPredictor';
 
 /**
+ * Mensajes de error localizados (idiomas con cobertura humana).
+ * Locales sin traducción caen al español base.
+ */
+const OSIRIS_ERROR_MESSAGES: Record<string, string> = {
+  es: 'No pude obtener esos datos en este momento. Por favor intenta más tarde.',
+  en: 'I could not fetch that data right now. Please try again later.',
+  de: 'Ich konnte diese Daten gerade nicht abrufen. Bitte versuchen Sie es später erneut.',
+  fr: 'Je n\'ai pas pu récupérer ces données pour le moment. Veuillez réessayer plus tard.',
+  pt: 'Não consegui obter esses dados agora. Por favor, tente novamente mais tarde.',
+  it: 'Non ho potuto recuperare questi dati al momento. Riprova più tardi.'
+};
+
+const osirisError = (language: string): string => OSIRIS_ERROR_MESSAGES[language] || OSIRIS_ERROR_MESSAGES.es;
+
+/**
  * Respuestas de Don Chucho potenciadas con datos de OSIRIS
  */
 export const OsirisEnhancedResponses = {
@@ -45,7 +60,7 @@ export const OsirisEnhancedResponses = {
       return responses[language as keyof typeof responses] || responses.es;
     } catch (error) {
       console.error('Error fetching earthquake data for Don Chucho:', error);
-      return "No pude obtener datos sísmicos en este momento. Por favor intenta más tarde.";
+      return osirisError(language);
     }
   },
 
@@ -81,7 +96,7 @@ export const OsirisEnhancedResponses = {
       return responses[language as keyof typeof responses] || responses.es;
     } catch (error) {
       console.error('Error fetching weather data for Don Chucho:', error);
-      return "No pude obtener datos climáticos en este momento. Por favor intenta más tarde.";
+      return osirisError(language);
     }
   },
 
@@ -143,7 +158,7 @@ export const OsirisEnhancedResponses = {
       return responses[language as keyof typeof responses] || responses.es;
     } catch (error) {
       console.error('Error fetching offline data for Don Chucho:', error);
-      return "No hay datos cacheados disponibles.";
+      return osirisError(language);
     }
   }
 };
@@ -212,13 +227,17 @@ export const TourismEnhancedResponses = {
       
       const responses = {
         es: `🎯 Basado en las condiciones actuales:\n\n✅ Recomendado: ${recommended.join(', ') || 'Todas las actividades normales'}\n${cautious.length > 0 ? `⚠️ Con precaución: ${cautious.join(', ')}` : ''}\n${notRecommended.length > 0 ? `❌ No recomendado: ${notRecommended.join(', ')}` : ''}`,
-        en: `🎯 Based on current conditions:\n\n✅ Recommended: ${recommended.join(', ') || 'All normal activities'}\n${cautious.length > 0 ? `⚠️ With caution: ${cautious.join(', ')}` : ''}\n${notRecommended.length > 0 ? `❌ Not recommended: ${notRecommended.join(', ')}` : ''}`
+        en: `🎯 Based on current conditions:\n\n✅ Recommended: ${recommended.join(', ') || 'All normal activities'}\n${cautious.length > 0 ? `⚠️ With caution: ${cautious.join(', ')}` : ''}\n${notRecommended.length > 0 ? `❌ Not recommended: ${notRecommended.join(', ')}` : ''}`,
+        de: `🎯 Basierend auf den aktuellen Bedingungen:\n\n✅ Empfohlen: ${recommended.join(', ') || 'Alle normalen Aktivitäten'}\n${cautious.length > 0 ? `⚠️ Mit Vorsicht: ${cautious.join(', ')}` : ''}\n${notRecommended.length > 0 ? `❌ Nicht empfohlen: ${notRecommended.join(', ')}` : ''}`,
+        fr: `🎯 Selon les conditions actuelles :\n\n✅ Recommandé : ${recommended.join(', ') || 'Toutes les activités normales'}\n${cautious.length > 0 ? `⚠️ Avec prudence : ${cautious.join(', ')}` : ''}\n${notRecommended.length > 0 ? `❌ Non recommandé : ${notRecommended.join(', ')}` : ''}`,
+        pt: `🎯 Com base nas condições atuais:\n\n✅ Recomendado: ${recommended.join(', ') || 'Todas as atividades normais'}\n${cautious.length > 0 ? `⚠️ Com cautela: ${cautious.join(', ')}` : ''}\n${notRecommended.length > 0 ? `❌ Não recomendado: ${notRecommended.join(', ')}` : ''}`,
+        it: `🎯 In base alle condizioni attuali:\n\n✅ Consigliato: ${recommended.join(', ') || 'Tutte le attività normali'}\n${cautious.length > 0 ? `⚠️ Con cautela: ${cautious.join(', ')}` : ''}\n${notRecommended.length > 0 ? `❌ Non consigliato: ${notRecommended.join(', ')}` : ''}`
       };
       
       return responses[language as keyof typeof responses] || responses.es;
     } catch (error) {
       console.error('Error fetching tourism activities:', error);
-      return "No pude obtener información de actividades en este momento.";
+      return osirisError(language);
     }
   },
 
@@ -236,7 +255,11 @@ export const TourismEnhancedResponses = {
       if (dangerAlerts.length > 0) {
         const responses = {
           es: `⚠️ No es seguro visitar en este momento. Alertas activas: ${dangerAlerts.map(a => a.title).join(', ')}. ${dangerAlerts[0].recommendation}`,
-          en: `⚠️ It is not safe to visit at this time. Active alerts: ${dangerAlerts.map(a => a.title).join(', ')}. ${dangerAlerts[0].recommendation}`
+          en: `⚠️ It is not safe to visit at this time. Active alerts: ${dangerAlerts.map(a => a.title).join(', ')}. ${dangerAlerts[0].recommendation}`,
+          de: `⚠️ Es ist derzeit nicht sicher zu besuchen. Aktive Warnungen: ${dangerAlerts.map(a => a.title).join(', ')}. ${dangerAlerts[0].recommendation}`,
+          fr: `⚠️ Il n'est pas sûr de visiter en ce moment. Alertes actives : ${dangerAlerts.map(a => a.title).join(', ')}. ${dangerAlerts[0].recommendation}`,
+          pt: `⚠️ Não é seguro visitar neste momento. Alertas ativas: ${dangerAlerts.map(a => a.title).join(', ')}. ${dangerAlerts[0].recommendation}`,
+          it: `⚠️ Non è sicuro visitare al momento. Avvisi attivi: ${dangerAlerts.map(a => a.title).join(', ')}. ${dangerAlerts[0].recommendation}`
         };
         return responses[language as keyof typeof responses] || responses.es;
       }
@@ -244,19 +267,27 @@ export const TourismEnhancedResponses = {
       if (warningAlerts.length > 0) {
         const responses = {
           es: `⚠️ Se recomienda precaución. Alertas: ${warningAlerts.map(a => a.title).join(', ')}. ${warningAlerts[0].recommendation}`,
-          en: `⚠️ Caution recommended. Alerts: ${warningAlerts.map(a => a.title).join(', ')}. ${warningAlerts[0].recommendation}`
+          en: `⚠️ Caution recommended. Alerts: ${warningAlerts.map(a => a.title).join(', ')}. ${warningAlerts[0].recommendation}`,
+          de: `⚠️ Vorsicht wird empfohlen. Warnungen: ${warningAlerts.map(a => a.title).join(', ')}. ${warningAlerts[0].recommendation}`,
+          fr: `⚠️ La prudence est recommandée. Alertes : ${warningAlerts.map(a => a.title).join(', ')}. ${warningAlerts[0].recommendation}`,
+          pt: `⚠️ Recomenda-se cautela. Alertas: ${warningAlerts.map(a => a.title).join(', ')}. ${warningAlerts[0].recommendation}`,
+          it: `⚠️ Si raccomanda cautela. Avvisi: ${warningAlerts.map(a => a.title).join(', ')}. ${warningAlerts[0].recommendation}`
         };
         return responses[language as keyof typeof responses] || responses.es;
       }
       
       const responses = {
         es: "✅ Es seguro visitar Salento en este momento. No hay alertas activas. Las condiciones son favorables para turismo.",
-        en: "✅ It is safe to visit Salento at this time. No active alerts. Conditions are favorable for tourism."
+        en: "✅ It is safe to visit Salento at this time. No active alerts. Conditions are favorable for tourism.",
+        de: "✅ Es ist derzeit sicher, Salento zu besuchen. Keine aktiven Warnungen. Die Bedingungen sind günstig für den Tourismus.",
+        fr: "✅ Il est sûr de visiter Salento en ce moment. Aucune alerte active. Les conditions sont favorables au tourisme.",
+        pt: "✅ É seguro visitar Salento neste momento. Não há alertas ativas. As condições são favoráveis para o turismo.",
+        it: "✅ È sicuro visitare Salento al momento. Nessun avviso attivo. Le condizioni sono favorevoli per il turismo."
       };
       return responses[language as keyof typeof responses] || responses.es;
     } catch (error) {
       console.error('Error fetching tourism safety:', error);
-      return "No pude verificar la seguridad turística en este momento.";
+      return osirisError(language);
     }
   },
 
@@ -274,13 +305,17 @@ export const TourismEnhancedResponses = {
       
       const responses = {
         es: `🌤️ El clima actual afecta tus actividades así:\n\n${outdoorActivities.map(a => `• ${a.activity}: ${a.status === 'recommended' ? '✅' : a.status === 'cautious' ? '⚠️' : '❌'} ${a.reason}`).join('\n')}\n\nAlternativas bajo techo: Tour cafetero, museos, restaurantes.`,
-        en: `🌤️ Current weather affects your activities as follows:\n\n${outdoorActivities.map(a => `• ${a.activity}: ${a.status === 'recommended' ? '✅' : a.status === 'cautious' ? '⚠️' : '❌'} ${a.reason}`).join('\n')}\n\nIndoor alternatives: Coffee tour, museums, restaurants.`
+        en: `🌤️ Current weather affects your activities as follows:\n\n${outdoorActivities.map(a => `• ${a.activity}: ${a.status === 'recommended' ? '✅' : a.status === 'cautious' ? '⚠️' : '❌'} ${a.reason}`).join('\n')}\n\nIndoor alternatives: Coffee tour, museums, restaurants.`,
+        de: `🌤️ Das aktuelle Wetter beeinflusst Ihre Aktivitäten wie folgt:\n\n${outdoorActivities.map(a => `• ${a.activity}: ${a.status === 'recommended' ? '✅' : a.status === 'cautious' ? '⚠️' : '❌'} ${a.reason}`).join('\n')}\n\nAlternativen drinnen: Kaffeetour, Museen, Restaurants.`,
+        fr: `🌤️ La météo actuelle affecte vos activités comme suit :\n\n${outdoorActivities.map(a => `• ${a.activity}: ${a.status === 'recommended' ? '✅' : a.status === 'cautious' ? '⚠️' : '❌'} ${a.reason}`).join('\n')}\n\nAlternatives en intérieur : tour du café, musées, restaurants.`,
+        pt: `🌤️ O clima atual afeta suas atividades assim:\n\n${outdoorActivities.map(a => `• ${a.activity}: ${a.status === 'recommended' ? '✅' : a.status === 'cautious' ? '⚠️' : '❌'} ${a.reason}`).join('\n')}\n\nAlternativas cobertas: tour do café, museus, restaurantes.`,
+        it: `🌤️ Il meteo attuale influisce sulle tue attività così:\n\n${outdoorActivities.map(a => `• ${a.activity}: ${a.status === 'recommended' ? '✅' : a.status === 'cautious' ? '⚠️' : '❌'} ${a.reason}`).join('\n')}\n\nAlternative al coperto: tour del caffè, musei, ristoranti.`
       };
       
       return responses[language as keyof typeof responses] || responses.es;
     } catch (error) {
       console.error('Error fetching climate impact:', error);
-      return "No pude obtener información del impacto climático.";
+      return osirisError(language);
     }
   }
 };
@@ -334,13 +369,17 @@ export const PredictiveEnhancedResponses = {
       
       const responses = {
         es: `📅 El mejor momento para visitar Salento según datos históricos y predicciones:\n\n✅ Mejores meses: ${prediction.bestMonths.slice(0, 4).join(', ')}\n⏰ Mejores horas: ${prediction.bestHours[0]}\n⚠️ Evitar: ${prediction.avoidPeriods.join(', ')}\n\n${prediction.reason}`,
-        en: `📅 The best time to visit Salento based on historical data and predictions:\n\n✅ Best months: ${prediction.bestMonths.slice(0, 4).join(', ')}\n⏰ Best hours: ${prediction.bestHours[0]}\n⚠️ Avoid: ${prediction.avoidPeriods.join(', ')}\n\n${prediction.reason}`
+        en: `📅 The best time to visit Salento based on historical data and predictions:\n\n✅ Best months: ${prediction.bestMonths.slice(0, 4).join(', ')}\n⏰ Best hours: ${prediction.bestHours[0]}\n⚠️ Avoid: ${prediction.avoidPeriods.join(', ')}\n\n${prediction.reason}`,
+        de: `📅 Die beste Zeit für einen Besuch in Salento basierend auf historischen Daten und Prognosen:\n\n✅ Beste Monate: ${prediction.bestMonths.slice(0, 4).join(', ')}\n⏰ Beste Stunden: ${prediction.bestHours[0]}\n⚠️ Vermeiden: ${prediction.avoidPeriods.join(', ')}\n\n${prediction.reason}`,
+        fr: `📅 Le meilleur moment pour visiter Salento selon les données historiques et les prévisions :\n\n✅ Meilleurs mois : ${prediction.bestMonths.slice(0, 4).join(', ')}\n⏰ Meilleures heures : ${prediction.bestHours[0]}\n⚠️ À éviter : ${prediction.avoidPeriods.join(', ')}\n\n${prediction.reason}`,
+        pt: `📅 O melhor momento para visitar Salento com base em dados históricos e previsões:\n\n✅ Melhores meses: ${prediction.bestMonths.slice(0, 4).join(', ')}\n⏰ Melhores horas: ${prediction.bestHours[0]}\n⚠️ Evitar: ${prediction.avoidPeriods.join(', ')}\n\n${prediction.reason}`,
+        it: `📅 Il momento migliore per visitare Salento secondo i dati storici e le previsioni:\n\n✅ Mesi migliori: ${prediction.bestMonths.slice(0, 4).join(', ')}\n⏰ Ore migliori: ${prediction.bestHours[0]}\n⚠️ Da evitare: ${prediction.avoidPeriods.join(', ')}\n\n${prediction.reason}`
       };
       
       return responses[language as keyof typeof responses] || responses.es;
     } catch (error) {
       console.error('Error fetching best time prediction:', error);
-      return "No pude obtener predicciones del mejor momento para visitar.";
+      return osirisError(language);
     }
   },
 
@@ -359,13 +398,17 @@ export const PredictiveEnhancedResponses = {
       
       const responses = {
         es: `🌤️ Predicción para las próximas 24 horas:\n\nRiesgo general: ${riskLabels[riskPrediction.overallRisk as keyof typeof riskLabels]}\n\n${riskPrediction.risks.map((r: any) => `• ${r.type}: ${r.level} (${Math.round(r.probability * 100)}%)`).join('\n')}\n\n${riskPrediction.overallRisk === 'low' ? '✅ Condiciones favorables para actividades al aire libre.' : riskPrediction.overallRisk === 'moderate' ? '⚠️ Condiciones moderadas - considerar alternativas bajo techo.' : '⚠️ Condiciones adversas - priorizar actividades urbanas.'}`,
-        en: `🌤️ Prediction for the next 24 hours:\n\nOverall risk: ${riskPrediction.overallRisk}\n\n${riskPrediction.risks.map((r: any) => `• ${r.type}: ${r.level} (${Math.round(r.probability * 100)}%)`).join('\n')}\n\n${riskPrediction.overallRisk === 'low' ? '✅ Favorable conditions for outdoor activities.' : riskPrediction.overallRisk === 'moderate' ? '⚠️ Moderate conditions - consider indoor alternatives.' : '⚠️ Adverse conditions - prioritize urban activities.'}`
+        en: `🌤️ Prediction for the next 24 hours:\n\nOverall risk: ${riskPrediction.overallRisk}\n\n${riskPrediction.risks.map((r: any) => `• ${r.type}: ${r.level} (${Math.round(r.probability * 100)}%)`).join('\n')}\n\n${riskPrediction.overallRisk === 'low' ? '✅ Favorable conditions for outdoor activities.' : riskPrediction.overallRisk === 'moderate' ? '⚠️ Moderate conditions - consider indoor alternatives.' : '⚠️ Adverse conditions - prioritize urban activities.'}`,
+        de: `🌤️ Vorhersage für die nächsten 24 Stunden:\n\nAllgemeines Risiko: ${riskPrediction.overallRisk}\n\n${riskPrediction.risks.map((r: any) => `• ${r.type}: ${r.level} (${Math.round(r.probability * 100)}%)`).join('\n')}\n\n${riskPrediction.overallRisk === 'low' ? '✅ Günstige Bedingungen für Outdoor-Aktivitäten.' : riskPrediction.overallRisk === 'moderate' ? '⚠️ Mäßige Bedingungen – Alternativen drinnen in Betracht ziehen.' : '⚠️ Ungünstige Bedingungen – städtische Aktivitäten bevorzugen.'}`,
+        fr: `🌤️ Prévision pour les prochaines 24 heures :\n\nRisque global : ${riskPrediction.overallRisk}\n\n${riskPrediction.risks.map((r: any) => `• ${r.type}: ${r.level} (${Math.round(r.probability * 100)}%)`).join('\n')}\n\n${riskPrediction.overallRisk === 'low' ? '✅ Conditions favorables pour les activités de plein air.' : riskPrediction.overallRisk === 'moderate' ? '⚠️ Conditions modérées – envisager des alternatives en intérieur.' : '⚠️ Conditions défavorables – privilégier les activités urbaines.'}`,
+        pt: `🌤️ Previsão para as próximas 24 horas:\n\nRisco geral: ${riskPrediction.overallRisk}\n\n${riskPrediction.risks.map((r: any) => `• ${r.type}: ${r.level} (${Math.round(r.probability * 100)}%)`).join('\n')}\n\n${riskPrediction.overallRisk === 'low' ? '✅ Condições favoráveis para atividades ao ar livre.' : riskPrediction.overallRisk === 'moderate' ? '⚠️ Condições moderadas – considerar alternativas cobertas.' : '⚠️ Condições adversas – priorizar atividades urbanas.'}`,
+        it: `🌤️ Previsione per le prossime 24 ore:\n\nRischio generale: ${riskPrediction.overallRisk}\n\n${riskPrediction.risks.map((r: any) => `• ${r.type}: ${r.level} (${Math.round(r.probability * 100)}%)`).join('\n')}\n\n${riskPrediction.overallRisk === 'low' ? '✅ Condizioni favorevoli per attività all\'aperto.' : riskPrediction.overallRisk === 'moderate' ? '⚠️ Condizioni moderate – considerare alternative al coperto.' : '⚠️ Condizioni avverse – privilegiare attività urbane.'}`
       };
       
       return responses[language as keyof typeof responses] || responses.es;
     } catch (error) {
       console.error('Error fetching climate prediction:', error);
-      return "No pude obtener predicciones climáticas.";
+      return osirisError(language);
     }
   },
 
@@ -386,13 +429,33 @@ export const PredictiveEnhancedResponses = {
           ? `✅ Yes, it is safe to visit next week according to predictions. Overall low risk.\n\nFactors: ${riskPrediction.risks.length > 0 ? riskPrediction.risks.map((r: any) => r.type).join(', ') : 'No significant risk factors'}.`
           : riskPrediction.overallRisk === 'moderate'
           ? `⚠️ Caution recommended for next week. Overall moderate risk.\n\nFactors: ${riskPrediction.risks.map((r: any) => `${r.type} (${Math.round(r.probability * 100)}%)`).join(', ')}.`
-          : `⚠️ Not recommended to visit next week according to predictions. Overall high risk.\n\nFactors: ${riskPrediction.risks.map((r: any) => `${r.type} (${Math.round(r.probability * 100)}%)`).join(', ')}.`
+          : `⚠️ Not recommended to visit next week according to predictions. Overall high risk.\n\nFactors: ${riskPrediction.risks.map((r: any) => `${r.type} (${Math.round(r.probability * 100)}%)`).join(', ')}.`,
+        de: riskPrediction.overallRisk === 'low'
+          ? `✅ Ja, laut Prognosen ist ein Besuch nächste Woche sicher. Allgemeines Risiko gering.\n\nFaktoren: ${riskPrediction.risks.length > 0 ? riskPrediction.risks.map((r: any) => r.type).join(', ') : 'Keine bedeutenden Risikofaktoren'}.`
+          : riskPrediction.overallRisk === 'moderate'
+          ? `⚠️ Für nächste Woche wird Vorsicht empfohlen. Allgemeines Risiko mäßig.\n\nFaktoren: ${riskPrediction.risks.map((r: any) => `${r.type} (${Math.round(r.probability * 100)}%)`).join(', ')}.`
+          : `⚠️ Laut Prognosen ist ein Besuch nächste Woche nicht empfehlenswert. Allgemeines Risiko hoch.\n\nFaktoren: ${riskPrediction.risks.map((r: any) => `${r.type} (${Math.round(r.probability * 100)}%)`).join(', ')}.`,
+        fr: riskPrediction.overallRisk === 'low'
+          ? `✅ Oui, il est sûr de visiter la semaine prochaine selon les prévisions. Risque global faible.\n\nFacteurs : ${riskPrediction.risks.length > 0 ? riskPrediction.risks.map((r: any) => r.type).join(', ') : 'Aucun facteur de risque significatif'}.`
+          : riskPrediction.overallRisk === 'moderate'
+          ? `⚠️ Prudence recommandée pour la semaine prochaine. Risque global modéré.\n\nFacteurs : ${riskPrediction.risks.map((r: any) => `${r.type} (${Math.round(r.probability * 100)}%)`).join(', ')}.`
+          : `⚠️ Il n'est pas recommandé de visiter la semaine prochaine selon les prévisions. Risque global élevé.\n\nFacteurs : ${riskPrediction.risks.map((r: any) => `${r.type} (${Math.round(r.probability * 100)}%)`).join(', ')}.`,
+        pt: riskPrediction.overallRisk === 'low'
+          ? `✅ Sim, é seguro visitar na próxima semana segundo as previsões. Risco geral baixo.\n\nFatores: ${riskPrediction.risks.length > 0 ? riskPrediction.risks.map((r: any) => r.type).join(', ') : 'Sem fatores de risco significativos'}.`
+          : riskPrediction.overallRisk === 'moderate'
+          ? `⚠️ Recomenda-se precaução para a próxima semana. Risco geral moderado.\n\nFatores: ${riskPrediction.risks.map((r: any) => `${r.type} (${Math.round(r.probability * 100)}%)`).join(', ')}.`
+          : `⚠️ Não é recomendável visitar na próxima semana segundo as previsões. Risco geral alto.\n\nFatores: ${riskPrediction.risks.map((r: any) => `${r.type} (${Math.round(r.probability * 100)}%)`).join(', ')}.`,
+        it: riskPrediction.overallRisk === 'low'
+          ? `✅ Sì, secondo le previsioni è sicuro visitare la prossima settimana. Rischio generale basso.\n\nFattori: ${riskPrediction.risks.length > 0 ? riskPrediction.risks.map((r: any) => r.type).join(', ') : 'Nessun fattore di rischio significativo'}.`
+          : riskPrediction.overallRisk === 'moderate'
+          ? `⚠️ Si consiglia prudenza per la prossima settimana. Rischio generale moderato.\n\nFattori: ${riskPrediction.risks.map((r: any) => `${r.type} (${Math.round(r.probability * 100)}%)`).join(', ')}.`
+          : `⚠️ Secondo le previsioni non è consigliabile visitare la prossima settimana. Rischio generale alto.\n\nFattori: ${riskPrediction.risks.map((r: any) => `${r.type} (${Math.round(r.probability * 100)}%)`).join(', ')}.`
       };
       
       return responses[language as keyof typeof responses] || responses.es;
     } catch (error) {
       console.error('Error fetching safety prediction:', error);
-      return "No pude obtener predicciones de seguridad.";
+      return osirisError(language);
     }
   }
 };

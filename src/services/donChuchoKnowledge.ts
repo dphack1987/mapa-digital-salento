@@ -39,15 +39,15 @@ const knowledgeBase: KnowledgeItem[] = [
     keywords: ['trucha', 'trucha arcoiris', 'trucha al ajillo', 'trucha frita', 'trucha horno'],
     category: 'gastronomia',
     answer: {
-      es: '¡La trucha arcoíris es el plato estrella de Salento! Te la preparan al ajillo, frita con patacones, al horno con hierbas, o en salsa de frutos rojos. La más famosa es en La Fogata. También en Brunch de la Plaza. ¿Cómo la prefieres?',
-      en: 'Rainbow trout is the star dish of Salento! They prepare it garlic-style, fried with patacones, baked with herbs, or in red fruit sauce. The most famous is at La Fogata. Also at Brunch de la Plaza. How do you prefer it?',
-      de: 'Die Regenbogenforelle ist das Star-Gericht von Salento! Sie wird in Knoblauchsoße, gebraten mit Patacones, im Ofen mit Kräutern oder in Fruchtsoße zubereitet. Das berühmteste gibt es bei La Fogata, auch bei Brunch de la Plaza. Wie möchten Sie sie haben?',
-      fr: 'La truite arc-en-ciel est le plat phare de Salento ! On la prépare à l\'ail, frite avec des patacones, au four aux herbes, ou en sauce de fruits rouges. La plus connue est à La Fogata. Aussi au Brunch de la Plaza. Comment la préférez-vous ?',
-      pt: 'A truta arco-íris é o prato estrela de Salento! Ela é preparada ao alho, frita com patacones, assada com ervas, ou em molho de frutas vermelhas. A mais famosa é na La Fogata. Também no Brunch de la Plaza. Como você prefere?',
-      it: 'La trota iridea è il piatto stella di Salento! La preparano all\'aglio, fritta con patacones, al forno con erbe, o in salsa di frutti di bosco. La più famosa è da La Fogata. Anche al Brunch de la Plaza. Come la preferite?'
+      es: '¡La trucha arcoíris es el plato estrella de Salento! Te la preparan al ajillo, frita con patacones, al horno con hierbas, o en salsa de frutos rojos. La más famosa es en Restaurante La Casona. También en Brunch de Salento. ¿Cómo la prefieres?',
+      en: 'Rainbow trout is the star dish of Salento! They prepare it garlic-style, fried with patacones, baked with herbs, or in red fruit sauce. The most famous is at Restaurante La Casona. Also at Brunch de Salento. How do you prefer it?',
+      de: 'Die Regenbogenforelle ist das Star-Gericht von Salento! Sie wird in Knoblauchsoße, gebraten mit Patacones, im Ofen mit Kräutern oder in Fruchtsoße zubereitet. Das berühmteste gibt es bei Restaurante La Casona, auch bei Brunch de Salento. Wie möchten Sie sie haben?',
+      fr: 'La truite arc-en-ciel est le plat phare de Salento ! On la prépare à l\'ail, frite avec des patacones, au four aux herbes, ou en sauce de fruits rouges. La plus connue est au Restaurante La Casona. Aussi au Brunch de Salento. Comment la préférez-vous ?',
+      pt: 'A truta arco-íris é o prato estrela de Salento! Ela é preparada ao alho, frita com patacones, assada com ervas, ou em molho de frutas vermelhas. A mais famosa é no Restaurante La Casona. Também no Brunch de Salento. Como você prefere?',
+      it: 'La trota iridea è il piatto stella di Salento! La preparano all\'aglio, fritta con patacones, al forno con erbe, o in salsa di frutti di bosco. La più famosa è al Restaurante La Casona. Anche al Brunch de Salento. Come la preferite?'
     },
     followUp: ['¿Al ajillo o frita?', '¿Con patacones?', '¿Dónde probarla mejor?'],
-    relatedPlaces: [9, 21]
+    relatedPlaces: [45, 21]
   },
   {
     keywords: ['sancocho', 'sancocho gallina', 'sopa', 'caldo'],
@@ -92,15 +92,15 @@ const knowledgeBase: KnowledgeItem[] = [
     keywords: ['café', 'café especial', 'café origen', 'tinto', 'cafetería'],
     category: 'cafe',
     answer: {
-      es: '¡El café del Quindío es patrimonio! Se cultiva entre 1.200 y 2.000 metros. Notas de chocolate, caramelo y frutas. Para café de especialidad ve a Café de Altura o Brunch de la Plaza. El tinto de la plaza es ritual sagrado.',
-      en: 'Quindío coffee is heritage! Grown between 1,200 and 2,000 meters. Notes of chocolate, caramel and fruits. For specialty coffee go to Café de Altura or Brunch de la Plaza. The square tinto is a sacred ritual.',
-      de: 'Der Kaffee des Quindío ist Kulturgut! Er wird zwischen 1.200 und 2.000 Metern angebaut. Schokoladen-, Karamell- und Fruchtnoten. Für Spezialitätenkaffee gehen Sie zu Café de Altura oder Brunch de la Plaza. Der Tinto am Platz ist ein heiliges Ritual.',
-      fr: 'Le café du Quindío est un patrimoine ! Il est cultivé entre 1 200 et 2 000 mètres. Notes de chocolat, caramel et fruits. Pour un café de spécialité, allez au Café de Altura ou au Brunch de la Plaza. Le tinto de la place est un rituel sacré.',
-      pt: 'O café do Quindío é patrimônio! É cultivado entre 1.200 e 2.000 metros. Notas de chocolate, caramelo e frutas. Para café especialista vá ao Café de Altura ou Brunch de la Plaza. O tinto da praia é um ritual sagrado.',
-      it: 'Il caffè del Quindío è patrimonio! Viene coltivato tra 1.200 e 2.000 metri. Note di cioccolato, caramello e frutta. Per un caffè specialità andate al Café de Altura o al Brunch de la Plaza. Il tinto della piazza è un rituale sacro.'
+      es: '¡El café del Quindío es patrimonio! Se cultiva entre 1.200 y 2.000 metros. Notas de chocolate, caramelo y frutas. Para vivir la experiencia del café reserva un coffee tour: Finca Don Eduardo, Finca Cafetera Don Elías, El Recuerdo Coffee Tour o Finca Hotel El Ocaso. Para café de especialidad ve a Café Jesús Martín o Brunch de Salento. El tinto de la plaza es ritual sagrado.',
+      en: 'Quindío coffee is heritage! Grown between 1,200 and 2,000 meters. Notes of chocolate, caramel and fruits. To live the coffee experience, book a coffee tour: Finca Don Eduardo, Finca Cafetera Don Elías, El Recuerdo Coffee Tour or Finca Hotel El Ocaso. For specialty coffee go to Café Jesús Martín or Brunch de Salento. The square tinto is a sacred ritual.',
+      de: 'Der Kaffee des Quindío ist Kulturgut! Er wird zwischen 1.200 und 2.000 Metern angebaut. Schokoladen-, Karamell- und Fruchtnoten. Um das Kaffee-Erlebnis zu genießen, buche eine Kaffeetour: Finca Don Eduardo, Finca Cafetera Don Elías, El Recuerdo Coffee Tour oder Finca Hotel El Ocaso. Für Spezialitätenkaffee gehen Sie zu Café Jesús Martín oder Brunch de Salento. Der Tinto am Platz ist ein heiliges Ritual.',
+      fr: 'Le café du Quindío est un patrimoine ! Il est cultivé entre 1 200 et 2 000 mètres. Notes de chocolat, caramel et fruits. Pour vivre l\'expérience du café, réservez un coffee tour : Finca Don Eduardo, Finca Cafetera Don Elías, El Recuerdo Coffee Tour ou Finca Hotel El Ocaso. Pour un café de spécialité, allez au Café Jesús Martín ou au Brunch de Salento. Le tinto de la place est un rituel sacré.',
+      pt: 'O café do Quindío é patrimônio! É cultivado entre 1.200 e 2.000 metros. Notas de chocolate, caramelo e frutas. Para viver a experiência do café, reserve um coffee tour: Finca Don Eduardo, Finca Cafetera Don Elías, El Recuerdo Coffee Tour ou Finca Hotel El Ocaso. Para café especialista vá ao Café Jesús Martín ou Brunch de Salento. O tinto da praça é um ritual sagrado.',
+      it: 'Il caffè del Quindío è patrimonio! Viene coltivato tra 1.200 e 2.000 metri. Note di cioccolato, caramello e frutta. Per vivere l\'esperienza del caffè, prenota un coffee tour: Finca Don Eduardo, Finca Cafetera Don Elías, El Recuerdo Coffee Tour o Finca Hotel El Ocaso. Per un caffè specialità andate al Café Jesús Martín o al Brunch de Salento. Il tinto della piazza è un rituale sacro.'
     },
-    followUp: ['¿Método de preparación?', '¿Café de altura?', '¿Dónde comprar grano?'],
-    relatedPlaces: [17, 34]
+    followUp: ['¿Dónde hacer un coffee tour?', '¿Método de preparación?', '¿Café de especialidad?', '¿Dónde comprar grano?'],
+    relatedPlaces: [17, 23, 34, 9]
   },
   {
     keywords: ['sudado', 'sudado montañero', 'cocido', 'guiso'],
@@ -492,7 +492,7 @@ const knowledgeBase: KnowledgeItem[] = [
       it: 'L\'Hotel La Floresta è una buona opzione per un soggiorno tranquillo a Salento vicino al centro. Volete sapere se è vicino al villaggio o se ha Wi-Fi e parcheggio?'
     },
     followUp: ['¿Ubicación exacta?', '¿Tienen desayuno?', '¿Cerca del centro?'],
-    relatedPlaces: [5]
+    relatedPlaces: [16]
   },
   {
     keywords: ['mirador las manos de dios', 'las manos de dios', 'manos de dios'],
