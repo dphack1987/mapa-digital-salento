@@ -2,6 +2,11 @@ import { useState, useEffect, useRef } from 'react'
 import { pythonBackendService } from '../../services/pythonBackend'
 import { getOsirisResponse, getTourismResponse, isTourismQuery, getPredictiveResponse, isPredictiveQuery } from '../../services/donChuchoOsiris'
 import { searchLocalKnowledge } from '../../services/donChuchoKnowledge'
+import type { Language } from '../../types'
+
+const SPEECH_LOCALES: Record<Language, string> = {
+  es: 'es-CO', en: 'en-US', fr: 'fr-FR', de: 'de-DE', pt: 'pt-BR', it: 'it-IT', zh: 'zh-CN'
+}
 
 interface Pautante {
   name: string
@@ -24,17 +29,21 @@ interface Pautante {
 type LocalPlace = Pautante
 
 interface EnhancedDonChuchoProps {
+  language: Language
+  t: (key: string, fallback?: string) => string
   onFallback?: () => void
   onClose?: () => void
   existingComponent?: React.ReactNode
 }
 
-function EnhancedDonChucho({ onFallback, onClose, existingComponent }: EnhancedDonChuchoProps) {
+function EnhancedDonChucho({ language, t, onFallback, onClose, existingComponent }: EnhancedDonChuchoProps) {
   const [message, setMessage] = useState('')
-  const [response, setResponse] = useState('')
+  const [response, setResponse] = useState(() => t('donChucho.welcome', '¡Hola! Soy Don Chucho, arriero quindiano y tu guía local especializado en Salento. ¿Qué quieres descubrir?'))
   const [isLoading, setIsLoading] = useState(false)
   const [usePython, setUsePython] = useState(false) // Iniciamos en false para usar local primero
   const [pythonStatus, setPythonStatus] = useState<'checking' | 'online' | 'offline'>('offline')
+  const [isDeviceOffline, setIsDeviceOffline] = useState(!navigator.onLine)
+  const [offlineNoticeDismissed, setOfflineNoticeDismissed] = useState(false)
   const [localPlaces, setLocalPlaces] = useState<LocalPlace[]>([])
   const [hasLocalPlaces, setHasLocalPlaces] = useState(false)
   const [userLocation, setUserLocation] = useState<{lat: number; lng: number} | null>(null)
@@ -43,6 +52,7 @@ function EnhancedDonChucho({ onFallback, onClose, existingComponent }: EnhancedD
   const [voiceEnabled, setVoiceEnabled] = useState(true)
   const [selectedVoice, setSelectedVoice] = useState<SpeechSynthesisVoice | null>(null)
   const [availableVoices, setAvailableVoices] = useState<SpeechSynthesisVoice[]>([])
+  const [voiceNotice, setVoiceNotice] = useState('')
   const [availabilityStatus, setAvailabilityStatus] = useState<Record<string, boolean>>({})
   const [qualityScores, setQualityScores] = useState<Record<string, number>>({})
   const [authenticPlaces, setAuthenticPlaces] = useState<LocalPlace[]>([])
@@ -51,6 +61,11 @@ function EnhancedDonChucho({ onFallback, onClose, existingComponent }: EnhancedD
   const currentUtteranceRef = useRef<SpeechSynthesisUtterance | null>(null)
   const onFallbackRef = useRef(onFallback)
   onFallbackRef.current = onFallback
+  const knowledgeLanguage: Exclude<Language, 'zh'> = language === 'zh' ? 'en' : language
+  const languageVoices = availableVoices.filter(voice => voice.lang.toLowerCase().startsWith(`${language}-`))
+  const visibleVoiceNotice = voiceNotice || (availableVoices.length > 0 && languageVoices.length === 0
+    ? t('donChucho.voiceNotInstalled', 'No speech voice is installed for the selected language on this device.')
+    : '')
 
   const goLocal = () => {
     if (onFallbackRef.current) {
@@ -77,31 +92,45 @@ function EnhancedDonChucho({ onFallback, onClose, existingComponent }: EnhancedD
     }
 
     checkPythonBackend()
+  }, [])
 
-    // Inicializar síntesis de voz - Don Chucho propio
-    if ('speechSynthesis' in window) {
-      speechSynthRef.current = window.speechSynthesis
+  useEffect(() => {
+    if (!('speechSynthesis' in window)) return
+    const speechSynth = window.speechSynthesis
+    speechSynthRef.current = speechSynth
 
-      const loadVoices = () => {
-        const voices = window.speechSynthesis.getVoices()
-        setAvailableVoices(voices)
-
-        const spanishVoice = voices.find(voice =>
-          voice.lang.includes('es') || voice.lang.includes('es-ES') || voice.lang.includes('es-CO')
-        )
-        if (spanishVoice) {
-          setSelectedVoice(spanishVoice)
-        } else if (voices.length > 0) {
-          setSelectedVoice(voices[0])
-        }
-      }
-
-      loadVoices()
-      window.speechSynthesis.onvoiceschanged = loadVoices
+    const loadVoices = () => {
+      const voices = speechSynth.getVoices()
+      const preferredLocale = SPEECH_LOCALES[language].toLowerCase()
+      const preferredVoice = voices.find(voice => voice.lang.toLowerCase() === preferredLocale)
+        || voices.find(voice => voice.lang.toLowerCase().startsWith(`${language}-`))
+      setAvailableVoices(voices)
+      setSelectedVoice(preferredVoice || null)
+      setVoiceNotice('')
     }
 
+    loadVoices()
+    speechSynth.addEventListener('voiceschanged', loadVoices)
+
+    return () => speechSynth.removeEventListener('voiceschanged', loadVoices)
+  }, [language])
+
+  useEffect(() => {
+    const handleOnline = () => {
+      setIsDeviceOffline(false)
+      setOfflineNoticeDismissed(false)
+    }
+    const handleOffline = () => {
+      setIsDeviceOffline(true)
+      setOfflineNoticeDismissed(false)
+    }
+
+    window.addEventListener('online', handleOnline)
+    window.addEventListener('offline', handleOffline)
+
     return () => {
-      window.speechSynthesis.onvoiceschanged = null
+      window.removeEventListener('online', handleOnline)
+      window.removeEventListener('offline', handleOffline)
     }
   }, [])
 
@@ -111,8 +140,8 @@ function EnhancedDonChucho({ onFallback, onClose, existingComponent }: EnhancedD
     setIsLoading(true)
     try {
       // 1. Primero intentar respuesta predictiva (Fase 3) - Máxima prioridad
-      if (isPredictiveQuery(message)) {
-        const predictiveResponse = await getPredictiveResponse(message, 'es')
+      if (language !== 'zh' && isPredictiveQuery(message)) {
+        const predictiveResponse = await getPredictiveResponse(message, language)
         if (predictiveResponse) {
           setResponse(predictiveResponse)
           setLocalPlaces([])
@@ -127,8 +156,8 @@ function EnhancedDonChucho({ onFallback, onClose, existingComponent }: EnhancedD
       }
 
       // 2. Segundo, intentar respuesta turística mejorada (Fase 2)
-      if (isTourismQuery(message)) {
-        const tourismResponse = await getTourismResponse(message, 'es')
+      if (language !== 'zh' && isTourismQuery(message)) {
+        const tourismResponse = await getTourismResponse(message, language)
         if (tourismResponse) {
           setResponse(tourismResponse)
           setLocalPlaces([])
@@ -143,7 +172,7 @@ function EnhancedDonChucho({ onFallback, onClose, existingComponent }: EnhancedD
       }
 
       // 3. Tercero, intentar respuesta OSIRIS estándar (Fase 1)
-      const osirisResponse = await getOsirisResponse(message, 'es')
+      const osirisResponse = language === 'zh' ? null : await getOsirisResponse(message, language)
       if (osirisResponse) {
         setResponse(osirisResponse)
         setLocalPlaces([])
@@ -157,16 +186,30 @@ function EnhancedDonChucho({ onFallback, onClose, existingComponent }: EnhancedD
       }
 
       // 4. Cuarto, usar base de conocimiento local como fallback principal
-      const localKnowledge = searchLocalKnowledge(message, 'es')
+      const localKnowledge = searchLocalKnowledge(message, knowledgeLanguage)
       if (localKnowledge) {
-        setResponse(localKnowledge.answer.es)
+        const localAnswer = language === 'zh'
+          ? localKnowledge.answer.zh
+          : localKnowledge.answer[knowledgeLanguage] || localKnowledge.answer.es
+        if (!localAnswer && language !== 'zh') return
+        const answerText = localAnswer || t('donChucho.zhKnowledgeFallback', '这个主题暂时没有经过核实的中文离线答复。你可以询问萨伦托的交通、住宿、咖啡或科科拉山谷。')
+        setResponse(answerText)
         setLocalPlaces([])
         setHasLocalPlaces(false)
 
-        if (voiceEnabled && localKnowledge.answer.es) {
-          speakResponse(localKnowledge.answer.es)
+        if (voiceEnabled && answerText) {
+          speakResponse(answerText)
         }
         setIsLoading(false)
+        return
+      }
+
+      if (language === 'zh') {
+        const fallback = t('donChucho.zhKnowledgeFallback', '这个主题暂时没有经过核实的中文离线答复。你可以询问萨伦托的交通、住宿、咖啡或科科拉山谷。')
+        setResponse(fallback)
+        setLocalPlaces([])
+        setHasLocalPlaces(false)
+        if (voiceEnabled) speakResponse(fallback)
         return
       }
 
@@ -200,14 +243,14 @@ function EnhancedDonChucho({ onFallback, onClose, existingComponent }: EnhancedD
         }
       } else {
         // Fallback final: respuesta genérica del sistema local
-        setResponse('Soy Don Chucho, tu guía local de Salento. Puedo ayudarte con hoteles, restaurantes, coffee tours, transporte y experiencias. ¿Qué necesitas saber?')
+        setResponse(t('donChucho.localFallback', 'Soy Don Chucho, arriero quindiano y tu guía de Salento. Puedo ayudarte con el Valle de Cocora, transporte, café, cultura y planes locales. ¿Qué quieres descubrir?'))
         setLocalPlaces([])
         setHasLocalPlaces(false)
       }
     } catch (error) {
       console.error('Error:', error)
       // Fallback a respuesta local en caso de error
-      setResponse('Soy Don Chucho, tu guía local de Salento. Estoy aquí para ayudarte con información verificada sobre hoteles, restaurantes, tours y experiencias. ¿En qué puedo ayudarte?')
+      setResponse(t('donChucho.errorFallback', 'No pude completar esa consulta. Puedes intentarlo de nuevo o preguntarme por la guía local de Salento.'))
       setLocalPlaces([])
       setHasLocalPlaces(false)
     } finally {
@@ -219,16 +262,21 @@ function EnhancedDonChucho({ onFallback, onClose, existingComponent }: EnhancedD
     if (!speechSynthRef.current || !voiceEnabled) return
     
     stopSpeaking()
-    
+    const voiceForSpeech = selectedVoice || languageVoices[0]
+    if (!voiceForSpeech) {
+      setVoiceNotice(t('donChucho.voiceNotInstalled', 'No speech voice is installed for the selected language on this device.'))
+      setIsSpeaking(false)
+      return
+    }
+
     const utterance = new SpeechSynthesisUtterance(text)
-    utterance.lang = 'es-ES'
+    utterance.lang = voiceForSpeech.lang || SPEECH_LOCALES[language]
     utterance.rate = 0.9
     utterance.pitch = 1.0
     utterance.volume = 1.0
     
-    if (selectedVoice) {
-      utterance.voice = selectedVoice
-    }
+    setVoiceNotice('')
+    utterance.voice = voiceForSpeech
     
     utterance.onstart = () => setIsSpeaking(true)
     utterance.onend = () => setIsSpeaking(false)
@@ -255,6 +303,7 @@ function EnhancedDonChucho({ onFallback, onClose, existingComponent }: EnhancedD
   const handleVoiceChange = (voiceIndex: number) => {
     if (availableVoices[voiceIndex]) {
       setSelectedVoice(availableVoices[voiceIndex])
+      setVoiceNotice('')
     }
   }
 
@@ -327,17 +376,19 @@ function EnhancedDonChucho({ onFallback, onClose, existingComponent }: EnhancedD
   }
 
   const handleVoiceCommand = () => {
-    if ('webkitSpeechRecognition' in window) {
-      const recognition = new (window as any).webkitSpeechRecognition()
-      recognition.lang = 'es-ES'
-      recognition.onresult = (event: any) => {
-        const transcript = event.results[0][0].transcript
-        setMessage(transcript)
-      }
-      recognition.start()
-    } else {
-      alert('Tu navegador no soporta comandos de voz')
+    const SpeechRecognition = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition
+    if (!SpeechRecognition) {
+      alert(t('donChucho.voiceUnsupported', 'Voice input is not available in this browser.'))
+      return
     }
+
+    const recognition = new SpeechRecognition()
+    recognition.lang = SPEECH_LOCALES[language]
+    recognition.onresult = (event: any) => {
+      const transcript = event.results[0][0].transcript
+      setMessage(transcript)
+    }
+    recognition.start()
   }
 
   if (pythonStatus === 'offline' && existingComponent) {
@@ -348,21 +399,21 @@ function EnhancedDonChucho({ onFallback, onClose, existingComponent }: EnhancedD
     <div className="enhanced-don-chucho">
       <div className="status-indicator">
         <span className={`status ${pythonStatus}`}>
-          {pythonStatus === 'checking' ? 'Verificando...' :
-           pythonStatus === 'online' ? 'Don Chucho IA Online' :
-           'Don Chucho IA Offline'}
+           {pythonStatus === 'checking' ? t('donChucho.checking', 'Verificando...') :
+            pythonStatus === 'online' ? t('donChucho.onlineStatus', 'Don Chucho IA Online') :
+           isDeviceOffline ? t('donChucho.offlineStatus', 'Don Chucho · Modo offline') : t('donChucho.subtitle', 'Tu guía local')}
         </span>
         {pythonStatus === 'online' && <span className="zero-click-badge">Zero-Click Access</span>}
-        {voiceEnabled && <span className="voice-badge">🔊 Voz Activa</span>}
-        <button type="button" className="enhanced-close" onClick={() => (onClose ? onClose() : goLocal())} aria-label="Cerrar asistente">
+          {voiceEnabled && <span className="voice-badge">🔊 {t('donChucho.voiceActive', 'Voz activa')}</span>}
+          <button type="button" className="enhanced-close" onClick={() => (onClose ? onClose() : goLocal())} aria-label={t('donChucho.closeAssistant', 'Cerrar asistente')}>
           ✕
         </button>
       </div>
 
-      {pythonStatus === 'offline' && (
+      {isDeviceOffline && !offlineNoticeDismissed && (
         <div className="enhanced-offline-banner">
-          <p>El asistente IA no está conectado. Puedes seguir con el asistente local de Don Chucho.</p>
-          <button type="button" onClick={goLocal}>Usar asistente local</button>
+          <p>{t('donChucho.offlineMessage', 'Modo offline activo. Don Chucho sigue disponible con la guía local de Salento; las consultas en tiempo real se actualizarán al recuperar la conexión.')}</p>
+          <button type="button" onClick={() => setOfflineNoticeDismissed(true)}>{t('donChucho.offlineContinue', 'Continuar sin conexión')}</button>
         </div>
       )}
       
@@ -370,7 +421,7 @@ function EnhancedDonChucho({ onFallback, onClose, existingComponent }: EnhancedD
         <div className="messages">
           {response && (
             <div className="message response">
-              <strong>Don Chucho IA:</strong>
+              <strong>{t('donChucho.title', 'Don Chucho')}:</strong>
               <p style={{whiteSpace: 'pre-line'}}>{response}</p>
               
               {hasLocalPlaces && localPlaces.length > 0 && (
@@ -396,12 +447,14 @@ function EnhancedDonChucho({ onFallback, onClose, existingComponent }: EnhancedD
                       </div>
                       <p>{localPlace.description}</p>
                       <div className="local-place-actions">
-                        <button 
-                          onClick={() => handleWhatsApp(localPlace.contact.whatsapp!, localPlace.id)}
-                          className="whatsapp-btn"
-                        >
-                          WhatsApp One-Tap
-                        </button>
+                        {localPlace.contact.whatsapp && (
+                          <button
+                            onClick={() => handleWhatsApp(localPlace.contact.whatsapp!, localPlace.id)}
+                            className="whatsapp-btn"
+                          >
+                            WhatsApp One-Tap
+                          </button>
+                        )}
                         {localPlace.contact.phone && (
                           <a href={`tel:${localPlace.contact.phone}`} className="phone-btn">
                             Llamar
@@ -446,7 +499,7 @@ function EnhancedDonChucho({ onFallback, onClose, existingComponent }: EnhancedD
           <button 
             onClick={handleVoiceCommand}
             className="voice-btn"
-            title="Comando de voz"
+            title={t('donChucho.voiceCommand', 'Voice input')}
           >
             🎤
           </button>
@@ -454,7 +507,7 @@ function EnhancedDonChucho({ onFallback, onClose, existingComponent }: EnhancedD
             type="text"
             value={message}
             onChange={(e) => setMessage(e.target.value)}
-            placeholder="Escribe o usa voz: hotel cerca, restaurante, etc..."
+            placeholder={t('donChucho.placeholder', 'Ask Don Chucho...')}
             onKeyPress={(e) => e.key === 'Enter' && handleSendMessage()}
           />
           <button 
@@ -462,14 +515,15 @@ function EnhancedDonChucho({ onFallback, onClose, existingComponent }: EnhancedD
             disabled={isLoading}
             className="send-btn"
           >
-            {isLoading ? '...' : 'Enviar'}
+            {isLoading ? '...' : t('donChucho.sendQuestion', 'Send question')}
           </button>
           
           <div className="voice-controls">
             <button 
               onClick={toggleVoice}
               className={`voice-toggle ${voiceEnabled ? 'enabled' : 'disabled'}`}
-              title={voiceEnabled ? 'Voz activada' : 'Voz desactivada'}
+              title={voiceEnabled ? t('donChucho.voiceEnabled', 'Read-aloud enabled') : t('donChucho.voiceDisabled', 'Read-aloud disabled')}
+              aria-label={voiceEnabled ? t('donChucho.voiceEnabled', 'Read-aloud enabled') : t('donChucho.voiceDisabled', 'Read-aloud disabled')}
             >
               {voiceEnabled ? '🔊' : '🔇'}
             </button>
@@ -478,7 +532,8 @@ function EnhancedDonChucho({ onFallback, onClose, existingComponent }: EnhancedD
               <button 
                 onClick={stopSpeaking}
                 className="stop-voice-btn"
-                title="Detener voz"
+                title={t('donChucho.stopVoice', 'Stop speaking')}
+                aria-label={t('donChucho.stopVoice', 'Stop speaking')}
               >
                 ⏹️
               </button>
@@ -487,6 +542,7 @@ function EnhancedDonChucho({ onFallback, onClose, existingComponent }: EnhancedD
             {availableVoices.length > 1 && (
               <select 
                 value={selectedVoice?.name || ''}
+                aria-label={t('donChucho.selectVoice', 'Select voice')}
                 onChange={(e) => {
                   const voiceIndex = availableVoices.findIndex(v => v.name === e.target.value)
                   if (voiceIndex >= 0) handleVoiceChange(voiceIndex)
@@ -494,13 +550,14 @@ function EnhancedDonChucho({ onFallback, onClose, existingComponent }: EnhancedD
                 className="voice-selector"
               >
                 {availableVoices.map((voice, index) => (
-                  <option key={index} value={voice.name}>
+                  <option key={`${voice.name}-${voice.lang}`} value={voice.name}>
                     {voice.name} ({voice.lang})
                   </option>
                 ))}
               </select>
             )}
           </div>
+          {visibleVoiceNotice && <small className="voice-notice" role="status">{visibleVoiceNotice}</small>}
         </div>
       </div>
     </div>

@@ -511,8 +511,14 @@ function App() {
   const [showLandingPage, setShowLandingPage] = useState<string | null>(null)
   const [showHotelModal, setShowHotelModal] = useState(false)
   // Estado para Don Chucho IA mejorado
-  const [showDonChuchoAI, setShowDonChuchoAI] = useState(false)
+  const [showDonChuchoAI, setShowDonChuchoAI] = useState(() => {
+    try { return sessionStorage.getItem('salento_don_chucho_auto_opened') !== '1' }
+    catch { return true }
+  })
   const [donChuchoLocalOpen, setDonChuchoLocalOpen] = useState(false)
+  useEffect(() => {
+    try { sessionStorage.setItem('salento_don_chucho_auto_opened', '1') } catch {}
+  }, [])
   // Estado para modo AR en mapa
   const [arMapMode, setARMapMode] = useState(false)
   const [userLocation, setUserLocation] = useState<{lat: number; lng: number} | null>(null)
@@ -1724,10 +1730,28 @@ function App() {
               <p className="hoy-pautantes-note">{t('hoy.pautantesNote', '✓ WhatsApp directo · Sin comisiones · Información verificada en el catálogo local')}</p>
             </div>
             <div className="hoy-pautantes-grid">
-              {featuredPautantes.map((place) => {
+              {featuredPautantes.map((place, index) => {
                 const href = placePageHref(place)
                 const wa = place.contact?.whatsapp
                 const photo = place.photos?.[0]
+                const isDomiciliosBanner = featuredPautantes.length > 4 && index === Math.floor(featuredPautantes.length / 2)
+
+                if (isDomiciliosBanner) {
+                  return (
+                    <article key="domicilios-banner" className="hoy-pautante-banner" aria-label="Pedidos a domicilio en Salento">
+                      <div className="hoy-pautante-banner-content">
+                        <span className="hoy-pautante-banner-badge">Domicilios</span>
+                        <h3>Tu comida favorita, en tu hotel</h3>
+                        <p>Entrega directa a alojamientos y puntos turísticos de Salento. Sin intermediarios.</p>
+                        <div className="hoy-pautante-banner-actions">
+                          <a className="button primary" href="/servicios/pedidos-domicilio.html">Pedir ahora</a>
+                          <a className="button" href="/servicios/pedidos-domicilio.html">Ver opciones</a>
+                        </div>
+                      </div>
+                    </article>
+                  )
+                }
+
                 return (
                   <article key={place.id} className="hoy-pautante-card">
                     <div className={`hoy-pautante-media ${photo ? 'has-photo' : place.color || 'sage'}`}>
@@ -1824,23 +1848,34 @@ function App() {
 
         <section className="home-content-guide" id="guia-salento" aria-labelledby="guia-salento-title">
           <div className="home-content-guide-inner">
-            <p className="eyebrow">Guía práctica de viaje</p>
-            <h2 id="guia-salento-title">Salento, Quindío: la guía completa para planear tu visita</h2>
-            <p className="home-content-lead">
-              Salento es un pueblo paisa de orígenes fundacionales a 1.895 metros sobre el nivel del mar, enclavado en el departamento del Quindío y reconocido como una de las joyas del Eje Cafetero colombiano. Su casco urbano conserva calles empedradas, balcones de guadua, casas de bahareque pintadas de colores y una arquitectura que mezcla la herencia colonial con el carácter acogedor de los pueblos cafeteros. Desde la Plaza de Bolívar, con su iglesia de techumbre blanca y el mirador natural del Alto de la Cruz, se entiende de inmediato por qué miles de viajeros llegan cada año en busca de naturaleza, café de origen y experiencias auténticas con la comunidad local.
-            </p>
+            <header className="home-guide-cover">
+              <div className="home-guide-cover-copy">
+                <p className="eyebrow">Guía práctica de viaje <span>· Quindío, Colombia</span></p>
+                <h2 id="guia-salento-title">Salento,<br />a tu manera.</h2>
+                <p className="home-content-lead">La guía local para descubrir Cocora, el café y la vida del pueblo. Planea tu visita con información directa y recomendaciones de la comunidad.</p>
+                <a className="home-guide-cover-link" href="#como-llegar">Planifica tu visita <span aria-hidden="true">↓</span></a>
+              </div>
+              <figure className="home-guide-cover-image">
+                <img src="/imagenes-salento/colombia-palms.webp" alt="Palmas de cera y paisaje del Valle de Cocora en Salento, Quindío" loading="lazy" width="1200" height="675" />
+                <figcaption>Valle de Cocora · Quindío</figcaption>
+              </figure>
+            </header>
+            <div className="home-guide-intro-copy">
             <p>
               El gran reclamo de Salento es el <strong>Valle de Cocora</strong>, a pocos minutos en jeep: un paisaje de selva de niebla atravesado por el río Quindío y flanqueado por las <strong>palmas de cera</strong>, el árbol nacional de Colombia, que superan los 60 metros de altura. En el pueblo, el ritmo lo marcan los <a href="/paginas-pautantes/punto-de-encuentro-jeeps-willys-plaza/">jeeps Willys</a> que parten desde la plaza, los fogones con trucha arcoíris, las fincas cafeteras familiares y una agenda viva de experiencias: coffee tours, cabalgatas, senderismo, cascadas, artesanía y gastronomía de raíz. Además de la ruta clásica al valle, muchos visitantes combinan el mirador del Alto de la Cruz al atardecer, una mañana de siembra y cata en finca, y una tarde lenta por la Calle Real, donde las tiendas de artesanía conviven con heladerías de sabores locales y cafés de especialidad. El clima de altura suaviza las jornadas: mañanas frescas, tardes templadas y noches ideales para cenar con vistas al valle.
             </p>
             <p>
               Esta página reúne lo esencial —cómo llegar, qué hacer y cuándo ir— con enlaces directos a nuestras <a href="/paginas-pautantes/calle-real-de-salento/">páginas de pautantes</a> y a las <a href="/landing/valle-de-cocora-guia/">guías extendidas</a> del sitio para que armes un itinerario claro, real y sin vueltas. También encontrarás referencias a <a href="/paginas-pautantes/finca-don-eduardo-coffee-tour/">fincas de coffee tour verificadas</a>, <a href="/paginas-pautantes/valle-de-cocora-sendero-de-entrada-libre/">senderos con entrada libre</a> al Valle de Cocora y opciones de hospedaje y gastronomía con contacto directo por WhatsApp, sin comisiones de intermediarios. La idea es simple: que llegues con expectativas realistas, vuelvas con historias propias y apoyes a los negocios locales que hacen de Salento un destino con identidad. Si es tu primera visita, empieza por las secciones de transporte y actividades; si ya conoces el pueblo, usa los enlaces a categorías y landings para descubrir rincones menos transitados y planes de temporada baja.
             </p>
-            <figure className="home-content-figure">
-              <img src="/imagenes-salento/colombia-palms.webp" alt="Palmas de cera y paisaje del Valle de Cocora en Salento, Quindío" loading="lazy" width="1200" height="675" />
-              <figcaption>Palmas de cera y valle del entorno de Salento, Quindío — foto de archivo Salento a la Mano</figcaption>
-            </figure>
+            </div>
+            <nav className="home-guide-nav" aria-label="Secciones de la guía de Salento">
+              <a href="#como-llegar"><span>01</span> Cómo llegar</a>
+              <a href="#que-hacer"><span>02</span> Qué hacer</a>
+              <a href="#mejor-epoca"><span>03</span> Cuándo visitar</a>
+            </nav>
 
-            <h2>Cómo llegar a Salento</h2>
+            <section className="home-guide-chapter" aria-labelledby="como-llegar">
+            <h2 id="como-llegar">Cómo llegar a Salento</h2>
             <p>
               Salento no tiene aeropuerto comercial propio: la puerta aérea más cercana es el aeropuerto El Edén, en Armenia, y desde allí se llega por carretera en unos 45 a 60 minutos. También se llega por carretera desde los demás puertos aéreos del Eje Cafetero o desde grandes ciudades. Abajo, las rutas más usadas por viajeros y locales, con el aeropuerto El Edén como primera opción.
             </p>
@@ -1868,8 +1903,13 @@ function App() {
               <img src="/imagenes-salento/calle.webp" alt="Calle empedrada del centro histórico de Salento con casas de colores y balcones de guadua" loading="lazy" width="1200" height="800" />
               <figcaption>Centro histórico de Salento: calles empedradas y arquitectura tradicional</figcaption>
             </figure>
+            <a className="home-guide-banner" href="/servicios/transporte-salento.html" aria-label="Consulta opciones de transporte en Salento">
+              <img src="/banners/banner-servicio-transporte.jpg" alt="Transporte en Salento: jeeps, buses y bicicletas con contacto directo" loading="lazy" width="1440" height="900" />
+            </a>
 
-            <h2>Qué hacer en Salento</h2>
+            </section>
+            <section className="home-guide-chapter" aria-labelledby="que-hacer">
+            <h2 id="que-hacer">Qué hacer en Salento</h2>
             <p>
               Con dos o tres días bien distribuidos se combinan naturaleza, café, cultura y descanso. Estas son las experiencias que no deberían faltar en tu ruta, con enlaces a operadores locales verificados del directorio.
             </p>
@@ -1878,11 +1918,17 @@ function App() {
             <p>
               El sendero clásico rodea el río Quindío, cruza puentes colgantes y asciende entre niebla hasta el bosque de los Robles. Completa la vuelta en 4 a 6 horas con ritmo pausado, calzado con agarre y agua. Lleva impermeable ligero: la lluvia corta es parte del paisaje. Opciones guiadas y de entrada libre: <a href="/paginas-pautantes/valle-de-cocora-sendero-de-entrada-libre/">Valle de Cocora por entrada libre</a> y la <a href="/landing/valle-de-cocora-guia/">guía completa del Valle de Cocora</a>.
             </p>
+            <a className="home-guide-banner" href="/landing/valle-de-cocora-guia/" aria-label="Explora atractivos y opciones de reserva en Salento">
+              <img src="/banners/banner-reservas-atractivos.jpg" alt="Reserva con anticipación miradores, reservas naturales y coffee tours en Salento" loading="lazy" width="1440" height="900" />
+            </a>
 
             <h3>Coffee tours en fincas cafeteras</h3>
             <p>
               Un coffee tour de media mañana enseña siembra, cosecha, despulpado y cata, casi siempre en fincas familiares de la zona. Ideal para viajeros que quieren entender el origen del café colombiano más allá de la taza. Reserva directa con pautantes como <a href="/paginas-pautantes/finca-don-eduardo-coffee-tour/">Finca Don Eduardo</a> o explora más opciones en <a href="/landing/coffee-tour-salento-precio/">la guía de coffee tours</a>.
             </p>
+            <a className="home-guide-banner" href="/landing/coffee-tour-salento-precio/" aria-label="Descubre coffee tours de origen en Salento">
+              <img src="/banners/banner-experiencia-cafe.jpg" alt="Experiencia de café de origen en fincas tradicionales de Salento" loading="lazy" width="1440" height="900" />
+            </a>
 
             <h3>Calle Real, Plaza de Bolívar y miradores</h3>
             <p>
@@ -1898,7 +1944,9 @@ function App() {
               <figcaption>Palmas de cera en el Valle de Cocora, atravesadas por senderos de niebla</figcaption>
             </figure>
 
-            <h2>Mejores épocas para visitar Salento</h2>
+            </section>
+            <section className="home-guide-chapter" aria-labelledby="mejor-epoca">
+            <h2 id="mejor-epoca">Mejores épocas para visitar Salento</h2>
             <p>
               Salento se puede visitar todo el año; lo que cambia es el clima, la densidad de viajeros y el estado de los senderos. Estas ventanas de tiempo ayudan a elegir según tu prioridad: fotos, festival o tranquilidad.
             </p>
@@ -1922,6 +1970,9 @@ function App() {
             <p>
               En Semana Santa, puentes largos y ferias de artesanía el centro se satura; perfecto si buscas ambiente y eventos, menos ideal si quieres senderos en solitario. Revisa la <a href="/categorias/eventos.html">agenda de eventos</a> y llega temprano a la plaza para jeeps y estacionamiento. Para escapadas cortas de fin de semana, usa el plan de <a href="/landing/que-hacer-salento-fin-de-semana/">qué hacer en un fin de semana en Salento</a>.
             </p>
+            <a className="home-guide-banner" href="/servicios/reservas-hoteles.html" aria-label="Encuentra hospedajes y reserva directamente en Salento">
+              <img src="/banners/banner-reservas.jpg" alt="Reserva hoteles y hostales de Salento directamente por WhatsApp" loading="lazy" width="1440" height="900" />
+            </a>
             <figure className="home-content-figure">
               <img src="/imagenes-salento/iglesia.webp" alt="Iglesia de Nuestra Señora del Carmen y plaza principal de Salento bajo cielo despejado" loading="lazy" width="1200" height="800" />
               <figcaption>Iglesia y plaza de Salento, punto de partida de la mayoría de rutas</figcaption>
@@ -1933,6 +1984,7 @@ function App() {
                 Explora el <a href="/mapa-interactivo-salento.html">mapa interactivo</a>, filtra por categoría en el directorio de esta misma página o visita directamente las fichas de pautantes con WhatsApp de contacto. Si buscas profundidad, empieza por nuestras guías: <a href="/landing/valle-de-cocora-guia/">Valle de Cocora</a>, <a href="/faq-salento-preguntas-frecuentes-turistas-informacion-oficial.html">preguntas frecuentes</a> y <a href="/seguridad-salento-emergencias.html">seguridad y emergencias</a>.
               </p>
             </div>
+            </section>
           </div>
         </section>
 
@@ -2099,6 +2151,8 @@ function App() {
         {/* Don Chucho IA mejorado - producción (fallback al chat local si no hay backend) */}
         {showDonChuchoAI && (
           <EnhancedDonChucho
+            language={language}
+            t={t}
             onClose={() => setShowDonChuchoAI(false)}
             onFallback={() => {
               setShowDonChuchoAI(false)
@@ -2271,18 +2325,36 @@ function DonChucho({ language, t, places, weather, todayEvents, open: openProp, 
 
     const naturalOpeners = ['Pues mira,', 'Ay, hermano,', 'Mira nomás,', 'Eso sí te lo digo,', 'Con toda sinceridad,', 'Pues sí,', 'Aja, y aquí va la verdad,']
     const closers = ['¿Te armo la ruta del día?', '¿Quieres que te diga qué te conviene más?', 'Si quieres, te lo dejo más sencillo.', '¿Te ayudo a elegir entre varias opciones?']
-    const opener = naturalOpeners[Math.floor(Math.random() * naturalOpeners.length)]
-    const closer = closers[Math.floor(Math.random() * closers.length)]
+    const localizedOpeners: Record<Language, string[]> = {
+      es: naturalOpeners,
+      en: ['Of course,', 'Here in Salento,', 'Let me help you with that,'],
+      fr: ['Bien sûr,', 'À Salento,', 'Je peux vous aider,'],
+      de: ['Gern,', 'Hier in Salento,', 'Ich helfe dir gern,'],
+      pt: ['Claro,', 'Aqui em Salento,', 'Posso te ajudar,'],
+      it: ['Certo,', 'A Salento,', 'Posso aiutarti,'],
+      zh: ['当然可以，', '在萨伦托，', '我来为你介绍，']
+    }
+    const localizedClosers: Record<Language, string[]> = {
+      es: closers,
+      en: ['Would you like help planning your day?', 'Would you like a few options?', 'Can I help with anything else?'],
+      fr: ['Souhaitez-vous préparer votre journée ?', 'Voulez-vous quelques options ?', 'Puis-je vous aider autrement ?'],
+      de: ['Möchtest du deinen Tag planen?', 'Möchtest du ein paar Optionen?', 'Kann ich dir noch weiterhelfen?'],
+      pt: ['Quer planejar seu dia?', 'Quer ver algumas opções?', 'Posso ajudar em mais alguma coisa?'],
+      it: ['Vuoi organizzare la tua giornata?', 'Vuoi vedere alcune opzioni?', 'Posso aiutarti con altro?'],
+      zh: ['需要我帮你规划一天吗？', '想看看几个选择吗？', '还需要了解其他信息吗？']
+    }
+    const openers = localizedOpeners[language]
+    const localizedCloserOptions = localizedClosers[language]
+    const opener = openers[Math.floor(Math.random() * openers.length)]
+    const closer = localizedCloserOptions[Math.floor(Math.random() * localizedCloserOptions.length)]
     const recomendacion = query.includes('recomi') || query.includes('suger') || query.includes('conviene')
     const plan = query.includes('plan') || query.includes('qué hacer') || query.includes('ruta')
     const busquedaLugar = /hotel|restaurante|mirador|cascada|finca|cabalgata|moto|boquía|salento/.test(query)
 
-    if (!isEnglish) {
-      if (recomendacion) return `${opener} en Salento yo te diría: ${reply} ${closer}`
-      if (plan) return `${opener} para un plan bien rico en Salento, ${reply} ${closer}`
-      if (busquedaLugar) return `${opener} ${reply} ${closer}`
-    }
-    return `${reply} ${isEnglish ? t('donChucho.wantPlan', 'Want me to build a simple plan for you?') : closer}`
+    if (recomendacion) return `${opener} ${reply} ${closer}`
+    if (plan) return `${opener} ${reply} ${closer}`
+    if (busquedaLugar) return `${opener} ${reply} ${closer}`
+    return `${reply} ${closer}`
   }
 
   function buildNaturalSuggestions(text: string, isDefensive: boolean): string[] {
@@ -2322,13 +2394,15 @@ function DonChucho({ language, t, places, weather, todayEvents, open: openProp, 
     return spanishSuggestions.default
   }
 
-  function ask(text: string) {
+  function ask(text: string, userMessageAlreadyAdded = false) {
     setQuestion(text)
     setShowGreeting(false)
     setRelatedPlace(null)
     setShowQuickActions(false)
     setIsTyping(true)
-    setConversationHistory(prev => [...prev, { role: 'user', text }])
+    if (!userMessageAlreadyAdded) {
+      setConversationHistory(prev => [...prev, { role: 'user', text }])
+    }
     
     // Track interaction for context-aware UI
     travelContext.trackInteraction(text, detectIntent(text))
@@ -2538,13 +2612,13 @@ function DonChucho({ language, t, places, weather, todayEvents, open: openProp, 
           {suggestions.length > 0 && (
             <div className="chucho-suggestions">
               {suggestions.map((suggestion, index) => (
-                <button key={index} onClick={() => { setConversationHistory(prev => [...prev, { role: 'user', text: suggestion }]); ask(suggestion) }}>{suggestion}</button>
+                <button key={index} onClick={() => { setConversationHistory(prev => [...prev, { role: 'user', text: suggestion }]); ask(suggestion, true) }}>{suggestion}</button>
               ))}
             </div>
           )}
 
-          <form className="chucho-input-form" onSubmit={(event) => { event.preventDefault(); if (question.trim()) { setConversationHistory(prev => [...prev, { role: 'user', text: question }]); ask(question); setQuestion('') } }}>
-            <VoiceInput onTranscript={(text) => { setQuestion(text); if (text.trim()) { setConversationHistory(prev => [...prev, { role: 'user', text }]); ask(text) } }} language={language === 'es' ? 'es-CO' : language === 'en' ? 'en-US' : `${language}-CO`} />
+          <form className="chucho-input-form" onSubmit={(event) => { event.preventDefault(); if (question.trim()) { setConversationHistory(prev => [...prev, { role: 'user', text: question }]); ask(question, true); setQuestion('') } }}>
+            <VoiceInput onTranscript={(text) => { setQuestion(text); if (text.trim()) { setConversationHistory(prev => [...prev, { role: 'user', text }]); ask(text, true) } }} language={language === 'es' ? 'es-CO' : language === 'en' ? 'en-US' : `${language}-CO`} />
             <input value={question} onChange={(event) => setQuestion(event.target.value)} placeholder={t('donChucho.placeholder', 'Escribe tu pregunta...')} />
             <button aria-label="Enviar pregunta"><Send size={15} /></button>
           </form>
