@@ -1,6 +1,8 @@
 // Base de conocimiento local para Don Chucho
 // Contiene información específica sobre Salento y el Quindío
 
+import type { Language } from '../types'
+
 interface KnowledgeItem {
   keywords: string[]
   category: 'cafe' | 'comida' | 'artesanias' | 'hospedaje' | 'turismo' | 'transporte' | 'emergencias' | 'general' | 'defensivo' | 'historia' | 'municipios' | 'gastronomia' | 'consejos' | 'experiencias' | 'festivales'
@@ -12,6 +14,14 @@ interface KnowledgeItem {
     pt: string
     it: string
     zh?: string  // chino simplificado opcional
+    // Locales adicionales (opcionales): si no hay traducción se hace fallback a `es`
+    ja?: string
+    ko?: string
+    th?: string
+    vi?: string
+    id?: string
+    ms?: string
+    'en-gb'?: string
   }
   followUp?: string[]
   relatedPlaces?: number[]
@@ -799,7 +809,7 @@ const knowledgeBase: KnowledgeItem[] = [
 ]
 
 class DonChuchoKnowledge {
-  findAnswer(query: string, language: 'es' | 'en' | 'de' | 'fr' | 'pt' | 'it' = 'es'): KnowledgeItem | null {
+  findAnswer(query: string, language: Language = 'es'): KnowledgeItem | null {
     const normalizedQuery = query
       .toLowerCase()
       .normalize('NFD')
@@ -811,10 +821,10 @@ class DonChuchoKnowledge {
     return null
   }
 
-  getAnswer(query: string, language: 'es' | 'en' | 'de' | 'fr' | 'pt' | 'it' = 'es'): string {
+  getAnswer(query: string, language: Language = 'es'): string {
     const knowledgeItem = this.findAnswer(query, language)
     if (knowledgeItem) {
-      return knowledgeItem.answer[language]
+      return knowledgeItem.answer[language] || knowledgeItem.answer.es
     }
     switch (language) {
       case 'de':
@@ -840,7 +850,7 @@ class DonChuchoKnowledge {
     return knowledgeItem?.defensiveActions || []
   }
 
-  getFollowUpSuggestions(query: string, language: 'es' | 'en' | 'de' | 'fr' | 'pt' | 'it' = 'es'): string[] {
+  getFollowUpSuggestions(query: string, language: Language = 'es'): string[] {
     const knowledgeItem = this.findAnswer(query, language)
     return knowledgeItem?.followUp || []
   }
@@ -858,7 +868,7 @@ class DonChuchoKnowledge {
     return knowledgeBase.filter(item => item.category === category)
   }
 
-  searchWithScore(query: string, language: 'es' | 'en' | 'de' | 'fr' | 'pt' | 'it' = 'es'): Array<{ item: KnowledgeItem; score: number }> {
+  searchWithScore(query: string, language: Language = 'es'): Array<{ item: KnowledgeItem; score: number }> {
     const normalizedQuery = query.toLowerCase()
     const results: Array<{ item: KnowledgeItem; score: number }> = []
 
@@ -894,7 +904,7 @@ class DonChuchoKnowledge {
 }
 
 // Función de búsqueda simple para uso directo en componentes
-export function searchLocalKnowledge(query: string, language: 'es' | 'en' | 'de' | 'fr' | 'pt' | 'it' = 'es'): KnowledgeItem | null {
+export function searchLocalKnowledge(query: string, language: Language = 'es'): KnowledgeItem | null {
   const normalizedQuery = query.toLowerCase()
   
   for (const item of knowledgeBase) {

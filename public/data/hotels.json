@@ -80,8 +80,116 @@
       "isPartner": true,
       "placeId": 41,
       "url": "/paginas-pautantes/hotel-green-house-salento/"
+    },
+    {
+      "id": "hotel_50",
+      "name": "La Serrana Eco-Farm and Hostel",
+      "address": "Vía a Palestina, Salento, Quindío",
+      "phone": "",
+      "isPartner": false,
+      "placeId": 50,
+      "url": "/categorias/alojamientos.html"
+    },
+    {
+      "id": "hotel_51",
+      "name": "Hostal Tralala",
+      "address": "Cra. 7 # 6-45, Salento, Quindío",
+      "phone": "",
+      "isPartner": false,
+      "placeId": 51,
+      "url": "/categorias/alojamientos.html"
+    },
+    {
+      "id": "hotel_64",
+      "name": "Hostal Ciudad de Segovia",
+      "address": "Calle 5 # 7-12, Salento, Quindío",
+      "phone": "",
+      "isPartner": false,
+      "placeId": 64,
+      "url": "/categorias/alojamientos.html"
+    },
+    {
+      "id": "hotel_65",
+      "name": "Hotel Gran Azul",
+      "address": "Vía a Boquía, Salento, Quindío",
+      "phone": "",
+      "isPartner": false,
+      "placeId": 65,
+      "url": "/categorias/alojamientos.html"
+    },
+    {
+      "id": "hotel_73",
+      "name": "Eco-Hotel Las Palmas",
+      "address": "Vereda Boquía, Salento, Quindío",
+      "phone": "",
+      "isPartner": false,
+      "placeId": 73,
+      "url": "/categorias/alojamientos.html"
+    },
+    {
+      "id": "hotel_77",
+      "name": "Hotel Salento Plaza",
+      "address": "Cra. 6 # 5-25, Salento, Quindío",
+      "phone": "",
+      "isPartner": false,
+      "placeId": 77,
+      "url": "/categorias/alojamientos.html"
+    },
+    {
+      "id": "hotel_82",
+      "name": "Hotel Mirador del Cocora",
+      "address": "Calle 1 # 3-12, Salento, Quindío",
+      "phone": "",
+      "isPartner": false,
+      "placeId": 82,
+      "url": "/categorias/alojamientos.html"
+    },
+    {
+      "id": "hotel_85",
+      "name": "Hostal Luciernaga",
+      "address": "Calle 6 # 7-25, Salento, Quindío",
+      "phone": "",
+      "isPartner": false,
+      "placeId": 85,
+      "url": "/categorias/alojamientos.html"
+    },
+    {
+      "id": "hotel_89",
+      "name": "Hotel Salento Terranova",
+      "address": "Calle 4 # 8-12, Salento, Quindío",
+      "phone": "",
+      "isPartner": false,
+      "placeId": 89,
+      "url": "/categorias/alojamientos.html"
+    },
+    {
+      "id": "hotel_94",
+      "name": "Hotel Reserva del Quindío",
+      "address": "Vía a Palestina, Salento, Quindío",
+      "phone": "",
+      "isPartner": false,
+      "placeId": 94,
+      "url": "/categorias/alojamientos.html"
+    },
+    {
+      "id": "hotel_106",
+      "name": "Hostal Hill Salento",
+      "address": "Calle 1 # 6-12, Salento, Quindío",
+      "phone": "",
+      "isPartner": false,
+      "placeId": 106,
+      "url": "/categorias/alojamientos.html"
+    },
+    {
+      "id": "hotel_107",
+      "name": "Hotel Boutique Casa Salento",
+      "address": "Calle 6 # 4-32, Salento, Quindío",
+      "phone": "",
+      "isPartner": false,
+      "placeId": 107,
+      "url": "/categorias/alojamientos.html"
     }
   ],
-  "lastUpdated": "2026-10-14T22:30:00.000Z",
-  "version": "2.0.0-pautantes-only"
+  "lastUpdated": "2026-11-04T00:00:00.000Z",
+  "version": "2.1.0-alojamientos-sync"
 }

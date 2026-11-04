@@ -189,6 +189,10 @@ function phoneUrl(value) {
   return /^\+?\d{8,15}$/.test(number) ? `tel:${number}` : '';
 }
 
+function bottomNav() {
+  return `<nav class="bottom-nav" aria-label="Volver" style="display:flex;flex-wrap:wrap;gap:10px;margin-top:28px"><a class="button primary" href="/">Volver al inicio</a><a class="button dark" href="/">Ir a página principal</a><a class="button" href="/categorias/">Ver categorías</a></nav>`;
+}
+
 function logoFor(provider) {
   const initials = provider.name
     .split(' ')
@@ -224,7 +228,7 @@ function cardImageFor(item, category) {
   if (CARD_IMAGE_OVERRIDES[slugify(item.name)]) return CARD_IMAGE_OVERRIDES[slugify(item.name)];
   const photos = providerPhotos(item);
   if (photos[0]) return photos[0].startsWith('http') ? photos[0] : encodeURI(photos[0]);
-  return meta?.image || '/imagenes-salento/destinos-75.webp';
+  return categoryMeta[category]?.image || '/imagenes-salento/destinos-75.webp';
 }
 
 function galleryFor(provider) {
@@ -414,7 +418,7 @@ function renderCategoryPage(category, items, extraCat = null) {
       </section>` : '';
 
   return `<!DOCTYPE html>
-<html lang="es">
+<html lang="es-CO">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -510,7 +514,11 @@ function renderCategoryPage(category, items, extraCat = null) {
       name: `${meta?.title || category} | Salento a la Mano`,
       description: meta?.description || 'Directorio de servicios locales en Salento, Quindío.',
       url: `https://www.salentoalamano.com/categorias/${slugify(category)}.html`,
-      inLanguage: 'es',
+      inLanguage: 'es-CO',
+      speakable: {
+        '@type': 'SpeakableSpecification',
+        cssSelector: ['h1', '.sub'],
+      },
       mainEntity: {
         '@type': 'ItemList',
         itemListElement: items.map((it, idx) => ({
@@ -551,7 +559,7 @@ function renderRedirectStub(provider) {
   const slug = slugify(provider.name);
   const target = `/paginas-pautantes/${slug}/`;
   return `<!DOCTYPE html>
-<html lang="es">
+<html lang="es-CO">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -595,7 +603,7 @@ function renderProviderPage(provider) {
   const gallery = galleryFor(provider);
 
   return `<!DOCTYPE html>
-<html lang="es">
+<html lang="es-CO">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -1424,7 +1432,7 @@ function renderProviderLandingPage(provider) {
   ].filter(Boolean);
 
   const html = `<!DOCTYPE html>
-<html lang="es">
+<html lang="es-CO">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -1533,7 +1541,7 @@ for (const provider of providers) {
 if (onlyFilter.size === 0) {
 const indexPath = path.join(publicDir, 'categorias', 'index.html');
 const indexHtml = `<!DOCTYPE html>
-<html lang="es">
+<html lang="es-CO">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />

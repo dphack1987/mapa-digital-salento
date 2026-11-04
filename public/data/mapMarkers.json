@@ -455,8 +455,752 @@
       ],
       "tone": "warning",
       "note": "Shalem Restaurante Bar"
+    },
+    {
+      "id": 247,
+      "label": "Café Jesús Martín",
+      "type": "Gastronómico",
+      "placeId": 47,
+      "coord": [
+        4.6391,
+        -75.5657
+      ],
+      "tone": "warning",
+      "note": "Café Premium"
+    },
+    {
+      "id": 248,
+      "label": "Restaurante El Rincón de Lucy",
+      "type": "Gastronómico",
+      "placeId": 48,
+      "coord": [
+        4.6395,
+        -75.5662
+      ],
+      "tone": "warning",
+      "note": "Comida Casera"
+    },
+    {
+      "id": 249,
+      "label": "Brunch de Salento",
+      "type": "Gastronómico",
+      "placeId": 49,
+      "coord": [
+        4.6402,
+        -75.5665
+      ],
+      "tone": "warning",
+      "note": "Desayunos Pro"
+    },
+    {
+      "id": 250,
+      "label": "La Serrana Eco-Farm and Hostel",
+      "type": "Turístico",
+      "placeId": 50,
+      "coord": [
+        4.6285,
+        -75.5785
+      ],
+      "tone": "primary",
+      "note": "Eco-Friendly"
+    },
+    {
+      "id": 251,
+      "label": "Hostal Tralala",
+      "type": "Turístico",
+      "placeId": 51,
+      "coord": [
+        4.6382,
+        -75.5672
+      ],
+      "tone": "primary",
+      "note": "Top Rated"
+    },
+    {
+      "id": 252,
+      "label": "Billares Danubio",
+      "type": "Turístico",
+      "placeId": 52,
+      "coord": [
+        4.6388,
+        -75.5645
+      ],
+      "tone": "success",
+      "note": "Tradicional"
+    },
+    {
+      "id": 253,
+      "label": "Tejo Los Amigos",
+      "type": "Turístico",
+      "placeId": 53,
+      "coord": [
+        4.6408,
+        -75.5668
+      ],
+      "tone": "success",
+      "note": "Deporte Nacional"
+    },
+    {
+      "id": 254,
+      "label": "Hospital San Vicente de Paúl",
+      "type": "Comercial",
+      "placeId": 54,
+      "coord": [
+        4.6365,
+        -75.5625
+      ],
+      "tone": "info",
+      "note": "Salud"
+    },
+    {
+      "id": 255,
+      "label": "Policía de Turismo Salento",
+      "type": "Comercial",
+      "placeId": 55,
+      "coord": [
+        4.6385,
+        -75.5648
+      ],
+      "tone": "info",
+      "note": "Seguridad"
+    },
+    {
+      "id": 256,
+      "label": "Cajero Bancolombia",
+      "type": "Comercial",
+      "placeId": 56,
+      "coord": [
+        4.6389,
+        -75.5644
+      ],
+      "tone": "info",
+      "note": "Cajero ATM"
+    },
+    {
+      "id": 257,
+      "label": "Finca Las Acacias Coffee Tour",
+      "type": "Turístico",
+      "placeId": 57,
+      "coord": [
+        4.6265,
+        -75.5945
+      ],
+      "tone": "success",
+      "note": "Coffee Tour"
+    },
+    {
+      "id": 258,
+      "label": "Ecoparque El Mirador",
+      "type": "Turístico",
+      "placeId": 58,
+      "coord": [
+        4.6375,
+        -75.5715
+      ],
+      "tone": "success",
+      "note": "Vistas 360"
+    },
+    {
+      "id": 259,
+      "label": "Supermercado El Progreso",
+      "type": "Comercial",
+      "placeId": 59,
+      "coord": [
+        4.6395,
+        -75.5648
+      ],
+      "tone": "warning",
+      "note": "Víveres"
+    },
+    {
+      "id": 260,
+      "label": "Droguería Salento",
+      "type": "Comercial",
+      "placeId": 60,
+      "coord": [
+        4.6388,
+        -75.5652
+      ],
+      "tone": "warning",
+      "note": "Farmacia"
+    },
+    {
+      "id": 261,
+      "label": "Artesanías El Cacique",
+      "type": "Comercial",
+      "placeId": 61,
+      "coord": [
+        4.6405,
+        -75.5658
+      ],
+      "tone": "warning",
+      "note": "Sombreros"
+    },
+    {
+      "id": 262,
+      "label": "Paso del Quindío Tours",
+      "type": "Turístico",
+      "placeId": 62,
+      "coord": [
+        4.6398,
+        -75.5655
+      ],
+      "tone": "success",
+      "note": "Alta Montaña"
+    },
+    {
+      "id": 263,
+      "label": "Salento Cycling",
+      "type": "Turístico",
+      "placeId": 63,
+      "coord": [
+        4.6385,
+        -75.5675
+      ],
+      "tone": "success",
+      "note": "MTB Tours"
+    },
+    {
+      "id": 264,
+      "label": "Hostal Ciudad de Segovia",
+      "type": "Turístico",
+      "placeId": 64,
+      "coord": [
+        4.6378,
+        -75.5668
+      ],
+      "tone": "primary",
+      "note": "Arquitectura Típica"
+    },
+    {
+      "id": 265,
+      "label": "Hotel Gran Azul",
+      "type": "Turístico",
+      "placeId": 65,
+      "coord": [
+        4.6312,
+        -75.5825
+      ],
+      "tone": "primary",
+      "note": "Lujo Rural"
+    },
+    {
+      "id": 266,
+      "label": "Le Petit Café",
+      "type": "Gastronómico",
+      "placeId": 66,
+      "coord": [
+        4.6392,
+        -75.5645
+      ],
+      "tone": "warning",
+      "note": "Repostería"
+    },
+    {
+      "id": 267,
+      "label": "El Patio de mi Casa",
+      "type": "Gastronómico",
+      "placeId": 67,
+      "coord": [
+        4.6398,
+        -75.5658
+      ],
+      "tone": "warning",
+      "note": "Música en Vivo"
+    },
+    {
+      "id": 268,
+      "label": "Cascada Las Peñas",
+      "type": "Turístico",
+      "placeId": 68,
+      "coord": [
+        4.6455,
+        -75.5755
+      ],
+      "tone": "success",
+      "note": "Naturaleza Cerca"
+    },
+    {
+      "id": 269,
+      "label": "Finca La Carbonera",
+      "type": "Turístico",
+      "placeId": 69,
+      "coord": [
+        4.6525,
+        -75.4525
+      ],
+      "tone": "success",
+      "note": "Bosque de Palmas"
+    },
+    {
+      "id": 270,
+      "label": "Mercado de Artesanías Plaza",
+      "type": "Comercial",
+      "placeId": 70,
+      "coord": [
+        4.6385,
+        -75.5645
+      ],
+      "tone": "warning",
+      "note": "Mercado Local"
+    },
+    {
+      "id": 271,
+      "label": "Bomberos Salento",
+      "type": "Comercial",
+      "placeId": 71,
+      "coord": [
+        4.6368,
+        -75.5638
+      ],
+      "tone": "info",
+      "note": "Emergencias"
+    },
+    {
+      "id": 272,
+      "label": "Droguería La Economía",
+      "type": "Comercial",
+      "placeId": 72,
+      "coord": [
+        4.6392,
+        -75.5658
+      ],
+      "tone": "warning",
+      "note": "Salud"
+    },
+    {
+      "id": 273,
+      "label": "Eco-Hotel Las Palmas",
+      "type": "Turístico",
+      "placeId": 73,
+      "coord": [
+        4.6355,
+        -75.5855
+      ],
+      "tone": "primary",
+      "note": "Avistamiento de Aves"
+    },
+    {
+      "id": 274,
+      "label": "Restaurante Donde Laurita",
+      "type": "Gastronómico",
+      "placeId": 74,
+      "coord": [
+        4.6395,
+        -75.5655
+      ],
+      "tone": "warning",
+      "note": "Tradición Familiar"
+    },
+    {
+      "id": 275,
+      "label": "Finca Luger Coffee Tour",
+      "type": "Turístico",
+      "placeId": 75,
+      "coord": [
+        4.6215,
+        -75.5885
+      ],
+      "tone": "success",
+      "note": "Educación Cafetera"
+    },
+    {
+      "id": 276,
+      "label": "Alcaldía de Salento",
+      "type": "Comercial",
+      "placeId": 76,
+      "coord": [
+        4.6388,
+        -75.5642
+      ],
+      "tone": "info",
+      "note": "Gobierno"
+    },
+    {
+      "id": 277,
+      "label": "Hotel Salento Plaza",
+      "type": "Turístico",
+      "placeId": 77,
+      "coord": [
+        4.6385,
+        -75.5652
+      ],
+      "tone": "primary",
+      "note": "Corazón del Pueblo"
+    },
+    {
+      "id": 278,
+      "label": "Restaurante Beta",
+      "type": "Gastronómico",
+      "placeId": 78,
+      "coord": [
+        4.6398,
+        -75.5675
+      ],
+      "tone": "warning",
+      "note": "Cocina Fusión"
+    },
+    {
+      "id": 279,
+      "label": "Café Quindío Salento",
+      "type": "Gastronómico",
+      "placeId": 79,
+      "coord": [
+        4.6392,
+        -75.5642
+      ],
+      "tone": "warning",
+      "note": "Marca Regional"
+    },
+    {
+      "id": 280,
+      "label": "Servientrega Salento",
+      "type": "Comercial",
+      "placeId": 80,
+      "coord": [
+        4.6375,
+        -75.5658
+      ],
+      "tone": "info",
+      "note": "Mensajería"
+    },
+    {
+      "id": 281,
+      "label": "Efecty Salento",
+      "type": "Comercial",
+      "placeId": 81,
+      "coord": [
+        4.6385,
+        -75.5655
+      ],
+      "tone": "info",
+      "note": "Giros y Pagos"
+    },
+    {
+      "id": 282,
+      "label": "Hotel Mirador del Cocora",
+      "type": "Turístico",
+      "placeId": 82,
+      "coord": [
+        4.6415,
+        -75.5712
+      ],
+      "tone": "primary",
+      "note": "Vistas al Valle"
+    },
+    {
+      "id": 283,
+      "label": "Restaurante Los Amigos",
+      "type": "Gastronómico",
+      "placeId": 83,
+      "coord": [
+        4.6395,
+        -75.5652
+      ],
+      "tone": "warning",
+      "note": "Trucha al Ajillo"
+    },
+    {
+      "id": 284,
+      "label": "Café Aroma de Campo",
+      "type": "Gastronómico",
+      "placeId": 84,
+      "coord": [
+        4.6325,
+        -75.5805
+      ],
+      "tone": "warning",
+      "note": "Métodos Filtrados"
+    },
+    {
+      "id": 285,
+      "label": "Hostal Luciernaga",
+      "type": "Turístico",
+      "placeId": 85,
+      "coord": [
+        4.6385,
+        -75.5678
+      ],
+      "tone": "primary",
+      "note": "Social Hub"
+    },
+    {
+      "id": 286,
+      "label": "Supermercado Super Inter (Cerca)",
+      "type": "Comercial",
+      "placeId": 86,
+      "coord": [
+        4.6255,
+        -75.5625
+      ],
+      "tone": "warning",
+      "note": "Gran Superficie"
+    },
+    {
+      "id": 287,
+      "label": "Gana Salento",
+      "type": "Comercial",
+      "placeId": 87,
+      "coord": [
+        4.6388,
+        -75.5655
+      ],
+      "tone": "info",
+      "note": "Servicios Integrales"
+    },
+    {
+      "id": 288,
+      "label": "Artesanías Camino Real",
+      "type": "Comercial",
+      "placeId": 88,
+      "coord": [
+        4.6402,
+        -75.5655
+      ],
+      "tone": "warning",
+      "note": "Cuero y Lana"
+    },
+    {
+      "id": 289,
+      "label": "Hotel Salento Terranova",
+      "type": "Turístico",
+      "placeId": 89,
+      "coord": [
+        4.6365,
+        -75.5665
+      ],
+      "tone": "primary",
+      "note": "Calidad-Precio"
+    },
+    {
+      "id": 290,
+      "label": "Restaurante Bernabé",
+      "type": "Gastronómico",
+      "placeId": 90,
+      "coord": [
+        4.6392,
+        -75.5672
+      ],
+      "tone": "warning",
+      "note": "Cocina de Autor"
+    },
+    {
+      "id": 291,
+      "label": "Finca La Victoria Coffee Tour",
+      "type": "Turístico",
+      "placeId": 91,
+      "coord": [
+        4.6155,
+        -75.5955
+      ],
+      "tone": "success",
+      "note": "Maquinaria Histórica"
+    },
+    {
+      "id": 292,
+      "label": "Joyería Salento",
+      "type": "Comercial",
+      "placeId": 92,
+      "coord": [
+        4.6395,
+        -75.5658
+      ],
+      "tone": "warning",
+      "note": "Joyas Artesanales"
+    },
+    {
+      "id": 293,
+      "label": "Droguería Alemana Salento",
+      "type": "Comercial",
+      "placeId": 93,
+      "coord": [
+        4.6385,
+        -75.5652
+      ],
+      "tone": "warning",
+      "note": "Precios Competitivos"
+    },
+    {
+      "id": 294,
+      "label": "Hotel Reserva del Quindío",
+      "type": "Turístico",
+      "placeId": 94,
+      "coord": [
+        4.6305,
+        -75.5755
+      ],
+      "tone": "primary",
+      "note": "Desconexión Total"
+    },
+    {
+      "id": 295,
+      "label": "Restaurante La Estancia",
+      "type": "Gastronómico",
+      "placeId": 95,
+      "coord": [
+        4.6382,
+        -75.5665
+      ],
+      "tone": "warning",
+      "note": "Parrilla Típica"
+    },
+    {
+      "id": 296,
+      "label": "Tienda del Café Salento",
+      "type": "Comercial",
+      "placeId": 96,
+      "coord": [
+        4.6398,
+        -75.5652
+      ],
+      "tone": "warning",
+      "note": "Variedad Local"
+    },
+    {
+      "id": 297,
+      "label": "Pizzería El Patio Salento",
+      "type": "Gastronómico",
+      "placeId": 97,
+      "coord": [
+        4.6385,
+        -75.5685
+      ],
+      "tone": "warning",
+      "note": "Horno de Leña"
+    },
+    {
+      "id": 298,
+      "label": "Café de la Montaña",
+      "type": "Gastronómico",
+      "placeId": 98,
+      "coord": [
+        4.6425,
+        -75.5705
+      ],
+      "tone": "warning",
+      "note": "Vista Atardecer"
+    },
+    {
+      "id": 306,
+      "label": "Hostal Hill Salento",
+      "type": "Turístico",
+      "placeId": 106,
+      "coord": [
+        4.6405,
+        -75.5705
+      ],
+      "tone": "primary",
+      "note": "Tranquilidad"
+    },
+    {
+      "id": 307,
+      "label": "Hotel Boutique Casa Salento",
+      "type": "Turístico",
+      "placeId": 107,
+      "coord": [
+        4.6392,
+        -75.5662
+      ],
+      "tone": "primary",
+      "note": "Lujo Histórico"
+    },
+    {
+      "id": 314,
+      "label": "Mirador de la Cruz (Cima)",
+      "type": "Turístico",
+      "placeId": 114,
+      "coord": [
+        4.6371,
+        -75.5718
+      ],
+      "tone": "success",
+      "note": "Cima Panorámica"
+    },
+    {
+      "id": 315,
+      "label": "Parque Principal Salento",
+      "type": "Turístico",
+      "placeId": 115,
+      "coord": [
+        4.6385,
+        -75.5645
+      ],
+      "tone": "success",
+      "note": "Centro Histórico"
+    },
+    {
+      "id": 316,
+      "label": "Información Turística (Entrada)",
+      "type": "Comercial",
+      "placeId": 116,
+      "coord": [
+        4.6358,
+        -75.5622
+      ],
+      "tone": "info",
+      "note": "Orientación"
+    },
+    {
+      "id": 317,
+      "label": "Puente Amarillo Boquía",
+      "type": "Turístico",
+      "placeId": 117,
+      "coord": [
+        4.6565,
+        -75.5722
+      ],
+      "tone": "success",
+      "note": "Icono de Boquía"
+    },
+    {
+      "id": 318,
+      "label": "Túneles de la Quiebra",
+      "type": "Turístico",
+      "placeId": 118,
+      "coord": [
+        4.6525,
+        -75.5785
+      ],
+      "tone": "success",
+      "note": "Senderismo Histórico"
+    },
+    {
+      "id": 319,
+      "label": "Vía al Valle de Cocora (Mirador)",
+      "type": "Turístico",
+      "placeId": 119,
+      "coord": [
+        4.6355,
+        -75.5255
+      ],
+      "tone": "success",
+      "note": "Vista Panorámica"
+    },
+    {
+      "id": 320,
+      "label": "Café de la Montaña 2",
+      "type": "Gastronómico",
+      "placeId": 120,
+      "coord": [
+        4.6395,
+        -75.5658
+      ],
+      "tone": "warning",
+      "note": "Coffee to Go"
+    },
+    {
+      "id": 321,
+      "label": "Restaurante La Playita",
+      "type": "Gastronómico",
+      "placeId": 121,
+      "coord": [
+        4.6545,
+        -75.5745
+      ],
+      "tone": "warning",
+      "note": "Junto al Río"
     }
   ],
-  "lastUpdated": "2026-10-13T00:00:00.000Z",
+  "lastUpdated": "2026-11-04T16:00:45.379Z",
   "version": "2.0.0-pautantes-only"
 }

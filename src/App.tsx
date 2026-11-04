@@ -974,11 +974,13 @@ function App() {
     setLanguage(newLanguage)
     translationService.setLanguage(newLanguage as any)
     // Update URL to reflect language (SPA-friendly, no full navigation)
-    const localeMap: Record<string, string> = {
-      ES: '/', EN: '/en/', DE: '/de/', FR: '/fr/', PT: '/pt/', IT: '/it/', ZH: '/zh/'
+    // Las claves de `Language` son minúsculas y solo los locales con carpeta
+    // estática propia actualizan la URL (evita 404 en locales sin páginas).
+    const localeMap: Partial<Record<Language, string>> = {
+      es: '/', en: '/en/', de: '/de/', fr: '/fr/', pt: '/pt/', it: '/it/', zh: '/zh/'
     }
-    const newPath = localeMap[newLanguage] || '/'
-    if (typeof window !== 'undefined' && window.location.pathname !== newPath) {
+    const newPath = localeMap[newLanguage]
+    if (newPath && typeof window !== 'undefined' && window.location.pathname !== newPath) {
       window.history.replaceState(null, '', newPath)
     }
     // GA4 Tracking - Agregado para WSA 2026
@@ -2332,7 +2334,14 @@ function DonChucho({ language, t, places, weather, todayEvents, open: openProp, 
       de: ['Gern,', 'Hier in Salento,', 'Ich helfe dir gern,'],
       pt: ['Claro,', 'Aqui em Salento,', 'Posso te ajudar,'],
       it: ['Certo,', 'A Salento,', 'Posso aiutarti,'],
-      zh: ['当然可以，', '在萨伦托，', '我来为你介绍，']
+      zh: ['当然可以，', '在萨伦托，', '我来为你介绍，'],
+      ja: ['はい、', 'サレントでは、', 'お手伝いします、'],
+      ko: ['물론이죠,', '살렌토에서는,', '도와드릴게요,'],
+      th: ['ได้เลยครับ,', 'ที่ซาเลนโต,', 'ผมช่วยได้ครับ,'],
+      vi: ['Tất nhiên,', 'Ở Salento,', 'Tôi có thể giúp bạn,'],
+      id: ['Tentu,', 'Di Salento,', 'Saya bisa membantu,'],
+      ms: ['Sudah tentu,', 'Di Salento,', 'Saya boleh membantu,'],
+      'en-gb': ['Of course,', 'Here in Salento,', 'Let me help you with that,']
     }
     const localizedClosers: Record<Language, string[]> = {
       es: closers,
@@ -2341,7 +2350,14 @@ function DonChucho({ language, t, places, weather, todayEvents, open: openProp, 
       de: ['Möchtest du deinen Tag planen?', 'Möchtest du ein paar Optionen?', 'Kann ich dir noch weiterhelfen?'],
       pt: ['Quer planejar seu dia?', 'Quer ver algumas opções?', 'Posso ajudar em mais alguma coisa?'],
       it: ['Vuoi organizzare la tua giornata?', 'Vuoi vedere alcune opzioni?', 'Posso aiutarti con altro?'],
-      zh: ['需要我帮你规划一天吗？', '想看看几个选择吗？', '还需要了解其他信息吗？']
+      zh: ['需要我帮你规划一天吗？', '想看看几个选择吗？', '还需要了解其他信息吗？'],
+      ja: ['一日のプランをお手伝いしましょうか？', 'いくつか選択肢を見てみますか？', '他に何かお手伝いしましょうか？'],
+      ko: ['하루 일정을 도와드릴까요?', '몇 가지 옵션을 볼까요?', '더 도와드릴 게 있을까요?'],
+      th: ['ให้ผมช่วยวางแผนวันของคุณไหม?', 'อยากดูตัวเลือกสักสองสามอย่างไหม?', 'มีอะไรให้ช่วยเพิ่มไหม?'],
+      vi: ['Bạn có muốn tôi giúp lên kế hoạch cho ngày của bạn không?', 'Bạn có muốn xem vài lựa chọn không?', 'Tôi có thể giúp gì thêm không?'],
+      id: ['Ingin saya bantu merencanakan hari Anda?', 'Ingin melihat beberapa pilihan?', 'Ada lagi yang bisa saya bantu?'],
+      ms: ['Mahu saya bantu merancang hari anda?', 'Mahu lihat beberapa pilihan?', 'Ada lagi yang boleh saya bantu?'],
+      'en-gb': ['Would you like help planning your day?', 'Would you like a few options?', 'Can I help with anything else?']
     }
     const openers = localizedOpeners[language]
     const localizedCloserOptions = localizedClosers[language]

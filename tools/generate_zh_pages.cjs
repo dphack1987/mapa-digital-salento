@@ -274,7 +274,7 @@ for (const page of ZH_PAGES) {
   let html = read(page.src);
 
   // lang
-  html = html.replace('<html lang="es">', '<html lang="zh">');
+  html = html.replace('<html lang="es-CO">', '<html lang="zh">');
   // title
   html = html.replace(/<title>[^<]*<\/title>/, `<title>${page.title}</title>`);
   // description si existe

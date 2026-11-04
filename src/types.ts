@@ -2,7 +2,7 @@
 export type Category = 'Todo' | 'Alojamientos' | 'Restaurantes' | 'Restaurante Bar' | 'Cafés' | 'Coffee Tours' | 'Artesanías' | 'Tiendas' | 'Experiencias' | 'Eventos' | 'Atractivos Turísticos' | 'Servicios' | 'Camping'
 
 // String literal type para idiomas (evita inconsistencias de tipos)
-export type Language = 'es' | 'en' | 'fr' | 'de' | 'pt' | 'it' | 'zh';
+export type Language = 'es' | 'en' | 'fr' | 'de' | 'pt' | 'it' | 'zh' | 'ja' | 'ko' | 'th' | 'vi' | 'id' | 'ms' | 'en-gb';
 
 // Objeto de idioma para compatibilidad con código existente
 export const LanguageConst = {
@@ -12,7 +12,14 @@ export const LanguageConst = {
   de: 'de',
   pt: 'pt',
   it: 'it',
-  zh: 'zh'
+  zh: 'zh',
+  ja: 'ja',
+  ko: 'ko',
+  th: 'th',
+  vi: 'vi',
+  id: 'id',
+  ms: 'ms',
+  'en-gb': 'en-gb'
 } as const;
 
 export type Currency = 'COP' | 'USD' | 'EUR'
@@ -176,7 +183,7 @@ export type TourismDetails = {
 export type I18nLocale = 'ES' | 'EN' | 'DE' | 'FR' | 'PT' | 'IT' | 'ZH' | 'JA' | 'KO' | 'TH' | 'VI' | 'ID' | 'MS' | 'EN_GB'
 
 // Idiomas con URL real implementada (activos en hreflang y sitemap)
-export type ActiveLocale = 'ES' | 'EN' | 'DE' | 'FR' | 'PT'
+export type ActiveLocale = 'ES' | 'EN' | 'DE' | 'FR' | 'PT' | 'IT' | 'ZH' | 'JA' | 'KO' | 'TH' | 'VI' | 'ID' | 'MS' | 'EN_GB'
 
 export type HowToStep = {
   stepNumber: number
@@ -372,11 +379,19 @@ export const LOCALES_ALL: Record<I18nLocale, {
   MS: { code: 'MS', hreflang: 'ms-MY', inLanguage: 'ms', ogLocale: 'ms_MY', label: 'Bahasa Melayu' },
 } as const
 // Idiomas con URL real implementada actualmente (activos en hreflang y sitemap)
-// Añadir aquí IT, ZH, JA, KO, TH, VI, ID, MS, EN_GB conforme se implementen
 export const LOCALES_ACTIVE: Record<ActiveLocale, typeof LOCALES_ALL[ActiveLocale]> = {
   ES: LOCALES_ALL.ES,
   EN: LOCALES_ALL.EN,
   DE: LOCALES_ALL.DE,
   FR: LOCALES_ALL.FR,
   PT: LOCALES_ALL.PT,
+  IT: LOCALES_ALL.IT,
+  ZH: LOCALES_ALL.ZH,
+  JA: LOCALES_ALL.JA,
+  KO: LOCALES_ALL.KO,
+  TH: LOCALES_ALL.TH,
+  VI: LOCALES_ALL.VI,
+  ID: LOCALES_ALL.ID,
+  MS: LOCALES_ALL.MS,
+  EN_GB: LOCALES_ALL.EN_GB,
 } as const

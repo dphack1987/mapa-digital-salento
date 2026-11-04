@@ -5,7 +5,8 @@ import { searchLocalKnowledge } from '../../services/donChuchoKnowledge'
 import type { Language } from '../../types'
 
 const SPEECH_LOCALES: Record<Language, string> = {
-  es: 'es-CO', en: 'en-US', fr: 'fr-FR', de: 'de-DE', pt: 'pt-BR', it: 'it-IT', zh: 'zh-CN'
+  es: 'es-CO', en: 'en-US', fr: 'fr-FR', de: 'de-DE', pt: 'pt-BR', it: 'it-IT', zh: 'zh-CN',
+  ja: 'ja-JP', ko: 'ko-KR', th: 'th-TH', vi: 'vi-VN', id: 'id-ID', ms: 'ms-MY', 'en-gb': 'en-GB'
 }
 
 interface Pautante {

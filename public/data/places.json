@@ -2968,8 +2968,1698 @@
       },
       "isPautante": true,
       "viewUrl": "/paginas-pautantes/la-vaca-original/"
+    },
+    {
+      "id": 47,
+      "name": "Café Jesús Martín",
+      "type": "Cafés",
+      "description": "Café de especialidad premium. Uno de los pioneros en la cultura del café en Salento. Proceso completo desde la finca hasta la taza.",
+      "priceRange": "$$",
+      "rating": "4.8",
+      "timeInfo": "Lun-dom 9:00 a.m. - 8:00 p.m.",
+      "badge": "Café Premium",
+      "color": "mustard",
+      "icon": "Coffee",
+      "contact": {
+        "phone": "+57 312 851 5130"
+      },
+      "location": {
+        "lat": 4.6391,
+        "lng": -75.5657,
+        "address": "Cra. 6 # 6-14, Salento",
+        "landmark": "A media cuadra de la plaza principal"
+      },
+      "tags": [
+        "cafe",
+        "especialidad",
+        "artesanal",
+        "premium",
+        "salento"
+      ],
+      "verified": true,
+      "active": true,
+      "isPautante": false
+    },
+    {
+      "id": 48,
+      "name": "Restaurante El Rincón de Lucy",
+      "type": "Restaurantes",
+      "description": "Famoso por sus almuerzos corrientes (corrientazos) abundantes y económicos. Comida casera auténtica de la región.",
+      "priceRange": "$",
+      "rating": "4.5",
+      "timeInfo": "Lun-dom 11:30 a.m. - 4:00 p.m.",
+      "badge": "Comida Casera",
+      "color": "yellow",
+      "icon": "Utensils",
+      "location": {
+        "lat": 4.6395,
+        "lng": -75.5662,
+        "address": "Calle 6 # 5-27, Salento",
+        "landmark": "Cerca a la Calle Real"
+      },
+      "tags": [
+        "almuerzo",
+        "economico",
+        "tipico",
+        "casero",
+        "salento"
+      ],
+      "verified": true,
+      "active": true,
+      "isPautante": false
+    },
+    {
+      "id": 49,
+      "name": "Brunch de Salento",
+      "type": "Restaurantes",
+      "description": "Popular por sus desayunos americanos y opciones internacionales. Ideal para excursionistas antes de ir al Valle de Cocora.",
+      "priceRange": "$$",
+      "rating": "4.7",
+      "timeInfo": "Lun-dom 8:00 a.m. - 9:00 p.m.",
+      "badge": "Desayunos Pro",
+      "color": "yellow",
+      "icon": "Utensils",
+      "location": {
+        "lat": 4.6402,
+        "lng": -75.5665,
+        "address": "Calle 6 # 3-25, Salento",
+        "landmark": "Vía hacia el mirador"
+      },
+      "tags": [
+        "brunch",
+        "desayuno",
+        "internacional",
+        "turistas",
+        "salento"
+      ],
+      "verified": true,
+      "active": true,
+      "isPautante": false
+    },
+    {
+      "id": 50,
+      "name": "La Serrana Eco-Farm and Hostel",
+      "type": "Alojamientos",
+      "description": "Hostal y granja ecológica ubicada a las afueras con vistas increíbles del valle. Ambiente internacional y tranquilo.",
+      "priceRange": "$$",
+      "rating": "4.6",
+      "timeInfo": "Recepción 24h",
+      "badge": "Eco-Friendly",
+      "color": "green",
+      "icon": "Hotel",
+      "location": {
+        "lat": 4.6285,
+        "lng": -75.5785,
+        "address": "Vía a Palestina, Salento",
+        "landmark": "1.5 km fuera del pueblo"
+      },
+      "tags": [
+        "hostal",
+        "granja",
+        "eco",
+        "vistas",
+        "tranquilidad",
+        "salento"
+      ],
+      "verified": true,
+      "active": true,
+      "isPautante": false
+    },
+    {
+      "id": 51,
+      "name": "Hostal Tralala",
+      "type": "Alojamientos",
+      "description": "Hostal con excelente reputación, cocina compartida de lujo y jardín. Muy cerca de la plaza principal.",
+      "priceRange": "$$",
+      "rating": "4.7",
+      "timeInfo": "Check-in 14:00",
+      "badge": "Top Rated",
+      "color": "mustard",
+      "icon": "Hotel",
+      "location": {
+        "lat": 4.6382,
+        "lng": -75.5672,
+        "address": "Cra. 7 # 6-45, Salento",
+        "landmark": "A una cuadra de la plaza"
+      },
+      "tags": [
+        "hostal",
+        "mochileros",
+        "jardin",
+        "centro",
+        "salento"
+      ],
+      "verified": true,
+      "active": true,
+      "isPautante": false
+    },
+    {
+      "id": 52,
+      "name": "Billares Danubio",
+      "type": "Experiencias",
+      "description": "Lugar tradicional donde los locales juegan billar y escuchan música antigua. Un viaje en el tiempo a la cultura cafetera.",
+      "priceRange": "$",
+      "rating": "4.4",
+      "timeInfo": "Lun-dom 10:00 a.m. - 10:00 p.m.",
+      "badge": "Tradicional",
+      "color": "coral",
+      "icon": "Compass",
+      "location": {
+        "lat": 4.6388,
+        "lng": -75.5645,
+        "address": "Plaza de Bolívar, Salento",
+        "landmark": "Costado de la plaza"
+      },
+      "tags": [
+        "billar",
+        "musica",
+        "tradicion",
+        "locales",
+        "salento"
+      ],
+      "verified": true,
+      "active": true,
+      "isPautante": false
+    },
+    {
+      "id": 53,
+      "name": "Tejo Los Amigos",
+      "type": "Experiencias",
+      "description": "Lugar auténtico para jugar tejo (deporte nacional con pólvora). Cerveza fría y mucha diversión local.",
+      "priceRange": "$",
+      "rating": "4.6",
+      "timeInfo": "Tardes y noches",
+      "badge": "Deporte Nacional",
+      "color": "coral",
+      "icon": "Compass",
+      "location": {
+        "lat": 4.6408,
+        "lng": -75.5668,
+        "address": "Cra. 4 # 6-12, Salento",
+        "landmark": "Cerca al inicio de la Calle Real"
+      },
+      "tags": [
+        "tejo",
+        "cerveza",
+        "diversion",
+        "cultura",
+        "salento"
+      ],
+      "verified": true,
+      "active": true,
+      "isPautante": false
+    },
+    {
+      "id": 54,
+      "name": "Hospital San Vicente de Paúl",
+      "type": "Servicios",
+      "description": "Centro de salud principal de Salento para emergencias básicas y atención médica primaria.",
+      "priceRange": "N/A",
+      "rating": "",
+      "timeInfo": "Emergencias 24h",
+      "badge": "Salud",
+      "color": "blue",
+      "icon": "Compass",
+      "location": {
+        "lat": 4.6365,
+        "lng": -75.5625,
+        "address": "Calle 2 # 9-02, Salento",
+        "landmark": "Entrada del pueblo"
+      },
+      "tags": [
+        "hospital",
+        "salud",
+        "emergencias",
+        "medico",
+        "salento"
+      ],
+      "verified": true,
+      "active": true,
+      "isPautante": false
+    },
+    {
+      "id": 55,
+      "name": "Policía de Turismo Salento",
+      "type": "Servicios",
+      "description": "Oficina de atención y seguridad para el turista. Información sobre rutas y prevención.",
+      "priceRange": "N/A",
+      "rating": "",
+      "timeInfo": "Lun-dom 8:00 a.m. - 6:00 p.m.",
+      "badge": "Seguridad",
+      "color": "blue",
+      "icon": "Compass",
+      "location": {
+        "lat": 4.6385,
+        "lng": -75.5648,
+        "address": "Plaza de Bolívar, Salento",
+        "landmark": "Estación de policía de la plaza"
+      },
+      "tags": [
+        "policia",
+        "seguridad",
+        "informacion",
+        "ayuda",
+        "salento"
+      ],
+      "verified": true,
+      "active": true,
+      "isPautante": false
+    },
+    {
+      "id": 56,
+      "name": "Cajero Bancolombia",
+      "type": "Servicios",
+      "description": "Cajero automático disponible las 24 horas para retiro de efectivo.",
+      "priceRange": "N/A",
+      "rating": "",
+      "timeInfo": "24h",
+      "badge": "Cajero ATM",
+      "color": "blue",
+      "icon": "Compass",
+      "location": {
+        "lat": 4.6389,
+        "lng": -75.5644,
+        "address": "Plaza de Bolívar, Salento",
+        "landmark": "Lado de la alcaldía"
+      },
+      "tags": [
+        "cajero",
+        "dinero",
+        "banco",
+        "atm",
+        "salento"
+      ],
+      "verified": true,
+      "active": true,
+      "isPautante": false
+    },
+    {
+      "id": 57,
+      "name": "Finca Las Acacias Coffee Tour",
+      "type": "Experiencias",
+      "description": "Tour del café en una finca tradicional con hermosos jardines y proceso orgánico.",
+      "priceRange": "$$",
+      "rating": "4.8",
+      "timeInfo": "Lun-dom 9:00 a.m. - 5:00 p.m.",
+      "badge": "Coffee Tour",
+      "color": "green",
+      "icon": "Coffee",
+      "location": {
+        "lat": 4.6265,
+        "lng": -75.5945,
+        "address": "Vereda Palestina, Salento",
+        "landmark": "Vía hacia el Ocaso"
+      },
+      "tags": [
+        "cafe",
+        "tour",
+        "naturaleza",
+        "finca",
+        "salento"
+      ],
+      "verified": true,
+      "active": true,
+      "isPautante": false
+    },
+    {
+      "id": 58,
+      "name": "Ecoparque El Mirador",
+      "type": "Atractivos Turísticos",
+      "description": "Sendero ecológico con múltiples niveles de observación sobre el pueblo y el valle del Cocora.",
+      "priceRange": "Gratis",
+      "rating": "4.7",
+      "timeInfo": "Abierto 24h",
+      "badge": "Vistas 360",
+      "color": "coral",
+      "icon": "Mountain",
+      "location": {
+        "lat": 4.6375,
+        "lng": -75.5715,
+        "address": "Final de la Calle Real, Salento",
+        "landmark": "Subiendo las escaleras del mirador"
+      },
+      "tags": [
+        "mirador",
+        "vistas",
+        "naturaleza",
+        "senderismo",
+        "salento"
+      ],
+      "verified": true,
+      "active": true,
+      "isPautante": false
+    },
+    {
+      "id": 59,
+      "name": "Supermercado El Progreso",
+      "type": "Tiendas",
+      "description": "Principal supermercado del pueblo para abastecimiento de víveres y productos básicos.",
+      "priceRange": "$",
+      "rating": "4.2",
+      "timeInfo": "Lun-dom 7:00 a.m. - 9:00 p.m.",
+      "badge": "Víveres",
+      "color": "yellow",
+      "icon": "ShoppingBag",
+      "location": {
+        "lat": 4.6395,
+        "lng": -75.5648,
+        "address": "Cra. 5 # 5-20, Salento",
+        "landmark": "A una cuadra de la plaza"
+      },
+      "tags": [
+        "mercado",
+        "compras",
+        "viveres",
+        "salento"
+      ],
+      "verified": true,
+      "active": true,
+      "isPautante": false
+    },
+    {
+      "id": 60,
+      "name": "Droguería Salento",
+      "type": "Tiendas",
+      "description": "Farmacia con amplia variedad de medicamentos y productos de cuidado personal.",
+      "priceRange": "$",
+      "rating": "4.5",
+      "timeInfo": "Lun-dom 8:00 a.m. - 10:00 p.m.",
+      "badge": "Farmacia",
+      "color": "yellow",
+      "icon": "ShoppingBag",
+      "location": {
+        "lat": 4.6388,
+        "lng": -75.5652,
+        "address": "Calle 6 # 5-10, Salento",
+        "landmark": "Cerca a la plaza principal"
+      },
+      "tags": [
+        "farmacia",
+        "medicamentos",
+        "salud",
+        "salento"
+      ],
+      "verified": true,
+      "active": true,
+      "isPautante": false
+    },
+    {
+      "id": 61,
+      "name": "Artesanías El Cacique",
+      "type": "Artesanías",
+      "description": "Tienda de artesanías tradicionales, ruanas, sombreros aguadeños y recordatorios.",
+      "priceRange": "$$",
+      "rating": "4.6",
+      "timeInfo": "Lun-dom 9:00 a.m. - 8:00 p.m.",
+      "badge": "Sombreros",
+      "color": "yellow",
+      "icon": "ShoppingBag",
+      "location": {
+        "lat": 4.6405,
+        "lng": -75.5658,
+        "address": "Calle Real, Salento",
+        "landmark": "Calle Real, mitad de cuadra"
+      },
+      "tags": [
+        "artesanias",
+        "compras",
+        "sombreros",
+        "regalos",
+        "salento"
+      ],
+      "verified": true,
+      "active": true,
+      "isPautante": false
+    },
+    {
+      "id": 62,
+      "name": "Paso del Quindío Tours",
+      "type": "Experiencias",
+      "description": "Agencia de viajes especializada en trekking de alta montaña y expediciones al Nevado del Tolima.",
+      "priceRange": "$$$",
+      "rating": "4.9",
+      "timeInfo": "Oficina 8:00 a.m. - 7:00 p.m.",
+      "badge": "Alta Montaña",
+      "color": "coral",
+      "icon": "Mountain",
+      "location": {
+        "lat": 4.6398,
+        "lng": -75.5655,
+        "address": "Calle 6 # 4-22, Salento",
+        "landmark": "Cerca a la plaza"
+      },
+      "tags": [
+        "trekking",
+        "tours",
+        "nevado",
+        "aventura",
+        "salento"
+      ],
+      "verified": true,
+      "active": true,
+      "isPautante": false
+    },
+    {
+      "id": 63,
+      "name": "Salento Cycling",
+      "type": "Experiencias",
+      "description": "Alquiler de bicicletas de montaña y tours guiados por las trochas del Eje Cafetero.",
+      "priceRange": "$$",
+      "rating": "4.7",
+      "timeInfo": "Lun-dom 8:00 a.m. - 6:00 p.m.",
+      "badge": "MTB Tours",
+      "color": "coral",
+      "icon": "Mountain",
+      "location": {
+        "lat": 4.6385,
+        "lng": -75.5675,
+        "address": "Cra. 8 # 5-12, Salento",
+        "landmark": "Cerca a la salida hacia Boquía"
+      },
+      "tags": [
+        "bicicleta",
+        "mtb",
+        "tours",
+        "deporte",
+        "salento"
+      ],
+      "verified": true,
+      "active": true,
+      "isPautante": false
+    },
+    {
+      "id": 64,
+      "name": "Hostal Ciudad de Segovia",
+      "type": "Alojamientos",
+      "description": "Hospedaje acogedor con arquitectura típica y balcones coloridos. Ambiente familiar.",
+      "priceRange": "$",
+      "rating": "4.4",
+      "timeInfo": "Recepción diurna",
+      "badge": "Arquitectura Típica",
+      "color": "mustard",
+      "icon": "Hotel",
+      "location": {
+        "lat": 4.6378,
+        "lng": -75.5668,
+        "address": "Calle 5 # 7-12, Salento",
+        "landmark": "A dos cuadras de la plaza"
+      },
+      "tags": [
+        "hotel",
+        "tipico",
+        "familiar",
+        "centro",
+        "salento"
+      ],
+      "verified": true,
+      "active": true,
+      "isPautante": false
+    },
+    {
+      "id": 65,
+      "name": "Hotel Gran Azul",
+      "type": "Alojamientos",
+      "description": "Hotel de lujo con diseño moderno integrado a la naturaleza. Vistas espectaculares y restaurante gourmet.",
+      "priceRange": "$$$",
+      "rating": "4.9",
+      "timeInfo": "Recepción 24h",
+      "badge": "Lujo Rural",
+      "color": "green",
+      "icon": "Hotel",
+      "location": {
+        "lat": 4.6312,
+        "lng": -75.5825,
+        "address": "Vía a Boquía, Salento",
+        "landmark": "A 2km del casco urbano"
+      },
+      "tags": [
+        "lujo",
+        "moderno",
+        "vistas",
+        "gourmet",
+        "salento"
+      ],
+      "verified": true,
+      "active": true,
+      "isPautante": false
+    },
+    {
+      "id": 66,
+      "name": "Le Petit Café",
+      "type": "Cafés",
+      "description": "Pequeño café con encanto francés. Repostería artesanal y excelente espresso.",
+      "priceRange": "$$",
+      "rating": "4.7",
+      "timeInfo": "Lun-dom 10:00 a.m. - 7:00 p.m.",
+      "badge": "Repostería",
+      "color": "mustard",
+      "icon": "Coffee",
+      "location": {
+        "lat": 4.6392,
+        "lng": -75.5645,
+        "address": "Plaza de Bolívar, Salento",
+        "landmark": "Esquina de la plaza"
+      },
+      "tags": [
+        "cafe",
+        "postres",
+        "frances",
+        "plaza",
+        "salento"
+      ],
+      "verified": true,
+      "active": true,
+      "isPautante": false
+    },
+    {
+      "id": 67,
+      "name": "El Patio de mi Casa",
+      "type": "Restaurantes",
+      "description": "Lugar con música en vivo, pizzas artesanales y muy buen ambiente nocturno en un patio colonial.",
+      "priceRange": "$$",
+      "rating": "4.6",
+      "timeInfo": "Lun-dom 12:00 p.m. - 11:00 p.m.",
+      "badge": "Música en Vivo",
+      "color": "yellow",
+      "icon": "Utensils",
+      "location": {
+        "lat": 4.6398,
+        "lng": -75.5658,
+        "address": "Calle Real, Salento",
+        "landmark": "Inicio de la Calle Real"
+      },
+      "tags": [
+        "pizza",
+        "musica",
+        "bar",
+        "patio",
+        "salento"
+      ],
+      "verified": true,
+      "active": true,
+      "isPautante": false
+    },
+    {
+      "id": 68,
+      "name": "Cascada Las Peñas",
+      "type": "Atractivos Turísticos",
+      "description": "Hermosa cascada de fácil acceso para caminatas cortas. Ideal para conectar con la naturaleza sin ir muy lejos.",
+      "priceRange": "$",
+      "rating": "4.5",
+      "timeInfo": "Diurno",
+      "badge": "Naturaleza Cerca",
+      "color": "coral",
+      "icon": "Mountain",
+      "location": {
+        "lat": 4.6455,
+        "lng": -75.5755,
+        "address": "Vía al Valle de Cocora, Salento",
+        "landmark": "Entrada señalizada en la vía"
+      },
+      "tags": [
+        "cascada",
+        "naturaleza",
+        "senderismo",
+        "salento"
+      ],
+      "verified": true,
+      "active": true,
+      "isPautante": false
+    },
+    {
+      "id": 69,
+      "name": "Finca La Carbonera",
+      "type": "Atractivos Turísticos",
+      "description": "El bosque de palmas de cera más grande del mundo, mucho más denso que Cocora. Acceso en 4x4.",
+      "priceRange": "$$$",
+      "rating": "4.9",
+      "timeInfo": "Tours de día completo",
+      "badge": "Bosque de Palmas",
+      "color": "coral",
+      "icon": "Mountain",
+      "location": {
+        "lat": 4.6525,
+        "lng": -75.4525,
+        "address": "Camino Nacional (hacia Toche)",
+        "landmark": "A 2 horas en Willys 4x4"
+      },
+      "tags": [
+        "palmas",
+        "bosque",
+        "tours",
+        "4x4",
+        "salento"
+      ],
+      "verified": true,
+      "active": true,
+      "isPautante": false
+    },
+    {
+      "id": 70,
+      "name": "Mercado de Artesanías Plaza",
+      "type": "Artesanías",
+      "description": "Mercado al aire libre en la plaza principal con variedad de artesanos locales y productos regionales.",
+      "priceRange": "$",
+      "rating": "4.4",
+      "timeInfo": "Fines de semana y festivos",
+      "badge": "Mercado Local",
+      "color": "yellow",
+      "icon": "ShoppingBag",
+      "location": {
+        "lat": 4.6385,
+        "lng": -75.5645,
+        "address": "Plaza de Bolívar, Salento",
+        "landmark": "Centro de la plaza"
+      },
+      "tags": [
+        "artesanias",
+        "mercado",
+        "plaza",
+        "compras",
+        "salento"
+      ],
+      "verified": true,
+      "active": true,
+      "isPautante": false
+    },
+    {
+      "id": 71,
+      "name": "Bomberos Salento",
+      "type": "Servicios",
+      "description": "Cuerpo de bomberos voluntarios para atención de incendios y rescates en zona rural.",
+      "priceRange": "N/A",
+      "rating": "",
+      "timeInfo": "24h",
+      "badge": "Emergencias",
+      "color": "blue",
+      "icon": "Compass",
+      "location": {
+        "lat": 4.6368,
+        "lng": -75.5638,
+        "address": "Cra. 8 # 2-15, Salento",
+        "landmark": "Cerca a la entrada del pueblo"
+      },
+      "tags": [
+        "bomberos",
+        "emergencias",
+        "rescate",
+        "ayuda",
+        "salento"
+      ],
+      "verified": true,
+      "active": true,
+      "isPautante": false
+    },
+    {
+      "id": 72,
+      "name": "Droguería La Economía",
+      "type": "Tiendas",
+      "description": "Segunda farmacia del pueblo con servicio a domicilio y atención personalizada.",
+      "priceRange": "$",
+      "rating": "4.3",
+      "timeInfo": "Lun-dom 8:00 a.m. - 9:00 p.m.",
+      "badge": "Salud",
+      "color": "yellow",
+      "icon": "ShoppingBag",
+      "location": {
+        "lat": 4.6392,
+        "lng": -75.5658,
+        "address": "Cra. 6 # 5-45, Salento",
+        "landmark": "Cerca a la plaza"
+      },
+      "tags": [
+        "farmacia",
+        "medicamentos",
+        "salud",
+        "salento"
+      ],
+      "verified": true,
+      "active": true,
+      "isPautante": false
+    },
+    {
+      "id": 73,
+      "name": "Eco-Hotel Las Palmas",
+      "type": "Alojamientos",
+      "description": "Hotel rodeado de naturaleza con enfoque en el avistamiento de aves y tranquilidad total.",
+      "priceRange": "$$",
+      "rating": "4.6",
+      "timeInfo": "Recepción 24h",
+      "badge": "Avistamiento de Aves",
+      "color": "green",
+      "icon": "Hotel",
+      "location": {
+        "lat": 4.6355,
+        "lng": -75.5855,
+        "address": "Vereda Boquía, Salento",
+        "landmark": "Vía alterna a Boquía"
+      },
+      "tags": [
+        "hotel",
+        "aves",
+        "naturaleza",
+        "tranquilidad",
+        "salento"
+      ],
+      "verified": true,
+      "active": true,
+      "isPautante": false
+    },
+    {
+      "id": 74,
+      "name": "Restaurante Donde Laurita",
+      "type": "Restaurantes",
+      "description": "Lugar tradicional de comida colombiana, famoso por su ambiente y platos típicos servidos con generosidad.",
+      "priceRange": "$$",
+      "rating": "4.5",
+      "timeInfo": "Lun-dom 12:00 p.m. - 8:00 p.m.",
+      "badge": "Tradición Familiar",
+      "color": "yellow",
+      "icon": "Utensils",
+      "location": {
+        "lat": 4.6395,
+        "lng": -75.5655,
+        "address": "Calle 5 # 6-22, Salento",
+        "landmark": "A una cuadra de la plaza"
+      },
+      "tags": [
+        "restaurante",
+        "tipico",
+        "familiar",
+        "trucha",
+        "salento"
+      ],
+      "verified": true,
+      "active": true,
+      "isPautante": false
+    },
+    {
+      "id": 75,
+      "name": "Finca Luger Coffee Tour",
+      "type": "Experiencias",
+      "description": "Experiencia cafetera boutique con enfoque educativo y catación dirigida por expertos.",
+      "priceRange": "$$",
+      "rating": "4.8",
+      "timeInfo": "Bajo reserva",
+      "badge": "Educación Cafetera",
+      "color": "green",
+      "icon": "Coffee",
+      "location": {
+        "lat": 4.6215,
+        "lng": -75.5885,
+        "address": "Vereda Palestina, Salento",
+        "landmark": "Cerca a Finca Las Acacias"
+      },
+      "tags": [
+        "cafe",
+        "tour",
+        "catacion",
+        "boutique",
+        "salento"
+      ],
+      "verified": true,
+      "active": true,
+      "isPautante": false
+    },
+    {
+      "id": 76,
+      "name": "Alcaldía de Salento",
+      "type": "Servicios",
+      "description": "Sede del gobierno municipal e información administrativa sobre el municipio.",
+      "priceRange": "N/A",
+      "rating": "",
+      "timeInfo": "Lun-vie 8:00 a.m. - 5:00 p.m.",
+      "badge": "Gobierno",
+      "color": "blue",
+      "icon": "Compass",
+      "location": {
+        "lat": 4.6388,
+        "lng": -75.5642,
+        "address": "Plaza de Bolívar, Salento",
+        "landmark": "Costado norte de la plaza"
+      },
+      "tags": [
+        "alcaldia",
+        "gobierno",
+        "tramites",
+        "salento"
+      ],
+      "verified": true,
+      "active": true,
+      "isPautante": false
+    },
+    {
+      "id": 77,
+      "name": "Hotel Salento Plaza",
+      "type": "Alojamientos",
+      "description": "Hotel con balcones típicos frente a la plaza. Excelente ubicación para quienes quieren estar en el corazón del pueblo.",
+      "priceRange": "$$",
+      "rating": "4.5",
+      "badge": "Corazón del Pueblo",
+      "color": "mustard",
+      "icon": "Hotel",
+      "location": {
+        "lat": 4.6385,
+        "lng": -75.5652,
+        "address": "Cra. 6 # 5-25, Salento",
+        "landmark": "Frente a la plaza principal"
+      },
+      "tags": [
+        "hotel",
+        "plaza",
+        "balcones",
+        "centro",
+        "salento"
+      ],
+      "verified": true,
+      "active": true,
+      "isPautante": false
+    },
+    {
+      "id": 78,
+      "name": "Restaurante Beta",
+      "type": "Restaurantes",
+      "description": "Comida fusión y platos internacionales en un ambiente moderno y artístico. Muy recomendado por locales.",
+      "priceRange": "$$",
+      "rating": "4.7",
+      "badge": "Cocina Fusión",
+      "color": "yellow",
+      "icon": "Utensils",
+      "location": {
+        "lat": 4.6398,
+        "lng": -75.5675,
+        "address": "Calle 7 # 4-12, Salento",
+        "landmark": "Cerca a la Calle Real"
+      },
+      "tags": [
+        "restaurante",
+        "fusion",
+        "gourmet",
+        "moderno",
+        "salento"
+      ],
+      "verified": true,
+      "active": true,
+      "isPautante": false
+    },
+    {
+      "id": 79,
+      "name": "Café Quindío Salento",
+      "type": "Cafés",
+      "description": "Punto oficial de la marca regional Café Quindío. Amplia variedad de productos derivados del café y suvenires.",
+      "priceRange": "$$",
+      "rating": "4.6",
+      "badge": "Marca Regional",
+      "color": "mustard",
+      "icon": "Coffee",
+      "location": {
+        "lat": 4.6392,
+        "lng": -75.5642,
+        "address": "Plaza de Bolívar, Salento",
+        "landmark": "Costado de la plaza"
+      },
+      "tags": [
+        "cafe",
+        "marca",
+        "compras",
+        "regalos",
+        "salento"
+      ],
+      "verified": true,
+      "active": true,
+      "isPautante": false
+    },
+    {
+      "id": 80,
+      "name": "Servientrega Salento",
+      "type": "Servicios",
+      "description": "Oficina de mensajería y envíos nacionales e internacionales. Útil para enviar compras grandes.",
+      "priceRange": "$",
+      "rating": "4.2",
+      "badge": "Mensajería",
+      "color": "blue",
+      "icon": "Compass",
+      "location": {
+        "lat": 4.6375,
+        "lng": -75.5658,
+        "address": "Calle 5 # 5-15, Salento",
+        "landmark": "Cerca a la plaza"
+      },
+      "tags": [
+        "envios",
+        "mensajeria",
+        "paquetes",
+        "salento"
+      ],
+      "verified": true,
+      "active": true,
+      "isPautante": false
+    },
+    {
+      "id": 81,
+      "name": "Efecty Salento",
+      "type": "Servicios",
+      "description": "Punto de giros, pagos y retiros de dinero. Servicio esencial para locales y turistas.",
+      "priceRange": "$",
+      "rating": "4.0",
+      "badge": "Giros y Pagos",
+      "color": "blue",
+      "icon": "Compass",
+      "location": {
+        "lat": 4.6385,
+        "lng": -75.5655,
+        "address": "Calle 6 # 5-45, Salento",
+        "landmark": "Calle 6, centro"
+      },
+      "tags": [
+        "dinero",
+        "giros",
+        "pagos",
+        "salento"
+      ],
+      "verified": true,
+      "active": true,
+      "isPautante": false
+    },
+    {
+      "id": 82,
+      "name": "Hotel Mirador del Cocora",
+      "type": "Alojamientos",
+      "description": "Hotel con vistas espectaculares directamente hacia el valle. Habitaciones amplias y ambiente natural.",
+      "priceRange": "$$$",
+      "rating": "4.8",
+      "badge": "Vistas al Valle",
+      "color": "green",
+      "icon": "Hotel",
+      "location": {
+        "lat": 4.6415,
+        "lng": -75.5712,
+        "address": "Calle 1 # 3-12, Salento",
+        "landmark": "Parte alta de Salento"
+      },
+      "tags": [
+        "hotel",
+        "vistas",
+        "lujo",
+        "naturaleza",
+        "salento"
+      ],
+      "verified": true,
+      "active": true,
+      "isPautante": false
+    },
+    {
+      "id": 83,
+      "name": "Restaurante Los Amigos",
+      "type": "Restaurantes",
+      "description": "Restaurante familiar conocido por su trucha al ajillo y ambiente acogedor.",
+      "priceRange": "$$",
+      "rating": "4.5",
+      "badge": "Trucha al Ajillo",
+      "color": "yellow",
+      "icon": "Utensils",
+      "location": {
+        "lat": 4.6395,
+        "lng": -75.5652,
+        "address": "Cra. 5 # 6-12, Salento",
+        "landmark": "A una cuadra de la plaza"
+      },
+      "tags": [
+        "restaurante",
+        "tipico",
+        "trucha",
+        "familiar",
+        "salento"
+      ],
+      "verified": true,
+      "active": true,
+      "isPautante": false
+    },
+    {
+      "id": 84,
+      "name": "Café Aroma de Campo",
+      "type": "Cafés",
+      "description": "Café rural con mesas al aire libre y enfoque en métodos de filtrado manuales.",
+      "priceRange": "$$",
+      "rating": "4.7",
+      "badge": "Métodos Filtrados",
+      "color": "mustard",
+      "icon": "Coffee",
+      "location": {
+        "lat": 4.6325,
+        "lng": -75.5805,
+        "address": "Vía a Boquía, Salento",
+        "landmark": "Antes de llegar a Boquía"
+      },
+      "tags": [
+        "cafe",
+        "naturaleza",
+        "filtrados",
+        "salento"
+      ],
+      "verified": true,
+      "active": true,
+      "isPautante": false
+    },
+    {
+      "id": 85,
+      "name": "Hostal Luciernaga",
+      "type": "Alojamientos",
+      "description": "Hostal vibrante con bar y restaurante popular. Gran ambiente para conocer a otros viajeros.",
+      "priceRange": "$$",
+      "rating": "4.6",
+      "badge": "Social Hub",
+      "color": "mustard",
+      "icon": "Hotel",
+      "location": {
+        "lat": 4.6385,
+        "lng": -75.5678,
+        "address": "Calle 6 # 7-25, Salento",
+        "landmark": "Dos cuadras de la plaza"
+      },
+      "tags": [
+        "hostal",
+        "bar",
+        "social",
+        "mochileros",
+        "salento"
+      ],
+      "verified": true,
+      "active": true,
+      "isPautante": false
+    },
+    {
+      "id": 86,
+      "name": "Supermercado Super Inter (Cerca)",
+      "type": "Tiendas",
+      "description": "Cadena regional de supermercados ubicada en la salida hacia Armenia. Ideal para compras grandes.",
+      "priceRange": "$",
+      "rating": "4.3",
+      "badge": "Gran Superficie",
+      "color": "yellow",
+      "icon": "ShoppingBag",
+      "location": {
+        "lat": 4.6255,
+        "lng": -75.5625,
+        "address": "Vía Armenia-Salento",
+        "landmark": "Entrada vereda Boquía"
+      },
+      "tags": [
+        "mercado",
+        "compras",
+        "viveres",
+        "salento"
+      ],
+      "verified": true,
+      "active": true,
+      "isPautante": false
+    },
+    {
+      "id": 87,
+      "name": "Gana Salento",
+      "type": "Servicios",
+      "description": "Red de servicios postales y financieros. Pagos de facturas y recargas móviles.",
+      "priceRange": "$",
+      "rating": "4.1",
+      "badge": "Servicios Integrales",
+      "color": "blue",
+      "icon": "Compass",
+      "location": {
+        "lat": 4.6388,
+        "lng": -75.5655,
+        "address": "Cra. 5 # 6-45, Salento",
+        "landmark": "Cerca a la plaza"
+      },
+      "tags": [
+        "pagos",
+        "servicios",
+        "recargas",
+        "salento"
+      ],
+      "verified": true,
+      "active": true,
+      "isPautante": false
+    },
+    {
+      "id": 88,
+      "name": "Artesanías Camino Real",
+      "type": "Artesanías",
+      "description": "Amplia selección de artesanías en cuero y madera. Especialidad en ruanas de lana virgen.",
+      "priceRange": "$$",
+      "rating": "4.6",
+      "badge": "Cuero y Lana",
+      "color": "yellow",
+      "icon": "ShoppingBag",
+      "location": {
+        "lat": 4.6402,
+        "lng": -75.5655,
+        "address": "Calle Real, Salento",
+        "landmark": "Calle Real, inicio del ascenso"
+      },
+      "tags": [
+        "artesanias",
+        "cuero",
+        "ruanas",
+        "regalos",
+        "salento"
+      ],
+      "verified": true,
+      "active": true,
+      "isPautante": false
+    },
+    {
+      "id": 89,
+      "name": "Hotel Salento Terranova",
+      "type": "Alojamientos",
+      "description": "Hotel moderno con habitaciones confortables y desayuno buffet incluido. Muy buena relación calidad-precio.",
+      "priceRange": "$$",
+      "rating": "4.5",
+      "badge": "Calidad-Precio",
+      "color": "mustard",
+      "icon": "Hotel",
+      "location": {
+        "lat": 4.6365,
+        "lng": -75.5665,
+        "address": "Calle 4 # 8-12, Salento",
+        "landmark": "Barrio tranquilo cerca al centro"
+      },
+      "tags": [
+        "hotel",
+        "confort",
+        "desayuno",
+        "salento"
+      ],
+      "verified": true,
+      "active": true,
+      "isPautante": false
+    },
+    {
+      "id": 90,
+      "name": "Restaurante Bernabé",
+      "type": "Restaurantes",
+      "description": "Cocina de autor con ingredientes locales. Experiencia gastronómica elevada en un ambiente íntimo.",
+      "priceRange": "$$$",
+      "rating": "4.8",
+      "badge": "Cocina de Autor",
+      "color": "yellow",
+      "icon": "Utensils",
+      "location": {
+        "lat": 4.6392,
+        "lng": -75.5672,
+        "address": "Cra. 7 # 6-12, Salento",
+        "landmark": "Cerca a la plaza principal"
+      },
+      "tags": [
+        "restaurante",
+        "gourmet",
+        "autor",
+        "exclusivo",
+        "salento"
+      ],
+      "verified": true,
+      "active": true,
+      "isPautante": false
+    },
+    {
+      "id": 91,
+      "name": "Finca La Victoria Coffee Tour",
+      "type": "Experiencias",
+      "description": "Finca histórica con maquinaria del siglo XIX aún operativa. Tour único por la historia del café.",
+      "priceRange": "$$",
+      "rating": "4.7",
+      "badge": "Maquinaria Histórica",
+      "color": "green",
+      "icon": "Coffee",
+      "location": {
+        "lat": 4.6155,
+        "lng": -75.5955,
+        "address": "Vereda Palestina, Salento",
+        "landmark": "Más allá del Ocaso"
+      },
+      "tags": [
+        "cafe",
+        "historia",
+        "tour",
+        "finca",
+        "salento"
+      ],
+      "verified": true,
+      "active": true,
+      "isPautante": false
+    },
+    {
+      "id": 92,
+      "name": "Joyería Salento",
+      "type": "Artesanías",
+      "description": "Diseños exclusivos en plata y piedras semipreciosas inspirados en la naturaleza del Quindío.",
+      "priceRange": "$$$",
+      "rating": "4.8",
+      "badge": "Joyas Artesanales",
+      "color": "yellow",
+      "icon": "ShoppingBag",
+      "location": {
+        "lat": 4.6395,
+        "lng": -75.5658,
+        "address": "Calle Real, Salento",
+        "landmark": "Calle Real"
+      },
+      "tags": [
+        "joyeria",
+        "plata",
+        "regalos",
+        "exclusivo",
+        "salento"
+      ],
+      "verified": true,
+      "active": true,
+      "isPautante": false
+    },
+    {
+      "id": 93,
+      "name": "Droguería Alemana Salento",
+      "type": "Tiendas",
+      "description": "Sucursal de cadena nacional con amplio surtido y precios competitivos.",
+      "priceRange": "$",
+      "rating": "4.4",
+      "badge": "Precios Competitivos",
+      "color": "yellow",
+      "icon": "ShoppingBag",
+      "location": {
+        "lat": 4.6385,
+        "lng": -75.5652,
+        "address": "Calle 6 # 5-20, Salento",
+        "landmark": "Esquina de la plaza"
+      },
+      "tags": [
+        "farmacia",
+        "medicamentos",
+        "salud",
+        "salento"
+      ],
+      "verified": true,
+      "active": true,
+      "isPautante": false
+    },
+    {
+      "id": 94,
+      "name": "Hotel Reserva del Quindío",
+      "type": "Alojamientos",
+      "description": "Hotel enfocado en el descanso profundo y la desconexión total. Habitaciones con vista al bosque.",
+      "priceRange": "$$$",
+      "rating": "4.7",
+      "badge": "Desconexión Total",
+      "color": "green",
+      "icon": "Hotel",
+      "location": {
+        "lat": 4.6305,
+        "lng": -75.5755,
+        "address": "Vía a Palestina, Salento",
+        "landmark": "1km fuera del pueblo"
+      },
+      "tags": [
+        "hotel",
+        "relax",
+        "naturaleza",
+        "bosque",
+        "salento"
+      ],
+      "verified": true,
+      "active": true,
+      "isPautante": false
+    },
+    {
+      "id": 95,
+      "name": "Restaurante La Estancia",
+      "type": "Restaurantes",
+      "description": "Carnes a la parrilla y platos típicos en un local con patio tradicional.",
+      "priceRange": "$$",
+      "rating": "4.4",
+      "badge": "Parrilla Típica",
+      "color": "yellow",
+      "icon": "Utensils",
+      "location": {
+        "lat": 4.6382,
+        "lng": -75.5665,
+        "address": "Calle 6 # 6-25, Salento",
+        "landmark": "Una cuadra de la plaza"
+      },
+      "tags": [
+        "restaurante",
+        "parrilla",
+        "carne",
+        "tipico",
+        "salento"
+      ],
+      "verified": true,
+      "active": true,
+      "isPautante": false
+    },
+    {
+      "id": 96,
+      "name": "Tienda del Café Salento",
+      "type": "Artesanías",
+      "description": "Venta de café de diferentes fincas locales en un solo lugar. Asesoría experta.",
+      "priceRange": "$$",
+      "rating": "4.6",
+      "badge": "Variedad Local",
+      "color": "yellow",
+      "icon": "ShoppingBag",
+      "location": {
+        "lat": 4.6398,
+        "lng": -75.5652,
+        "address": "Calle Real, Salento",
+        "landmark": "Inicio de la Calle Real"
+      },
+      "tags": [
+        "cafe",
+        "compras",
+        "regalos",
+        "variedad",
+        "salento"
+      ],
+      "verified": true,
+      "active": true,
+      "isPautante": false
+    },
+    {
+      "id": 97,
+      "name": "Pizzería El Patio Salento",
+      "type": "Restaurantes",
+      "description": "Pizzas al horno de leña en un ambiente relajado y juvenil.",
+      "priceRange": "$$",
+      "rating": "4.5",
+      "badge": "Horno de Leña",
+      "color": "yellow",
+      "icon": "Utensils",
+      "location": {
+        "lat": 4.6385,
+        "lng": -75.5685,
+        "address": "Cra. 8 # 6-12, Salento",
+        "landmark": "Cerca a la salida hacia Armenia"
+      },
+      "tags": [
+        "pizza",
+        "cena",
+        "leña",
+        "salento"
+      ],
+      "verified": true,
+      "active": true,
+      "isPautante": false
+    },
+    {
+      "id": 98,
+      "name": "Café de la Montaña",
+      "type": "Cafés",
+      "description": "Café con terraza y vista al atardecer sobre las montañas del Quindío.",
+      "priceRange": "$$",
+      "rating": "4.7",
+      "badge": "Vista Atardecer",
+      "color": "mustard",
+      "icon": "Coffee",
+      "location": {
+        "lat": 4.6425,
+        "lng": -75.5705,
+        "address": "Calle 1 # 4-02, Salento",
+        "landmark": "Cerca al mirador"
+      },
+      "tags": [
+        "cafe",
+        "vistas",
+        "atardecer",
+        "salento"
+      ],
+      "verified": true,
+      "active": true,
+      "isPautante": false
+    },
+    {
+      "id": 106,
+      "name": "Hostal Hill Salento",
+      "type": "Alojamientos",
+      "description": "Hostal pequeño y tranquilo en la parte alta, ideal para descansar.",
+      "priceRange": "$",
+      "rating": "4.2",
+      "badge": "Tranquilidad",
+      "color": "mustard",
+      "icon": "Hotel",
+      "location": {
+        "lat": 4.6405,
+        "lng": -75.5705,
+        "address": "Calle 1 # 6-12, Salento",
+        "landmark": "Cerca al mirador"
+      },
+      "tags": [
+        "hostal",
+        "economico",
+        "tranquilo",
+        "salento"
+      ],
+      "verified": true,
+      "active": true,
+      "isPautante": false
+    },
+    {
+      "id": 107,
+      "name": "Hotel Boutique Casa Salento",
+      "type": "Alojamientos",
+      "description": "Casa colonial restaurada con lujo y detalle. Habitaciones con techos altos y vigas de madera originales.",
+      "priceRange": "$$$",
+      "rating": "4.8",
+      "badge": "Lujo Histórico",
+      "color": "mustard",
+      "icon": "Hotel",
+      "location": {
+        "lat": 4.6392,
+        "lng": -75.5662,
+        "address": "Calle 6 # 4-32, Salento",
+        "landmark": "Cerca a la Calle Real"
+      },
+      "tags": [
+        "hotel",
+        "boutique",
+        "lujo",
+        "colonial",
+        "salento"
+      ],
+      "verified": true,
+      "active": true,
+      "isPautante": false
+    },
+    {
+      "id": 114,
+      "name": "Mirador de la Cruz (Cima)",
+      "type": "Atractivos Turísticos",
+      "description": "Punto más alto del mirador con la cruz emblemática y vista panorámica total de la región.",
+      "priceRange": "Gratis",
+      "rating": "4.9",
+      "badge": "Cima Panorámica",
+      "color": "coral",
+      "icon": "Mountain",
+      "location": {
+        "lat": 4.6371,
+        "lng": -75.5718,
+        "address": "Cima del cerro, Salento",
+        "landmark": "Final de las escaleras"
+      },
+      "tags": [
+        "mirador",
+        "vistas",
+        "cruz",
+        "panoramica",
+        "salento"
+      ],
+      "verified": true,
+      "active": true,
+      "isPautante": false
+    },
+    {
+      "id": 115,
+      "name": "Parque Principal Salento",
+      "type": "Atractivos Turísticos",
+      "description": "Centro neurálgico del pueblo, rodeado de palmas de cera y arquitectura tradicional.",
+      "priceRange": "Gratis",
+      "rating": "4.8",
+      "badge": "Centro Histórico",
+      "color": "coral",
+      "icon": "Mountain",
+      "location": {
+        "lat": 4.6385,
+        "lng": -75.5645,
+        "address": "Plaza de Bolívar, Salento",
+        "landmark": "Centro del pueblo"
+      },
+      "tags": [
+        "parque",
+        "plaza",
+        "centro",
+        "salento"
+      ],
+      "verified": true,
+      "active": true,
+      "isPautante": false
+    },
+    {
+      "id": 116,
+      "name": "Información Turística (Entrada)",
+      "type": "Servicios",
+      "description": "Punto de información a la entrada del pueblo para orientación inicial.",
+      "priceRange": "Gratis",
+      "rating": "4.5",
+      "badge": "Orientación",
+      "color": "blue",
+      "icon": "Compass",
+      "location": {
+        "lat": 4.6358,
+        "lng": -75.5622,
+        "address": "Entrada Salento",
+        "landmark": "Cerca al hospital"
+      },
+      "tags": [
+        "informacion",
+        "turismo",
+        "ayuda",
+        "salento"
+      ],
+      "verified": true,
+      "active": true,
+      "isPautante": false
+    },
+    {
+      "id": 117,
+      "name": "Puente Amarillo Boquía",
+      "type": "Atractivos Turísticos",
+      "description": "Puente histórico emblemático que marca la entrada a la vereda Boquía. Punto fotográfico popular.",
+      "priceRange": "Gratis",
+      "rating": "4.6",
+      "badge": "Icono de Boquía",
+      "color": "coral",
+      "icon": "Mountain",
+      "location": {
+        "lat": 4.6565,
+        "lng": -75.5722,
+        "address": "Vía Armenia-Salento, Boquía",
+        "landmark": "Entrada a la reserva Santa Rita"
+      },
+      "tags": [
+        "puente",
+        "boquia",
+        "fotos",
+        "historia",
+        "salento"
+      ],
+      "verified": true,
+      "active": true,
+      "isPautante": false
+    },
+    {
+      "id": 118,
+      "name": "Túneles de la Quiebra",
+      "type": "Atractivos Turísticos",
+      "description": "Antiguos túneles del ferrocarril, hoy senderos ecológicos cargados de historia y misterio.",
+      "priceRange": "Gratis",
+      "rating": "4.7",
+      "badge": "Senderismo Histórico",
+      "color": "coral",
+      "icon": "Mountain",
+      "location": {
+        "lat": 4.6525,
+        "lng": -75.5785,
+        "address": "Vereda Boquía, Salento",
+        "landmark": "Cerca a la cascada Santa Rita"
+      },
+      "tags": [
+        "tuneles",
+        "ferrocarril",
+        "historia",
+        "senderismo",
+        "salento"
+      ],
+      "verified": true,
+      "active": true,
+      "isPautante": false
+    },
+    {
+      "id": 119,
+      "name": "Vía al Valle de Cocora (Mirador)",
+      "type": "Atractivos Turísticos",
+      "description": "Punto panorámico en la carretera hacia el valle con las primeras vistas de las palmas de cera.",
+      "priceRange": "Gratis",
+      "rating": "4.8",
+      "badge": "Vista Panorámica",
+      "color": "coral",
+      "icon": "Mountain",
+      "location": {
+        "lat": 4.6355,
+        "lng": -75.5255,
+        "address": "Vía Cocora Km 6, Salento",
+        "landmark": "Mitad de camino al valle"
+      },
+      "tags": [
+        "vistas",
+        "carretera",
+        "fotos",
+        "valle",
+        "salento"
+      ],
+      "verified": true,
+      "active": true,
+      "isPautante": false
+    },
+    {
+      "id": 120,
+      "name": "Café de la Montaña 2",
+      "type": "Cafés",
+      "description": "Segunda sede del popular café con enfoque en snacks rápidos y café para llevar.",
+      "priceRange": "$",
+      "rating": "4.4",
+      "badge": "Coffee to Go",
+      "color": "mustard",
+      "icon": "Coffee",
+      "location": {
+        "lat": 4.6395,
+        "lng": -75.5658,
+        "address": "Calle Real, Salento",
+        "landmark": "Final de la Calle Real"
+      },
+      "tags": [
+        "cafe",
+        "rapido",
+        "centro",
+        "salento"
+      ],
+      "verified": true,
+      "active": true,
+      "isPautante": false
+    },
+    {
+      "id": 121,
+      "name": "Restaurante La Playita",
+      "type": "Restaurantes",
+      "description": "Restaurante campestre junto al río Quindío en Boquía. Especialidad en carnes y sancocho de leña.",
+      "priceRange": "$$",
+      "rating": "4.5",
+      "badge": "Junto al Río",
+      "color": "yellow",
+      "icon": "Utensils",
+      "location": {
+        "lat": 4.6545,
+        "lng": -75.5745,
+        "address": "Vereda Boquía, Salento",
+        "landmark": "Ribera del río Quindío"
+      },
+      "tags": [
+        "restaurante",
+        "rio",
+        "campestre",
+        "sancocho",
+        "salento"
+      ],
+      "verified": true,
+      "active": true,
+      "isPautante": false
     }
   ],
-  "lastUpdated": "2026-10-13",
+  "lastUpdated": "2026-11-04",
   "version": "2.0.0-pautantes-only"
 }

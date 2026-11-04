@@ -208,7 +208,7 @@ const chipsHtml = [
 ].join('');
 
 const html = `<!DOCTYPE html>
-<html lang="es">
+<html lang="es-CO">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />

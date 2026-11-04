@@ -1,7 +1,8 @@
 # 🏆 ANÁLISIS DE NOMINACIÓN WSA - SALENTO A LA MANO
 ## World Summit Awards 2026 - Categoría Business & Commerce
 
-**Fecha:** 31/10/2026  
+**Fecha:** 31/10/2026 (Notificación recibida)  
+**Estado de Nominación:** ✅ **VERIFICADA** (Correo oficial recibido el 31/10/2026 de awards@wsa-global.org)  
 **Nominado por:** Yezid Donoso (ydonoso@uniandes.edu.co) - Experto Nacional WSA Colombia  
 **Categoría:** Business & Commerce  
 **Edición:** 24ª WSA Global
