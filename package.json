@@ -5,7 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "prebuild": "node scripts/fetch-safety-data.mjs",
     "build": "vite build && node scripts/inject-prerender.js",
+    "data:refresh": "node scripts/fetch-safety-data.mjs",
     "preview": "vite preview",
     "type-check": "tsc --noEmit",
     "seo:generate": "node tools/generate_international_seo_pages.js && node tools/generate_category_pages.js",

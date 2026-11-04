@@ -1,0 +1,373 @@
+{
+  "generatedAt": "2026-11-04T21:56:16.729Z",
+  "location": {
+    "lat": 4.636,
+    "lng": -75.567,
+    "name": "Salento, Quindío, Colombia"
+  },
+  "earthquakes": [
+    {
+      "id": "us7000tv4i",
+      "magnitude": 5.4,
+      "place": "24 km NNW of Rioblanco, Colombia",
+      "time": "2026-11-03T09:13:14.972Z",
+      "lat": 3.739,
+      "lng": -75.72,
+      "depth": 10,
+      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tv4i"
+    }
+  ],
+  "weather": {
+    "current": {
+      "time": "2026-11-04T16:45",
+      "temperature": 17.1,
+      "feelsLike": 18.5,
+      "humidity": 92,
+      "precipitation": 0.1,
+      "weatherCode": 51,
+      "windSpeed": 4.3,
+      "windGusts": 15.8
+    },
+    "hourly": [
+      {
+        "time": "2026-11-04T16:00",
+        "temp": 17.5,
+        "precipProb": 100,
+        "weatherCode": 53
+      },
+      {
+        "time": "2026-11-04T17:00",
+        "temp": 17,
+        "precipProb": 100,
+        "weatherCode": 51
+      },
+      {
+        "time": "2026-11-04T18:00",
+        "temp": 15.8,
+        "precipProb": 100,
+        "weatherCode": 51
+      },
+      {
+        "time": "2026-11-04T19:00",
+        "temp": 16,
+        "precipProb": 98,
+        "weatherCode": 51
+      },
+      {
+        "time": "2026-11-04T20:00",
+        "temp": 15.7,
+        "precipProb": 93,
+        "weatherCode": 3
+      },
+      {
+        "time": "2026-11-04T21:00",
+        "temp": 15.7,
+        "precipProb": 86,
+        "weatherCode": 3
+      },
+      {
+        "time": "2026-11-04T22:00",
+        "temp": 15.4,
+        "precipProb": 80,
+        "weatherCode": 3
+      },
+      {
+        "time": "2026-11-04T23:00",
+        "temp": 15.2,
+        "precipProb": 75,
+        "weatherCode": 51
+      },
+      {
+        "time": "2026-11-05T00:00",
+        "temp": 15.2,
+        "precipProb": 69,
+        "weatherCode": 3
+      },
+      {
+        "time": "2026-11-05T01:00",
+        "temp": 15.3,
+        "precipProb": 65,
+        "weatherCode": 3
+      },
+      {
+        "time": "2026-11-05T02:00",
+        "temp": 15.1,
+        "precipProb": 62,
+        "weatherCode": 3
+      },
+      {
+        "time": "2026-11-05T03:00",
+        "temp": 14.9,
+        "precipProb": 60,
+        "weatherCode": 3
+      },
+      {
+        "time": "2026-11-05T04:00",
+        "temp": 15,
+        "precipProb": 57,
+        "weatherCode": 3
+      },
+      {
+        "time": "2026-11-05T05:00",
+        "temp": 14.8,
+        "precipProb": 51,
+        "weatherCode": 3
+      },
+      {
+        "time": "2026-11-05T06:00",
+        "temp": 14.9,
+        "precipProb": 46,
+        "weatherCode": 3
+      },
+      {
+        "time": "2026-11-05T07:00",
+        "temp": 15.4,
+        "precipProb": 47,
+        "weatherCode": 3
+      },
+      {
+        "time": "2026-11-05T08:00",
+        "temp": 17.1,
+        "precipProb": 62,
+        "weatherCode": 3
+      },
+      {
+        "time": "2026-11-05T09:00",
+        "temp": 18.4,
+        "precipProb": 84,
+        "weatherCode": 51
+      },
+      {
+        "time": "2026-11-05T10:00",
+        "temp": 18.7,
+        "precipProb": 100,
+        "weatherCode": 53
+      },
+      {
+        "time": "2026-11-05T11:00",
+        "temp": 17.7,
+        "precipProb": 100,
+        "weatherCode": 80
+      },
+      {
+        "time": "2026-11-05T12:00",
+        "temp": 18.1,
+        "precipProb": 100,
+        "weatherCode": 81
+      },
+      {
+        "time": "2026-11-05T13:00",
+        "temp": 17.7,
+        "precipProb": 100,
+        "weatherCode": 81
+      },
+      {
+        "time": "2026-11-05T14:00",
+        "temp": 18.1,
+        "precipProb": 100,
+        "weatherCode": 80
+      },
+      {
+        "time": "2026-11-05T15:00",
+        "temp": 17.9,
+        "precipProb": 100,
+        "weatherCode": 80
+      },
+      {
+        "time": "2026-11-05T16:00",
+        "temp": 17.6,
+        "precipProb": 100,
+        "weatherCode": 80
+      },
+      {
+        "time": "2026-11-05T17:00",
+        "temp": 16,
+        "precipProb": 100,
+        "weatherCode": 80
+      },
+      {
+        "time": "2026-11-05T18:00",
+        "temp": 15.6,
+        "precipProb": 100,
+        "weatherCode": 51
+      },
+      {
+        "time": "2026-11-05T19:00",
+        "temp": 15.2,
+        "precipProb": 100,
+        "weatherCode": 55
+      },
+      {
+        "time": "2026-11-05T20:00",
+        "temp": 15.3,
+        "precipProb": 96,
+        "weatherCode": 51
+      },
+      {
+        "time": "2026-11-05T21:00",
+        "temp": 15.5,
+        "precipProb": 90,
+        "weatherCode": 51
+      },
+      {
+        "time": "2026-11-05T22:00",
+        "temp": 15.3,
+        "precipProb": 86,
+        "weatherCode": 3
+      },
+      {
+        "time": "2026-11-05T23:00",
+        "temp": 15.4,
+        "precipProb": 85,
+        "weatherCode": 3
+      },
+      {
+        "time": "2026-11-06T00:00",
+        "temp": 14.6,
+        "precipProb": 85,
+        "weatherCode": 3
+      },
+      {
+        "time": "2026-11-06T01:00",
+        "temp": 15.1,
+        "precipProb": 82,
+        "weatherCode": 3
+      },
+      {
+        "time": "2026-11-06T02:00",
+        "temp": 15,
+        "precipProb": 73,
+        "weatherCode": 3
+      },
+      {
+        "time": "2026-11-06T03:00",
+        "temp": 14.7,
+        "precipProb": 62,
+        "weatherCode": 3
+      },
+      {
+        "time": "2026-11-06T04:00",
+        "temp": 15,
+        "precipProb": 53,
+        "weatherCode": 3
+      },
+      {
+        "time": "2026-11-06T05:00",
+        "temp": 15,
+        "precipProb": 48,
+        "weatherCode": 3
+      },
+      {
+        "time": "2026-11-06T06:00",
+        "temp": 15,
+        "precipProb": 45,
+        "weatherCode": 2
+      },
+      {
+        "time": "2026-11-06T07:00",
+        "temp": 15.4,
+        "precipProb": 49,
+        "weatherCode": 2
+      },
+      {
+        "time": "2026-11-06T08:00",
+        "temp": 16.6,
+        "precipProb": 64,
+        "weatherCode": 3
+      },
+      {
+        "time": "2026-11-06T09:00",
+        "temp": 17.2,
+        "precipProb": 85,
+        "weatherCode": 51
+      },
+      {
+        "time": "2026-11-06T10:00",
+        "temp": 17.6,
+        "precipProb": 100,
+        "weatherCode": 51
+      },
+      {
+        "time": "2026-11-06T11:00",
+        "temp": 18.5,
+        "precipProb": 100,
+        "weatherCode": 51
+      },
+      {
+        "time": "2026-11-06T12:00",
+        "temp": 18.3,
+        "precipProb": 100,
+        "weatherCode": 53
+      },
+      {
+        "time": "2026-11-06T13:00",
+        "temp": 18.1,
+        "precipProb": 100,
+        "weatherCode": 81
+      },
+      {
+        "time": "2026-11-06T14:00",
+        "temp": 18.1,
+        "precipProb": 100,
+        "weatherCode": 81
+      },
+      {
+        "time": "2026-11-06T15:00",
+        "temp": 16.4,
+        "precipProb": 99,
+        "weatherCode": 81
+      }
+    ],
+    "daily": [
+      {
+        "date": "2026-11-04",
+        "weatherCode": 53,
+        "tempMax": 20.6,
+        "tempMin": 14,
+        "precipProbMax": 100
+      },
+      {
+        "date": "2026-11-05",
+        "weatherCode": 81,
+        "tempMax": 18.7,
+        "tempMin": 14.7,
+        "precipProbMax": 100
+      },
+      {
+        "date": "2026-11-06",
+        "weatherCode": 81,
+        "tempMax": 18.7,
+        "tempMin": 14.5,
+        "precipProbMax": 100
+      },
+      {
+        "date": "2026-11-07",
+        "weatherCode": 81,
+        "tempMax": 18.3,
+        "tempMin": 13.2,
+        "precipProbMax": 100
+      },
+      {
+        "date": "2026-11-08",
+        "weatherCode": 53,
+        "tempMax": 21.1,
+        "tempMin": 12.7,
+        "precipProbMax": 85
+      },
+      {
+        "date": "2026-11-09",
+        "weatherCode": 51,
+        "tempMax": 24.5,
+        "tempMin": 12.4,
+        "precipProbMax": 98
+      },
+      {
+        "date": "2026-11-10",
+        "weatherCode": 51,
+        "tempMax": 22.5,
+        "tempMin": 12.3,
+        "precipProbMax": 99
+      }
+    ]
+  }
+}
