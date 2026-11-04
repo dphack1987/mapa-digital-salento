@@ -1,40 +1,22 @@
 {
-  "generatedAt": "2026-11-04T21:56:16.729Z",
+  "generatedAt": "2026-11-04T22:13:15.678Z",
   "location": {
     "lat": 4.636,
     "lng": -75.567,
     "name": "Salento, Quindío, Colombia"
   },
-  "earthquakes": [
-    {
-      "id": "us7000tv4i",
-      "magnitude": 5.4,
-      "place": "24 km NNW of Rioblanco, Colombia",
-      "time": "2026-11-03T09:13:14.972Z",
-      "lat": 3.739,
-      "lng": -75.72,
-      "depth": 10,
-      "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tv4i"
-    }
-  ],
   "weather": {
     "current": {
-      "time": "2026-11-04T16:45",
-      "temperature": 17.1,
-      "feelsLike": 18.5,
-      "humidity": 92,
+      "time": "2026-11-04T17:00",
+      "temperature": 17,
+      "feelsLike": 18.3,
+      "humidity": 91,
       "precipitation": 0.1,
       "weatherCode": 51,
       "windSpeed": 4.3,
-      "windGusts": 15.8
+      "windGusts": 14.4
     },
     "hourly": [
-      {
-        "time": "2026-11-04T16:00",
-        "temp": 17.5,
-        "precipProb": 100,
-        "weatherCode": 53
-      },
       {
         "time": "2026-11-04T17:00",
         "temp": 17,
@@ -316,6 +298,12 @@
         "temp": 16.4,
         "precipProb": 99,
         "weatherCode": 81
+      },
+      {
+        "time": "2026-11-06T16:00",
+        "temp": 16.9,
+        "precipProb": 98,
+        "weatherCode": 80
       }
     ],
     "daily": [

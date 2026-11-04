@@ -1,8 +1,7 @@
 #!/usr/bin/env node
 /**
- * Descarga datos reales de seguridad y clima para Salento en tiempo de build.
- * Fuentes oficiales/gratuitas (sin API key):
- *  - USGS Earthquake Hazards Program (feed GeoJSON oficial, el mismo que usa OSIRIS)
+ * Descarga datos reales de clima para Salento en tiempo de build.
+ * Fuente oficial gratuita (sin API key):
  *  - Open-Meteo (pronóstico meteorológico, uso gratuito sin key)
  *
  * Salida: public/data/safety-data.json
@@ -17,54 +16,11 @@ const __dirname = dirname(fileURLToPath(import.meta.url))
 const OUT_PATH = join(__dirname, '..', 'public', 'data', 'safety-data.json')
 
 const SALENTO = { lat: 4.636, lng: -75.567, name: 'Salento, Quindío, Colombia' }
-const QUAKE_RADIUS_KM = 300
-const QUAKE_LIMIT = 20
-
-function haversineKm(lat1, lng1, lat2, lng2) {
-  const R = 6371
-  const dLat = (lat2 - lat1) * Math.PI / 180
-  const dLng = (lng2 - lng1) * Math.PI / 180
-  const a = Math.sin(dLat / 2) ** 2 +
-    Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) * Math.sin(dLng / 2) ** 2
-  return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a))
-}
 
 async function fetchJson(url, label) {
   const res = await fetch(url, { headers: { 'Accept': 'application/json' }, signal: AbortSignal.timeout(20000) })
   if (!res.ok) throw new Error(`${label}: HTTP ${res.status}`)
   return res.json()
-}
-
-async function fetchEarthquakes() {
-  // Feed oficial USGS: M2.5+ ultimos 7 dias + M4.5+ ultimos 30 dias
-  const [day, week] = await Promise.all([
-    fetchJson('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_day.geojson', 'USGS day'),
-    fetchJson('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/4.5_week.geojson', 'USGS week'),
-  ])
-
-  const seen = new Map()
-  for (const feature of [...(day.features || []), ...(week.features || [])]) {
-    const p = feature.properties || {}
-    const c = feature.geometry?.coordinates || []
-    const [lng, lat, depth] = c
-    if (lat == null || lng == null) continue
-    if (haversineKm(SALENTO.lat, SALENTO.lng, lat, lng) > QUAKE_RADIUS_KM) continue
-    seen.set(feature.id, {
-      id: feature.id,
-      magnitude: p.mag ?? null,
-      place: p.place || 'Región de Salento',
-      time: p.time ? new Date(p.time).toISOString() : null,
-      lat: Math.round(lat * 1000) / 1000,
-      lng: Math.round(lng * 1000) / 1000,
-      depth: depth != null ? Math.round(depth * 10) / 10 : null,
-      url: p.url || null,
-    })
-  }
-
-  return [...seen.values()]
-    .filter(q => q.magnitude != null)
-    .sort((a, b) => new Date(b.time) - new Date(a.time))
-    .slice(0, QUAKE_LIMIT)
 }
 
 async function fetchWeather() {
@@ -120,27 +76,20 @@ async function fetchWeather() {
 }
 
 async function main() {
-  const [earthquakes, weather] = await Promise.all([
-    fetchEarthquakes().catch(err => {
-      console.warn(`USGS no disponible (${err.message}) - se guarda lista vacia`)
-      return []
-    }),
-    fetchWeather().catch(err => {
-      console.warn(`Open-Meteo no disponible (${err.message}) - se guarda null`)
-      return null
-    }),
-  ])
+  const weather = await fetchWeather().catch(err => {
+    console.warn(`Open-Meteo no disponible (${err.message}) - se guarda null`)
+    return null
+  })
 
   const payload = {
     generatedAt: new Date().toISOString(),
     location: SALENTO,
-    earthquakes,
     weather,
   }
 
   mkdirSync(dirname(OUT_PATH), { recursive: true })
   writeFileSync(OUT_PATH, JSON.stringify(payload, null, 2))
-  console.log(`safety-data.json generado: ${earthquakes.length} sismos, clima ${weather ? 'OK' : 'no disponible'} -> ${OUT_PATH}`)
+  console.log(`safety-data.json generado: clima ${weather ? 'OK' : 'no disponible'} -> ${OUT_PATH}`)
 }
 
 main().catch(err => {

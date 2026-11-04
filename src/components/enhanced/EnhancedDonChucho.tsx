@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import { pythonBackendService } from '../../services/pythonBackend'
-import { getOsirisResponse, getTourismResponse, isTourismQuery, getPredictiveResponse, isPredictiveQuery } from '../../services/donChuchoOsiris'
+import { getOsirisResponse } from '../../services/donChuchoOsiris'
 import { searchLocalKnowledge } from '../../services/donChuchoKnowledge'
 import type { Language } from '../../types'
 
@@ -157,41 +157,7 @@ function EnhancedDonChucho({ language, t, onFallback, onClose, existingComponent
     const userMessage = message.trim()
     setIsLoading(true)
     try {
-      // 1. Primero intentar respuesta predictiva (Fase 3) - Máxima prioridad
-      if (language !== 'zh' && isPredictiveQuery(userMessage)) {
-        const predictiveResponse = await getPredictiveResponse(userMessage, language)
-        if (predictiveResponse) {
-          setResponse(predictiveResponse)
-          setLocalPlaces([])
-          setHasLocalPlaces(false)
-          setMessage('')
-
-          if (voiceEnabled && predictiveResponse) {
-            speakResponse(predictiveResponse)
-          }
-          setIsLoading(false)
-          return
-        }
-      }
-
-      // 2. Segundo, intentar respuesta turística mejorada (Fase 2)
-      if (language !== 'zh' && isTourismQuery(userMessage)) {
-        const tourismResponse = await getTourismResponse(userMessage, language)
-        if (tourismResponse) {
-          setResponse(tourismResponse)
-          setLocalPlaces([])
-          setHasLocalPlaces(false)
-          setMessage('')
-
-          if (voiceEnabled && tourismResponse) {
-            speakResponse(tourismResponse)
-          }
-          setIsLoading(false)
-          return
-        }
-      }
-
-      // 3. Tercero, intentar respuesta OSIRIS estándar (Fase 1)
+      // 1. Primero, respuesta de clima con datos reales (solo preguntas de clima)
       const osirisResponse = language === 'zh' ? null : await getOsirisResponse(userMessage, language)
       if (osirisResponse) {
         setResponse(osirisResponse)
@@ -206,7 +172,7 @@ function EnhancedDonChucho({ language, t, onFallback, onClose, existingComponent
         return
       }
 
-      // 4. Cuarto, usar base de conocimiento local como fallback principal
+      // 2. Segundo, usar base de conocimiento local como fallback principal
       const localKnowledge = searchLocalKnowledge(userMessage, knowledgeLanguage)
       if (localKnowledge) {
         const localAnswer = language === 'zh'
@@ -236,7 +202,7 @@ function EnhancedDonChucho({ language, t, onFallback, onClose, existingComponent
         return
       }
 
-      // 5. Si todo falla, usar backend Python si está disponible
+      // 3. Si todo falla, usar backend Python si está disponible
       if (usePython && pythonStatus === 'online') {
         const result = await pythonBackendService.sendChatMessage(userMessage)
         setResponse(result.response)

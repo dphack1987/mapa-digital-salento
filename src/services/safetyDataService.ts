@@ -1,18 +1,7 @@
 // Servicio de datos de seguridad y clima para Salento.
 // Lee /data/safety-data.json (same-origin), generado en build por
-// scripts/fetch-safety-data.mjs desde USGS (sismos) y Open-Meteo (clima).
+// scripts/fetch-safety-data.mjs desde Open-Meteo (clima).
 // Sin llamadas a terceros en runtime: sin CORS, funciona offline via SW.
-
-export interface SafetyEarthquake {
-  id: string;
-  magnitude: number;
-  place: string;
-  time: string | null;
-  lat: number;
-  lng: number;
-  depth: number | null;
-  url: string | null;
-}
 
 export interface SafetyWeatherCurrent {
   time: string | null;
@@ -49,14 +38,12 @@ export interface SafetyWeather {
 export interface SafetyData {
   generatedAt: string;
   location: { name: string; lat: number; lng: number };
-  earthquakes: SafetyEarthquake[];
   weather: SafetyWeather | null;
 }
 
 const EMPTY: SafetyData = {
   generatedAt: '',
   location: { name: 'Salento, Quindío, Colombia', lat: 4.636, lng: -75.567 },
-  earthquakes: [],
   weather: null,
 };
 
@@ -104,14 +91,6 @@ export function weatherCodeLabel(code: number | null, lang: string = 'es'): stri
   return `${lang === 'es' ? 'condición' : 'condition'} ${code}`;
 }
 
-/** Sismos de magnitud >= umbral dentro del periodo de días indicado */
-export function significantQuakes(data: SafetyData, minMagnitude = 4.0, days = 30): SafetyEarthquake[] {
-  const cutoff = Date.now() - days * 24 * 60 * 60 * 1000;
-  return data.earthquakes.filter(q =>
-    q.magnitude >= minMagnitude && q.time && new Date(q.time).getTime() >= cutoff
-  );
-}
-
 /** Horas con probabilidad de lluvia >= umbral en las próximas N horas */
 export function rainyHours(data: SafetyData, hours = 48, minProb = 50): SafetyWeatherHour[] {
   if (!data.weather) return [];
@@ -134,7 +113,6 @@ export function formatDay(dateStr: string, lang: string = 'es'): string {
   }
 }
 
-/** "hace X horas/días" desde un ISO */
 export function timeAgo(iso: string | null, lang: string = 'es'): string {
   if (!iso) return '';
   const diff = Date.now() - new Date(iso).getTime();
