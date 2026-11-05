@@ -861,7 +861,7 @@ const knowledgeBase: KnowledgeItem[] = [
   // RESTAURANTES / COMIDA GENERAL
   // ═══════════════════════════════════════════════════════════
   {
-    keywords: ['restaurante', 'restaurantes', 'dónde como', 'comida', 'comer', 'menú', 'almuerzo', 'cena', 'desayuno', 'vegano', 'vegetariano', 'opciones vegetarianas'],
+    keywords: ['restaurante', 'restaurantes', 'dónde como', 'donde puedo almorzar', 'almorzar', 'comida', 'comer', 'menú', 'almuerzo', 'cena', 'desayuno', 'vegano', 'vegetariano', 'opciones vegetarianas'],
     category: 'gastronomia',
     answer: {
       es: 'En Salento comes como un rey: la trucha arcoíris es la reina indiscutible, pero también están el sancocho de gallina, las arepas de chócolo, el sudado montañero y los buñuelos con natilla. Hay restaurantes en la plaza principal, fondas de barrio con comida casera y los mesones de las fincas cafeteras con vista al valle. ¡Pregunta por el menú del día, sale buenísimo!',
