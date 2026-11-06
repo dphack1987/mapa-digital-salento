@@ -145,6 +145,10 @@ h1 { font-size:clamp(2.3rem,5vw,4.8rem); line-height:1.02; margin:14px 0; } .lea
 .suite-copy { display:flex; flex-direction:column; justify-content:center; gap:14px; }
 .suite-chips { display:flex; flex-wrap:wrap; gap:8px; }
 .suite-chip { padding:8px 12px; border-radius:999px; background:#f3ead6; border:1px solid var(--line); font-size:12px; font-weight:700; }
+/* Logo del negocio en el topbar (lado derecho) */
+.top-actions .biz-logo { width:46px; height:46px; object-fit:contain; background:var(--white); border:1px solid var(--line); border-radius:14px; padding:5px; box-shadow:0 2px 8px rgba(39,54,43,.08); }
+@media (max-width:800px) { .top-actions .biz-logo { width:40px; height:40px; } }
+
 /* Banner superior */
 .top-banner { width:100%; height:clamp(180px,26vw,280px); object-fit:cover; border-radius:24px; border:1px solid var(--line); display:block; margin-bottom:24px; box-shadow:0 8px 24px rgba(39,54,43,.08); }
 .faq-list { display:grid; gap:4px; }
