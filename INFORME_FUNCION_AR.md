@@ -523,5 +523,5 @@ const enableCompass = async () => {
 
 **Documento creado:** 02/11/2026  
 **Versión:** 1.0  
-**Autor:** Devin - AI Software Engineer  
+**Autor:** Salento a la Mano  
 **Proyecto:** Salento a la Mano - WSA 2026 Business & Commerce

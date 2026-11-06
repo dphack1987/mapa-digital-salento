@@ -282,7 +282,7 @@
 
 ---
 
-**Preparado por:** Devin AI Assistant  
+**Preparado por:** Salento a la Mano  
 **Fecha:** 31/10/2026  
 **Para:** World Summit Awards 2026 - Business & Commerce  
 **Proyecto:** Salento a la Mano - Mapa Digital Turístico de Salento, Quindío

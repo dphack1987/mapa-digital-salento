@@ -6,7 +6,7 @@ const ROOT = path.resolve(__dirname);
 const PUBLIC = path.join(ROOT, 'public');
 const IMG_RE = /\.(png|jpe?g|webp|gif|svg|ico|avif|bmp)(\?|#|["'\s)\>]|$)/i;
 
-function walk(dir, skip = ['node_modules', '.git', 'dist', 'venv', '__pycache__', '.trae', '.devin', 'assets']) {
+function walk(dir, skip = ['node_modules', '.git', 'dist', 'venv', '__pycache__', '.trae', 'assets']) {
   let out = [];
   if (!fs.existsSync(dir)) return out;
   for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
