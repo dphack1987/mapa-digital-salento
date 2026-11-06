@@ -1,4 +1,4 @@
-const CACHE_NAME = 'salento-a-la-mano-v18'
+const CACHE_NAME = 'salento-a-la-mano-v19'
 const CACHE_STRATEGIES = {
   static: ['html', 'css', 'js', 'png', 'jpg', 'jpeg', 'svg', 'webp', 'ico', 'gif'],
   shell: ['html', 'js', 'css']
@@ -40,13 +40,13 @@ const APP_SHELL = [
   '/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/foto1.webp'
 ]
 
-// Tiles de Cascadas de Santa Rita para cachear offline.
-// Solo el bounding box del GPX + 1 tile de margen, zooms 14-16, un subdominio.
-// Evita descargar cientos de miles de tiles en la primera visita.
-const TILE_CACHE_NAME = 'salento-tiles-v18'
+// Área offline: Salento urbano + Boquía + corredor a Cascadas de Santa Rita.
+// ~160 tiles en zooms 14-16, un subdominio. Cocora queda fuera (demasiado
+// extenso para precachear; sus tiles se cachean en runtime al visitarla).
+const TILE_CACHE_NAME = 'salento-tiles-v19'
 const TILE_URL_TEMPLATE = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
 const TILE_SUBDOMAINS = ['a']
-const TILE_BOUNDS = { north: 4.664209, south: 4.646949, west: -75.580899, east: -75.568804 }
+const TILE_BOUNDS = { north: 4.680, south: 4.620, west: -75.600, east: -75.540 }
 
 function lonToTileX(lon, z) {
   return Math.floor(((lon + 180) / 360) * Math.pow(2, z))
@@ -88,7 +88,7 @@ function getTileUrls() {
 }
 
 self.addEventListener('install', (event) => {
-    console.log('[SW] Installing service worker v18 - Cascadas de Santa Rita offline tiles')
+    console.log('[SW] Installing service worker v19 - Salento offline tiles')
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
       console.log('[SW] Caching app shell')
@@ -152,7 +152,7 @@ async function cacheTilesInBatches(cache, urls, batchSize) {
 }
 
 self.addEventListener('activate', (event) => {
-  console.log('[SW] Activating service worker v18 - Cascadas de Santa Rita')
+  console.log('[SW] Activating service worker v19 - Salento offline')
   event.waitUntil(
     caches.keys().then((keys) => {
       return Promise.all(
