@@ -94,6 +94,7 @@ var PautanteCommon = (function() {
   function initMenu(config) {
     var items = config.items || [];
     var whatsapp = config.whatsapp || '';
+    if (whatsapp) window.__pautanteWA = whatsapp;
     var businessName = config.businessName || 'PEDIDO';
     var moneda = config.currency || 'COP';
     var baseCurrency = config.baseCurrency || 'COP';

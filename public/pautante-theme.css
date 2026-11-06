@@ -128,3 +128,30 @@ h1 { font-size:clamp(2.3rem,5vw,4.8rem); line-height:1.02; margin:14px 0; } .lea
 .lightbox-next { right:20px; top:50%; transform:translateY(-50%); }
 .lightbox-caption { position:absolute; bottom:20px; left:50%; transform:translateX(-50%); color:#fff; text-align:center; max-width:80%; font-size:14px; padding:8px 16px; background:rgba(31,45,38,.7); border-radius:999px; }
 @media (max-width:600px) { .lightbox-prev, .lightbox-next { width:44px; height:44px; font-size:22px; } .lightbox-close { width:40px; height:40px; font-size:26px; } }
+
+/* ===== SECCIONES VISUALES COMPARTIDAS ===== */
+/* Experiencias: tarjetas fotograficas con texto superpuesto */
+.exp-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+.exp-card { position:relative; border-radius:18px; overflow:hidden; border:1px solid var(--line); min-height:300px; display:flex; align-items:flex-end; background:#22302a; }
+.exp-card img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; transition:transform .6s ease; }
+.exp-card:hover img { transform:scale(1.07); }
+.exp-info { position:relative; width:100%; padding:20px; background:linear-gradient(transparent,rgba(20,28,24,.88)); color:#fff; }
+.exp-info h3 { margin:0 0 6px; font-size:1.15rem; }
+.exp-info p { margin:0 0 10px; font-size:13px; color:rgba(255,255,255,.85); line-height:1.5; }
+.exp-info .exp-link { font-size:11px; font-weight:700; color:var(--yellow); text-transform:uppercase; letter-spacing:.08em; }
+/* Spotlight */
+.suite-feature { display:grid; grid-template-columns:1.05fr .95fr; gap:24px; align-items:stretch; }
+.suite-media img { width:100%; height:100%; min-height:340px; object-fit:cover; border-radius:24px; border:1px solid var(--line); display:block; }
+.suite-copy { display:flex; flex-direction:column; justify-content:center; gap:14px; }
+.suite-chips { display:flex; flex-wrap:wrap; gap:8px; }
+.suite-chip { padding:8px 12px; border-radius:999px; background:#f3ead6; border:1px solid var(--line); font-size:12px; font-weight:700; }
+/* Banner superior */
+.top-banner { width:100%; height:clamp(180px,26vw,280px); object-fit:cover; border-radius:24px; border:1px solid var(--line); display:block; margin-bottom:24px; box-shadow:0 8px 24px rgba(39,54,43,.08); }
+.faq-list { display:grid; gap:4px; }
+@media (max-width:800px) {
+  .exp-grid { grid-template-columns:1fr; }
+  .exp-card { min-height:220px; }
+  .suite-feature { grid-template-columns:1fr; }
+  .suite-media img { min-height:240px; }
+  .top-banner { height:180px; border-radius:16px; }
+}
