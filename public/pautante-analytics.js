@@ -62,11 +62,11 @@
     try { gtag('event', name, p); } catch (e) {}
 
     var payload = JSON.stringify({ event: name, params: p, ts: Date.now() });
-    try {
-      if (BACKEND && navigator.sendBeacon) {
+    if (BACKEND) try {
+      if (navigator.sendBeacon) {
         navigator.sendBeacon(BACKEND + '/api/v1/analytics/event', new Blob([payload], { type: 'application/json' }));
       } else {
-        fetch((BACKEND || '') + '/api/v1/analytics/event', {
+        fetch(BACKEND + '/api/v1/analytics/event', {
           method: 'POST', headers: { 'Content-Type': 'application/json' },
           body: payload, keepalive: true, credentials: 'omit'
         }).catch(function () {});
