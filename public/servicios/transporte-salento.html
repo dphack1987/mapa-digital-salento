@@ -4,9 +4,65 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Transporte en Salento | Salento a la Mano</title>
-  <meta name="description" content="Transporte en Salento: jeeps Willys al Valle de Cocora, buses intermunicipales, taxis y servicios de transporte turístico.">
+  <meta name="description" content="Transporte en Salento: jeeps Willys al Valle de Cocora, buses intermunicipales, taxis y servicios de transporte turístico con contacto directo.">
+  <meta property="og:title" content="Transporte en Salento | Salento a la Mano">
+  <meta property="og:description" content="Jeeps Willys al Valle de Cocora, buses, taxis y transporte turístico en Salento. Contacto directo con los proveedores.">
+  <meta property="og:image" content="https://www.salentoalamano.com/banners/banner-servicio-transporte.webp">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.salentoalamano.com/servicios/transporte-salento.html">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="stylesheet" href="/page-theme.css">
   <link rel="canonical" href="https://www.salentoalamano.com/servicios/transporte-salento.html">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Service","name":"Transporte en Salento y Valle de Cocora","description":"Información y contacto directo de servicios de transporte en Salento, Quindío: jeeps Willys al Valle de Cocora, buses intermunicipales, taxis y transporte turístico.","provider":{"@type":"Organization","name":"Salento a la Mano","url":"https://www.salentoalamano.com"},"areaServed":{"@type":"City","name":"Salento","containedIn":{"@type":"State","name":"Quindío"}},"url":"https://www.salentoalamano.com/servicios/transporte-salento.html"}
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://www.salentoalamano.com/"},{"@type":"ListItem","position":2,"name":"Servicios","item":"https://www.salentoalamano.com/servicios/transporte-salento.html"},{"@type":"ListItem","position":3,"name":"Transporte"}]}
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"¿Cómo llego al Valle de Cocora desde Salento?","acceptedAnswer":{"@type":"Answer","text":"En jeep Willys desde la plaza de Salento. Cootracocora sale de 6:00 a.m. a 9:00 p.m. desde $3.600 por persona, o coordinas transporte privado con CocoraTrek."}},{"@type":"Question","name":"¿Cómo salgo de Salento en bus?","acceptedAnswer":{"@type":"Answer","text":"En el Terminal de Transporte, a pocos minutos a pie de la plaza. Hay salidas a Armenia, Pereira y Filandia."}},{"@type":"Question","name":"¿Cuánto cuesta el jeep a Cocora?","acceptedAnswer":{"@type":"Answer","text":"El servicio público de Cootracocora cuesta desde $3.600 COP por persona. Para tours privados el precio lo define el operador."}},{"@type":"Question","name":"¿Hay taxis en Salento?","acceptedAnswer":{"@type":"Answer","text":"Sí, hay taxis locales en la plaza y servicios de transporte turístico privado para grupos o rutas especiales."}}]}
+  </script>
+  <style>
+    .stats-row { display:flex; flex-wrap:wrap; gap:10px; margin-top:18px; }
+    .stat-chip { padding:9px 14px; border:1px solid var(--line); border-radius:999px; background:#f3ead6; font-size:12px; font-weight:700; color:var(--ink); }
+    .provider-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(250px,1fr)); gap:18px; margin-top:22px; }
+    .provider-card { background:var(--white); border:1px solid var(--line); border-radius:18px; overflow:hidden; display:flex; flex-direction:column; transition:transform .2s, box-shadow .2s, border-color .2s; }
+    .provider-card:hover { transform:translateY(-4px); box-shadow:0 16px 32px rgba(39,54,43,.12); border-color:var(--coral); }
+    .card-image { height:170px; background-size:cover; background-position:center; }
+    .card-image.illustration { background:linear-gradient(135deg,#e8dfc8,#dce5d1); display:grid; place-items:center; font-size:44px; }
+    .card-body { padding:16px; display:flex; flex-direction:column; flex:1; }
+    .card-meta { display:flex; justify-content:space-between; align-items:center; gap:8px; margin-bottom:8px; }
+    .pill { display:inline-block; padding:5px 10px; border-radius:999px; background:#f3ead6; font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.05em; }
+    .rating { font-size:12px; font-weight:700; color:var(--ink); }
+    .card-body h3 { margin:4px 0 8px; font-size:1.15rem; }
+    .card-body > p { margin:0 0 10px; color:#59665f; font-size:.9rem; line-height:1.5; flex:1; }
+    .card-facts { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:14px; }
+    .card-facts span { padding:5px 9px; border:1px solid var(--line); border-radius:999px; background:#faf7f0; font-size:10.5px; font-weight:600; color:#4d5a51; }
+    .card-actions { display:flex; flex-direction:column; gap:8px; }
+    .card-actions .button { width:100%; text-align:center; }
+    .steps-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px; margin-top:18px; }
+    .step-card { background:var(--white); border:1px solid var(--line); border-radius:16px; padding:20px; }
+    .step-num { display:inline-grid; place-items:center; width:34px; height:34px; border-radius:50%; background:var(--coral); color:#fff; font-weight:700; font-size:14px; margin-bottom:10px; }
+    .step-card h3 { margin:0 0 6px; font-size:1rem; }
+    .step-card p { margin:0; color:#59665f; font-size:.88rem; line-height:1.5; }
+    .adv-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:14px; margin-top:18px; }
+    .adv-card { display:flex; gap:12px; align-items:flex-start; background:var(--white); border:1px solid var(--line); border-radius:14px; padding:16px; }
+    .adv-card .ico { font-size:22px; line-height:1; }
+    .adv-card strong { display:block; font-size:.92rem; margin-bottom:3px; }
+    .adv-card span { color:#59665f; font-size:.82rem; line-height:1.45; display:block; }
+    .faq-list { margin-top:8px; }
+    .faq-item { border-bottom:1px solid var(--line); padding:14px 0; }
+    .faq-item summary { font-weight:700; cursor:pointer; list-style:none; display:flex; justify-content:space-between; align-items:center; gap:12px; }
+    .faq-item summary::after { content:'+'; font-size:20px; color:var(--coral); flex-shrink:0; }
+    .faq-item[open] summary::after { content:'−'; }
+    .faq-item p { color:#59665f; line-height:1.65; margin:10px 0 0; font-size:.92rem; }
+    .cta-band { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:16px; background:var(--ink); color:#fff; border-radius:18px; padding:26px 28px; margin-top:28px; }
+    .cta-band h2 { margin:0 0 6px; color:#fff; font-size:1.4rem; }
+    .cta-band p { margin:0; color:#cfd8cf; font-size:.9rem; max-width:52ch; }
+    .cta-band .button { background:var(--coral); border-color:var(--coral); color:#fff; flex:0 0 auto; }
+    @media (max-width:800px) { .provider-grid { grid-template-columns:1fr 1fr; } .cta-band { flex-direction:column; align-items:flex-start; } }
+    @media (max-width:560px) { .provider-grid { grid-template-columns:1fr; } }
+  </style>
 </head>
 <body>
   <div class="container">
@@ -18,44 +74,170 @@
     </div>
 
     <div class="hero">
-      <div class="hero-visual" style="background-image: url('/banners/banner-servicio-transporte.webp')"></div>
       <div class="hero-copy">
         <p class="eyebrow">Movilidad en Salento</p>
-        <h1>Servicio de Transporte</h1>
-        <p>Jeeps Willys al Valle de Cocora, buses intermunicipales, taxis y transporte turístico. Contacto directo con los proveedores.</p>
+        <h1>Cómo moverte por Salento y el Cocora</h1>
+        <p>Del jeep Willys tradicional a Cocora hasta los buses intermunicipales: aquí está la información real de cada opción de transporte, con contacto directo a los proveedores verificados.</p>
         <div class="actions">
-          <a href="/categorias/servicios.html" class="button primary">Ver servicios de transporte</a>
+          <a href="#transporte" class="button primary">Ver opciones de transporte</a>
+          <a href="/categorias/servicios.html" class="button">Directorio de servicios</a>
+        </div>
+        <div class="stats-row">
+          <span class="stat-chip">✓ Proveedores verificados</span>
+          <span class="stat-chip">✓ Horarios reales</span>
+          <span class="stat-chip">✓ Contacto directo</span>
+          <span class="stat-chip">✓ Precios transparentes</span>
         </div>
       </div>
+      <div class="hero-visual" style="background-image: url('/banners/banner-servicio-transporte.webp')"></div>
     </div>
 
+    <section class="section" id="transporte">
+      <p class="eyebrow">Opciones de transporte</p>
+      <h2>¿Cómo llegas a tu destino?</h2>
+      <div class="provider-grid">
+        <article class="provider-card">
+          <div class="card-image" style="background-image:url('/pautas/cootracocora_ltda/imagenes/willys.webp')"></div>
+          <div class="card-body">
+            <div class="card-meta"><span class="pill">Jeep Willys</span><span class="rating">★ Transporte público</span></div>
+            <h3>Cootracocora — Salento a Cocora</h3>
+            <p>Transporte público en jeeps Willys desde la plaza de Salento al Valle de Cocora. La experiencia tradicional del Quindío.</p>
+            <div class="card-facts"><span>Desde $3.600/persona</span><span>6:00 a.m. – 9:00 p.m.</span><span>Lun–Dom</span></div>
+            <div class="card-actions">
+              <a class="button primary" href="https://wa.me/573104372944?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20los%20jeeps%20a%20Cocora" target="_blank" rel="noreferrer">Consultar por WhatsApp</a>
+              <a class="button" href="/paginas-pautantes/cootracocora-ltda/">Ver detalles</a>
+            </div>
+          </div>
+        </article>
+        <article class="provider-card">
+          <div class="card-image" style="background-image:url('/pautas/ruta-navarco/salento-tesoros-trapiche.webp')"></div>
+          <div class="card-body">
+            <div class="card-meta"><span class="pill">Tour en Willys</span><span class="rating">★ 4.9</span></div>
+            <h3>Ruta Navarco y sus Tesoros</h3>
+            <p>Recorrido comunitario por 4 fincas de la vereda Navarco: queso artesanal, trapiche y cafeteras. Sale 8:30 a.m. desde Salento.</p>
+            <div class="card-facts"><span>Salida 8:30 a.m.</span><span>Tour guiado</span></div>
+            <div class="card-actions">
+              <a class="button primary" href="https://wa.me/573155710783?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20la%20Ruta%20Navarco" target="_blank" rel="noreferrer">Reservar por WhatsApp</a>
+              <a class="button" href="/paginas-pautantes/ruta-navarco/">Ver el recorrido</a>
+            </div>
+          </div>
+        </article>
+        <article class="provider-card">
+          <div class="card-image" style="background-image:url('/pautas/coocoratrek/5de38781-2f13-4e77-b9b1-c64299a2ab77.webp')"></div>
+          <div class="card-body">
+            <div class="card-meta"><span class="pill">Tour privado</span><span class="rating">★ Operador turístico</span></div>
+            <h3>CocoraTrek — Tours a Cocora</h3>
+            <p>Operador turístico con transporte privado, guías locales y senderos organizados al Valle de Cocora y las lagunas.</p>
+            <div class="card-facts"><span>Transporte privado</span><span>Guía incluido</span></div>
+            <div class="card-actions">
+              <a class="button primary" href="/paginas-pautantes/coocoratrek/">Ver tours y precios</a>
+            </div>
+          </div>
+        </article>
+        <article class="provider-card">
+          <div class="card-image illustration">🚌</div>
+          <div class="card-body">
+            <div class="card-meta"><span class="pill">Buses</span><span class="rating">★ Desde la plaza</span></div>
+            <h3>Terminal de Transporte</h3>
+            <p>Buses intermunicipales a Armenia, Pereira y Filandia. A pocos minutos a pie de la plaza de Salento.</p>
+            <div class="card-facts"><span>Acceso peatonal</span><span>Salidas regulares</span></div>
+            <div class="card-actions">
+              <a class="button" href="/paginas-pautantes/terminal-de-transporte-de-salento-acceso-peatonal/">Cómo llegar</a>
+            </div>
+          </div>
+        </article>
+        <article class="provider-card">
+          <div class="card-image" style="background-image:url('/imagenes-salento/pueblo.webp')"></div>
+          <div class="card-body">
+            <div class="card-meta"><span class="pill">Punto de encuentro</span><span class="rating">★ Icono local</span></div>
+            <h3>Jeeps Willys · Plaza</h3>
+            <p>El punto de encuentro tradicional de los jeeps a Cocora, en la plaza de Bolívares. Aquí sale todo el mundo.</p>
+            <div class="card-facts"><span>En la plaza</span><span>Salidas regulares</span></div>
+            <div class="card-actions">
+              <a class="button" href="/categorias/atractivos-turisticos.html">Ver en el mapa</a>
+            </div>
+          </div>
+        </article>
+        <article class="provider-card">
+          <div class="card-image illustration">🚕</div>
+          <div class="card-body">
+            <div class="card-meta"><span class="pill">Taxis</span><span class="rating">★ En la plaza</span></div>
+            <h3>Taxis y transporte privado</h3>
+            <p>Taxis locales disponibles en la plaza y servicios privados para grupos, tours o rutas especiales por el municipio.</p>
+            <div class="card-facts"><span>En la plaza</span><span>Negocia el precio antes</span></div>
+            <div class="card-actions">
+              <a class="button" href="/#pedidos">Ver en el directorio</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
     <section class="section">
-      <h2>Opciones de transporte</h2>
-      <div class="grid">
-        <div class="card">
-          <h3>Jeeps Willys</h3>
-          <p>Transporte tradicional al Valle de Cocora desde la Plaza de Salento.</p>
+      <p class="eyebrow">Cómo moverte</p>
+      <h2>Consejos de movilidad local</h2>
+      <div class="steps-grid">
+        <div class="step-card">
+          <span class="step-num">1</span>
+          <h3>A Cocora: jeep público o tour</h3>
+          <p>El jeep de Cootracocora es la opción económica y tradicional. Para senderos guiados o grupo familiar, un tour privado con operador local.</p>
         </div>
-        <div class="card">
-          <h3>Buses intermunicipales</h3>
-          <p>Conexión con Armenia, Pereira y otros municipios del Quindío.</p>
+        <div class="step-card">
+          <span class="step-num">2</span>
+          <h3>Entre municipios: bus</h3>
+          <p>Desde el terminal salen buses a Armenia, Pereira y Filandia. Compra tu pasaje en ventanilla el mismo día.</p>
         </div>
-        <div class="card">
-          <h3>Taxis y transporte privado</h3>
-          <p>Servicios de taxi local y transporte turístico personalizado.</p>
+        <div class="step-card">
+          <span class="step-num">3</span>
+          <h3>Dentro del pueblo: a pie</h3>
+          <p>Salento es pequeño: plaza, Calle Real y la mayoría de hoteles y restaurantes están a menos de 10 minutos caminando.</p>
         </div>
       </div>
     </section>
 
     <section class="section">
-      <h2>Ventajas</h2>
-      <ul>
-        <li>✅ Contacto directo con proveedores</li>
-        <li>✅ Precios transparentes</li>
-        <li>✅ Horarios flexibles</li>
-        <li>✅ Transporte seguro y verificado</li>
-      </ul>
+      <p class="eyebrow">Ventajas</p>
+      <h2>Por qué moverte así</h2>
+      <div class="adv-grid">
+        <div class="adv-card"><span class="ico">🚌</span><div><strong>Transporte real</strong><span>Información de horarios y precios verificada con los operadores, no genérica.</span></div></div>
+        <div class="adv-card"><span class="ico">💬</span><div><strong>Contacto directo</strong><span>Escribes al operador por WhatsApp para confirmar cupo, precio y punto de encuentro.</span></div></div>
+        <div class="adv-card"><span class="ico">💰</span><div><strong>Precios claros</strong><span>Sabes cuánto cuesta antes de subir: el jeep público publica su tarifa.</span></div></div>
+        <div class="adv-card"><span class="ico">🤝</span><div><strong>Apoyas lo local</strong><span>Jeeperos y operadores locales son la economía real de la zona.</span></div></div>
+      </div>
     </section>
+
+    <section class="section">
+      <p class="eyebrow">Preguntas frecuentes</p>
+      <h2>Antes de moverte</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>¿Cómo llego al Valle de Cocora desde Salento?</summary>
+          <p>En jeep Willys desde la plaza. Cootracocora sale de 6:00 a.m. a 9:00 p.m. desde $3.600 por persona, o coordinas transporte privado con CocoraTrek u otro operador.</p>
+        </details>
+        <details class="faq-item">
+          <summary>¿Cómo salgo de Salento en bus?</summary>
+          <p>En el Terminal de Transporte, a pocos minutos a pie de la plaza. Hay salidas regulares a Armenia, Pereira y Filandia.</p>
+        </details>
+        <details class="faq-item">
+          <summary>¿Cuánto cuesta el jeep a Cocora?</summary>
+          <p>El servicio público de Cootracocora cuesta desde $3.600 COP por persona. Los tours privados tienen precio según operador e itinerario.</p>
+        </details>
+        <details class="faq-item">
+          <summary>¿Hay taxis en Salento?</summary>
+          <p>Sí, hay taxis locales en la plaza y servicios de transporte turístico privado para grupos o rutas especiales.</p>
+        </details>
+      </div>
+    </section>
+
+    <div class="cta-band">
+      <div>
+        <h2>¿Listo para moverte?</h2>
+        <p>Consulta al operador directo por WhatsApp: cupo, precio y punto de encuentro confirmados.</p>
+      </div>
+      <a class="button" href="#transporte">Ver opciones</a>
+    </div>
   </div>
+  <script src="/quick-nav.js" defer></script>
+  <script src="/pautante-analytics.js" defer></script>
 </body>
 </html>

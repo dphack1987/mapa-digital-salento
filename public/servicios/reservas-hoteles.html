@@ -5,8 +5,63 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Reservas de Hoteles en Salento | Salento a la Mano</title>
   <meta name="description" content="Reserva hoteles, hostales y alojamientos en Salento directamente por WhatsApp. Sin comisiones, contacto directo con el alojamiento.">
+  <meta property="og:title" content="Reservas de Hoteles en Salento | Salento a la Mano">
+  <meta property="og:description" content="Hoteles, hostales y camping en Salento con reserva directa por WhatsApp. Sin intermediarios ni comisiones.">
+  <meta property="og:image" content="https://www.salentoalamano.com/banners/banner-reservas.webp">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.salentoalamano.com/servicios/reservas-hoteles.html">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="stylesheet" href="/page-theme.css">
   <link rel="canonical" href="https://www.salentoalamano.com/servicios/reservas-hoteles.html">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Service","name":"Reservas de alojamiento en Salento","description":"Servicio de reservas directas de hoteles, hostales y alojamientos en Salento, Quindío, mediante contacto por WhatsApp sin intermediarios ni comisiones de plataformas de reserva.","provider":{"@type":"Organization","name":"Salento a la Mano","url":"https://www.salentoalamano.com"},"areaServed":{"@type":"City","name":"Salento","containedIn":{"@type":"State","name":"Quindío"}},"url":"https://www.salentoalamano.com/servicios/reservas-hoteles.html"}
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://www.salentoalamano.com/"},{"@type":"ListItem","position":2,"name":"Servicios","item":"https://www.salentoalamano.com/servicios/reservas-hoteles.html"},{"@type":"ListItem","position":3,"name":"Reservas de hoteles"}]}
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"¿Cómo reservo un hotel en Salento?","acceptedAnswer":{"@type":"Answer","text":"Elige el alojamiento del directorio y escríbele por WhatsApp. La reserva es directa con el hotel: sin Booking ni intermediarios."}},{"@type":"Question","name":"¿Cuánto cuesta reservar por Salento a la Mano?","acceptedAnswer":{"@type":"Answer","text":"Nada. No cobramos comisiones ni costos de intermediación; las tarifas las defines directamente con cada alojamiento."}},{"@type":"Question","name":"¿Qué tipo de alojamientos hay?","acceptedAnswer":{"@type":"Answer","text":"Hoteles boutique, hostales, fincas cafeteras con hotel y camping en reservas naturales, todos verificados en el catálogo."}},{"@type":"Question","name":"¿Puedo consultar tarifas y disponibilidad?","acceptedAnswer":{"@type":"Answer","text":"Sí. Cada ficha tiene botón de WhatsApp para preguntar fechas, ocupación y precio exacto antes de confirmar."}}]}
+  </script>
+  <style>
+    .stats-row { display:flex; flex-wrap:wrap; gap:10px; margin-top:18px; }
+    .stat-chip { padding:9px 14px; border:1px solid var(--line); border-radius:999px; background:#f3ead6; font-size:12px; font-weight:700; color:var(--ink); }
+    .provider-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(250px,1fr)); gap:18px; margin-top:22px; }
+    .provider-card { background:var(--white); border:1px solid var(--line); border-radius:18px; overflow:hidden; display:flex; flex-direction:column; transition:transform .2s, box-shadow .2s, border-color .2s; }
+    .provider-card:hover { transform:translateY(-4px); box-shadow:0 16px 32px rgba(39,54,43,.12); border-color:var(--coral); }
+    .card-image { height:170px; background-size:cover; background-position:center; }
+    .card-body { padding:16px; display:flex; flex-direction:column; flex:1; }
+    .card-meta { display:flex; justify-content:space-between; align-items:center; gap:8px; margin-bottom:8px; }
+    .pill { display:inline-block; padding:5px 10px; border-radius:999px; background:#f3ead6; font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.05em; }
+    .rating { font-size:12px; font-weight:700; color:var(--ink); }
+    .card-body h3 { margin:4px 0 8px; font-size:1.15rem; }
+    .card-body > p { margin:0 0 10px; color:#59665f; font-size:.9rem; line-height:1.5; flex:1; }
+    .card-facts { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:14px; }
+    .card-facts span { padding:5px 9px; border:1px solid var(--line); border-radius:999px; background:#faf7f0; font-size:10.5px; font-weight:600; color:#4d5a51; }
+    .card-actions { display:flex; flex-direction:column; gap:8px; }
+    .card-actions .button { width:100%; text-align:center; }
+    .steps-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px; margin-top:18px; }
+    .step-card { background:var(--white); border:1px solid var(--line); border-radius:16px; padding:20px; }
+    .step-num { display:inline-grid; place-items:center; width:34px; height:34px; border-radius:50%; background:var(--coral); color:#fff; font-weight:700; font-size:14px; margin-bottom:10px; }
+    .step-card h3 { margin:0 0 6px; font-size:1rem; }
+    .step-card p { margin:0; color:#59665f; font-size:.88rem; line-height:1.5; }
+    .adv-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:14px; margin-top:18px; }
+    .adv-card { display:flex; gap:12px; align-items:flex-start; background:var(--white); border:1px solid var(--line); border-radius:14px; padding:16px; }
+    .adv-card .ico { font-size:22px; line-height:1; }
+    .adv-card strong { display:block; font-size:.92rem; margin-bottom:3px; }
+    .adv-card span { color:#59665f; font-size:.82rem; line-height:1.45; display:block; }
+    .faq-list { margin-top:8px; }
+    .faq-item { border-bottom:1px solid var(--line); padding:14px 0; }
+    .faq-item summary { font-weight:700; cursor:pointer; list-style:none; display:flex; justify-content:space-between; align-items:center; gap:12px; }
+    .faq-item summary::after { content:'+'; font-size:20px; color:var(--coral); flex-shrink:0; }
+    .faq-item[open] summary::after { content:'−'; }
+    .faq-item p { color:#59665f; line-height:1.65; margin:10px 0 0; font-size:.92rem; }
+    .cta-band { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:16px; background:var(--ink); color:#fff; border-radius:18px; padding:26px 28px; margin-top:28px; }
+    .cta-band h2 { margin:0 0 6px; color:#fff; font-size:1.4rem; }
+    .cta-band p { margin:0; color:#cfd8cf; font-size:.9rem; max-width:52ch; }
+    .cta-band .button { background:var(--coral); border-color:var(--coral); color:#fff; flex:0 0 auto; }
+    @media (max-width:800px) { .provider-grid { grid-template-columns:1fr 1fr; } .cta-band { flex-direction:column; align-items:flex-start; } }
+    @media (max-width:560px) { .provider-grid { grid-template-columns:1fr; } }
+  </style>
 </head>
 <body>
   <div class="container">
@@ -18,44 +73,175 @@
     </div>
 
     <div class="hero">
-      <div class="hero-visual" style="background-image: url('/banners/banner-reservas.webp')"></div>
       <div class="hero-copy">
         <p class="eyebrow">Alojamiento en Salento</p>
-        <h1>Reservas de Hoteles</h1>
-        <p>Reserva hoteles, hostales y alojamientos en Salento directamente por WhatsApp. Sin comisiones, sin intermediarios.</p>
+        <h1>Reserva tu hotel directo, sin comisiones</h1>
+        <p>Hoteles boutique, hostales, fincas cafeteras y camping en Salento con página propia verificada. Escribes por WhatsApp, el hotel te confirma y listo: tu dinero va completo al negocio local.</p>
         <div class="actions">
-          <a href="/categorias/alojamientos.html" class="button primary">Ver alojamientos</a>
+          <a href="#alojamientos" class="button primary">Ver alojamientos</a>
+          <a href="/categorias/alojamientos.html" class="button">Explorar el directorio</a>
+        </div>
+        <div class="stats-row">
+          <span class="stat-chip">✓ 0% comisiones</span>
+          <span class="stat-chip">✓ Reserva por WhatsApp</span>
+          <span class="stat-chip">✓ Negocios verificados</span>
+          <span class="stat-chip">✓ Info real de cada hotel</span>
         </div>
       </div>
+      <div class="hero-visual" style="background-image: url('/banners/banner-reservas.webp')"></div>
     </div>
 
+    <section class="section" id="alojamientos">
+      <p class="eyebrow">Alojamientos verificados</p>
+      <h2>¿Dónde te hospedas?</h2>
+      <p style="color:#59665f; margin:0 0 4px;">Cada ficha tiene fotos reales, habitaciones, amenidades y reserva directa por WhatsApp.</p>
+      <div class="provider-grid">
+        <article class="provider-card">
+          <div class="card-image" style="background-image:url('/pautas/hotel_salento_real/imagenes/hotel-salento-real-confort.webp')"></div>
+          <div class="card-body">
+            <div class="card-meta"><span class="pill">Hotel boutique</span><span class="rating">★ 4.8</span></div>
+            <h3>Hotel Salento Real</h3>
+            <p>Estilo colonial a 3 cuadras de la plaza. Suites con jacuzzi, desayuno americano y parqueadero privado.</p>
+            <div class="card-facts"><span>$$$ Gama alta</span><span>Recepción 24/7</span></div>
+            <div class="card-actions">
+              <a class="button primary" href="https://wa.me/573166296142?text=Hola%2C%20quiero%20reservar%20una%20habitaci%C3%B3n%20en%20Hotel%20Salento%20Real" target="_blank" rel="noreferrer">Reservar por WhatsApp</a>
+              <a class="button" href="/paginas-pautantes/hotel-salento-real/">Ver habitaciones</a>
+            </div>
+          </div>
+        </article>
+        <article class="provider-card">
+          <div class="card-image" style="background-image:url('/pautas/hotel_camino_nacional/imagenes/arte-hotel-camino-nacional.webp')"></div>
+          <div class="card-body">
+            <div class="card-meta"><span class="pill">Hotel céntrico</span><span class="rating">★ 4.8</span></div>
+            <h3>Hotel Camino Nacional Salento</h3>
+            <p>El hotel icónico del centro. Habitaciones cómodas, atención personalizada y desayuno; a pie de la plaza y la Calle Real.</p>
+            <div class="card-facts"><span>$$$ Gama alta</span><span>Desayuno incluido</span></div>
+            <div class="card-actions">
+              <a class="button primary" href="https://wa.me/573113903550?text=Hola%2C%20quiero%20reservar%20una%20habitaci%C3%B3n%20en%20Hotel%20Camino%20Nacional" target="_blank" rel="noreferrer">Reservar por WhatsApp</a>
+              <a class="button" href="/paginas-pautantes/hotel-camino-nacional-salento/">Ver habitaciones</a>
+            </div>
+          </div>
+        </article>
+        <article class="provider-card">
+          <div class="card-image" style="background-image:url('/pautas/hotel_la_floresta_salento/imagenes/Foto%20de%20portada%20del%20hotel.webp')"></div>
+          <div class="card-body">
+            <div class="card-meta"><span class="pill">Hotel familiar</span><span class="rating">★ 4.6</span></div>
+            <h3>Hotel La Floresta Salento</h3>
+            <p>A 400 m de la plaza: terrazas panorámicas, Coffee Spa, coworking y 18 habitaciones para parejas y familias.</p>
+            <div class="card-facts"><span>$$ Gama media</span><span>Spa y coworking</span></div>
+            <div class="card-actions">
+              <a class="button primary" href="https://wa.me/573207211382?text=Hola%2C%20quiero%20reservar%20una%20habitaci%C3%B3n%20en%20Hotel%20La%20Floresta" target="_blank" rel="noreferrer">Reservar por WhatsApp</a>
+              <a class="button" href="/paginas-pautantes/hotel-la-floresta-salento/">Ver habitaciones</a>
+            </div>
+          </div>
+        </article>
+        <article class="provider-card">
+          <div class="card-image" style="background-image:url('/pautas/hotel-green-house/imagenes/green-house-real-1.webp')"></div>
+          <div class="card-body">
+            <div class="card-meta"><span class="pill">Hotel céntrico</span><span class="pill">Mascotas</span></div>
+            <h3>Hotel Green House Salento</h3>
+            <p>A 5 minutos del centro: 15 habitaciones, WiFi, jacuzzi, terraza y admite mascotas.</p>
+            <div class="card-facts"><span>$$ Gama media</span><span>A 5 min del centro</span></div>
+            <div class="card-actions">
+              <a class="button primary" href="https://wa.me/573128674073?text=Hola%2C%20quiero%20reservar%20una%20habitaci%C3%B3n%20en%20Hotel%20Green%20House" target="_blank" rel="noreferrer">Reservar por WhatsApp</a>
+              <a class="button" href="/paginas-pautantes/hotel-green-house-salento/">Ver habitaciones</a>
+            </div>
+          </div>
+        </article>
+        <article class="provider-card">
+          <div class="card-image" style="background-image:url('/pautas/mahalo_hostel/imagenes/151829511_115398783872298_53747583158063699_n.webp')"></div>
+          <div class="card-body">
+            <div class="card-meta"><span class="pill">Hostal</span><span class="rating">★ Recomendado</span></div>
+            <h3>Mahalo Hostel Salento</h3>
+            <p>Habitaciones tipo tatami, desayuno, fogata y vistas a la montaña. Hospitalidad quindiana desde 2020.</p>
+            <div class="card-facts"><span>$$$ Gama alta</span><span>Check-in 3:00 PM</span></div>
+            <div class="card-actions">
+              <a class="button primary" href="https://wa.me/573228551504?text=Hola%2C%20quiero%20reservar%20en%20Mahalo%20Hostel" target="_blank" rel="noreferrer">Reservar por WhatsApp</a>
+              <a class="button" href="/paginas-pautantes/mahalo-hostel-salento/">Ver habitaciones</a>
+            </div>
+          </div>
+        </article>
+        <article class="provider-card">
+          <div class="card-image" style="background-image:url('/pautas/reserva-natural-cascadas-de-santa-rita/imagenes/santa-rita-1.webp')"></div>
+          <div class="card-body">
+            <div class="card-meta"><span class="pill">Camping</span><span class="rating">★ 4.6</span></div>
+            <h3>Camping Cascadas de Santa Rita</h3>
+            <p>Camping dentro de la reserva natural: fogatas, senderos a cascadas y habitaciones disponibles.</p>
+            <div class="card-facts"><span>$ Económico</span><span>Check-in 2:00 PM</span></div>
+            <div class="card-actions">
+              <a class="button primary" href="https://wa.me/573015038254?text=Hola%2C%20quiero%20reservar%20en%20Camping%20Cascadas%20de%20Santa%20Rita" target="_blank" rel="noreferrer">Reservar por WhatsApp</a>
+              <a class="button" href="/paginas-pautantes/camping-cascadas-de-santa-rita/">Ver opciones</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
     <section class="section">
-      <h2>¿Cómo reservar?</h2>
-      <div class="grid">
-        <div class="card">
-          <h3>1. Elige el alojamiento</h3>
-          <p>Explora hoteles, hostales y fincas cafeteras en el directorio.</p>
+      <p class="eyebrow">Cómo reservar</p>
+      <h2>En tres pasos, directo con el hotel</h2>
+      <div class="steps-grid">
+        <div class="step-card">
+          <span class="step-num">1</span>
+          <h3>Elige el alojamiento</h3>
+          <p>Explora las fichas con fotos reales, habitaciones y amenidades de cada hotel verificado.</p>
         </div>
-        <div class="card">
-          <h3>2. Contacta por WhatsApp</h3>
-          <p>Haz clic en el botón de WhatsApp del alojamiento para reservar.</p>
+        <div class="step-card">
+          <span class="step-num">2</span>
+          <h3>Escribe por WhatsApp</h3>
+          <p>El botón de reserva abre el chat con el mensaje listo: fechas, huéspedes y tipo de habitación.</p>
         </div>
-        <div class="card">
-          <h3>3. Confirma tu reserva</h3>
-          <p>Coordinación directa con el hotel, sin intermediarios.</p>
+        <div class="step-card">
+          <span class="step-num">3</span>
+          <h3>El hotel te confirma</h3>
+          <p>Disponibilidad y tarifa exacta las define el alojamiento. Sin sorpresas de plataforma.</p>
         </div>
       </div>
     </section>
 
     <section class="section">
-      <h2>Ventajas</h2>
-      <ul>
-        <li>✅ Sin comisiones de booking</li>
-        <li>✅ Consulta disponibilidad y tarifas directamente con el alojamiento</li>
-        <li>✅ Contacto directo con el hotel</li>
-        <li>✅ Soporte a alojamientos locales</li>
-      </ul>
+      <p class="eyebrow">Ventajas</p>
+      <h2>Por qué reservar así</h2>
+      <div class="adv-grid">
+        <div class="adv-card"><span class="ico">💸</span><div><strong>0% comisiones</strong><span>Sin Booking ni intermediarios: la tarifa que pactas es la que pagas.</span></div></div>
+        <div class="adv-card"><span class="ico">💬</span><div><strong>Respuesta directa</strong><span>Preguntas por habitaciones, mascotas, parqueadero o check-in temprano.</span></div></div>
+        <div class="adv-card"><span class="ico">🏨</span><div><strong>Info real</strong><span>Fotos y descripciones verificadas de cada alojamiento, no stock genérico.</span></div></div>
+        <div class="adv-card"><span class="ico">🤝</span><div><strong>Apoyas lo local</strong><span>Tu reserva sostiene directamente a la economía de Salento.</span></div></div>
+      </div>
     </section>
+
+    <section class="section">
+      <p class="eyebrow">Preguntas frecuentes</p>
+      <h2>Antes de reservar</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>¿Cómo reservo un hotel en Salento?</summary>
+          <p>Elige el alojamiento del directorio y escríbele por WhatsApp. La reserva es directa con el hotel: sin Booking ni intermediarios ni comisiones.</p>
+        </details>
+        <details class="faq-item">
+          <summary>¿Cuánto cuesta usar este servicio?</summary>
+          <p>Nada. Salento a la Mano no cobra comisiones; las tarifas las defines directamente con cada alojamiento según fechas y ocupación.</p>
+        </details>
+        <details class="faq-item">
+          <summary>¿Qué tipo de alojamientos hay?</summary>
+          <p>Hoteles boutique, hostales, fincas cafeteras con hotel y camping en reservas naturales, todos con información verificada en el catálogo.</p>
+        </details>
+        <details class="faq-item">
+          <summary>¿Puedo consultar tarifas y disponibilidad?</summary>
+          <p>Sí. Cada ficha tiene botón de WhatsApp para preguntar fechas, ocupación y precio exacto antes de confirmar tu reserva.</p>
+        </details>
+      </div>
+    </section>
+
+    <div class="cta-band">
+      <div>
+        <h2>¿Listo para reservar?</h2>
+        <p>Elige tu alojamiento y escribe directo. Sin registro, sin comisiones, sin esperas.</p>
+      </div>
+      <a class="button" href="#alojamientos">Ver alojamientos</a>
+    </div>
   </div>
+  <script src="/quick-nav.js" defer></script>
+  <script src="/pautante-analytics.js" defer></script>
 </body>
 </html>

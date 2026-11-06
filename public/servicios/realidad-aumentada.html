@@ -4,9 +4,57 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Realidad Aumentada en Salento | Salento a la Mano</title>
-  <meta name="description" content="Descubre lugares turísticos en Salento con realidad aumentada. Apunta tu celular y explora el mapa offline con brújula inteligente.">
+  <meta name="description" content="Descubre lugares turísticos en Salento con realidad aumentada: apunta tu celular y explora el mapa con brújula inteligente. Funciona offline en el Valle de Cocora.">
+  <meta property="og:title" content="Realidad Aumentada en Salento | Salento a la Mano">
+  <meta property="og:description" content="Cámara + brújula + datos locales: descubre restaurantes, hoteles y atracciones a tu alrededor en tiempo real.">
+  <meta property="og:image" content="https://www.salentoalamano.com/banners/banner-realidad-aumentada.webp">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.salentoalamano.com/servicios/realidad-aumentada.html">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="stylesheet" href="/page-theme.css">
   <link rel="canonical" href="https://www.salentoalamano.com/servicios/realidad-aumentada.html">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Service","name":"Realidad aumentada para turismo en Salento","description":"Modo de realidad aumentada de Salento a la Mano que permite descubrir lugares turísticos verificados a menos de 3 km usando la cámara, brújula y voz del celular, con funcionamiento offline.","provider":{"@type":"Organization","name":"Salento a la Mano","url":"https://www.salentoalamano.com"},"areaServed":{"@type":"City","name":"Salento","containedIn":{"@type":"State","name":"Quindío"}},"url":"https://www.salentoalamano.com/servicios/realidad-aumentada.html"}
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://www.salentoalamano.com/"},{"@type":"ListItem","position":2,"name":"Servicios","item":"https://www.salentoalamano.com/servicios/realidad-aumentada.html"},{"@type":"ListItem","position":3,"name":"Realidad aumentada"}]}
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"¿Cómo activo la realidad aumentada?","acceptedAnswer":{"@type":"Answer","text":"Abre el mapa interactivo en salentoalamano.com y pulsa el botón \"Activar AR\". La app usa la cámara y la brújula de tu celular."}},{"@type":"Question","name":"¿Funciona sin internet?","acceptedAnswer":{"@type":"Answer","text":"Sí. Los datos del catálogo se descargan previamente y el modo AR funciona offline, pensado para zonas como el Valle de Cocora con mala señal."}},{"@type":"Question","name":"¿Qué tan lejos detecta lugares?","acceptedAnswer":{"@type":"Answer","text":"Muestra los lugares verificados a menos de 3 km de tu ubicación, con distancia exacta y dirección según la brújula."}},{"@type":"Question","name":"¿Qué dispositivos son compatibles?","acceptedAnswer":{"@type":"Answer","text":"Cualquier celular moderno con navegador (Chrome en Android o Safari en iPhone) que soporte cámara y sensores de orientación."}}]}
+  </script>
+  <style>
+    .stats-row { display:flex; flex-wrap:wrap; gap:10px; margin-top:18px; }
+    .stat-chip { padding:9px 14px; border:1px solid var(--line); border-radius:999px; background:#f3ead6; font-size:12px; font-weight:700; color:var(--ink); }
+    .feature-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(230px,1fr)); gap:14px; margin-top:18px; }
+    .feature-card { background:var(--white); border:1px solid var(--line); border-radius:16px; padding:20px; }
+    .feature-card .ico { font-size:26px; display:block; margin-bottom:10px; }
+    .feature-card strong { display:block; font-size:.95rem; margin-bottom:5px; }
+    .feature-card span { color:#59665f; font-size:.85rem; line-height:1.5; display:block; }
+    .steps-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px; margin-top:18px; }
+    .step-card { background:var(--white); border:1px solid var(--line); border-radius:16px; padding:20px; }
+    .step-num { display:inline-grid; place-items:center; width:34px; height:34px; border-radius:50%; background:var(--coral); color:#fff; font-weight:700; font-size:14px; margin-bottom:10px; }
+    .step-card h3 { margin:0 0 6px; font-size:1rem; }
+    .step-card p { margin:0; color:#59665f; font-size:.88rem; line-height:1.5; }
+    .discover-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(250px,1fr)); gap:18px; margin-top:18px; }
+    .discover-card { background:var(--white); border:1px solid var(--line); border-radius:18px; overflow:hidden; display:flex; flex-direction:column; }
+    .discover-card .thumb { height:150px; background-size:cover; background-position:center; }
+    .discover-card .thumb.alt { background:linear-gradient(135deg,#27362b,#56755b); display:grid; place-items:center; font-size:38px; color:#fff; }
+    .discover-body { padding:14px 16px; flex:1; display:flex; flex-direction:column; }
+    .discover-body h3 { margin:0 0 5px; font-size:1rem; }
+    .discover-body p { margin:0 0 10px; color:#59665f; font-size:.85rem; line-height:1.5; flex:1; }
+    .faq-list { margin-top:8px; }
+    .faq-item { border-bottom:1px solid var(--line); padding:14px 0; }
+    .faq-item summary { font-weight:700; cursor:pointer; list-style:none; display:flex; justify-content:space-between; align-items:center; gap:12px; }
+    .faq-item summary::after { content:'+'; font-size:20px; color:var(--coral); flex-shrink:0; }
+    .faq-item[open] summary::after { content:'−'; }
+    .faq-item p { color:#59665f; line-height:1.65; margin:10px 0 0; font-size:.92rem; }
+    .cta-band { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:16px; background:var(--ink); color:#fff; border-radius:18px; padding:26px 28px; margin-top:28px; }
+    .cta-band h2 { margin:0 0 6px; color:#fff; font-size:1.4rem; }
+    .cta-band p { margin:0; color:#cfd8cf; font-size:.9rem; max-width:52ch; }
+    .cta-band .button { background:var(--coral); border-color:var(--coral); color:#fff; flex:0 0 auto; }
+    @media (max-width:800px) { .discover-grid { grid-template-columns:1fr 1fr; } .cta-band { flex-direction:column; align-items:flex-start; } }
+    @media (max-width:560px) { .discover-grid, .feature-grid { grid-template-columns:1fr; } }
+  </style>
 </head>
 <body>
   <div class="container">
@@ -18,44 +66,126 @@
     </div>
 
     <div class="hero">
-      <div class="hero-visual" style="background-image: url('/banners/banner-realidad-aumentada.webp')"></div>
       <div class="hero-copy">
-        <p class="eyebrow">Tecnología Innovadora</p>
-        <h1>Realidad Aumentada</h1>
-        <p>Apunta tu celular y descubre lugares turísticos en tiempo real con brújula inteligente. Funciona offline en el Valle de Cocora.</p>
+        <p class="eyebrow">Tecnología · Salento AR</p>
+        <h1>El pueblo en tu pantalla, en tiempo real</h1>
+        <p>Activa el modo Realidad Aumentada en el mapa: tu cámara muestra los lugares verificados a menos de 3 km, con distancia exacta, dirección por brújula y guía de voz. Funciona offline, pensado para el Valle de Cocora.</p>
         <div class="actions">
           <a href="/#mapa" class="button primary">Abrir mapa y probar AR</a>
+          <a href="/#pedidos" class="button">Ver directorio</a>
+        </div>
+        <div class="stats-row">
+          <span class="stat-chip">✓ Hasta 3 km de detección</span>
+          <span class="stat-chip">✓ Brújula + voz</span>
+          <span class="stat-chip">✓ Funciona offline</span>
+          <span class="stat-chip">✓ Datos verificados</span>
         </div>
       </div>
+      <div class="hero-visual" style="background-image: url('/banners/banner-realidad-aumentada.webp')"></div>
     </div>
 
     <section class="section">
-      <h2>¿Cómo funciona?</h2>
-      <div class="grid">
-        <div class="card">
-          <h3>1. Activa el modo AR</h3>
-          <p>En el mapa interactivo, haz clic en el botón "Activar AR".</p>
+      <p class="eyebrow">Cómo funciona</p>
+      <h2>Tres pasos y estás explorando</h2>
+      <div class="steps-grid">
+        <div class="step-card">
+          <span class="step-num">1</span>
+          <h3>Activa el modo AR</h3>
+          <p>En el mapa interactivo, pulsa "Activar AR" y permite el acceso a cámara y ubicación.</p>
         </div>
-        <div class="card">
-          <h3>2. Apunta tu celular</h3>
-          <p>La cámara y brújula detectarán lugares turísticos a tu alrededor.</p>
+        <div class="step-card">
+          <span class="step-num">2</span>
+          <h3>Apunta tu celular</h3>
+          <p>La cámara se combina con la brújula: cada lugar verificado aparece con su distancia y dirección real.</p>
         </div>
-        <div class="card">
-          <h3>3. Descubre lugares</h3>
-          <p>Ver información de restaurantes, hoteles y atracciones en tiempo real.</p>
+        <div class="step-card">
+          <span class="step-num">3</span>
+          <h3>Descubre y reserva</h3>
+          <p>Toca un lugar para ver su ficha y contactarlo directo por WhatsApp: hotel, restaurante o tour.</p>
         </div>
       </div>
     </section>
 
     <section class="section">
-      <h2>Características</h2>
-      <ul>
-        <li>✅ Funciona offline (sin internet)</li>
-        <li>✅ Rango de detección: 3 km</li>
-        <li>✅ Brújula inteligente integrada</li>
-        <li>✅ Voz y síntesis de audio</li>
-      </ul>
+      <p class="eyebrow">Qué puedes descubrir</p>
+      <h2>Lugares que aparecen en tu cámara</h2>
+      <div class="discover-grid">
+        <article class="discover-card">
+          <div class="thumb" style="background-image:url('/pautas/restaurante-bar-shalem/imagenes/shalem-home-banner.webp')"></div>
+          <div class="discover-body">
+            <h3>Restaurantes y cafés</h3>
+            <p>Comida típica, coffee tours y brunch a pasos de ti, con pedido directo por WhatsApp.</p>
+          </div>
+        </article>
+        <article class="discover-card">
+          <div class="thumb" style="background-image:url('/pautas/hotel_la_floresta_salento/imagenes/Foto%20de%20portada%20del%20hotel.webp')"></div>
+          <div class="discover-body">
+            <h3>Hoteles y alojamientos</h3>
+            <p>Hoteles boutique, hostales y fincas cafeteras con reserva directa sin comisiones.</p>
+          </div>
+        </article>
+        <article class="discover-card">
+          <div class="thumb" style="background-image:url('/imagenes-salento/valle-cocora-palmas-2.webp')"></div>
+          <div class="discover-body">
+            <h3>Atracciones y miradores</h3>
+            <p>Miradores, cascadas, senderos y el Valle de Cocora con información verificada.</p>
+          </div>
+        </article>
+        <article class="discover-card">
+          <div class="thumb alt">🧭</div>
+          <div class="discover-body">
+            <h3>Guía de voz Don Chucho</h3>
+            <p>El asistente local te narra qué hay cerca y responde preguntas en tu idioma.</p>
+          </div>
+        </article>
+      </div>
     </section>
+
+    <section class="section">
+      <p class="eyebrow">Características</p>
+      <h2>Diseñado para el territorio real</h2>
+      <div class="feature-grid">
+        <div class="feature-card"><span class="ico">📶</span><strong>Offline-first</strong><span>Los datos del catálogo se descargan antes: el AR funciona sin señal en zonas rurales.</span></div>
+        <div class="feature-card"><span class="ico">🧭</span><strong>Brújula inteligente</strong><span>Orientación en tiempo real con rumbo en grados y puntos cardinales.</span></div>
+        <div class="feature-card"><span class="ico">🔊</span><strong>Narración por voz</strong><span>Don Chucho te guía con audio en el idioma de tu interfaz.</span></div>
+        <div class="feature-card"><span class="ico">📏</span><strong>Distancia exacta</strong><span>Cada lugar muestra su distancia real en metros o kilómetros.</span></div>
+        <div class="feature-card"><span class="ico">✅</span><strong>Solo lugares verificados</strong><span>El AR muestra exclusivamente negocios y atracciones validados del catálogo.</span></div>
+        <div class="feature-card"><span class="ico">🌍</span><strong>6 idiomas</strong><span>La interfaz y las respuestas del asistente se adaptan a tu idioma.</span></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <p class="eyebrow">Preguntas frecuentes</p>
+      <h2>Antes de probarlo</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>¿Cómo activo la realidad aumentada?</summary>
+          <p>Abre el mapa interactivo en salentoalamano.com y pulsa "Activar AR". La app usará la cámara y la brújula de tu celular (necesita permisos de ubicación).</p>
+        </details>
+        <details class="faq-item">
+          <summary>¿Funciona sin internet?</summary>
+          <p>Sí. Los datos del catálogo se descargan previamente y el modo AR funciona offline, pensado para zonas como el Valle de Cocora con mala señal.</p>
+        </details>
+        <details class="faq-item">
+          <summary>¿Qué tan lejos detecta lugares?</summary>
+          <p>Muestra los lugares verificados a menos de 3 km de tu ubicación, con distancia exacta y dirección según la brújula.</p>
+        </details>
+        <details class="faq-item">
+          <summary>¿Qué dispositivos son compatibles?</summary>
+          <p>Cualquier celular moderno con navegador (Chrome en Android o Safari en iPhone) que soporte cámara y sensores de orientación.</p>
+        </details>
+      </div>
+    </section>
+
+    <div class="cta-band">
+      <div>
+        <h2>Salento, en vivo</h2>
+        <p>Abre el mapa, activa el AR y descubre qué hay a tu alrededor ahora mismo.</p>
+      </div>
+      <a class="button" href="/#mapa">Probar AR ahora</a>
+    </div>
   </div>
+  <script src="/quick-nav.js" defer></script>
+  <script src="/pautante-analytics.js" defer></script>
 </body>
 </html>
