@@ -209,9 +209,9 @@ const galleryPicks = {
   'restaurante-don-elias': [
     '/pautas/restaurante-al-sabor-de-la-lena/imagenes/portada-don-elias.webp',
     '/pautas/restaurante-al-sabor-de-la-lena/imagenes/comida-colombiana.webp',
-    '/pautas/restaurante-al-sabor-de-la-lena/imagenes/plato3.jpeg',
-    '/pautas/restaurante-al-sabor-de-la-lena/imagenes/plato7.jpeg',
-    '/pautas/restaurante-al-sabor-de-la-lena/imagenes/plato8.jpeg',
+    '/pautas/restaurante-al-sabor-de-la-lena/imagenes/plato3.webp',
+    '/pautas/restaurante-al-sabor-de-la-lena/imagenes/plato7.webp',
+    '/pautas/restaurante-al-sabor-de-la-lena/imagenes/plato8.webp',
     '/pautas/restaurante-al-sabor-de-la-lena/imagenes/restaurante-don-elias-finca-2.webp',
   ],
   'sendero-de-las-palmas-entrada-libre-valle': [

@@ -921,6 +921,93 @@ const knowledgeBase: KnowledgeItem[] = [
     },
     followUp: ['¿Cómo llego?', '¿Qué es el Quindío?', '¿Clima?'],
     relatedPlaces: []
+  },
+  // ═══════════════════════════════════════════════════════════
+  // SERVICIOS DEL SITIO (domicilios, transporte, reservas, pautantes)
+  // ═══════════════════════════════════════════════════════════
+  {
+    keywords: ['domicilio', 'domicilios', 'pedido a domicilio', 'pedir desde el hotel', 'pedido desde el hotel', 'entrega a domicilio', 'delivery', 'llevar comida', 'comida a domicilio', 'pedir comida'],
+    category: 'comida',
+    answer: {
+      es: '¿Se te antoja algo y estás en el hotel? En salentoalamano.com tienes Pedidos a Domicilio: los mejores restaurantes de Salento en un solo pedido. Pide desde la comodidad de tu habitación, directamente con los restaurantes y sin intermediarios; te lo llevan hasta el hotel. Entra a la sección de Pedidos a Domicilio (servicios/pedidos-domicilio.html), arma tu pedido de trucha, sancocho o tinto, y relájate.',
+      en: 'Craving something while at your hotel? On salentoalamano.com you have Home Delivery: Salento\'s best restaurants in a single order. Order from the comfort of your room, straight to the restaurants with no middlemen; they bring it to your hotel. Open the Home Delivery section (servicios/pedidos-domicilio.html), build your trout, sancocho or tinto order, and relax.',
+      de: 'Du hast Hunger und bist im Hotel? Auf salentoalamano.com gibt es Essenslieferung: die besten Restaurants von Salento in einer einzigen Bestellung. Bestelle bequem aus deinem Zimmer, direkt beim Restaurant und ohne Zwischenhändler; sie bringen es bis zu deinem Hotel. Öffne den Bereich Essenslieferung (servicios/pedidos-domicilio.html), stelle deine Bestellung zusammen und entspanne.',
+      fr: 'Vous avez faim et vous êtes à l\'hôtel ? Sur salentoalamano.com, vous avez la livraison à domicile : les meilleurs restaurants de Salento en une seule commande. Commandez depuis la confort de votre chambre, directement auprès des restaurants et sans intermédiaires ; on vous l\'apporte à l\'hôtel. Ouvrez la section Livraison à domicile (servicios/pedidos-domicilio.html), composez votre commande et détendez-vous.',
+      pt: 'Com fome e no hotel? No salentoalamano.com você tem Delivery: os melhores restaurantes de Salento em um só pedido. Peça do conforto do seu quarto, direto com os restaurantes e sem intermediários; eles levam até o hotel. Abra a seção de Delivery (servicios/pedidos-domicilio.html), monte seu pedido de truta, sancocho ou tinto e relaxe.',
+      it: 'Hai fame e sei in hotel? Su salentoalamano.com c\'è il servizio di consegna a domicilio: i migliori ristoranti di Salento in un unico ordine. Ordina dalla comodità della tua camera, direttamente ristoranti e senza intermediari; te lo portano in hotel. Apri la sezione Consegna a domicilio (servicios/pedidos-domicilio.html), componi il tuo ordine e rilassati.'
+    },
+    followUp: ['¿Qué restaurantes entregan en hoteles?', '¿Cuánto tarda?', '¿Cómo pago?'],
+    relatedPlaces: []
+  },
+  {
+    keywords: ['reservar hotel', 'reserva de hotel', 'reservas de hoteles', 'reservar habitación', 'reserva alojamiento', 'hotel online', 'disponibilidad hotel', 'reservar en línea'],
+    category: 'hospedaje',
+    answer: {
+      es: 'Para reservar tu hospedaje directo con los hoteles de Salento, sin comisiones ni intermediarios, usa la sección Reservas de Hoteles en salentoalamano.com (servicios/reservas-hoteles.html). Ahí comparas habitaciones, precios y contactos directos de Hotel La Floresta, Green House, Camino Nacional, Mahalo Hostel y más. Toca el botón de reserva y escribes al hotel por WhatsApp.',
+      en: 'To book your stay directly with Salento hotels, with no fees or middlemen, use the Hotel Bookings section on salentoalamano.com (servicios/reservas-hoteles.html). There you compare rooms, prices and direct contacts of Hotel La Floresta, Green House, Camino Nacional, Mahalo Hostel and more. Tap the booking button and message the hotel on WhatsApp.',
+      de: 'Um deine Unterkunft direkt bei den Hotels von Salento zu buchen, ohne Gebühren oder Zwischenhändler, nutze den Bereich Hotelbuchungen auf salentoalamano.com (servicios/reservas-hoteles.html). Dort vergleichst du Zimmer, Preise und direkte Kontakte von Hotel La Floresta, Green House, Camino Nacional, Mahalo Hostel und mehr. Tippe auf die Buchungsschaltfläche und schreibe dem Hotel über WhatsApp.',
+      fr: 'Pour réserver votre hébergement directement auprès des hôtels de Salento, sans commissions ni intermédiaires, utilisez la section Réservations d\'hôtels sur salentoalamano.com (servicios/reservas-hoteles.html). Vous y comparez chambres, prix et contacts directs de l\'Hotel La Floresta, Green House, Camino Nacional, Mahalo Hostel et plus. Touchez le bouton de réservation et écrivez à l\'hôtel sur WhatsApp.',
+      pt: 'Para reservar sua hospedagem diretamente com os hotéis de Salento, sem comissões nem intermediários, use a seção Reservas de Hotéis em salentoalamano.com (servicios/reservas-hoteles.html). Lá você compara quartos, preços e contatos diretos do Hotel La Floresta, Green House, Camino Nacional, Mahalo Hostel e mais. Toque no botão de reserva e fale com o hotel pelo WhatsApp.',
+      it: 'Per prenotare il tuo soggiorno direttamente negli hotel di Salento, senza commissioni né intermediari, usa la sezione Prenotazioni hotel su salentoalamano.com (servicios/reservas-hoteles.html). Qui confronti camere, prezzi e contatti diretti di Hotel La Floresta, Green House, Camino Nacional, Mahalo Hostel e altri. Tocca il pulsante di prenotazione e scrivi all\'hotel su WhatsApp.'
+    },
+    followUp: ['¿Qué hoteles hay?', '¿Tienen precio por noche?', '¿Cómo escribo al hotel?'],
+    relatedPlaces: [1, 2]
+  },
+  {
+    keywords: ['servicio de transporte', 'transporte privado', 'traslado aeropuerto', 'contratar transporte', 'transporte salento', 'llevar al aeropuerto', 'traslado'],
+    category: 'transporte',
+    answer: {
+      es: 'Si necesitas moverte, la sección Transporte de salentoalamano.com (servicios/transporte-salento.html) te muestra todo: jeeps Willys a la entrada del Valle de Cocora, taxis, transporte privado Armenia–Salento y traslados a tu hotel. Todo con contactos directos y tarifas de referencia, sin intermediarios.',
+      en: 'If you need to get around, the Transport section on salentoalamano.com (servicios/transporte-salento.html) shows you everything: Willys jeeps at the Cocora Valley entrance, taxis, private Armenia–Salento transport and transfers to your hotel. All with direct contacts and reference fares, no middlemen.',
+      de: 'Wenn du dich fortbewegen musst, zeigt dir der Transportbereich auf salentoalamano.com (servicios/transporte-salento.html) alles: Willys-Jeeps am Eingang des Cocora-Tals, Taxis, privaten Transport Armenia–Salento und Transfers zu deinem Hotel. Alles mit direkten Kontakten und Referenzpreisen, ohne Zwischenhändler.',
+      fr: 'Si vous devez vous déplacer, la section Transport sur salentoalamano.com (servicios/transporte-salento.html) vous montre tout : jeeps Willys à l\'entrée de la Vallée de Cocora, taxis, transport privé Armenia–Salento et transferts vers votre hôtel. Avec contacts directs et tarifs de référence, sans intermédiaires.',
+      pt: 'Se você precisa se locomover, a seção Transporte em salentoalamano.com (servicios/transporte-salento.html) mostra tudo: jeeps Willys na entrada do Vale do Cocora, táxis, transporte privado Armenia–Salento e transfers para o seu hotel. Tudo com contatos diretos e tarifas de referência, sem intermediários.',
+      it: 'Se ti devi muovere, la sezione Trasporti su salentoalamano.com (servicios/transporte-salento.html) ti mostra tutto: jeeps Willys all\'ingresso della Valle di Cocora, taxi, trasporto privato Armenia–Salento e transfer per il tuo hotel. Tutto con contatti diretti e tariffe di riferimento, senza intermediari.'
+    },
+    followUp: ['¿Cómo llego al Valle de Cocora?', '¿Cuánto cuesta un taxi?', '¿Hay transporte de Armenia?'],
+    relatedPlaces: []
+  },
+  {
+    keywords: ['página verificada', 'páginas verificadas', 'pautante', 'pautantes', 'categorías', 'directorio local', 'dónde ver los servicios', 'verificado'],
+    category: 'general',
+    answer: {
+      es: 'Todo en salentoalamano.com está organizado por categorías: alojamientos, restaurantes, coffee tours, experiencias y servicios. Los que llevan la insignia ★ Pautante tienen página propia con fotos, planes y reserva directa por WhatsApp, y aparecen primero en cada categoría. Empieza en la sección Categorías y filtra lo que buscas.',
+      en: 'Everything on salentoalamano.com is organized by categories: accommodations, restaurants, coffee tours, experiences and services. Those with the ★ Pautante badge have their own page with photos, plans and direct WhatsApp booking, and appear first in each category. Start at the Categories section and filter what you\'re looking for.',
+      de: 'Alles auf salentoalamano.com ist nach Kategorien organisiert: Unterkünfte, Restaurants, Coffee Tours, Erlebnisse und Dienstleistungen. Die mit dem ★-Pautante-Abzeichen haben eine eigene Seite mit Fotos, Plänen und direkter WhatsApp-Buchung und erscheinen zuerst in jeder Kategorie. Starte im Bereich Kategorien und filtere, was du suchst.',
+      fr: 'Tout sur salentoalamano.com est organisé par catégories : hébergements, restaurants, coffee tours, expériences et services. Ceux qui portent le badge ★ Pautante ont leur propre page avec photos, plans et réservation directe sur WhatsApp, et apparaissent en premier dans chaque catégorie. Commencez par la section Catégories et filtrez ce que vous cherchez.',
+      pt: 'Tudo em salentoalamano.com é organizado por categorias: hospedagem, restaurantes, coffee tours, experiências e serviços. Os que têm o selo ★ Pautante têm página própria com fotos, planos e reserva direta pelo WhatsApp, e aparecem primeiro em cada categoria. Comece na seção Categorias e filtre o que procura.',
+      it: 'Tutto su salentoalamano.com è organizzato per categorie: alloggi, ristoranti, coffee tour, esperienze e servizi. Quelli con il badge ★ Pautante hanno una pagina propria con foto, piani e prenotazione diretta su WhatsApp e compaiono per primi in ogni categoria. Inizia dalla sezione Categorie e filtra quello che cerchi.'
+    },
+    followUp: ['¿Qué categorías hay?', '¿Qué es un pautante?', '¿Dónde veo los tours?'],
+    relatedPlaces: []
+  },
+  {
+    keywords: ['cocoratrek', 'cocora trek', 'trek cocora', 'caminata cocora con operador', 'tours cocoratrek'],
+    category: 'experiencias',
+    answer: {
+      es: 'CocoraTrek es operador local de caminatas y tours: Bosque de Palmas, Acaime, Morrogacho, Carbonera, paseo en bicicleta, inmersión cafetera, mono aullador y pueblos del Quindío. Incluye guía, transporte, entradas y seguro. Reserva directo por WhatsApp +57 315 214 6468 y mira los planes en la página CocoraTrek del sitio.',
+      en: 'CocoraTrek is a local operator of hikes and tours: Palm Forest, Acaime, Morrogacho, Carbonera, bike ride, coffee immersion, howler monkey and Quindío towns. Guide, transport, tickets and insurance included. Book directly on WhatsApp +57 315 214 6468 and see the plans on the site\'s CocoraTrek page.',
+      de: 'CocoraTrek ist ein lokaler Betreiber von Wanderungen und Touren: Palmenwald, Acaime, Morrogacho, Carbonera, Fahrradtour, Kaffee-Immersion, Brüllaffe und Orte des Quindío. Guide, Transport, Eintritte und Versicherung inklusive. Direkt buchen per WhatsApp +57 315 214 6468 und die Pläne auf der CocoraTrek-Seite ansehen.',
+      fr: 'CocoraTrek est un opérateur local de randonnées et de tours : Forêt des palmiers, Acaime, Morrogacho, Carbonera, vélo, immersion café, singe hurleur et villages du Quindío. Guide, transport, entrées et assurance inclus. Réservez directement sur WhatsApp +57 315 214 6468 et voyez les formules sur la page CocoraTrek du site.',
+      pt: 'CocoraTrek é um operador local de caminhadas e tours: Bosque das Palmeiras, Acaime, Morrogacho, Carbonera, passeio de bicicleta, imersão cafetera, macaco-alugado e povos do Quindío. Guia, transporte, entradas e seguro incluídos. Reserve direto pelo WhatsApp +57 315 214 6468 e veja os planos na página CocoraTrek do site.',
+      it: 'CocoraTrek è un operatore locale di camminate e tour: Bosco delle palme, Acaime, Morrogacho, Carbonera, giro in bicicetta, immersione caffè, scimmia urlante e paesi del Quindío. Guida, trasporto, ingressi e assicurazione inclusi. Prenota direttamente su WhatsApp +57 315 214 6468 e guarda i piani nella pagina CocoraTrek del sito.'
+    },
+    followUp: ['¿Qué tours tienen?', '¿Cuánto cuesta?', '¿Cómo reservo?'],
+    relatedPlaces: [122]
+  },
+  {
+    keywords: ['realidad aumentada', 'realidad', 'filtro ar', 'cámara aumentada'],
+    category: 'general',
+    answer: {
+      es: 'Salento a la Mano tiene una sección de Realidad Aumentada: abre servicios/realidad-aumentada.html con la cámara de tu celular y apunta a los puntos señalizados del pueblo para ver contenido aumentado sobre Salento. Es gratis y no necesitas instalar nada.',
+      en: 'Salento a la Mano has an Augmented Reality section: open servicios/realidad-aumentada.html with your phone camera and point at the marked spots in town to see augmented content about Salento. It\'s free and you don\'t need to install anything.',
+      de: 'Salento a la Mano hat einen Bereich für Erweiterte Realität: Öffne servicios/realidad-aumentada.html mit der Kamera deines Handys und richte sie auf die markierten Stellen im Ort, um erweiterten Inhalt über Salento zu sehen. Es ist kostenlos und du musst nichts installieren.',
+      fr: 'Salento a la Mano dispose d\'une section Réalité augmentée : ouvrez servicios/realidad-aumentada.html avec l\'appareil photo de votre téléphone et pointez vers les points signalés du village pour voir du contenu augmenté sur Salento. C\'est gratuit et rien à installer.',
+      pt: 'Salento a la Mano tem uma seção de Realidade Aumentada: abra servicios/realidad-aumentada.html com a câmera do seu celular e aponte para os pontos sinalizados da cidade para ver conteúdo aumentado sobre Salento. É grátis e você não precisa instalar nada.',
+      it: 'Salento a la Mano ha una sezione di Realtà aumentata: apri servicios/realidad-aumentada.html con la fotocamera del telefono e punta verso i punti segnalati del paese per vedere contenuti aumentati su Salento. È gratuito e non devi installare nulla.'
+    },
+    followUp: ['¿Dónde están los puntos?', '¿Es gratis?', '¿Necesito app?'],
+    relatedPlaces: []
   }
 ]
 

@@ -7,7 +7,7 @@ Finca Don Eduardo es el sueño de un hombre inglés y su esposa colombiana, quie
 - Estado actual: publicado con información real verificada
 - Prioridad: alta
 - Verificación: textos, tarifa y arte actualizados con el pautante 7/10/2026 (tarifa $120.000 con incremento en octubre, salidas EN 9:30/14:30 sin reserva, ES 10:40 con reserva recomendada, a 8 min caminando de la plaza). Correcciones 7/10/2026: 7 hectáreas (no 12), Vereda Palestina, degustación de café sin cupo de 3 cafés y transporte no incluido (finca muy cerca de la plaza)
-- Arte nuevo: coffe-tour-don-eduardo-arte.jpeg → convertido a eduardo-arte-publicitario.webp (hero, og:image, galería y banner del home)
+- Arte nuevo: coffe-tour-don-eduardo-arte.webp → convertido a eduardo-arte-publicitario.webp (hero, og:image, galería y banner del home)
 
 ## Información básica
 - Nombre comercial: Finca Don Eduardo Coffee Tour
@@ -75,7 +75,7 @@ Finca Don Eduardo es el sueño de un hombre inglés y su esposa colombiana, quie
 - Sitio web: fincadoneduardocoffeetour.com
 
 ## Imágenes disponibles
-- Arte oficial: coffe-tour-don-eduardo-arte.jpeg (hero y og:image)
+- Arte oficial: coffe-tour-don-eduardo-arte.webp (hero y og:image)
 - Logo: logo-finca-don-eduardo.jpg
 - Lista de precios: lista-de-precios-servicios.jpg
 - 20+ fotos reales de la finca y experiencias (IMG_0224.jpg, IMG_0366.jpg, IMG_0372.jpg, IMG_0736.jpg, IMG_3229.jpg, IMG_8454.jpg, IMG_9079.jpg, IMG_9320.jpg, IMG_9326.jpg, IMG_9360_1.jpg, IMG_9629.jpg, IMG_9770.jpg, etc.)

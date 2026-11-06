@@ -39,7 +39,7 @@ patch('cabalgatas-cocora-magica', cfg => {
       nombre: 'Cabalgata completa · fincas, bosque y río Boquerón',
       precio: 200000,
       desc: '4.5 horas · fincas cafeteras activas, bosque nativo y baño en el río Boquerón',
-      img: '/pautas/cabalgatas_cocora_magica/imagenes/cabalgata-rio.jpeg'
+      img: '/pautas/cabalgatas_cocora_magica/imagenes/cabalgata-rio.webp'
     });
   }
 });

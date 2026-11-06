@@ -40,7 +40,7 @@
 
 ## Fotos
 - Galería webp: green-house-hab-1…5, jacuzzi, terraza, banner, logo
-- Arte promocional del aliado (15/10/2026): imagenes/arte-hotel-green-house.jpeg (habitación + fachada + contacto +57 312 867 4073, greenhousesalento.com, Cocora) — convertido y publicado como imagenes/green-house-banner.webp (hero, categorías y HomeBanners)
+- Arte promocional del aliado (15/10/2026): imagenes/arte-hotel-green-house.webp (habitación + fachada + contacto +57 312 867 4073, greenhousesalento.com, Cocora) — convertido y publicado como imagenes/green-house-banner.webp (hero, categorías y HomeBanners)
 
 ## Pendientes para completar la ficha pública
 - Tipos de habitación exactos con fotos

@@ -904,7 +904,7 @@ function App() {
 
   const featuredPautantes = useMemo(() => {
     // Prioridad: assets en /pautas/ > orden editorial > resto de pautantes (todos, sin cortar)
-    const wanted = ['Cabalgatas Cocora Mágica', 'Moto Aventura 110', 'Finca Don Eduardo Coffee Tour', 'Fonda Boquía', 'Reserva Natural Cascadas de Santa Rita', 'El Recuerdo Coffee Tour']
+    const wanted = ['CocoraTrek', 'Cabalgatas Cocora Mágica', 'Moto Aventura 110', 'Finca Don Eduardo Coffee Tour', 'Fonda Boquía', 'Reserva Natural Cascadas de Santa Rita', 'El Recuerdo Coffee Tour']
     const withPautasAssets = places.filter(p => p.isPautante && (p.photos || []).some(src => String(src).startsWith('/pautas/')))
     const byName = withPautasAssets.filter(p => wanted.includes(p.name))
     const byNameRest = withPautasAssets.filter(p => !wanted.includes(p.name))
@@ -1210,19 +1210,22 @@ function App() {
         </div>
         <div className="presence-flags-viewport" aria-label={t('intl.flagsAria', 'Banderas de mercados internacionales')}>
           <div className="presence-flags-track">
-            {internationalMarketsPreview.map((market, index) => (
-              <div key={`${market.country}-${index}`} className="flag-pill" title={`${market.country} · ${market.language}`} aria-label={market.country}>
-                <img
-                  className="flag-emoji"
-                  src={`https://flagcdn.com/w40/${getCountryFlag(market.country)}.png`}
-                  alt={market.country}
-                  loading="lazy"
-                />
+            {[0, 1].map((copy) => (
+              <div className="presence-flags-group" key={copy} aria-hidden={copy === 1 ? 'true' : undefined}>
+                {internationalMarketsPreview.map((market, index) => (
+                  <div key={`${market.country}-${index}`} className="flag-pill" title={`${market.country} · ${market.language}`} aria-label={market.country}>
+                    <img
+                      className="flag-emoji"
+                      src={`https://flagcdn.com/w40/${getCountryFlag(market.country)}.png`}
+                      alt={market.country}
+                    />
+                  </div>
+                ))}
+                <span className="presence-more" aria-label={copy === 0 ? t('intl.moreAria', 'Más mercados internacionales') : undefined}>
+                  +{Math.max(0, internationalSEOService.getInternationalMarkets().length - internationalMarketsPreview.length)}
+                </span>
               </div>
             ))}
-            <span className="presence-more" aria-label={t('intl.moreAria', 'Más mercados internacionales')}>
-              +{Math.max(0, internationalSEOService.getInternationalMarkets().length - internationalMarketsPreview.length)}
-            </span>
           </div>
         </div>
       </div>
@@ -1281,6 +1284,11 @@ function App() {
             <div className="home-hero-actions">
               <button type="button" className="dark-button" onClick={() => scrollToSection('pedidos')}>{t('hero.ctaExplore', 'Explorar directorio')} <ArrowRight size={16} /></button>
               <button type="button" className="outline-button" onClick={() => scrollToSection('mapa')}>{t('hero.ctaMap', 'Ver mapa')}</button>
+            </div>
+            <div className="home-hero-services" role="list" aria-label={t('hero.servicesAria', 'Servicios rápidos')}>
+              <a role="listitem" href="/servicios/pedidos-domicilio.html">🛵 {t('hero.svcDelivery', 'Solicitar domicilios')}</a>
+              <a role="listitem" href="/servicios/transporte-salento.html">🚐 {t('hero.svcTransport', 'Necesitas transporte')}</a>
+              <a role="listitem" href="/servicios/reservas-hoteles.html">🛏️ {t('hero.svcBooking', 'Realiza tus reservas')}</a>
             </div>
           </div>
         </section>
@@ -1908,7 +1916,7 @@ function App() {
               <figcaption>Centro histórico de Salento: calles empedradas y arquitectura tradicional</figcaption>
             </figure>
             <a className="home-guide-banner" href="/servicios/transporte-salento.html" aria-label="Consulta opciones de transporte en Salento">
-              <img src="/banners/banner-servicio-transporte.jpg" alt="Transporte en Salento: jeeps, buses y bicicletas con contacto directo" loading="lazy" width="1440" height="900" />
+              <img src="/banners/banner-servicio-transporte.webp" alt="Transporte en Salento: jeeps, buses y bicicletas con contacto directo" loading="lazy" width="1440" height="900" />
             </a>
 
             </section>
@@ -1923,7 +1931,7 @@ function App() {
               El sendero clásico rodea el río Quindío, cruza puentes colgantes y asciende entre niebla hasta el bosque de los Robles. Completa la vuelta en 4 a 6 horas con ritmo pausado, calzado con agarre y agua. Lleva impermeable ligero: la lluvia corta es parte del paisaje. Opciones guiadas y de entrada libre: <a href="/paginas-pautantes/valle-de-cocora-sendero-de-entrada-libre/">Valle de Cocora por entrada libre</a> y la <a href="/landing/valle-de-cocora-guia/">guía completa del Valle de Cocora</a>.
             </p>
             <a className="home-guide-banner" href="/landing/valle-de-cocora-guia/" aria-label="Explora atractivos y opciones de reserva en Salento">
-              <img src="/banners/banner-reservas-atractivos.jpg" alt="Reserva con anticipación miradores, reservas naturales y coffee tours en Salento" loading="lazy" width="1440" height="900" />
+              <img src="/banners/banner-reservas-atractivos.webp" alt="Reserva con anticipación miradores, reservas naturales y coffee tours en Salento" loading="lazy" width="1440" height="900" />
             </a>
 
             <h3>Coffee tours en fincas cafeteras</h3>
@@ -1931,7 +1939,7 @@ function App() {
               Un coffee tour de media mañana enseña siembra, cosecha, despulpado y cata, casi siempre en fincas familiares de la zona. Ideal para viajeros que quieren entender el origen del café colombiano más allá de la taza. Reserva directa con pautantes como <a href="/paginas-pautantes/finca-don-eduardo-coffee-tour/">Finca Don Eduardo</a> o explora más opciones en <a href="/landing/coffee-tour-salento-precio/">la guía de coffee tours</a>.
             </p>
             <a className="home-guide-banner" href="/landing/coffee-tour-salento-precio/" aria-label="Descubre coffee tours de origen en Salento">
-              <img src="/banners/banner-experiencia-cafe.jpg" alt="Experiencia de café de origen en fincas tradicionales de Salento" loading="lazy" width="1440" height="900" />
+              <img src="/banners/banner-experiencia-cafe.webp" alt="Experiencia de café de origen en fincas tradicionales de Salento" loading="lazy" width="1440" height="900" />
             </a>
 
             <h3>Calle Real, Plaza de Bolívar y miradores</h3>
@@ -1975,7 +1983,7 @@ function App() {
               En Semana Santa, puentes largos y ferias de artesanía el centro se satura; perfecto si buscas ambiente y eventos, menos ideal si quieres senderos en solitario. Revisa la <a href="/categorias/eventos.html">agenda de eventos</a> y llega temprano a la plaza para jeeps y estacionamiento. Para escapadas cortas de fin de semana, usa el plan de <a href="/landing/que-hacer-salento-fin-de-semana/">qué hacer en un fin de semana en Salento</a>.
             </p>
             <a className="home-guide-banner" href="/servicios/reservas-hoteles.html" aria-label="Encuentra hospedajes y reserva directamente en Salento">
-              <img src="/banners/banner-reservas.jpg" alt="Reserva hoteles y hostales de Salento directamente por WhatsApp" loading="lazy" width="1440" height="900" />
+              <img src="/banners/banner-reservas.webp" alt="Reserva hoteles y hostales de Salento directamente por WhatsApp" loading="lazy" width="1440" height="900" />
             </a>
             <figure className="home-content-figure">
               <img src="/imagenes-salento/iglesia.webp" alt="Iglesia de Nuestra Señora del Carmen y plaza principal de Salento bajo cielo despejado" loading="lazy" width="1200" height="800" />
@@ -2044,7 +2052,7 @@ function App() {
           <div className="map-legend"><span><i className="legend-dot coral" />{t('map.favorites', 'Favoritos locales')}</span><span><i className="legend-dot green" />{t('map.discover', 'Para descubrir')}</span></div></div>
 
           <a href="/servicios/realidad-aumentada.html" className="map-section-banner">
-            <img src="/banners/banner-realidad-aumentada.jpg" alt="Realidad Aumentada" />
+            <img src="/banners/banner-realidad-aumentada.webp" alt="Realidad Aumentada" />
             <div className="map-section-banner-content">
               <h3>🎯 Prueba la Realidad Aumentada</h3>
               <p>Apunta tu celular y descubre lugares turísticos en tiempo real</p>

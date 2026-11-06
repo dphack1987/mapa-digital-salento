@@ -16,9 +16,17 @@ fs.mkdirSync(providerLandingDir, { recursive: true });
 const catalog = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
 const providers = Array.isArray(catalog.places) ? catalog.places : [];
 
-// Prioridad: los pautantes (con carpeta propia en public/pautas/) van primero en cada categoría
+// Prioridad: los pautantes (carpeta propia en public/paginas-pautantes/ o fotos en public/pautas/) van primero en cada categoría
+const PAUTANTE_PAGE_SLUGS = new Set(
+  fs.existsSync(providerLandingDir)
+    ? fs.readdirSync(providerLandingDir, { withFileTypes: true })
+        .filter((entry) => entry.isDirectory())
+        .map((entry) => entry.name)
+    : []
+);
 const esPautante = (item) =>
-  Array.isArray(item.photos) && item.photos.some((p) => typeof p === 'string' && p.startsWith('/pautas/'));
+  PAUTANTE_PAGE_SLUGS.has(slugify(item.name)) ||
+  (Array.isArray(item.photos) && item.photos.some((p) => typeof p === 'string' && p.startsWith('/pautas/')));
 const porPrioridadPautante = (a, b) => (esPautante(b) ? 1 : 0) - (esPautante(a) ? 1 : 0);
 
 const categoryMeta = {
@@ -123,7 +131,7 @@ const PAUTANTE_LOGOS = {
   'coffee-tour-finca-cafetera-don-elias': '/pautas/coffee-tour-finca-cafetera-don-elias/imagenes/logo-coffe-tour-don-elias.webp',
   'cootracocora-ltda': '/pautas/cootracocora_ltda/imagenes/logo-cootracocora.webp',
   'los-barranqueros-hotel': '/pautas/hotel-barranqueros/logo-barranqueros-salento.webp',
-  'hotel-green-house-salento': '/pautas/hotel-green-house/imagenes/logo-green-house-real.jpg',
+  'hotel-green-house-salento': '/pautas/hotel-green-house/imagenes/logo-green-house-real.webp',
   'mirador-manos-de-cocora': '/pautas/mirador-manos-de-cocora/imagenes/logo-mirador-manos-de-cocora.webp',
   'shalem-restaurante-bar': '/pautas/restaurante-bar-shalem/imagenes/logo-shalem.webp',
   'el-recuerdo-coffee-tour': '/pautas/el_recuerdo_coffee_tour/imagenes/logo-recuerdo-tour.webp',
@@ -393,6 +401,7 @@ function renderCategoryPage(category, items, extraCat = null) {
         <div class="card-body">
           <div class="card-header-row">
             <span class="pill">${escapeHtml(item.type || category)}</span>
+            ${esPautante(item) ? '<span class="pill pill-pautante" title="Servicio con página propia de pautante">★ Pautante</span>' : ''}
             ${item.rating ? `<span class="rating">⭐ ${escapeHtml(item.rating)}</span>` : ''}
           </div>
           <h3>${escapeHtml(item.name)}</h3>
@@ -484,6 +493,7 @@ function renderCategoryPage(category, items, extraCat = null) {
       .card-header-row, .meta-row, .card-actions { display: flex; justify-content: space-between; gap: 10px; align-items: center; }
       .card-header-row { margin-bottom: 10px; }
       .pill { background: #f3ead6; border-radius: 999px; padding: 6px 10px; font-size: 10px; font-weight: 700; text-transform: uppercase; }
+      .pill-pautante { background: #e9f4ec; color: #2f6b45; border: 1px solid #b9d9c4; }
       .rating { font-size: 12px; font-weight: 700; }
       h3 { margin: 8px 0 10px; font-size: 1.35rem; }
       .card-body p { margin: 0 0 14px; color: #59665f; line-height: 1.5; font-size: 0.96rem; flex: 1; }

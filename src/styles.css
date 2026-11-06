@@ -17,6 +17,9 @@
 .home-hero-chips button, .directory-quick-chips button { padding: 8px 13px; border: 1px solid rgba(255,255,255,.45); border-radius: 999px; background: rgba(255,255,255,.1); color: #fff; font-size: 12px; font-weight: 600; cursor: pointer; transition: background .15s, border-color .15s, color .15s; }
 .home-hero-chips button:hover, .home-hero-chips button.is-active { background: var(--yellow); border-color: var(--yellow); color: var(--ink); }
 .home-hero-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+.home-hero-services { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+.home-hero-services a { display: inline-flex; align-items: center; gap: 6px; padding: 8px 13px; border: 1px solid rgba(255,255,255,.45); border-radius: 999px; background: rgba(255,255,255,.1); color: #fff; font-size: 12px; font-weight: 600; text-decoration: none; transition: background .15s, border-color .15s; }
+.home-hero-services a:hover { background: rgba(255,255,255,.22); border-color: rgba(255,255,255,.7); }
 .home-hero-actions .dark-button { display: inline-flex; align-items: center; gap: 7px; min-height: 44px; padding: 0 18px; background: var(--coral); border-color: var(--coral); color: #fff; font-weight: 700; border-radius: 999px; }
 .home-hero-actions .outline-button { display: inline-flex; align-items: center; gap: 7px; min-height: 44px; padding: 0 18px; border: 1px solid rgba(255,255,255,.65); background: transparent; color: #fff; font-weight: 700; border-radius: 999px; cursor: pointer; }
 .home-hero-actions .outline-button:hover { background: rgba(255,255,255,.12); }
@@ -2272,7 +2275,13 @@
   width: max-content;
   min-width: 100%;
   will-change: transform;
-  animation: flag-scroll 26s linear infinite;
+  animation: flag-scroll 34s linear infinite;
+}
+.presence-flags-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
 }
 .flag-pill {
   display: inline-flex;
@@ -6153,7 +6162,7 @@ footer { max-width: 1184px; margin: auto; border-top: 1px solid var(--line); dis
   overflow: hidden;
   border-radius: 16px;
   border: 1px solid rgba(255,255,255,0.25);
-  background: url('/banners/banner-domicilios.jpg') center/cover no-repeat;
+  background: url('/banners/banner-domicilios.webp') center/cover no-repeat;
   box-shadow: 0 18px 28px rgba(39, 54, 43, .15);
 }
 .hoy-pautante-banner::before {
@@ -6305,10 +6314,13 @@ footer { max-width: 1184px; margin: auto; border-top: 1px solid var(--line); dis
 .home-guide-cover-image { position: relative; min-height: 420px; margin: 0; overflow: hidden; }
 .home-guide-cover-image img { display: block; width: 100%; height: 100%; min-height: 420px; object-fit: cover; }
 .home-guide-cover-image figcaption { position: absolute; right: 18px; bottom: 18px; padding: 7px 10px; background: rgba(25, 37, 30, .82); color: #fff; font: 10px 'DM Mono', monospace; }
-.home-guide-intro-copy { max-width: 760px; margin: 0 auto; padding: 48px 24px 22px; }
+.home-guide-intro-copy { max-width: 980px; margin: 0 auto; padding: 48px 24px 22px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px 44px; }
+.home-content-guide .home-guide-intro-copy p { max-width: none; margin: 0; }
 .home-content-guide .eyebrow { color: var(--coral); font: 11px 'DM Mono', monospace; text-transform: uppercase; letter-spacing: .1em; margin: 0 0 12px; }
 .home-content-guide h2 { color: var(--ink); }
-.home-content-guide h3 { font: 600 1.18rem/1.3 Fraunces, Georgia, serif; margin: 30px 0 9px; color: var(--ink); }
+.home-content-guide h3 { font: 600 1.18rem/1.3 Fraunces, Georgia, serif; margin: 26px 0 9px; color: var(--ink); }
+.home-guide-chapter h3 { margin: 30px 0 10px; padding: 13px 16px; background: #fff; border: 1px solid #e3dfd2; border-left: 3px solid #a84332; border-radius: 6px; box-shadow: 0 4px 14px rgba(39, 54, 43, .05); }
+.home-guide-chapter h3 + p { margin-top: 0; }
 .home-content-guide p, .home-content-guide li { max-width: 72ch; font-size: 1rem; line-height: 1.78; color: #3d463f; margin: 0 0 16px; }
 .home-content-guide a:not(.home-guide-banner):not(.home-guide-cover-link) { color: #a84332; text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
 .home-content-guide a:not(.home-guide-banner):not(.home-guide-cover-link):hover { text-decoration-thickness: 2px; }
@@ -6326,7 +6338,7 @@ footer { max-width: 1184px; margin: auto; border-top: 1px solid var(--line); dis
 .home-guide-banner img { display: block; width: 100%; height: auto; }
 .home-guide-banner:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(39, 54, 43, .14); }
 .home-guide-banner:focus-visible { outline: 3px solid var(--coral); outline-offset: 4px; }
-.home-content-cta { margin-top: 42px; padding: 26px 0 0; border-top: 1px solid #d6d3c7; background: transparent; }
+.home-content-cta { margin-top: 42px; padding: 26px 28px; border: 1px solid #d6d3c7; border-radius: 10px; background: #fff; box-shadow: 0 8px 24px rgba(39, 54, 43, .06); }
 .home-content-cta h3 { margin-top: 0; }
 .pautantes-band + .home-content-guide { margin-top: 40px; }
 .home-content-guide + .principles-strip { margin-top: 48px; }
@@ -6337,7 +6349,7 @@ footer { max-width: 1184px; margin: auto; border-top: 1px solid var(--line); dis
   .home-guide-cover h2 { font-size: 2.65rem; }
   .home-guide-cover-image { min-height: 0; aspect-ratio: 16 / 9; }
   .home-guide-cover-image img { min-height: 0; }
-  .home-guide-intro-copy { padding: 34px 8px 18px; }
+  .home-guide-intro-copy { grid-template-columns: 1fr; padding: 34px 8px 18px; }
   .home-guide-nav { padding: 12px 8px; gap: 8px; }
   .home-guide-nav a { flex-direction: column; gap: 4px; font-size: 12px; }
   .home-guide-chapter { padding: 12px 8px 30px; }

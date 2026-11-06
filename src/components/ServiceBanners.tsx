@@ -15,7 +15,7 @@ const HOME_BANNERS: ServiceBanner[] = [
     id: 'realidad-aumentada',
     title: 'Realidad Aumentada',
     description: 'Apunta tu celular y descubre lugares turísticos en tiempo real. Funciona offline.',
-    image: '/banners/banner-realidad-aumentada.jpg',
+    image: '/banners/banner-realidad-aumentada.webp',
     href: '/servicios/realidad-aumentada.html',
     cta: 'Probar AR'
   },
@@ -23,7 +23,7 @@ const HOME_BANNERS: ServiceBanner[] = [
     id: 'reservas',
     title: 'Reservas de Hoteles',
     description: 'Reserva hoteles y alojamientos directamente por WhatsApp. Sin comisiones.',
-    image: '/banners/banner-reservas.jpg',
+    image: '/banners/banner-reservas.webp',
     href: '/servicios/reservas-hoteles.html',
     cta: 'Ver Hoteles'
   }
@@ -35,7 +35,7 @@ const SECONDARY_BANNERS: ServiceBanner[] = [
     id: 'domicilios',
     title: 'Pedidos a Domicilio',
     description: 'Pide directamente a restaurantes y comercios sin intermediarios. WhatsApp directo.',
-    image: '/banners/banner-domicilios.jpg',
+    image: '/banners/banner-domicilios.webp',
     href: '/servicios/pedidos-domicilio.html',
     cta: 'Ver Servicios'
   },
@@ -43,7 +43,7 @@ const SECONDARY_BANNERS: ServiceBanner[] = [
     id: 'transporte',
     title: 'Servicio de Transporte',
     description: 'Jeeps Willys, buses y transporte turístico. Contacto directo con proveedores.',
-    image: '/banners/banner-servicio-transporte.jpg',
+    image: '/banners/banner-servicio-transporte.webp',
     href: '/servicios/transporte-salento.html',
     cta: 'Ver Transporte'
   }

@@ -1177,7 +1177,7 @@
         "/pautas/restaurante-al-sabor-de-la-lena/imagenes/portada-don-elias.webp",
         "/pautas/restaurante-al-sabor-de-la-lena/imagenes/comida-colombiana.webp",
         "/pautas/restaurante-al-sabor-de-la-lena/imagenes/menu-del-dia.webp",
-        "/pautas/restaurante-al-sabor-de-la-lena/imagenes/plato7.jpeg",
+        "/pautas/restaurante-al-sabor-de-la-lena/imagenes/plato7.webp",
         "/pautas/restaurante-al-sabor-de-la-lena/imagenes/restaurante-don-elias-finca-2.webp"
       ],
       "actionTarget": {
@@ -2451,7 +2451,7 @@
       "verified": true,
       "active": true,
       "photos": [
-        "/pautas/hotel-green-house/imagenes/green-house-real-1.jpg",
+        "/pautas/hotel-green-house/imagenes/green-house-real-1.webp",
         "/pautas/hotel-green-house/imagenes/green-house-banner.webp",
         "/pautas/hotel-green-house/imagenes/green-house-hab-1.webp",
         "/pautas/hotel-green-house/imagenes/green-house-hab-2.webp",
@@ -4658,8 +4658,50 @@
       "verified": true,
       "active": true,
       "isPautante": false
+    },
+    {
+      "id": 122,
+      "name": "CocoraTrek",
+      "type": "Experiencias",
+      "description": "Operador local de caminatas y tours en Salento: Bosque de Palmas, Acaime, Morrogacho, Carbonera, bicicleta, inmersión cafetera, mono aullador y pueblos del Quindío. Guía, transporte, entradas y seguro incluidos.",
+      "priceRange": "Consultar al reservar",
+      "rating": "4.9",
+      "timeInfo": "Salidas con reserva previa",
+      "badge": "⭐ ESPECIAL",
+      "color": "green",
+      "icon": "Compass",
+      "contact": {
+        "phone": "+57 315 214 6468",
+        "whatsapp": "573152146468"
+      },
+      "location": {
+        "lat": 4.6315,
+        "lng": -75.5738,
+        "address": "Salento, Quindío (punto de encuentro al reservar)",
+        "landmark": "Salidas hacia el Valle de Cocora y el Quindío"
+      },
+      "operatingHours": {
+        "notes": "Salidas con reserva previa por WhatsApp"
+      },
+      "tags": [
+        "tours",
+        "caminatas",
+        "valle cocora",
+        "senderismo",
+        "bicicleta",
+        "cafe"
+      ],
+      "verified": true,
+      "active": true,
+      "isPautante": true,
+      "viewUrl": "/paginas-pautantes/coocoratrek/",
+      "photos": [
+        "/pautas/coocoratrek/IMG_8888.webp",
+        "/pautas/coocoratrek/IMG_5780.webp",
+        "/pautas/coocoratrek/IMG_0835.webp"
+      ]
     }
   ],
-  "lastUpdated": "2026-11-04",
+  "lastUpdated": "2026-11-06",
   "version": "2.0.0-pautantes-only"
 }
