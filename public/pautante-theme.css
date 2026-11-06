@@ -155,3 +155,87 @@ h1 { font-size:clamp(2.3rem,5vw,4.8rem); line-height:1.02; margin:14px 0; } .lea
   .suite-media img { min-height:240px; }
   .top-banner { height:180px; border-radius:16px; }
 }
+
+/* ===== MENU MODERNO v2 (solo CSS, retrocompatible) ===== */
+.menu-grid { gap: 16px; }
+.menu-card {
+  border-radius: 20px;
+  border-color: rgba(217,214,201,.8);
+  box-shadow: 0 2px 10px rgba(39,54,43,.05);
+  animation: menuCardIn .45s cubic-bezier(.22,.8,.36,1) both;
+  transition: transform .28s cubic-bezier(.22,.8,.36,1), box-shadow .28s, border-color .28s;
+}
+@keyframes menuCardIn { from { opacity: 0; transform: translateY(14px) scale(.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
+.menu-card:hover { transform: translateY(-5px); box-shadow: 0 18px 36px rgba(39,54,43,.13); border-color: var(--coral); }
+.menu-card:active { transform: translateY(-2px) scale(.995); }
+.menu-card-img { height: 200px; transition: transform .5s cubic-bezier(.22,.8,.36,1), filter .4s; filter: saturate(.94); }
+.menu-card:hover .menu-card-img { transform: scale(1.05); filter: saturate(1.08); }
+.menu-card-emoji { height: 170px; font-size: 60px; background: linear-gradient(150deg,#f6efdd,#e9dfc6); }
+.menu-card-body { padding: 15px 16px 17px; }
+.menu-card h3 { font-family: 'Fraunces', serif; font-weight: 600; font-size: 1.08rem; letter-spacing: -.01em; }
+.menu-card .cat-tag { font-size: 9.5px; letter-spacing: .09em; padding: 4px 11px; }
+.menu-card .footer { margin-top: 10px; }
+.menu-card .price { font-size: 1.22rem; font-variant-numeric: tabular-nums; }
+.menu-card .price.consult { font-size: .82rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: var(--coral); opacity: .85; }
+.menu-card .add-btn {
+  background: var(--ink); color: #fff;
+  box-shadow: 0 4px 14px rgba(39,54,43,.22);
+  transition: transform .18s, background .2s, box-shadow .2s;
+}
+.menu-card .add-btn::before { transition: transform .2s; }
+.menu-card .add-btn:hover { background: var(--coral); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(231,108,82,.35); }
+.menu-card .add-btn:hover::before { transform: scale(1.25); }
+.menu-card .add-btn:active { transform: translateY(0) scale(.96); }
+.menu-card .qty-ctrl button {
+  border: none; background: var(--ink); color: #fff;
+  transition: transform .15s, background .2s;
+}
+.menu-card .qty-ctrl button:hover { background: var(--coral); transform: scale(1.1); }
+.menu-card .qty-ctrl button:active { transform: scale(.9); }
+.menu-card .qty-ctrl span { font-variant-numeric: tabular-nums; }
+.menu-card .link-btn { background: var(--ink); transition: transform .18s, background .2s, box-shadow .2s; box-shadow: 0 4px 14px rgba(39,54,43,.18); }
+.menu-card .link-btn:hover { background: var(--coral); border-color: var(--coral); transform: translateY(-2px); }
+
+/* Tabs sticky + segmented feel */
+.menu-tabs { position: sticky; top: 10px; z-index: 60; padding: 10px 0; margin: -6px 0 20px; background: linear-gradient(var(--paper) 78%, transparent); backdrop-filter: blur(6px); }
+.menu-tab { border-radius: 999px; transition: all .22s cubic-bezier(.22,.8,.36,1); }
+.menu-tab:hover { transform: translateY(-1px); }
+.menu-tab.active { box-shadow: 0 6px 16px rgba(39,54,43,.25); }
+.menu-tab .count { background: rgba(0,0,0,.06); padding: 1px 7px; border-radius: 999px; font-size: 10px; }
+.menu-tab.active .count { background: rgba(255,255,255,.22); }
+
+/* Header del menú */
+.menu-header { gap: 10px; }
+.menu-search input { border-radius: 999px; transition: border-color .2s, box-shadow .2s; }
+.menu-search input:focus { box-shadow: 0 0 0 4px rgba(231,108,82,.14); }
+.currency-switch { box-shadow: inset 0 1px 3px rgba(0,0,0,.06); }
+.currency-switch button { transition: all .2s; }
+.currency-switch button.active { box-shadow: 0 2px 8px rgba(0,0,0,.14); }
+
+/* Carrito flotante: pop en badge */
+.cart-float { border-radius: 22px; padding: 12px 20px; box-shadow: 0 12px 34px rgba(0,0,0,.3); }
+.cart-float .badge { animation: badgePop .3s cubic-bezier(.34,1.56,.64,1); }
+@keyframes badgePop { 0% { transform: scale(.4); } 60% { transform: scale(1.25); } 100% { transform: scale(1); } }
+.cart-float .total { font-variant-numeric: tabular-nums; }
+
+/* Modal carrito: entrada moderna */
+.cart-modal.open .cart-panel { animation: cartPanelIn .32s cubic-bezier(.22,.8,.36,1) both; }
+@keyframes cartPanelIn { from { opacity: 0; transform: translateY(26px) scale(.96); } to { opacity: 1; transform: translateY(0) scale(1); } }
+.cart-modal { backdrop-filter: blur(4px); }
+.cart-panel { border-radius: 22px; box-shadow: 0 30px 80px rgba(0,0,0,.3); }
+.cart-item { border-radius: 12px; transition: background .2s; }
+.cart-item:hover { background: #faf7f0; }
+
+/* Empty state */
+.menu-empty { padding: 56px 20px; }
+.menu-empty span { font-size: 52px; }
+
+/* Scrollbar sutil en modal */
+.cart-panel::-webkit-scrollbar { width: 8px; }
+.cart-panel::-webkit-scrollbar-thumb { background: var(--line); border-radius: 8px; }
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .menu-card, .cart-modal.open .cart-panel { animation: none; }
+  .menu-card, .menu-card-img, .menu-tab, .menu-card .add-btn, .menu-card .qty-ctrl button { transition: none; }
+}
