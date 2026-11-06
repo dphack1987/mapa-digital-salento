@@ -4,9 +4,13 @@
   let images = [];
   let lightbox, lightboxImg, lightboxCaption, lightboxClose, lightboxPrev, lightboxNext;
 
+  function getGalleryImages() {
+    return Array.from(document.querySelectorAll('.gallery img, .exp-card img, .suite-feature img'));
+  }
+
   function initLightbox() {
-    const gallery = document.querySelector('.gallery');
-    if (!gallery) return;
+    const imgs = getGalleryImages();
+    if (imgs.length === 0) return;
 
     lightbox = document.getElementById('lightbox');
     lightboxImg = document.getElementById('lightboxImg');
@@ -25,10 +29,7 @@
       lightboxNext = document.getElementById('lightboxNext');
     }
 
-    const galleryEl = document.querySelector('.gallery');
-    if (!galleryEl) return;
-
-    images = Array.from(galleryEl.querySelectorAll('img'));
+    images = getGalleryImages();
     images.forEach((img, i) => {
       img.style.cursor = 'zoom-in';
       img.addEventListener('click', () => openLightbox(i));
@@ -79,9 +80,7 @@
   }
 
   function openLightbox(index) {
-    const gallery = document.querySelector('.gallery');
-    if (!gallery) return;
-    images = Array.from(gallery.querySelectorAll('img'));
+    images = getGalleryImages();
     if (images.length === 0) return;
     currentIndex = index;
     updateLightbox();
