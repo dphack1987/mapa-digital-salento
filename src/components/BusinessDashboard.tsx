@@ -3,7 +3,7 @@
 // y proyecciones del modelo claramente identificadas.
 // Usado como vitrina para demos (jurado WSA, aliados, prensa).
 
-import { useMemo, useState } from 'react'
+import { useMemo, useState, useEffect } from 'react'
 import { Store, Users, Globe, TrendingUp, Shield, X, BarChart3, MapPin, MessageCircle, Camera, BadgeCheck, Rocket, Cpu, Handshake, Leaf } from 'lucide-react'
 import type { Place } from '../types'
 
@@ -13,6 +13,12 @@ interface BusinessDashboardProps {
 }
 
 const LANGUAGES = ['Español', 'English', 'Français', 'Deutsch', 'Português', 'Italiano']
+
+const configuredUrl = import.meta.env.VITE_PYTHON_API_URL as string | undefined
+const isDev = import.meta.env.DEV === true
+const PYTHON_API_URL = configuredUrl && (isDev || !/localhost|127\.0\.0\.1/i.test(configuredUrl)) ? configuredUrl : ''
+
+const FUNNEL_ORDER = ['pautante_page_view', 'menu_item_view', 'menu_item_add', 'checkout_start', 'whatsapp_click', 'whatsapp_float_click']
 const CURRENCIES = ['COP', 'USD', 'EUR']
 
 const BusinessDashboard: React.FC<BusinessDashboardProps> = ({ places, onClose }) => {
@@ -36,6 +42,16 @@ const BusinessDashboard: React.FC<BusinessDashboardProps> = ({ places, onClose }
     { id: 'analitica', label: 'Analítica', icon: <BarChart3 size={14} /> },
   ] as const
   const [activeTab, setActiveTab] = useState<(typeof tabs)[number]['id']>('negocio')
+  const [liveStats, setLiveStats] = useState<{ counts: Record<string, number>; businesses: Record<string, Record<string, number>> } | null>(null)
+  const [liveError, setLiveError] = useState(false)
+
+  useEffect(() => {
+    if (activeTab !== 'analitica' || !PYTHON_API_URL) return
+    fetch(`${PYTHON_API_URL}/api/v1/analytics/summary`)
+      .then(r => r.ok ? r.json() : Promise.reject())
+      .then(d => { setLiveStats(d); setLiveError(false); })
+      .catch(() => setLiveError(true))
+  }, [activeTab])
 
   return (
     <div className="defensive-seo-dashboard">
@@ -143,6 +159,36 @@ const BusinessDashboard: React.FC<BusinessDashboardProps> = ({ places, onClose }
                 ))}
               </div>
               <p className="biz-note">Backend: <code>POST /api/v1/analytics/event</code> persiste cada evento por <code>business_slug</code>; <code>GET /api/v1/analytics/summary</code> alimenta el dashboard del comerciante con datos propios — sin depender de plataformas externas.</p>
+
+              <h4 className="biz-sub">Datos recolectados en vivo</h4>
+              {!PYTHON_API_URL && <p className="biz-note">API no configurada en este entorno — los eventos se registran en GA4 (propiedad G-1Z70BRW660) en tiempo real.</p>}
+              {PYTHON_API_URL && liveError && <p className="biz-note">API temporalmente no disponible — los eventos siguen registrándose en GA4.</p>}
+              {liveStats && (
+                <>
+                  <div className="biz-chips">
+                    {FUNNEL_ORDER.map(ev => (
+                      <span key={ev} className="biz-chip"><strong>{liveStats.counts?.[ev] ?? 0}</strong> {ev}</span>
+                    ))}
+                  </div>
+                  {Object.keys(liveStats.businesses || {}).length > 0 && (
+                    <div className="biz-live-table">
+                      <div className="biz-live-row biz-live-head"><span>Comercio</span>{FUNNEL_ORDER.slice(0, 5).map(ev => <span key={ev}>{ev.replace('pautante_', '').replace('_', ' ')}</span>)}<span>Conversión WA</span></div>
+                      {Object.entries(liveStats.businesses).sort((a, b) => (b[1].whatsapp_click || 0) - (a[1].whatsapp_click || 0)).slice(0, 10).map(([slug, c]) => {
+                        const views = c.pautante_page_view || 0
+                        const wa = (c.whatsapp_click || 0) + (c.whatsapp_float_click || 0)
+                        const conv = views > 0 ? ((wa / views) * 100).toFixed(1) : '0.0'
+                        return (
+                          <div key={slug} className="biz-live-row">
+                            <span className="biz-live-slug">{slug}</span>
+                            {FUNNEL_ORDER.slice(0, 5).map(ev => <span key={ev}>{c[ev] ?? 0}</span>)}
+                            <strong>{conv}%</strong>
+                          </div>
+                        )
+                      })}
+                    </div>
+                  )}
+                </>
+              )}
             </div>
           )}
 

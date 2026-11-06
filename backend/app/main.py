@@ -462,7 +462,7 @@ async def get_nearby_pautantes(
 # Recibe eventos del embudo comercial (page_view → item_add → checkout → whatsapp)
 # desde public/pautante-analytics.js. Persiste en JSONL para dashboards.
 
-ANALYTICS_FILE = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), 'logs', 'analytics-events.jsonl')
+ANALYTICS_FILE = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'logs', 'analytics-events.jsonl')
 ALLOWED_EVENTS = {
     'pautante_page_view', 'menu_item_view', 'menu_item_add', 'menu_category_view',
     'checkout_start', 'whatsapp_click', 'whatsapp_float_click',

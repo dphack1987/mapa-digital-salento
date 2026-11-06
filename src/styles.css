@@ -6821,3 +6821,10 @@ footer { max-width: 1184px; margin: auto; border-top: 1px solid var(--line); dis
 .biz-funnel-event { font: 600 11px 'DM Mono'; color: var(--coral); min-width: 190px; }
 .biz-funnel-desc { font-size: 12px; color: #72796d; }
 .biz-tab code { font: 11px 'DM Mono'; color: var(--coral); }
+.biz-live-table { display: flex; flex-direction: column; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+.biz-live-row { display: grid; grid-template-columns: 1.4fr repeat(6, 1fr); gap: 4px; padding: 8px 10px; font-size: 11px; color: var(--ink); border-top: 1px solid var(--line); align-items: center; }
+.biz-live-row:first-child { border-top: none; }
+.biz-live-head { background: rgba(119,127,109,0.08); font-weight: 700; font-size: 10px; text-transform: uppercase; color: #72796d; }
+.biz-live-slug { font: 600 11px 'DM Mono'; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.biz-live-row strong { color: var(--coral); }
+@media (max-width: 640px) { .biz-live-row { grid-template-columns: 1.2fr repeat(3, 1fr); } .biz-live-row span:nth-child(n+5) { display: none; } }
