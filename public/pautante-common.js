@@ -64,9 +64,23 @@ var PautanteCommon = (function() {
     if (totalEl) totalEl.textContent = total > 0 ? fmt(total, moneda, baseCurrency) : 'Consultar total';
   }
 
+  function trackPautante(type, params) {
+    try {
+      window.dispatchEvent(new CustomEvent('pautante:event', { detail: { type: type, params: params || {} } }));
+    } catch (e) {}
+  }
+
   function enviarWhatsApp(whatsappNum, carrito, items, moneda, titulo, baseCurrency) {
     var itemList = Object.keys(carrito).filter(function(id) { return carrito[id] > 0; });
     if (itemList.length === 0) return;
+    var totalCheckout = totalCarrito(carrito, items);
+    trackPautante('checkout_start', {
+      items_count: itemList.length,
+      units_count: countCarrito(carrito),
+      cart_total: totalCheckout > 0 ? totalCheckout : undefined,
+      currency: moneda,
+      has_prices: totalCheckout > 0
+    });
     var msg = '\uD83C\uDFE8 *' + (titulo || 'PEDIDO') + '*\n\n';
     itemList.forEach(function(id) {
       var qty = carrito[id];
@@ -175,7 +189,11 @@ var PautanteCommon = (function() {
       var t = e.target.closest('[data-action]');
       if (t) {        var id = Number(t.dataset.id);
         var action = t.dataset.action;
-        if (action === 'inc') carrito[id] = (carrito[id] || 0) + 1;
+        if (action === 'inc') {
+          carrito[id] = (carrito[id] || 0) + 1;
+          var item = items.find(function(x) { return x.id === id; });
+          trackPautante('menu_item_add', { item_id: id, item_name: item ? item.nombre : undefined, item_cat: item ? item.cat : undefined, unit_price: item && item.precio > 0 ? item.precio : undefined });
+        }
         if (action === 'dec') {
           carrito[id] = (carrito[id] || 0) - 1;
           if (carrito[id] <= 0) delete carrito[id];
@@ -194,6 +212,7 @@ var PautanteCommon = (function() {
       var tab = e.target.closest('.menu-tab[data-cat]');
       if (tab) {
         categoria = tab.dataset.cat;
+        trackPautante('menu_category_view', { category: categoria });
         document.querySelectorAll('.menu-tab[data-cat]').forEach(function(b) { b.classList.remove('active'); });
         tab.classList.add('active');
         render();

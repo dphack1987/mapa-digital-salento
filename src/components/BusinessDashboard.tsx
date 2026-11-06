@@ -33,6 +33,7 @@ const BusinessDashboard: React.FC<BusinessDashboardProps> = ({ places, onClose }
     { id: 'impacto', label: 'Impacto', icon: <Users size={14} /> },
     { id: 'escalabilidad', label: 'Escalabilidad', icon: <Rocket size={14} /> },
     { id: 'tecnologia', label: 'Tecnología', icon: <Cpu size={14} /> },
+    { id: 'analitica', label: 'Analítica', icon: <BarChart3 size={14} /> },
   ] as const
   const [activeTab, setActiveTab] = useState<(typeof tabs)[number]['id']>('negocio')
 
@@ -119,6 +120,29 @@ const BusinessDashboard: React.FC<BusinessDashboardProps> = ({ places, onClose }
                 <div className="biz-roadmap-item"><Globe size={16} /><div><strong>LATAM</strong><span>1.100+ municipios turísticos · plantilla multi-país ya traducida</span></div></div>
               </div>
               <p className="biz-note">La réplica por municipio toma semanas, no años: el catálogo, las páginas pautantes y el menú interactivo se generan desde la misma base de datos.</p>
+            </div>
+          )}
+
+          {activeTab === 'analitica' && (
+            <div className="biz-tab">
+              <h3 className="biz-h">Embudo de conversión medido en tiempo real</h3>
+              <p className="biz-note">Cada página de comercio reporta eventos a GA4 (G-1Z70BRW660) y al backend propio, permitiendo medir el impacto real por negocio — no estimaciones.</p>
+              <div className="biz-funnel">
+                {[
+                  ['pautante_page_view', 'Visita a la ficha del negocio'],
+                  ['menu_item_view', 'El visitante ve un producto/servicio'],
+                  ['menu_item_add', 'Agrega al carrito (reserva/pedido)'],
+                  ['checkout_start', 'Abre el pedido con detalle de items'],
+                  ['whatsapp_click', 'Inicia conversación de reserva/venta'],
+                ].map(([ev, desc], i) => (
+                  <div key={ev} className="biz-funnel-row">
+                    <span className="biz-funnel-step">{i + 1}</span>
+                    <code className="biz-funnel-event">{ev}</code>
+                    <span className="biz-funnel-desc">{desc}</span>
+                  </div>
+                ))}
+              </div>
+              <p className="biz-note">Backend: <code>POST /api/v1/analytics/event</code> persiste cada evento por <code>business_slug</code>; <code>GET /api/v1/analytics/summary</code> alimenta el dashboard del comerciante con datos propios — sin depender de plataformas externas.</p>
             </div>
           )}
 

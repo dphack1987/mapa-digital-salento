@@ -458,6 +458,65 @@ async def get_nearby_pautantes(
     }
 
 
+# ===== Analítica de páginas pautantes =====
+# Recibe eventos del embudo comercial (page_view → item_add → checkout → whatsapp)
+# desde public/pautante-analytics.js. Persiste en JSONL para dashboards.
+
+ANALYTICS_FILE = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), 'logs', 'analytics-events.jsonl')
+ALLOWED_EVENTS = {
+    'pautante_page_view', 'menu_item_view', 'menu_item_add', 'menu_category_view',
+    'checkout_start', 'whatsapp_click', 'whatsapp_float_click',
+}
+
+
+class AnalyticsEvent(BaseModel):
+    event: str
+    params: Dict[str, Any] = {}
+    ts: Optional[float] = None
+
+
+@app.post("/api/v1/analytics/event")
+async def analytics_event(ev: AnalyticsEvent):
+    if ev.event not in ALLOWED_EVENTS:
+        return {"ok": False, "error": "event not allowed"}
+    try:
+        os.makedirs(os.path.dirname(ANALYTICS_FILE), exist_ok=True)
+        with open(ANALYTICS_FILE, 'a', encoding='utf-8') as f:
+            f.write(json.dumps({
+                'event': ev.event,
+                'params': {k: v for k, v in (ev.params or {}).items() if isinstance(v, (str, int, float, bool))},
+                'ts': ev.ts,
+            }, ensure_ascii=False) + chr(10))
+        return {"ok": True}
+    except Exception as e:
+        return {"ok": False, "error": str(e)}
+
+
+@app.get("/api/v1/analytics/summary")
+async def analytics_summary(business_slug: Optional[str] = Query(None)):
+    """Resumen de eventos para dashboards de comercios (datos reales recolectados)."""
+    counts: Dict[str, int] = {}
+    businesses: Dict[str, Dict[str, int]] = {}
+    try:
+        if os.path.exists(ANALYTICS_FILE):
+            with open(ANALYTICS_FILE, 'r', encoding='utf-8') as f:
+                for line in f:
+                    try:
+                        row = json.loads(line)
+                    except Exception:
+                        continue
+                    slug = (row.get('params') or {}).get('business_slug') or 'unknown'
+                    if business_slug and slug != business_slug:
+                        continue
+                    ev = row.get('event', '')
+                    counts[ev] = counts.get(ev, 0) + 1
+                    b = businesses.setdefault(slug, {})
+                    b[ev] = b.get(ev, 0) + 1
+    except Exception:
+        pass
+    return {"counts": counts, "businesses": businesses, "business_slug_filter": business_slug}
+
+
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run(app, host="0.0.0.0", port=8000)
