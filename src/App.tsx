@@ -48,7 +48,8 @@ import {
   Building2,
   ChevronRight,
   Volume2,
-  VolumeX
+  VolumeX,
+  BarChart3
 } from 'lucide-react'
 import { Category, Language, Place, MapMarker, Hotel as HotelType, LanguageConst, Currency } from './types'
 import dataService from './services/dataService'
@@ -196,6 +197,7 @@ const QRShare = lazy(() => import('./components/QRShare'))
 const SocialProofTicker = lazy(() => import('./components/SocialProofTicker'))
 const DefensiveSEODashboard = lazy(() => import('./components/DefensiveSEODashboard'))
 const AllyBacklinksDashboard = lazy(() => import('./components/AllyBacklinksDashboard'))
+const BusinessDashboard = lazy(() => import('./components/BusinessDashboard'))
 const AllyRegistrationForm = lazy(() => import('./components/AllyRegistrationForm'))
 const AllyVerification = lazy(() => import('./components/AllyVerification'))
 const ProviderSelectionModal = lazy(() => import('./components/ProviderSelectionModal'))
@@ -524,6 +526,7 @@ function App() {
   const [showQRShare, setShowQRShare] = useState(false)
   const [showDefensiveSEODashboard, setShowDefensiveSEODashboard] = useState(false)
   const [showAllyBacklinksDashboard, setShowAllyBacklinksDashboard] = useState(false)
+  const [showBusinessDashboard, setShowBusinessDashboard] = useState(false)
   const [showAllyRegistrationForm, setShowAllyRegistrationForm] = useState(false)
   const [showInternationalMarkets, setShowInternationalMarkets] = useState(false)
 
@@ -1468,6 +1471,7 @@ function App() {
               <div className="hoy-actions">
                 <a className="dark-button" href="/agenda-eventos-salento.html">{t('events.viewAgenda', 'Ver agenda completa')} <ArrowRight size={16} /></a>
                 <button className="outline-button" onClick={() => scrollToSection('pedidos')}>{t('hoy.exploreDirectory', 'Explorar directorio')}</button>
+                <button className="outline-button" onClick={() => setShowBusinessDashboard(true)}>{t('hoy.impactDashboard', 'Impacto de la plataforma')} <BarChart3 size={14} /></button>
               </div>
             </header>
 
@@ -2184,6 +2188,7 @@ function App() {
         {showQRShare && <QRShare onClose={() => setShowQRShare(false)} />}
         {showDefensiveSEODashboard && <DefensiveSEODashboard onClose={() => setShowDefensiveSEODashboard(false)} />}
         {showAllyBacklinksDashboard && <AllyBacklinksDashboard onClose={() => setShowAllyBacklinksDashboard(false)} />}
+        {showBusinessDashboard && <Suspense fallback={null}><BusinessDashboard places={places} onClose={() => setShowBusinessDashboard(false)} /></Suspense>}
         {showAllyRegistrationForm && <AllyRegistrationForm onClose={() => setShowAllyRegistrationForm(false)} />}
         {showInternationalMarkets && <InternationalMarketsDisplay onClose={() => setShowInternationalMarkets(false)} />}
         {showLandingPageEstadoActual && <LandingPageEstadoActual onClose={() => setShowLandingPageEstadoActual(false)} />}

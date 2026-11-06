@@ -6786,3 +6786,32 @@ footer { max-width: 1184px; margin: auto; border-top: 1px solid var(--line); dis
   .map-section-banner-content h3 { font-size: 16px; }
   .map-section-banner-content p { font-size: 12px; }
 }
+
+/* BusinessDashboard — vitrina de impacto/negocio */
+.business-dashboard-panel { width: min(880px, 94vw); max-height: 86vh; display: flex; flex-direction: column; background: var(--paper); border-radius: 12px; overflow: hidden; animation: slideUp 0.3s ease; }
+.business-dashboard-panel .defensive-seo-content { max-height: none; flex: 1; }
+.biz-tab { padding: 16px; display: flex; flex-direction: column; gap: 14px; }
+.biz-h { font: 600 16px Fraunces; color: var(--ink); margin: 0; }
+.biz-sub { font: 600 13px Fraunces; color: var(--ink); margin: 6px 0 0; }
+.biz-note { font-size: 12px; color: #72796d; line-height: 1.5; margin: 0; }
+.biz-bars { display: flex; flex-direction: column; gap: 8px; }
+.biz-row { display: grid; grid-template-columns: 170px 1fr 36px; align-items: center; gap: 10px; }
+.biz-row-label { font-size: 11px; color: var(--ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.biz-bar-track { height: 8px; background: rgba(119,127,109,0.12); border-radius: 999px; overflow: hidden; }
+.biz-bar-fill { height: 100%; background: linear-gradient(90deg, var(--green), var(--coral)); border-radius: 999px; }
+.biz-row-count { font: 600 12px 'DM Mono'; color: var(--ink); text-align: right; }
+.biz-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.biz-chip { display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border: 1px solid var(--line); border-radius: 999px; background: rgba(119,127,109,0.05); font-size: 11px; color: var(--ink); }
+.biz-cards-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; }
+.biz-mini-card { display: flex; flex-direction: column; gap: 6px; padding: 14px; background: rgba(119,127,109,0.05); border: 1px solid var(--line); border-radius: 8px; }
+.biz-mini-card svg { color: var(--coral); }
+.biz-mini-card strong { font: 600 20px Fraunces; color: var(--ink); }
+.biz-mini-card span { font-size: 11px; color: #72796d; line-height: 1.4; }
+.biz-roadmap { display: flex; flex-direction: column; gap: 8px; }
+.biz-roadmap-item { display: flex; align-items: center; gap: 12px; padding: 12px 14px; border: 1px solid var(--line); border-radius: 8px; background: rgba(119,127,109,0.03); }
+.biz-roadmap-item svg { color: var(--green); flex-shrink: 0; }
+.biz-roadmap-item.done svg { color: var(--green); }
+.biz-roadmap-item.progress svg { color: var(--yellow); }
+.biz-roadmap-item div { display: flex; flex-direction: column; }
+.biz-roadmap-item strong { font: 600 13px Fraunces; color: var(--ink); }
+.biz-roadmap-item span { font-size: 11px; color: #72796d; }
