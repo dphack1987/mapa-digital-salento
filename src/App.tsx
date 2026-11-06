@@ -1740,28 +1740,17 @@ function App() {
               </div>
               <p className="hoy-pautantes-note">{t('hoy.pautantesNote', '✓ WhatsApp directo · Sin comisiones · Información verificada en el catálogo local')}</p>
             </div>
+            <a className="pautantes-hero-banner" href="/servicios/pedidos-domicilio.html" aria-label="Pedidos a domicilio en Salento">
+              <span className="pautantes-hero-banner-badge">Domicilios</span>
+              <span className="pautantes-hero-banner-title">Tu comida favorita, en tu hotel</span>
+              <span className="pautantes-hero-banner-sub">Entrega directa a alojamientos y puntos turísticos. Sin intermediarios.</span>
+              <span className="pautantes-hero-banner-cta">Pedir ahora →</span>
+            </a>
             <div className="hoy-pautantes-grid">
-              {featuredPautantes.map((place, index) => {
+              {featuredPautantes.map((place) => {
                 const href = placePageHref(place)
                 const wa = place.contact?.whatsapp
                 const photo = place.photos?.[0]
-                const isDomiciliosBanner = featuredPautantes.length > 4 && index === Math.floor(featuredPautantes.length / 2)
-
-                if (isDomiciliosBanner) {
-                  return (
-                    <article key="domicilios-banner" className="hoy-pautante-banner" aria-label="Pedidos a domicilio en Salento">
-                      <div className="hoy-pautante-banner-content">
-                        <span className="hoy-pautante-banner-badge">Domicilios</span>
-                        <h3>Tu comida favorita, en tu hotel</h3>
-                        <p>Entrega directa a alojamientos y puntos turísticos de Salento. Sin intermediarios.</p>
-                        <div className="hoy-pautante-banner-actions">
-                          <a className="button primary" href="/servicios/pedidos-domicilio.html">Pedir ahora</a>
-                          <a className="button" href="/servicios/pedidos-domicilio.html">Ver opciones</a>
-                        </div>
-                      </div>
-                    </article>
-                  )
-                }
 
                 return (
                   <article key={place.id} className="hoy-pautante-card">

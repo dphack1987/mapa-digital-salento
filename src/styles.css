@@ -288,6 +288,57 @@
 .pautantes-band-inner { background: linear-gradient(180deg, #fffdf8 0%, #f7f1e4 100%); border: 1px solid var(--line); border-radius: 24px; padding: 26px; box-shadow: 0 14px 30px rgba(39,54,43,.06); }
 .pautantes-band .hoy-pautantes-head h2 { margin: 6px 0 0; font: 600 clamp(1.35rem, 2.5vw, 1.75rem)/1.15 Fraunces, serif; color: var(--ink); }
 .pautantes-band .hoy-pautantes-grid { margin-top: 4px; }
+.pautantes-hero-banner {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 8px;
+  margin: 14px 0 18px;
+  min-height: clamp(150px, 22vw, 220px);
+  padding: 22px 24px;
+  border-radius: 18px;
+  overflow: hidden;
+  text-decoration: none;
+  color: #fff;
+  background: url('/banners/banner-domicilios.webp') center/cover no-repeat;
+  border: 1px solid rgba(255,255,255,0.2);
+  box-shadow: 0 16px 30px rgba(39,54,43,.14);
+  transition: transform .25s, box-shadow .25s;
+}
+.pautantes-hero-banner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, rgba(22,32,28,.82) 0%, rgba(39,54,43,.45) 70%);
+}
+.pautantes-hero-banner:hover { transform: translateY(-2px); box-shadow: 0 20px 36px rgba(39,54,43,.2); }
+.pautantes-hero-banner > * { position: relative; z-index: 1; }
+.pautantes-hero-banner-badge {
+  align-self: flex-start;
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.16);
+  border: 1px solid rgba(255,255,255,.4);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+.pautantes-hero-banner-title { font: 700 clamp(1.2rem, 2.4vw, 1.7rem)/1.15 Fraunces, serif; color: #fff; }
+.pautantes-hero-banner-sub { font-size: 12.5px; color: #eef3ee; max-width: 52ch; }
+.pautantes-hero-banner-cta {
+  align-self: flex-start;
+  margin-top: 6px;
+  padding: 9px 18px;
+  border-radius: 999px;
+  background: var(--coral);
+  color: #fff;
+  font-size: 12.5px;
+  font-weight: 700;
+}
+.pautantes-hero-banner:hover .pautantes-hero-banner-cta { filter: brightness(1.08); }
+
 .hoy-pautante-card { padding: 0; overflow: hidden; }
 .hoy-pautante-media { position: relative; height: 110px; display: grid; place-items: center; background: #dce5d1; }
 .hoy-pautante-media.has-photo { background: #c5d0c6; }
@@ -6152,91 +6203,8 @@ footer { max-width: 1184px; margin: auto; border-top: 1px solid var(--line); dis
 .hoy-pautantes-head .eyebrow { margin: 0; color: var(--coral); text-transform: uppercase; letter-spacing: .1em; font-size: 10px; font-weight: 700; }
 .hoy-pautantes-head h3 { margin: 6px 0 0; font: 600 1.35rem Fraunces; color: var(--ink); }
 .hoy-pautantes-note { margin: 0; color: #39734b; font-size: 12px; font-weight: 700; max-width: 420px; line-height: 1.4; }
-.hoy-pautantes-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
-.hoy-pautante-banner {
-  position: relative;
-  display: flex;
-  align-items: flex-end;
-  min-height: 220px;
-  grid-column: span 2;
-  overflow: hidden;
-  border-radius: 16px;
-  border: 1px solid rgba(255,255,255,0.25);
-  background: url('/banners/banner-domicilios.webp') center/cover no-repeat;
-  box-shadow: 0 18px 28px rgba(39, 54, 43, .15);
-}
-.hoy-pautante-banner::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(22, 32, 28, 0.72) 0%, rgba(39, 54, 43, 0.48) 100%);
-}
-.hoy-pautante-banner-content {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  gap: 10px;
-  width: 100%;
-  min-height: 100%;
-  padding: 18px;
-  color: #fff;
-}
-.hoy-pautante-banner-badge {
-  display: inline-flex;
-  align-self: flex-start;
-  padding: 5px 10px;
-  border-radius: 999px;
-  background: rgba(255,255,255,0.14);
-  border: 1px solid rgba(255,255,255,0.4);
-  color: #fff;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-}
-.hoy-pautante-banner h3 {
-  margin: 0;
-  font: 700 1.5rem/1.1 Fraunces;
-  color: #fff;
-}
-.hoy-pautante-banner p {
-  margin: 0;
-  max-width: 30ch;
-  font-size: 12px;
-  line-height: 1.45;
-  color: #eef3ee;
-}
-.hoy-pautante-banner-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 4px;
-}
-.hoy-pautante-banner .button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 36px;
-  padding: 0 16px;
-  border-radius: 999px;
-  border: 1px solid rgba(255,255,255,0.28);
-  background: rgba(255,255,255,0.14);
-  color: #fff;
-  text-decoration: none;
-  font-size: 12px;
-  font-weight: 700;
-}
-.hoy-pautante-banner .button.primary {
-  background: var(--coral);
-  border-color: var(--coral);
-  color: #fff;
-}
-.hoy-pautante-banner .button:hover {
-  filter: brightness(1.05);
-}
-.hoy-pautante-card { display: flex; flex-direction: column; padding: 16px; border: 1px solid var(--line); border-radius: 16px; background: var(--white, #fff); transition: border-color .2s, transform .2s, box-shadow .2s; }
+.hoy-pautantes-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; grid-auto-rows: 1fr; }
+.hoy-pautante-card { display: flex; flex-direction: column; height: 100%; padding: 16px; border: 1px solid var(--line); border-radius: 16px; background: var(--white, #fff); transition: border-color .2s, transform .2s, box-shadow .2s; }
 .hoy-pautante-card:hover { border-color: var(--coral); transform: translateY(-3px); box-shadow: 0 10px 24px rgba(0, 0, 0, .08); }
 .hoy-pautante-icon { width: 40px; height: 40px; border-radius: 12px; display: grid; place-items: center; background: #f3ead6; font-size: 20px; margin-bottom: 10px; }
 .hoy-pautante-tag { align-self: flex-start; padding: 4px 9px; border-radius: 999px; background: #f3ead6; color: var(--coral); font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; margin-bottom: 8px; }
@@ -6254,8 +6222,7 @@ footer { max-width: 1184px; margin: auto; border-top: 1px solid var(--line); dis
   .hoy-stats { grid-template-columns: repeat(2, 1fr); }
   .hoy-plans { grid-template-columns: 1fr; }
   .hoy-pautantes-grid { grid-template-columns: repeat(2, 1fr); }
-  .hoy-pautante-banner { grid-column: 1 / -1; }
-}
+  }
 
 @media (max-width: 640px) {
   .hoy-salento { padding: 0 16px; margin-top: 18px; }
@@ -6266,10 +6233,7 @@ footer { max-width: 1184px; margin: auto; border-top: 1px solid var(--line); dis
   .hoy-stat { padding: 10px 12px; }
   .hoy-stat strong { font-size: 18px; }
   .hoy-pautantes-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
-  .hoy-pautante-banner { min-height: 180px; grid-column: 1 / -1; }
-  .hoy-pautante-banner h3 { font-size: 1.2rem; }
-  .hoy-pautante-banner p { max-width: 24ch; }
-  .hoy-pautante-actions .button { flex: 1 1 auto; min-height: 36px; font-size: 11px; padding: 0 6px; }
+        .hoy-pautante-actions .button { flex: 1 1 auto; min-height: 36px; font-size: 11px; padding: 0 6px; }
 }
 
 /* Fichas del directorio más compactas en móvil: menos altura, CTA más fuerte */
