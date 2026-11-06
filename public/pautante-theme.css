@@ -76,6 +76,9 @@ h1 { font-size:clamp(2.3rem,5vw,4.8rem); line-height:1.02; margin:14px 0; } .lea
 .menu-card .qty-ctrl button { width:32px; height:32px; border-radius:50%; border:1.5px solid var(--line); background:var(--white); cursor:pointer; font-weight:700; font-size:16px; color:var(--ink); display:flex; align-items:center; justify-content:center; transition:all .15s; }
 .menu-card .qty-ctrl button:hover { border-color:var(--coral); color:var(--coral); }
 .menu-card .qty-ctrl span { font-weight:700; font-size:15px; min-width:24px; text-align:center; }
+.menu-card.has-link { cursor:pointer; }
+.menu-card .link-btn { height:38px; padding:0 16px; border-radius:999px; border:1px solid var(--ink); background:var(--ink); color:#fff; font-size:13px; font-weight:700; text-decoration:none; display:inline-flex; align-items:center; justify-content:center; gap:6px; flex-shrink:0; white-space:nowrap; transition:all .2s; }
+.menu-card .link-btn:hover { background:var(--coral); border-color:var(--coral); }
 .menu-empty { text-align:center; padding:40px 20px; color:var(--muted); }
 .menu-empty span { font-size:48px; display:block; margin-bottom:12px; }
 

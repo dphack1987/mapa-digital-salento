@@ -82,7 +82,7 @@ var PautanteCommon = (function() {
   /* ===== INIT MENU: sistema completo reutilizable ===== */
   /* Config:
      containerId: id del div donde renderizar (default: 'menuGrid')
-     items: [{id, cat, nombre, precio, desc, img, emoji}]
+     items: [{id, cat, nombre, precio, desc, img, emoji, href}] — href opcional: la card enlaza a una página propia
      categories: [{id, label}] — opcional, se auto-detectan
      whatsapp: string — número WhatsApp
      businessName: string — nombre para el mensaje
@@ -147,9 +147,11 @@ var PautanteCommon = (function() {
         var img = p.img
           ? '<img class="menu-card-img" src="' + p.img + '" alt="' + p.nombre + '" loading="lazy"/>'
           : '<div class="menu-card-emoji">' + (p.emoji || '\uD83C\uDF7D\uFE0F') + '</div>';
-        var controls = qty > 0
+        var controls = p.href
+          ? ''
+          : (qty > 0
           ? '<div class="qty-ctrl"><button data-action="dec" data-id="' + p.id + '">−</button><span>' + qty + '</span><button data-action="inc" data-id="' + p.id + '">+</button></div>'
-          : '<button class="add-btn" data-action="inc" data-id="' + p.id + '" aria-label="Agregar ' + p.nombre + '">Agregar</button>';
+          : '<button class="add-btn" data-action="inc" data-id="' + p.id + '" aria-label="Agregar ' + p.nombre + '">Agregar</button>');
         var label = '';
         if (p.precio > 0) {
           if (p.pl) label = p.pl;
@@ -160,15 +162,17 @@ var PautanteCommon = (function() {
         var priceHtml = esConsultar(p.precio)
           ? '<span class="price consult">Consultar precio</span>'
           : '<span class="price">' + fmt(p.precio, moneda) + (label ? ' <small>' + label + '</small>' : '') + '</span>';
-        return '<article class="menu-card">' + img + '<div class="menu-card-body"><span class="cat-tag">' + p.cat + '</span><h3>' + p.nombre + '</h3><p class="desc">' + (p.desc || '') + '</p><div class="footer">' + priceHtml + controls + '</div></div></article>';
+        if (p.href) {
+          priceHtml += '<a class="link-btn" href="' + p.href + '">Ver p\u00e1gina \u2192</a>';
+        }
+        return '<article class="menu-card' + (p.href ? ' has-link' : '') + '"' + (p.href ? ' data-href="' + p.href + '"' : '') + '>' + img + '<div class="menu-card-body"><span class="cat-tag">' + p.cat + '</span><h3>' + p.nombre + '</h3><p class="desc">' + (p.desc || '') + '</p><div class="footer">' + priceHtml + controls + '</div></div></article>';
       }).join('');
     }
 
     // Event delegation
     document.addEventListener('click', function(e) {
       var t = e.target.closest('[data-action]');
-      if (t) {
-        var id = Number(t.dataset.id);
+      if (t) {        var id = Number(t.dataset.id);
         var action = t.dataset.action;
         if (action === 'inc') carrito[id] = (carrito[id] || 0) + 1;
         if (action === 'dec') {
@@ -178,6 +182,12 @@ var PautanteCommon = (function() {
         render();
         actualizarCarritoFlotante(carrito, items, moneda, baseCurrency);
         renderCarritoModal(carrito, items, moneda, baseCurrency);
+        return;
+      }
+      // Card con página propia: clic en cualquier parte (excepto botones/enlaces) navega a href
+      var linkedCard = e.target.closest('.menu-card[data-href]');
+      if (linkedCard && !e.target.closest('button, a')) {
+        window.location.href = linkedCard.dataset.href;
         return;
       }
       var tab = e.target.closest('.menu-tab[data-cat]');
