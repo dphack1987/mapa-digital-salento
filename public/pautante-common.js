@@ -182,6 +182,10 @@ var PautanteCommon = (function() {
         }
         return '<article class="menu-card' + (p.href ? ' has-link' : '') + '"' + (p.href ? ' data-href="' + p.href + '"' : '') + '>' + img + '<div class="menu-card-body"><span class="cat-tag">' + p.cat + '</span><h3>' + p.nombre + '</h3><p class="desc">' + (p.desc || '') + '</p><div class="footer">' + priceHtml + controls + '</div></div></article>';
       }).join('');
+      if (!grid.classList.contains('menu-settled')) {
+        clearTimeout(grid._settleTimer);
+        grid._settleTimer = setTimeout(function() { grid.classList.add('menu-settled'); }, 600);
+      }
     }
 
     // Event delegation

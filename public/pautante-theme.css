@@ -162,15 +162,15 @@ h1 { font-size:clamp(2.3rem,5vw,4.8rem); line-height:1.02; margin:14px 0; } .lea
   border-radius: 20px;
   border-color: rgba(217,214,201,.8);
   box-shadow: 0 2px 10px rgba(39,54,43,.05);
-  animation: menuCardIn .45s cubic-bezier(.22,.8,.36,1) both;
   transition: transform .28s cubic-bezier(.22,.8,.36,1), box-shadow .28s, border-color .28s;
 }
+.menu-grid:not(.menu-settled) .menu-card { animation: menuCardIn .45s cubic-bezier(.22,.8,.36,1) both; }
 @keyframes menuCardIn { from { opacity: 0; transform: translateY(14px) scale(.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
 .menu-card:hover { transform: translateY(-5px); box-shadow: 0 18px 36px rgba(39,54,43,.13); border-color: var(--coral); }
 .menu-card:active { transform: translateY(-2px) scale(.995); }
 .menu-card-img { height: 200px; transition: transform .5s cubic-bezier(.22,.8,.36,1), filter .4s; filter: saturate(.94); }
 .menu-card:hover .menu-card-img { transform: scale(1.05); filter: saturate(1.08); }
-.menu-card-emoji { height: 170px; font-size: 60px; background: linear-gradient(150deg,#f6efdd,#e9dfc6); }
+.menu-card-emoji { height: 200px; font-size: 60px; background: linear-gradient(150deg,#f6efdd,#e9dfc6); }
 .menu-card-body { padding: 15px 16px 17px; }
 .menu-card h3 { font-family: 'Fraunces', serif; font-weight: 600; font-size: 1.08rem; letter-spacing: -.01em; }
 .menu-card .cat-tag { font-size: 9.5px; letter-spacing: .09em; padding: 4px 11px; }
