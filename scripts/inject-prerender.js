@@ -9,6 +9,19 @@ let html = fs.readFileSync(distPath, 'utf8');
 const prerender = `    <div id="prerender" style="font-family:sans-serif;max-width:800px;margin:0 auto;padding:20px">
       <h1>Salento a la Mano - Guía Turística Oficial de Salento, Quindío 2026</h1>
       <p>Descubre hoteles abiertos, restaurantes auténticos, coffee tours, Valle de Cocora, palmas de cera y experiencias únicas con el mapa turístico digital más completo de Salento, Quindío.</p>
+      <section class="wsa-nomination">
+        <div class="wsa-nomination-inner">
+          <div class="wsa-nomination-media">
+            <img src="/imagenes-salento/nominacion-wsa-2026.webp" alt="Sello oficial de nominación de Salento a la Mano a los WSA 2026" width="1024" height="1024" loading="lazy" decoding="async" />
+          </div>
+          <div class="wsa-nomination-body">
+            <p class="eyebrow">Orgullo local · WSA 2026</p>
+            <h2>Nominados a los World Summit Awards 2026</h2>
+            <p>Salento a la Mano fue nominado por Colombia en la categoría Negocios y Comercio de los WSA 2026, el certamen de innovación digital más importante del mundo.</p>
+            <p class="wsa-nomination-note">Tecnología hecha en el Quindío para el mundo.</p>
+          </div>
+        </div>
+      </section>
       <h2>Categorías</h2>
       <ul>
         <li><a href="/categorias/restaurantes.html">Restaurantes en Salento</a></li>

@@ -2,8 +2,9 @@
 ## Salento a la Mano vs Ganadores Internacionales
 
 **Fecha:** 02/11/2026  
+**Actualización:** 09/11/2026 (estado real verificado contra el repositorio y producción)  
 **Estado:** Nominado Nacional Colombia (✅ Ganador Colombia)  
-**Objetivo:** Ganar etapa global Business & Commerce
+**Objetivo:** Ganar etapa global Business & Commerce — **Selección global: 15/11/2026**
 
 ---
 
@@ -27,7 +28,7 @@
 | **Innovación** | ✅ Modelo híbrido único | 🟢 Superior | 0 |
 | **Escalabilidad** | ⏳ Filandia en progreso | 🟡 En desarrollo | -1 |
 | **Tracción** | ⏳ Sin métricas públicas | 🔴 Débil | -2 |
-| **Impacto cuantificado** | ⏳ Sin datos GA4 | 🔴 Débil | -2 |
+| **Impacto cuantificado** | ⏳ GA4 recolectando desde 06/11 | 🟡 En recolección | -1 |
 | **Modelo de negocio** | ✅ B2B+B2C sostenible | 🟢 Equivalente | 0 |
 | **Partnerships** | ⏳ Limitados | 🟡 En desarrollo | -1 |
 | **Visibilidad global** | ⏳ Nula fuera Colombia | 🔴 Débil | -2 |
@@ -47,9 +48,10 @@
 ### Lo que tiene Salento a la Mano:
 - ✅ GA4 configurado (G-1Z70BRW660)
 - ✅ 20+ eventos tracking implementados
-- ❌ **0 días de datos en producción**
-- ❌ Sin métricas públicas documentadas
-- ❌ Sin usuarios activos reportados
+- ✅ **En producción desde 06/11 (GitHub Pages)** — GA4 ya recolecta datos reales
+- ✅ Visitas del jurado internacional WSA confirmadas (09/11)
+- ✅ Evento `wsa_nomination_view` implementado (09/11): evidencia de visualización de la sección WSA
+- ❌ Sin métricas públicas documentadas aún
 - ❌ Sin impacto económico cuantificado
 
 ### Qué falta:
@@ -80,7 +82,7 @@
 ### Lo que tiene Salento a la Mano:
 - ✅ Sistema de onboarding de aliados implementado
 - ✅ Sistema de verificación automática
-- ❌ **9 lugares activos** (insuficiente para jurado global)
+- ✅ **27 pautas activas + 102 páginas pautantes** (verificado 09/11; el dato de "9 lugares" estaba desactualizado)
 - ❌ Sin número de turistas atendidos
 - ❌ Sin número de pedidos procesados
 - ❌ Sin testimonios públicos de usuarios
@@ -273,27 +275,25 @@
 
 ---
 
-## 🟢 GAP MODERADO #8: LANZAMIENTO EN PRODUCCIÓN
+## 🟢 GAP MODERADO #8: LANZAMIENTO EN PRODUCCIÓN — ✅ COMPLETADO (09/11)
 
 ### Estado actual:
-- ✅ Build production exitoso
+- ✅ Build production exitoso (`npm run build`)
 - ✅ TypeScript sin errores
 - ✅ GA4 configurado (G-1Z70BRW660)
 - ✅ Schema dinámico implementado
-- ❌ **Sin deploy en producción**
+- ✅ **En producción: GitHub Pages** (`https://dphack1987.github.io/mapa-digital-salento/`)
+  - Deploy automático vía `.github/workflows/deploy.yml` en cada push a `master`
+  - Último deploy verificado: 06/11
+  - Nota: el plan original decía "Vercel"; el deploy real es GitHub Pages
 
-### Qué falta:
-**Deploy en producción:**
-- [ ] Verificar configuración Vercel
-- [ ] Ejecutar deploy en Vercel
-- [ ] Verificar que el sitio carga correctamente
-- [ ] Verificar que GA4 tracking funciona (Realtime)
+### Verificación (09/11):
+- [x] Sitio carga correctamente en producción
+- [x] GA4 tracking activo en el HTML vivo (G-1Z70BRW660 + GTM-WP8WJ7C3)
+- [x] Sección WSA presente en el HTML estático (prerender) — corregido 09/11
+- [x] Evento `wsa_nomination_view` implementado — 09/11
 - [ ] Verificar Schema en Google Structured Data Tool
 - [ ] Verificar OG tags en Facebook Sharing Debugger
-
-**Tiempo requerido:** 30 minutos
-
-**Prioridad:** 🔴 CRÍTICA - Sin deploy, GA4 no recolecta datos
 
 ---
 
@@ -303,9 +303,9 @@
 
 | # | Gap | Tiempo | Impacto | Estado |
 |---|-----|--------|--------|--------|
-| 1 | Deploy en producción | 30 min | Habilita métricas | ❌ Pendiente |
-| 2 | Métricas de impacto (30 días datos) | 33 días | Evidencia de impacto | ❌ Pendiente |
-| 3 | Tracción demostrable (30+ aliados) | 2-3 semanas | Adopción real | ❌ Pendiente |
+| 1 | Deploy en producción | 30 min | Habilita métricas | ✅ Hecho (GitHub Pages) |
+| 2 | Métricas de impacto (30 días datos) | 33 días | Evidencia de impacto | ⏳ Recolectando desde 06/11 |
+| 3 | Tracción demostrable (30+ aliados) | 2-3 semanas | Adopción real | ⏳ 27 pautas activas (faltan ~3) |
 
 ### 🟡 IMPORTANTES (Requeridos para WSA - Sin esto, aplicación incompleta)
 
@@ -457,10 +457,9 @@
 
 ### Para maximizar chances de ganar globalmente:
 
-1. **Prioridad #1:** DEPLOY EN PRODUCCIÓN HOY
-   - Sin esto, no hay métricas
-   - Sin métricas, no hay evidencia
-   - Sin evidencia, no hay chance
+1. **Prioridad #1:** ~~DEPLOY EN PRODUCCIÓN HOY~~ ✅ Hecho (GitHub Pages)
+   - GA4 ya recolecta datos desde 06/11
+   - Asegurar lectura semanal de GA4 hasta el 15/11
 
 2. **Prioridad #2:** FOCO EN TRACCIÓN
    - 30+ aliados en 2 semanas (agresivo pero necesario)
@@ -494,9 +493,32 @@
 
 **Veredicto:** Competidor serio pero requiere ejecución agresiva de gaps críticos. La nominación nacional valida la calidad técnica. Para ganar globalmente, necesitan evidencia de impacto real, tracción demostrable y narrativa de escalabilidad.
 
-**Próximo paso inmediato:** DEPLOY EN PRODUCCIÓN (30 minutos)
+**Próximo paso inmediato (09/11):** Completar materiales WSA antes de la selección global del 15/11 → video demo, deck ES+EN, aplicación WSA, landing para jurado.
 
 ---
 
 **Diagnóstico completado:** 02/11/2026  
-**Próxima revisión:** Post-deploy (Semana 1, Día 2)
+**Actualización de estado:** 09/11/2026  
+**Próxima revisión:** Post-selección global (16/11/2026)
+
+---
+
+## 📌 ACTUALIZACIÓN 09/11/2026 — Cambios desde el diagnóstico original
+
+### Completado
+1. **Deploy en producción** ✅ — GitHub Pages (no Vercel), automático en push a `master`.
+2. **GA4 con datos reales** ✅ — recolectando desde 06/11; visitas del jurado internacional confirmadas.
+3. **Sección WSA en el HTML estático** ✅ — añadida al prerender (`scripts/inject-prerender.js`); antes solo existía con JavaScript cargado.
+4. **Evento `wsa_nomination_view`** ✅ — IntersectionObserver en `App.tsx`; permite verificar en GA4 que el jurado vio la sección de nominación.
+5. **Tracción corregida** ✅ — 27 pautas activas + 102 páginas pautantes (no 9 lugares).
+
+### Correcciones de plan
+- ⚠️ **`PLAN_ACCION_WSA_4_SEMANAS.md` está desactualizado:** pone la aplicación WSA hacia el 25/11, DESPUÉS de la selección global del 15/11. Usar como referencia maestra el cronograma de este documento (Semana 2: 09-15/11) o el nuevo plan consolidado.
+- Los "✅ (pendientes)" de `RESUMEN_EJECUTIVO_WSA.md` (video, aplicación) siguen siendo pendientes reales.
+
+### Pendientes duros antes del 15/11
+- [ ] Video demo profesional 3-5 min con subtítulos en inglés
+- [ ] Deck de presentación 15-20 slides (ES + EN)
+- [ ] Aplicación WSA completada (enlace por Yezid Donoso)
+- [ ] Landing page para jurado
+- [ ] Documento de impacto con métricas GA4 de la semana

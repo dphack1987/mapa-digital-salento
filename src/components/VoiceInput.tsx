@@ -12,6 +12,100 @@ export const SPEECH_LOCALES: Record<Language, string> = {
   ja: 'ja-JP', ko: 'ko-KR', th: 'th-TH', vi: 'vi-VN', id: 'id-ID', ms: 'ms-MY', 'en-gb': 'en-GB'
 }
 
+// Don Chucho es arriero varón: se prefiere una voz masculina del idioma.
+// Muchos navegadores exponen la primera voz del idioma como femenina
+// (p. ej. "Google español", "Microsoft Sabina"), así que se busca un
+// nombre masculino antes de caer en la primera disponible.
+const MALE_VOICE_HINTS = [
+  'male', 'jorge', 'pablo', 'raul', 'raúl', 'david', 'daniel', 'diego',
+  'carlos', 'javier', 'andres', 'andrés', 'miguel', 'felipe', 'thomas',
+  'james', 'richard', 'fred', 'albert', 'hugo', 'enrique', 'roberto',
+  'emiliano', 'gerardo', 'juan', 'pedro', 'omar', 'ruben', 'rubén',
+  'sergio', 'antonio', 'francisco', 'manuel', 'ricardo', 'eduardo',
+  'ignacio', 'gonzalo', 'arturo', 'rafael', 'oscar', 'óscar', 'alvaro',
+  'gabriel', 'hector', 'héctor', 'mario', 'alexander', 'andrew',
+  'matthew', 'joseph', 'robert', 'michael', 'william', 'charles',
+  'martin', 'martín', 'peter', 'pierre', 'hans', 'stefano', 'paolo',
+  'joão', 'joao', 'andre', 'andré', 'thiago', 'bruno', 'diego'
+]
+
+const FEMALE_VOICE_HINTS = [
+  'female', 'sabina', 'elena', 'zira', 'helena', 'luciana', 'lucía',
+  'lucia', 'monica', 'mónica', 'catalina', 'isabela', 'paulina',
+  'ximena', 'daria', 'karen', 'sara', 'maria', 'maría', 'carmen',
+  'paula', 'laura', 'cristina', 'francesca', 'susan', 'hazel', 'iris',
+  'sonia', 'sofia', 'sofía', 'valentina', 'camila', 'gabriela',
+  'alejandra', 'veronica', 'verónica', 'patricia', 'rosa', 'juana',
+  'anna', 'nadia', 'victoria', 'stephanie', 'monika', 'jenny',
+  'catarina', 'joana', 'alice', 'emma', 'virginia', 'lisa',
+  'samantha', 'google español', 'google us english', 'google deutsch',
+  'google français', 'google italiano', 'google português'
+]
+
+/** ¿La voz tiene pinta de masculina? (para la voz de Don Chucho) */
+export function isLikelyMaleVoice(voice: SpeechSynthesisVoice): boolean {
+  const name = (voice.name || '').toLowerCase()
+  if (name.includes('female') || name.includes('mujer')) return false
+  if (name.includes('male') || name.includes('varón') || name.includes('varon')) return true
+  if (FEMALE_VOICE_HINTS.some(hint => name.includes(hint))) return false
+  return MALE_VOICE_HINTS.some(hint => name.includes(hint))
+}
+
+const normalizeLang = (lang: string) => lang.toLowerCase().replace(/_/g, '-')
+
+/**
+ * Elige la voz para un idioma priorizando:
+ * 1) locale exacto (ej. es-CO) con voz masculina,
+ * 2) cualquier voz masculina del idioma (ej. es-MX),
+ * 3) locale exacto sin importar el género,
+ * 4) la primera del idioma como último recurso.
+ */
+export function pickVoiceForLang(
+  voices: SpeechSynthesisVoice[],
+  lang: string
+): SpeechSynthesisVoice | null {
+  const requested = normalizeLang(lang || 'es-CO')
+  const base = requested.split('-')[0]
+  const exact: SpeechSynthesisVoice[] = []
+  const baseExact: SpeechSynthesisVoice[] = []
+  const prefix: SpeechSynthesisVoice[] = []
+  const seen = new Set<string>()
+
+  for (const voice of voices) {
+    const vLang = normalizeLang(voice.lang || '')
+    const key = `${voice.name}|${voice.lang}`
+    if (seen.has(key)) continue
+    if (vLang === requested) exact.push(voice)
+    else if (vLang === base) baseExact.push(voice)
+    else if (vLang.startsWith(`${base}-`)) prefix.push(voice)
+    else continue
+    seen.add(key)
+  }
+
+  const tiers = [exact, baseExact, prefix]
+  for (const tier of tiers) {
+    const male = tier.find(isLikelyMaleVoice)
+    if (male) return male
+  }
+  return exact[0] || baseExact[0] || prefix[0] || null
+}
+
+/**
+ * Limpia el texto para TTS: quita emoji y símbolos que los lectores
+ * en voz alta deletrean o leen raro (🌤️, ☀️, ✓, ★, ⏹️…).
+ * El texto en pantalla no se toca.
+ */
+export function sanitizeSpeechText(text: string): string {
+  if (!text) return text
+  return text
+    .replace(
+      /[\u{1F000}-\u{1FFFF}\u{2600}-\u{27BF}\u{2B00}-\u{2BFF}\u{2300}-\u{23FF}\u{FE0E}\u{FE0F}\u{200D}]/gu,
+      ' '
+    )
+    .replace(/\s+/g, ' ')
+    .trim()
+}
+
 interface VoiceInputProps {
   onTranscript: (text: string) => void
   language?: string
@@ -159,32 +253,29 @@ export function useSpeechSynthesis() {
 
   const speak = useCallback((text: string, lang = 'es-CO') => {
     if (!window.speechSynthesis) return
-    
+
+    const cleanText = sanitizeSpeechText(text)
+    if (!cleanText) return
+
     // Cancelar si ya está hablando
     window.speechSynthesis.cancel()
-    
-    const utterance = new SpeechSynthesisUtterance(text)
+
+    const utterance = new SpeechSynthesisUtterance(cleanText)
     utterance.lang = lang
     utterance.rate = 0.9
     utterance.pitch = 1.0
     utterance.volume = 1.0
-    
-    // Seleccionar la voz que mejor coincida con el idioma solicitado.
-    // Prioridad: coincidencia exacta (ej. es-CO) → mismo locale base (ej. es)
-    // → cualquier variante de ese idioma (ej. es-MX). Si no hay, se omite
-    // y el navegador usa su voz por defecto para `utterance.lang`.
-    const requested = (lang || 'es-CO').toLowerCase()
-    const base = requested.split('-')[0]
-    const matchedVoice =
-      voices.find(v => v.lang.toLowerCase() === requested) ||
-      voices.find(v => v.lang.toLowerCase().replace('_', '-') === requested) ||
-      voices.find(v => v.lang.toLowerCase().split('-')[0] === base)
+
+    // Voz masculina preferida (Don Chucho es varón); si no hay, la mejor
+    // coincidencia del idioma. Si tampoco hay, el navegador usa su voz
+    // por defecto para `utterance.lang`.
+    const matchedVoice = pickVoiceForLang(voices, lang)
     if (matchedVoice) utterance.voice = matchedVoice
-    
+
     utterance.onstart = () => setIsSpeaking(true)
     utterance.onend = () => setIsSpeaking(false)
     utterance.onerror = () => setIsSpeaking(false)
-    
+
     utteranceRef.current = utterance
     window.speechSynthesis.speak(utterance)
   }, [voices])

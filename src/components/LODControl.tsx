@@ -66,13 +66,25 @@ export function useDetailLevel(): [DetailLevel, (level: DetailLevel) => void] {
   return [level, updateLevel]
 }
 
+// Corta en límite de palabra/frase para no partir palabras ni dejar
+// la frase a media (mejor para lectura en pantalla y TTS).
+function truncateAtWord(text: string, max: number): string {
+  if (text.length <= max) return text
+  const cut = text.slice(0, max)
+  const lastSentence = Math.max(cut.lastIndexOf('. '), cut.lastIndexOf('! '), cut.lastIndexOf('? '))
+  if (lastSentence > max * 0.5) return `${cut.slice(0, lastSentence + 1).trim()}...`
+  const lastSpace = cut.lastIndexOf(' ')
+  const base = lastSpace > 0 ? cut.slice(0, lastSpace) : cut
+  return `${base.trim()}...`
+}
+
 // Función para truncar texto según nivel de detalle
 export function adaptDetail(text: string, level: DetailLevel, maxLength?: number): string {
   if (level === 'quick') {
     // Primera oración o máx 80 caracteres
     const firstSentence = text.split(/[.!?]+/)[0]
     const max = maxLength || 80
-    return firstSentence.length > max ? firstSentence.substring(0, max) + '...' : firstSentence
+    return firstSentence.length > max ? truncateAtWord(firstSentence, max) : firstSentence
   }
   
   if (level === 'detailed') {
@@ -80,11 +92,8 @@ export function adaptDetail(text: string, level: DetailLevel, maxLength?: number
   }
   
   // Normal: texto completo pero truncado si es muy largo
-  const maxNormal = maxLength || 200
-  if (text.length > maxNormal) {
-    return text.substring(0, maxNormal) + '...'
-  }
-  return text
+  const maxNormal = maxLength || 280
+  return truncateAtWord(text, maxNormal)
 }
 
 // Componente de respuesta adaptativa

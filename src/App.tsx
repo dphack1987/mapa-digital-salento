@@ -436,7 +436,34 @@ function formatTemp(celsius: number): string {
 function App() {
   useEffect(() => {
     const prerender = document.getElementById('prerender')
-    if (prerender) prerender.style.display = 'none'
+    if (prerender) prerender.remove()
+  }, [])
+
+  // GA4: evidencia de visualización de la sección de nominación WSA (para el jurado).
+  // La sección se monta después del loading inicial: se reintenta hasta encontrarla.
+  useEffect(() => {
+    let observer: IntersectionObserver | null = null
+    let attempts = 0
+    let timer: number | undefined
+    const attach = () => {
+      const section = document.getElementById('wsa-nominacion')
+      if (section) {
+        observer = new IntersectionObserver((entries) => {
+          if (entries.some((entry) => entry.isIntersecting)) {
+            ga4Service.trackEvent('wsa_nomination_view', { section_id: 'wsa-nominacion' })
+            observer?.disconnect()
+          }
+        }, { threshold: 0.25 })
+        observer.observe(section)
+        return
+      }
+      if (attempts++ < 40) timer = window.setTimeout(attach, 500)
+    }
+    attach()
+    return () => {
+      observer?.disconnect()
+      if (timer) window.clearTimeout(timer)
+    }
   }, [])
 
   const [notFound, setNotFound] = useState(false)
@@ -2247,7 +2274,7 @@ function DonChucho({ language, t, places, weather, todayEvents, open: openProp, 
     setOpenInternal(value)
   }
   const [question, setQuestion] = useState('')
-  const [answer, setAnswer] = useState(t('donChucho.welcome', '¡Hola, pues! ¿Buscando dónde comer una buena trucha o un transporte para el Valle de Cocora? Pregúnteme lo que quiera.'))
+  const [answer, setAnswer] = useState(t('donChucho.welcome', '¡Hola! Soy Don Chucho, arriero quindiano y tu guía local especializado en Salento. Puedo orientarte sobre el Valle de Cocora, los caminos, el café, la cultura y lo práctico para tu visita. ¿Qué quieres descubrir?'))
   const [suggestions, setSuggestions] = useState<string[]>([])
   const [showGreeting, setShowGreeting] = useState(true)
   const [relatedPlace, setRelatedPlace] = useState<Place | null>(null)
@@ -2517,8 +2544,23 @@ function DonChucho({ language, t, places, weather, todayEvents, open: openProp, 
         const adaptedAnswer = adaptDetail(naturalAnswer, detailLevel)
         const isDefensive = donChuchoKnowledge.isDefensiveResponse(text)
         const defensiveActions = donChuchoKnowledge.getDefensiveActions(text)
-        setAnswer(adaptedAnswer)
-        setConversationHistory(prev => [...prev, { role: 'assistant', text: adaptedAnswer }])
+
+        // Calcular el texto final (con lugares relacionados) ANTES de
+        // mostrarlo y de leerlo en voz alta: display y TTS usan el mismo
+        // string, así lo que se ve es lo que se oye.
+        let finalAnswer = adaptedAnswer
+        const relatedPlaceIds = donChuchoKnowledge.getRelatedPlaces(text)
+        if (relatedPlaceIds.length > 0) {
+          const relatedPlaces = places.filter(p => relatedPlaceIds.includes(p.id))
+          if (relatedPlaces.length > 0) {
+            const placeNames = relatedPlaces.map(p => p.name).join(', ')
+            finalAnswer = `${adaptedAnswer} ${t('donChucho.relatedPlaces', 'Lugares relacionados:')} ${placeNames}`
+            setRelatedPlace(relatedPlaces[0])
+          }
+        }
+
+        setAnswer(finalAnswer)
+        setConversationHistory(prev => [...prev, { role: 'assistant', text: finalAnswer }])
 
         if (isDefensive) {
           const actionSuggestions = defensiveActions.includes('redirect_routes_landing')
@@ -2530,15 +2572,6 @@ function DonChucho({ language, t, places, weather, todayEvents, open: openProp, 
           setSuggestions(followUpSuggestions.length > 0 ? followUpSuggestions : buildNaturalSuggestions(text, false))
         }
 
-        const relatedPlaceIds = donChuchoKnowledge.getRelatedPlaces(text)
-        if (relatedPlaceIds.length > 0) {
-          const relatedPlaces = places.filter(p => relatedPlaceIds.includes(p.id))
-          if (relatedPlaces.length > 0) {
-            const placeNames = relatedPlaces.map(p => p.name).join(', ')
-            setAnswer(adaptedAnswer + ` ${t('donChucho.relatedPlaces', 'Lugares relacionados:')} ${placeNames}`)
-            setRelatedPlace(relatedPlaces[0])
-          }
-        }
         setIsTyping(false)
         setQuestion('')
         return
@@ -2593,6 +2626,13 @@ function DonChucho({ language, t, places, weather, todayEvents, open: openProp, 
           </div>
 
           <div className="chucho-messages" ref={messagesRef} aria-live="polite" role="log">
+            {conversationHistory.length === 0 && answer && (
+              <div className="chucho-msg chucho-msg-assistant">
+                <MessageCircle size={14} className="chucho-msg-icon" />
+                <div className="chucho-bubble chucho-bubble-assistant">{answer}</div>
+              </div>
+            )}
+
             {conversationHistory.length === 0 && showQuickActions && (
               <div className="chucho-quick-actions">
                 <p className="chucho-quick-title">{isEnglish ? 'What interests you?' : '¿Qué te interesa?'}</p>

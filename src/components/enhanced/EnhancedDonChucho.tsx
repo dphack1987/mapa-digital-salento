@@ -2,12 +2,8 @@ import { useState, useEffect, useRef } from 'react'
 import { pythonBackendService } from '../../services/pythonBackend'
 import { getOsirisResponse } from '../../services/donChuchoOsiris'
 import { donChuchoKnowledge } from '../../services/donChuchoKnowledge'
+import { SPEECH_LOCALES, pickVoiceForLang, sanitizeSpeechText } from '../VoiceInput'
 import type { Language } from '../../types'
-
-const SPEECH_LOCALES: Record<Language, string> = {
-  es: 'es-CO', en: 'en-US', fr: 'fr-FR', de: 'de-DE', pt: 'pt-BR', it: 'it-IT', zh: 'zh-CN',
-  ja: 'ja-JP', ko: 'ko-KR', th: 'th-TH', vi: 'vi-VN', id: 'id-ID', ms: 'ms-MY', 'en-gb': 'en-GB'
-}
 
 interface Pautante {
   name: string
@@ -39,7 +35,7 @@ interface EnhancedDonChuchoProps {
 
 function EnhancedDonChucho({ language, t, onFallback, onClose, existingComponent }: EnhancedDonChuchoProps) {
   const [message, setMessage] = useState('')
-  const [response, setResponse] = useState(() => t('donChucho.welcome', '¡Hola! Soy Don Chucho, arriero quindiano y tu guía local especializado en Salento. ¿Qué quieres descubrir?'))
+  const [response, setResponse] = useState(() => t('donChucho.welcome', '¡Hola! Soy Don Chucho, arriero quindiano y tu guía local especializado en Salento. Puedo orientarte sobre el Valle de Cocora, los caminos, el café, la cultura y lo práctico para tu visita. ¿Qué quieres descubrir?'))
   const [isLoading, setIsLoading] = useState(false)
   const [usePython, setUsePython] = useState(false) // Iniciamos en false para usar local primero
   const [pythonStatus, setPythonStatus] = useState<'online' | 'offline'>('offline')
@@ -63,6 +59,8 @@ function EnhancedDonChucho({ language, t, onFallback, onClose, existingComponent
   const messagesRef = useRef<HTMLDivElement | null>(null)
   const onFallbackRef = useRef(onFallback)
   onFallbackRef.current = onFallback
+  // Últimos nombres ya leídos en voz alta (evita repetir follow-ups)
+  const lastSpokenFollowUpRef = useRef<Record<string, string>>({})
   const knowledgeLanguage: Exclude<Language, 'zh'> = language === 'zh' ? 'en' : language
   // Selección de voces compatible con locales como `en-gb` (cuyo prefijo de
   // idioma base es `en`), evitando depender de `${language}-`.
@@ -110,12 +108,11 @@ function EnhancedDonChucho({ language, t, onFallback, onClose, existingComponent
 
     const loadVoices = () => {
       const voices = speechSynth.getVoices()
-      const preferredLocale = SPEECH_LOCALES[language].toLowerCase()
-      const preferredBase = preferredLocale.split('-')[0]
-      const preferredVoice = voices.find(voice => voice.lang.toLowerCase().replace('_', '-') === preferredLocale)
-        || voices.find(voice => voice.lang.toLowerCase().replace('_', '-').startsWith(`${preferredBase}-`))
+      // Preferir voz masculina del idioma (Don Chucho es arriero varón);
+      // la primera voz disponible suele ser femenina.
+      const preferredVoice = pickVoiceForLang(voices, SPEECH_LOCALES[language])
       setAvailableVoices(voices)
-      setSelectedVoice(preferredVoice || null)
+      setSelectedVoice(preferredVoice)
       setVoiceNotice('')
     }
 
@@ -224,7 +221,8 @@ function EnhancedDonChucho({ language, t, onFallback, onClose, existingComponent
         }
         
         if (voiceEnabled && result.response) {
-          speakResponse(result.response)
+          // Lee también los nombres de las tarjetas mostradas (display = voz)
+          speakResponse(buildSpokenText(result.response, result.pautantes || []))
         }
         
         // Local Truth Engine: Verificar disponibilidad y calidad
@@ -250,18 +248,65 @@ function EnhancedDonChucho({ language, t, onFallback, onClose, existingComponent
     }
   }
 
-  const speakResponse = (text: string) => {
-    if (!speechSynthRef.current || !voiceEnabled) return
-    
-    stopSpeaking()
-    const voiceForSpeech = selectedVoice || languageVoices[0] || null
+  /** Voz actual: la elegida por el usuario o la mejor del idioma (masculina preferida). */
+  const resolveVoice = (): SpeechSynthesisVoice | null =>
+    selectedVoice || pickVoiceForLang(availableVoices, SPEECH_LOCALES[language]) || languageVoices[0] || null
+
+  /**
+   * Texto hablado = respuesta + nombres de las tarjetas mostradas en pantalla.
+   * Así lo que se ve es lo que se lee (el display no se toca).
+   */
+  const buildSpokenText = (base: string, places: LocalPlace[] = []): string => {
+    const cleaned = sanitizeSpeechText(base)
+    const names = places.map(p => p?.name).filter(Boolean).join(', ')
+    if (!names) return cleaned
+    const intro = t('donChucho.spokenPlaces', 'Te recomiendo estos lugares:')
+    return `${cleaned} ${sanitizeSpeechText(intro)} ${sanitizeSpeechText(names)}`.trim()
+  }
+
+  /**
+   * Lectura en cola (sin cancelar la actual) para tarjetas que aparecen
+   * después de la respuesta: lugares auténticos y servicios cercanos.
+   * Solo habla si la lista cambió respecto a lo ya leído.
+   */
+  const speakFollowUp = (key: string, intro: string, places: LocalPlace[]) => {
+    if (!speechSynthRef.current || !voiceEnabled || places.length === 0) return
+    const names = places.map(p => p?.name).filter(Boolean).join(', ')
+    if (!names || lastSpokenFollowUpRef.current[key] === names) return
+    lastSpokenFollowUpRef.current[key] = names
+
+    const text = sanitizeSpeechText(`${intro} ${names}`)
+    if (!text) return
 
     const utterance = new SpeechSynthesisUtterance(text)
+    const voiceForSpeech = resolveVoice()
     utterance.lang = voiceForSpeech?.lang || SPEECH_LOCALES[language]
     utterance.rate = 0.9
     utterance.pitch = 1.0
     utterance.volume = 1.0
-    
+    if (voiceForSpeech) utterance.voice = voiceForSpeech
+    utterance.onstart = () => setIsSpeaking(true)
+    utterance.onend = () => setIsSpeaking(false)
+    utterance.onerror = () => setIsSpeaking(false)
+    // Sin cancel(): el navegador encola detrás de la respuesta principal.
+    speechSynthRef.current.speak(utterance)
+  }
+
+  const speakResponse = (text: string) => {
+    if (!speechSynthRef.current || !voiceEnabled) return
+
+    const cleanText = sanitizeSpeechText(text)
+    if (!cleanText) return
+
+    stopSpeaking()
+    const voiceForSpeech = resolveVoice()
+
+    const utterance = new SpeechSynthesisUtterance(cleanText)
+    utterance.lang = voiceForSpeech?.lang || SPEECH_LOCALES[language]
+    utterance.rate = 0.9
+    utterance.pitch = 1.0
+    utterance.volume = 1.0
+
     if (voiceForSpeech) {
       setVoiceNotice('')
       utterance.voice = voiceForSpeech
@@ -270,11 +315,11 @@ function EnhancedDonChucho({ language, t, onFallback, onClose, existingComponent
       // navegador con el idioma solicitado, e informamos al usuario.
       setVoiceNotice(t('donChucho.voiceNotInstalled', 'No speech voice is installed for the selected language on this device.'))
     }
-    
+
     utterance.onstart = () => setIsSpeaking(true)
     utterance.onend = () => setIsSpeaking(false)
     utterance.onerror = () => setIsSpeaking(false)
-    
+
     currentUtteranceRef.current = utterance
     speechSynthRef.current.speak(utterance)
   }
@@ -293,11 +338,9 @@ function EnhancedDonChucho({ language, t, onFallback, onClose, existingComponent
     }
   }
 
-  const handleVoiceChange = (voiceIndex: number) => {
-    if (availableVoices[voiceIndex]) {
-      setSelectedVoice(availableVoices[voiceIndex])
-      setVoiceNotice('')
-    }
+  const handleVoiceChange = (voice: SpeechSynthesisVoice) => {
+    setSelectedVoice(voice)
+    setVoiceNotice('')
   }
 
   const checkLocalPlacesTruth = async (localPlacesList: LocalPlace[]) => {
@@ -341,7 +384,14 @@ function EnhancedDonChucho({ language, t, onFallback, onClose, existingComponent
       const category = typeMap[rawType] || rawType
       const filter = await pythonBackendService.getTouristTrapFilter(category)
       if (filter.authentic_places && filter.authentic_places.length > 0) {
-        setAuthenticPlaces(filter.authentic_places as unknown as LocalPlace[])
+        const list = filter.authentic_places as unknown as LocalPlace[]
+        setAuthenticPlaces(list)
+        // Lo que se muestra también se lee en voz alta (en cola)
+        speakFollowUp(
+          'authentic',
+          t('donChucho.spokenAuthentic', 'También te recomiendo estos lugares auténticos:'),
+          list
+        )
       }
     }
   }
@@ -349,7 +399,14 @@ function EnhancedDonChucho({ language, t, onFallback, onClose, existingComponent
   const loadNearbyPautantes = async (lat: number, lng: number) => {
     try {
       const nearby = await pythonBackendService.getNearbyPautantes(lat, lng, 'all', 5)
-      setNearbyPlaces(nearby.nearby_pautantes || [])
+      const list = nearby.nearby_pautantes || []
+      setNearbyPlaces(list)
+      // En pantalla se muestran los primeros 3; se leen también esos 3
+      speakFollowUp(
+        'nearby',
+        t('donChucho.spokenNearby', 'Servicios cercanos a ti:'),
+        list.slice(0, 3)
+      )
     } catch (error) {
       console.error('Error cargando nearby pautantes:', error)
     }
@@ -531,17 +588,18 @@ function EnhancedDonChucho({ language, t, onFallback, onClose, existingComponent
               </button>
             )}
             
-            {availableVoices.length > 1 && (
+            {languageVoices.length > 1 && (
               <select 
                 value={selectedVoice?.name || ''}
                 aria-label={t('donChucho.selectVoice', 'Select voice')}
                 onChange={(e) => {
-                  const voiceIndex = availableVoices.findIndex(v => v.name === e.target.value)
-                  if (voiceIndex >= 0) handleVoiceChange(voiceIndex)
+                  // Solo voces del idioma activo (evita elegir voces ajenas)
+                  const voice = languageVoices.find(v => v.name === e.target.value)
+                  if (voice) handleVoiceChange(voice)
                 }}
                 className="voice-selector"
               >
-                {availableVoices.map((voice, index) => (
+                {languageVoices.map((voice) => (
                   <option key={`${voice.name}-${voice.lang}`} value={voice.name}>
                     {voice.name} ({voice.lang})
                   </option>

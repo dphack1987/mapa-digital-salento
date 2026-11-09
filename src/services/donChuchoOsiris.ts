@@ -15,6 +15,23 @@ import {
 
 type Lang = 'es' | 'en' | 'de' | 'fr' | 'pt' | 'it';
 
+const SUPPORTED_LANGS: readonly string[] = ['es', 'en', 'de', 'fr', 'pt', 'it'];
+
+/**
+ * Normaliza el idioma recibido a los soportados por Osiris.
+ * - `en-gb` / `en-us` → `en` (antes `t()` devolvía texto en español
+ *   con locale TTS inglés).
+ * - Idiomas sin contenido Osiris (ja, ko, th…) → `null`: el llamador
+ *   cae a la base de conocimiento local en vez de hablar español
+ *   fingiendo otro idioma.
+ */
+export function normalizeOsirisLang(lang?: string): Lang | null {
+  const raw = (lang || 'es').toLowerCase().replace(/_/g, '-');
+  const base = raw.split('-')[0];
+  if (base === 'en') return 'en';
+  return SUPPORTED_LANGS.includes(base) ? (base as Lang) : null;
+}
+
 function t(lang: string, msgs: Partial<Record<Lang, string>>): string {
   return msgs[(lang as Lang)] || msgs.es || '';
 }
@@ -152,16 +169,19 @@ export function shouldUseOsirisData(query: string): boolean {
 
 /** Obtiene respuesta de clima real para una consulta */
 export async function getOsirisResponse(query: string, language: string = 'es'): Promise<string | null> {
+  const lang = normalizeOsirisLang(language);
+  // Idioma sin contenido Osiris → null y el llamador usa knowledge local
+  if (!lang) return null;
   if (!shouldUseOsirisData(query)) return null;
 
   const lowerQuery = query.toLowerCase();
 
   if (lowerQuery.includes('clima') || lowerQuery.includes('weather') || lowerQuery.includes('lluvia') || lowerQuery.includes('llover') || lowerQuery.includes('lloviendo') || lowerQuery.includes('tormenta') || lowerQuery.includes('temperatura') || lowerQuery.includes('pronóstico') || lowerQuery.includes('pronostico') || lowerQuery.includes('forecast') || lowerQuery.includes('hace calor') || lowerQuery.includes('hace frío') || lowerQuery.includes('hace frio')) {
-    return await OsirisEnhancedResponses.clima(language);
+    return await OsirisEnhancedResponses.clima(lang);
   }
 
   if (!navigator.onLine) {
-    return await OsirisEnhancedResponses.offlineResponse(language);
+    return await OsirisEnhancedResponses.offlineResponse(lang);
   }
 
   return null;
@@ -227,20 +247,22 @@ export function isTourismQuery(query: string): boolean {
 
 /** Obtiene respuesta turística positiva con datos reales */
 export async function getTourismResponse(query: string, language: string = 'es'): Promise<string | null> {
+  const lang = normalizeOsirisLang(language);
+  if (!lang) return null;
   const lowerQuery = query.toLowerCase();
 
   if (lowerQuery.includes('actividades') || lowerQuery.includes('activities') || lowerQuery.includes('hacer')) {
-    return await TourismEnhancedResponses.actividadesAhora(language);
+    return await TourismEnhancedResponses.actividadesAhora(lang);
   }
 
   const wantsVisitPlan = lowerQuery.includes('visitar') || lowerQuery.includes('safe') || lowerQuery.includes('seguro') || lowerQuery.includes('peligro');
 
   if (wantsVisitPlan) {
-    return await TourismEnhancedResponses.planVisita(language);
+    return await TourismEnhancedResponses.planVisita(lang);
   }
 
   if (lowerQuery.includes('afecta') || lowerQuery.includes('impacto') || (lowerQuery.includes('clima') && lowerQuery.includes('visita'))) {
-    return await TourismEnhancedResponses.planVisita(language);
+    return await TourismEnhancedResponses.planVisita(lang);
   }
 
   return null;
@@ -336,18 +358,20 @@ export function isPredictiveQuery(query: string): boolean {
 
 /** Obtiene respuesta predictiva positiva con pronóstico real */
 export async function getPredictiveResponse(query: string, language: string = 'es'): Promise<string | null> {
+  const lang = normalizeOsirisLang(language);
+  if (!lang) return null;
   const lowerQuery = query.toLowerCase();
 
   if (lowerQuery.includes('mejor momento') || lowerQuery.includes('best time') || lowerQuery.includes('cuándo visitar') || lowerQuery.includes('cuándo venir') || lowerQuery.includes('cuándo ir') || lowerQuery.includes('when to visit') || lowerQuery.includes('when should i visit')) {
-    return await PredictiveEnhancedResponses.mejorMomentoVisitar(language);
+    return await PredictiveEnhancedResponses.mejorMomentoVisitar(lang);
   }
 
   if (lowerQuery.includes('mañana') || lowerQuery.includes('tomorrow') || (lowerQuery.includes('clima') && (lowerQuery.includes('será') || lowerQuery.includes('estará')))) {
-    return await PredictiveEnhancedResponses.prediccionClima(language);
+    return await PredictiveEnhancedResponses.prediccionClima(lang);
   }
 
   if (lowerQuery.includes('próxima semana') || lowerQuery.includes('next week')) {
-    return await PredictiveEnhancedResponses.outlookSemana(language);
+    return await PredictiveEnhancedResponses.outlookSemana(lang);
   }
 
   return null;
