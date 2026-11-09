@@ -17,15 +17,17 @@
 - [x] Evento GA4 `wsa_nomination_view` — implementado 09/11 (evidencia de que el jurado ve la sección)
 - [x] SEO/Schema/OG/idiomas (ver `RESUMEN_EJECUTIVO_WSA.md`)
 - [x] 27 pautas activas + 102 páginas pautantes
+- [x] Blindaje fase 0 completado (commit `43f6041`): ErrorBoundary global + vitest 16 tests + type-check/build ✅
 
-### ⛔ Pendiente bloqueante antes del 15/11
-- [ ] **Video demo** profesional 3-5 min con subtítulos en inglés — Lun 09 / Mar 10
+### ⛔ Pendiente antes del 15/11
 - [ ] **Deck de presentación** 15-20 slides (ES + EN) — Mié 11
 - [ ] **Documento de impacto** con métricas GA4 de la semana — Mié 11
 - [ ] **Aplicación WSA** completada (formulario, enlace por Yezid Donoso) — Jue 12
 - [ ] **Landing para jurado** (hub con métricas y documentos) — Vie 13
 - [ ] **Exportar métricas GA4** a `docs/wsa/analytics/` (carpeta aún no creada) — Vie 13
 - [ ] Revisión final de materiales y confirmación de envío — Sáb 14 / Dom 15
+
+> **Decisión estratégica (post-análisis, 09/11):** sin video demo ni fotos. La experiencia online (PWA offline-first + SEO multi-idioma + multi-dispositivo) es la propia demo. Si la aplicación WSA exige video, se sustituye por demo ligera del sitio.
 
 ---
 
