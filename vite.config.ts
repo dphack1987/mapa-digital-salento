@@ -1,4 +1,5 @@
-import { defineConfig } from 'vite'
+/// <reference types="vitest" />
+import { defineConfig } from 'vitest/config'
 import react from '@vitejs/plugin-react'
 
 export default defineConfig({
@@ -54,6 +55,10 @@ export default defineConfig({
     host: '0.0.0.0', // Permitir acceso desde dispositivos externos
     strictPort: false,
     open: false
+  },
+  test: {
+    environment: 'node',
+    include: ['src/**/*.{test,spec}.{ts,tsx}'],
   },
   optimizeDeps: {
     include: ['react', 'react-dom', 'leaflet', 'lucide-react', 'qrcode'],

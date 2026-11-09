@@ -16,7 +16,8 @@
     "seo:routes": "python tools/generate_sitemap_route_pages.py",
     "seo:meta": "python tools/optimize_static_meta.py",
     "seo:strategy": "python tools/seo_strategy_analyzer.py --output tools/seo_strategy_report.json",
-    "seo:structured": "python tools/enrich_structured_data.py"
+    "seo:structured": "python tools/enrich_structured_data.py",
+    "test": "vitest run"
   },
   "dependencies": {
     "@types/qrcode": "^1.5.6",
@@ -37,6 +38,7 @@
     "@types/react-dom": "^18.3.0",
     "sharp": "^0.35.4",
     "terser": "^5.51.2",
-    "typescript": "^5.5.3"
+    "typescript": "^5.5.3",
+    "vitest": "^5.1.0"
   }
 }
