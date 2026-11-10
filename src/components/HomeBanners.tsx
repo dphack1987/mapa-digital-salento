@@ -153,7 +153,7 @@ const BANNERS: HomeBanner[] = [
   {
     id: 'cabalgatas',
     eyebrow: 'Experiencias',
-    title: 'Cabalgatas Cocora Mágica',
+    title: 'Cabalgatas Cocora Magic',
     desc: 'Cabalgata por el Valle de Cocora.',
     href: '/paginas-pautantes/cabalgatas-cocora-magica/',
     cta: 'Reservar',

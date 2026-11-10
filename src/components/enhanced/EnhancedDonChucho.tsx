@@ -1,9 +1,11 @@
 import { useState, useEffect, useRef } from 'react'
 import { pythonBackendService } from '../../services/pythonBackend'
 import { getOsirisResponse } from '../../services/donChuchoOsiris'
-import { donChuchoKnowledge } from '../../services/donChuchoKnowledge'
+import { answerDonChucho } from '../../services/donChuchoBrain'
+import { localizedSuggestions, weatherSuggestions } from '../../services/donChuchoNlu'
+import type { KnowledgeItem } from '../../services/donChuchoKnowledge'
 import { SPEECH_LOCALES, pickVoiceForLang, sanitizeSpeechText } from '../VoiceInput'
-import type { Language } from '../../types'
+import type { Language, Place } from '../../types'
 
 interface Pautante {
   name: string
@@ -22,29 +24,93 @@ interface Pautante {
   local_approval?: string
 }
 
-// Alias para lenguaje más natural en la UI
 type LocalPlace = Pautante
+
+interface ChatMessage {
+  id: number
+  role: 'user' | 'assistant'
+  text: string
+  places?: LocalPlace[]
+  authentic?: LocalPlace[]
+  nearby?: LocalPlace[]
+  suggestions?: string[]
+  source?: string
+}
 
 interface EnhancedDonChuchoProps {
   language: Language
   t: (key: string, fallback?: string) => string
+  places?: Place[]
   onFallback?: () => void
   onClose?: () => void
   existingComponent?: React.ReactNode
 }
 
-function EnhancedDonChucho({ language, t, onFallback, onClose, existingComponent }: EnhancedDonChuchoProps) {
+function toLocalPlace(place: Place): LocalPlace {
+  return {
+    name: place.name,
+    type: place.type,
+    description: place.description,
+    contact: {
+      phone: place.contact?.phone,
+      whatsapp: place.contact?.whatsapp,
+      email: place.contact?.email,
+      website: place.contact?.website
+    },
+    is_partner: Boolean(place.isPautante),
+    id: place.id,
+    local_approval: place.verified ? 'Verificado' : undefined
+  }
+}
+
+function splitForSpeech(text: string, maxLength = 180): string[] {
+  const sentences = text.split(/(?<=[.!?])\s+/)
+  const chunks: string[] = []
+  let current = ''
+
+  for (const sentence of sentences) {
+    if (`${current} ${sentence}`.trim().length <= maxLength) {
+      current = `${current} ${sentence}`.trim()
+      continue
+    }
+    if (current) chunks.push(current)
+    if (sentence.length <= maxLength) {
+      current = sentence
+      continue
+    }
+    let part = ''
+    for (const word of sentence.split(' ')) {
+      if (`${part} ${word}`.trim().length <= maxLength) {
+        part = `${part} ${word}`.trim()
+      } else {
+        if (part) chunks.push(part)
+        part = word
+      }
+    }
+    current = part
+  }
+
+  if (current) chunks.push(current)
+  return chunks.filter(Boolean)
+}
+
+function EnhancedDonChucho({ language, t, places, onFallback, onClose, existingComponent }: EnhancedDonChuchoProps) {
+  const welcomeText = t('donChucho.welcome', '¡Hola! Soy Don Chucho, arriero quindiano y tu guía local especializado en Salento. Puedo orientarte sobre el Valle de Cocora, los caminos, el café, la cultura y lo práctico para tu visita. ¿Qué quieres descubrir?')
+
   const [message, setMessage] = useState('')
-  const [response, setResponse] = useState(() => t('donChucho.welcome', '¡Hola! Soy Don Chucho, arriero quindiano y tu guía local especializado en Salento. Puedo orientarte sobre el Valle de Cocora, los caminos, el café, la cultura y lo práctico para tu visita. ¿Qué quieres descubrir?'))
+  const [messages, setMessages] = useState<ChatMessage[]>([{
+    id: 0,
+    role: 'assistant',
+    text: welcomeText,
+    suggestions: localizedSuggestions('general', language),
+    source: 'welcome'
+  }])
+  const [suggestions, setSuggestions] = useState<string[]>(() => localizedSuggestions('general', language))
   const [isLoading, setIsLoading] = useState(false)
-  const [usePython, setUsePython] = useState(false) // Iniciamos en false para usar local primero
+  const [usePython, setUsePython] = useState(false)
   const [pythonStatus, setPythonStatus] = useState<'online' | 'offline'>('offline')
   const [isDeviceOffline, setIsDeviceOffline] = useState(!navigator.onLine)
   const [offlineNoticeDismissed, setOfflineNoticeDismissed] = useState(false)
-  const [localPlaces, setLocalPlaces] = useState<LocalPlace[]>([])
-  const [hasLocalPlaces, setHasLocalPlaces] = useState(false)
-  const [userLocation, setUserLocation] = useState<{lat: number; lng: number} | null>(null)
-  const [nearbyPlaces, setNearbyPlaces] = useState<LocalPlace[]>([])
   const [isSpeaking, setIsSpeaking] = useState(false)
   const [voiceEnabled, setVoiceEnabled] = useState(true)
   const [selectedVoice, setSelectedVoice] = useState<SpeechSynthesisVoice | null>(null)
@@ -52,23 +118,24 @@ function EnhancedDonChucho({ language, t, onFallback, onClose, existingComponent
   const [voiceNotice, setVoiceNotice] = useState('')
   const [availabilityStatus, setAvailabilityStatus] = useState<Record<string, boolean>>({})
   const [qualityScores, setQualityScores] = useState<Record<string, number>>({})
-  const [authenticPlaces, setAuthenticPlaces] = useState<LocalPlace[]>([])
-  
+  const [isListening, setIsListening] = useState(false)
+  const [interimText, setInterimText] = useState('')
+
   const speechSynthRef = useRef<SpeechSynthesis | null>(null)
-  const currentUtteranceRef = useRef<SpeechSynthesisUtterance | null>(null)
+  const recognitionRef = useRef<any>(null)
   const messagesRef = useRef<HTMLDivElement | null>(null)
+  const inputRef = useRef<HTMLInputElement | null>(null)
+  const messageIdRef = useRef(1)
+  const lastItemRef = useRef<KnowledgeItem | null>(null)
   const onFallbackRef = useRef(onFallback)
   onFallbackRef.current = onFallback
-  // Últimos nombres ya leídos en voz alta (evita repetir follow-ups)
   const lastSpokenFollowUpRef = useRef<Record<string, string>>({})
-  const knowledgeLanguage: Exclude<Language, 'zh'> = language === 'zh' ? 'en' : language
-  // Selección de voces compatible con locales como `en-gb` (cuyo prefijo de
-  // idioma base es `en`), evitando depender de `${language}-`.
+
   const speechLocale = SPEECH_LOCALES[language].toLowerCase()
   const speechBase = speechLocale.split('-')[0]
   const languageVoices = availableVoices.filter(voice => {
-    const v = voice.lang.toLowerCase().replace('_', '-')
-    return v === speechLocale || v === speechBase || v.startsWith(`${speechBase}-`)
+    const voiceLang = voice.lang.toLowerCase().replace('_', '-')
+    return voiceLang === speechLocale || voiceLang === speechBase || voiceLang.startsWith(`${speechBase}-`)
   })
   const visibleVoiceNotice = voiceNotice || (availableVoices.length > 0 && languageVoices.length === 0
     ? t('donChucho.voiceNotInstalled', 'No speech voice is installed for the selected language on this device.')
@@ -83,7 +150,6 @@ function EnhancedDonChucho({ language, t, onFallback, onClose, existingComponent
   }
 
   useEffect(() => {
-    // Intentar verificar backend Python en background, pero no bloquear
     const checkPythonBackend = async () => {
       try {
         const health = await pythonBackendService.healthCheck()
@@ -98,7 +164,7 @@ function EnhancedDonChucho({ language, t, onFallback, onClose, existingComponent
       }
     }
 
-    checkPythonBackend()
+    void checkPythonBackend()
   }, [])
 
   useEffect(() => {
@@ -108,8 +174,6 @@ function EnhancedDonChucho({ language, t, onFallback, onClose, existingComponent
 
     const loadVoices = () => {
       const voices = speechSynth.getVoices()
-      // Preferir voz masculina del idioma (Don Chucho es arriero varón);
-      // la primera voz disponible suele ser femenina.
       const preferredVoice = pickVoiceForLang(voices, SPEECH_LOCALES[language])
       setAvailableVoices(voices)
       setSelectedVoice(preferredVoice)
@@ -123,11 +187,9 @@ function EnhancedDonChucho({ language, t, onFallback, onClose, existingComponent
   }, [language])
 
   useEffect(() => {
-    // Desplaza el área de mensajes al final para que la última respuesta
-    // no quede cortada en la parte inferior de la ventana.
     const el = messagesRef.current
     if (el) el.scrollTop = el.scrollHeight
-  }, [response, isLoading, localPlaces, nearbyPlaces, authenticPlaces])
+  }, [messages, isLoading, interimText])
 
   useEffect(() => {
     const handleOnline = () => {
@@ -148,130 +210,87 @@ function EnhancedDonChucho({ language, t, onFallback, onClose, existingComponent
     }
   }, [])
 
-  const handleSendMessage = async () => {
-    if (!message.trim()) return
-
-    const userMessage = message.trim()
-    setIsLoading(true)
-    try {
-      // 1. Primero, respuesta de clima con datos reales (solo preguntas de clima)
-      const osirisResponse = language === 'zh' ? null : await getOsirisResponse(userMessage, language)
-      if (osirisResponse) {
-        setResponse(osirisResponse)
-        setLocalPlaces([])
-        setHasLocalPlaces(false)
-        setMessage('')
-
-        if (voiceEnabled && osirisResponse) {
-          speakResponse(osirisResponse)
-        }
-        setIsLoading(false)
-        return
+  useEffect(() => {
+    setMessages(prev => {
+      if (prev.length === 1 && prev[0].id === 0) {
+        return [{ ...prev[0], text: welcomeText }]
       }
+      return prev
+    })
+    setSuggestions(prev => (prev.length === 3 && messages.length === 1 ? localizedSuggestions('general', language) : prev))
+  }, [language])
 
-      // 2. Segundo, usar base de conocimiento local como fallback principal
-      const localKnowledge = donChuchoKnowledge.findAnswer(userMessage, knowledgeLanguage)
-      if (localKnowledge) {
-        const localAnswer = language === 'zh'
-          ? localKnowledge.answer.zh
-          : localKnowledge.answer[knowledgeLanguage] || localKnowledge.answer.es
-        if (!localAnswer && language !== 'zh') return
-        const answerText = localAnswer || t('donChucho.zhKnowledgeFallback', '这个主题暂时没有经过核实的中文离线答复。你可以询问萨伦托的交通、住宿、咖啡或科科拉山谷。')
-        setResponse(answerText)
-        setLocalPlaces([])
-        setHasLocalPlaces(false)
-        setMessage('')
+  useEffect(() => () => {
+    speechSynthRef.current?.cancel()
+    recognitionRef.current?.abort?.()
+  }, [])
 
-        if (voiceEnabled && answerText) {
-          speakResponse(answerText)
-        }
-        setIsLoading(false)
-        return
-      }
-
-      if (language === 'zh') {
-        const fallback = t('donChucho.zhKnowledgeFallback', '这个主题暂时没有经过核实的中文离线答复。你可以询问萨伦托的交通、住宿、咖啡或科科拉山谷。')
-        setResponse(fallback)
-        setLocalPlaces([])
-        setHasLocalPlaces(false)
-        setMessage('')
-        if (voiceEnabled) speakResponse(fallback)
-        return
-      }
-
-      // 3. Si todo falla, usar backend Python si está disponible
-      if (usePython && pythonStatus === 'online') {
-        const result = await pythonBackendService.sendChatMessage(userMessage)
-        setResponse(result.response)
-        setLocalPlaces(result.pautantes || [])
-        setHasLocalPlaces(result.has_pautantes || false)
-        setMessage('')
-        
-        if (navigator.geolocation) {
-          navigator.geolocation.getCurrentPosition(
-            (position) => {
-              const { latitude, longitude } = position.coords
-              setUserLocation({ lat: latitude, lng: longitude })
-              loadNearbyPautantes(latitude, longitude)
-            },
-            (error) => {
-              console.log('Geolocation no disponible o denegada')
-            }
-          )
-        }
-        
-        if (voiceEnabled && result.response) {
-          // Lee también los nombres de las tarjetas mostradas (display = voz)
-          speakResponse(buildSpokenText(result.response, result.pautantes || []))
-        }
-        
-        // Local Truth Engine: Verificar disponibilidad y calidad
-        if (result.pautantes && result.pautantes.length > 0) {
-          checkLocalPlacesTruth(result.pautantes)
-        }
-      } else {
-        // Fallback final: respuesta genérica del sistema local
-        setResponse(t('donChucho.localFallback', 'Soy Don Chucho, arriero quindiano y tu guía de Salento. Puedo ayudarte con el Valle de Cocora, transporte, café, cultura y planes locales. ¿Qué quieres descubrir?'))
-        setLocalPlaces([])
-        setHasLocalPlaces(false)
-        setMessage('')
-      }
-    } catch (error) {
-      console.error('Error:', error)
-      // Fallback a respuesta local en caso de error
-      setResponse(t('donChucho.errorFallback', 'No pude completar esa consulta. Puedes intentarlo de nuevo o preguntarme por la guía local de Salento.'))
-      setLocalPlaces([])
-      setHasLocalPlaces(false)
-      setMessage('')
-    } finally {
-      setIsLoading(false)
-    }
+  const addMessage = (payload: Omit<ChatMessage, 'id'>): number => {
+    const id = messageIdRef.current
+    messageIdRef.current += 1
+    setMessages(prev => [...prev, { ...payload, id }])
+    return id
   }
 
-  /** Voz actual: la elegida por el usuario o la mejor del idioma (masculina preferida). */
+  const updateMessage = (id: number, payload: Partial<ChatMessage>) => {
+    setMessages(prev => prev.map(item => (item.id === id ? { ...item, ...payload } : item)))
+  }
+
   const resolveVoice = (): SpeechSynthesisVoice | null =>
     selectedVoice || pickVoiceForLang(availableVoices, SPEECH_LOCALES[language]) || languageVoices[0] || null
 
-  /**
-   * Texto hablado = respuesta + nombres de las tarjetas mostradas en pantalla.
-   * Así lo que se ve es lo que se lee (el display no se toca).
-   */
-  const buildSpokenText = (base: string, places: LocalPlace[] = []): string => {
+  const stopSpeaking = () => {
+    if (speechSynthRef.current) {
+      speechSynthRef.current.cancel()
+      setIsSpeaking(false)
+    }
+  }
+
+  const speakResponse = (text: string) => {
+    if (!speechSynthRef.current || !voiceEnabled) return
+
+    const cleanText = sanitizeSpeechText(text)
+    if (!cleanText) return
+
+    stopSpeaking()
+    const voiceForSpeech = resolveVoice()
+    const chunks = splitForSpeech(cleanText)
+
+    chunks.forEach((chunk, index) => {
+      const utterance = new SpeechSynthesisUtterance(chunk)
+      utterance.lang = voiceForSpeech?.lang || SPEECH_LOCALES[language]
+      utterance.rate = 0.92
+      utterance.pitch = 1.0
+      utterance.volume = 1.0
+
+      if (voiceForSpeech) {
+        setVoiceNotice('')
+        utterance.voice = voiceForSpeech
+      } else {
+        setVoiceNotice(t('donChucho.voiceNotInstalled', 'No speech voice is installed for the selected language on this device.'))
+      }
+
+      utterance.onstart = () => setIsSpeaking(true)
+      if (index === chunks.length - 1) {
+        utterance.onend = () => setIsSpeaking(false)
+        utterance.onerror = () => setIsSpeaking(false)
+      }
+
+      speechSynthRef.current!.speak(utterance)
+    })
+  }
+
+  const buildSpokenText = (base: string, placeList: LocalPlace[] = []): string => {
     const cleaned = sanitizeSpeechText(base)
-    const names = places.map(p => p?.name).filter(Boolean).join(', ')
+    const names = placeList.map(place => place?.name).filter(Boolean).join(', ')
     if (!names) return cleaned
     const intro = t('donChucho.spokenPlaces', 'Te recomiendo estos lugares:')
     return `${cleaned} ${sanitizeSpeechText(intro)} ${sanitizeSpeechText(names)}`.trim()
   }
 
-  /**
-   * Lectura en cola (sin cancelar la actual) para tarjetas que aparecen
-   * después de la respuesta: lugares auténticos y servicios cercanos.
-   * Solo habla si la lista cambió respecto a lo ya leído.
-   */
-  const speakFollowUp = (key: string, intro: string, places: LocalPlace[]) => {
-    if (!speechSynthRef.current || !voiceEnabled || places.length === 0) return
-    const names = places.map(p => p?.name).filter(Boolean).join(', ')
+  const speakFollowUp = (key: string, intro: string, placeList: LocalPlace[]) => {
+    if (!speechSynthRef.current || !voiceEnabled || placeList.length === 0) return
+    const names = placeList.map(place => place?.name).filter(Boolean).join(', ')
     if (!names || lastSpokenFollowUpRef.current[key] === names) return
     lastSpokenFollowUpRef.current[key] = names
 
@@ -288,54 +307,15 @@ function EnhancedDonChucho({ language, t, onFallback, onClose, existingComponent
     utterance.onstart = () => setIsSpeaking(true)
     utterance.onend = () => setIsSpeaking(false)
     utterance.onerror = () => setIsSpeaking(false)
-    // Sin cancel(): el navegador encola detrás de la respuesta principal.
     speechSynthRef.current.speak(utterance)
-  }
-
-  const speakResponse = (text: string) => {
-    if (!speechSynthRef.current || !voiceEnabled) return
-
-    const cleanText = sanitizeSpeechText(text)
-    if (!cleanText) return
-
-    stopSpeaking()
-    const voiceForSpeech = resolveVoice()
-
-    const utterance = new SpeechSynthesisUtterance(cleanText)
-    utterance.lang = voiceForSpeech?.lang || SPEECH_LOCALES[language]
-    utterance.rate = 0.9
-    utterance.pitch = 1.0
-    utterance.volume = 1.0
-
-    if (voiceForSpeech) {
-      setVoiceNotice('')
-      utterance.voice = voiceForSpeech
-    } else {
-      // Sin una voz específica instalada: se usa la voz por defecto del
-      // navegador con el idioma solicitado, e informamos al usuario.
-      setVoiceNotice(t('donChucho.voiceNotInstalled', 'No speech voice is installed for the selected language on this device.'))
-    }
-
-    utterance.onstart = () => setIsSpeaking(true)
-    utterance.onend = () => setIsSpeaking(false)
-    utterance.onerror = () => setIsSpeaking(false)
-
-    currentUtteranceRef.current = utterance
-    speechSynthRef.current.speak(utterance)
-  }
-
-  const stopSpeaking = () => {
-    if (speechSynthRef.current) {
-      speechSynthRef.current.cancel()
-      setIsSpeaking(false)
-    }
   }
 
   const toggleVoice = () => {
-    setVoiceEnabled(!voiceEnabled)
-    if (isSpeaking) {
-      stopSpeaking()
-    }
+    setVoiceEnabled(previous => {
+      const next = !previous
+      if (!next) stopSpeaking()
+      return next
+    })
   }
 
   const handleVoiceChange = (voice: SpeechSynthesisVoice) => {
@@ -343,52 +323,56 @@ function EnhancedDonChucho({ language, t, onFallback, onClose, existingComponent
     setVoiceNotice('')
   }
 
-  const checkLocalPlacesTruth = async (localPlacesList: LocalPlace[]) => {
-    // Local Truth Engine: Verificar disponibilidad y calidad de cada lugar local
-    for (const localPlace of localPlacesList) {
+  const findRelatedPlaces = (ids: number[]): LocalPlace[] => {
+    if (!places?.length || !ids.length) return []
+    return ids
+      .map(id => places.find(place => place.id === id))
+      .filter((place): place is Place => Boolean(place))
+      .slice(0, 3)
+      .map(toLocalPlace)
+  }
+
+  const checkLocalPlacesTruth = async (localPlaceList: LocalPlace[], messageId: number) => {
+    for (const localPlace of localPlaceList) {
       if (localPlace.id) {
-        // Verificar disponibilidad
         const availability = await pythonBackendService.checkAvailability(localPlace.id)
         if (availability.success && availability.is_available !== undefined) {
-          setAvailabilityStatus(prev => ({...prev, [String(localPlace.id)]: availability.is_available!}))
+          setAvailabilityStatus(prev => ({ ...prev, [String(localPlace.id)]: availability.is_available! }))
         }
-        
-        // Verificar calidad
+
         const quality = await pythonBackendService.getQualityVerification(localPlace.id)
         if (quality.success && quality.quality_score) {
-          setQualityScores(prev => ({...prev, [String(localPlace.id)]: quality.quality_score!}))
+          setQualityScores(prev => ({ ...prev, [String(localPlace.id)]: quality.quality_score! }))
         }
       }
     }
-    
-    // Filtro de turistazas para la categoría (place.type -> clave backend)
-    if (localPlacesList.length > 0) {
-      const rawType = (localPlacesList[0].type || '').toLowerCase()
+
+    if (localPlaceList.length > 0) {
+      const rawType = (localPlaceList[0].type || '').toLowerCase()
       const typeMap: Record<string, string> = {
-        'alojamientos': 'accommodation',
-        'camping': 'accommodation',
-        'restaurantes': 'food',
+        alojamientos: 'accommodation',
+        camping: 'accommodation',
+        restaurantes: 'food',
         'restaurante bar': 'food',
         'cafés': 'food',
-        'cafes': 'food',
+        cafes: 'food',
         'coffee tours': 'coffee',
-        'servicios': 'transport',
+        servicios: 'transport',
         'atractivos turísticos': 'nature',
         'atractivos turisticos': 'nature',
-        'experiencias': 'nature',
-        'eventos': 'events',
+        experiencias: 'nature',
+        eventos: 'events',
         'artesanías': 'shopping',
-        'artesanias': 'shopping',
-        'tiendas': 'shopping',
+        artesanias: 'shopping',
+        tiendas: 'shopping'
       }
       const category = typeMap[rawType] || rawType
       const filter = await pythonBackendService.getTouristTrapFilter(category)
       if (filter.authentic_places && filter.authentic_places.length > 0) {
         const list = filter.authentic_places as unknown as LocalPlace[]
-        setAuthenticPlaces(list)
-        // Lo que se muestra también se lee en voz alta (en cola)
+        updateMessage(messageId, { authentic: list })
         speakFollowUp(
-          'authentic',
+          `authentic-${messageId}`,
           t('donChucho.spokenAuthentic', 'También te recomiendo estos lugares auténticos:'),
           list
         )
@@ -396,14 +380,13 @@ function EnhancedDonChucho({ language, t, onFallback, onClose, existingComponent
     }
   }
 
-  const loadNearbyPautantes = async (lat: number, lng: number) => {
+  const loadNearbyPautantes = async (lat: number, lng: number, messageId: number) => {
     try {
       const nearby = await pythonBackendService.getNearbyPautantes(lat, lng, 'all', 5)
       const list = nearby.nearby_pautantes || []
-      setNearbyPlaces(list)
-      // En pantalla se muestran los primeros 3; se leen también esos 3
+      updateMessage(messageId, { nearby: list })
       speakFollowUp(
-        'nearby',
+        `nearby-${messageId}`,
         t('donChucho.spokenNearby', 'Servicios cercanos a ti:'),
         list.slice(0, 3)
       )
@@ -413,32 +396,176 @@ function EnhancedDonChucho({ language, t, onFallback, onClose, existingComponent
   }
 
   const handleWhatsApp = async (whatsapp: string, pautanteId?: number) => {
-    if (whatsapp) {
-      if (pautanteId) {
-        const direct = await pythonBackendService.getWhatsAppDirect(pautanteId)
-        if (direct.success && direct.whatsapp_url) {
-          window.open(direct.whatsapp_url, '_blank')
-          return
-        }
+    if (!whatsapp) return
+    if (pautanteId) {
+      const direct = await pythonBackendService.getWhatsAppDirect(pautanteId)
+      if (direct.success && direct.whatsapp_url) {
+        window.open(direct.whatsapp_url, '_blank')
+        return
       }
-      window.open(`https://wa.me/${whatsapp}`, '_blank')
+    }
+    window.open(`https://wa.me/${whatsapp.replace(/\D/g, '')}`, '_blank')
+  }
+
+  const handleSendMessage = async (textOverride?: string) => {
+    const userMessage = (textOverride ?? message).trim()
+    if (!userMessage || isLoading) return
+
+    if (voiceEnabled) stopSpeaking()
+    setMessage('')
+    setInterimText('')
+    addMessage({ role: 'user', text: userMessage })
+    setIsLoading(true)
+
+    try {
+      await new Promise(resolve => setTimeout(resolve, 160))
+
+      const osirisResponse = language === 'zh' ? null : await getOsirisResponse(userMessage, language)
+      if (osirisResponse) {
+        addMessage({
+          role: 'assistant',
+          text: osirisResponse,
+          suggestions: weatherSuggestions(language),
+          source: 'weather'
+        })
+        setSuggestions(weatherSuggestions(language))
+        if (voiceEnabled) speakResponse(osirisResponse)
+        return
+      }
+
+      const reply = answerDonChucho(userMessage, language, { lastItem: lastItemRef.current })
+      if (reply.item) lastItemRef.current = reply.item
+      const relatedPlaces = findRelatedPlaces(reply.relatedPlaceIds)
+
+      if (reply.confident || reply.source === 'knowledge') {
+        const messageId = addMessage({
+          role: 'assistant',
+          text: reply.text,
+          places: relatedPlaces,
+          suggestions: reply.suggestions,
+          source: reply.source
+        })
+        setSuggestions(reply.suggestions)
+        if (voiceEnabled) speakResponse(buildSpokenText(reply.text, relatedPlaces))
+        if (relatedPlaces.length > 0) {
+          speakFollowUp(
+            `related-${messageId}`,
+            t('donChucho.spokenPlaces', 'Te recomiendo estos lugares:'),
+            relatedPlaces
+          )
+        }
+        return
+      }
+
+      if (usePython && pythonStatus === 'online') {
+        const result = await pythonBackendService.sendChatMessage(userMessage)
+        const messageId = addMessage({
+          role: 'assistant',
+          text: result.response,
+          places: result.pautantes || [],
+          suggestions: reply.suggestions,
+          source: 'backend'
+        })
+        setSuggestions(reply.suggestions)
+        if (voiceEnabled) speakResponse(buildSpokenText(result.response, result.pautantes || []))
+
+        if (result.pautantes && result.pautantes.length > 0) {
+          void checkLocalPlacesTruth(result.pautantes, messageId)
+        }
+
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(
+            position => {
+              void loadNearbyPautantes(position.coords.latitude, position.coords.longitude, messageId)
+            },
+            () => undefined
+          )
+        }
+        return
+      }
+
+      addMessage({
+        role: 'assistant',
+        text: reply.text,
+        suggestions: reply.suggestions,
+        source: reply.source
+      })
+      setSuggestions(reply.suggestions)
+      if (voiceEnabled) speakResponse(reply.text)
+    } catch (error) {
+      console.error('Error:', error)
+      addMessage({
+        role: 'assistant',
+        text: t('donChucho.errorFallback', 'No pude completar esa consulta. Puedes intentarlo de nuevo o preguntarme por la guía local de Salento.'),
+        suggestions: localizedSuggestions('general', language),
+        source: 'error'
+      })
+    } finally {
+      setIsLoading(false)
+      inputRef.current?.focus()
     }
   }
 
   const handleVoiceCommand = () => {
     const SpeechRecognition = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition
     if (!SpeechRecognition) {
-      alert(t('donChucho.voiceUnsupported', 'Voice input is not available in this browser.'))
+      setVoiceNotice(t('donChucho.voiceUnsupported', 'Voice input is not available in this browser.'))
       return
     }
 
+    if (isListening && recognitionRef.current) {
+      recognitionRef.current.stop()
+      return
+    }
+
+    stopSpeaking()
     const recognition = new SpeechRecognition()
     recognition.lang = SPEECH_LOCALES[language]
-    recognition.onresult = (event: any) => {
-      const transcript = event.results[0][0].transcript
-      setMessage(transcript)
+    recognition.interimResults = true
+    recognition.continuous = false
+    recognition.maxAlternatives = 1
+    recognitionRef.current = recognition
+
+    recognition.onstart = () => {
+      setIsListening(true)
+      setInterimText('')
+      setVoiceNotice('')
     }
-    recognition.start()
+
+    recognition.onresult = (event: any) => {
+      let finalText = ''
+      let interim = ''
+      for (let index = event.resultIndex; index < event.results.length; index++) {
+        const transcript = event.results[index][0].transcript
+        if (event.results[index].isFinal) finalText += transcript
+        else interim += transcript
+      }
+      if (interim) setInterimText(interim)
+      if (finalText.trim()) {
+        setInterimText('')
+        setMessage('')
+        void handleSendMessage(finalText.trim())
+      }
+    }
+
+    recognition.onerror = (event: any) => {
+      setIsListening(false)
+      setInterimText('')
+      if (event.error !== 'aborted' && event.error !== 'no-speech') {
+        setVoiceNotice(t('donChucho.voiceError', 'No pude escucharte. Intenta de nuevo.'))
+      }
+    }
+
+    recognition.onend = () => {
+      setIsListening(false)
+      setInterimText('')
+    }
+
+    try {
+      recognition.start()
+    } catch {
+      setIsListening(false)
+    }
   }
 
   if (pythonStatus === 'offline' && existingComponent) {
@@ -449,12 +576,20 @@ function EnhancedDonChucho({ language, t, onFallback, onClose, existingComponent
     <div className="enhanced-don-chucho">
       <div className="status-indicator">
         <span className={`status ${pythonStatus}`}>
-           {pythonStatus === 'online' ? t('donChucho.onlineStatus', 'Don Chucho IA Online') :
-           isDeviceOffline ? t('donChucho.offlineStatus', 'Don Chucho · Modo offline') : t('donChucho.subtitle', 'Tu guía local')}
+          {pythonStatus === 'online'
+            ? t('donChucho.onlineStatus', 'Don Chucho IA Online')
+            : isDeviceOffline
+              ? t('donChucho.offlineStatus', 'Don Chucho · Modo offline')
+              : t('donChucho.subtitle', 'Tu guía local')}
         </span>
         {pythonStatus === 'online' && <span className="zero-click-badge">Zero-Click Access</span>}
-          {voiceEnabled && <span className="voice-badge">🔊 {t('donChucho.voiceActive', 'Voz activa')}</span>}
-          <button type="button" className="enhanced-close" onClick={() => (onClose ? onClose() : goLocal())} aria-label={t('donChucho.closeAssistant', 'Cerrar asistente')}>
+        {voiceEnabled && <span className="voice-badge">🔊 {t('donChucho.voiceActive', 'Voz activa')}</span>}
+        <button
+          type="button"
+          className="enhanced-close"
+          onClick={() => (onClose ? onClose() : goLocal())}
+          aria-label={t('donChucho.closeAssistant', 'Cerrar asistente')}
+        >
           ✕
         </button>
       </div>
@@ -462,113 +597,162 @@ function EnhancedDonChucho({ language, t, onFallback, onClose, existingComponent
       {isDeviceOffline && !offlineNoticeDismissed && (
         <div className="enhanced-offline-banner">
           <p>{t('donChucho.offlineMessage', 'Modo offline activo. Don Chucho sigue disponible con la guía local de Salento; las consultas en tiempo real se actualizarán al recuperar la conexión.')}</p>
-          <button type="button" onClick={() => setOfflineNoticeDismissed(true)}>{t('donChucho.offlineContinue', 'Continuar sin conexión')}</button>
+          <button type="button" onClick={() => setOfflineNoticeDismissed(true)}>
+            {t('donChucho.offlineContinue', 'Continuar sin conexión')}
+          </button>
         </div>
       )}
-      
+
       <div className="chat-container">
         <div className="messages" ref={messagesRef} aria-live="polite" role="log">
-          {response && (
-            <div className="message response">
-              <strong>{t('donChucho.title', 'Don Chucho')}:</strong>
-              <p style={{whiteSpace: 'pre-line'}}>{response}</p>
-              
-              {hasLocalPlaces && localPlaces.length > 0 && (
-                <div className="local-places-results">
-                  {localPlaces.map((localPlace, index) => (
-                    <div key={index} className="local-place-card">
-                      <div className="local-place-header">
-                        <strong>{localPlace.name}</strong>
-                        <span className="badge">{localPlace.type}</span>
-                        {localPlace.distance_km && (
-                          <span className="distance-badge">{localPlace.distance_km} km</span>
-                        )}
-                        {localPlace.id && availabilityStatus[String(localPlace.id)] !== undefined && (
-                          <span className={`availability-badge ${availabilityStatus[String(localPlace.id)] ? 'available' : 'unavailable'}`}>
-                            {availabilityStatus[String(localPlace.id)] ? '✓ Disponible' : '✗ Sin cupo'}
-                          </span>
-                        )}
-                        {localPlace.id && qualityScores[String(localPlace.id)] && (
-                          <span className="quality-badge">
-                            ★ {qualityScores[String(localPlace.id)]}/100
-                          </span>
-                        )}
+          {messages.map(chatMessage => (
+            <div key={chatMessage.id} className={`chat-message ${chatMessage.role}`}>
+              {chatMessage.role === 'assistant' && <div className="chat-avatar">DC</div>}
+              <div className="chat-bubble">
+                <div className="chat-author">
+                  {chatMessage.role === 'assistant' ? t('donChucho.title', 'Don Chucho') : t('donChucho.you', 'Tú')}
+                </div>
+                <p style={{ whiteSpace: 'pre-line' }}>{chatMessage.text}</p>
+
+                {chatMessage.places && chatMessage.places.length > 0 && (
+                  <div className="local-places-results">
+                    {chatMessage.places.map((localPlace, index) => (
+                      <div key={`${chatMessage.id}-${localPlace.id ?? index}`} className="local-place-card">
+                        <div className="local-place-header">
+                          <strong>{localPlace.name}</strong>
+                          <span className="badge">{localPlace.type}</span>
+                          {localPlace.distance_km && <span className="distance-badge">{localPlace.distance_km} km</span>}
+                          {localPlace.id && availabilityStatus[String(localPlace.id)] !== undefined && (
+                            <span className={`availability-badge ${availabilityStatus[String(localPlace.id)] ? 'available' : 'unavailable'}`}>
+                              {availabilityStatus[String(localPlace.id)]
+                                ? t('donChucho.available', '✓ Disponible')
+                                : t('donChucho.unavailable', '✗ Sin cupo')}
+                            </span>
+                          )}
+                          {localPlace.id && qualityScores[String(localPlace.id)] && (
+                            <span className="quality-badge">★ {qualityScores[String(localPlace.id)]}/100</span>
+                          )}
+                        </div>
+                        <p>{localPlace.description}</p>
+                        <div className="local-place-actions">
+                          {localPlace.contact.whatsapp && (
+                            <button
+                              type="button"
+                              onClick={() => void handleWhatsApp(localPlace.contact.whatsapp!, localPlace.id)}
+                              className="whatsapp-btn"
+                            >
+                              WhatsApp One-Tap
+                            </button>
+                          )}
+                          {localPlace.contact.phone && (
+                            <a href={`tel:${localPlace.contact.phone}`} className="phone-btn">
+                              {t('donChucho.call', 'Llamar')}
+                            </a>
+                          )}
+                        </div>
                       </div>
-                      <p>{localPlace.description}</p>
-                      <div className="local-place-actions">
-                        {localPlace.contact.whatsapp && (
-                          <button
-                            onClick={() => handleWhatsApp(localPlace.contact.whatsapp!, localPlace.id)}
-                            className="whatsapp-btn"
-                          >
-                            WhatsApp One-Tap
-                          </button>
-                        )}
-                        {localPlace.contact.phone && (
-                          <a href={`tel:${localPlace.contact.phone}`} className="phone-btn">
-                            Llamar
-                          </a>
-                        )}
+                    ))}
+                  </div>
+                )}
+
+                {chatMessage.authentic && chatMessage.authentic.length > 0 && (
+                  <div className="authentic-places-section">
+                    <h4>{t('donChucho.authenticPlaces', 'Lugares auténticos recomendados')}</h4>
+                    {chatMessage.authentic.map((place, index) => (
+                      <div key={`${chatMessage.id}-authentic-${index}`} className="authentic-place-item">
+                        <strong>{place.name}</strong>
+                        <span className="authenticity-badge">{place.local_approval}</span>
                       </div>
-                    </div>
-                  ))}
-                </div>
-              )}
-              
-              {authenticPlaces.length > 0 && (
-                <div className="authentic-places-section">
-                  <h4>Lugares auténticos recomendados</h4>
-                  {authenticPlaces.map((place, index) => (
-                    <div key={index} className="authentic-place-item">
-                      <strong>{place.name}</strong>
-                      <span className="authenticity-badge">
-                        {place.local_approval}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              )}
-              
-              {nearbyPlaces.length > 0 && (
-                <div className="nearby-section">
-                  <h4>Servicios cercanos a ti:</h4>
-                  {nearbyPlaces.slice(0, 3).map((place, index) => (
-                    <div key={index} className="nearby-card">
-                      <strong>{place.name}</strong>
-                      <span className="nearby-distance">{place.distance_km} km</span>
-                    </div>
-                  ))}
-                </div>
-              )}
+                    ))}
+                  </div>
+                )}
+
+                {chatMessage.nearby && chatMessage.nearby.length > 0 && (
+                  <div className="nearby-section">
+                    <h4>{t('donChucho.nearbyPlaces', 'Servicios cercanos a ti:')}</h4>
+                    {chatMessage.nearby.slice(0, 3).map((place, index) => (
+                      <div key={`${chatMessage.id}-nearby-${index}`} className="nearby-card">
+                        <strong>{place.name}</strong>
+                        <span className="nearby-distance">{place.distance_km} km</span>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </div>
+          ))}
+
+          {isLoading && (
+            <div className="chat-message assistant">
+              <div className="chat-avatar">DC</div>
+              <div className="chat-bubble typing" aria-label={t('donChucho.thinking', 'Don Chucho está pensando...')}>
+                <span />
+                <span />
+                <span />
+              </div>
+            </div>
+          )}
+
+          {isListening && (
+            <div className="voice-interim" role="status">
+              {interimText || t('donChucho.listening', 'Escuchando...')}
             </div>
           )}
         </div>
-        
+
+        {suggestions.length > 0 && !isLoading && (
+          <div className="chat-suggestions" aria-label={t('donChucho.suggestions', 'También puedes preguntar:')}>
+            {suggestions.map(suggestion => (
+              <button
+                key={suggestion}
+                type="button"
+                className="suggestion-chip"
+                onClick={() => void handleSendMessage(suggestion)}
+              >
+                {suggestion}
+              </button>
+            ))}
+          </div>
+        )}
+
         <div className="input-area">
-          <button 
+          <button
+            type="button"
             onClick={handleVoiceCommand}
-            className="voice-btn"
+            className={`voice-btn ${isListening ? 'listening' : ''}`}
             title={t('donChucho.voiceCommand', 'Voice input')}
+            aria-label={t('donChucho.voiceCommand', 'Voice input')}
+            aria-pressed={isListening}
           >
-            🎤
+            {isListening ? '⏹️' : '🎤'}
           </button>
           <input
+            ref={inputRef}
             type="text"
             value={message}
-            onChange={(e) => setMessage(e.target.value)}
-            placeholder={t('donChucho.placeholder', 'Ask Don Chucho...')}
-            onKeyDown={(e) => e.key === 'Enter' && handleSendMessage()}
+            onChange={event => setMessage(event.target.value)}
+            placeholder={isListening
+              ? (interimText || t('donChucho.listening', 'Escuchando...'))
+              : t('donChucho.placeholder', 'Ask Don Chucho...')}
+            onKeyDown={event => {
+              if (event.key === 'Enter') {
+                event.preventDefault()
+                void handleSendMessage()
+              }
+            }}
           />
-          <button 
-            onClick={handleSendMessage}
-            disabled={isLoading}
+          <button
+            type="button"
+            onClick={() => void handleSendMessage()}
+            disabled={isLoading || !message.trim()}
             className="send-btn"
           >
             {isLoading ? '...' : t('donChucho.sendQuestion', 'Send question')}
           </button>
-          
+
           <div className="voice-controls">
-            <button 
+            <button
+              type="button"
               onClick={toggleVoice}
               className={`voice-toggle ${voiceEnabled ? 'enabled' : 'disabled'}`}
               title={voiceEnabled ? t('donChucho.voiceEnabled', 'Read-aloud enabled') : t('donChucho.voiceDisabled', 'Read-aloud disabled')}
@@ -576,9 +760,10 @@ function EnhancedDonChucho({ language, t, onFallback, onClose, existingComponent
             >
               {voiceEnabled ? '🔊' : '🔇'}
             </button>
-            
+
             {isSpeaking && (
-              <button 
+              <button
+                type="button"
                 onClick={stopSpeaking}
                 className="stop-voice-btn"
                 title={t('donChucho.stopVoice', 'Stop speaking')}
@@ -587,19 +772,18 @@ function EnhancedDonChucho({ language, t, onFallback, onClose, existingComponent
                 ⏹️
               </button>
             )}
-            
+
             {languageVoices.length > 1 && (
-              <select 
+              <select
                 value={selectedVoice?.name || ''}
                 aria-label={t('donChucho.selectVoice', 'Select voice')}
-                onChange={(e) => {
-                  // Solo voces del idioma activo (evita elegir voces ajenas)
-                  const voice = languageVoices.find(v => v.name === e.target.value)
+                onChange={event => {
+                  const voice = languageVoices.find(item => item.name === event.target.value)
                   if (voice) handleVoiceChange(voice)
                 }}
                 className="voice-selector"
               >
-                {languageVoices.map((voice) => (
+                {languageVoices.map(voice => (
                   <option key={`${voice.name}-${voice.lang}`} value={voice.name}>
                     {voice.name} ({voice.lang})
                   </option>

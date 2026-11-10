@@ -62,7 +62,7 @@
     },
     {
       "id": 20,
-      "label": "Cabalgatas Cocora Mágica",
+      "label": "Cabalgatas Cocora Magic",
       "type": "Turístico",
       "placeId": 20,
       "coord": [
@@ -70,7 +70,7 @@
         -75.5738
       ],
       "tone": "success",
-      "note": "Cabalgatas Cocora Mágica"
+      "note": "Cabalgatas Cocora Magic"
     },
     {
       "id": 16,

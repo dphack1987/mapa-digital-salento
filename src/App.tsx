@@ -934,7 +934,7 @@ function App() {
 
   const featuredPautantes = useMemo(() => {
     // Prioridad: assets en /pautas/ > orden editorial > resto de pautantes (todos, sin cortar)
-    const wanted = ['CocoraTrek', 'Cabalgatas Cocora Mágica', 'Moto Aventura 110', 'Finca Don Eduardo Coffee Tour', 'Fonda Boquía', 'Reserva Natural Cascadas de Santa Rita', 'El Recuerdo Coffee Tour']
+    const wanted = ['CocoraTrek', 'Cabalgatas Cocora Magic', 'Moto Aventura 110', 'Finca Don Eduardo Coffee Tour', 'Fonda Boquía', 'Reserva Natural Cascadas de Santa Rita', 'El Recuerdo Coffee Tour']
     const withPautasAssets = places.filter(p => p.isPautante && (p.photos || []).some(src => String(src).startsWith('/pautas/')))
     const byName = withPautasAssets.filter(p => wanted.includes(p.name))
     const byNameRest = withPautasAssets.filter(p => !wanted.includes(p.name))
@@ -2185,6 +2185,7 @@ function App() {
           <EnhancedDonChucho
             language={language}
             t={t}
+            places={places}
             onClose={() => setShowDonChuchoAI(false)}
             onFallback={() => {
               setShowDonChuchoAI(false)

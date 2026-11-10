@@ -112,7 +112,7 @@
     * title, description, heroLead, secciones H2 (Antes de ir / Itinerario / Cómo llegar / Presupuesto / Consejos / Dónde dormir / Dónde comer / FAQs).
     * Si la guía es tipo "procedimiento" / "itinerario" / "cómo llegar" / "mochila" / "qué llevar" -> emitir HowTo schema con >= 3 HowToStep, name, text, image url.
     * Mini-FAQ: 5 preguntas/respuestas por guía (obligatorio).
-    * "Te puede interesar": enlaza 3 landings pautantes relacionados con la temática (ej guía Valle Cocora -> Cabalgatas Cocora Mágica, Guías del Cocora, Jeeps Willys Salento) y 2 categorías (Experiencias + Alojamientos).
+    * "Te puede interesar": enlaza 3 landings pautantes relacionados con la temática (ej guía Valle Cocora -> Cabalgatas Cocora Magic, Guías del Cocora, Jeeps Willys Salento) y 2 categorías (Experiencias + Alojamientos).
     * Placeholder `<!-- TODO: contenido long-form humano autor -->` justo después de cada H2 para posterior reemplazo.
 - **Acceptance Criteria Addressed**: AC-2, AC-6, AC-7, AC-11
 - **Test Requirements**:

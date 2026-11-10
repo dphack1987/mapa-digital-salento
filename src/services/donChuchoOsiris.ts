@@ -159,9 +159,13 @@ export const OsirisEnhancedResponses = {
 /** Detecta si una pregunta es sobre el clima */
 export function shouldUseOsirisData(query: string): boolean {
   const keywords = [
-    'clima', 'weather', 'lluvia', 'llover', 'lloviendo', 'tormenta',
-    'temperatura', 'pronóstico', 'pronostico', 'forecast', 'weather forecast',
-    'hace calor', 'hace frío', 'hace frio'
+    'clima', 'weather', 'rain', 'raining', 'lluvia', 'llover', 'lloviendo', 'tormenta',
+    'temperatura', 'temperature', 'pronóstico', 'pronostico', 'forecast', 'weather forecast',
+    'hace calor', 'hace frío', 'hace frio',
+    'wetter', 'regen', 'regnet', 'temperatur', 'vorhersage',
+    'météo', 'meteo', 'pluie', 'pleut', 'température', 'prévisions', 'previsions',
+    'tempo', 'chuva', 'chovendo', 'previsão', 'previsao',
+    'pioggia', 'piove', 'previsioni'
   ];
   const lowerQuery = query.toLowerCase();
   return keywords.some(keyword => lowerQuery.includes(keyword));
@@ -174,17 +178,7 @@ export async function getOsirisResponse(query: string, language: string = 'es'):
   if (!lang) return null;
   if (!shouldUseOsirisData(query)) return null;
 
-  const lowerQuery = query.toLowerCase();
-
-  if (lowerQuery.includes('clima') || lowerQuery.includes('weather') || lowerQuery.includes('lluvia') || lowerQuery.includes('llover') || lowerQuery.includes('lloviendo') || lowerQuery.includes('tormenta') || lowerQuery.includes('temperatura') || lowerQuery.includes('pronóstico') || lowerQuery.includes('pronostico') || lowerQuery.includes('forecast') || lowerQuery.includes('hace calor') || lowerQuery.includes('hace frío') || lowerQuery.includes('hace frio')) {
-    return await OsirisEnhancedResponses.clima(lang);
-  }
-
-  if (!navigator.onLine) {
-    return await OsirisEnhancedResponses.offlineResponse(lang);
-  }
-
-  return null;
+  return await OsirisEnhancedResponses.clima(lang);
 }
 
 /**

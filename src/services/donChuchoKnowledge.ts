@@ -2,10 +2,21 @@
 // Contiene información específica sobre Salento y el Quindío
 
 import type { Language } from '../types'
+import {
+  detectKnowledgeIntent,
+  expandQuery,
+  fallbackReply,
+  fuzzyWordMatch,
+  INTENT_CATEGORIES,
+  localizedSuggestions,
+  normalizeText
+} from './donChuchoNlu'
 
-interface KnowledgeItem {
+export type KnowledgeCategory = 'cafe' | 'comida' | 'artesanias' | 'hospedaje' | 'turismo' | 'transporte' | 'emergencias' | 'general' | 'defensivo' | 'historia' | 'municipios' | 'gastronomia' | 'consejos' | 'experiencias' | 'festivales'
+
+export interface KnowledgeItem {
   keywords: string[]
-  category: 'cafe' | 'comida' | 'artesanias' | 'hospedaje' | 'turismo' | 'transporte' | 'emergencias' | 'general' | 'defensivo' | 'historia' | 'municipios' | 'gastronomia' | 'consejos' | 'experiencias' | 'festivales'
+  category: KnowledgeCategory
   answer: {
     es: string
     en: string
@@ -30,6 +41,22 @@ interface KnowledgeItem {
   urgency?: 'low' | 'medium' | 'high'
   sources?: string[]
 }
+
+const GENERIC_KEYWORDS = new Set([
+  'precio', 'precios', 'cuanto', 'cuanta', 'cuantos', 'cuantas', 'cuesta',
+  'cuestan', 'presupuesto', 'dinero', 'gastar', 'economico', 'barato',
+  'tarifa', 'valor', 'coste', 'cost', 'price', 'how much', 'cuanto cuesta',
+  'cuanto vale', 'cuanto sale'
+])
+
+const QUERY_STOPWORDS = new Set([
+  'el', 'la', 'los', 'las', 'un', 'una', 'unos', 'unas', 'de', 'del', 'al',
+  'que', 'y', 'o', 'en', 'por', 'para', 'con', 'sin', 'mi', 'me', 'te', 'se',
+  'su', 'sus', 'es', 'esta', 'estan', 'son', 'hay', 'como', 'the', 'a', 'an',
+  'of', 'to', 'in', 'on', 'at', 'is', 'are', 'do', 'does', 'i', 'my', 'we',
+  'you', 'it', 'for', 'with', 'what', 'where', 'how', 'much', 'can', 'want',
+  'would', 'like', 'please', 'por', 'favor'
+])
 
 const knowledgeBase: KnowledgeItem[] = [
   // ═══════════════════════════════════════════════════════════
@@ -247,7 +274,7 @@ const knowledgeBase: KnowledgeItem[] = [
     followUp: ['¿Cómo llegar desde allá?', '¿Qué ver en Armenia?', '¿Aeropuerto?']
   },
   {
-    keywords: ['filandia', 'mirador', 'torre mirador', 'hija de los andes'],
+    keywords: ['filandia', 'torre mirador filandia', 'mirador de filandia', 'hija de los andes'],
     category: 'municipios',
     answer: {
       es: 'Filandia es "Hija de los Andes". Su Torre Mirador ofrece vistas de 360 grados de tres departamentos. Arquitectura original, artesanías en guadua, café especial y ambiente bohemio. A 26 km de Armenia.',
@@ -565,15 +592,15 @@ const knowledgeBase: KnowledgeItem[] = [
     relatedPlaces: [19]
   },
   {
-    keywords: ['cabalgatas cocora magica', 'cocora magica', 'cabalgatas salento', 'cabalgatas', 'caballo'],
+    keywords: ['cabalgatas cocora magic', 'cocora magic', 'cabalgatas salento', 'cabalgatas', 'caballo'],
     category: 'turismo',
     answer: {
-      es: 'Cabalgatas Cocora Mágica es opción para vivir el Valle de Cocora de forma distinta. Experiencia, paisaje y propuesta tradicional. Incluye recorrido con caballos entrenados. ¿Horario o recomendado para familias?',
-      en: 'Cabalgatas Cocora Mágica is an option to experience Cocora Valley differently. Experience, landscape and traditional proposal. Includes ride with trained horses. Schedule or family-friendly?',
-      de: 'Cabalgatas Cocora Mágica ist eine Option, das Cocora-Tal anders zu erleben. Erlebnis, Landschaft und traditionelles Angebot. Inklusive Ride mit trainierten Pferden. Zeitplan oder familienfreundlich?',
-      fr: 'Cabalgatas Cocora Mágica est une option pour vivre la vallée de Cocora différemment. Expérience, paysage et proposition traditionnelle. Inclut une promenade à cheval entraînés. Horaire ou adapté aux familles ?',
-      pt: 'Cabalgatas Cocora Mágica é uma opção para viver o Vale de Cocora de forma diferente. Experiência, paisagem e proposta tradicional. Inclui passeio com cavalos treinados. Horário ou recomendado para famílias?',
-      it: 'Cabalgatas Cocora Mágica è un\'opzione per vivere la Valle di Cocora in modo diverso. Esperienza, paesaggio e proposta tradizionale. Include cavalcata con cavalli addestrati. Orario o adatto alle famiglie?'
+      es: 'Cabalgatas Cocora Magic es opción para vivir el Valle de Cocora de forma distinta. Experiencia, paisaje y propuesta tradicional. Incluye recorrido con caballos entrenados. ¿Horario o recomendado para familias?',
+      en: 'Cabalgatas Cocora Magic is an option to experience Cocora Valley differently. Experience, landscape and traditional proposal. Includes ride with trained horses. Schedule or family-friendly?',
+      de: 'Cabalgatas Cocora Magic ist eine Option, das Cocora-Tal anders zu erleben. Erlebnis, Landschaft und traditionelles Angebot. Inklusive Ride mit trainierten Pferden. Zeitplan oder familienfreundlich?',
+      fr: 'Cabalgatas Cocora Magic est une option pour vivre la vallée de Cocora différemment. Expérience, paysage et proposition traditionnelle. Inclut une promenade à cheval entraînés. Horaire ou adapté aux familles ?',
+      pt: 'Cabalgatas Cocora Magic é uma opção para viver o Vale de Cocora de forma diferente. Experiência, paisagem e proposta tradicional. Inclui passeio com cavalos treinados. Horário ou recomendado para famílias?',
+      it: 'Cabalgatas Cocora Magic è un\'opzione per vivere la Valle di Cocora in modo diverso. Esperienza, paesaggio e proposta tradizionale. Include cavalcata con cavalli addestrati. Orario o adatto alle famiglie?'
     },
     followUp: ['¿Incluye transporte?', '¿Es buena para familias?', '¿Cuánto dura?'],
     relatedPlaces: [20]
@@ -607,7 +634,7 @@ const knowledgeBase: KnowledgeItem[] = [
     relatedPlaces: [104, 113]
   },
   {
-    keywords: ['mirador', 'cruz', 'vista', 'paisaje', 'alto de la cruz'],
+    keywords: ['alto de la cruz', 'mirador alto de la cruz', 'mirador de salento', 'el mirador', 'mirador', 'cruz de salento'],
     category: 'turismo',
     answer: {
       es: 'El Alto de la Cruz te deja sin palabras - ahí se ve todo Salento y el valle como un cuadro. Son 15 minutos caminando desde el pueblo, pero las vistas valen cada paso. Ideal para fotos al atardecer.',
@@ -1008,39 +1035,167 @@ const knowledgeBase: KnowledgeItem[] = [
     },
     followUp: ['¿Dónde están los puntos?', '¿Es gratis?', '¿Necesito app?'],
     relatedPlaces: []
+  },
+  {
+    keywords: ['tour cafetero', 'tour del cafe', 'tour de cafe', 'tour cafe', 'coffee tour', 'coffee tours', 'cuanto cuesta el tour', 'precio tour cafetero', 'experiencia cafetera', 'finca cafetera tour'],
+    category: 'cafe',
+    answer: {
+      es: 'Los coffee tours en Salento duran entre 1 y 3 horas y cuestan aproximadamente $80.000-$200.000 COP por persona, según la finca y lo que incluyan. Opciones reconocidas: Finca Don Eduardo, Finca Cafetera Don Elías, El Recuerdo Coffee Tour y Finca Hotel El Ocaso. Reserva con anticipación, sobre todo en temporada alta. ¿Quiere uno educativo, familiar o con cata?',
+      en: 'Coffee tours in Salento last 1-3 hours and cost about COP 80,000-200,000 per person, depending on the farm and inclusions. Well-known options: Finca Don Eduardo, Finca Cafetera Don Elías, El Recuerdo Coffee Tour and Finca Hotel El Ocaso. Book ahead, especially in high season. Do you want an educational, family-friendly or tasting tour?',
+      de: 'Kaffeetouren in Salento dauern 1-3 Stunden und kosten etwa 80.000-200.000 COP pro Person, je nach Farm und Leistungen. Bekannte Optionen: Finca Don Eduardo, Finca Cafetera Don Elías, El Recuerdo Coffee Tour und Finca Hotel El Ocaso. Buchen Sie frühzeitig, besonders in der Hochsaison. Möchten Sie eine lehrreiche, familienfreundliche oder Verkostungs-Tour?',
+      fr: 'Les coffee tours à Salento durent 1 à 3 heures et coûtent environ 80 000 à 200 000 COP par personne, selon la ferme et les inclusions. Options connues : Finca Don Eduardo, Finca Cafetera Don Elías, El Recuerdo Coffee Tour et Finca Hotel El Ocaso. Réservez à l\'avance, surtout en haute saison. Vous préférez une visite éducative, familiale ou avec dégustation ?',
+      pt: 'Os coffee tours em Salento duram de 1 a 3 horas e custam cerca de COP 80.000-200.000 por pessoa, dependendo da fazenda e do que incluem. Opções conhecidas: Finca Don Eduardo, Finca Cafetera Don Elías, El Recuerdo Coffee Tour e Finca Hotel El Ocaso. Reserve com antecedência, especialmente na alta temporada. Você quer um tour educativo, para famílias ou com degustação?',
+      it: 'I coffee tour a Salento durano 1-3 ore e costano circa 80.000-200.000 COP a persona, a seconda della fattoria e di ciò che includono. Opzioni note: Finca Don Eduardo, Finca Cafetera Don Elías, El Recuerdo Coffee Tour e Finca Hotel El Ocaso. Prenota in anticipo, soprattutto in alta stagione. Preferisci un tour educativo, per famiglie o con degustazione?'
+    },
+    followUp: ['¿Cuál es el mejor?', '¿Incluye cata?', '¿Hay en inglés?']
+  },
+  {
+    keywords: ['artesanias', 'artesania', 'comprar artesanias', 'donde comprar artesanias', 'souvenir', 'souvenirs', 'recuerdos', 'recuerdo', 'guadua', 'mochilas', 'cesteria', 'tejidos'],
+    category: 'artesanias',
+    answer: {
+      es: 'Las artesanías de Salento son memoria viva: mochilas, tejidos en lana, cestería en guadua, tallas en madera, café y chocolate local. La Calle Real y la Plaza de Bolívar concentran talleres y tiendas; también hay ferias artesanales algunos fines de semana. Lleva efectivo y compra directo al artesano. ¿Busca algo en especial?',
+      en: 'Salento crafts are living memory: bags, wool textiles, guadua basketry, wood carvings, local coffee and chocolate. Calle Real and Plaza de Bolívar concentrate workshops and shops; there are also craft fairs some weekends. Bring cash and buy directly from the artisan. Are you looking for something specific?',
+      de: 'Das Kunsthandwerk von Salento ist lebendige Erinnerung: Taschen, Wolltextilien, Guadua-Korbflechtkunst, Holzschnitzereien, lokaler Kaffee und Schokolade. Calle Real und Plaza de Bolívar konzentrieren Werkstätten und Geschäfte; an manchen Wochenenden gibt es auch Kunsthandwerksmärkte. Bringen Sie Bargeld mit und kaufen Sie direkt beim Handwerker. Suchen Sie etwas Bestimmtes?',
+      fr: 'L\'artisanat de Salento est une mémoire vivante : sacs, textiles en laine, vannerie en guadua, sculptures sur bois, café et chocolat locaux. La Calle Real et la Plaza de Bolívar concentrent ateliers et boutiques ; il y a aussi des foires artisanales certains week-ends. Emportez des espèces et achetez directement à l\'artisan. Vous cherchez quelque chose en particulier ?',
+      pt: 'O artesanato de Salento é memória viva: bolsas, tecidos de lã, cestaria em guadua, entalhes em madeira, café e chocolate local. A Calle Real e a Plaza de Bolívar concentram oficinas e lojas; também há feiras artesanais em alguns fins de semana. Leve dinheiro e compre direto do artesão. Procura algo específico?',
+      it: 'L\'artigianato di Salento è memoria viva: borse, tessuti in lana, cesteria in guadua, intagli in legno, caffè e cioccolato locali. La Calle Real e la Plaza de Bolívar concentrano laboratori e negozi; ci sono anche fiere artigianali in alcuni fine settimana. Porta contanti e compra direttamente dall\'artigiano. Cerchi qualcosa in particolare?'
+    },
+    followUp: ['¿Dónde comprar?', '¿Qué es típico?', '¿Aceptan tarjeta?']
+  },
+  {
+    keywords: ['aceptan tarjeta', 'pagar con tarjeta', 'tarjeta de credito', 'tarjeta debito', 'efectivo', 'cajero', 'atm', 'dinero', 'pago', 'pagar'],
+    category: 'consejos',
+    answer: {
+      es: 'En Salento muchos restaurantes, cafés y tiendas aceptan tarjeta, pero los puestos de la plaza, artesanos y algunos transportes prefieren efectivo. Hay cajeros en el pueblo y más opciones en Armenia. Lleva algo de efectivo para propinas, artesanías y buses. ¿Necesita un cajero cerca?',
+      en: 'In Salento many restaurants, cafés and shops accept cards, but square stalls, artisans and some transport prefer cash. There are ATMs in town and more options in Armenia. Bring some cash for tips, crafts and buses. Do you need a nearby ATM?',
+      de: 'In Salento akzeptieren viele Restaurants, Cafés und Geschäfte Karten, aber Marktstände, Handwerker und manche Transporte bevorzugen Bargeld. Es gibt Geldautomaten im Ort und mehr Optionen in Armenia. Nehmen Sie etwas Bargeld für Trinkgelder, Handwerk und Busse mit. Brauchen Sie einen Geldautomaten in der Nähe?',
+      fr: 'À Salento, beaucoup de restaurants, cafés et boutiques acceptent la carte, mais les étals de la place, les artisans et certains transports préfèrent les espèces. Il y a des distributeurs dans le village et plus d\'options à Armenia. Emportez un peu d\'espèces pour les pourboires, l\'artisanat et les bus. Besoin d\'un distributeur proche ?',
+      pt: 'Em Salento, muitos restaurantes, cafés e lojas aceitam cartão, mas as barracas da praça, artesãos e alguns transportes preferem dinheiro. Há caixas eletrônicos na cidade e mais opções em Armenia. Leve algum dinheiro para gorjetas, artesanato e ônibus. Precisa de um caixa eletrônico perto?',
+      it: 'A Salento molti ristoranti, caffè e negozi accettano carte, ma le bancarelle della piazza, gli artigiani e alcuni trasporti preferiscono contanti. Ci sono bancomat in paese e più opzioni ad Armenia. Porta un po\' di contanti per mance, artigianato e autobus. Ti serve un bancomat vicino?'
+    },
+    followUp: ['¿Dónde hay cajero?', '¿Aceptan tarjeta en el valle?', '¿Puedo pagar con dólares?']
+  },
+  {
+    keywords: ['estacionamiento', 'parqueadero', 'parking', 'donde parquear', 'parquear', 'carro', 'auto'],
+    category: 'transporte',
+    answer: {
+      es: 'Salento es pequeño y las calles se congestionan; hay parqueaderos privados cerca de la plaza y en la entrada del pueblo, cobran por hora. Para el Valle de Cocora hay parqueadero en la entrada y desde allí salen los jeeps. Los fines de semana llega temprano. ¿Va en carro propio?',
+      en: 'Salento is small and streets get congested; there are private parking lots near the square and at the town entrance, charged by the hour. For Cocora Valley there is parking at the entrance and jeeps leave from there. On weekends arrive early. Are you driving your own car?',
+      de: 'Salento ist klein und die Straßen sind oft voll; es gibt private Parkplätze nahe dem Platz und am Ortseingang, stundenweise bezahlt. Für das Cocora-Tal gibt es Parkplätze am Eingang, von dort fahren die Jeeps. Am Wochenende früh kommen. Reisen Sie mit eigenem Auto?',
+      fr: 'Salento est petit et les rues sont souvent encombrées ; il y a des parkings privés près de la place et à l\'entrée du village, payés à l\'heure. Pour le Valle de Cocora, il y a un parking à l\'entrée et les jeeps partent de là. Le week-end, arrivez tôt. Vous venez en voiture ?',
+      pt: 'Salento é pequeno e as ruas ficam congestionadas; há estacionamentos privados perto da praça e na entrada da cidade, cobrados por hora. Para o Vale de Cocora há estacionamento na entrada e os jipes saem de lá. Nos fins de semana, chegue cedo. Você vem de carro próprio?',
+      it: 'Salento è piccolo e le strade si congestionano; ci sono parcheggi privati vicino alla piazza e all\'ingresso del paese, a pagamento orario. Per la Valle di Cocora c\'è parcheggio all\'ingresso e da lì partono le jeep. Nei fine settimana arriva presto. Vieni con la tua auto?'
+    },
+    followUp: ['¿Cuánto cuesta?', '¿Hay cerca de la plaza?', '¿Y para el valle?']
+  },
+  {
+    keywords: ['mascota', 'mascotas', 'perro', 'perros', 'gato', 'gatos', 'pet', 'viajar con perro', 'llevar perro'],
+    category: 'consejos',
+    answer: {
+      es: 'Salento es amable con las mascotas, pero no todos los hoteles, restaurantes ni tours las aceptan. En el Valle de Cocora y áreas naturales hay restricciones por fauna y cultivos; confirma siempre antes de reservar. Lleva correa, agua y bolsas. ¿Quiere que le sugiera lugares pet-friendly?',
+      en: 'Salento is pet-friendly, but not every hotel, restaurant or tour accepts pets. In Cocora Valley and natural areas there are restrictions due to wildlife and crops; always confirm before booking. Bring a leash, water and bags. Want pet-friendly suggestions?',
+      de: 'Salento ist haustierfreundlich, aber nicht jedes Hotel, Restaurant oder jede Tour akzeptiert Haustiere. Im Cocora-Tal und in Naturschutzgebieten gibt es Einschränkungen wegen Fauna und Anbau; bestätigen Sie immer vor der Buchung. Bringen Sie Leine, Wasser und Beutel mit. Möchten Sie haustierfreundliche Tipps?',
+      fr: 'Salento est favorable aux animaux, mais tous les hôtels, restaurants et visites ne les acceptent pas. Dans le Valle de Cocora et les zones naturelles, il y a des restrictions pour la faune et les cultures ; confirmez toujours avant de réserver. Emportez laisse, eau et sacs. Vous voulez des suggestions pet-friendly ?',
+      pt: 'Salento é amigável para pets, mas nem todos os hotéis, restaurantes ou tours aceitam animais. No Vale de Cocora e áreas naturais há restrições por fauna e cultivos; confirme sempre antes de reservar. Leve coleira, água e sacolas. Quer sugestões pet-friendly?',
+      it: 'Salento è pet-friendly, ma non tutti gli hotel, ristoranti o tour accettano animali. Nella Valle di Cocora e nelle aree naturali ci sono restrizioni per fauna e coltivazioni; conferma sempre prima di prenotare. Porta guinzaglio, acqua e sacchetti. Vuoi suggerimenti pet-friendly?'
+    },
+    followUp: ['¿Hoteles pet-friendly?', '¿Puedo ir al valle?', '¿Restaurantes con patio?']
+  },
+  {
+    keywords: ['acampar', 'camping', 'campamento', 'carpa', 'dormir en carpa'],
+    category: 'turismo',
+    answer: {
+      es: 'Acampar dentro del Valle de Cocora no está permitido en la mayor parte del área protegida; hay fincas y hostales cercanos con zonas de camping y glamping. Para acampar legalmente, reserva en un establecimiento autorizado y confirma las normas de la reserva natural. ¿Prefiere camping o glamping?',
+      en: 'Camping inside Cocora Valley is not allowed in most of the protected area; nearby farms and hostels offer camping and glamping areas. To camp legally, book at an authorized place and confirm the natural reserve rules. Do you prefer camping or glamping?',
+      de: 'Camping im Cocora-Tal ist im Großteil des Schutzgebiets nicht erlaubt; nahe Farmen und Hostels bieten Camping- und Glamping-Bereiche. Um legal zu campen, buchen Sie an einem autorisierten Ort und bestätigen Sie die Regeln des Naturschutzgebiets. Camping oder Glamping?',
+      fr: 'Le camping dans le Valle de Cocora n\'est pas autorisé dans la majeure partie de l\'aire protégée ; des fermes et auberges proches proposent camping et glamping. Pour camper légalement, réservez dans un établissement autorisé et confirmez les règles de la réserve. Camping ou glamping ?',
+      pt: 'Acampar dentro do Vale de Cocora não é permitido na maior parte da área protegida; fazendas e hostels próximos oferecem áreas de camping e glamping. Para acampar legalmente, reserve em um local autorizado e confirme as regras da reserva natural. Prefere camping ou glamping?',
+      it: 'Il campeggio nella Valle di Cocora non è consentito nella maggior parte dell\'area protetta; fattorie e ostelli vicini offrono aree camping e glamping. Per campeggiare legalmente, prenota in una struttura autorizzata e conferma le regole della riserva naturale. Preferisci camping o glamping?'
+    },
+    followUp: ['¿Dónde acampar?', '¿Hay glamping?', '¿Qué llevar?']
+  },
+  {
+    keywords: ['tours en ingles', 'tour en ingles', 'guia en ingles', 'hablan ingles', 'english tour', 'tours ingles'],
+    category: 'experiencias',
+    answer: {
+      es: 'Sí, hay operadores con guías en inglés: CocoraTrek, Cabalgatas Cocora Magic y varias fincas cafeteras ofrecen tours bilingües; algunos también en francés y portugués. Confirma el idioma al reservar y pide guía certificado. ¿Qué tour le interesa?',
+      en: 'Yes, there are operators with English-speaking guides: CocoraTrek, Cabalgatas Cocora Magic and several coffee farms offer bilingual tours; some also in French and Portuguese. Confirm the language when booking and ask for a certified guide. Which tour interests you?',
+      de: 'Ja, es gibt Anbieter mit englischsprachigen Guides: CocoraTrek, Cabalgatas Cocora Magic und mehrere Kaffeefarmen bieten zweisprachige Touren an; einige auch auf Französisch und Portugiesisch. Bestätigen Sie die Sprache bei der Buchung und fragen Sie nach einem zertifizierten Guide. Welche Tour interessiert Sie?',
+      fr: 'Oui, des opérateurs proposent des guides anglophones : CocoraTrek, Cabalgatas Cocora Magic et plusieurs fermes de café offrent des visites bilingues ; certaines aussi en français et portugais. Confirmez la langue à la réservation et demandez un guide certifié. Quelle visite vous intéresse ?',
+      pt: 'Sim, há operadores com guias em inglês: CocoraTrek, Cabalgatas Cocora Magic e várias fazendas de café oferecem tours bilíngues; alguns também em francês e português. Confirme o idioma ao reservar e peça guia certificado. Qual tour te interessa?',
+      it: 'Sì, ci sono operatori con guide in inglese: CocoraTrek, Cabalgatas Cocora Magic e diverse fattorie del caffè offrono tour bilingue; alcuni anche in francese e portoghese. Conferma la lingua alla prenotazione e chiedi una guida certificata. Quale tour ti interessa?'
+    },
+    followUp: ['¿Cuánto cuesta?', '¿Cómo reservo?', '¿Hay en francés?']
+  },
+  {
+    keywords: ['reservar tour', 'reservar un tour', 'reservar tours', 'reservar caminata', 'reservar cabalgata', 'reservar coffee tour', 'como reservo', 'como reservar', 'booking'],
+    category: 'experiencias',
+    answer: {
+      es: 'Para reservar un tour en Salento, lo más rápido es escribir por WhatsApp al operador: CocoraTrek (+57 315 214 6468) para caminatas y tours, o Cabalgatas Cocora Magic para cabalgatas. También puedes reservar directo en las fincas cafeteras. Confirma hora, punto de encuentro e idioma. ¿Qué plan quieres reservar?',
+      en: 'To book a tour in Salento, the fastest way is WhatsApp: CocoraTrek (+57 315 214 6468) for hikes and tours, or Cabalgatas Cocora Magic for horseback rides. You can also book directly at coffee farms. Confirm time, meeting point and language. Which plan do you want to book?',
+      de: 'Um eine Tour in Salento zu buchen, geht es am schnellsten per WhatsApp: CocoraTrek (+57 315 214 6468) für Wanderungen und Touren oder Cabalgatas Cocora Magic für Ausritte. Sie können auch direkt auf den Kaffeefarmen buchen. Bestätigen Sie Uhrzeit, Treffpunkt und Sprache. Welchen Plan möchten Sie buchen?',
+      fr: 'Pour réserver une visite à Salento, le plus rapide est WhatsApp : CocoraTrek (+57 315 214 6468) pour les randonnées et visites, ou Cabalgatas Cocora Magic pour les balades à cheval. Vous pouvez aussi réserver directement dans les fermes de café. Confirmez l\'heure, le point de rencontre et la langue. Quel programme voulez-vous réserver ?',
+      pt: 'Para reservar um tour em Salento, o mais rápido é WhatsApp: CocoraTrek (+57 315 214 6468) para caminhadas e tours, ou Cabalgatas Cocora Magic para cavalgadas. Você também pode reservar direto nas fazendas de café. Confirme horário, ponto de encontro e idioma. Qual plano quer reservar?',
+      it: 'Per prenotare un tour a Salento, il modo più rapido è WhatsApp: CocoraTrek (+57 315 214 6468) per trekking e tour, oppure Cabalgatas Cocora Magic per le cavalcate. Puoi anche prenotare direttamente nelle fattorie del caffè. Conferma orario, punto d\'incontro e lingua. Quale programma vuoi prenotare?'
+    },
+    followUp: ['¿Qué tours hay?', '¿Cuánto cuesta?', '¿Hay guía en inglés?'],
+    relatedPlaces: [122]
+  },
+  {
+    keywords: ['plan romantico', 'romantico', 'romantica', 'pareja', 'luna de miel', 'aniversario', 'cita romantica'],
+    category: 'experiencias',
+    answer: {
+      es: 'Para un plan romántico en Salento: atardecer en el Alto de la Cruz, cena con vista en la plaza, cabalgata al amanecer entre palmas y una noche en finca con chimenea. Reserva con anticipación y pide mesa junto a la ventana. ¿Cuántos días tienen?',
+      en: 'For a romantic plan in Salento: sunset at Alto de la Cruz, dinner with a view at the square, a sunrise horseback ride among palms and a night at a farm with a fireplace. Book ahead and ask for a window table. How many days do you have?',
+      de: 'Für einen romantischen Plan in Salento: Sonnenuntergang am Alto de la Cruz, Abendessen mit Aussicht am Platz, ein Ausritt im Morgengrauen zwischen Palmen und eine Nacht auf einer Finca mit Kamin. Frühzeitig buchen und um einen Fenstertisch bitten. Wie viele Tage haben Sie?',
+      fr: 'Pour un programme romantique à Salento : coucher de soleil à l\'Alto de la Cruz, dîner avec vue sur la place, balade à cheval à l\'aube parmi les palmiers et une nuit dans une finca avec cheminée. Réservez à l\'avance et demandez une table près de la fenêtre. Combien de jours avez-vous ?',
+      pt: 'Para um plano romântico em Salento: pôr do sol no Alto de la Cruz, jantar com vista na praça, cavalgada ao amanhecer entre palmeiras e uma noite em fazenda com lareira. Reserve com antecedência e peça mesa perto da janela. Quantos dias vocês têm?',
+      it: 'Per un programma romantico a Salento: tramonto all\'Alto de la Cruz, cena con vista sulla piazza, cavalcata all\'alba tra le palme e una notte in fattoria con camino. Prenota in anticipo e chiedi un tavolo vicino alla finestra. Quanti giorni avete?'
+    },
+    followUp: ['¿Hotel romántico?', '¿Cena con vista?', '¿Cabalgata al amanecer?']
+  },
+  {
+    keywords: ['con ninos', 'con ninas', 'familia con ninos', 'plan familiar', 'ninos', 'kids', 'familia'],
+    category: 'experiencias',
+    answer: {
+      es: 'Salento es ideal en familia: caminatas cortas al Alto de la Cruz, cabalgatas tranquilas, fincas cafeteras educativas, cascadas de fácil acceso y la plaza para correr. Evita caminatas largas al Valle de Cocora con niños pequeños y lleva impermeable. ¿Qué edades tienen los niños?',
+      en: 'Salento is great for families: short walks to Alto de la Cruz, gentle horseback rides, educational coffee farms, easy-access waterfalls and the square to run around. Avoid long Cocora Valley hikes with small children and bring rain gear. How old are the kids?',
+      de: 'Salento ist ideal für Familien: kurze Wege zum Alto de la Cruz, ruhige Ausritte, lehrreiche Kaffeefarmen, leicht erreichbare Wasserfälle und der Platz zum Toben. Vermeiden Sie lange Wanderungen im Cocora-Tal mit kleinen Kindern und nehmen Sie Regenschutz mit. Wie alt sind die Kinder?',
+      fr: 'Salento est idéal en famille : courtes marches à l\'Alto de la Cruz, balades à cheval tranquilles, fermes de café éducatives, cascades faciles d\'accès et la place pour courir. Évitez les longues randonnées au Valle de Cocora avec de jeunes enfants et emportez un imperméable. Quel âge ont les enfants ?',
+      pt: 'Salento é ideal em família: caminhadas curtas ao Alto de la Cruz, cavalgadas tranquilas, fazendas de café educativas, cachoeiras de fácil acesso e a praça para correr. Evite caminhadas longas no Vale de Cocora com crianças pequenas e leve capa de chuva. Qual a idade das crianças?',
+      it: 'Salento è ideale in famiglia: brevi passeggiate all\'Alto de la Cruz, cavalcate tranquille, fattorie del caffè educative, cascate di facile accesso e la piazza per correre. Evita lunghe escursioni nella Valle di Cocora con bambini piccoli e porta l\'impermeabile. Quanti anni hanno i bambini?'
+    },
+    followUp: ['¿Tours para niños?', '¿Cabalgatas seguras?', '¿Qué evitar?']
+  },
+  {
+    keywords: ['seguro de noche', 'seguridad', 'es seguro', 'peligroso', 'robar', 'delito', 'noche'],
+    category: 'consejos',
+    answer: {
+      es: 'Salento es un pueblo tranquilo y seguro para turistas, incluso de noche en el centro. Como en cualquier destino, usa sentido común: no exhibas objetos de valor, camina por calles iluminadas y usa taxis de confianza para trayectos largos. En el Valle de Cocora no te quedes después del atardecer sin guía. ¿Tiene alguna preocupación concreta?',
+      en: 'Salento is a quiet, safe town for tourists, even at night downtown. As anywhere, use common sense: do not display valuables, walk on lit streets and use trusted taxis for long rides. In Cocora Valley do not stay after sunset without a guide. Any specific concern?',
+      de: 'Salento ist ein ruhiger und sicherer Ort für Touristen, auch nachts im Zentrum. Wie überall: Wertsachen nicht zeigen, beleuchtete Straßen nutzen und für lange Fahrten vertrauenswürdige Taxis nehmen. Im Cocora-Tal nach Sonnenuntergang nicht ohne Guide bleiben. Haben Sie eine konkrete Sorge?',
+      fr: 'Salento est une ville calme et sûre pour les touristes, même le soir dans le centre. Comme partout, usez de bon sens : n\'exhibez pas d\'objets de valeur, marchez dans les rues éclairées et prenez des taxis de confiance pour les longs trajets. Dans le Valle de Cocora, ne restez pas après le coucher du soleil sans guide. Une inquiétude précise ?',
+      pt: 'Salento é uma cidade tranquila e segura para turistas, mesmo à noite no centro. Como em qualquer lugar, use bom senso: não exiba objetos de valor, caminhe por ruas iluminadas e use táxis de confiança para trajetos longos. No Vale de Cocora, não fique após o pôr do sol sem guia. Alguma preocupação específica?',
+      it: 'Salento è un paese tranquillo e sicuro per i turisti, anche di sera in centro. Come ovunque, usa buon senso: non mostrare oggetti di valore, cammina su strade illuminate e usa taxi affidabili per i tragitti lunghi. Nella Valle di Cocora non restare dopo il tramonto senza guida. Hai una preoccupazione specifica?'
+    },
+    followUp: ['¿Taxi de confianza?', '¿Es seguro el valle?', '¿Número de policía?']
   }
 ]
 
 class DonChuchoKnowledge {
   findAnswer(query: string, language: Language = 'es'): KnowledgeItem | null {
-    const normalizedQuery = query
-      .toLowerCase()
-      .normalize('NFD')
-      .replace(/[\u0300-\u036f]/g, '')
-    const scoredResults = this.searchWithScore(normalizedQuery, language)
-    if (scoredResults.length > 0) {
-      return scoredResults[0].item
-    }
-    return null
+    const scoredResults = this.searchWithScore(query, language)
+    if (scoredResults.length === 0) return null
+    if (scoredResults[0].score < 8) return null
+    return scoredResults[0].item
   }
 
   getAnswer(query: string, language: Language = 'es'): string {
     const knowledgeItem = this.findAnswer(query, language)
     if (knowledgeItem) {
-      return knowledgeItem.answer[language] || knowledgeItem.answer.es
+      return knowledgeItem.answer[language] || knowledgeItem.answer.en || knowledgeItem.answer.es
     }
-    switch (language) {
-      case 'de':
-        return 'Ich kann Ihnen bei lokalem Essen, Kunsthandwerk, Kaffee, Aussichtspunkten und Hotellieferungen helfen. Was brauchen Sie genau?'
-      case 'fr':
-        return 'Je peux vous guider vers la nourriture locale, l\'artisanat, le café, les points de vue et les livraisons à l\'hôtel. Qu\'avez-vous besoin exactement ?'
-      case 'pt':
-        return 'Posso te guiar para comida local, artesanato, café, mirantes e entregas no hotel. O que você precisa especificamente?'
-      case 'it':
-        return 'Posso guidarvi verso cibo locale, artigianato, caffè, punti panoramici e consegne in hotel. Di cosa avete bisogno nello specifico?'
-      default:
-        return 'Puedo guiarte hacia comida local, artesanías, café, miradores y domicilios al hotel. ¿Qué necesitas específicamente?'
-    }
+    return fallbackReply(language)
   }
 
   isDefensiveResponse(query: string): boolean {
@@ -1055,7 +1210,14 @@ class DonChuchoKnowledge {
 
   getFollowUpSuggestions(query: string, language: Language = 'es'): string[] {
     const knowledgeItem = this.findAnswer(query, language)
-    return knowledgeItem?.followUp || []
+    if (knowledgeItem?.followUp?.length && language === 'es') {
+      return [...knowledgeItem.followUp]
+    }
+    return localizedSuggestions(knowledgeItem?.category, language)
+  }
+
+  getAllItems(): KnowledgeItem[] {
+    return [...knowledgeBase]
   }
 
   getRelatedPlaces(query: string): number[] {
@@ -1072,56 +1234,82 @@ class DonChuchoKnowledge {
   }
 
   searchWithScore(query: string, language: Language = 'es'): Array<{ item: KnowledgeItem; score: number }> {
-    const normalizedQuery = query.toLowerCase()
+    const original = normalizeText(query)
+    if (!original) return []
+    const expanded = expandQuery(query)
+    const combined = `${original} ${expanded}`
+    const queryWords = new Set(combined.split(' ').filter(Boolean))
+    const queryWordList = [...queryWords]
+    const intent = detectKnowledgeIntent(original)
+    const intentCategories = intent ? INTENT_CATEGORIES[intent] : []
     const results: Array<{ item: KnowledgeItem; score: number }> = []
 
     for (const item of knowledgeBase) {
       let score = 0
-      const queryWords = normalizedQuery.split(/\s+/)
+      let matchedKeywords = 0
+      const matchedKeywordNames: string[] = []
 
       for (const keyword of item.keywords) {
-        const normalizedKeyword = keyword
-          .toLowerCase()
-          .normalize('NFD')
-          .replace(/[\u0300-\u036f]/g, '')
-        if (normalizedQuery.includes(normalizedKeyword)) {
-          score += 12
-          if (normalizedQuery === normalizedKeyword) {
-            score += 8
+        const normalizedKeyword = normalizeText(keyword)
+        if (!normalizedKeyword) continue
+        const keywordWords = normalizedKeyword.split(' ')
+        let keywordScore = 0
+
+        if (keywordWords.length === 1) {
+          if (queryWords.has(normalizedKeyword)) {
+            keywordScore = 12
+          } else if (fuzzyWordMatch(normalizedKeyword, queryWordList)) {
+            keywordScore = 7
           }
+        } else if (combined.includes(normalizedKeyword)) {
+          keywordScore = 18 + Math.min(normalizedKeyword.length, 16)
+        } else {
+          const allWordsPresent = keywordWords.every(word =>
+            queryWords.has(word) || fuzzyWordMatch(word, queryWordList)
+          )
+          if (allWordsPresent) keywordScore = 10
         }
-        for (const word of queryWords) {
-          if (normalizedKeyword === word) {
-            score += 9
-          } else if (word.length >= 4 && normalizedKeyword.includes(word)) {
-            score += 3
-          }
+
+        if (keywordScore > 0) {
+          score += keywordScore
+          matchedKeywords++
+          matchedKeywordNames.push(normalizedKeyword)
         }
       }
 
-      if (score > 0) {
-        results.push({ item, score })
+      if (score === 0) continue
+
+      const hasSpecificQueryToken = queryWordList.some(token =>
+        token.length >= 3 && !GENERIC_KEYWORDS.has(token) && !QUERY_STOPWORDS.has(token)
+      )
+      if (
+        hasSpecificQueryToken &&
+        matchedKeywordNames.length > 0 &&
+        matchedKeywordNames.every(keyword => GENERIC_KEYWORDS.has(keyword))
+      ) {
+        score -= 15
       }
+
+      const primaryKeyword = normalizeText(item.keywords[0])
+      if (primaryKeyword && combined.includes(primaryKeyword)) score += 8
+      if (matchedKeywords > 1) score += Math.min(matchedKeywords * 2, 10)
+      if (intentCategories.includes(item.category)) score += 5
+
+      results.push({ item, score })
     }
 
-    return results.sort((a, b) => b.score - a.score)
+    return results.sort((a, b) => {
+      if (b.score !== a.score) return b.score - a.score
+      const aPrimary = normalizeText(a.item.keywords[0]).length
+      const bPrimary = normalizeText(b.item.keywords[0]).length
+      return bPrimary - aPrimary
+    })
   }
 }
 
 // Función de búsqueda simple para uso directo en componentes
 export function searchLocalKnowledge(query: string, language: Language = 'es'): KnowledgeItem | null {
-  const normalizedQuery = query.toLowerCase()
-  
-  for (const item of knowledgeBase) {
-    for (const keyword of item.keywords) {
-      const normalizedKeyword = keyword.toLowerCase()
-      if (normalizedQuery.includes(normalizedKeyword) || normalizedKeyword.includes(normalizedQuery)) {
-        return item
-      }
-    }
-  }
-  
-  return null
+  return donChuchoKnowledge.findAnswer(query, language)
 }
 
 export const donChuchoKnowledge = new DonChuchoKnowledge()

@@ -1,4 +1,4 @@
-# Cabalgatas Cocora Mágica
+# Cabalgatas Cocora Magic
 
 ## Estado
 - Estado actual: ficha publicada con sitio oficial y tarifas verificadas
@@ -6,7 +6,7 @@
 - Verificación: sitio oficial cocoramagic.com 13/10/2026 (tarifas 2026); tarifas CocoraTours 5/10/2026 como referencia de zona
 
 ## Información confirmada
-- Nombre comercial: Cabalgatas Cocora Mágica (Cocora Magic)
+- Nombre comercial: Cabalgatas Cocora Magic (Cocora Magic)
 - Nombre en TripAdvisor: "COCORA MAGIC" (5.0/5, 6 reseñas, categoría: Transporte en Salento)
 - Sitio web oficial: https://www.cocoramagic.com/
 - Teléfono / WhatsApp: +57 322 334 7153 (24/7)

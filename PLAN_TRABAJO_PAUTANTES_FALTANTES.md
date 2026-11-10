@@ -19,7 +19,7 @@ Cerrar la fase de contenido real y verificable antes de mejorar UX y SEO.
 
 | Pautante | Estado | Ficha | Página publicada |
 |---|---|---|---|
-| Cabalgatas Cocora Mágica | Completado | `pautas/cabalgatas_cocora_magica/` | `/paginas-pautantes/cabalgatas-cocora-magica/` |
+| Cabalgatas Cocora Magic | Completado | `pautas/cabalgatas_cocora_magica/` | `/paginas-pautantes/cabalgatas-cocora-magica/` |
 | Cascadas de Santa Rita | Completado | places.json ids 15/31 | `/paginas-pautantes/reserva-natural-cascadas-de-santa-rita/` |
 | Finca Cafetera Don Elías | Completado (13/10/2026) | `pautas/coffee-tour-finca-cafetera-don-elias/` | `/paginas-pautantes/finca-cafetera-don-elias/` |
 | Finca Hotel El Ocaso | Completado | places.json id 9 | `/paginas-pautantes/finca-hotel-el-ocaso/` |
