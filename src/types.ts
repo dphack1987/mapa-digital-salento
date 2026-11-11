@@ -2,7 +2,7 @@
 export type Category = 'Todo' | 'Alojamientos' | 'Restaurantes' | 'Restaurante Bar' | 'Cafés' | 'Coffee Tours' | 'Artesanías' | 'Tiendas' | 'Experiencias' | 'Eventos' | 'Atractivos Turísticos' | 'Servicios' | 'Camping'
 
 // String literal type para idiomas (evita inconsistencias de tipos)
-export type Language = 'es' | 'en' | 'fr' | 'de' | 'pt' | 'it' | 'zh' | 'ja' | 'ko' | 'th' | 'vi' | 'id' | 'ms' | 'en-gb';
+export type Language = 'es' | 'en' | 'fr' | 'de' | 'pt' | 'it' | 'zh' | 'ja' | 'ko' | 'th' | 'vi' | 'id' | 'ms' | 'en-gb' | 'ar';
 
 // Objeto de idioma para compatibilidad con código existente
 export const LanguageConst = {
@@ -19,7 +19,8 @@ export const LanguageConst = {
   vi: 'vi',
   id: 'id',
   ms: 'ms',
-  'en-gb': 'en-gb'
+  'en-gb': 'en-gb',
+  ar: 'ar'
 } as const;
 
 export type Currency = 'COP' | 'USD' | 'EUR'
@@ -180,10 +181,10 @@ export type TourismDetails = {
 
 // Tipos extendidos Fase2 — SEO voz/IA, guías, FAQs, internacionalización
 // Tipos de idiomas: TODOS los planificados para la estrategia internacional
-export type I18nLocale = 'ES' | 'EN' | 'DE' | 'FR' | 'PT' | 'IT' | 'ZH' | 'JA' | 'KO' | 'TH' | 'VI' | 'ID' | 'MS' | 'EN_GB'
+export type I18nLocale = 'ES' | 'EN' | 'DE' | 'FR' | 'PT' | 'IT' | 'ZH' | 'JA' | 'KO' | 'TH' | 'VI' | 'ID' | 'MS' | 'EN_GB' | 'AR'
 
 // Idiomas con URL real implementada (activos en hreflang y sitemap)
-export type ActiveLocale = 'ES' | 'EN' | 'DE' | 'FR' | 'PT' | 'IT' | 'ZH' | 'JA' | 'KO' | 'TH' | 'VI' | 'ID' | 'MS' | 'EN_GB'
+export type ActiveLocale = 'ES' | 'EN' | 'DE' | 'FR' | 'PT' | 'IT' | 'ZH' | 'JA' | 'KO' | 'TH' | 'VI' | 'ID' | 'MS' | 'EN_GB' | 'AR'
 
 export type HowToStep = {
   stepNumber: number
@@ -377,6 +378,7 @@ export const LOCALES_ALL: Record<I18nLocale, {
   VI: { code: 'VI', hreflang: 'vi-VN', inLanguage: 'vi', ogLocale: 'vi_VN', label: 'Tiếng Việt' },
   ID: { code: 'ID', hreflang: 'id-ID', inLanguage: 'id', ogLocale: 'id_ID', label: 'Bahasa Indonesia' },
   MS: { code: 'MS', hreflang: 'ms-MY', inLanguage: 'ms', ogLocale: 'ms_MY', label: 'Bahasa Melayu' },
+  AR: { code: 'AR', hreflang: 'ar', inLanguage: 'ar', ogLocale: 'ar_AR', label: 'العربية' },
 } as const
 // Idiomas con URL real implementada actualmente (activos en hreflang y sitemap)
 export const LOCALES_ACTIVE: Record<ActiveLocale, typeof LOCALES_ALL[ActiveLocale]> = {
@@ -394,4 +396,5 @@ export const LOCALES_ACTIVE: Record<ActiveLocale, typeof LOCALES_ALL[ActiveLocal
   ID: LOCALES_ALL.ID,
   MS: LOCALES_ALL.MS,
   EN_GB: LOCALES_ALL.EN_GB,
+  AR: LOCALES_ALL.AR,
 } as const

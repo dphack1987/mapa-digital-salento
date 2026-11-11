@@ -171,12 +171,36 @@ export function shouldUseOsirisData(query: string): boolean {
   return keywords.some(keyword => lowerQuery.includes(keyword));
 }
 
+/** Detecta preguntas de clima estacional (meses o temporada) para responder con la KB. */
+function isSeasonalWeatherQuery(query: string): boolean {
+  const lowerQuery = query.toLowerCase();
+  const seasonalKeywords = [
+    'enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto',
+    'septiembre', 'setiembre', 'octubre', 'noviembre', 'diciembre',
+    'january', 'february', 'march', 'april', 'june', 'july', 'august',
+    'september', 'october', 'november', 'december',
+    'januar', 'februar', 'märz', 'maerz', 'juni', 'juli', 'oktober', 'dezember',
+    'janvier', 'février', 'fevrier', 'avril', 'juin', 'juillet', 'août', 'aout',
+    'septembre', 'octobre', 'novembre', 'décembre', 'decembre',
+    'janeiro', 'fevereiro', 'março', 'marco', 'maio', 'junho', 'julho',
+    'setembro', 'outubro', 'dezembro',
+    'gennaio', 'febbraio', 'aprile', 'maggio', 'giugno', 'luglio', 'settembre',
+    'ottobre', 'dicembre',
+    'weather in may', 'météo en mai', 'wetter im mai',
+    'temporada', 'season', 'época', 'epoca', 'dry season', 'rainy season',
+    'temporada seca', 'temporada de lluvias'
+  ];
+  return seasonalKeywords.some(keyword => lowerQuery.includes(keyword));
+}
+
 /** Obtiene respuesta de clima real para una consulta */
 export async function getOsirisResponse(query: string, language: string = 'es'): Promise<string | null> {
   const lang = normalizeOsirisLang(language);
   // Idioma sin contenido Osiris → null y el llamador usa knowledge local
   if (!lang) return null;
   if (!shouldUseOsirisData(query)) return null;
+  // Clima por mes o temporada → respuesta estacional de la base de conocimiento
+  if (isSeasonalWeatherQuery(query)) return null;
 
   return await OsirisEnhancedResponses.clima(lang);
 }

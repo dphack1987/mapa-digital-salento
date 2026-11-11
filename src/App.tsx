@@ -506,10 +506,15 @@ function App() {
   const [mobileNav, setMobileNav] = useState(false)
   const [language, setLanguage] = useState<Language>(() => {
     try {
-      // First check URL path for locale (e.g., /en/, /de/)
+      // Primero el parámetro ?lang= (enlaces compartibles sin carpeta estática)
       if (typeof window !== 'undefined') {
+        const queryLang = new URLSearchParams(window.location.search).get('lang')
+        if (queryLang && (Object.values(LanguageConst) as string[]).includes(queryLang)) {
+          return queryLang as Language
+        }
+        // Luego la ruta con locale (e.g., /en/, /de/)
         const path = window.location.pathname
-        const localeMatch = path.match(/^\/(en|de|fr|pt|it)\//)
+        const localeMatch = path.match(/^\/(en|de|fr|pt|it|zh|ja|ko|th|vi|id|ms|ar)\//)
         if (localeMatch) {
           const localeCode = localeMatch[1].toUpperCase()
           return localeCode as Language
@@ -519,6 +524,12 @@ function App() {
     } catch (e) { console.warn('[init] translation lazy fallback es:', e); return 'es' as Language }
   })
   const [currency, setCurrency] = useState<Currency>('COP')
+
+  useEffect(() => {
+    if (typeof document === 'undefined') return
+    document.documentElement.lang = language
+    document.documentElement.dir = language === 'ar' ? 'rtl' : 'ltr'
+  }, [language])
   const [selectedPlace, setSelectedPlace] = useState<Place | null>(null)
   const [places, setPlaces] = useState<Place[]>([])
   const [mapMarkers, setMapMarkers] = useState<MapMarker[]>([])
@@ -593,7 +604,7 @@ function App() {
   const [selectedCategoryPage, setSelectedCategoryPage] = useState<Category | null>(null)
   const [selectedAllyForVerification, setSelectedAllyForVerification] = useState<string | null>(null)
 
-  const isEnglish = language === 'en'
+  const isEnglish = language === 'en' || language === 'en-gb'
 
   // Mapeo de locales para Open Graph y hreflang
   const localeMap: Record<string, string> = {
@@ -603,7 +614,15 @@ function App() {
     fr: 'fr_FR',
     pt: 'pt_BR',
     it: 'it_IT',
-    zh: 'zh_CN'
+    zh: 'zh_CN',
+    ja: 'ja_JP',
+    ko: 'ko_KR',
+    th: 'th_TH',
+    vi: 'vi_VN',
+    id: 'id_ID',
+    ms: 'ms_MY',
+    ar: 'ar_AR',
+    'en-gb': 'en_GB'
   }
   const currentLocale = localeMap[language] || 'es_CO'
 
@@ -1007,8 +1026,20 @@ function App() {
       es: '/', en: '/en/', de: '/de/', fr: '/fr/', pt: '/pt/', it: '/it/', zh: '/zh/'
     }
     const newPath = localeMap[newLanguage]
-    if (newPath && typeof window !== 'undefined' && window.location.pathname !== newPath) {
-      window.history.replaceState(null, '', newPath)
+    if (typeof window !== 'undefined') {
+      const url = new URL(window.location.href)
+      if (newPath) {
+        if (url.pathname !== newPath) {
+          url.pathname = newPath
+          url.searchParams.delete('lang')
+          window.history.replaceState(null, '', `${url.pathname}${url.search}${url.hash}`)
+        }
+      } else {
+        // Sin carpeta estática: enlace compartible vía ?lang=xx
+        url.pathname = '/'
+        url.searchParams.set('lang', newLanguage)
+        window.history.replaceState(null, '', `${url.pathname}${url.search}${url.hash}`)
+      }
     }
     // GA4 Tracking - Agregado para WSA 2026
     ga4Service.trackLanguageChange(newLanguage, language)
@@ -1131,6 +1162,14 @@ function App() {
           <link rel="alternate" hrefLang="pt-BR" href="https://www.salentoalamano.com/pt/" />
           <link rel="alternate" hrefLang="it" href="https://www.salentoalamano.com/it/" />
           <link rel="alternate" hrefLang="zh-CN" href="https://www.salentoalamano.com/zh/" />
+          <link rel="alternate" hrefLang="ja" href="https://www.salentoalamano.com/?lang=ja" />
+          <link rel="alternate" hrefLang="ko" href="https://www.salentoalamano.com/?lang=ko" />
+          <link rel="alternate" hrefLang="th" href="https://www.salentoalamano.com/?lang=th" />
+          <link rel="alternate" hrefLang="vi" href="https://www.salentoalamano.com/?lang=vi" />
+          <link rel="alternate" hrefLang="id" href="https://www.salentoalamano.com/?lang=id" />
+          <link rel="alternate" hrefLang="ms" href="https://www.salentoalamano.com/?lang=ms" />
+          <link rel="alternate" hrefLang="ar" href="https://www.salentoalamano.com/?lang=ar" />
+          <link rel="alternate" hrefLang="en-GB" href="https://www.salentoalamano.com/?lang=en-gb" />
           <link rel="alternate" hrefLang="x-default" href="https://www.salentoalamano.com/" />
         </>)}
         <script type="application/ld+json">{JSON.stringify({
@@ -1200,6 +1239,14 @@ function App() {
               <option value={LanguageConst.pt}>PT</option>
               <option value={LanguageConst.it}>IT</option>
               <option value={LanguageConst.zh}>中文</option>
+              <option value={LanguageConst.ja}>日本語</option>
+              <option value={LanguageConst.ko}>한국어</option>
+              <option value={LanguageConst.th}>ไทย</option>
+              <option value={LanguageConst.vi}>Tiếng Việt</option>
+              <option value={LanguageConst.id}>Indonesia</option>
+              <option value={LanguageConst.ms}>Melayu</option>
+              <option value={LanguageConst.ar}>العربية</option>
+              <option value={LanguageConst['en-gb']}>EN-GB</option>
             </select>
             <select aria-label="Cambiar moneda" value={currency} onChange={(event) => setCurrency(event.target.value as Currency)}><option value="COP">COP</option><option value="USD">USD</option><option value="EUR">EUR</option></select>
           </div>
@@ -1262,7 +1309,7 @@ function App() {
 
         <section className="home-hero" id="inicio" aria-labelledby="home-hero-title">
           <div className="home-hero-media">
-            <img src="/imagenes-salento/destinos-75.webp" alt={t('hero.imgAlt', 'Paisaje de Salento y el Valle de Cocora, Quindío')} fetchPriority="high" />
+            <img src="/imagenes-salento/destinos-75.webp" alt={t('hero.imgAlt', 'Paisaje de Salento y el Valle de Cocora, Quindío')} {...{ fetchpriority: 'high' }} />
             <div className="home-hero-scrim" aria-hidden="true" />
           </div>
           <div className="home-hero-content">
@@ -2284,7 +2331,7 @@ function DonChucho({ language, t, places, weather, todayEvents, open: openProp, 
   const [showQuickActions, setShowQuickActions] = useState(true)
   const [currentIntent, setCurrentIntent] = useState<UserIntent>('general-info')
   const [pendingActions, setPendingActions] = useState<AgentAction[]>([])
-  const isEnglish = language === 'en'
+  const isEnglish = language === 'en' || language === 'en-gb'
   const kbLang: Language = language
   
   // Nuevos hooks para UX avanzado
@@ -2343,6 +2390,62 @@ function DonChucho({ language, t, places, weather, todayEvents, open: openProp, 
       { label: 'Esperienze', emoji: '🌄', category: 'experiencias' },
       { label: 'Consigli', emoji: '💡', category: 'consejos' },
       { label: 'Festival', emoji: '🎉', category: 'festivales' }
+    ],
+    ja: [
+      { label: 'グルメ', emoji: '🍽️', category: 'gastronomia' },
+      { label: '歴史', emoji: '📜', category: 'historia' },
+      { label: '町々', emoji: '🏘️', category: 'municipios' },
+      { label: '体験', emoji: '🌄', category: 'experiencias' },
+      { label: '旅のヒント', emoji: '💡', category: 'consejos' },
+      { label: '祭り', emoji: '🎉', category: 'festivales' }
+    ],
+    ko: [
+      { label: '미식', emoji: '🍽️', category: 'gastronomia' },
+      { label: '역사', emoji: '📜', category: 'historia' },
+      { label: '마을', emoji: '🏘️', category: 'municipios' },
+      { label: '체험', emoji: '🌄', category: 'experiencias' },
+      { label: '여행 팁', emoji: '💡', category: 'consejos' },
+      { label: '축제', emoji: '🎉', category: 'festivales' }
+    ],
+    ar: [
+      { label: 'المأكولات', emoji: '🍽️', category: 'gastronomia' },
+      { label: 'التاريخ', emoji: '📜', category: 'historia' },
+      { label: 'البلديات', emoji: '🏘️', category: 'municipios' },
+      { label: 'التجارب', emoji: '🌄', category: 'experiencias' },
+      { label: 'نصائح السفر', emoji: '💡', category: 'consejos' },
+      { label: 'المهرجانات', emoji: '🎉', category: 'festivales' }
+    ],
+    th: [
+      { label: 'อาหาร', emoji: '🍽️', category: 'gastronomia' },
+      { label: 'ประวัติศาสตร์', emoji: '📜', category: 'historia' },
+      { label: 'เมืองต่าง ๆ', emoji: '🏘️', category: 'municipios' },
+      { label: 'ประสบการณ์', emoji: '🌄', category: 'experiencias' },
+      { label: 'เคล็ดลับการเดินทาง', emoji: '💡', category: 'consejos' },
+      { label: 'เทศกาล', emoji: '🎉', category: 'festivales' }
+    ],
+    vi: [
+      { label: 'Ẩm thực', emoji: '🍽️', category: 'gastronomia' },
+      { label: 'Lịch sử', emoji: '📜', category: 'historia' },
+      { label: 'Các thị trấn', emoji: '🏘️', category: 'municipios' },
+      { label: 'Trải nghiệm', emoji: '🌄', category: 'experiencias' },
+      { label: 'Mẹo du lịch', emoji: '💡', category: 'consejos' },
+      { label: 'Lễ hội', emoji: '🎉', category: 'festivales' }
+    ],
+    id: [
+      { label: 'Kuliner', emoji: '🍽️', category: 'gastronomia' },
+      { label: 'Sejarah', emoji: '📜', category: 'historia' },
+      { label: 'Kota-kota', emoji: '🏘️', category: 'municipios' },
+      { label: 'Pengalaman', emoji: '🌄', category: 'experiencias' },
+      { label: 'Tips perjalanan', emoji: '💡', category: 'consejos' },
+      { label: 'Festival', emoji: '🎉', category: 'festivales' }
+    ],
+    ms: [
+      { label: 'Masakan', emoji: '🍽️', category: 'gastronomia' },
+      { label: 'Sejarah', emoji: '📜', category: 'historia' },
+      { label: 'Bandar-bandar', emoji: '🏘️', category: 'municipios' },
+      { label: 'Pengalaman', emoji: '🌄', category: 'experiencias' },
+      { label: 'Tip perjalanan', emoji: '💡', category: 'consejos' },
+      { label: 'Festival', emoji: '🎉', category: 'festivales' }
     ]
   }
   const quickActions = quickActionsLabels[language] || quickActionsLabels.es
@@ -2390,7 +2493,8 @@ function DonChucho({ language, t, places, weather, todayEvents, open: openProp, 
       vi: ['Tất nhiên,', 'Ở Salento,', 'Tôi có thể giúp bạn,'],
       id: ['Tentu,', 'Di Salento,', 'Saya bisa membantu,'],
       ms: ['Sudah tentu,', 'Di Salento,', 'Saya boleh membantu,'],
-      'en-gb': ['Of course,', 'Here in Salento,', 'Let me help you with that,']
+      'en-gb': ['Of course,', 'Here in Salento,', 'Let me help you with that,'],
+      ar: ['بالطبع،', 'هنا في سالينتو،', 'يمكنني مساعدتك،']
     }
     const localizedClosers: Record<Language, string[]> = {
       es: closers,
@@ -2406,7 +2510,8 @@ function DonChucho({ language, t, places, weather, todayEvents, open: openProp, 
       vi: ['Bạn có muốn tôi giúp lên kế hoạch cho ngày của bạn không?', 'Bạn có muốn xem vài lựa chọn không?', 'Tôi có thể giúp gì thêm không?'],
       id: ['Ingin saya bantu merencanakan hari Anda?', 'Ingin melihat beberapa pilihan?', 'Ada lagi yang bisa saya bantu?'],
       ms: ['Mahu saya bantu merancang hari anda?', 'Mahu lihat beberapa pilihan?', 'Ada lagi yang boleh saya bantu?'],
-      'en-gb': ['Would you like help planning your day?', 'Would you like a few options?', 'Can I help with anything else?']
+      'en-gb': ['Would you like help planning your day?', 'Would you like a few options?', 'Can I help with anything else?'],
+      ar: ['هل تريد مساعدة في تخطيط يومك؟', 'هل تريد رؤية بعض الخيارات؟', 'هل أساعدك في شيء آخر؟']
     }
     const openers = localizedOpeners[language]
     const localizedCloserOptions = localizedClosers[language]

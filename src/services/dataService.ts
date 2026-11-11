@@ -157,13 +157,13 @@ class DataService {
       const [placesData, hotelsData, markersData, productsData] = await Promise.all([
         this.loadFromJSON<{ places: Place[] }>(DATA_CONFIG.defaultDataSources.places),
         this.loadFromJSON<{ hotels: Hotel[] }>(DATA_CONFIG.defaultDataSources.hotels),
-        this.loadFromJSON<{ mapMarkers: MapMarker[] }>(DATA_CONFIG.defaultDataSources.mapMarkers),
+        this.loadFromJSON<{ markers?: MapMarker[]; mapMarkers?: MapMarker[] }>(DATA_CONFIG.defaultDataSources.mapMarkers),
         this.loadFromJSON<{ productCatalogs: ProductCatalog[] }>(DATA_CONFIG.defaultDataSources.products)
       ])
 
       this.dataCache = {
         places: placesData.places,
-        mapMarkers: markersData.mapMarkers,
+        mapMarkers: markersData.markers ?? markersData.mapMarkers ?? [],
         hotels: hotelsData.hotels,
         productCatalogs: productsData.productCatalogs,
         lastUpdated: new Date().toISOString(),
@@ -174,7 +174,7 @@ class DataService {
       // Guardar en caché localStorage
       this.saveToCache(CACHE_KEYS.PLACES, placesData)
       this.saveToCache(CACHE_KEYS.HOTELS, hotelsData)
-      this.saveToCache(CACHE_KEYS.MAP_MARKERS, markersData)
+      this.saveToCache(CACHE_KEYS.MAP_MARKERS, { mapMarkers: markersData.markers ?? markersData.mapMarkers ?? [] })
       this.saveToCache(CACHE_KEYS.PRODUCTS, productsData)
 
       // Guardar en IndexedDB para offline
@@ -183,8 +183,9 @@ class DataService {
           await offlineStorage.savePlaces(placesData.places)
           await offlineStorage.saveHotels(hotelsData.hotels)
           // Guardar mapMarkers en IndexedDB para offline
-          if (markersData?.mapMarkers) {
-            await offlineStorage.saveMapData('mapMarkers', markersData.mapMarkers)
+          const rawMarkers = markersData.markers ?? markersData.mapMarkers ?? []
+          if (rawMarkers.length) {
+            await offlineStorage.saveMapData('mapMarkers', rawMarkers)
           }
           console.log('Data saved to IndexedDB for offline use')
         } catch (error) {

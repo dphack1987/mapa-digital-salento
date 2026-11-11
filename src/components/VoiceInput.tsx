@@ -9,7 +9,7 @@ import type { Language } from '../types'
 // uno por cada idioma soportado por la aplicación.
 export const SPEECH_LOCALES: Record<Language, string> = {
   es: 'es-CO', en: 'en-US', fr: 'fr-FR', de: 'de-DE', pt: 'pt-BR', it: 'it-IT', zh: 'zh-CN',
-  ja: 'ja-JP', ko: 'ko-KR', th: 'th-TH', vi: 'vi-VN', id: 'id-ID', ms: 'ms-MY', 'en-gb': 'en-GB'
+  ja: 'ja-JP', ko: 'ko-KR', th: 'th-TH', vi: 'vi-VN', id: 'id-ID', ms: 'ms-MY', 'en-gb': 'en-GB', ar: 'ar-SA'
 }
 
 // Don Chucho es arriero varón: se prefiere una voz masculina del idioma.
@@ -26,7 +26,24 @@ const MALE_VOICE_HINTS = [
   'gabriel', 'hector', 'héctor', 'mario', 'alexander', 'andrew',
   'matthew', 'joseph', 'robert', 'michael', 'william', 'charles',
   'martin', 'martín', 'peter', 'pierre', 'hans', 'stefano', 'paolo',
-  'joão', 'joao', 'andre', 'andré', 'thiago', 'bruno', 'diego'
+  'joão', 'joao', 'andre', 'andré', 'thiago', 'bruno', 'diego',
+  // Chino mandarín
+  'kangkang', 'yunxi', 'yunyang', 'yunjian', 'yunfeng', 'liang', 'li-mu',
+  'limu', 'yu-shu', 'yushu', 'zhiwei', 'male chinese',
+  // Japonés
+  'ichiro', 'otoya', 'keita', 'takumi', 'daichi', 'naoki', 'male japanese',
+  // Coreano
+  'injoon', 'minho', 'minsu', 'junwoo', 'hyunsu', 'male korean',
+  // Árabe
+  'naayf', 'maged', 'majed', 'tarik', 'khalid', 'male arabic',
+  // Tailandés
+  'niwat', 'male thai',
+  // Vietnamita
+  'namminh', 'nam minh', 'male vietnamese',
+  // Indonesio
+  'andika', 'ardi', 'male indonesian',
+  // Malayo
+  'rizwan', 'yazid', 'male malay'
 ]
 
 const FEMALE_VOICE_HINTS = [
@@ -39,7 +56,25 @@ const FEMALE_VOICE_HINTS = [
   'anna', 'nadia', 'victoria', 'stephanie', 'monika', 'jenny',
   'catarina', 'joana', 'alice', 'emma', 'virginia', 'lisa',
   'samantha', 'google español', 'google us english', 'google deutsch',
-  'google français', 'google italiano', 'google português'
+  'google français', 'google italiano', 'google português',
+  // Chino mandarín
+  'huihui', 'yaoyao', 'yating', 'ting-ting', 'tingting', 'mei-jia',
+  'meijia', 'sin-ji', 'sinji', 'xiaoxiao', 'xiaoyi', 'google 普通话',
+  'google 中文', 'google 國語',
+  // Japonés
+  'haruka', 'ayumi', 'sayaka', 'kyoko', 'nanami', 'google 日本語',
+  // Coreano
+  'heami', 'yumi', 'yuna', 'sora', 'google 한국의',
+  // Árabe
+  'hoda', 'laila', 'salma', 'zariyah', 'google العربية',
+  // Tailandés
+  'pattara', 'kanya', 'achara', 'premwadee', 'google ไทย',
+  // Vietnamita
+  'linh', 'mai', 'hoaimy', 'google tiếng việt',
+  // Indonesio
+  'gadis', 'damayanti', 'google bahasa indonesia',
+  // Malayo
+  'suhaila', 'amira', 'google bahasa melayu'
 ]
 
 /** ¿La voz tiene pinta de masculina? (para la voz de Don Chucho) */
@@ -90,14 +125,75 @@ export function pickVoiceForLang(
   return exact[0] || baseExact[0] || prefix[0] || null
 }
 
+// Nombre hablado de cada moneda por idioma. Evita que el TTS lea el símbolo
+// "$" como "dólares" cuando en realidad el precio está en pesos colombianos.
+const SPOKEN_CURRENCIES: Record<string, { cop: string; usd: string; eur: string }> = {
+  es: { cop: 'pesos colombianos', usd: 'dólares estadounidenses', eur: 'euros' },
+  en: { cop: 'Colombian pesos', usd: 'US dollars', eur: 'euros' },
+  'en-gb': { cop: 'Colombian pesos', usd: 'US dollars', eur: 'euros' },
+  fr: { cop: 'pesos colombiens', usd: 'dollars américains', eur: 'euros' },
+  de: { cop: 'kolumbianische Pesos', usd: 'US-Dollar', eur: 'Euro' },
+  pt: { cop: 'pesos colombianos', usd: 'dólares americanos', eur: 'euros' },
+  it: { cop: 'pesos colombiani', usd: 'dollari americani', eur: 'euros' },
+  zh: { cop: '哥伦比亚比索', usd: '美元', eur: '欧元' },
+  ja: { cop: 'コロンビアペソ', usd: '米ドル', eur: 'ユーロ' },
+  ko: { cop: '콜롬비아 페소', usd: '미국 달러', eur: '유로' },
+  ar: { cop: 'بيزو كولومبي', usd: 'دولار أمريكي', eur: 'يورو' },
+  th: { cop: 'เปโซโคลอมเบีย', usd: 'ดอลลาร์สหรัฐ', eur: 'ยูโร' },
+  vi: { cop: 'peso Colombia', usd: 'đô la Mỹ', eur: 'euro' },
+  id: { cop: 'peso Kolombia', usd: 'dolar AS', eur: 'euro' },
+  ms: { cop: 'peso Colombia', usd: 'dolar AS', eur: 'euro' }
+}
+
+/**
+ * Convierte importes con símbolo "$" a moneda hablada. Los precios del sitio
+ * son siempre COP; "$" nunca debe leerse como dólares.
+ */
+export function normalizeCurrencyForSpeech(text: string, language = 'es'): string {
+  if (!text) return text
+  const lang = language.toLowerCase()
+  const base = lang.split('-')[0]
+  const names = SPOKEN_CURRENCIES[lang] || SPOKEN_CURRENCIES[base] || SPOKEN_CURRENCIES.es
+  const number = '([0-9][0-9.,\\s]*)'
+  const amountEnd = '(?=\\s|$|[.,;:)])'
+  let out = text
+
+  // Rangos: $80.000-$200.000 → 80.000 a 200.000 pesos colombianos
+  out = out.replace(
+    new RegExp(`\\$\\s*${number}\\s*[-–—]\\s*\\$\\s*${number}${amountEnd}`, 'g'),
+    (_match, from: string, to: string) => `${from.trim()} a ${to.trim()} ${names.cop}`
+  )
+  // Importes con COP explícito: "$80.000 COP" → "80.000 COP"
+  out = out.replace(new RegExp(`\\$\\s*${number}\\s*COP\\b`, 'gi'), (_match, amount: string) => `${amount.trim()} COP`)
+  // Importes con COP pospuesto: "80.000 COP" → "80.000 pesos colombianos"
+  out = out.replace(new RegExp(`${number}\\s*COP\\b`, 'gi'), (_match, amount: string) => `${amount.trim()} ${names.cop}`)
+  // Importes con "$" antepuesto: "$12.000" → "12.000 pesos colombianos"
+  out = out.replace(new RegExp(`\\$\\s*${number}${amountEnd}`, 'g'), (_match, amount: string) => `${amount.trim()} ${names.cop}`)
+  // Importes con "$" pospuesto: "12 000 $" → "12 000 pesos colombianos"
+  out = out.replace(new RegExp(`${number}\\s*\\$`, 'g'), (_match, amount: string) => `${amount.trim()} ${names.cop}`)
+  // Monedas explícitas distintas de COP
+  out = out.replace(new RegExp(`US\\$\\s*${number}`, 'gi'), (_match, amount: string) => `${amount.trim()} ${names.usd}`)
+  out = out.replace(/\bUSD\b|\bUS dollars?\b/gi, names.usd)
+  out = out.replace(/\bEUR\b/gi, names.eur)
+  // Cualquier "$" restante (símbolo suelto) también es COP en este sitio
+  out = out.replace(/\$/g, names.cop)
+
+  const escaped = names.cop.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+  // Quita el "COP" que haya quedado tras una moneda ya normalizada.
+  out = out.replace(new RegExp(`(${escaped})\\s+COP\\b`, 'gi'), names.cop)
+  out = out.replace(/\bCOP\b/gi, names.cop)
+  return out.replace(new RegExp(`(?:${escaped})(?:[\\s,;/-]+${escaped})+`, 'gi'), names.cop)
+}
+
 /**
  * Limpia el texto para TTS: quita emoji y símbolos que los lectores
- * en voz alta deletrean o leen raro (🌤️, ☀️, ✓, ★, ⏹️…).
+ * en voz alta deletrean o leen raro (🌤️, ☀️, ✓, ★, ⏹️…), y normaliza
+ * los importes para que se lean en la moneda correcta (COP).
  * El texto en pantalla no se toca.
  */
-export function sanitizeSpeechText(text: string): string {
+export function sanitizeSpeechText(text: string, language = 'es'): string {
   if (!text) return text
-  return text
+  return normalizeCurrencyForSpeech(text, language)
     .replace(
       /[\u{1F000}-\u{1FFFF}\u{2600}-\u{27BF}\u{2B00}-\u{2BFF}\u{2300}-\u{23FF}\u{FE0E}\u{FE0F}\u{200D}]/gu,
       ' '
@@ -254,7 +350,7 @@ export function useSpeechSynthesis() {
   const speak = useCallback((text: string, lang = 'es-CO') => {
     if (!window.speechSynthesis) return
 
-    const cleanText = sanitizeSpeechText(text)
+    const cleanText = sanitizeSpeechText(text, lang)
     if (!cleanText) return
 
     // Cancelar si ya está hablando
@@ -263,7 +359,6 @@ export function useSpeechSynthesis() {
     const utterance = new SpeechSynthesisUtterance(cleanText)
     utterance.lang = lang
     utterance.rate = 0.9
-    utterance.pitch = 1.0
     utterance.volume = 1.0
 
     // Voz masculina preferida (Don Chucho es varón); si no hay, la mejor
@@ -271,6 +366,9 @@ export function useSpeechSynthesis() {
     // por defecto para `utterance.lang`.
     const matchedVoice = pickVoiceForLang(voices, lang)
     if (matchedVoice) utterance.voice = matchedVoice
+    // Si el dispositivo solo tiene voces femeninas para ese idioma, bajamos
+    // el tono para acercarnos a una voz masculina sin cambiar de idioma.
+    utterance.pitch = matchedVoice && !isLikelyMaleVoice(matchedVoice) ? 0.8 : 1.0
 
     utterance.onstart = () => setIsSpeaking(true)
     utterance.onend = () => setIsSpeaking(false)

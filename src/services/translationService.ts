@@ -1,5 +1,6 @@
 // Servicio de traducción simplificado para compatibilidad TypeScript
 import { Language } from '../types'
+import { TRANSLATION_EXTRAS } from './translationExtras'
 
 interface TranslationDict {
   [key: string]: string
@@ -98,7 +99,7 @@ class TranslationService {
       'donChucho.offlineContinue': 'Continuar sin conexión',
       'donChucho.voiceCommand': 'Dictar pregunta por voz',
       'donChucho.voiceUnsupported': 'El dictado por voz no está disponible en este navegador.',
-      'donChucho.voiceNotInstalled': 'Este dispositivo no tiene una voz instalada para este idioma. Puedes elegir otra voz disponible o instalar la voz correspondiente.',
+      'donChucho.voiceNotInstalled': 'Sin voz instalada para este idioma en este dispositivo.',
       'donChucho.voiceEnabled': 'Lectura en voz alta activada',
       'donChucho.voiceDisabled': 'Lectura en voz alta desactivada',
       'donChucho.stopVoice': 'Detener lectura',
@@ -106,6 +107,21 @@ class TranslationService {
       'donChucho.localFallback': 'Soy Don Chucho, arriero quindiano y tu guía de Salento. Puedo ayudarte con el Valle de Cocora, transporte, café, cultura y planes locales. ¿Qué quieres descubrir?',
       'donChucho.errorFallback': 'No pude completar esa consulta. Puedes intentarlo de nuevo o preguntarme por la guía local de Salento.',
       'donChucho.zhKnowledgeFallback': 'Este tema aún no tiene una respuesta offline verificada en chino. Puedo orientarte sobre transporte, alojamiento, café y el Valle de Cocora.',
+      'donChucho.you': 'Tú',
+      'donChucho.listening': 'Escuchando...',
+      'donChucho.thinking': 'Don Chucho está pensando...',
+      'donChucho.voiceError': 'No pude escucharte. Intenta de nuevo.',
+      'donChucho.available': '✓ Disponible',
+      'donChucho.unavailable': '✗ Sin cupo',
+      'donChucho.call': 'Llamar',
+      'donChucho.whatsapp': 'WhatsApp directo',
+      'donChucho.verified': 'Verificado',
+      'donChucho.authenticPlaces': 'Lugares auténticos recomendados',
+      'donChucho.nearbyPlaces': 'Servicios cercanos a ti:',
+      'donChucho.spokenPlaces': 'Te recomiendo estos lugares:',
+      'donChucho.spokenAuthentic': 'También te recomiendo estos lugares auténticos:',
+      'donChucho.spokenNearby': 'Servicios cercanos a ti:',
+      'donChucho.suggestions': 'También puedes preguntar:',
       'donChucho.suggestions.coffee': 'Buen café',
       'donChucho.suggestions.cocora': 'Valle de Cocora',
       'nav.home': 'Inicio', 'nav.services': 'Servicios', 'nav.lodging': 'Alojamientos', 'nav.directory': 'Directorio', 'nav.map': 'Mapa', 'nav.guideOffline': 'Guía offline',
@@ -396,9 +412,8 @@ class TranslationService {
       'categories.Servicios': 'Services',
       'categories.Camping': 'Camping',
       'donChucho.title': 'Don Chucho',
-      'donChucho.subtitle': 'Quindío arriero · Salento guide',
+      'donChucho.subtitle': 'Local guide · Salento, Quindío',
       'donChucho.placeholder': 'Ask Don Chucho...',
-      'donChucho.welcome': 'Hello! I am Don Chucho, an arriero from Quindío and your local guide to Salento. I can help with Cocora Valley, local trails, coffee, culture, and practical travel questions. What would you like to explore?',
       'donChucho.checking': 'Checking...',
       'donChucho.onlineStatus': 'Don Chucho AI online',
       'donChucho.voiceActive': 'Voice active',
@@ -407,7 +422,7 @@ class TranslationService {
       'donChucho.offlineContinue': 'Continue offline',
       'donChucho.voiceCommand': 'Speak your question',
       'donChucho.voiceUnsupported': 'Voice input is not available in this browser.',
-      'donChucho.voiceNotInstalled': 'This device has no voice installed for this language. Choose another available voice or install the matching voice.',
+      'donChucho.voiceNotInstalled': 'No voice installed for this language on this device.',
       'donChucho.voiceEnabled': 'Read-aloud enabled',
       'donChucho.voiceDisabled': 'Read-aloud disabled',
       'donChucho.stopVoice': 'Stop speaking',
@@ -415,6 +430,22 @@ class TranslationService {
       'donChucho.localFallback': 'I am Don Chucho, an arriero from Quindío and your Salento guide. I can help with Cocora Valley, transport, coffee, culture and local plans. What would you like to discover?',
       'donChucho.errorFallback': 'I could not complete that request. Please try again or ask me about the local Salento guide.',
       'donChucho.zhKnowledgeFallback': 'This topic does not yet have a verified offline answer in Chinese. I can help with transport, accommodation, coffee and Cocora Valley.',
+      'donChucho.welcome': 'Hello! I am Don Chucho, an arriero from Quindío and your Salento local guide. I can help you with the Cocora Valley, trails, coffee, culture and practicalities for your visit. What do you want to discover?',
+      'donChucho.you': 'You',
+      'donChucho.listening': 'Listening...',
+      'donChucho.thinking': 'Don Chucho is thinking...',
+      'donChucho.voiceError': 'I could not hear you. Please try again.',
+      'donChucho.available': '✓ Available',
+      'donChucho.unavailable': '✗ Unavailable',
+      'donChucho.call': 'Call',
+      'donChucho.whatsapp': 'WhatsApp One-Tap',
+      'donChucho.verified': 'Verified',
+      'donChucho.authenticPlaces': 'Recommended authentic places',
+      'donChucho.nearbyPlaces': 'Services near you:',
+      'donChucho.spokenPlaces': 'I recommend these places:',
+      'donChucho.spokenAuthentic': 'I also recommend these authentic places:',
+      'donChucho.spokenNearby': 'Services near you:',
+      'donChucho.suggestions': 'You can also ask:',
       'donChucho.suggestions.coffee': 'Good coffee',
       'donChucho.suggestions.cocora': 'Cocora Valley',
       'nav.home': 'Home', 'nav.services': 'Services', 'nav.lodging': 'Stays', 'nav.directory': 'Directory', 'nav.map': 'Map', 'nav.guideOffline': 'Offline guide',
@@ -708,9 +739,8 @@ class TranslationService {
       'categories.Servicios': 'Services',
       'categories.Camping': 'Camping',
       'donChucho.title': 'Don Chucho',
-      'donChucho.subtitle': 'Arriero du Quindío · guide de Salento',
+      'donChucho.subtitle': 'Guide local · Salento, Quindío',
       'donChucho.placeholder': 'Demandez à Don Chucho...',
-      'donChucho.welcome': 'Bonjour ! Je suis Don Chucho, arriero du Quindío et votre guide local de Salento. Je peux vous renseigner sur la vallée de Cocora, ses sentiers, le café, la culture et les informations pratiques pour votre visite. Que souhaitez-vous découvrir ?',
       'donChucho.checking': 'Vérification...',
       'donChucho.onlineStatus': 'Don Chucho IA en ligne',
       'donChucho.voiceActive': 'Voix activée',
@@ -719,7 +749,7 @@ class TranslationService {
       'donChucho.offlineContinue': 'Continuer hors ligne',
       'donChucho.voiceCommand': 'Dicter votre question',
       'donChucho.voiceUnsupported': 'La saisie vocale n’est pas disponible dans ce navigateur.',
-      'donChucho.voiceNotInstalled': 'Aucune voix n’est installée sur cet appareil pour cette langue. Choisissez une autre voix disponible ou installez la voix correspondante.',
+      'donChucho.voiceNotInstalled': 'Aucune voix installée pour cette langue sur cet appareil.',
       'donChucho.voiceEnabled': 'Lecture vocale activée',
       'donChucho.voiceDisabled': 'Lecture vocale désactivée',
       'donChucho.stopVoice': 'Arrêter la lecture',
@@ -727,6 +757,22 @@ class TranslationService {
       'donChucho.localFallback': 'Je suis Don Chucho, arriero du Quindío et votre guide de Salento. Je peux vous aider avec la vallée de Cocora, le transport, le café, la culture et les activités locales. Que souhaitez-vous découvrir ?',
       'donChucho.errorFallback': 'Je n’ai pas pu traiter cette demande. Réessayez ou interrogez-moi sur le guide local de Salento.',
       'donChucho.zhKnowledgeFallback': 'Ce sujet ne dispose pas encore d’une réponse hors ligne vérifiée en chinois. Je peux vous renseigner sur le transport, l’hébergement, le café et la vallée de Cocora.',
+      'donChucho.welcome': 'Bonjour ! Je suis Don Chucho, arriero du Quindío et votre guide local de Salento. Je peux vous aider avec la vallée de Cocora, les sentiers, le café, la culture et les aspects pratiques de votre visite. Que souhaitez-vous découvrir ?',
+      'donChucho.you': 'Vous',
+      'donChucho.listening': 'Écoute...',
+      'donChucho.thinking': 'Don Chucho réfléchit...',
+      'donChucho.voiceError': 'Je n’ai pas pu vous entendre. Réessayez.',
+      'donChucho.available': '✓ Disponible',
+      'donChucho.unavailable': '✗ Complet',
+      'donChucho.call': 'Appeler',
+      'donChucho.whatsapp': 'WhatsApp direct',
+      'donChucho.verified': 'Vérifié',
+      'donChucho.authenticPlaces': 'Lieux authentiques recommandés',
+      'donChucho.nearbyPlaces': 'Services à proximité :',
+      'donChucho.spokenPlaces': 'Je vous recommande ces lieux :',
+      'donChucho.spokenAuthentic': 'Je vous recommande aussi ces lieux authentiques :',
+      'donChucho.spokenNearby': 'Services à proximité :',
+      'donChucho.suggestions': 'Vous pouvez aussi demander :',
       'donChucho.suggestions.coffee': 'Bon café',
       'donChucho.suggestions.cocora': 'Vallée de Cocora',
       'nav.home': 'Accueil', 'nav.services': 'Services', 'nav.lodging': 'Hébergements', 'nav.directory': 'Annuaire', 'nav.map': 'Carte', 'nav.guideOffline': 'Guide hors ligne',
@@ -973,9 +1019,8 @@ class TranslationService {
       'categories.Servicios': 'Dienste',
       'categories.Camping': 'Camping',
       'donChucho.title': 'Don Chucho',
-      'donChucho.subtitle': 'Arriero aus Quindío · Salento-Reiseführer',
+      'donChucho.subtitle': 'Reiseführer vor Ort · Salento, Quindío',
       'donChucho.placeholder': 'Fragen Sie Don Chucho...',
-      'donChucho.welcome': 'Hallo! Ich bin Don Chucho, ein Arriero aus Quindío und dein lokaler Reiseführer für Salento. Ich helfe dir mit dem Cocora-Tal, den Wegen, Kaffee, Kultur und praktischen Tipps für deinen Besuch. Was möchtest du entdecken?',
       'donChucho.checking': 'Verbindung wird geprüft...',
       'donChucho.onlineStatus': 'Don Chucho KI online',
       'donChucho.voiceActive': 'Sprachausgabe aktiv',
@@ -984,7 +1029,7 @@ class TranslationService {
       'donChucho.offlineContinue': 'Offline fortsetzen',
       'donChucho.voiceCommand': 'Frage einsprechen',
       'donChucho.voiceUnsupported': 'Spracheingabe ist in diesem Browser nicht verfügbar.',
-      'donChucho.voiceNotInstalled': 'Für diese Sprache ist auf diesem Gerät keine Stimme installiert. Wähle eine andere verfügbare Stimme oder installiere die passende Stimme.',
+      'donChucho.voiceNotInstalled': 'Keine Stimme für diese Sprache auf diesem Gerät installiert.',
       'donChucho.voiceEnabled': 'Sprachausgabe aktiviert',
       'donChucho.voiceDisabled': 'Sprachausgabe deaktiviert',
       'donChucho.stopVoice': 'Sprachausgabe stoppen',
@@ -992,6 +1037,22 @@ class TranslationService {
       'donChucho.localFallback': 'Ich bin Don Chucho, ein Arriero aus Quindío und dein Salento-Reiseführer. Ich helfe dir mit dem Cocora-Tal, Transport, Kaffee, Kultur und lokalen Ausflügen. Was möchtest du entdecken?',
       'donChucho.errorFallback': 'Ich konnte die Anfrage nicht abschließen. Bitte versuche es erneut oder frage mich nach dem lokalen Salento-Reiseführer.',
       'donChucho.zhKnowledgeFallback': 'Für dieses Thema gibt es noch keine verifizierte Offline-Antwort auf Chinesisch. Ich kann dir bei Transport, Unterkunft, Kaffee und dem Cocora-Tal helfen.',
+      'donChucho.welcome': 'Hallo! Ich bin Don Chucho, ein Arriero aus Quindío und dein Salento-Reiseführer. Ich kann dir mit dem Cocora-Tal, den Wegen, dem Kaffee, der Kultur und den praktischen Aspekten deines Besuchs helfen. Was möchtest du entdecken?',
+      'donChucho.you': 'Du',
+      'donChucho.listening': 'Höre zu...',
+      'donChucho.thinking': 'Don Chucho denkt nach...',
+      'donChucho.voiceError': 'Ich konnte dich nicht hören. Versuche es erneut.',
+      'donChucho.available': '✓ Verfügbar',
+      'donChucho.unavailable': '✗ Ausgebucht',
+      'donChucho.call': 'Anrufen',
+      'donChucho.whatsapp': 'WhatsApp direkt',
+      'donChucho.verified': 'Verifiziert',
+      'donChucho.authenticPlaces': 'Empfohlene authentische Orte',
+      'donChucho.nearbyPlaces': 'Dienste in deiner Nähe:',
+      'donChucho.spokenPlaces': 'Ich empfehle dir diese Orte:',
+      'donChucho.spokenAuthentic': 'Ich empfehle dir auch diese authentischen Orte:',
+      'donChucho.spokenNearby': 'Dienste in deiner Nähe:',
+      'donChucho.suggestions': 'Du kannst auch fragen:',
       'donChucho.suggestions.coffee': 'Guter Kaffee',
       'donChucho.suggestions.cocora': 'Cocora-Tal',
       'nav.home': 'Start', 'nav.services': 'Services', 'nav.lodging': 'Unterkünfte', 'nav.directory': 'Verzeichnis', 'nav.map': 'Karte', 'nav.guideOffline': 'Offline-Guide',
@@ -1285,9 +1346,8 @@ class TranslationService {
       'categories.Servicios': 'Serviços',
       'categories.Camping': 'Camping',
       'donChucho.title': 'Don Chucho',
-      'donChucho.subtitle': 'Arriero do Quindío · guia de Salento',
+      'donChucho.subtitle': 'Guia local · Salento, Quindío',
       'donChucho.placeholder': 'Pergunte ao Don Chucho...',
-      'donChucho.welcome': 'Olá! Sou Don Chucho, arriero do Quindío e seu guia local de Salento. Posso ajudar com o Vale de Cocora, trilhas, café, cultura e informações práticas para sua visita. O que você gostaria de descobrir?',
       'donChucho.checking': 'Verificando...',
       'donChucho.onlineStatus': 'Don Chucho IA online',
       'donChucho.voiceActive': 'Voz ativa',
@@ -1296,7 +1356,7 @@ class TranslationService {
       'donChucho.offlineContinue': 'Continuar offline',
       'donChucho.voiceCommand': 'Dite sua pergunta',
       'donChucho.voiceUnsupported': 'A entrada por voz não está disponível neste navegador.',
-      'donChucho.voiceNotInstalled': 'Este dispositivo não tem uma voz instalada para este idioma. Escolha outra voz disponível ou instale a voz correspondente.',
+      'donChucho.voiceNotInstalled': 'Nenhuma voz instalada para este idioma neste dispositivo.',
       'donChucho.voiceEnabled': 'Leitura em voz alta ativada',
       'donChucho.voiceDisabled': 'Leitura em voz alta desativada',
       'donChucho.stopVoice': 'Parar leitura',
@@ -1304,6 +1364,22 @@ class TranslationService {
       'donChucho.localFallback': 'Sou Don Chucho, arriero do Quindío e seu guia de Salento. Posso ajudar com o Vale de Cocora, transporte, café, cultura e passeios locais. O que você gostaria de descobrir?',
       'donChucho.errorFallback': 'Não consegui concluir essa consulta. Tente novamente ou pergunte sobre o guia local de Salento.',
       'donChucho.zhKnowledgeFallback': 'Este tema ainda não tem uma resposta offline verificada em chinês. Posso ajudar com transporte, hospedagem, café e o Vale de Cocora.',
+      'donChucho.welcome': 'Olá! Sou Don Chucho, arriero do Quindío e seu guia local de Salento. Posso ajudar com o Vale de Cocora, trilhas, café, cultura e os aspectos práticos da sua visita. O que você quer descobrir?',
+      'donChucho.you': 'Você',
+      'donChucho.listening': 'Ouvindo...',
+      'donChucho.thinking': 'Don Chucho está pensando...',
+      'donChucho.voiceError': 'Não consegui ouvir você. Tente novamente.',
+      'donChucho.available': '✓ Disponível',
+      'donChucho.unavailable': '✗ Sem vagas',
+      'donChucho.call': 'Ligar',
+      'donChucho.whatsapp': 'WhatsApp direto',
+      'donChucho.verified': 'Verificado',
+      'donChucho.authenticPlaces': 'Lugares autênticos recomendados',
+      'donChucho.nearbyPlaces': 'Serviços perto de você:',
+      'donChucho.spokenPlaces': 'Recomendo estes lugares:',
+      'donChucho.spokenAuthentic': 'Também recomendo estes lugares autênticos:',
+      'donChucho.spokenNearby': 'Serviços perto de você:',
+      'donChucho.suggestions': 'Você também pode perguntar:',
       'donChucho.suggestions.coffee': 'Bom café',
       'donChucho.suggestions.cocora': 'Vale do Cocora',
       'nav.home': 'Início', 'nav.services': 'Serviços', 'nav.lodging': 'Hospedagem', 'nav.directory': 'Diretório', 'nav.map': 'Mapa', 'nav.guideOffline': 'Guia offline',
@@ -1597,9 +1673,8 @@ class TranslationService {
       'categories.Servicios': 'Servizi',
       'categories.Camping': 'Camping',
       'donChucho.title': 'Don Chucho',
-      'donChucho.subtitle': 'Arriero del Quindío · guida di Salento',
+      'donChucho.subtitle': 'Guida locale · Salento, Quindío',
       'donChucho.placeholder': 'Chiedi a Don Chucho...',
-      'donChucho.welcome': 'Ciao! Sono Don Chucho, arriero del Quindío e la tua guida locale a Salento. Posso aiutarti con la Valle de Cocora, i sentieri, il caffè, la cultura e le informazioni pratiche per la visita. Cosa vuoi scoprire?',
       'donChucho.checking': 'Verifica in corso...',
       'donChucho.onlineStatus': 'Don Chucho IA online',
       'donChucho.voiceActive': 'Voce attiva',
@@ -1608,7 +1683,7 @@ class TranslationService {
       'donChucho.offlineContinue': 'Continua offline',
       'donChucho.voiceCommand': 'Detta la tua domanda',
       'donChucho.voiceUnsupported': 'L’input vocale non è disponibile in questo browser.',
-      'donChucho.voiceNotInstalled': 'Su questo dispositivo non è installata una voce per questa lingua. Scegli un’altra voce disponibile o installa quella corrispondente.',
+      'donChucho.voiceNotInstalled': 'Nessuna voce installata per questa lingua su questo dispositivo.',
       'donChucho.voiceEnabled': 'Lettura ad alta voce attivata',
       'donChucho.voiceDisabled': 'Lettura ad alta voce disattivata',
       'donChucho.stopVoice': 'Interrompi lettura',
@@ -1616,6 +1691,22 @@ class TranslationService {
       'donChucho.localFallback': 'Sono Don Chucho, arriero del Quindío e la tua guida di Salento. Posso aiutarti con la Valle de Cocora, i trasporti, il caffè, la cultura e i programmi locali. Cosa vuoi scoprire?',
       'donChucho.errorFallback': 'Non sono riuscito a completare la richiesta. Riprova o chiedimi informazioni sulla guida locale di Salento.',
       'donChucho.zhKnowledgeFallback': 'Questo argomento non ha ancora una risposta offline verificata in cinese. Posso aiutarti con trasporti, alloggi, caffè e Valle de Cocora.',
+      'donChucho.welcome': 'Ciao! Sono Don Chucho, un arriero del Quindío e la tua guida locale di Salento. Posso aiutarti con la Valle de Cocora, i sentieri, il caffè, la cultura e gli aspetti pratici della tua visita. Cosa vuoi scoprire?',
+      'donChucho.you': 'Tu',
+      'donChucho.listening': 'In ascolto...',
+      'donChucho.thinking': 'Don Chucho sta pensando...',
+      'donChucho.voiceError': 'Non sono riuscito a sentirti. Riprova.',
+      'donChucho.available': '✓ Disponibile',
+      'donChucho.unavailable': '✗ Non disponibile',
+      'donChucho.call': 'Chiama',
+      'donChucho.whatsapp': 'WhatsApp diretto',
+      'donChucho.verified': 'Verificato',
+      'donChucho.authenticPlaces': 'Luoghi autentici consigliati',
+      'donChucho.nearbyPlaces': 'Servizi vicino a te:',
+      'donChucho.spokenPlaces': 'Ti consiglio questi luoghi:',
+      'donChucho.spokenAuthentic': 'Ti consiglio anche questi luoghi autentici:',
+      'donChucho.spokenNearby': 'Servizi vicino a te:',
+      'donChucho.suggestions': 'Puoi anche chiedere:',
       'donChucho.suggestions.coffee': 'Buon caffè',
       'donChucho.suggestions.cocora': 'Valle de Cocora',
       'nav.home': 'Home', 'nav.services': 'Servizi', 'nav.lodging': 'Alloggi', 'nav.directory': 'Elenco', 'nav.map': 'Mappa', 'nav.guideOffline': 'Guida offline',
@@ -2422,6 +2513,17 @@ class TranslationService {
       'btn.backHome': 'Back to home',
       'aria.changeLanguage': 'Change language',
       'aria.changeCurrency': 'Change currency'
+    },
+    'ar': {}
+  }
+
+  constructor() {
+    for (const [code, dict] of Object.entries(TRANSLATION_EXTRAS)) {
+      const language = code as Language
+      this.translations[language] = {
+        ...(this.translations[language] || {}),
+        ...(dict || {})
+      }
     }
   }
 
@@ -2516,7 +2618,11 @@ class TranslationService {
       'id-id': 'id',
       // Malayo
       'ms': 'ms',
-      'ms-my': 'ms'
+      'ms-my': 'ms',
+      // Árabe
+      'ar': 'ar',
+      'ar-sa': 'ar',
+      'ar-eg': 'ar'
     }
 
     const detectedLang = langMap[browserLang.toLowerCase()] || langMap[browserLang.split('-')[0].toLowerCase()] || 'es';
@@ -2552,11 +2658,12 @@ class TranslationService {
    * Traducir una clave
    */
   translate(key: string, fallback?: string): string {
-    const language = this.currentLanguage
-    const translations = this.translations[language] || this.translations['es'];
-    
-    const value = translations[key]
-    
+    const language: Language = this.currentLanguage === 'en-gb' ? 'en' : this.currentLanguage
+    const value =
+      this.translations[language]?.[key] ||
+      this.translations['en']?.[key] ||
+      this.translations['es']?.[key]
+
     return value || fallback || key
   }
 }

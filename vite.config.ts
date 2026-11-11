@@ -1,5 +1,6 @@
 /// <reference types="vitest" />
 import { defineConfig } from 'vitest/config'
+import { resolve } from 'path'
 import react from '@vitejs/plugin-react'
 
 export default defineConfig({
@@ -12,6 +13,10 @@ export default defineConfig({
     minify: 'terser',
     sourcemap: false,
     rollupOptions: {
+      input: {
+        main: resolve(__dirname, 'index.html'),
+        mapa: resolve(__dirname, 'mapa-interactivo-salento.html'),
+      },
       output: {
         manualChunks(id) {
           if (id.includes('node_modules')) {

@@ -4,7 +4,7 @@ import { getOsirisResponse } from '../../services/donChuchoOsiris'
 import { answerDonChucho } from '../../services/donChuchoBrain'
 import { localizedSuggestions, weatherSuggestions } from '../../services/donChuchoNlu'
 import type { KnowledgeItem } from '../../services/donChuchoKnowledge'
-import { SPEECH_LOCALES, pickVoiceForLang, sanitizeSpeechText } from '../VoiceInput'
+import { SPEECH_LOCALES, pickVoiceForLang, sanitizeSpeechText, isLikelyMaleVoice } from '../VoiceInput'
 import type { Language, Place } from '../../types'
 
 interface Pautante {
@@ -188,7 +188,13 @@ function EnhancedDonChucho({ language, t, places, onFallback, onClose, existingC
 
   useEffect(() => {
     const el = messagesRef.current
-    if (el) el.scrollTop = el.scrollHeight
+    if (!el) return
+    const last = el.lastElementChild as HTMLElement | null
+    if (last && last.classList.contains('assistant') && last.querySelector('.local-place-card')) {
+      el.scrollTop = Math.max(0, last.offsetTop - 8)
+      return
+    }
+    el.scrollTop = el.scrollHeight
   }, [messages, isLoading, interimText])
 
   useEffect(() => {
@@ -249,7 +255,7 @@ function EnhancedDonChucho({ language, t, places, onFallback, onClose, existingC
   const speakResponse = (text: string) => {
     if (!speechSynthRef.current || !voiceEnabled) return
 
-    const cleanText = sanitizeSpeechText(text)
+    const cleanText = sanitizeSpeechText(text, SPEECH_LOCALES[language])
     if (!cleanText) return
 
     stopSpeaking()
@@ -260,7 +266,7 @@ function EnhancedDonChucho({ language, t, places, onFallback, onClose, existingC
       const utterance = new SpeechSynthesisUtterance(chunk)
       utterance.lang = voiceForSpeech?.lang || SPEECH_LOCALES[language]
       utterance.rate = 0.92
-      utterance.pitch = 1.0
+      utterance.pitch = voiceForSpeech && !isLikelyMaleVoice(voiceForSpeech) ? 0.8 : 1.0
       utterance.volume = 1.0
 
       if (voiceForSpeech) {
@@ -281,11 +287,12 @@ function EnhancedDonChucho({ language, t, places, onFallback, onClose, existingC
   }
 
   const buildSpokenText = (base: string, placeList: LocalPlace[] = []): string => {
-    const cleaned = sanitizeSpeechText(base)
+    const locale = SPEECH_LOCALES[language]
+    const cleaned = sanitizeSpeechText(base, locale)
     const names = placeList.map(place => place?.name).filter(Boolean).join(', ')
     if (!names) return cleaned
     const intro = t('donChucho.spokenPlaces', 'Te recomiendo estos lugares:')
-    return `${cleaned} ${sanitizeSpeechText(intro)} ${sanitizeSpeechText(names)}`.trim()
+    return `${cleaned} ${sanitizeSpeechText(intro, locale)} ${sanitizeSpeechText(names, locale)}`.trim()
   }
 
   const speakFollowUp = (key: string, intro: string, placeList: LocalPlace[]) => {
@@ -294,14 +301,14 @@ function EnhancedDonChucho({ language, t, places, onFallback, onClose, existingC
     if (!names || lastSpokenFollowUpRef.current[key] === names) return
     lastSpokenFollowUpRef.current[key] = names
 
-    const text = sanitizeSpeechText(`${intro} ${names}`)
+    const text = sanitizeSpeechText(`${intro} ${names}`, SPEECH_LOCALES[language])
     if (!text) return
 
     const utterance = new SpeechSynthesisUtterance(text)
     const voiceForSpeech = resolveVoice()
     utterance.lang = voiceForSpeech?.lang || SPEECH_LOCALES[language]
     utterance.rate = 0.9
-    utterance.pitch = 1.0
+    utterance.pitch = voiceForSpeech && !isLikelyMaleVoice(voiceForSpeech) ? 0.8 : 1.0
     utterance.volume = 1.0
     if (voiceForSpeech) utterance.voice = voiceForSpeech
     utterance.onstart = () => setIsSpeaking(true)
@@ -395,16 +402,10 @@ function EnhancedDonChucho({ language, t, places, onFallback, onClose, existingC
     }
   }
 
-  const handleWhatsApp = async (whatsapp: string, pautanteId?: number) => {
-    if (!whatsapp) return
-    if (pautanteId) {
-      const direct = await pythonBackendService.getWhatsAppDirect(pautanteId)
-      if (direct.success && direct.whatsapp_url) {
-        window.open(direct.whatsapp_url, '_blank')
-        return
-      }
-    }
-    window.open(`https://wa.me/${whatsapp.replace(/\D/g, '')}`, '_blank')
+  const handleWhatsApp = (whatsapp: string) => {
+    const digits = whatsapp.replace(/\D/g, '')
+    if (!digits) return
+    window.open(`https://wa.me/${digits}`, '_blank', 'noopener,noreferrer')
   }
 
   const handleSendMessage = async (textOverride?: string) => {
@@ -438,7 +439,7 @@ function EnhancedDonChucho({ language, t, places, onFallback, onClose, existingC
       const relatedPlaces = findRelatedPlaces(reply.relatedPlaceIds)
 
       if (reply.confident || reply.source === 'knowledge') {
-        const messageId = addMessage({
+        addMessage({
           role: 'assistant',
           text: reply.text,
           places: relatedPlaces,
@@ -447,13 +448,6 @@ function EnhancedDonChucho({ language, t, places, onFallback, onClose, existingC
         })
         setSuggestions(reply.suggestions)
         if (voiceEnabled) speakResponse(buildSpokenText(reply.text, relatedPlaces))
-        if (relatedPlaces.length > 0) {
-          speakFollowUp(
-            `related-${messageId}`,
-            t('donChucho.spokenPlaces', 'Te recomiendo estos lugares:'),
-            relatedPlaces
-          )
-        }
         return
       }
 
@@ -620,7 +614,7 @@ function EnhancedDonChucho({ language, t, places, onFallback, onClose, existingC
                       <div key={`${chatMessage.id}-${localPlace.id ?? index}`} className="local-place-card">
                         <div className="local-place-header">
                           <strong>{localPlace.name}</strong>
-                          <span className="badge">{localPlace.type}</span>
+                          <span className="badge">{t(`categories.${localPlace.type}`, localPlace.type)}</span>
                           {localPlace.distance_km && <span className="distance-badge">{localPlace.distance_km} km</span>}
                           {localPlace.id && availabilityStatus[String(localPlace.id)] !== undefined && (
                             <span className={`availability-badge ${availabilityStatus[String(localPlace.id)] ? 'available' : 'unavailable'}`}>
@@ -633,15 +627,15 @@ function EnhancedDonChucho({ language, t, places, onFallback, onClose, existingC
                             <span className="quality-badge">★ {qualityScores[String(localPlace.id)]}/100</span>
                           )}
                         </div>
-                        <p>{localPlace.description}</p>
+                        {language === 'es' && localPlace.description && <p>{localPlace.description}</p>}
                         <div className="local-place-actions">
                           {localPlace.contact.whatsapp && (
                             <button
                               type="button"
-                              onClick={() => void handleWhatsApp(localPlace.contact.whatsapp!, localPlace.id)}
+                              onClick={() => handleWhatsApp(localPlace.contact.whatsapp!)}
                               className="whatsapp-btn"
                             >
-                              WhatsApp One-Tap
+                              {t('donChucho.whatsapp', 'WhatsApp One-Tap')}
                             </button>
                           )}
                           {localPlace.contact.phone && (
@@ -661,7 +655,7 @@ function EnhancedDonChucho({ language, t, places, onFallback, onClose, existingC
                     {chatMessage.authentic.map((place, index) => (
                       <div key={`${chatMessage.id}-authentic-${index}`} className="authentic-place-item">
                         <strong>{place.name}</strong>
-                        <span className="authenticity-badge">{place.local_approval}</span>
+                        <span className="authenticity-badge">{t('donChucho.verified', place.local_approval || 'Verificado')}</span>
                       </div>
                     ))}
                   </div>

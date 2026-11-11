@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { Place } from '../../types'
+import { isLikelyMaleVoice, pickVoiceForLang, sanitizeSpeechText } from '../VoiceInput'
 import './ARCameraView.css'
 
 interface ARCameraViewProps {
@@ -179,10 +180,13 @@ function ARCameraView({ places, userLocation, onRequestLocation, onClose, onPlac
   const speak = (place: Place) => {
     if (!('speechSynthesis' in window)) return
     window.speechSynthesis.cancel()
-    const info = `${place.name}. ${place.description} Ubicado en ${place.location?.address || 'Salento'}.`
+    const info = sanitizeSpeechText(`${place.name}. ${place.description} Ubicado en ${place.location?.address || 'Salento'}.`, 'es-CO')
     const u = new SpeechSynthesisUtterance(info)
-    u.lang = 'es-ES'
+    u.lang = 'es-CO'
     u.rate = 0.9
+    const voice = pickVoiceForLang(window.speechSynthesis.getVoices(), 'es-CO')
+    if (voice) u.voice = voice
+    u.pitch = voice && !isLikelyMaleVoice(voice) ? 0.8 : 1.0
     setSpeaking(true)
     u.onend = () => setSpeaking(false)
     u.onerror = () => setSpeaking(false)

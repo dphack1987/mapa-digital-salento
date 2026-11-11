@@ -1,4 +1,10 @@
 import type { Language } from '../types'
+import {
+  FALLBACK_OVERRIDES,
+  GENERAL_SUGGESTIONS_OVERRIDES,
+  SMALL_TALK_OVERRIDES,
+  WEATHER_SUGGESTIONS_OVERRIDES
+} from './donChuchoOverrides'
 
 export type BaseLanguage = 'es' | 'en' | 'de' | 'fr' | 'pt' | 'it'
 
@@ -49,12 +55,22 @@ export function normalizeText(input: string): string {
     .replace(/ß/g, 'ss')
     .normalize('NFD')
     .replace(/[\u0300-\u036f]/g, '')
-    .replace(/[^a-z0-9\s]/g, ' ')
+    .normalize('NFC')
+    .replace(/[^\p{L}\p{N}\s]/gu, ' ')
     .replace(/\s+/g, ' ')
     .trim()
 }
 
 const PHRASE_MAP: Array<[string, string]> = [
+  // Frases multilingües frecuentes → español
+  ['ca phe', 'cafe'], ['quan ca phe', 'cafe'], ['thoi tiet', 'clima'],
+  ['giao thong', 'transporte'], ['thung lung', 'valle'], ['cuoi ngua', 'cabalgata'],
+  ['an toan', 'seguridad'], ['mua sam', 'comprar'], ['thu cong', 'artesanias'],
+  ['air terjun', 'cascada'], ['menunggang kuda', 'cabalgata'], ['beli belah', 'comprar'],
+  ['أين آكل', 'donde comer'], ['أين نأكل', 'donde comer'], ['أين أنام', 'donde dormir'],
+  ['أين أسكن', 'donde dormir hospedaje'], ['كم السعر', 'cuanto cuesta precio'],
+  ['كم تكلفة', 'cuanto cuesta precio'], ['كيف أصل', 'como llegar transporte'],
+  ['وادي كوكورا', 'valle cocora'], ['بدون tour', 'sin tour'],
   ['where can i sleep', 'donde dormir hospedaje'],
   ['where can i stay', 'donde dormir hospedaje'],
   ['where to sleep', 'donde dormir hospedaje'],
@@ -126,6 +142,52 @@ const PHRASE_MAP: Array<[string, string]> = [
 ]
 
 const WORD_MAP: Record<string, string> = {
+  // Árabe
+  'قهوة': 'cafe', 'مقهى': 'cafe', 'طعام': 'comida', 'أكل': 'comer', 'اكل': 'comer',
+  'مطعم': 'restaurante', 'فندق': 'hotel', 'نوم': 'dormir', 'إقامة': 'hospedaje',
+  'جولة': 'tour', 'جولات': 'tours', 'طقس': 'clima', 'مطر': 'lluvia',
+  'نقل': 'transporte', 'حافلة': 'bus', 'تاكسي': 'taxi', 'سعر': 'precio',
+  'أسعار': 'precio', 'وادي': 'valle', 'شلال': 'cascada', 'خيل': 'cabalgata',
+  'آمن': 'seguridad', 'أمان': 'seguridad', 'واي فاي': 'wifi', 'إنترنت': 'internet',
+  'تسوق': 'comprar', 'حرف': 'artesanias',
+  // Japonés
+  'コーヒー': 'cafe', 'カフェ': 'cafe', '食事': 'comida', '食べる': 'comer',
+  'レストラン': 'restaurante', 'ホテル': 'hotel', '宿': 'hospedaje', '泊まる': 'dormir',
+  'ツアー': 'tour', '天気': 'clima', '雨': 'lluvia', '交通': 'transporte',
+  'バス': 'bus', 'タクシー': 'taxi', '価格': 'precio', '料金': 'precio',
+  '渓谷': 'valle', '滝': 'cascada', '乗馬': 'cabalgata', '安全': 'seguridad',
+  '買い物': 'comprar', '工芸': 'artesanias',
+  // Coreano
+  '커피': 'cafe', '카페': 'cafe', '음식': 'comida', '식사': 'comida', '먹다': 'comer',
+  '식당': 'restaurante', '호텔': 'hotel', '숙소': 'hospedaje', '자다': 'dormir',
+  '투어': 'tour', '날씨': 'clima', '비': 'lluvia', '교통': 'transporte',
+  '버스': 'bus', '택시': 'taxi', '가격': 'precio', '계곡': 'valle', '폭포': 'cascada',
+  '승마': 'cabalgata', '안전': 'seguridad', '와이파이': 'wifi', '쇼핑': 'comprar',
+  '공예': 'artesanias',
+  // Tailandés
+  'กาแฟ': 'cafe', 'คาเฟ่': 'cafe', 'อาหาร': 'comida', 'กิน': 'comer',
+  'ร้านอาหาร': 'restaurante', 'โรงแรม': 'hotel', 'ที่พัก': 'hospedaje', 'นอน': 'dormir',
+  'ทัวร์': 'tour', 'อากาศ': 'clima', 'ฝน': 'lluvia', 'การเดินทาง': 'transporte',
+  'รถบัส': 'bus', 'แท็กซี่': 'taxi', 'ราคา': 'precio', 'หุบเขา': 'valle',
+  'น้ำตก': 'cascada', 'ขี่ม้า': 'cabalgata', 'ปลอดภัย': 'seguridad', 'ไวไฟ': 'wifi',
+  'ช้อปปิ้ง': 'comprar', 'หัตถกรรม': 'artesanias',
+  // Vietnamita (normalizado sin acentos)
+  'ca phe': 'cafe', 'do an': 'comida', 'an': 'comer', 'nha hang': 'restaurante',
+  'khach san': 'hotel', 'luu tru': 'hospedaje', 'ngu': 'dormir', 'thoi tiet': 'clima',
+  'mua': 'lluvia', 'giao thong': 'transporte', 'xe bus': 'bus', 'gia': 'precio',
+  'thung lung': 'valle', 'thac': 'cascada', 'cuoi ngua': 'cabalgata',
+  'an toan': 'seguridad', 'mua sam': 'comprar', 'thu cong': 'artesanias',
+  // Indonesio
+  'kopi': 'cafe', 'kafe': 'cafe', 'makanan': 'comida', 'makan': 'comer',
+  'restoran': 'restaurante', 'penginapan': 'hospedaje', 'tidur': 'dormir',
+  'tur': 'tour', 'cuaca': 'clima', 'hujan': 'lluvia', 'transportasi': 'transporte',
+  'taksi': 'taxi', 'harga': 'precio', 'lembah': 'valle',
+  'air terjun': 'cascada', 'berkuda': 'cabalgata', 'aman': 'seguridad',
+  'belanja': 'comprar', 'kerajinan': 'artesanias',
+  // Malayo
+  'lawatan': 'tour', 'pengangkutan': 'transporte', 'bas': 'bus', 'teksi': 'taxi',
+  'menunggang kuda': 'cabalgata', 'selamat': 'seguridad', 'beli belah': 'comprar',
+  'kraf': 'artesanias',
   sleep: 'dormir',
   sleeping: 'dormir',
   stay: 'hospedaje',
@@ -566,7 +628,7 @@ export const INTENT_CATEGORIES: Record<Exclude<KnowledgeIntent, null>, string[]>
 }
 
 export function detectKnowledgeIntent(query: string): KnowledgeIntent {
-  const norm = normalizeText(query)
+  const norm = expandQuery(query)
   if (!norm) return null
   const tokens = new Set(norm.split(' '))
   const padded = ` ${norm} `
@@ -592,11 +654,21 @@ export function expandQuery(query: string): string {
     if (padded.includes(` ${phrase} `)) extras.push(replacement)
   }
 
+  const CJK_OR_THAI = /[\u3040-\u30ff\u3400-\u9fff\uac00-\ud7af\u0e00-\u0e7f]/
   for (const token of norm.split(' ')) {
     const mapped = WORD_MAP[token]
     if (mapped) extras.push(mapped)
     const synonyms = SPANISH_SYNONYMS[token]
     if (synonyms) extras.push(...synonyms)
+    // Japonés, coreano, chino y tailandés suelen escribirse sin espacios:
+    // buscamos palabras conocidas dentro del token.
+    if (CJK_OR_THAI.test(token)) {
+      for (const [key, value] of Object.entries(WORD_MAP)) {
+        if (key.length >= 2 && CJK_OR_THAI.test(key) && token.includes(key)) {
+          extras.push(value)
+        }
+      }
+    }
   }
 
   return normalizeText(`${norm} ${extras.join(' ')}`)
@@ -636,6 +708,7 @@ export function fuzzyWordMatch(word: string, candidates: Iterable<string>): bool
 }
 
 const GREETINGS = [
+  'مرحبا', 'أهلا', 'السلام عليكم', 'こんにちは', '안녕하세요', 'สวัสดี', 'xin chao', 'halo', 'hai',
   'hola', 'hi', 'hello', 'hey', 'hallo', 'bonjour', 'salut', 'ciao', 'ola', 'oi',
   'buenos dias', 'buenas tardes', 'buenas noches', 'buenas', 'good morning',
   'good afternoon', 'good evening', 'guten morgen', 'guten tag', 'bonsoir',
@@ -643,24 +716,28 @@ const GREETINGS = [
 ]
 
 const THANKS = [
+  'شكرا', 'ありがとう', '감사합니다', 'ขอบคุณ', 'cam on', 'terima kasih',
   'gracias', 'muchas gracias', 'mil gracias', 'thanks', 'thank you', 'thx',
   'danke', 'vielen dank', 'merci', 'merci beaucoup', 'obrigado', 'obrigada',
   'valeu', 'grazie', 'mille grazie'
 ]
 
 const GOODBYES = [
+  'مع السلامة', 'さようなら', '안녕히 가세요', 'ลาก่อน', 'tam biet', 'selamat tinggal',
   'adios', 'chao', 'chau', 'bye', 'goodbye', 'see you', 'hasta luego',
   'nos vemos', 'hasta pronto', 'tschuss', 'auf wiedersehen', 'au revoir',
   'a bientot', 'adeus', 'ate logo', 'arrivederci', 'ciao ciao'
 ]
 
 const HOW_ARE_YOU = [
+  'كيف حالك', 'お元気ですか', '어떻게 지내세요', 'สบายดีไหม', 'ban khoe khong', 'apa kabar',
   'como estas', 'como esta', 'como te va', 'how are you', 'how is it going',
   'wie geht es dir', 'wie gehts', 'comment vas tu', 'comment allez vous',
   'como vai', 'como voce esta', 'come stai', 'come va'
 ]
 
 const IDENTITY = [
+  'من أنت', 'あなたは誰', '누구세요', 'คุณคือใคร', 'ban la ai', 'siapa kamu',
   'quien eres', 'quien es usted', 'como te llamas', 'que eres', 'que sabes',
   'que sabes hacer', 'hablame', 'hablame de ti', 'who are you', 'what is your name',
   'what can you do', 'wer bist du', 'qui es tu', 'que sais tu faire', 'chi sei',
@@ -668,22 +745,25 @@ const IDENTITY = [
 ]
 
 const HELP = [
+  'مساعدة', '助けて', '도와줘', 'ช่วยด้วย', 'giup', 'bantuan',
   'ayuda', 'help', 'hilfe', 'aide', 'ajuda', 'aiuto', 'necesito ayuda',
   'i need help', 'informacion', 'info'
 ]
 
 const COMPLIMENTS = [
+  'ممتاز', '素晴らしい', '훌륭해요', 'เยี่ยม', 'tuyet', 'bagus',
   'eres genial', 'muy bien', 'excelente', 'great', 'awesome', 'perfect',
   'genial', 'super', 'muy util', 'very helpful', 'danke schon', 'bravo'
 ]
 
 const APOLOGIES = [
+  'آسف', 'ごめんなさい', '죄송합니다', 'ขอโทษ', 'xin loi', 'maaf',
   'perdon', 'disculpa', 'lo siento', 'sorry', 'entschuldigung', 'pardon',
   'desculpe', 'scusa'
 ]
 
-const AFFIRM = ['si', 'yes', 'ja', 'oui', 'sim', 'ok', 'okay', 'claro', 'dale', 'listo', 'va bene']
-const DENY = ['no', 'nope', 'nein', 'non', 'nao', 'no gracias', 'no thanks']
+const AFFIRM = ['si', 'yes', 'ja', 'oui', 'sim', 'ok', 'okay', 'claro', 'dale', 'listo', 'va bene', 'نعم', 'はい', '네', 'ใช่', 'dung', 'ya']
+const DENY = ['no', 'nope', 'nein', 'non', 'nao', 'no gracias', 'no thanks', 'لا', 'いいえ', '아니요', 'ไม่', 'khong', 'tidak']
 
 const FILLERS = new Set([
   'por', 'favor', 'please', 'bitte', 'ok', 'okay', 'bueno', 'buenas', 'amigo',
@@ -820,7 +900,7 @@ const SMALL_TALK: SmallTalkTable = {
 }
 
 export function smallTalkReply(intent: Exclude<SmallTalkIntent, null>, language: Language): string {
-  return SMALL_TALK[intent][resolveBaseLanguage(language)]
+  return SMALL_TALK_OVERRIDES[language]?.[intent] || SMALL_TALK[intent][resolveBaseLanguage(language)]
 }
 
 type SuggestionTable = Record<string, Record<BaseLanguage, string[]>>
@@ -949,6 +1029,8 @@ const SUGGESTIONS: SuggestionTable = {
 }
 
 export function localizedSuggestions(category: string | null | undefined, language: Language): string[] {
+  const override = GENERAL_SUGGESTIONS_OVERRIDES[language]
+  if (override) return [...override]
   const base = resolveBaseLanguage(language)
   const table = category ? SUGGESTIONS[category] : undefined
   const fallback = SUGGESTIONS.general
@@ -956,6 +1038,8 @@ export function localizedSuggestions(category: string | null | undefined, langua
 }
 
 export function weatherSuggestions(language: Language): string[] {
+  const override = WEATHER_SUGGESTIONS_OVERRIDES[language]
+  if (override) return [...override]
   const base = resolveBaseLanguage(language)
   const table: Record<BaseLanguage, string[]> = {
     es: ['¿Qué ropa llevar?', '¿Mejor hora para el valle?', '¿Hay tours con lluvia?'],
@@ -969,6 +1053,8 @@ export function weatherSuggestions(language: Language): string[] {
 }
 
 export function fallbackReply(language: Language): string {
+  const override = FALLBACK_OVERRIDES[language]
+  if (override) return override
   const base = resolveBaseLanguage(language)
   const table: Record<BaseLanguage, string> = {
     es: 'No encontré una respuesta exacta para eso, hermano. Puedo ayudarle con comida típica, café, tours, hospedaje, transporte, clima, artesanías, pagos o consejos de viaje. ¿Me lo pregunta de otra forma o elige un tema?',

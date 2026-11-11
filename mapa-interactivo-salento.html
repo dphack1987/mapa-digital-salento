@@ -10,6 +10,7 @@
     <link rel="alternate" hreflang="es-CO" href="https://www.salentoalamano.com/mapa-interactivo-salento.html" />
     <link rel="alternate" hreflang="x-default" href="https://www.salentoalamano.com/mapa-interactivo-salento.html" />
     <link rel="stylesheet" href="/page-theme.css">
+    
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "Mapa interactivo de Salento, Quindío | Salento a la Mano", "description": "Consulta el mapa turístico interactivo de Salento para ubicar alojamientos, restaurantes, cafés, experiencias, transporte y servicios locales.", "url": "https://www.salentoalamano.com/mapa-interactivo-salento", "inLanguage": "es-CO", "isPartOf": {"@type": "WebSite", "name": "Salento a la Mano", "url": "https://www.salentoalamano.com/"}}</script>
   </head>
   <body>
@@ -27,6 +28,12 @@
                 <ul><li><a href="/don-chucho-asistente">Don Chucho, tu asistente turístico de Salento</a></li><li><a href="/estado-actual-salento-hoteles-abiertos-vias-libres-valle-cocora-operando-100">Estado actual de Salento</a></li><li><a href="/hoteles-abiertos-salento">Hoteles y alojamientos en Salento</a></li><li><a href="/landing-estado-actual-salento-2026">Guía de Salento 2026</a></li><li><a href="/registro-aliados">Registro de aliados locales</a></li><li><a href="/salento-seguro-turismo">Turismo responsable en Salento</a></li><li><a href="/valle-cocora-accesible-100">Visitar el Valle de Cocora</a></li><li><a href="/vias-salento-libres-acceso">Cómo llegar a Salento</a></li></ul>
             </section>
     </main>
-    <script src="/quick-nav.js" defer></script>
+      <div style="position:relative;height:485px;width:100%;border-radius:18px;overflow:hidden;border:1px solid var(--line,#d9d0bf);background:#b1c69f">
+      <div id="mapa-interactivo-leaflet" style="height:100%;width:100%"></div>
+    </div>
+  </div>
+  
+  <script type="module" src="/src/mapa-entry.tsx"></script>
+  <script src="/quick-nav.js" defer></script>
 </body>
 </html>

@@ -33,6 +33,7 @@ export interface KnowledgeItem {
     id?: string
     ms?: string
     'en-gb'?: string
+    ar?: string
   }
   followUp?: string[]
   relatedPlaces?: number[]
@@ -469,7 +470,14 @@ const knowledgeBase: KnowledgeItem[] = [
     followUp: ['¿Dónde ahorrar?', '¿Qué incluye?', '¿Tarjetas aceptan?']
   },
   {
-    keywords: ['mejor época', 'cuándo ir', 'temporada', 'lluvia', 'seca'],
+    keywords: ['mejor época', 'cuándo ir', 'temporada', 'lluvia', 'seca',
+      'clima en', 'weather in', 'météo en', 'wetter im', 'clima em', 'meteo a',
+      'enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre',
+      'january', 'february', 'march', 'april', 'june', 'july', 'august', 'september', 'october', 'november', 'december',
+      'januar', 'februar', 'märz', 'juni', 'juli', 'oktober', 'dezember',
+      'janvier', 'février', 'avril', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre',
+      'janeiro', 'fevereiro', 'março', 'maio', 'junho', 'julho', 'setembro', 'outubro', 'dezembro',
+      'gennaio', 'febbraio', 'aprile', 'maggio', 'giugno', 'luglio', 'settembre', 'ottobre', 'dicembre'],
     category: 'consejos',
     answer: {
       es: 'Diciembre a marzo y julio a agosto son temporada seca, ideales para senderismo. Temporada de lluvias (abril-mayo, octubre-noviembre): paisajes más verdes, cascadas con más caudal, menos turistas y tarifas más económicas.',
@@ -525,12 +533,12 @@ const knowledgeBase: KnowledgeItem[] = [
     keywords: ['mirador las manos de dios', 'las manos de dios', 'manos de dios'],
     category: 'turismo',
     answer: {
-      es: 'El Mirador Las Manos de Dios es muy visitado por su valor fotográfico y la vista del paisaje. Está en el Ecoparque Tu País, a 300 metros del cementerio. Entrada $12.000, abierto 8am-6pm. Manos gigantes, cóndor, poporo, jeep cafetero.',
-      en: 'Mirador Las Manos de Dios is very popular for its photo value and landscape view. In Ecoparque Tu País, 300m from the cemetery. Entry $12,000, open 8am-6pm. Giant hands, condor, poporo, coffee jeep.',
-      de: 'Der Aussichtspunkt Las Manos de Dios ist sehr beliebt wegen seines Fotowerts und der Landschaftsaussicht. Im Ecoparque Tu País, 300 m vom Friedhof entfernt. Eintritt $12.000, geöffnet 8-18 Uhr. Riesenhände, Kondor, Poporo, Kaffee-Jeep.',
-      fr: 'Le Mirador Las Manos de Dios est très fréquenté pour sa valeur photographique et sa vue sur le paysage. Dans l\'Ecoparque Tu País, à 300 m du cimetière. Entrée 12 000 $, ouvert de 8h à 18h. Mains géantes, condor, poporo, jeep de café.',
-      pt: 'O Mirador Las Manos de Dios é muito visitado por seu valor fotográfico e vista da paisagem. Fica no Ecoparque Tu País, a 300 metros do cemitério. Entrada $12.000, aberto das 8h às 18h. Mãos gigantes, condor, poporo, jeep cafeiro.',
-      it: 'Il Mirador Las Manos de Dios è molto visitato per il suo valore fotografico e la vista panoramica. Nell\'Ecoparque Tu País, a 300 metri dal cimitero. Ingresso $12.000, aperto dalle 8 alle 18. Mani giganti, condor, poporo, jeep del caffè.'
+      es: 'El Mirador Las Manos de Dios es muy visitado por su valor fotográfico y la vista del paisaje. Está en el Ecoparque Tu País, a 300 metros del cementerio. Entrada $12.000 COP, abierto 8am-6pm. Manos gigantes, cóndor, poporo, jeep cafetero.',
+      en: 'Mirador Las Manos de Dios is very popular for its photo value and landscape view. In Ecoparque Tu País, 300m from the cemetery. Entry $12,000 COP, open 8am-6pm. Giant hands, condor, poporo, coffee jeep.',
+      de: 'Der Aussichtspunkt Las Manos de Dios ist sehr beliebt wegen seines Fotowerts und der Landschaftsaussicht. Im Ecoparque Tu País, 300 m vom Friedhof entfernt. Eintritt $12.000 COP, geöffnet 8-18 Uhr. Riesenhände, Kondor, Poporo, Kaffee-Jeep.',
+      fr: 'Le Mirador Las Manos de Dios est très fréquenté pour sa valeur photographique et sa vue sur le paysage. Dans l\'Ecoparque Tu País, à 300 m du cimetière. Entrée 12 000 $ COP, ouvert de 8h à 18h. Mains géantes, condor, poporo, jeep de café.',
+      pt: 'O Mirador Las Manos de Dios é muito visitado por seu valor fotográfico e vista da paisagem. Fica no Ecoparque Tu País, a 300 metros do cemitério. Entrada $12.000 COP, aberto das 8h às 18h. Mãos gigantes, condor, poporo, jeep cafeiro.',
+      it: 'Il Mirador Las Manos de Dios è molto visitato per il suo valore fotografico e la vista panoramica. Nell\'Ecoparque Tu País, a 300 metri dal cimitero. Ingresso $12.000 COP, aperto dalle 8 alle 18. Mani giganti, condor, poporo, jeep del caffè.'
     },
     followUp: ['¿Cómo llegar?', '¿Combina con otros planes?', '¿Mejor hora para fotos?'],
     relatedPlaces: [14]
@@ -539,12 +547,12 @@ const knowledgeBase: KnowledgeItem[] = [
     keywords: ['cascadas santa rita', 'santa rita salento', 'cascada santa rita', 'santa rita'],
     category: 'turismo',
     answer: {
-      es: 'Las Cascadas Santa Rita son una joyita en Boquía. 4.8 km de caminata por bosque, montes, valle, antigua vía de tren, túnel y puente colgante. Entrada $5.000. Hay segunda cascada por cavernas y zonas de camping.',
-      en: 'Santa Rita Waterfalls are a hidden gem in Boquía. 4.8 km hike through forest, mountains, valley, old train track, tunnel and suspension bridge. Entry $5,000. Second waterfall through caves and camping areas.',
-      de: 'Die Santa Rita-Wasserfälle sind ein versteckter Schatz in Boquía. 4,8 km Wanderung durch Wald, Berge, Tal, alte Eisenbahnstrecke, Tunnel und Hängebrücke. Eintritt $5.000. Zweiter Wasserfall durch Höhlen und Zeltplätze.',
-      fr: 'Les Cascadas Santa Rita sont un joyau caché à Boquía. Randonnée de 4,8 km à travers la forêt, les montagnes, la vallée, l\'ancienne voie ferrée, un tunnel et un pont suspendu. Entrée 5 000 $. Deuxième cascade à travers les grottes et les zones de camping.',
-      pt: 'As Cascadas Santa Rita são uma joiazinha em Boquía. Trilha de 4,8 km por floresta, montanhas, vale, antiga via de trem, túnel e ponte pênsil. Entrada $5.000. Tem uma segunda cachoeira por cavernas e áreas de camping.',
-      it: 'Le Cascate Santa Rita sono un gioiello nascosto a Boquía. Percorso di 4,8 km attraverso foresta, montagne, valle, vecchia ferrovia, tunnel e ponte sospeso. Ingresso $5.000. Seconda cascata attraverso caverne e aree campeggio.'
+      es: 'Las Cascadas Santa Rita son una joyita en Boquía. 4.8 km de caminata por bosque, montes, valle, antigua vía de tren, túnel y puente colgante. Entrada $5.000 COP. Hay segunda cascada por cavernas y zonas de camping.',
+      en: 'Santa Rita Waterfalls are a hidden gem in Boquía. 4.8 km hike through forest, mountains, valley, old train track, tunnel and suspension bridge. Entry $5,000 COP. Second waterfall through caves and camping areas.',
+      de: 'Die Santa Rita-Wasserfälle sind ein versteckter Schatz in Boquía. 4,8 km Wanderung durch Wald, Berge, Tal, alte Eisenbahnstrecke, Tunnel und Hängebrücke. Eintritt $5.000 COP. Zweiter Wasserfall durch Höhlen und Zeltplätze.',
+      fr: 'Les Cascadas Santa Rita sont un joyau caché à Boquía. Randonnée de 4,8 km à travers la forêt, les montagnes, la vallée, l\'ancienne voie ferrée, un tunnel et un pont suspendu. Entrée 5 000 $ COP. Deuxième cascade à travers les grottes et les zones de camping.',
+      pt: 'As Cascadas Santa Rita são uma joiazinha em Boquía. Trilha de 4,8 km por floresta, montanhas, vale, antiga via de trem, túnel e ponte pênsil. Entrada $5.000 COP. Tem uma segunda cachoeira por cavernas e áreas de camping.',
+      it: 'Le Cascate Santa Rita sono un gioiello nascosto a Boquía. Percorso di 4,8 km attraverso foresta, montagne, valle, vecchia ferrovia, tunnel e ponte sospeso. Ingresso $5.000 COP. Seconda cascata attraverso caverne e aree campeggio.'
     },
     followUp: ['¿Cómo llegar a Boquía?', '¿Dificultad del sendero?', '¿Qué llevar?'],
     relatedPlaces: [15]
@@ -553,7 +561,7 @@ const knowledgeBase: KnowledgeItem[] = [
     keywords: ['finca cafetera don elias', 'finca don elias', 'don elias salento', 'coffee tour don elias'],
     category: 'turismo',
     answer: {
-      es: 'La Finca Cafetera Don Elías es ideal para entender el café de verdad, desde la plantación hasta la taza. Experiencia auténtica y educativa. Ubicada en Vereda Palestina Km 4 de Salento. Tours 90 min, salidas cada hora 09:00-16:00. En venta: Café Premium (molido o grano) $50.000 con fermentación láctica controlada, Café Natural Premium $75.000 (pre-orden) y Taza Colombia $18.000. Café orgánico, despachos dentro de Colombia. Idiomas: español, inglés y francés de muy buen nivel. Reserva vía página web en www.fincafedonelias.com, ¡se llena rápido!',
+      es: 'La Finca Cafetera Don Elías es ideal para entender el café de verdad, desde la plantación hasta la taza. Experiencia auténtica y educativa. Ubicada en Vereda Palestina Km 4 de Salento. Tours 90 min, salidas cada hora 09:00-16:00. En venta: Café Premium (molido o grano) $50.000 COP con fermentación láctica controlada, Café Natural Premium $75.000 COP (pre-orden) y Taza Colombia $18.000 COP. Café orgánico, despachos dentro de Colombia. Idiomas: español, inglés y francés de muy buen nivel. Reserva vía página web en www.fincafedonelias.com, ¡se llena rápido!',
       en: 'Don Elías Coffee Farm is ideal to understand coffee from plant to cup. Authentic and educational experience. Located at Vereda Palestina Km 4, Salento. 90 min tours, hourly departures 09:00-16:00. For sale: Premium Coffee (ground or beans) $50,000 COP with controlled lactic fermentation, Natural Premium Coffee $75,000 COP (pre-order) and Colombia Mug $18,000 COP. Organic coffee, shipping within Colombia. Languages: Spanish, English, and French at excellent level. Book via our website www.fincafedonelias.com, fills up fast!',
       de: 'Die Kaffee-Farm Don Elías ist ideal, um Kaffee von der Pflanze bis zur Tasse zu verstehen. Authentisches und lehrreiches Erlebnis. Vereda Palestina Km 4, Salento. 90 Min. Touren, stündliche Abfahrten 09:00-16:00. Im Verkauf: Premium-Kaffee (gemahlen oder Bohnen) 50.000 COP mit kontrollierter Milchsäuregärung, Natural Premium-Kaffee 75.000 COP (Vorbestellung) und Kolumbien-Tasse 18.000 COP. Biologischer Kaffee, Versand innerhalb Kolumbiens. Sprachen: Spanisch, Englisch und Französisch auf hohem Niveau. Reservierung über unsere Website www.fincafedonelias.com, füllt sich schnell!',
       fr: 'La Finca Cafetera Don Elías est idéale pour comprendre le café de la plante à la tasse. Expérience authentique et éducative. Située à Vereda Palestina Km 4, Salento. Tours de 90 min, départs toutes les heures 09:00-16:00. En vente : Café Premium (moulu ou grains) 50 000 COP avec fermentation lactique contrôlée, Café Natural Premium 75 000 COP (précommande) et Tasse Colombie 18 000 COP. Café biologique, expéditions en Colombie. Langues : espagnol, anglais et français de très bon niveau. Réservation via notre site www.fincafedonelias.com, se remplit vite !',
@@ -567,7 +575,7 @@ const knowledgeBase: KnowledgeItem[] = [
     keywords: ['al sabor de la leña', 'al sabor de la lena', 'sabor de la leña', 'comida de campo al sabor de la leña'],
     category: 'comida',
     answer: {
-      es: 'Al Sabor de la Leña, en la Finca Cafetera Don Elías (Vereda Palestina Km 4), sirve comida de campo colombiana: desayunos hasta las 10:30 a.m. y almuerzos hasta las 2:30 p.m., con opciones vegetarianas. Abierto todos los días de 8:00 a.m. a 3:00 p.m., desde $20.000. Reservas por WhatsApp al +57 311 773 7987. ¿Almuerzo, desayuno o vegetariano?',
+      es: 'Al Sabor de la Leña, en la Finca Cafetera Don Elías (Vereda Palestina Km 4), sirve comida de campo colombiana: desayunos hasta las 10:30 a.m. y almuerzos hasta las 2:30 p.m., con opciones vegetarianas. Abierto todos los días de 8:00 a.m. a 3:00 p.m., desde $20.000 COP. Reservas por WhatsApp al +57 311 773 7987. ¿Almuerzo, desayuno o vegetariano?',
       en: 'Al Sabor de la Leña, at Finca Cafetera Don Elías (Vereda Palestina Km 4), serves Colombian country cooking: breakfast until 10:30 a.m. and lunch until 2:30 p.m., with vegetarian options. Open daily 8:00 a.m. – 3:00 p.m., from COP 20,000. Reservations by WhatsApp +57 311 773 7987. Lunch, breakfast or vegetarian?',
       de: 'Al Sabor de la Leña, in der Finca Cafetera Don Elías (Vereda Palestina Km 4), serviert kolumbianische Landküche: Frühstück bis 10:30 Uhr und Mittagessen bis 14:30 Uhr, mit vegetarischen Optionen. Täglich geöffnet 8:00–15:00 Uhr, ab 20.000 COP. Reservierung per WhatsApp +57 311 773 7987. Mittagessen, Frühstück oder vegetarisch?',
       fr: 'Al Sabor de la Leña, à la Finca Cafetera Don Elías (Vereda Palestina Km 4), sert une cuisine de campagne colombienne : petit-déjeuner jusqu\'à 10h30 et déjeuner jusqu\'à 14h30, avec options végétariennes. Ouvert tous les jours de 8h00 à 15h00, à partir de 20 000 COP. Réservation par WhatsApp +57 311 773 7987. Déjeuner, petit-déjeuner ou végétarien ?',

@@ -10,6 +10,14 @@ describe('VoiceInput helpers', () => {
     expect(sanitizeSpeechText('')).toBe('')
   })
 
+  it('lee los precios en pesos colombianos y nunca en dólares', () => {
+    expect(sanitizeSpeechText('Entrada $12.000 COP', 'es-CO')).toBe('Entrada 12.000 pesos colombianos')
+    expect(sanitizeSpeechText('desde $20.000', 'es-CO')).toBe('desde 20.000 pesos colombianos')
+    expect(sanitizeSpeechText('Tours $80.000-$200.000 COP', 'es-CO')).toBe('Tours 80.000 a 200.000 pesos colombianos')
+    expect(sanitizeSpeechText('Entry $12,000', 'en-US')).toBe('Entry 12,000 Colombian pesos')
+    expect(sanitizeSpeechText('Entrée 12 000 $', 'fr-FR')).toBe('Entrée 12 000 pesos colombiens')
+  })
+
   it('detecta una voz con nombre masculino', () => {
     expect(isLikelyMaleVoice({ name: 'Jorge', lang: 'es-CO' } as unknown as SpeechSynthesisVoice)).toBe(true)
   })

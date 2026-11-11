@@ -40,5 +40,18 @@
     "terser": "^5.51.2",
     "typescript": "^5.5.3",
     "vitest": "^5.1.0"
-  }
+  },
+  "description": "**Plataforma oficial de turismo de Salento, Quindío**   **Información verificada en tiempo real contra desinformación**   **Versión:** 0.1.0 | **Estado:** 🟢 PRODUCCIÓN READY",
+  "main": "check_translations.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dphack1987/mapa-digital-salento.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dphack1987/mapa-digital-salento/issues"
+  },
+  "homepage": "https://github.com/dphack1987/mapa-digital-salento#readme"
 }
