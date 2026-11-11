@@ -52,3 +52,6 @@ backup-ogimage-*/
 .pytest_cache/
 
 _incoming/
+
+# Repositorio anidado de portafolio (no se publica dentro del proyecto)
+portafolio-repo/
