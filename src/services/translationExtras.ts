@@ -7,6 +7,11 @@ import type { Language } from '../types'
 type TranslationDict = Record<string, string>
 
 const ar: TranslationDict = {
+  'christmas.eyebrow': 'موسم الأعياد',
+  'christmas.title': 'عيد الميلاد في سالينتو',
+  'christmas.text': 'من نوفمبر إلى يناير، يظهر سالنتو أفضل ما فيها: إقامة بعروض خاصة، مطاعم بقائمة عيد الميلاد، ومعارض وفعاليات. جدولك هنا.',
+  'christmas.ctaAgenda': 'عرض الأجندة الموسمية',
+  'christmas.ctaMap': 'استكشاف الخريطة',
   explore: 'استكشف',
   order: 'الطلبات',
   experiences: 'التجارب',
@@ -133,6 +138,11 @@ const ar: TranslationDict = {
 }
 
 const ja: TranslationDict = {
+  'christmas.eyebrow': 'ホリデーシーズン',
+  'christmas.title': 'サレントのクリスマス',
+  'christmas.text': '11月から1月にかけて、サレントの魅力がいっぱい。特別料金のポサダ、クリスマスメニューのレストラン、フェアやイベント。予定はこちら。',
+  'christmas.ctaAgenda': 'ホリデー予定を見る',
+  'christmas.ctaMap': '地図を見る',
   'hoy.eyebrow': '今日のプラン · サレント、キンディオ',
   'hoy.weatherOk': '外出に適した天気です',
   'hoy.weatherTip': '谷へは早めに出かけ、薄手のジャケットを持ち、広場でジープを確認してください。',
@@ -239,6 +249,11 @@ const ja: TranslationDict = {
 }
 
 const ko: TranslationDict = {
+  'christmas.eyebrow': '홀리데이 시즌',
+  'christmas.title': '살렌토의 크리스마스',
+  'christmas.text': '11월부터 1월까지 살렌토의 매력이 가득. 특별 요금 포사다, 크리스마스 메뉴 레스토랑, 축제와 이벤트. 일정은 여기에서.',
+  'christmas.ctaAgenda': '연말 일정 보기',
+  'christmas.ctaMap': '지도 둘러보기',
   'hoy.eyebrow': '오늘의 계획 · 살렌토, 킨디오',
   'hoy.weatherOk': '외출하기 좋은 날씨입니다',
   'hoy.weatherTip': '계곡에 일찍 가고, 가벼운 재킷을 챙기며, 광장에서 지프를 확인하세요.',
@@ -371,6 +386,11 @@ const zhExtras: TranslationDict = {
 
 
 const th: TranslationDict = {
+  'christmas.eyebrow': 'เทศกาลวันหยุด',
+  'christmas.title': 'คริสต์มาสที่ซาเลนโต',
+  'christmas.text': 'พฤศจิกายนถึงมกราคม ซาเลนโตพร้อมเต็มที่ ที่พักราคาพิเศษ ร้านอาหารเมนูคริสต์มาส งานแฟร์และอีเวนต์ ปฏิทินอยู่ที่นี่',
+  'christmas.ctaAgenda': 'ดูปฏิทินเทศกาล',
+  'christmas.ctaMap': 'สำรวจแผนที่',
   explore: 'สำรวจ', order: 'คำสั่งซื้อ', experiences: 'ประสบการณ์', orderTitle: 'คำสั่งซื้อของฉัน', guide: 'คู่มือท้องถิ่น',
   title: 'ซาเลนโตในมือคุณ', description: 'ค้นพบสถานที่ คาเฟ่ และประสบการณ์ในเขตปลูกกาแฟ', search: 'ค้นหาในซาเลนโต...',
   nearby: 'ใกล้คุณ', today: 'วันนี้ในซาเลนโต',
@@ -418,6 +438,11 @@ const th: TranslationDict = {
 }
 
 const vi: TranslationDict = {
+  'christmas.eyebrow': 'Mùa lễ hội',
+  'christmas.title': 'Giáng sinh tại Salento',
+  'christmas.text': 'Từ tháng 11 đến tháng 1, Salento đẹp nhất: nơi lưu trú ưu đãi đặc biệt, nhà hàng thực đơn Giáng sinh, hội chợ và sự kiện. Lịch của bạn ở đây.',
+  'christmas.ctaAgenda': 'Xem lịch lễ hội',
+  'christmas.ctaMap': 'Khám phá bản đồ',
   explore: 'Khám phá', order: 'Đơn hàng', experiences: 'Trải nghiệm', orderTitle: 'Đơn của tôi', guide: 'Hướng dẫn địa phương',
   title: 'Salento trong tầm tay', description: 'Khám phá địa điểm, quán cà phê và trải nghiệm ở vùng cà phê', search: 'Tìm kiếm ở Salento...',
   nearby: 'Gần bạn', today: 'Hôm nay ở Salento',
@@ -465,6 +490,11 @@ const vi: TranslationDict = {
 }
 
 const id: TranslationDict = {
+  'christmas.eyebrow': 'Musim liburan',
+  'christmas.title': 'Natal di Salento',
+  'christmas.text': 'November hingga Januari, Salento tampil terbaik: penginapan dengan tarif spesial, restoran menu Natal, pameran dan acara. Agendamu di sini.',
+  'christmas.ctaAgenda': 'Lihat agenda liburan',
+  'christmas.ctaMap': 'Jelajahi peta',
   explore: 'Jelajahi', order: 'Pesanan', experiences: 'Pengalaman', orderTitle: 'Pesanan saya', guide: 'Pemandu lokal',
   title: 'Salento di tangan Anda', description: 'Temukan tempat, kafe, dan pengalaman di wilayah kopi', search: 'Cari di Salento...',
   nearby: 'Dekat Anda', today: 'Hari ini di Salento',
@@ -512,6 +542,11 @@ const id: TranslationDict = {
 }
 
 const ms: TranslationDict = {
+  'christmas.eyebrow': 'Musim perayaan',
+  'christmas.title': 'Krismas di Salento',
+  'christmas.text': 'November hingga Januari, Salento pada tahap terbaik: penginapan dengan kadar istimewa, restoran menu Krismas, pameran dan acara. Agenda anda di sini.',
+  'christmas.ctaAgenda': 'Lihat agenda perayaan',
+  'christmas.ctaMap': 'Terokai peta',
   explore: 'Jelajah', order: 'Pesanan', experiences: 'Pengalaman', orderTitle: 'Pesanan saya', guide: 'Panduan tempatan',
   title: 'Salento di tangan anda', description: 'Temui tempat, kafe dan pengalaman di wilayah kopi', search: 'Cari di Salento...',
   nearby: 'Berhampiran anda', today: 'Hari ini di Salento',

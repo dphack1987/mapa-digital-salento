@@ -56,9 +56,8 @@ import { GenerativeUI, detectIntent, UserIntent } from './components/GenerativeU
 import { VoiceInput, useSpeechSynthesis, SPEECH_LOCALES } from './components/VoiceInput'
 import { useDetailLevel, adaptDetail } from './components/LODControl'
 import { generateAgenticResponse, executeAction, AgentAction } from './services/agenticDonChucho'
-// Temporada navideña: sombrero en el logo, banner y nieve (nov–ene)
+// Temporada navideña: banner y nieve (nov–ene)
 import { isChristmasSeason } from './utils/season'
-import ChristmasHat from './components/ChristmasHat'
 import ChristmasSnow from './components/ChristmasSnow'
 import ChristmasBanner from './components/ChristmasBanner'
 
@@ -1223,10 +1222,7 @@ function App() {
       <header className="mobile-header site-header">
         <div className="identity-header">
           <div className="brand-mobile">
-            <div className="logo-with-hat">
-              <img src="/logo_salento2026.webp" alt="Salento a la Mano - Mapa turístico digital de Salento, Quindío" className="mobile-logo" />
-              {isChristmas && <ChristmasHat className="mobile-logo-hat" />}
-            </div>
+            <img src="/logo_salento2026.webp" alt="Salento a la Mano - Mapa turístico digital de Salento, Quindío" className="mobile-logo" />
             <div className="brand-text">
               <h1>Salento a la Mano 🇨🇴 - Guía Turística Oficial de Salento, Quindío 2026</h1>
               <p className="subtitle">Descubre hoteles abiertos, restaurantes auténticos, coffee tours, Valle de Cocora, palmas de cera y experiencias únicas con el mapa turístico digital más completo de Salento, Quindío. Tu guía oficial para turismo responsable y directo con locales.</p>

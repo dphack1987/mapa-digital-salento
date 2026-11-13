@@ -1,8 +1,4 @@
-import ChristmasHat from '../components/ChristmasHat'
-import { isChristmasSeason } from '../utils/season'
-
 const NotFound = () => {
-  const isChristmas = isChristmasSeason()
   return (
     <div style={{
       fontFamily: "'DM Sans', sans-serif",
@@ -24,10 +20,7 @@ const NotFound = () => {
           justifyContent: 'center',
           marginBottom: 40
         }}>
-          <div style={{ position: 'relative', width: 40, height: 40, flexShrink: 0 }}>
-            <img src="/logo_salento2026.webp" alt="Salento a la Mano" style={{ display: 'block', height: 40, width: 40, objectFit: 'contain', borderRadius: '50%', mixBlendMode: 'multiply' }} />
-            {isChristmas && <ChristmasHat className="notfound-logo-hat" />}
-          </div>
+          <img src="/logo_salento2026.webp" alt="Salento a la Mano" style={{ display: 'block', height: 40, width: 40, objectFit: 'contain', borderRadius: '50%', mixBlendMode: 'multiply' }} />
           <span style={{
             fontFamily: "'Fraunces', serif",
             fontSize: '1.2rem',

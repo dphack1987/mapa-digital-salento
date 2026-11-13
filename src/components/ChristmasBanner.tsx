@@ -16,7 +16,7 @@ export default function ChristmasBanner({ onExploreMap }: ChristmasBannerProps) 
           <p className="eyebrow">{tr('christmas.eyebrow', 'Temporada navideña')}</p>
           <h2 id="christmas-banner-title">{tr('christmas.title', 'Navidad en Salento')}</h2>
           <p className="christmas-banner-text">
-            {tr('christmas.text', 'De noviembre a enero, Salento se viste de fiesta: jeeps al Valle de Cocora, cafés, posadas y tradiciones. Hoteles con cierre especial y restaurantes con menú navideño.')}
+            {tr('christmas.text', 'De noviembre a enero, Salento vive su mejor cara: posadas con ofertas especiales, restaurantes con menú navideño, ferias y eventos. Aquí está tu agenda.')}
           </p>
         </div>
         <div className="christmas-banner-actions">

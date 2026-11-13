@@ -7000,13 +7000,6 @@ footer { max-width: 1184px; margin: auto; border-top: 1px solid var(--line); dis
 /* ===== Temporada navideña: noviembre a enero (se apaga en febrero) ===== */
 :root[data-season='christmas'] { --ink: #1e2b23; --paper: #f8f1e3; --coral: #d64533; --coral-strong: #a93222; --green: #1f4d3a; --yellow: #e8a33d; --line: #e6d8bd; background: var(--paper); }
 
-/* Sombrero navideño sobre el logo */
-.logo-with-hat { position: relative; width: 120px; height: 120px; flex-shrink: 0; }
-.logo-with-hat .mobile-logo { width: 100%; height: 100%; }
-@media (min-width: 768px) { .logo-with-hat { width: 140px; height: 140px; } }
-.christmas-hat { position: absolute; left: 50%; top: -8%; transform: translateX(-50%); width: 64%; height: auto; overflow: visible; pointer-events: none; z-index: 3; }
-.notfound-logo-hat { top: -4%; width: 58%; }
-
 /* Nieve navideña */
 .christmas-snow { position: fixed; inset: 0; z-index: 40; pointer-events: none; overflow: hidden; }
 .christmas-snowflake { position: absolute; top: -12px; border-radius: 50%; background: #ffffff; animation: christmas-snow-fall linear infinite; }

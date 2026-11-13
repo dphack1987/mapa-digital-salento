@@ -10,6 +10,11 @@ class TranslationService {
   private currentLanguage: Language = 'es';
   private translations: Record<Language, TranslationDict> = {
     'es': {
+      'christmas.eyebrow': 'Temporada navideña',
+      'christmas.title': 'Navidad en Salento',
+      'christmas.text': 'De noviembre a enero, Salento vive su mejor cara: posadas con ofertas especiales, restaurantes con menú navideño, ferias y eventos. Aquí está tu agenda.',
+      'christmas.ctaAgenda': 'Ver agenda navideña',
+      'christmas.ctaMap': 'Explorar el mapa',
       explore: 'Explora',
       order: 'Pedidos',
       experiences: 'Experiencias',
@@ -337,6 +342,11 @@ class TranslationService {
       'meta.fallbackDesc': 'Mapa turístico interactivo de Salento, Quindío. Alojamientos, gastronomía, experiencias y comercio local verificados.'
     },
     'en': {
+      'christmas.eyebrow': 'Holiday season',
+      'christmas.title': 'Christmas in Salento',
+      'christmas.text': 'From November to January, Salento is at its best: guesthouses with special rates, restaurants with holiday menus, fairs and events. Your agenda is here.',
+      'christmas.ctaAgenda': 'See holiday agenda',
+      'christmas.ctaMap': 'Explore the map',
       explore: 'Explore',
       order: 'Orders',
       experiences: 'Experiences',
@@ -664,6 +674,11 @@ class TranslationService {
       'map.viewInfo': 'View information'
     },
     'fr': {
+      'christmas.eyebrow': 'Saison des fêtes',
+      'christmas.title': 'Noël à Salento',
+      'christmas.text': 'De novembre à janvier, Salento vit ses plus belles heures : posadas avec offres spéciales, restaurants au menu de Noël, foires et événements. Voici votre agenda.',
+      'christmas.ctaAgenda': "Voir l'agenda festif",
+      'christmas.ctaMap': 'Explorer la carte',
       explore: 'Explorer',
       order: 'Commandes',
       experiences: 'Expériences',
@@ -991,6 +1006,11 @@ class TranslationService {
       'map.viewInfo': 'Voir les informations'
     },
     'de': {
+      'christmas.eyebrow': 'Weihnachtszeit',
+      'christmas.title': 'Weihnachten in Salento',
+      'christmas.text': 'Von November bis Januar zeigt Salento seine beste Seite: Posadas mit Sonderangeboten, Restaurants mit Weihnachtsmenü, Märkte und Events. Hier ist Ihre Agenda.',
+      'christmas.ctaAgenda': 'Feiertagsagenda ansehen',
+      'christmas.ctaMap': 'Karte erkunden',
       explore: 'Erkunden',
       order: 'Bestellungen',
       experiences: 'Erlebnisse',
@@ -1318,6 +1338,11 @@ class TranslationService {
       'map.viewInfo': 'Informationen anzeigen'
     },
     'pt': {
+      'christmas.eyebrow': 'Temporada de festas',
+      'christmas.title': 'Natal em Salento',
+      'christmas.text': 'De novembro a janeiro, Salento mostra seu melhor lado: posadas com ofertas especiais, restaurantes com menu natalino, feiras e eventos. Aqui está sua agenda.',
+      'christmas.ctaAgenda': 'Ver agenda natalina',
+      'christmas.ctaMap': 'Explorar o mapa',
       explore: 'Explorar',
       order: 'Pedidos',
       experiences: 'Experiências',
@@ -1645,6 +1670,11 @@ class TranslationService {
       'map.viewInfo': 'Ver informações'
     },
     'it': {
+      'christmas.eyebrow': 'Stagione natalizia',
+      'christmas.title': 'Natale a Salento',
+      'christmas.text': 'Da novembre a gennaio, Salento dà il meglio di sé: posadas con offerte speciali, ristoranti con menu di Natale, fiere ed eventi. Ecco la tua agenda.',
+      'christmas.ctaAgenda': 'Vedi agenda natalizia',
+      'christmas.ctaMap': 'Esplora la mappa',
       explore: 'Esplora',
       order: 'Ordini',
       experiences: 'Esperienze',
@@ -1972,6 +2002,11 @@ class TranslationService {
       'price.free': 'Ingresso libero'
     },
     'zh': {
+      'christmas.eyebrow': '假日季',
+      'christmas.title': '萨兰托圣诞季',
+      'christmas.text': '从十一月到一月，萨兰托进入最佳时节：特色民宿特惠、圣诞菜单餐厅、集市与活动。你的节日日程在这里。',
+      'christmas.ctaAgenda': '查看节日日程',
+      'christmas.ctaMap': '探索地图',
       explore: '探索',
       order: '订单',
       experiences: '体验',

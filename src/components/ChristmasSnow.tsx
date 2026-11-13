@@ -9,18 +9,19 @@ type Snowflake = {
   opacity: number
 }
 
-const SNOW_COUNT = 16
+/** Pocos copos, pequeños y lentos: nieve sutil, nunca tapa el contenido. */
+const SNOW_COUNT = 10
 
-/** Capa de nieve navideña (solo se renderiza en temporada). */
+/** Capa de nieve navideña (solo se renderiza en temporada, nov–ene). */
 export default function ChristmasSnow() {
   const flakes = useMemo<Snowflake[]>(() => {
     return Array.from({ length: SNOW_COUNT }, (_, i) => ({
       id: i,
       left: Math.random() * 100,
-      size: 3 + Math.random() * 5,
-      duration: 8 + Math.random() * 9,
-      delay: -Math.random() * 14,
-      opacity: 0.35 + Math.random() * 0.5,
+      size: 2 + Math.random() * 2.5,
+      duration: 18 + Math.random() * 12,
+      delay: -Math.random() * 24,
+      opacity: 0.35 + Math.random() * 0.25,
     }))
   }, [])
 
