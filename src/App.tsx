@@ -1219,6 +1219,14 @@ function App() {
           </script>
         )}
       </Helmet>
+      {isChristmas && (
+        <div className="christmas-alert" role="status">
+          <a href="/agenda-eventos-salento.html">
+            🎄 Navidad en Salento: horarios especiales, menús navideños y ferias
+            <span className="christmas-alert-cta">Ver agenda →</span>
+          </a>
+        </div>
+      )}
       <header className="mobile-header site-header">
         <div className="identity-header">
           <div className="brand-mobile">

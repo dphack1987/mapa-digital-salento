@@ -7000,6 +7000,14 @@ footer { max-width: 1184px; margin: auto; border-top: 1px solid var(--line); dis
 /* ===== Temporada navideña: noviembre a enero (se apaga en febrero) ===== */
 :root[data-season='christmas'] { --ink: #1e2b23; --paper: #f8f1e3; --coral: #d64533; --coral-strong: #a93222; --green: #1f4d3a; --yellow: #e8a33d; --line: #e6d8bd; background: var(--paper); }
 
+/* Alert bar navideña: lo primero que se ve en el home (nov–ene) */
+.christmas-alert { background: linear-gradient(90deg, #1e2b23 0%, #1f4d3a 55%, #1e2b23 100%); color: #fff8ec; text-align: center; font: 600 13px/1.4 'DM Sans', sans-serif; border-bottom: 1px solid rgba(232,163,61,.5); }
+.christmas-alert a { display: inline-flex; flex-wrap: wrap; gap: 4px 14px; align-items: center; justify-content: center; padding: 9px 16px; color: #fff8ec; text-decoration: none; }
+.christmas-alert a:hover { text-decoration: none; }
+.christmas-alert-cta { color: #e8a33d; font-weight: 700; }
+.christmas-alert a:hover .christmas-alert-cta { text-decoration: underline; }
+:root[data-season='christmas'] .site-header { border-bottom-color: rgba(232,163,61,.55); }
+
 /* Nieve navideña */
 .christmas-snow { position: fixed; inset: 0; z-index: 40; pointer-events: none; overflow: hidden; }
 .christmas-snowflake { position: absolute; top: -12px; border-radius: 50%; background: #ffffff; animation: christmas-snow-fall linear infinite; }
