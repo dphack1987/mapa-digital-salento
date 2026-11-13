@@ -1,10 +1,7 @@
 import { useMemo, useState, useEffect, useCallback, useRef, lazy, Suspense } from 'react'
 import { Helmet } from 'react-helmet-async'
 import NotFound from './pages/NotFound'
-import { CircleMarker, MapContainer, Popup, TileLayer, useMap } from 'react-leaflet'
-import 'leaflet/dist/leaflet.css'
-// AR real: cámara + brújula (realidad aumentada geoespacial)
-import ARCameraView from './components/ar/ARCameraView'
+// Leaflet se carga bajo demanda al acercarse a la sección del mapa
 import './components/map/ARMapControllerApp.css'
 import {
   ArrowDown,
@@ -54,12 +51,16 @@ import {
 import { Category, Language, Place, MapMarker, Hotel as HotelType, LanguageConst, Currency } from './types'
 import dataService from './services/dataService'
 import { useTravelContext, getContextualMessage } from './hooks/useTravelContext'
-// Integración de Don Chucho IA mejorado
-import EnhancedDonChucho from './components/enhanced/EnhancedDonChucho'
+// Integración de Don Chucho IA mejorado — carga diferida
 import { GenerativeUI, detectIntent, UserIntent } from './components/GenerativeUI'
 import { VoiceInput, useSpeechSynthesis, SPEECH_LOCALES } from './components/VoiceInput'
 import { useDetailLevel, adaptDetail } from './components/LODControl'
 import { generateAgenticResponse, executeAction, AgentAction } from './services/agenticDonChucho'
+// Temporada navideña: sombrero en el logo, banner y nieve (nov–ene)
+import { isChristmasSeason } from './utils/season'
+import ChristmasHat from './components/ChristmasHat'
+import ChristmasSnow from './components/ChristmasSnow'
+import ChristmasBanner from './components/ChristmasBanner'
 
 const salentoImageGallery = [
   ['destinos-75.webp', 'Paisaje del Valle de Cocora y Salento'],
@@ -145,7 +146,9 @@ const serviceCardImageSets = {
 } as const
 
 function rotateServiceImage(set: readonly string[], tick: number): string {
-  return set[tick % set.length]
+  const src = set[tick % set.length]
+  // Variante 400 px: las tarjetas se muestran a ~190 px (2x en móvil).
+  return src.replace(/\.webp$/i, '-400.webp')
 }
 
 function providerSlug(name: string) {
@@ -180,6 +183,9 @@ import schemaService from './services/schemaService'
 // Buscando alternativas a OSIRIS específicas para turismo
 
 // Lazy loaded components - optimización de bundle
+const ARCameraView = lazy(() => import('./components/ar/ARCameraView'))
+const HomeMap = lazy(() => import('./components/home/HomeMap'))
+const EnhancedDonChucho = lazy(() => import('./components/enhanced/EnhancedDonChucho'))
 const InternationalMarketsDisplay = lazy(() => import('./components/InternationalMarketsDisplay'))
 const LandingPageEstadoActual = lazy(() => import('./components/LandingPageEstadoActual'))
 const LandingPageValleCocora = lazy(() => import('./components/LandingPageValleCocora'))
@@ -438,6 +444,12 @@ function App() {
     const prerender = document.getElementById('prerender')
     if (prerender) prerender.remove()
   }, [])
+
+  // Temporada navideña: activa de noviembre a enero, se apaga en febrero
+  const isChristmas = isChristmasSeason()
+  useEffect(() => {
+    document.documentElement.setAttribute('data-season', isChristmas ? 'christmas' : 'default')
+  }, [isChristmas])
 
   // GA4: evidencia de visualización de la sección de nominación WSA (para el jurado).
   // La sección se monta después del loading inicial: se reintenta hasta encontrarla.
@@ -1006,6 +1018,26 @@ function App() {
 
   const visibleMarkers = useMemo(() => mapMarkers.filter((marker) => activeCategory === 'Todo' || marker.type === categoryToMapType(activeCategory)), [activeCategory, mapMarkers])
 
+  // Carga diferida del mapa: Leaflet solo se descarga al acercarse a la sección.
+  const mapSectionRef = useRef<HTMLDivElement>(null)
+  const [mapReady, setMapReady] = useState(false)
+  useEffect(() => {
+    const element = mapSectionRef.current
+    if (!element || mapReady) return
+    if (typeof IntersectionObserver === 'undefined') {
+      setMapReady(true)
+      return
+    }
+    const observer = new IntersectionObserver((entries) => {
+      if (entries.some((entry) => entry.isIntersecting)) {
+        setMapReady(true)
+        observer.disconnect()
+      }
+    }, { rootMargin: '400px 0px' })
+    observer.observe(element)
+    return () => observer.disconnect()
+  }, [mapReady])
+
   const categoryPagePlaces = useMemo(() => {
     if (!selectedCategoryPage || selectedCategoryPage === 'Todo') {
       return places
@@ -1191,7 +1223,10 @@ function App() {
       <header className="mobile-header site-header">
         <div className="identity-header">
           <div className="brand-mobile">
-            <img src="/logo_salento2026.webp" alt="Salento a la Mano - Mapa turístico digital de Salento, Quindío" className="mobile-logo" />
+            <div className="logo-with-hat">
+              <img src="/logo_salento2026.webp" alt="Salento a la Mano - Mapa turístico digital de Salento, Quindío" className="mobile-logo" />
+              {isChristmas && <ChristmasHat className="mobile-logo-hat" />}
+            </div>
             <div className="brand-text">
               <h1>Salento a la Mano 🇨🇴 - Guía Turística Oficial de Salento, Quindío 2026</h1>
               <p className="subtitle">Descubre hoteles abiertos, restaurantes auténticos, coffee tours, Valle de Cocora, palmas de cera y experiencias únicas con el mapa turístico digital más completo de Salento, Quindío. Tu guía oficial para turismo responsable y directo con locales.</p>
@@ -1280,6 +1315,8 @@ function App() {
         <button onClick={() => goToCategory('Alojamientos')}>{t('nav.book')}</button>
       </nav>
 
+      {isChristmas && <ChristmasSnow />}
+
       <div className="international-presence-banner" aria-label={t('intl.aria', 'Mercados internacionales')}>
         <div className="presence-copy">
           <span className="presence-tag">{t('intl.tag', 'Marketing global')}</span>
@@ -1307,9 +1344,9 @@ function App() {
         </div>
       </div>
 
-        <section className="home-hero" id="inicio" aria-labelledby="home-hero-title">
+        <section className={`home-hero ${isChristmas ? 'home-hero--christmas' : ''}`} id="inicio" aria-labelledby="home-hero-title">
           <div className="home-hero-media">
-            <img src="/imagenes-salento/destinos-75.webp" alt={t('hero.imgAlt', 'Paisaje de Salento y el Valle de Cocora, Quindío')} {...{ fetchpriority: 'high' }} />
+            <img src="/imagenes-salento/destinos-75.webp" srcSet="/imagenes-salento/destinos-75-400.webp 400w, /imagenes-salento/destinos-75-800.webp 800w" sizes="(max-width: 800px) 100vw, 50vw" width={1056} height={760} alt={t('hero.imgAlt', 'Paisaje de Salento y el Valle de Cocora, Quindío')} {...{ fetchpriority: 'high' }} />
             <div className="home-hero-scrim" aria-hidden="true" />
           </div>
           <div className="home-hero-content">
@@ -1369,6 +1406,8 @@ function App() {
             </div>
           </div>
         </section>
+
+        {isChristmas && <ChristmasBanner onExploreMap={() => scrollToSection('mapa')} />}
 
         {showWeatherBanner && weather && (
         <div className={`weather-events-banner ${weather.color}`}>
@@ -2126,27 +2165,44 @@ function App() {
             </div>
           </a>
           
-          <div className="map-visual" aria-label="Mapa interactivo de Salento con lugares destacados"><MapContainer center={[4.65746762702703, -75.5727757405405]} zoom={16} scrollWheelZoom={false} className="leaflet-map"><TileLayer attribution="&copy; OpenStreetMap" url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />{visibleMarkers.map((marker) => <CircleMarker key={marker.label} center={marker.coord} radius={10} pathOptions={{ color: marker.tone === 'green' ? '#56755b' : marker.tone === 'yellow' ? '#ba8a25' : '#e76c52', fillColor: marker.tone === 'green' ? '#56755b' : marker.tone === 'yellow' ? '#e8bb58' : '#e76c52', fillOpacity: 0.9 }}><Popup><strong>{marker.label}</strong><br /><span>{marker.type} · Salento</span><br /><button className="popup-action" onClick={() => {
-              const found = marker.placeId != null ? places.find((p) => p.id === marker.placeId) : undefined
-              if (found) {
-                setSelectedPlace(found)
-                window.scrollTo({ top: 0, behavior: 'smooth' })
-              }
-            }}>{markerCtaLabel(marker.type) === 'Ver menú' ? t('map.viewMenu', 'Ver menú') : markerCtaLabel(marker.type) === 'Reservar ya' ? t('map.viewReserve', 'Reservar ya') : t('map.viewInfo', 'Ver información')} <ArrowRight size={13} /></button></Popup></CircleMarker>)}<MapControls /></MapContainer></div>
+          {mapReady ? (
+            <Suspense fallback={<div className="map-visual map-placeholder" aria-hidden="true">Cargando mapa…</div>}>
+              <HomeMap
+                markers={visibleMarkers}
+                places={places}
+                labels={{
+                  viewMenu: t('map.viewMenu', 'Ver menú'),
+                  viewReserve: t('map.viewReserve', 'Reservar ya'),
+                  viewInfo: t('map.viewInfo', 'Ver información')
+                }}
+                ariaLabel={t('map.visualAria', 'Mapa interactivo de Salento con lugares destacados')}
+                onSelectPlace={(place) => {
+                  setSelectedPlace(place)
+                  window.scrollTo({ top: 0, behavior: 'smooth' })
+                }}
+              />
+            </Suspense>
+          ) : (
+            <div className="map-visual map-placeholder" ref={mapSectionRef} aria-hidden="true">
+              <span>Cargando mapa…</span>
+            </div>
+          )}
           {arMapMode && (
-            <ARCameraView
-              places={places}
-              userLocation={userLocation}
-              onRequestLocation={requestUserLocation}
-              onClose={() => {
-                setARMapMode(false)
-                setUserLocation(null)
-              }}
-              onPlaceSelect={(place) => {
-                setSelectedPlace(place)
-                window.scrollTo({ top: 0, behavior: 'smooth' })
-              }}
-            />
+            <Suspense fallback={<LoadingFallback />}>
+              <ARCameraView
+                places={places}
+                userLocation={userLocation}
+                onRequestLocation={requestUserLocation}
+                onClose={() => {
+                  setARMapMode(false)
+                  setUserLocation(null)
+                }}
+                onPlaceSelect={(place) => {
+                  setSelectedPlace(place)
+                  window.scrollTo({ top: 0, behavior: 'smooth' })
+                }}
+              />
+            </Suspense>
           )}
         </section>
 
@@ -2834,7 +2890,7 @@ function DonChucho({ language, t, places, weather, todayEvents, open: openProp, 
         }}
         aria-label="Abrir asistente Don Chucho"
       >
-        <img src="/don-chucho-boton.webp" alt="Don Chucho" className="chucho-button-image" />
+        <img src="/don-chucho-boton-128.webp" alt="Don Chucho" width={38} height={38} className="chucho-button-image" />
         {showGreeting && <span className="chucho-greeting">¡Hola, pues!</span>}
       </button>
     </div>
@@ -3001,16 +3057,6 @@ function PlaceDetail({ place, currency, onBack, t, onReserveHorseback }: { place
 
 function InfoList({ title, items }: { title: string; items: string[] }) {
   return <section className="info-list"><p className="eyebrow">Información detallada</p><h2>{title}</h2><div className="info-list-items">{items.map((item) => <span key={item}>{item}</span>)}</div></section>
-}
-
-function MapControls() {
-  const map = useMap()
-
-  function locateUser() {
-    map.locate({ setView: true, maxZoom: 17 })
-  }
-
-  return <div className="map-controls"><button onClick={() => map.zoomIn()} aria-label="Acercar mapa"><Plus size={17} /></button><button onClick={() => map.zoomOut()} aria-label="Alejar mapa"><Minus size={17} /></button><button onClick={locateUser} aria-label="Usar mi ubicación"><MapPin size={17} /></button></div>
 }
 
 function Cart({ count, currency, onClose, onAdd, hotels }: { count: number; currency: Currency; onClose: () => void; onAdd: () => void; hotels: HotelType[] }) {

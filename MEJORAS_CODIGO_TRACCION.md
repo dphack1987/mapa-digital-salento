@@ -901,7 +901,7 @@ class PushNotificationService {
     if (Notification.permission === 'granted') {
       new Notification(title, {
         body,
-        icon: '/logo_salento2026.png',
+        icon: '/logo_salento2026.webp',
         badge: '/favicon-192x192.png'
       })
     }

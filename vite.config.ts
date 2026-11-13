@@ -1,7 +1,10 @@
 /// <reference types="vitest" />
 import { defineConfig } from 'vitest/config'
 import { resolve } from 'path'
+import { fileURLToPath } from 'url'
 import react from '@vitejs/plugin-react'
+
+const rootDir = fileURLToPath(new URL('.', import.meta.url))
 
 export default defineConfig({
   plugins: [react()],
@@ -14,8 +17,8 @@ export default defineConfig({
     sourcemap: false,
     rollupOptions: {
       input: {
-        main: resolve(__dirname, 'index.html'),
-        mapa: resolve(__dirname, 'mapa-interactivo-salento.html'),
+        main: resolve(rootDir, 'index.html'),
+        mapa: resolve(rootDir, 'mapa-interactivo-salento.html'),
       },
       output: {
         manualChunks(id) {
@@ -37,11 +40,13 @@ export default defineConfig({
             }
             return 'vendor'
           }
+          // Servicios: separados por dominio para cachear entre despliegues
+          // y mantener cada chunk por debajo del límite de aviso.
           if (id.includes('/services/')) {
-            return 'services'
-          }
-          if (id.includes('/components/')) {
-            return 'components'
+            if (id.includes('translation')) return 'i18n'
+            if (id.includes('donChucho')) return 'don-chucho'
+            if (/seo|backlink|ally|schema/i.test(id)) return 'seo-services'
+            return 'app-services'
           }
         },
         chunkFileNames: 'assets/[name]-[hash].js',

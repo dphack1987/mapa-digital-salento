@@ -20,7 +20,7 @@
 .home-hero-services { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
 .home-hero-services a { display: inline-flex; align-items: center; gap: 6px; padding: 8px 13px; border: 1px solid rgba(255,255,255,.45); border-radius: 999px; background: rgba(255,255,255,.1); color: #fff; font-size: 12px; font-weight: 600; text-decoration: none; transition: background .15s, border-color .15s; }
 .home-hero-services a:hover { background: rgba(255,255,255,.22); border-color: rgba(255,255,255,.7); }
-.home-hero-actions .dark-button { display: inline-flex; align-items: center; gap: 7px; min-height: 44px; padding: 0 18px; background: var(--coral); border-color: var(--coral); color: #fff; font-weight: 700; border-radius: 999px; }
+.home-hero-actions .dark-button { display: inline-flex; align-items: center; gap: 7px; min-height: 44px; padding: 0 18px; background: var(--coral-strong); border-color: var(--coral-strong); color: #fff; font-weight: 700; border-radius: 999px; }
 .home-hero-actions .outline-button { display: inline-flex; align-items: center; gap: 7px; min-height: 44px; padding: 0 18px; border: 1px solid rgba(255,255,255,.65); background: transparent; color: #fff; font-weight: 700; border-radius: 999px; cursor: pointer; }
 .home-hero-actions .outline-button:hover { background: rgba(255,255,255,.12); }
 @media (max-width: 720px) {
@@ -72,7 +72,7 @@
 .home-banner-title--hero { font-size: clamp(1.2rem, 2.6vw, 1.75rem); max-width: 22ch; }
 .home-banner-desc { margin: 0; font-size: 12px; line-height: 1.4; color: #d5ddd6; max-width: 36ch; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 .home-banner:not(.home-banner--hero) .home-banner-desc { display: none; }
-.home-banner-cta { display: inline-flex; align-items: center; gap: 4px; margin-top: 1px; min-height: 21px; padding: 0 8px; border-radius: 999px; background: var(--coral); color: #fff; font-size: 10px; font-weight: 700; }
+.home-banner-cta { display: inline-flex; align-items: center; gap: 4px; margin-top: 1px; min-height: 21px; padding: 0 8px; border-radius: 999px; background: var(--coral-strong); color: #fff; font-size: 10px; font-weight: 700; }
 .home-banner:hover .home-banner-cta { background: var(--ink); }
 @media (max-width: 720px) {
   .home-banners { padding: 0 16px; margin-top: 16px; }
@@ -2086,7 +2086,7 @@
 .order-success h2 { font-size: 40px; margin-bottom: 15px; }
 .order-success > p:not(.eyebrow) { color: #70796e; font-size: 13px; line-height: 1.55; }
 .order-code { display: block; margin: 24px 0 30px; color: var(--coral); font: 11px 'DM Mono'; }
-:root { font-family: 'DM Sans', sans-serif; color: #27362b; background: #f5f1e8; font-synthesis: none; --ink: #27362b; --paper: #f5f1e8; --coral: #e76c52; --green: #56755b; --yellow: #e8bb58; --line: #d9d6c9; }
+:root { font-family: 'DM Sans', sans-serif; color: #27362b; background: #f5f1e8; font-synthesis: none;   --ink: #27362b; --paper: #f5f1e8; --coral: #e76c52; --coral-strong: #b8462f; --green: #56755b; --yellow: #e8bb58; --line: #d9d6c9; }
 .loading-container { display: flex; justify-content: center; align-items: center; min-height: 50vh; padding: 40px 20px; }
 .loading-spinner { font: 14px 'DM Mono'; color: var(--ink); text-align: center; }
 .loading-spinner::before { content: ''; display: block; width: 40px; height: 40px; margin: 0 auto 20px; border: 3px solid var(--line); border-top-color: var(--coral); border-radius: 50%; animation: spin 1s linear infinite; }
@@ -2284,11 +2284,11 @@
 @media (min-width: 768px) { .mobile-logo { width: 140px; height: 140px; } }
 .brand-text h1 { font: 600 18px Fraunces; color: var(--ink); margin: 0; line-height: 1.15; }
 .brand-text .brand-domain { font: 700 13px 'DM Mono', monospace; color: var(--green); margin: 2px 0; letter-spacing: 0.5px; background: rgba(86,117,91,0.08); padding: 2px 8px; border-radius: 4px; display: inline-block; }
-.brand-text .subtitle { font-size: 10px; color: #70796e; margin: 3px 0 1px; }
+.brand-text .subtitle { font-size: 10px; color: #5c675b; margin: 3px 0 1px; }
 .brand-text .no-intermediaries { font-size: 9px; color: var(--green); font-weight: 600; }
 .location-indicator { display: flex; align-items: center; gap: 6px; padding: 5px 9px; background: rgba(86,117,91,0.1); border-radius: 20px; font-size: 9px; color: var(--ink); }
 .location-indicator svg { color: var(--coral); width: 12px; height: 12px; }
-.connection-status { color: var(--green); font-weight: 600; }
+.connection-status { color: #3f5a45; font-weight: 600; }
 .international-presence-banner {
   max-width: 1184px;
   margin: 8px auto 0;
@@ -4192,7 +4192,7 @@ footer { max-width: 1184px; margin: auto; border-top: 1px solid var(--line); dis
   display: flex;
   align-items: center;
   gap: 8px;
-  color: #72796d;
+  color: #646d62;
   flex: 1;
   overflow: hidden;
 }
@@ -4558,7 +4558,7 @@ footer { max-width: 1184px; margin: auto; border-top: 1px solid var(--line); dis
 .recent-activity h3 { font: 600 14px Fraunces; color: var(--ink); margin: 0 0 12px; }
 .activity-list { display: flex; flex-direction: column; gap: 12px; }
 .activity-item { display: flex; gap: 12px; padding: 12px; background: white; border-radius: 6px; }
-.activity-time { font-size: 10px; color: #72796d; min-width: 60px; }
+.activity-time { font-size: 10px; color: #646d62; min-width: 60px; }
 .activity-content strong { font-size: 12px; color: var(--ink); display: block; }
 .activity-content p { font-size: 11px; color: #72796d; margin: 2px 0 0; }
 .backlinks-section { display: flex; flex-direction: column; gap: 16px; }
@@ -6724,7 +6724,7 @@ footer { max-width: 1184px; margin: auto; border-top: 1px solid var(--line); dis
 .ar-promo-badge {
   display: inline-block;
   padding: 4px 12px;
-  background: var(--coral);
+  background: var(--coral-strong);
   color: #fff;
   font-size: 11px;
   font-weight: 700;
@@ -6733,7 +6733,7 @@ footer { max-width: 1184px; margin: auto; border-top: 1px solid var(--line); dis
   box-shadow: 0 6px 16px rgba(212, 91, 57, 0.35);
 }
 
-.ar-promo-banner h3 {
+.ar-promo-banner h3, .ar-promo-banner .ar-promo-title {
   font: 700 18px Fraunces;
   color: #fff;
   margin: 0 0 4px;
@@ -6750,7 +6750,7 @@ footer { max-width: 1184px; margin: auto; border-top: 1px solid var(--line); dis
 
 .ar-promo-button {
   padding: 10px 20px;
-  background: linear-gradient(135deg, #f06d56 0%, #dd593d 100%);
+  background: linear-gradient(135deg, #c94f37 0%, #b8462f 100%);
   color: #fff;
   border: 1px solid rgba(255, 255, 255, 0.25);
   border-radius: 8px;
@@ -6990,3 +6990,56 @@ footer { max-width: 1184px; margin: auto; border-top: 1px solid var(--line); dis
 /* Selector de idioma: admite etiquetas largas (japonés, árabe, vietnamita) */
 .locale-tools-mobile select:first-child { width: auto; min-width: 64px; max-width: 132px; }
 .locale-tools select:first-child { width: auto; min-width: 50px; max-width: 120px; }
+
+/* Mapa con carga diferida */
+.map-placeholder { display: grid; place-items: center; color: #4c5c4e; font: 11px 'DM Mono'; }
+
+/* Objetivos táctiles de al menos 24x24 px (WCAG 2.5.8) */
+.offline-guide-grid a[href^="tel:"] { display: inline-flex; align-items: center; min-height: 24px; padding: 4px 2px; }
+
+/* ===== Temporada navideña: noviembre a enero (se apaga en febrero) ===== */
+:root[data-season='christmas'] { --ink: #1e2b23; --paper: #f8f1e3; --coral: #d64533; --coral-strong: #a93222; --green: #1f4d3a; --yellow: #e8a33d; --line: #e6d8bd; background: var(--paper); }
+
+/* Sombrero navideño sobre el logo */
+.logo-with-hat { position: relative; width: 120px; height: 120px; flex-shrink: 0; }
+.logo-with-hat .mobile-logo { width: 100%; height: 100%; }
+@media (min-width: 768px) { .logo-with-hat { width: 140px; height: 140px; } }
+.christmas-hat { position: absolute; left: 50%; top: -8%; transform: translateX(-50%); width: 64%; height: auto; overflow: visible; pointer-events: none; z-index: 3; }
+.notfound-logo-hat { top: -4%; width: 58%; }
+
+/* Nieve navideña */
+.christmas-snow { position: fixed; inset: 0; z-index: 40; pointer-events: none; overflow: hidden; }
+.christmas-snowflake { position: absolute; top: -12px; border-radius: 50%; background: #ffffff; animation: christmas-snow-fall linear infinite; }
+@keyframes christmas-snow-fall { 0% { transform: translate3d(0, -12px, 0); } 100% { transform: translate3d(24px, 108vh, 0); } }
+
+/* Banner navideño bajo el hero */
+.christmas-banner { max-width: 1184px; margin: 0 auto 40px; padding: 0 28px; }
+.christmas-banner-inner { position: relative; overflow: hidden; display: grid; grid-template-columns: 1.25fr .75fr; gap: 30px; align-items: center; background: linear-gradient(135deg, #1e2b23 0%, #2c4a38 55%, #1e2b23 100%); border: 1px solid rgba(232,163,61,.4); border-radius: 24px; padding: 36px 34px; color: #fdf6e9; box-shadow: 0 18px 40px rgba(30,43,35,.2); }
+.christmas-banner-inner::before { content: ''; position: absolute; inset: 0; background-image: radial-gradient(rgba(255,255,255,.14) 1px, transparent 1px); background-size: 22px 22px; opacity: .25; pointer-events: none; }
+.christmas-banner-copy { position: relative; z-index: 1; }
+.christmas-banner-copy .eyebrow { color: var(--yellow); margin: 0; }
+.christmas-banner-copy h2 { margin: 8px 0 0; font: 700 clamp(1.8rem, 3.4vw, 2.6rem)/1.05 Fraunces; color: #fff8ec; letter-spacing: -.02em; }
+.christmas-banner-text { margin: 14px 0 0; color: #e9e2d2; font-size: 13.5px; line-height: 1.6; max-width: 480px; }
+.christmas-banner-actions { position: relative; z-index: 1; display: flex; flex-wrap: wrap; gap: 10px; }
+.christmas-banner .dark-button { background: var(--yellow); border-color: var(--yellow); color: #1e2b23; }
+.christmas-banner .dark-button:hover { background: #f2c06a; border-color: #f2c06a; }
+.christmas-banner .outline-button { border-color: rgba(253,246,233,.75); color: #fff; }
+.christmas-banner .outline-button:hover { background: #fff; color: #1e2b23; }
+
+/* Hero navideño */
+.home-hero--christmas { background: #1e2b23; }
+.home-hero--christmas .home-hero-scrim { background: linear-gradient(105deg, rgba(16,24,19,.88) 0%, rgba(30,43,35,.66) 38%, rgba(30,43,35,.25) 72%, rgba(30,43,35,.5) 100%); }
+.home-hero--christmas .home-hero-content h1 { color: #fff8ec; }
+.home-hero--christmas .home-hero-content h1 i, .home-hero--christmas .home-hero-content h1 em { color: #f2b04c; }
+.home-hero--christmas .home-hero-lead { color: #e6dfcf; }
+.home-hero--christmas .home-hero-actions .dark-button { background: var(--coral); border-color: var(--coral); }
+.home-hero--christmas .home-hero-chips button, .home-hero--christmas .home-hero-services a { border-color: rgba(253,246,233,.55); background: rgba(30,43,35,.4); color: #fff8ec; }
+.home-hero--christmas .home-hero-chips button:hover, .home-hero--christmas .home-hero-chips button.is-active { background: var(--yellow); border-color: var(--yellow); color: var(--ink); }
+
+@media (max-width: 800px) {
+  .christmas-banner-inner { grid-template-columns: 1fr; padding: 26px 22px; }
+  .christmas-banner { padding: 0 16px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .christmas-snow { display: none; }
+}

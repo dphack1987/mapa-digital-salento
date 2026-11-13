@@ -320,6 +320,11 @@ const BANNERS: HomeBanner[] = [
   },
 ]
 
+function bannerSrcSet(image: string): string {
+  const base = image.replace(/\.webp$/i, '')
+  return `${base}-400.webp 400w, ${base}-800.webp 800w`
+}
+
 function BannerCard({ banner, size }: { banner: HomeBanner; size: 'hero' | 'card' }) {
   const isHero = size === 'hero'
   return (
@@ -331,6 +336,8 @@ function BannerCard({ banner, size }: { banner: HomeBanner; size: 'hero' | 'card
       <img
         className="home-banner-media"
         src={banner.image}
+        srcSet={bannerSrcSet(banner.image)}
+        sizes={isHero ? '(max-width: 640px) 92vw, 360px' : '(max-width: 640px) 45vw, 190px'}
         alt={banner.imageAlt}
         loading={isHero ? 'eager' : 'lazy'}
         decoding="async"
