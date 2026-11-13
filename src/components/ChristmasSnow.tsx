@@ -10,7 +10,7 @@ type Snowflake = {
 }
 
 /** Pocos copos, pequeños y lentos: nieve elegante, nunca tapa el contenido. */
-const SNOW_COUNT = 13
+const SNOW_COUNT = 16
 
 /** Capa de nieve navideña (solo se renderiza en temporada, nov–ene). */
 export default function ChristmasSnow() {
@@ -18,10 +18,10 @@ export default function ChristmasSnow() {
     return Array.from({ length: SNOW_COUNT }, (_, i) => ({
       id: i,
       left: Math.random() * 100,
-      size: 2.5 + Math.random() * 3.5,
+      size: 3.5 + Math.random() * 4.5,
       duration: 16 + Math.random() * 12,
       delay: -Math.random() * 24,
-      opacity: 0.45 + Math.random() * 0.25,
+      opacity: 0.55 + Math.random() * 0.3,
     }))
   }, [])
 

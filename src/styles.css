@@ -7008,9 +7008,9 @@ footer { max-width: 1184px; margin: auto; border-top: 1px solid var(--line); dis
 .christmas-alert a:hover .christmas-alert-cta { text-decoration: underline; }
 :root[data-season='christmas'] .site-header { border-bottom-color: rgba(232,163,61,.55); }
 
-/* Nieve navideña */
+/* Nieve navideña: copos con sombra para verse sobre fondo claro Y oscuro */
 .christmas-snow { position: fixed; inset: 0; z-index: 40; pointer-events: none; overflow: hidden; }
-.christmas-snowflake { position: absolute; top: -12px; border-radius: 50%; background: #ffffff; animation: christmas-snow-fall linear infinite; }
+.christmas-snowflake { position: absolute; top: -12px; border-radius: 50%; background: #ffffff; box-shadow: 0 1px 3px rgba(30,43,35,.45); animation: christmas-snow-fall linear infinite; }
 @keyframes christmas-snow-fall { 0% { transform: translate3d(0, -12px, 0); } 100% { transform: translate3d(24px, 108vh, 0); } }
 
 /* Banner navideño bajo el hero */
