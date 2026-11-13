@@ -1354,7 +1354,7 @@ function App() {
             <div className="home-hero-scrim" aria-hidden="true" />
           </div>
           <div className="home-hero-content">
-            <p className="eyebrow">{t('hero.eyebrow', 'Guía digital · Salento, Quindío')}</p>
+            <p className="eyebrow">{isChristmas ? `✦ ${t('christmas.eyebrow', 'Temporada navideña')} · Salento, Quindío ✦` : t('hero.eyebrow', 'Guía digital · Salento, Quindío')}</p>
             <h1 id="home-hero-title">
               {(() => {
                 const raw = t('hero.title', 'Todo Salento\n<i>en un solo lugar.</i>')
