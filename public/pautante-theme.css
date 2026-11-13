@@ -243,3 +243,14 @@ h1 { font-size:clamp(2.3rem,5vw,4.8rem); line-height:1.02; margin:14px 0; } .lea
   .menu-card, .cart-modal.open .cart-panel { animation: none; }
   .menu-card, .menu-card-img, .menu-tab, .menu-card .add-btn, .menu-card .qty-ctrl button { transition: none; }
 }
+
+
+/* ===== Temporada navideña "Navidad del Eje Cafetero" (nov–ene) ===== */
+:root[data-season='christmas'] { --xmas-gold: #e8a33d; --xmas-gold-soft: #f2c06a; --xmas-night: #16211a; }
+.christmas-alert { background: linear-gradient(90deg, #16211a 0%, #1f4d3a 50%, #16211a 100%); color: #fff8ec; text-align: center; font: 600 12.5px/1.4 'DM Sans', sans-serif; letter-spacing: .04em; border-bottom: 1px solid rgba(232,163,61,.55); }
+.christmas-alert a { display: inline-flex; flex-wrap: wrap; gap: 4px 14px; align-items: center; justify-content: center; padding: 10px 16px; color: #fff8ec; text-decoration: none; }
+.christmas-alert a:hover { text-decoration: none; }
+.christmas-alert-cta { color: #f2c06a; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; font-size: 11.5px; }
+.christmas-alert a:hover .christmas-alert-cta { text-decoration: underline; }
+:root[data-season='christmas'] .topbar { border-bottom: 1px solid rgba(232,163,61,.55); padding-bottom: 14px; }
+@media (max-width: 800px) { .christmas-alert a { font-size: 12px; } }

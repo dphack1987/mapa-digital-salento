@@ -2,7 +2,8 @@ import { useState, useEffect, useRef } from 'react'
 import { pythonBackendService } from '../../services/pythonBackend'
 import { getOsirisResponse } from '../../services/donChuchoOsiris'
 import { answerDonChucho } from '../../services/donChuchoBrain'
-import { localizedSuggestions, weatherSuggestions } from '../../services/donChuchoNlu'
+import { localizedSuggestions, weatherSuggestions, christmasSuggestions } from '../../services/donChuchoNlu'
+import { isChristmasSeason } from '../../utils/season'
 import type { KnowledgeItem } from '../../services/donChuchoKnowledge'
 import { SPEECH_LOCALES, pickVoiceForLang, sanitizeSpeechText, isLikelyMaleVoice } from '../VoiceInput'
 import type { Language, Place } from '../../types'
@@ -95,17 +96,23 @@ function splitForSpeech(text: string, maxLength = 180): string[] {
 }
 
 function EnhancedDonChucho({ language, t, places, onFallback, onClose, existingComponent }: EnhancedDonChuchoProps) {
-  const welcomeText = t('donChucho.welcome', '¡Hola! Soy Don Chucho, arriero quindiano y tu guía local especializado en Salento. Puedo orientarte sobre el Valle de Cocora, los caminos, el café, la cultura y lo práctico para tu visita. ¿Qué quieres descubrir?')
+  const christmas = isChristmasSeason()
+  const welcomeText = christmas
+    ? t('donChucho.welcomeChristmas', '¡Felices fiestas! Soy Don Chucho, arriero quindiano y tu guía local en Salento. En diciembre el pueblo brilla: posadas, mercados navideños, buñuelos y el Valle de Cocora. ¿Qué plan navideño armamos?')
+    : t('donChucho.welcome', '¡Hola! Soy Don Chucho, arriero quindiano y tu guía local especializado en Salento. Puedo orientarte sobre el Valle de Cocora, los caminos, el café, la cultura y lo práctico para tu visita. ¿Qué quieres descubrir?')
+  const initialSuggestions = christmas
+    ? christmasSuggestions(language)
+    : localizedSuggestions('general', language)
 
   const [message, setMessage] = useState('')
   const [messages, setMessages] = useState<ChatMessage[]>([{
     id: 0,
     role: 'assistant',
     text: welcomeText,
-    suggestions: localizedSuggestions('general', language),
+    suggestions: initialSuggestions,
     source: 'welcome'
   }])
-  const [suggestions, setSuggestions] = useState<string[]>(() => localizedSuggestions('general', language))
+  const [suggestions, setSuggestions] = useState<string[]>(() => initialSuggestions)
   const [isLoading, setIsLoading] = useState(false)
   const [usePython, setUsePython] = useState(false)
   const [pythonStatus, setPythonStatus] = useState<'online' | 'offline'>('offline')
@@ -223,7 +230,7 @@ function EnhancedDonChucho({ language, t, places, onFallback, onClose, existingC
       }
       return prev
     })
-    setSuggestions(prev => (prev.length === 3 && messages.length === 1 ? localizedSuggestions('general', language) : prev))
+    setSuggestions(prev => (prev.length === 3 && messages.length === 1 ? initialSuggestions : prev))
   }, [language])
 
   useEffect(() => () => {

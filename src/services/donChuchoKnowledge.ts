@@ -431,6 +431,19 @@ const knowledgeBase: KnowledgeItem[] = [
     followUp: ['¿Dónde se ve?', '¿Cómo participar?', '¿Qué llevan los jeeps?']
   },
   {
+    keywords: ['navidad', 'navideño', 'navideña', 'navideños', 'nochebuena', 'posada', 'posadas', 'villancico', 'villancicos', 'mercado navideño', 'diciembre', 'christmas', 'christmas market'],
+    category: 'festivales',
+    answer: {
+      es: '¡La Navidad en Salento es de lo mejor! En diciembre la Plaza de Bolívar se llena de luces y suenan los villancicos. No te pierdas el Mercado Navideño Artesanal en el Parque Municipal, los buñuelos con natilla y el chocolate caliente en los cafés de la Calle Real. El 24 y 25 muchos negocios cierran temprano: confirma horarios antes de salir. ¿Te armo el plan?',
+      en: "Christmas in Salento is special! In December Plaza de Bolívar lights up and carols fill the air. Don't miss the Artisan Christmas Market at Parque Municipal, buñuelos with natilla and hot chocolate at Calle Real cafés. On Dec 24–25 many places close early: confirm hours before you go. Shall I build your plan?",
+      de: 'Das Weihnachten in Salento ist etwas Besonderes! Im Dezember leuchtet die Plaza de Bolívar und überall erklingen Villancicos. Verpasse nicht den Weihnachtsmarkt am Parque Municipal, Buñuelos mit Natilla und heiße Schokolade in den Cafés der Calle Real. Am 24. und 25. schließen viele Geschäfte früh: vorher Öffnungszeiten prüfen. Soll ich den Plan zusammenstellen?',
+      fr: 'Noël à Salento, c\'est unique ! En décembre la Plaza de Bolívar s\'illumine et les villancicos remplissent les rues. Ne manquez pas l\'artisanal marché de Noël au Parque Municipal, les buñuelos à la natilla et le chocolat chaud des cafés de la Calle Real. Les 24 et 25, beaucoup ferment tôt : confirmez les horaires. Je vous prépare le programme ?',
+      pt: 'O Natal em Salento é especial! Em dezembro a Plaza de Bolívar se ilumina e os villancicos tocam pelas ruas. Não perca o Mercado de Natal Artesanal no Parque Municipal, buñuelos com natilla e chocolate quente nos cafés da Calle Real. Em 24 e 25 muitos fecham cedo: confirme os horários. Monto o plano?',
+      it: 'Il Natale a Salento è speciale! A dicembre la Plaza de Bolívar si illumina e i villancicos riempiono le strade. Non perderti il mercatino artigianale di Natale al Parque Municipal, i buñuelos con natilla e la cioccolata calda dei cafè di Calle Real. Il 24 e 25 molti chiudono presto: conferma gli orari. Ti preparo il piano?'
+    },
+    followUp: ['¿Mercado navideño?', '¿Qué comer en Navidad?', '¿Horarios del 24 y 25?']
+  },
+  {
     keywords: ['fiestas', 'celebración', 'feria', 'evento cultural', 'evento', 'eventos'],
     category: 'festivales',
     answer: {
@@ -1250,6 +1263,10 @@ class DonChuchoKnowledge {
     const queryWordList = [...queryWords]
     const intent = detectKnowledgeIntent(original)
     const intentCategories = intent ? INTENT_CATEGORIES[intent] : []
+    // Temporada navideña: si la pregunta menciona Navidad, prioriza el plan navideño
+    // por encima de entradas genéricas como "qué hacer".
+    const christmasQuery = ['navidad', 'navide', 'nochebuena', 'christmas', 'xmas', 'weihnachten', 'noel', 'natal']
+      .some(term => original.includes(term))
     const results: Array<{ item: KnowledgeItem; score: number }> = []
 
     for (const item of knowledgeBase) {
@@ -1302,6 +1319,7 @@ class DonChuchoKnowledge {
       if (primaryKeyword && combined.includes(primaryKeyword)) score += 8
       if (matchedKeywords > 1) score += Math.min(matchedKeywords * 2, 10)
       if (intentCategories.includes(item.category)) score += 5
+      if (christmasQuery && primaryKeyword === 'navidad') score += 50
 
       results.push({ item, score })
     }

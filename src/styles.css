@@ -7055,6 +7055,15 @@ footer { max-width: 1184px; margin: auto; border-top: 1px solid var(--line); dis
 .home-hero--christmas .home-hero-chips button, .home-hero--christmas .home-hero-services a { border-color: rgba(253,246,233,.55); background: rgba(22,33,26,.45); color: #fff8ec; }
 .home-hero--christmas .home-hero-chips button:hover, .home-hero--christmas .home-hero-chips button.is-active { background: var(--yellow); border-color: var(--yellow); color: var(--ink); }
 
+/* Don Chucho en modo navideño: acentos oro (sin gorros, coherencia WSA) */
+:root[data-season='christmas'] .chucho-trigger { border-color: #e8a33d; box-shadow: 0 0 0 3px rgba(232,163,61,.75), 0 4px 20px rgba(231,108,82,.4); }
+:root[data-season='christmas'] .chucho-trigger:hover { border-color: #f6d78e; box-shadow: 0 0 0 4px rgba(246,215,142,.9), 0 6px 24px rgba(232,163,61,.45); }
+:root[data-season='christmas'] .chucho-greeting { background: linear-gradient(135deg, #f2c06a, #e8a33d); color: #27362b; box-shadow: 0 4px 12px rgba(232,163,61,.35); }
+:root[data-season='christmas'] .chucho-head { border-bottom-color: rgba(232,163,61,.55); }
+:root[data-season='christmas'] .chucho-avatar-image { border-color: #e8a33d; }
+:root[data-season='christmas'] .chucho-panel { border: 1px solid rgba(232,163,61,.42); box-shadow: 0 18px 44px rgba(39,54,43,.22), 0 0 0 1px rgba(232,163,61,.16); }
+:root[data-season='christmas'] .enhanced-don-chucho { border-color: rgba(232,163,61,.55); outline: 1.5px solid rgba(232,163,61,.4); outline-offset: -1.5px; }
+
 @media (max-width: 800px) {
   .christmas-banner-inner { grid-template-columns: 1fr; padding: 30px 24px; }
   .christmas-banner { padding: 0 16px; }
@@ -7064,3 +7073,5 @@ footer { max-width: 1184px; margin: auto; border-top: 1px solid var(--line); dis
 @media (prefers-reduced-motion: reduce) {
   .christmas-snow { display: none; }
 }
+/* Page Visibility: pausa la nieve con la pestaña oculta (retoma donde quedó) */
+.christmas-snow--paused .christmas-snowflake { animation-play-state: paused; }

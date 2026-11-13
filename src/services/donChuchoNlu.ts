@@ -1052,6 +1052,19 @@ export function weatherSuggestions(language: Language): string[] {
   return [...table[base]]
 }
 
+export function christmasSuggestions(language: Language): string[] {
+  const base = resolveBaseLanguage(language)
+  const table: Record<BaseLanguage, string[]> = {
+    es: ['¿Qué hacer en Navidad?', 'Mercados navideños', 'Horarios del 24 y 25'],
+    en: ['What to do at Christmas?', 'Christmas markets', 'Dec 24–25 opening hours'],
+    de: ['Was tun an Weihnachten?', 'Weihnachtsmärkte', 'Öffnungszeiten 24.–25.12.'],
+    fr: ['Que faire à Noël ?', 'Marchés de Noël', 'Horaires des 24 et 25'],
+    pt: ['O que fazer no Natal?', 'Mercados de Natal', 'Horários de 24 e 25'],
+    it: ['Cosa fare a Natale?', 'Mercatini di Natale', 'Orari del 24 e 25']
+  }
+  return [...table[base]]
+}
+
 export function fallbackReply(language: Language): string {
   const override = FALLBACK_OVERRIDES[language]
   if (override) return override

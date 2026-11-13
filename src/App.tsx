@@ -2382,7 +2382,9 @@ function DonChucho({ language, t, places, weather, todayEvents, open: openProp, 
     setOpenInternal(value)
   }
   const [question, setQuestion] = useState('')
-  const [answer, setAnswer] = useState(t('donChucho.welcome', '¡Hola! Soy Don Chucho, arriero quindiano y tu guía local especializado en Salento. Puedo orientarte sobre el Valle de Cocora, los caminos, el café, la cultura y lo práctico para tu visita. ¿Qué quieres descubrir?'))
+  const [answer, setAnswer] = useState(isChristmasSeason()
+    ? t('donChucho.welcomeChristmas', '¡Felices fiestas! Soy Don Chucho, arriero quindiano y tu guía local en Salento. En diciembre el pueblo brilla: posadas, mercados navideños, buñuelos y el Valle de Cocora. ¿Qué plan navideño armamos?')
+    : t('donChucho.welcome', '¡Hola! Soy Don Chucho, arriero quindiano y tu guía local especializado en Salento. Puedo orientarte sobre el Valle de Cocora, los caminos, el café, la cultura y lo práctico para tu visita. ¿Qué quieres descubrir?'))
   const [suggestions, setSuggestions] = useState<string[]>([])
   const [showGreeting, setShowGreeting] = useState(true)
   const [relatedPlace, setRelatedPlace] = useState<Place | null>(null)
@@ -2895,7 +2897,7 @@ function DonChucho({ language, t, places, weather, todayEvents, open: openProp, 
         aria-label="Abrir asistente Don Chucho"
       >
         <img src="/don-chucho-boton-128.webp" alt="Don Chucho" width={38} height={38} className="chucho-button-image" />
-        {showGreeting && <span className="chucho-greeting">¡Hola, pues!</span>}
+        {showGreeting && <span className="chucho-greeting">{isChristmasSeason() ? t('donChucho.greetingChristmas', '¡Felices fiestas, pues!') : '¡Hola, pues!'}</span>}
       </button>
     </div>
   )

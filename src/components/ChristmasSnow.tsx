@@ -1,4 +1,4 @@
-﻿import { useMemo } from 'react'
+﻿import { useEffect, useMemo, useState } from 'react'
 
 type Snowflake = {
   id: number
@@ -19,6 +19,14 @@ const SNOW_COUNT = 18
 const layerOf = (i: number): number => i % 3 // 0 lejos · 1 medio · 2 cerca (bokeh)
 
 export default function ChristmasSnow() {
+  // Page Visibility: pausa la animación cuando la pestaña está oculta (ahorro de CPU/GPU).
+  const [pageVisible, setPageVisible] = useState(true)
+  useEffect(() => {
+    const onVisibility = () => setPageVisible(document.visibilityState !== 'hidden')
+    document.addEventListener('visibilitychange', onVisibility)
+    return () => document.removeEventListener('visibilitychange', onVisibility)
+  }, [])
+
   const flakes = useMemo<Snowflake[]>(() => {
     return Array.from({ length: SNOW_COUNT }, (_, i) => {
       const layer = layerOf(i)
@@ -54,7 +62,7 @@ export default function ChristmasSnow() {
   }, [])
 
   return (
-    <div className="christmas-snow" aria-hidden="true">
+    <div className={`christmas-snow${pageVisible ? '' : ' christmas-snow--paused'}`} aria-hidden="true">
       {flakes.map((flake) => (
         <span
           key={flake.id}
