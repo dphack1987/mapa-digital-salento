@@ -28,9 +28,14 @@ class NotificationsService {
     if (this.initialized) return
 
     // Cargar notificaciones desde localStorage si existen
-    const savedNotifications = localStorage.getItem('notifications')
-    if (savedNotifications) {
-      this.notifications = JSON.parse(savedNotifications)
+    try {
+      const savedNotifications = localStorage.getItem('notifications')
+      if (savedNotifications) {
+        this.notifications = JSON.parse(savedNotifications)
+      }
+    } catch (error) {
+      console.error('Error cargando notificaciones:', error)
+      this.notifications = []
     }
 
     this.initialized = true

@@ -2677,12 +2677,19 @@ class TranslationService {
     const detectedLang = langMap[browserLang.toLowerCase()] || langMap[browserLang.split('-')[0].toLowerCase()] || 'es';
     
     // Cargar preferencia guardada si existe
-    const savedLang = localStorage.getItem('salento_language') as Language
+    let savedLang: Language | null = null
+    try {
+      savedLang = localStorage.getItem('salento_language') as Language | null
+    } catch {
+      // localStorage no disponible (modo privado estricto)
+    }
     this.currentLanguage = savedLang || detectedLang
     
     // Guardar preferencia inicial
     if (!savedLang) {
-      localStorage.setItem('salento_language', this.currentLanguage)
+      try {
+        localStorage.setItem('salento_language', this.currentLanguage)
+      } catch {}
     }
 
     return this.currentLanguage
@@ -2693,7 +2700,9 @@ class TranslationService {
    */
   setLanguage(language: Language): void {
     this.currentLanguage = language
-    localStorage.setItem('salento_language', language)
+    try {
+      localStorage.setItem('salento_language', language)
+    } catch {}
   }
 
   /**

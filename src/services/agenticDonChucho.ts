@@ -194,7 +194,7 @@ export function executeAction(action: AgentAction): void {
         navigator.share({ title: action.title, text: action.text, url: action.url })
       } else {
         // Fallback: copiar al portapapeles
-        navigator.clipboard.writeText(`${action.title}\n${action.text}\n${action.url || ''}`)
+        navigator.clipboard.writeText(`${action.title}\n${action.text}\n${action.url || ''}`).catch(() => {})
       }
       break
       

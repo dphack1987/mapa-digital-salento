@@ -72,9 +72,14 @@ class AllyRegistrationService {
     if (this.initialized) return
 
     // Cargar registros desde localStorage si existen
-    const savedRegistrations = localStorage.getItem('ally_registrations')
-    if (savedRegistrations) {
-      this.registrations = JSON.parse(savedRegistrations)
+    try {
+      const savedRegistrations = localStorage.getItem('ally_registrations')
+      if (savedRegistrations) {
+        this.registrations = JSON.parse(savedRegistrations)
+      }
+    } catch (error) {
+      console.error('Error cargando registros de aliados:', error)
+      this.registrations = []
     }
 
     this.initialized = true
