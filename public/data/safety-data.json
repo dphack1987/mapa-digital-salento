@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-17T20:43:22.506Z",
+  "generatedAt": "2026-11-17T20:51:54.213Z",
   "location": {
     "lat": 4.636,
     "lng": -75.567,
@@ -7,14 +7,14 @@
   },
   "weather": {
     "current": {
-      "time": "2026-11-17T15:30",
+      "time": "2026-11-17T15:45",
       "temperature": 19.9,
-      "feelsLike": 21.9,
-      "humidity": 84,
+      "feelsLike": 22.2,
+      "humidity": 86,
       "precipitation": 0.1,
       "weatherCode": 51,
-      "windSpeed": 4.1,
-      "windGusts": 22.3
+      "windSpeed": 2.2,
+      "windGusts": 20.9
     },
     "hourly": [
       {
