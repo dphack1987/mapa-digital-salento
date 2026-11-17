@@ -520,24 +520,34 @@ class LocalBacklinksService {
     return `
 // Script de tracking para backlinks de aliados
 (function() {
+  var API = window.__SALENTO_API || '';
+
   function trackBacklink(event) {
     const allyId = event.currentTarget.dataset.allyId;
     const backlinkType = event.currentTarget.dataset.backlinkType;
     
     if (allyId && backlinkType) {
-      // Enviar datos al servidor
-      fetch('https://www.salentoalamano.com/api/backlink-track', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          allyId: allyId,
-          backlinkType: backlinkType,
-          timestamp: new Date().toISOString(),
-          referrer: document.referrer || 'direct'
-        })
-      }).catch(error => console.error('Error tracking backlink:', error));
+      // Enviar datos al servidor solo si hay backend configurado
+      // (en GitHub Pages estatico no existe /api/*; se guarda local)
+      var payload = {
+        allyId: allyId,
+        backlinkType: backlinkType,
+        timestamp: new Date().toISOString(),
+        referrer: document.referrer || 'direct'
+      };
+      if (API) {
+        fetch(API + '/api/backlink-track', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        }).catch(error => console.error('Error tracking backlink:', error));
+      } else {
+        try {
+          var all = JSON.parse(localStorage.getItem('salento_backlink_clicks') || '[]');
+          all.push(payload);
+          localStorage.setItem('salento_backlink_clicks', JSON.stringify(all.slice(-200)));
+        } catch (e) {}
+      }
     }
   }
 
@@ -550,16 +560,20 @@ class LocalBacklinksService {
       // Track impresión
       const allyId = backlink.dataset.allyId;
       if (allyId) {
-        fetch('https://www.salentoalamano.com/api/backlink-impression', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            allyId: allyId,
-            timestamp: new Date().toISOString()
-          })
-        }).catch(error => console.error('Error tracking impression:', error));
+        var impression = { allyId: allyId, timestamp: new Date().toISOString() };
+        if (API) {
+          fetch(API + '/api/backlink-impression', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(impression)
+          }).catch(error => console.error('Error tracking impression:', error));
+        } else {
+          try {
+            var all2 = JSON.parse(localStorage.getItem('salento_backlink_impressions') || '[]');
+            all2.push(impression);
+            localStorage.setItem('salento_backlink_impressions', JSON.stringify(all2.slice(-200)));
+          } catch (e) {}
+        }
       }
     });
   });
